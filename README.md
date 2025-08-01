@@ -181,6 +181,12 @@ pip install -e ".[dev]"
 pip install -e ".[test]"
 ```
 
+### Docker
+
+```bash
+docker build -t langextract .
+docker run --rm -e LANGEXTRACT_API_KEY="your-api-key" langextract python your_script.py
+```
 
 ## API Key Setup for Cloud Models
 
@@ -296,6 +302,12 @@ Or reproduce the full CI matrix locally with tox:
 ```bash
 tox  # runs pylint + pytest on Python 3.10 and 3.11
 ```
+
+## Troubleshooting
+
+**libmagic error**: If you see "failed to find libmagic", install with `pip install langextract[full]` or install system dependencies:
+- Ubuntu/Debian: `sudo apt-get install libmagic1`
+- macOS: `brew install libmagic`
 
 ## Disclaimer
 
