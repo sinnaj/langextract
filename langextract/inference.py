@@ -250,7 +250,7 @@ class OllamaLanguageModel(BaseLanguageModel):
     if top_k:
       options['top_k'] = top_k
     if num_threads:
-      options['num_thread'] = num_threads
+      options['num_threads'] = num_threads
     if max_output_tokens:
       options['num_predict'] = max_output_tokens
     if num_ctx:
