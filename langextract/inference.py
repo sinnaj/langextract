@@ -255,7 +255,18 @@ class OllamaLanguageModel(BaseLanguageModel):
       options['num_predict'] = max_output_tokens
     if num_ctx:
       options['num_ctx'] = num_ctx
-    model_url = model_url + '/api/generate'
+    
+    # Properly construct the API endpoint URL
+    from urllib.parse import urljoin, urlparse
+    
+    # Validate URL to prevent SSRF attacks
+    parsed_url = urlparse(model_url)
+    if not parsed_url.scheme in ['http', 'https']:
+      raise ValueError(f"Invalid URL scheme: {parsed_url.scheme}. Only http and https are allowed.")
+    if not parsed_url.netloc:
+      raise ValueError(f"Invalid URL: {model_url}. Missing hostname.")
+    
+    api_endpoint = urljoin(model_url, '/api/generate')
 
     payload = {
         'model': model,
@@ -268,7 +279,7 @@ class OllamaLanguageModel(BaseLanguageModel):
     }
     try:
       response = requests.post(
-          model_url,
+          api_endpoint,
           headers={
               'Content-Type': 'application/json',
               'Accept': 'application/json',
