@@ -190,7 +190,7 @@ docker run --rm -e LANGEXTRACT_API_KEY="your-api-key" langextract python your_sc
 
 ## API Key Setup for Cloud Models
 
-When using LangExtract with cloud-hosted models (like Gemini), you'll need to
+When using LangExtract with cloud-hosted models (like Gemini or OpenAI), you'll need to
 set up an API key. On-device models don't require an API key. For developers
 using local LLMs, LangExtract offers built-in support for Ollama and can be
 extended to other third-party APIs by updating the inference endpoints.
@@ -201,6 +201,7 @@ Get API keys from:
 
 *   [AI Studio](https://aistudio.google.com/app/apikey) for Gemini models
 *   [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) for enterprise use
+*   [OpenAI Platform](https://platform.openai.com/api-keys) for OpenAI models
 
 ### Setting up API key in your environment
 
@@ -249,6 +250,27 @@ result = lx.extract(
     api_key="your-api-key-here"  # Only use this for testing/development
 )
 ```
+
+## Using OpenAI Models
+
+LangExtract also supports OpenAI models. Example OpenAI configuration:
+
+```python
+from langextract.inference import OpenAILanguageModel
+
+result = lx.extract(
+    text_or_documents=input_text,
+    prompt_description=prompt,
+    examples=examples,
+    language_model_type=OpenAILanguageModel,
+    model_id="gpt-4o",
+    api_key=os.environ.get('OPENAI_API_KEY'),
+    fence_output=True,
+    use_schema_constraints=False
+)
+```
+
+Note: OpenAI models require `fence_output=True` and `use_schema_constraints=False` because LangExtract doesn't implement schema constraints for OpenAI yet.
 
 ## More Examples
 
