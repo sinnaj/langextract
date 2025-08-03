@@ -336,12 +336,6 @@ pylint --rcfile=.pylintrc langextract tests
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full development guidelines.
 
-## Troubleshooting
-
-**libmagic error**: If you see "failed to find libmagic", install with `pip install langextract[full]` or install system dependencies:
-- Ubuntu/Debian: `sudo apt-get install libmagic1`
-- macOS: `brew install libmagic`
-
 ## Disclaimer
 
 This is not an officially supported Google product. If you use

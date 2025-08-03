@@ -15,57 +15,8 @@
 from unittest import mock
 
 from absl.testing import absltest
-import langfun as lf
 
 from langextract import inference
-
-
-class TestLangFunLanguageModel(absltest.TestCase):
-
-  @mock.patch.object(
-      inference.lf.core.language_model, "LanguageModel", autospec=True
-  )
-  def test_langfun_infer(self, mock_lf_model):
-    mock_client_instance = mock_lf_model.return_value
-    metadata = {
-        "score": -0.004259720362824737,
-        "logprobs": None,
-        "is_cached": False,
-    }
-    source = lf.UserMessage(
-        text="What's heart in Italian?.",
-        sender="User",
-        metadata={"formatted_text": "What's heart in Italian?."},
-        tags=["lm-input"],
-    )
-    sample = lf.LMSample(
-        response=lf.AIMessage(
-            text="Cuore",
-            sender="AI",
-            metadata=metadata,
-            source=source,
-            tags=["lm-response"],
-        ),
-        score=-0.004259720362824737,
-    )
-    actual_response = lf.LMSamplingResult(
-        samples=[sample],
-    )
-
-    # Mock the sample response.
-    mock_client_instance.sample.return_value = [actual_response]
-    model = inference.LangFunLanguageModel(language_model=mock_client_instance)
-
-    batch_prompts = ["What's heart in Italian?"]
-
-    expected_results = [
-        [inference.ScoredOutput(score=-0.004259720362824737, output="Cuore")]
-    ]
-
-    results = list(model.infer(batch_prompts))
-
-    mock_client_instance.sample.assert_called_once_with(prompts=batch_prompts)
-    self.assertEqual(results, expected_results)
 
 
 class TestOllamaLanguageModel(absltest.TestCase):

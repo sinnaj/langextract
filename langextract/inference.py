@@ -24,7 +24,6 @@ import textwrap
 from typing import Any
 
 from google import genai
-import langfun as lf
 import requests
 from typing_extensions import override
 import yaml
@@ -95,49 +94,6 @@ class BaseLanguageModel(abc.ABC):
 class InferenceType(enum.Enum):
   ITERATIVE = 'iterative'
   MULTIPROCESS = 'multiprocess'
-
-
-# TODO: Add support for llm options.
-@dataclasses.dataclass(init=False)
-class LangFunLanguageModel(BaseLanguageModel):
-  """Language model inference class using LangFun language class.
-
-  See https://github.com/google/langfun for more details on LangFun.
-  """
-
-  _lm: lf.core.language_model.LanguageModel  # underlying LangFun model
-  _constraint: schema.Constraint = dataclasses.field(
-      default_factory=schema.Constraint, repr=False, compare=False
-  )
-  _extra_kwargs: dict[str, Any] = dataclasses.field(
-      default_factory=dict, repr=False, compare=False
-  )
-
-  def __init__(
-      self,
-      language_model: lf.core.language_model.LanguageModel,
-      constraint: schema.Constraint = schema.Constraint(),
-      **kwargs,
-  ) -> None:
-    self._lm = language_model
-    self._constraint = constraint
-
-    # Preserve any unused kwargs for debugging / future use
-    self._extra_kwargs = kwargs or {}
-    super().__init__(constraint=constraint)
-
-  @override
-  def infer(
-      self, batch_prompts: Sequence[str], **kwargs
-  ) -> Iterator[Sequence[ScoredOutput]]:
-    responses = self._lm.sample(prompts=batch_prompts)
-    for a_response in responses:
-      for sample in a_response.samples:
-        yield [
-            ScoredOutput(
-                score=sample.response.score, output=sample.response.text
-            )
-        ]
 
 
 @dataclasses.dataclass(init=False)
