@@ -16,13 +16,6 @@
 
 from __future__ import annotations
 
-# Ensure libmagic is available before langfun imports python-magic.
-# pylibmagic provides pre-built binaries that python-magic needs.
-try:
-  import pylibmagic  # noqa: F401 (side-effect import)
-except ImportError:
-  pass
-
 from collections.abc import Iterable, Sequence
 import os
 from typing import Any, cast, Type, TypeVar
