@@ -337,7 +337,7 @@ class TestCustomLanguageModel(absltest.TestCase):
     mock_openai_class.return_value = mock_client
 
     custom_base_url = "https://custom-language-model.example.com/api/v1"
-    model = inference.CustomLanguageModel(
+    inference.CustomLanguageModel(
         api_key="test-key", base_url=custom_base_url
     )
 
