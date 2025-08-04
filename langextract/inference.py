@@ -586,7 +586,6 @@ class BedrockConverseLanguageModel(BaseLanguageModel):
   def __init__(
       self,
       model_id: str = 'us.anthropic.claude-3-5-haiku-20241022-v1:0',
-      api_key: str | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
       temperature: float = 0.0,
       max_workers: int = 10,
@@ -607,30 +606,26 @@ class BedrockConverseLanguageModel(BaseLanguageModel):
       raise ImportError('boto3 is required for BedrockConverseLanguageModel')
 
     self.model_id = model_id
-    self.api_key = api_key
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
     self._extra_kwargs = kwargs or {}
 
-    if not self.api_key:
-      # Check if credentials are available in environment
-      if 'AWS_BEARER_TOKEN_BEDROCK' not in os.environ:
-        raise ValueError(
-            'No API key provided and AWS_BEARER_TOKEN_BEDROCK not found in'
-            ' environment'
-        )
-      self.api_key = os.environ['AWS_BEARER_TOKEN_BEDROCK']
-    else:
-      os.environ['AWS_BEARER_TOKEN_BEDROCK'] = self.api_key
+    # Check if credentials are available in environment
+    if 'AWS_BEARER_TOKEN_BEDROCK' not in os.environ:
+      raise ValueError(
+          'AWS_BEARER_TOKEN_BEDROCK not found in'
+          ' environment'
+      )
 
     # Set region, defaulting to us-east-1 if not specified
-    if 'AWS_DEFAULT_REGION' not in os.environ:
-      os.environ['AWS_DEFAULT_REGION'] = AWS_DEFAULT_REGION
-
-    # Initialize the Bedrock client
+    if 'AWS_DEFAULT_REGION' in os.environ:
+      region = os.environ['AWS_DEFAULT_REGION']
+    else:
+      region = AWS_DEFAULT_REGION
+      
     self._client = boto3.client(
-        service_name='bedrock-runtime', region_name=self.region
+        service_name='bedrock-runtime', region_name=region
     )
 
     super().__init__(
