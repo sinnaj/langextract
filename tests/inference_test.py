@@ -209,5 +209,153 @@ class TestOpenAILanguageModel(absltest.TestCase):
     )
 
 
+class TestCustomLanguageModel(absltest.TestCase):
+
+  @mock.patch("openai.OpenAI")
+  def test_custom_infer(self, mock_openai_class):
+    # Mock the OpenAI client and chat completion response
+    mock_client = mock.Mock()
+    mock_openai_class.return_value = mock_client
+
+    # Mock response structure for v1.x API
+    mock_response = mock.Mock()
+    mock_response.choices = [
+        mock.Mock(message=mock.Mock(content='{"name": "John", "age": 30}'))
+    ]
+    mock_client.chat.completions.create.return_value = mock_response
+
+    # Create model instance
+    model = inference.CustomLanguageModel(
+        model_id="z-ai/glm-4.5-air:free",
+        api_key="test-api-key",
+        temperature=0.5,
+    )
+
+    # Test inference
+    batch_prompts = ["Extract name and age from: John is 30 years old"]
+    results = list(model.infer(batch_prompts))
+
+    # Verify OpenAI client was initialized with Custom Language Model base URL
+    mock_openai_class.assert_called_once_with(
+        api_key="test-api-key", base_url="https://openrouter.ai/api/v1"
+    )
+
+    # Verify API was called correctly
+    mock_client.chat.completions.create.assert_called_once_with(
+        model="z-ai/glm-4.5-air:free",
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a helpful assistant that responds in JSON format."
+                ),
+            },
+            {
+                "role": "user",
+                "content": "Extract name and age from: John is 30 years old",
+            },
+        ],
+        temperature=0.5,
+        max_tokens=None,
+        top_p=None,
+        n=1,
+    )
+
+    # Check results
+    expected_results = [[
+        inference.ScoredOutput(score=1.0, output='{"name": "John", "age": 30}')
+    ]]
+    self.assertEqual(results, expected_results)
+
+  def test_custom_parse_output_json(self):
+    model = inference.CustomLanguageModel(
+        api_key="test-key", format_type=data.FormatType.JSON
+    )
+
+    # Test valid JSON parsing
+    output = '{"key": "value", "number": 42}'
+    parsed = model.parse_output(output)
+    self.assertEqual(parsed, {"key": "value", "number": 42})
+
+    # Test invalid JSON
+    with self.assertRaises(ValueError) as context:
+      model.parse_output("invalid json")
+    self.assertIn("Failed to parse output as JSON", str(context.exception))
+
+  def test_custom_parse_output_yaml(self):
+    model = inference.CustomLanguageModel(
+        api_key="test-key", format_type=data.FormatType.YAML
+    )
+
+    # Test valid YAML parsing
+    output = "key: value\nnumber: 42"
+    parsed = model.parse_output(output)
+    self.assertEqual(parsed, {"key": "value", "number": 42})
+
+    # Test invalid YAML
+    with self.assertRaises(ValueError) as context:
+      model.parse_output("invalid: yaml: bad")
+    self.assertIn("Failed to parse output as YAML", str(context.exception))
+
+  def test_custom_no_api_key_raises_error(self):
+    with self.assertRaises(ValueError) as context:
+      inference.CustomLanguageModel(api_key=None)
+    self.assertEqual(str(context.exception), "API key not provided.")
+
+  @mock.patch("openai.OpenAI")
+  def test_custom_temperature_zero(self, mock_openai_class):
+    # Test that temperature=0.0 is properly passed through
+    mock_client = mock.Mock()
+    mock_openai_class.return_value = mock_client
+
+    mock_response = mock.Mock()
+    mock_response.choices = [
+        mock.Mock(message=mock.Mock(content='{"result": "test"}'))
+    ]
+    mock_client.chat.completions.create.return_value = mock_response
+
+    model = inference.CustomLanguageModel(
+        api_key="test-key", temperature=0.0  # Testing zero temperature
+    )
+
+    list(model.infer(["test prompt"]))
+
+    # Verify temperature=0.0 was passed to the API
+    mock_client.chat.completions.create.assert_called_with(
+        model="z-ai/glm-4.5-air:free",
+        messages=mock.ANY,
+        temperature=0.0,
+        max_tokens=None,
+        top_p=None,
+        n=1,
+    )
+
+  @mock.patch("openai.OpenAI")
+  def test_custom_custom_base_url(self, mock_openai_class):
+    # Test that custom base URL is properly used
+    mock_client = mock.Mock()
+    mock_openai_class.return_value = mock_client
+
+    custom_base_url = "https://custom-language-model.example.com/api/v1"
+    model = inference.CustomLanguageModel(
+        api_key="test-key", base_url=custom_base_url
+    )
+
+    # Verify OpenAI client was initialized with custom base URL
+    mock_openai_class.assert_called_once_with(
+        api_key="test-key", base_url=custom_base_url
+    )
+
+  def test_custom_default_model(self):
+    # Test that default model is z-ai/glm-4.5-air:free
+    model = inference.CustomLanguageModel(api_key="test-key")
+    self.assertEqual(model.model_id, "z-ai/glm-4.5-air:free")
+
+  def test_custom_default_base_url(self):
+    # Test that default base URL is OpenRouter's API (used as default for custom language model)
+    model = inference.CustomLanguageModel(api_key="test-key")
+    self.assertEqual(model.base_url, "https://openrouter.ai/api/v1")
+
+
 if __name__ == "__main__":
   absltest.main()
