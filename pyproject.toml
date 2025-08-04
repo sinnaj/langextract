@@ -18,7 +18,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "langextract"
-version = "1.0.3"
+version = "1.0.4"
 description = "LangExtract: A library for extracting structured data from language models"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -30,6 +30,7 @@ dependencies = [
     "absl-py>=1.0.0",
     "aiohttp>=3.8.0",
     "async_timeout>=4.0.0",
+    "boto3>=1.40.1",
     "exceptiongroup>=1.1.0",
     "google-genai>=0.1.0",
     "ml-collections>=0.1.0",

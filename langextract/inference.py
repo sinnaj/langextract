@@ -20,9 +20,11 @@ import concurrent.futures
 import dataclasses
 import enum
 import json
+import os
 import textwrap
 from typing import Any
 
+import boto3
 from google import genai
 import openai
 import requests
@@ -34,6 +36,7 @@ from langextract import exceptions
 from langextract import schema
 
 _OLLAMA_DEFAULT_MODEL_URL = 'http://localhost:11434'
+AWS_DEFAULT_REGION = 'us-east-1'
 
 
 @dataclasses.dataclass(frozen=True)
@@ -548,6 +551,183 @@ class OpenAILanguageModel(BaseLanguageModel):
 
   def parse_output(self, output: str) -> Any:
     """Parses OpenAI output as JSON or YAML.
+
+    Note: This expects raw JSON/YAML without code fences.
+    Code fence extraction is handled by resolver.py.
+    """
+    try:
+      if self.format_type == data.FormatType.JSON:
+        return json.loads(output)
+      else:
+        return yaml.safe_load(output)
+    except Exception as e:
+      raise ValueError(
+          f'Failed to parse output as {self.format_type.name}: {str(e)}'
+      ) from e
+
+
+@dataclasses.dataclass(init=False)
+class BedrockConverseLanguageModel(BaseLanguageModel):
+  """Language model inference using AWS Bedrock Anthropic models."""
+
+  model_id: str = 'us.anthropic.claude-3-5-haiku-20241022-v1:0'
+  api_key: str | None = None
+  region: str = 'us-east-1'
+  format_type: data.FormatType = data.FormatType.JSON
+  temperature: float = 0.0
+  max_workers: int = 10
+  _client: Any | None = dataclasses.field(
+      default=None, repr=False, compare=False
+  )
+  _extra_kwargs: dict[str, Any] = dataclasses.field(
+      default_factory=dict, repr=False, compare=False
+  )
+
+  def __init__(
+      self,
+      model_id: str = 'us.anthropic.claude-3-5-haiku-20241022-v1:0',
+      api_key: str | None = None,
+      format_type: data.FormatType = data.FormatType.JSON,
+      temperature: float = 0.0,
+      max_workers: int = 10,
+      **kwargs,
+  ) -> None:
+    """Initialize the Bedrock Anthropic language model.
+
+    Args:
+      model_id: The Bedrock model ID to use.
+      api_key: API key for Bedrock service (set as AWS_BEARER_TOKEN_BEDROCK).
+      region: AWS region for Bedrock service.
+      format_type: Output format (JSON or YAML).
+      temperature: Sampling temperature.
+      max_workers: Maximum number of parallel API calls.
+      **kwargs: Additional parameters passed to the model.
+    """
+    if boto3 is None:
+      raise ImportError('boto3 is required for BedrockConverseLanguageModel')
+
+    self.model_id = model_id
+    self.api_key = api_key
+    self.format_type = format_type
+    self.temperature = temperature
+    self.max_workers = max_workers
+    self._extra_kwargs = kwargs or {}
+
+    if not self.api_key:
+      # Check if credentials are available in environment
+      if 'AWS_BEARER_TOKEN_BEDROCK' not in os.environ:
+        raise ValueError(
+            'No API key provided and AWS_BEARER_TOKEN_BEDROCK not found in'
+            ' environment'
+        )
+      self.api_key = os.environ['AWS_BEARER_TOKEN_BEDROCK']
+    else:
+      os.environ['AWS_BEARER_TOKEN_BEDROCK'] = self.api_key
+
+    # Set region, defaulting to us-east-1 if not specified
+    if 'AWS_DEFAULT_REGION' not in os.environ:
+      os.environ['AWS_DEFAULT_REGION'] = AWS_DEFAULT_REGION
+
+    # Initialize the Bedrock client
+    self._client = boto3.client(
+        service_name='bedrock-runtime', region_name=self.region
+    )
+
+    super().__init__(
+        constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)
+    )
+
+  def _process_single_prompt(self, prompt: str, config: dict) -> ScoredOutput:
+    """Process a single prompt and return a ScoredOutput."""
+    try:
+
+      # Prepare the system message for structured output
+      system_message = []
+      if self.format_type == data.FormatType.JSON:
+        system_message = [{
+            'text': 'You are a helpful assistant that responds in JSON format.'
+        }]
+      elif self.format_type == data.FormatType.YAML:
+        system_message = [{
+            'text': 'You are a helpful assistant that responds in YAML format.'
+        }]
+
+      inference_config = {
+          'temperature': config.get('temperature', self.temperature),
+      }
+
+      if 'max_output_tokens' in config:
+        inference_config['topP'] = config.get('top_p')
+      if 'top_p' in config:
+        inference_config['topP'] = config.get('top_p')
+
+      response = self._client.converse(
+          modelId=self.model_id,
+          system=system_message,
+          messages=[{'role': 'user', 'content': [{'text': prompt}]}],
+          inferenceConfig=inference_config,
+      )
+
+      # Extract the response text
+      output_text = response['output']['message']['content'][0]['text']
+
+      return ScoredOutput(score=1.0, output=output_text)
+
+    except Exception as e:
+      raise InferenceOutputError(f'Bedrock API error: {str(e)}') from e
+
+  def infer(
+      self, batch_prompts: Sequence[str], **kwargs
+  ) -> Iterator[Sequence[ScoredOutput]]:
+    """Runs inference on a list of prompts via Bedrock's API.
+
+    Args:
+      batch_prompts: A list of string prompts.
+      **kwargs: Additional generation params (temperature, max_output_tokens, etc.)
+
+    Yields:
+      Lists of ScoredOutputs.
+    """
+    config = {
+        'temperature': kwargs.get('temperature', self.temperature),
+    }
+    if 'max_output_tokens' in kwargs:
+      config['max_output_tokens'] = kwargs['max_output_tokens']
+
+    # Use parallel processing for batches larger than 1
+    if len(batch_prompts) > 1 and self.max_workers > 1:
+      with concurrent.futures.ThreadPoolExecutor(
+          max_workers=min(self.max_workers, len(batch_prompts))
+      ) as executor:
+        future_to_index = {
+            executor.submit(
+                self._process_single_prompt, prompt, config.copy()
+            ): i
+            for i, prompt in enumerate(batch_prompts)
+        }
+
+        results: list[ScoredOutput | None] = [None] * len(batch_prompts)
+        for future in concurrent.futures.as_completed(future_to_index):
+          index = future_to_index[future]
+          try:
+            results[index] = future.result()
+          except Exception as e:
+            raise InferenceOutputError(
+                f'Parallel inference error: {str(e)}'
+            ) from e
+
+        for result in results:
+          if result is None:
+            raise InferenceOutputError('Failed to process one or more prompts')
+          yield [result]
+    else:
+      # Sequential processing for single prompt or worker
+      for prompt in batch_prompts:
+        result = self._process_single_prompt(prompt, config.copy())
+        yield [result]
+
+  def parse_output(self, output: str) -> Any:
+    """Parses Bedrock output as JSON or YAML.
 
     Note: This expects raw JSON/YAML without code fences.
     Code fence extraction is handled by resolver.py.

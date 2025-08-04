@@ -190,7 +190,7 @@ docker run --rm -e LANGEXTRACT_API_KEY="your-api-key" langextract python your_sc
 
 ## API Key Setup for Cloud Models
 
-When using LangExtract with cloud-hosted models (like Gemini or OpenAI), you'll need to
+When using LangExtract with cloud-hosted models (like Gemini, OpenAI, or Amazon Bedrock), you'll need to
 set up an API key. On-device models don't require an API key. For developers
 using local LLMs, LangExtract offers built-in support for Ollama and can be
 extended to other third-party APIs by updating the inference endpoints.
@@ -202,6 +202,7 @@ Get API keys from:
 *   [AI Studio](https://aistudio.google.com/app/apikey) for Gemini models
 *   [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) for enterprise use
 *   [OpenAI Platform](https://platform.openai.com/api-keys) for OpenAI models
+*   [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) for Amazon Bedrock models
 
 ### Setting up API key in your environment
 
@@ -271,6 +272,27 @@ result = lx.extract(
 ```
 
 Note: OpenAI models require `fence_output=True` and `use_schema_constraints=False` because LangExtract doesn't implement schema constraints for OpenAI yet.
+
+## Using Amazon Bedrock Models
+
+LangExtract also supports Amazon Bedrock models via the Converse API and Bedrock API keys. A full list of models on Bedrock supported by the Converse API can be found [here](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html). Example Bedrock configuration:
+
+```python
+from langextract.inference import BedrockConverseLanguageModel
+
+result = lx.extract(
+    text_or_documents=input_text,
+    prompt_description=prompt,
+    examples=examples,
+    language_model_type=BedrockConverseLanguageModel,
+    model_id='us.anthropic.claude-sonnet-4-20250514-v1:0',
+    api_key=os.environ.get('AWS_BEARER_TOKEN_BEDROCK'), # Optional, it's recommended to export AWS_BEARER_TOKEN_BEDROCK and AWS_DEFAULT_REGION to environment
+    fence_output=True,
+    use_schema_constraints=False
+)
+```
+Note: Like OpenAI models, Bedrock models require `fence_output=True` and `use_schema_constraints=False` because LangExtract doesn't implement schema constraints for Bedrock models yet.
+
 
 ## More Examples
 
