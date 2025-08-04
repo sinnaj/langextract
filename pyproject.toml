@@ -84,6 +84,9 @@ python_classes = "Test*"
 python_functions = "test_*"
 # Show extra test summary info
 addopts = "-ra"
+markers = [
+    "live_api: marks tests as requiring live API access",
+]
 
 [tool.pyink]
 # Configuration for Google's style guide
