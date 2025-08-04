@@ -33,7 +33,7 @@ from langextract import data
 from langextract import exceptions
 from langextract import schema
 
-_OLLAMA_DEFAULT_MODEL_URL = 'http://localhost:11434'
+_OLLAMA_DEFAULT_MODEL_URL = "http://localhost:11434"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -45,9 +45,9 @@ class ScoredOutput:
 
   def __str__(self) -> str:
     if self.output is None:
-      return f'Score: {self.score:.2f}\nOutput: None'
-    formatted_lines = textwrap.indent(self.output, prefix='  ')
-    return f'Score: {self.score:.2f}\nOutput:\n{formatted_lines}'
+      return f"Score: {self.score:.2f}\nOutput: None"
+    formatted_lines = textwrap.indent(self.output, prefix="  ")
+    return f"Score: {self.score:.2f}\nOutput:\n{formatted_lines}"
 
 
 class InferenceOutputError(exceptions.LangExtractError):
@@ -93,8 +93,8 @@ class BaseLanguageModel(abc.ABC):
 
 
 class InferenceType(enum.Enum):
-  ITERATIVE = 'iterative'
-  MULTIPROCESS = 'multiprocess'
+  ITERATIVE = "iterative"
+  MULTIPROCESS = "multiprocess"
 
 
 @dataclasses.dataclass(init=False)
@@ -115,7 +115,7 @@ class OllamaLanguageModel(BaseLanguageModel):
       self,
       model: str,
       model_url: str = _OLLAMA_DEFAULT_MODEL_URL,
-      structured_output_format: str = 'json',
+      structured_output_format: str = "json",
       constraint: schema.Constraint = schema.Constraint(),
       **kwargs,
   ) -> None:
@@ -138,18 +138,18 @@ class OllamaLanguageModel(BaseLanguageModel):
           model_url=self._model_url,
       )
       # No score for Ollama. Default to 1.0
-      yield [ScoredOutput(score=1.0, output=response['response'])]
+      yield [ScoredOutput(score=1.0, output=response["response"])]
 
   def _ollama_query(
       self,
       prompt: str,
-      model: str = 'gemma2:latest',
+      model: str = "gemma2:latest",
       temperature: float = 0.8,
       seed: int | None = None,
       top_k: int | None = None,
       max_output_tokens: int | None = None,
       structured_output_format: str | None = None,  # like 'json'
-      system: str = '',
+      system: str = "",
       raw: bool = False,
       model_url: str = _OLLAMA_DEFAULT_MODEL_URL,
       timeout: int = 30,  # seconds
@@ -197,36 +197,36 @@ class OllamaLanguageModel(BaseLanguageModel):
       status code other than 200. Also raised on read timeouts or other request
       exceptions.
     """
-    options = {'keep_alive': keep_alive}
+    options = {"keep_alive": keep_alive}
     if seed:
-      options['seed'] = seed
+      options["seed"] = seed
     if temperature:
-      options['temperature'] = temperature
+      options["temperature"] = temperature
     if top_k:
-      options['top_k'] = top_k
+      options["top_k"] = top_k
     if num_threads:
-      options['num_thread'] = num_threads
+      options["num_thread"] = num_threads
     if max_output_tokens:
-      options['num_predict'] = max_output_tokens
+      options["num_predict"] = max_output_tokens
     if num_ctx:
-      options['num_ctx'] = num_ctx
-    model_url = model_url + '/api/generate'
+      options["num_ctx"] = num_ctx
+    model_url = model_url + "/api/generate"
 
     payload = {
-        'model': model,
-        'prompt': prompt,
-        'system': system,
-        'stream': False,
-        'raw': raw,
-        'format': structured_output_format,
-        'options': options,
+        "model": model,
+        "prompt": prompt,
+        "system": system,
+        "stream": False,
+        "raw": raw,
+        "format": structured_output_format,
+        "options": options,
     }
     try:
       response = requests.post(
           model_url,
           headers={
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
+              "Content-Type": "application/json",
+              "Accept": "application/json",
           },
           json=payload,
           timeout=timeout,
@@ -234,23 +234,23 @@ class OllamaLanguageModel(BaseLanguageModel):
     except requests.exceptions.RequestException as e:
       if isinstance(e, requests.exceptions.ReadTimeout):
         msg = (
-            f'Ollama Model timed out (timeout={timeout},'
-            f' num_threads={num_threads})'
+            f"Ollama Model timed out (timeout={timeout},"
+            f" num_threads={num_threads})"
         )
         raise ValueError(msg) from e
       raise e
 
-    response.encoding = 'utf-8'
+    response.encoding = "utf-8"
     if response.status_code == 200:
       return response.json()
     if response.status_code == 404:
       raise ValueError(
           f"Can't find Ollama {model}. Try launching `ollama run {model}`"
-          ' from command line.'
+          " from command line."
       )
     else:
       raise ValueError(
-          f'Ollama model failed with status code {response.status_code}.'
+          f"Ollama model failed with status code {response.status_code}."
       )
 
 
@@ -258,7 +258,7 @@ class OllamaLanguageModel(BaseLanguageModel):
 class GeminiLanguageModel(BaseLanguageModel):
   """Language model inference using Google's Gemini API with structured output."""
 
-  model_id: str = 'gemini-2.5-flash'
+  model_id: str = "gemini-2.5-flash"
   api_key: str | None = None
   gemini_schema: schema.GeminiSchema | None = None
   format_type: data.FormatType = data.FormatType.JSON
@@ -270,7 +270,7 @@ class GeminiLanguageModel(BaseLanguageModel):
 
   def __init__(
       self,
-      model_id: str = 'gemini-2.5-flash',
+      model_id: str = "gemini-2.5-flash",
       api_key: str | None = None,
       gemini_schema: schema.GeminiSchema | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
@@ -299,7 +299,7 @@ class GeminiLanguageModel(BaseLanguageModel):
     self._extra_kwargs = kwargs or {}
 
     if not self.api_key:
-      raise ValueError('API key not provided.')
+      raise ValueError("API key not provided.")
 
     self._client = genai.Client(api_key=self.api_key)
 
@@ -313,12 +313,12 @@ class GeminiLanguageModel(BaseLanguageModel):
       if self.gemini_schema:
         response_schema = self.gemini_schema.schema_dict
         mime_type = (
-            'application/json'
+            "application/json"
             if self.format_type == data.FormatType.JSON
-            else 'application/yaml'
+            else "application/yaml"
         )
-        config['response_mime_type'] = mime_type
-        config['response_schema'] = response_schema
+        config["response_mime_type"] = mime_type
+        config["response_schema"] = response_schema
 
       response = self._client.models.generate_content(
           model=self.model_id, contents=prompt, config=config
@@ -327,7 +327,7 @@ class GeminiLanguageModel(BaseLanguageModel):
       return ScoredOutput(score=1.0, output=response.text)
 
     except Exception as e:
-      raise InferenceOutputError(f'Gemini API error: {str(e)}') from e
+      raise InferenceOutputError(f"Gemini API error: {str(e)}") from e
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
@@ -342,14 +342,14 @@ class GeminiLanguageModel(BaseLanguageModel):
       Lists of ScoredOutputs.
     """
     config = {
-        'temperature': kwargs.get('temperature', self.temperature),
+        "temperature": kwargs.get("temperature", self.temperature),
     }
-    if 'max_output_tokens' in kwargs:
-      config['max_output_tokens'] = kwargs['max_output_tokens']
-    if 'top_p' in kwargs:
-      config['top_p'] = kwargs['top_p']
-    if 'top_k' in kwargs:
-      config['top_k'] = kwargs['top_k']
+    if "max_output_tokens" in kwargs:
+      config["max_output_tokens"] = kwargs["max_output_tokens"]
+    if "top_p" in kwargs:
+      config["top_p"] = kwargs["top_p"]
+    if "top_k" in kwargs:
+      config["top_k"] = kwargs["top_k"]
 
     # Use parallel processing for batches larger than 1
     if len(batch_prompts) > 1 and self.max_workers > 1:
@@ -370,12 +370,12 @@ class GeminiLanguageModel(BaseLanguageModel):
             results[index] = future.result()
           except Exception as e:
             raise InferenceOutputError(
-                f'Parallel inference error: {str(e)}'
+                f"Parallel inference error: {str(e)}"
             ) from e
 
         for result in results:
           if result is None:
-            raise InferenceOutputError('Failed to process one or more prompts')
+            raise InferenceOutputError("Failed to process one or more prompts")
           yield [result]
     else:
       # Sequential processing for single prompt or worker
@@ -396,21 +396,20 @@ class GeminiLanguageModel(BaseLanguageModel):
         return yaml.safe_load(output)
     except Exception as e:
       raise ValueError(
-          f'Failed to parse output as {self.format_type.name}: {str(e)}'
+          f"Failed to parse output as {self.format_type.name}: {str(e)}"
       ) from e
 
 
 @dataclasses.dataclass(init=False)
-class OpenAILanguageModel(BaseLanguageModel):
-  """Language model inference using OpenAI's API with structured output."""
+class BaseOpenAILanguageModel(BaseLanguageModel):
+  """Base class for OpenAI-compatible language model inference."""
 
-  model_id: str = 'gpt-4o-mini'
+  model_id: str = "gpt-4o-mini"
   api_key: str | None = None
-  organization: str | None = None
   format_type: data.FormatType = data.FormatType.JSON
   temperature: float = 0.0
   max_workers: int = 10
-  _client: openai.OpenAI | None = dataclasses.field(
+  _client: openai.OpenAI | openai.AzureOpenAI | None = dataclasses.field(
       default=None, repr=False, compare=False
   )
   _extra_kwargs: dict[str, Any] = dataclasses.field(
@@ -419,41 +418,32 @@ class OpenAILanguageModel(BaseLanguageModel):
 
   def __init__(
       self,
-      model_id: str = 'gpt-4o-mini',
+      model_id: str = "gpt-4o-mini",
       api_key: str | None = None,
-      organization: str | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
       temperature: float = 0.0,
       max_workers: int = 10,
       **kwargs,
   ) -> None:
-    """Initialize the OpenAI language model.
+    """Initialize the base OpenAI language model.
 
     Args:
-      model_id: The OpenAI model ID to use (e.g., 'gpt-4o-mini', 'gpt-4o').
-      api_key: API key for OpenAI service.
-      organization: Optional OpenAI organization ID.
+      model_id: The model ID to use.
+      api_key: API key for the service.
       format_type: Output format (JSON or YAML).
       temperature: Sampling temperature.
       max_workers: Maximum number of parallel API calls.
-      **kwargs: Ignored extra parameters so callers can pass a superset of
-        arguments shared across back-ends without raising ``TypeError``.
+      **kwargs: Extra parameters for subclasses.
     """
     self.model_id = model_id
     self.api_key = api_key
-    self.organization = organization
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
     self._extra_kwargs = kwargs or {}
 
     if not self.api_key:
-      raise ValueError('API key not provided.')
-
-    # Initialize the OpenAI client
-    self._client = openai.OpenAI(
-        api_key=self.api_key, organization=self.organization
-    )
+      raise ValueError("API key not provided.")
 
     super().__init__(
         constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)
@@ -463,26 +453,26 @@ class OpenAILanguageModel(BaseLanguageModel):
     """Process a single prompt and return a ScoredOutput."""
     try:
       # Prepare the system message for structured output
-      system_message = ''
+      system_message = ""
       if self.format_type == data.FormatType.JSON:
         system_message = (
-            'You are a helpful assistant that responds in JSON format.'
+            "You are a helpful assistant that responds in JSON format."
         )
       elif self.format_type == data.FormatType.YAML:
         system_message = (
-            'You are a helpful assistant that responds in YAML format.'
+            "You are a helpful assistant that responds in YAML format."
         )
 
       # Create the chat completion using the v1.x client API
       response = self._client.chat.completions.create(
           model=self.model_id,
           messages=[
-              {'role': 'system', 'content': system_message},
-              {'role': 'user', 'content': prompt},
+              {"role": "system", "content": system_message},
+              {"role": "user", "content": prompt},
           ],
-          temperature=config.get('temperature', self.temperature),
-          max_tokens=config.get('max_output_tokens'),
-          top_p=config.get('top_p'),
+          temperature=config.get("temperature", self.temperature),
+          max_tokens=config.get("max_output_tokens"),
+          top_p=config.get("top_p"),
           n=1,
       )
 
@@ -492,7 +482,7 @@ class OpenAILanguageModel(BaseLanguageModel):
       return ScoredOutput(score=1.0, output=output_text)
 
     except Exception as e:
-      raise InferenceOutputError(f'OpenAI API error: {str(e)}') from e
+      raise InferenceOutputError(f"OpenAI API error: {str(e)}") from e
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
@@ -507,12 +497,12 @@ class OpenAILanguageModel(BaseLanguageModel):
       Lists of ScoredOutputs.
     """
     config = {
-        'temperature': kwargs.get('temperature', self.temperature),
+        "temperature": kwargs.get("temperature", self.temperature),
     }
-    if 'max_output_tokens' in kwargs:
-      config['max_output_tokens'] = kwargs['max_output_tokens']
-    if 'top_p' in kwargs:
-      config['top_p'] = kwargs['top_p']
+    if "max_output_tokens" in kwargs:
+      config["max_output_tokens"] = kwargs["max_output_tokens"]
+    if "top_p" in kwargs:
+      config["top_p"] = kwargs["top_p"]
 
     # Use parallel processing for batches larger than 1
     if len(batch_prompts) > 1 and self.max_workers > 1:
@@ -533,12 +523,12 @@ class OpenAILanguageModel(BaseLanguageModel):
             results[index] = future.result()
           except Exception as e:
             raise InferenceOutputError(
-                f'Parallel inference error: {str(e)}'
+                f"Parallel inference error: {str(e)}"
             ) from e
 
         for result in results:
           if result is None:
-            raise InferenceOutputError('Failed to process one or more prompts')
+            raise InferenceOutputError("Failed to process one or more prompts")
           yield [result]
     else:
       # Sequential processing for single prompt or worker
@@ -559,5 +549,102 @@ class OpenAILanguageModel(BaseLanguageModel):
         return yaml.safe_load(output)
     except Exception as e:
       raise ValueError(
-          f'Failed to parse output as {self.format_type.name}: {str(e)}'
+          f"Failed to parse output as {self.format_type.name}: {str(e)}"
       ) from e
+
+
+@dataclasses.dataclass(init=False)
+class OpenAILanguageModel(BaseOpenAILanguageModel):
+  """Language model inference using OpenAI's API with structured output."""
+
+  organization: str | None = None
+
+  def __init__(
+      self,
+      model_id: str = "gpt-4o-mini",
+      api_key: str | None = None,
+      organization: str | None = None,
+      format_type: data.FormatType = data.FormatType.JSON,
+      temperature: float = 0.0,
+      max_workers: int = 10,
+      **kwargs,
+  ) -> None:
+    """Initialize the OpenAI language model.
+
+    Args:
+      model_id: The OpenAI model ID to use (e.g., 'gpt-4o-mini', 'gpt-4o').
+      api_key: API key for OpenAI service.
+      organization: Optional OpenAI organization ID.
+      format_type: Output format (JSON or YAML).
+      temperature: Sampling temperature.
+      max_workers: Maximum number of parallel API calls.
+      **kwargs: Ignored extra parameters so callers can pass a superset of
+        arguments shared across back-ends without raising ``TypeError``.
+    """
+    self.organization = organization
+    super().__init__(
+        model_id=model_id,
+        api_key=api_key,
+        format_type=format_type,
+        temperature=temperature,
+        max_workers=max_workers,
+        **kwargs,
+    )
+
+    # Initialize the OpenAI client
+    self._client = openai.OpenAI(
+        api_key=self.api_key, organization=self.organization
+    )
+
+
+@dataclasses.dataclass(init=False)
+class AzureOpenAILanguageModel(BaseOpenAILanguageModel):
+  """Language model inference using Azure OpenAI's API with structured output."""
+
+  azure_endpoint: str | None = None
+  api_version: str = "2024-12-01-preview"
+
+  def __init__(
+      self,
+      model_id: str = "gpt-4o",
+      api_key: str | None = None,
+      azure_endpoint: str | None = None,
+      api_version: str = "2024-12-01-preview",
+      format_type: data.FormatType = data.FormatType.JSON,
+      temperature: float = 0.0,
+      max_workers: int = 10,
+      **kwargs,
+  ) -> None:
+    """Initialize the Azure OpenAI language model.
+
+    Args:
+      model_id: The Azure OpenAI deployment name (e.g., 'gpt-4o').
+      api_key: API key for Azure OpenAI service.
+      azure_endpoint: Azure OpenAI endpoint URL.
+      api_version: Azure OpenAI API version.
+      format_type: Output format (JSON or YAML).
+      temperature: Sampling temperature.
+      max_workers: Maximum number of parallel API calls.
+      **kwargs: Ignored extra parameters so callers can pass a superset of
+        arguments shared across back-ends without raising ``TypeError``.
+    """
+    self.azure_endpoint = azure_endpoint
+    self.api_version = api_version
+    super().__init__(
+        model_id=model_id,
+        api_key=api_key,
+        format_type=format_type,
+        temperature=temperature,
+        max_workers=max_workers,
+        **kwargs,
+    )
+
+    if not self.azure_endpoint:
+      raise ValueError("Azure endpoint not provided.")
+
+    # Initialize the Azure OpenAI client
+    self._client = openai.AzureOpenAI(
+        api_key=self.api_key,
+        azure_endpoint=self.azure_endpoint,
+        api_version=self.api_version,
+    )

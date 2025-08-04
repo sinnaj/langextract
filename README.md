@@ -12,18 +12,35 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Why LangExtract?](#why-langextract)
-- [Quick Start](#quick-start)
-- [Installation](#installation)
-- [API Key Setup for Cloud Models](#api-key-setup-for-cloud-models)
-- [More Examples](#more-examples)
-  - [*Romeo and Juliet* Full Text Extraction](#romeo-and-juliet-full-text-extraction)
-  - [Medication Extraction](#medication-extraction)
-  - [Radiology Report Structuring: RadExtract](#radiology-report-structuring-radextract)
-- [Contributing](#contributing)
-- [Testing](#testing)
-- [Disclaimer](#disclaimer)
+- [LangExtract](#langextract)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Why LangExtract?](#why-langextract)
+  - [Quick Start](#quick-start)
+    - [1. Define Your Extraction Task](#1-define-your-extraction-task)
+    - [2. Run the Extraction](#2-run-the-extraction)
+    - [3. Visualize the Results](#3-visualize-the-results)
+    - [Scaling to Longer Documents](#scaling-to-longer-documents)
+  - [Installation](#installation)
+    - [From PyPI](#from-pypi)
+    - [From Source](#from-source)
+    - [Docker](#docker)
+  - [API Key Setup for Cloud Models](#api-key-setup-for-cloud-models)
+    - [API Key Sources](#api-key-sources)
+    - [Setting up API key in your environment](#setting-up-api-key-in-your-environment)
+  - [Using OpenAI Models](#using-openai-models)
+    - [Using Azure OpenAI Models](#using-azure-openai-models)
+  - [More Examples](#more-examples)
+    - [*Romeo and Juliet* Full Text Extraction](#romeo-and-juliet-full-text-extraction)
+    - [Medication Extraction](#medication-extraction)
+    - [Radiology Report Structuring: RadExtract](#radiology-report-structuring-radextract)
+  - [Contributing](#contributing)
+  - [Testing](#testing)
+  - [Development](#development)
+    - [Code Formatting](#code-formatting)
+    - [Pre-commit Hooks](#pre-commit-hooks)
+    - [Linting](#linting)
+  - [Disclaimer](#disclaimer)
 
 ## Introduction
 
@@ -271,6 +288,35 @@ result = lx.extract(
 ```
 
 Note: OpenAI models require `fence_output=True` and `use_schema_constraints=False` because LangExtract doesn't implement schema constraints for OpenAI yet.
+
+### Using Azure OpenAI Models
+
+LangExtract also supports Azure OpenAI. The configuration is similar to the standard OpenAI setup but requires an `azure_endpoint` and `api_version`.
+
+```python
+from langextract.inference import AzureOpenAILanguageModel
+
+# Your Azure OpenAI API key, endpoint, and deployment name
+azure_api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+azure_endpoint = "https://your-azure-endpoint.openai.azure.com/"
+model_id = "your-azure-deployment-name" # e.g., "gpt-4o"
+
+result = lx.extract(
+    text_or_documents=input_text,
+    prompt_description=prompt,
+    examples=examples,
+    language_model_type=AzureOpenAILanguageModel,
+    model_id=model_id,
+    api_key=azure_api_key,
+    language_model_params={
+        "azure_endpoint": azure_endpoint,
+        "api_version": "2024-02-01"  # Or your desired API version
+    },
+    fence_output=True,
+    use_schema_constraints=False
+)
+```
+
 
 ## More Examples
 

@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+import textwrap
 from unittest import mock
 
 from absl.testing import absltest
 
 from langextract import data
 from langextract import inference
+import langextract as lx
 
 
 class TestOllamaLanguageModel(absltest.TestCase):
@@ -207,6 +210,283 @@ class TestOpenAILanguageModel(absltest.TestCase):
         top_p=None,
         n=1,
     )
+
+
+if __name__ == "__main__":
+  absltest.main()
+
+
+class TestAzureOpenAILanguageModel(absltest.TestCase):
+  """Test Azure OpenAI language model integration."""
+
+  def setUp(self):
+    """Set up test fixtures."""
+    self.mock_api_key = "test-azure-openai-api-key"
+    self.mock_azure_endpoint = "https://eastus2.api.cognitive.microsoft.com/"
+    self.mock_model_id = "gpt-4o"
+    self.mock_api_version = "2024-12-01-preview"
+
+  def test_azure_openai_initialization(self):
+    """Test Azure OpenAI model initialization."""
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        api_version=self.mock_api_version,
+    )
+
+    self.assertEqual(model.model_id, self.mock_model_id)
+    self.assertEqual(model.api_key, self.mock_api_key)
+    self.assertEqual(model.azure_endpoint, self.mock_azure_endpoint)
+    self.assertEqual(model.api_version, self.mock_api_version)
+    self.assertIsNotNone(model._client)
+
+  def test_azure_openai_missing_api_key(self):
+    """Test that missing API key raises ValueError."""
+    with self.assertRaises(ValueError) as context:
+      inference.AzureOpenAILanguageModel(
+          azure_endpoint=self.mock_azure_endpoint,
+          api_key=None,
+      )
+    self.assertIn("API key not provided", str(context.exception))
+
+  def test_azure_openai_missing_endpoint(self):
+    """Test that missing Azure endpoint raises ValueError."""
+    with self.assertRaises(ValueError) as context:
+      inference.AzureOpenAILanguageModel(
+          api_key=self.mock_api_key,
+          azure_endpoint=None,
+      )
+    self.assertIn("Azure endpoint not provided", str(context.exception))
+
+  @mock.patch("openai.AzureOpenAI")
+  def test_azure_openai_client_creation(self, mock_azure_openai):
+    """Test that Azure OpenAI client is created with correct parameters."""
+    mock_client_instance = mock.Mock()
+    mock_azure_openai.return_value = mock_client_instance
+
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        api_version=self.mock_api_version,
+    )
+
+    mock_azure_openai.assert_called_once_with(
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        api_version=self.mock_api_version,
+    )
+    self.assertEqual(model._client, mock_client_instance)
+
+  @mock.patch("openai.AzureOpenAI")
+  def test_azure_openai_inference(self, mock_azure_openai):
+    """Test Azure OpenAI inference functionality."""
+    # Mock the client and response
+    mock_client = mock.Mock()
+    mock_azure_openai.return_value = mock_client
+
+    mock_response = mock.Mock()
+    mock_choice = mock.Mock()
+    mock_message = mock.Mock()
+    mock_message.content = (
+        '{"extraction_class": "character", "extraction_text": "Lady Juliet",'
+        ' "attributes": {"emotional_state": "longing"}}'
+    )
+    mock_choice.message = mock_message
+    mock_response.choices = [mock_choice]
+
+    mock_client.chat.completions.create.return_value = mock_response
+
+    # Initialize the model
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        api_version=self.mock_api_version,
+    )
+
+    # Test inference
+    prompts = [
+        "Extract characters from this text: Lady Juliet gazed longingly at the"
+        " stars."
+    ]
+    results = list(model.infer(prompts))
+
+    self.assertEqual(len(results), 1)
+    self.assertEqual(len(results[0]), 1)
+    self.assertEqual(results[0][0].score, 1.0)
+    self.assertIn("Lady Juliet", results[0][0].output)
+
+    # Verify the client was called correctly
+    mock_client.chat.completions.create.assert_called_once()
+    call_args = mock_client.chat.completions.create.call_args
+    self.assertEqual(call_args[1]["model"], self.mock_model_id)
+    self.assertEqual(len(call_args[1]["messages"]), 2)
+    self.assertEqual(call_args[1]["messages"][0]["role"], "system")
+    self.assertEqual(call_args[1]["messages"][1]["role"], "user")
+
+  def test_parse_output_json(self):
+    """Test JSON output parsing."""
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        format_type=data.FormatType.JSON,
+    )
+
+    json_output = '{"key": "value", "number": 42}'
+    parsed = model.parse_output(json_output)
+
+    self.assertEqual(parsed, {"key": "value", "number": 42})
+
+  def test_parse_output_yaml(self):
+    """Test YAML output parsing."""
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        format_type=data.FormatType.YAML,
+    )
+
+    yaml_output = "key: value\nnumber: 42"
+    parsed = model.parse_output(yaml_output)
+
+    self.assertEqual(parsed, {"key": "value", "number": 42})
+
+
+class TestAzureOpenAIIntegrationWithLangExtract(absltest.TestCase):
+  """Test Azure OpenAI integration with the main langextract API."""
+
+  def setUp(self):
+    """Set up test fixtures."""
+    self.mock_api_key = "test-azure-openai-api-key"
+    self.mock_azure_endpoint = "https://eastus2.api.cognitive.microsoft.com/"
+    self.mock_model_id = "gpt-4o"
+
+    # Example from README adapted for testing
+    self.prompt = textwrap.dedent("""\
+            Extract characters, emotions, and relationships in order of appearance.
+            Use exact text for extractions. Do not paraphrase or overlap entities.
+            Provide meaningful attributes for each entity to add context.""")
+
+    self.examples = [
+        lx.data.ExampleData(
+            text=(
+                "ROMEO. But soft! What light through yonder window breaks? It"
+                " is the east, and Juliet is the sun."
+            ),
+            extractions=[
+                lx.data.Extraction(
+                    extraction_class="character",
+                    extraction_text="ROMEO",
+                    attributes={"emotional_state": "wonder"},
+                ),
+                lx.data.Extraction(
+                    extraction_class="emotion",
+                    extraction_text="But soft!",
+                    attributes={"feeling": "gentle awe"},
+                ),
+                lx.data.Extraction(
+                    extraction_class="relationship",
+                    extraction_text="Juliet is the sun",
+                    attributes={"type": "metaphor"},
+                ),
+            ],
+        )
+    ]
+
+  @mock.patch("openai.AzureOpenAI")
+  def test_azure_openai_with_langextract_extract(self, mock_azure_openai):
+    """Test using Azure OpenAI with the main langextract.extract function."""
+    # Mock the client and response
+    mock_client = mock.Mock()
+    mock_azure_openai.return_value = mock_client
+
+    # Mock a realistic response that would be parsed by the resolver
+    mock_response_content = textwrap.dedent("""\
+            ```json
+            {
+              "extractions": [
+                {
+                  "extraction_class": "character",
+                  "extraction_text": "Lady Juliet",
+                  "attributes": {"emotional_state": "longing"}
+                },
+                {
+                  "extraction_class": "emotion",
+                  "extraction_text": "gazed longingly",
+                  "attributes": {"feeling": "yearning"}
+                }
+              ]
+            }
+            ```""")
+
+    mock_response = mock.Mock()
+    mock_choice = mock.Mock()
+    mock_message = mock.Mock()
+    mock_message.content = mock_response_content
+    mock_choice.message = mock_message
+    mock_response.choices = [mock_choice]
+
+    mock_client.chat.completions.create.return_value = mock_response
+
+    # Test input text
+    input_text = (
+        "Lady Juliet gazed longingly at the stars, her heart aching for Romeo"
+    )
+
+    # Run the extraction with Azure OpenAI
+    result = lx.extract(
+        text_or_documents=input_text,
+        prompt_description=self.prompt,
+        examples=self.examples,
+        language_model_type=inference.AzureOpenAILanguageModel,
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        language_model_params={
+            "azure_endpoint": self.mock_azure_endpoint,
+        },
+        fence_output=True,  # Required for Azure OpenAI as mentioned in README
+        use_schema_constraints=False,  # Required for Azure OpenAI as mentioned in README
+    )
+
+    # Verify the result structure
+    self.assertIsInstance(result, lx.data.AnnotatedDocument)
+    self.assertEqual(result.text, input_text)
+
+    # Verify the client was called
+    mock_client.chat.completions.create.assert_called()
+
+  def test_azure_openai_parameters_validation(self):
+    """Test that Azure OpenAI specific parameters are validated."""
+    input_text = "Test text"
+
+    # Test missing azure_endpoint
+    with self.assertRaises(ValueError) as context:
+      lx.extract(
+          text_or_documents=input_text,
+          prompt_description=self.prompt,
+          examples=self.examples,
+          language_model_type=inference.AzureOpenAILanguageModel,
+          model_id=self.mock_model_id,
+          api_key=self.mock_api_key,
+          language_model_params={
+              # azure_endpoint missing
+          },
+      )
+    self.assertIn("Azure endpoint not provided", str(context.exception))
+
+  def test_azure_openai_default_api_version(self):
+    """Test that Azure OpenAI uses the default API version when not specified."""
+    model = inference.AzureOpenAILanguageModel(
+        model_id=self.mock_model_id,
+        api_key=self.mock_api_key,
+        azure_endpoint=self.mock_azure_endpoint,
+        # api_version not specified
+    )
+
+    self.assertEqual(model.api_version, "2024-12-01-preview")
 
 
 if __name__ == "__main__":
