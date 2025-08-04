@@ -338,15 +338,8 @@ class TestLiveAPIGemini(unittest.TestCase):
   @skip_if_no_gemini
   @live_api
   @retry_on_transient_errors(max_retries=2)
-  @pytest.mark.xfail(
-      reason=(
-          "Known tokenizer issue with non-Latin characters - see GitHub"
-          " issue #13"
-      ),
-      strict=True,
-  )
   def test_multilingual_medication_extraction(self):
-    """Test medication extraction with Japanese text."""
+    """Test medication extraction with Japanese text (non-Latin characters)."""
     text = (  # "The patient takes 10 mg of medication daily."
         "患者は毎日10mgの薬を服用します。"
     )
