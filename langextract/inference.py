@@ -117,12 +117,16 @@ class OllamaLanguageModel(BaseLanguageModel):
       model_url: str = _OLLAMA_DEFAULT_MODEL_URL,
       structured_output_format: str = 'json',
       constraint: schema.Constraint = schema.Constraint(),
+      num_ctx: int = 2048,
+      keep_alive: int = 5 * 60,  # seconds
       **kwargs,
   ) -> None:
     self._model = model_id
     self._model_url = model_url
     self._structured_output_format = structured_output_format
     self._constraint = constraint
+    self._num_ctx = num_ctx
+    self._keep_alive = keep_alive
     self._extra_kwargs = kwargs or {}
     super().__init__(constraint=constraint)
 
@@ -136,6 +140,8 @@ class OllamaLanguageModel(BaseLanguageModel):
           model=self._model,
           structured_output_format=self._structured_output_format,
           model_url=self._model_url,
+          num_ctx=self._num_ctx,
+          keep_alive=self._keep_alive,
       )
       # No score for Ollama. Default to 1.0
       yield [ScoredOutput(score=1.0, output=response['response'])]
