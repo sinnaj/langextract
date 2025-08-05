@@ -453,6 +453,7 @@ class OpenAILanguageModel(BaseLanguageModel):
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
+    self.base_url = base_url
     self._extra_kwargs = kwargs or {}
 
     if not self.api_key:
@@ -460,7 +461,9 @@ class OpenAILanguageModel(BaseLanguageModel):
 
     # Initialize the OpenAI client
     self._client = openai.OpenAI(
-        api_key=self.api_key, organization=self.organization, base_url=base_url
+        api_key=self.api_key,
+        organization=self.organization,
+        base_url=self.base_url,
     )
 
     super().__init__(
