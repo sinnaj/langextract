@@ -41,13 +41,13 @@ try:
   from IPython.display import HTML
 
   _ipython = get_ipython()
-  _in_jupyter = _ipython is not None and _ipython.__class__.__name__ in [
+  _IN_JUPYTER = _ipython is not None and _ipython.__class__.__name__ in [
       'ZMQInteractiveShell',
       'SpyderShell',
   ]
 except Exception:
   HTML = None  # pytype: disable=annotation-type-mismatch
-  _in_jupyter = False
+  _IN_JUPYTER = False
 
 _PALETTE: list[str] = [
     '#D2E3FC',  # Light Blue (Primary Container)
@@ -611,4 +611,4 @@ def visualize(
         'class="lx-animated-wrapper lx-gif-optimized"',
     )
 
-  return HTML(full_html) if (HTML is not None and _in_jupyter) else full_html
+  return HTML(full_html) if (HTML is not None and _IN_JUPYTER) else full_html
