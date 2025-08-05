@@ -36,6 +36,16 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            // Check if PR author is a maintainer
+            const prAuthor = context.payload.pull_request.user.login;
+            const { data: authorPermission } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: prAuthor
+            });
+            
+            const isMaintainer = ['admin', 'maintain'].includes(authorPermission.permission);
+            
             const body = context.payload.pull_request.body || '';
             const match = body.match(/(?:Fixes|Closes|Resolves)\s+#(\d+)/i);
 
@@ -68,6 +78,8 @@ jobs:
             core.info(`Issue #${issueNumber} has ${thumbsUp} 👍 reactions`);
 
             const REQUIRED_THUMBS_UP = 5;
-            if (thumbsUp < REQUIRED_THUMBS_UP) {
+            if (thumbsUp < REQUIRED_THUMBS_UP && !isMaintainer) {
               core.setFailed(`Issue #${issueNumber} needs at least ${REQUIRED_THUMBS_UP} 👍 reactions (currently has ${thumbsUp})`);
+            } else if (isMaintainer && thumbsUp < REQUIRED_THUMBS_UP) {
+              core.info(`Maintainer ${prAuthor} bypassing community support requirement (issue has ${thumbsUp} 👍 reactions)`);
             }
