@@ -460,9 +460,7 @@ class OpenAILanguageModel(BaseLanguageModel):
 
     # Initialize the OpenAI client
     self._client = openai.OpenAI(
-        api_key=self.api_key,
-        organization=self.organization,
-        base_url=base_url
+        api_key=self.api_key, organization=self.organization, base_url=base_url
     )
 
     super().__init__(
