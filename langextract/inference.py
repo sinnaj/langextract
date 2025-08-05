@@ -421,6 +421,7 @@ class OpenAILanguageModel(BaseLanguageModel):
       self,
       model_id: str = 'gpt-4o-mini',
       api_key: str | None = None,
+      base_url: str | None = None,
       organization: str | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
       temperature: float = 0.0,
@@ -432,6 +433,7 @@ class OpenAILanguageModel(BaseLanguageModel):
     Args:
       model_id: The OpenAI model ID to use (e.g., 'gpt-4o-mini', 'gpt-4o').
       api_key: API key for OpenAI service.
+      base_url: Optional base URL for OpenAI API (e.g., "https://api.openai.com/v1" for OpenAI, "https://api.anthropic.com/v1/" for Claude).
       organization: Optional OpenAI organization ID.
       format_type: Output format (JSON or YAML).
       temperature: Sampling temperature.
@@ -452,7 +454,9 @@ class OpenAILanguageModel(BaseLanguageModel):
 
     # Initialize the OpenAI client
     self._client = openai.OpenAI(
-        api_key=self.api_key, organization=self.organization
+        api_key=self.api_key,
+        organization=self.organization,
+        base_url=base_url
     )
 
     super().__init__(
