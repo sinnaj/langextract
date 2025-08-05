@@ -89,9 +89,12 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     self.assertIn("extractions", schema_props)
 
     # Verify extraction results
+    self.assertIsNotNone(result)
     self.assertEqual(len(result.extractions), 1)
     self.assertEqual(result.extractions[0].extraction_class, "medication")
     self.assertEqual(result.extractions[0].extraction_text, "aspirin")
+    self.assertEqual(result.extractions[0].attributes["dosage"], "100mg")
+    self.assertEqual(result.extractions[0].attributes["frequency"], "daily")
 
   def test_extract_openai_yaml_with_schema_raises_error(self):
     """Test that YAML format with schema constraints raises an error."""
@@ -205,6 +208,12 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
         messages[0]["content"],
         "You are a helpful assistant that responds in JSON format.",
     )
+
+    # Verify result is properly returned
+    self.assertIsNotNone(result)
+    self.assertEqual(len(result.extractions), 1)
+    self.assertEqual(result.extractions[0].extraction_class, "entity")
+    self.assertEqual(result.extractions[0].extraction_text, "test")
 
 
 if __name__ == "__main__":
