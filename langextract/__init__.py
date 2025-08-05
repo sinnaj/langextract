@@ -192,21 +192,23 @@ def extract(
       # Only allow schema constraints for JSON format with OpenAI
       if format_type == data.FormatType.JSON:
         if not fence_output:
-          model_schema = schema.OpenAISchema.from_examples(prompt_template.examples)
+          model_schema = schema.OpenAISchema.from_examples(
+              prompt_template.examples
+          )
         else:
           raise ValueError(
-              "OpenAI schema constraints cannot be used with fence_output=True. "
-              "Set fence_output=False to use schema constraints."
+              "OpenAI schema constraints cannot be used with fence_output=True."
+              " Set fence_output=False to use schema constraints."
           )
       elif format_type == data.FormatType.YAML:
         raise ValueError(
-            "OpenAI schema constraints are only supported with FormatType.JSON. "
-            "YAML format is not supported with OpenAI's structured outputs."
+            "OpenAI schema constraints are only supported with FormatType.JSON."
+            " YAML format is not supported with OpenAI's structured outputs."
         )
 
   if not api_key:
     api_key = os.environ.get("LANGEXTRACT_API_KEY")
-    
+
     # Try OpenAI-specific env var if not found
     if not api_key and language_model_type == inference.OpenAILanguageModel:
       api_key = os.environ.get("LANGEXTRACT_OPENAI_API_KEY")
@@ -225,8 +227,16 @@ def extract(
   base_lm_kwargs: dict[str, Any] = {
       "api_key": api_key,
       "model_id": model_id,
-      "gemini_schema": model_schema if language_model_type == inference.GeminiLanguageModel else None,
-      "openai_schema": model_schema if language_model_type == inference.OpenAILanguageModel else None,
+      "gemini_schema": (
+          model_schema
+          if language_model_type == inference.GeminiLanguageModel
+          else None
+      ),
+      "openai_schema": (
+          model_schema
+          if language_model_type == inference.OpenAILanguageModel
+          else None
+      ),
       "format_type": format_type,
       "temperature": temperature,
       "model_url": model_url,

@@ -454,8 +454,8 @@ class OpenAILanguageModel(BaseLanguageModel):
     # Validate that schema constraints are only used with JSON format
     if openai_schema is not None and format_type != data.FormatType.JSON:
       raise ValueError(
-          "OpenAI schema constraints are only supported with FormatType.JSON. "
-          "YAML format is not supported with structured outputs."
+          'OpenAI schema constraints are only supported with FormatType.JSON. '
+          'YAML format is not supported with structured outputs.'
       )
 
     if not self.api_key:
@@ -495,7 +495,7 @@ class OpenAILanguageModel(BaseLanguageModel):
                 'name': self.openai_schema.name,
                 'strict': self.openai_schema.strict,
                 'schema': self.openai_schema.schema_dict,
-            }
+            },
         }
         # System message for structured output
         system_message = (

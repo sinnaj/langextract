@@ -18,9 +18,9 @@ from unittest import mock
 
 from absl.testing import absltest
 
-import langextract as lx
 from langextract import data
 from langextract import inference
+import langextract as lx
 
 
 class TestOpenAIExtractIntegration(absltest.TestCase):
@@ -37,8 +37,9 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
         mock.Mock(
             message=mock.Mock(
                 content=(
-                    '{"extractions": [{"medication": "aspirin", '
-                    '"medication_attributes": {"dosage": "100mg", "frequency": "daily"}}]}'
+                    '{"extractions": [{"medication": "aspirin",'
+                    ' "medication_attributes": {"dosage": "100mg", "frequency":'
+                    ' "daily"}}]}'
                 )
             )
         )
@@ -77,16 +78,16 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     self.assertIn("response_format", call_args)
     self.assertEqual(call_args["response_format"]["type"], "json_schema")
     self.assertIn("json_schema", call_args["response_format"])
-    
+
     # Verify the schema structure
     json_schema = call_args["response_format"]["json_schema"]
     self.assertEqual(json_schema["name"], "langextract_extraction")
     self.assertTrue(json_schema["strict"])
-    
+
     # Check schema contains expected structure
     schema_props = json_schema["schema"]["properties"]
     self.assertIn("extractions", schema_props)
-    
+
     # Verify extraction results
     self.assertEqual(len(result.extractions), 1)
     self.assertEqual(result.extractions[0].extraction_class, "medication")
@@ -97,7 +98,11 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     examples = [
         data.ExampleData(
             text="Test",
-            extractions=[data.Extraction(extraction_text="test", extraction_class="entity")],
+            extractions=[
+                data.Extraction(
+                    extraction_text="test", extraction_class="entity"
+                )
+            ],
         )
     ]
 
@@ -123,7 +128,11 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     examples = [
         data.ExampleData(
             text="Test",
-            extractions=[data.Extraction(extraction_text="test", extraction_class="entity")],
+            extractions=[
+                data.Extraction(
+                    extraction_text="test", extraction_class="entity"
+                )
+            ],
         )
     ]
 
@@ -166,7 +175,11 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     examples = [
         data.ExampleData(
             text="Example",
-            extractions=[data.Extraction(extraction_text="example", extraction_class="entity")],
+            extractions=[
+                data.Extraction(
+                    extraction_text="example", extraction_class="entity"
+                )
+            ],
         )
     ]
 
@@ -185,7 +198,7 @@ class TestOpenAIExtractIntegration(absltest.TestCase):
     # Verify OpenAI was called without schema constraints
     call_args = mock_client.chat.completions.create.call_args[1]
     self.assertNotIn("response_format", call_args)
-    
+
     # Verify system message is standard JSON format message
     messages = call_args["messages"]
     self.assertEqual(

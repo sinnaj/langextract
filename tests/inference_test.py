@@ -135,8 +135,6 @@ class TestOpenAILanguageModel(absltest.TestCase):
             },
         ],
         temperature=0.5,
-        max_tokens=None,
-        top_p=None,
         n=1,
     )
 
@@ -204,8 +202,6 @@ class TestOpenAILanguageModel(absltest.TestCase):
         model="gpt-4o-mini",
         messages=mock.ANY,
         temperature=0.0,
-        max_tokens=None,
-        top_p=None,
         n=1,
     )
 
@@ -256,7 +252,10 @@ class TestOpenAILanguageModel(absltest.TestCase):
     mock_response.choices = [
         mock.Mock(
             message=mock.Mock(
-                content='{"extractions": [{"name": "John", "age_attributes": {"value": "30"}}]}'
+                content=(
+                    '{"extractions": [{"name": "John", "age_attributes":'
+                    ' {"value": "30"}}]}'
+                )
             )
         )
     ]
@@ -265,16 +264,19 @@ class TestOpenAILanguageModel(absltest.TestCase):
     # Create OpenAI schema
     examples = [
         data.ExampleData(
+            text="Alice is 25 years old",
             extractions=[
                 data.Extraction(
                     extraction_class="name",
-                    attributes={"value": "Alice"},
+                    extraction_text="Alice",
+                    attributes={"type": "String"},
                 ),
                 data.Extraction(
                     extraction_class="age",
-                    attributes={"value": "25"},
+                    extraction_text="25",
+                    attributes={"type": "Integer"},
                 ),
-            ]
+            ],
         )
     ]
     openai_schema = schema.OpenAISchema.from_examples(examples)
@@ -290,7 +292,7 @@ class TestOpenAILanguageModel(absltest.TestCase):
     # Test inference
     batch_prompts = ["Extract name and age from: John is 30 years old"]
     results = list(model.infer(batch_prompts))
-    
+
     # Verify we got results
     self.assertEqual(len(results), 1)
     self.assertEqual(len(results[0]), 1)
@@ -312,7 +314,8 @@ class TestOpenAILanguageModel(absltest.TestCase):
     messages = call_args[1]["messages"]
     self.assertEqual(
         messages[0]["content"],
-        "You are a helpful assistant that extracts information in the specified JSON format.",
+        "You are a helpful assistant that extracts information in the specified"
+        " JSON format.",
     )
 
 

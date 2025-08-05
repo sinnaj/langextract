@@ -251,7 +251,10 @@ class OpenAISchemaTest(parameterized.TestCase):
                       data.Extraction(
                           extraction_text="diabetes",
                           extraction_class="condition",
-                          attributes={"severity": "mild", "duration": "5 years"},
+                          attributes={
+                              "severity": "mild",
+                              "duration": "5 years",
+                          },
                       )
                   ],
               )
@@ -292,7 +295,9 @@ class OpenAISchemaTest(parameterized.TestCase):
                       data.Extraction(
                           extraction_text="conditions",
                           extraction_class="diagnosis",
-                          attributes={"conditions": ["diabetes", "hypertension"]},
+                          attributes={
+                              "conditions": ["diabetes", "hypertension"]
+                          },
                       )
                   ],
               )
@@ -357,9 +362,11 @@ class OpenAISchemaTest(parameterized.TestCase):
     openai_schema = schema.OpenAISchema.from_examples(
         examples_data, attribute_suffix="_props"
     )
-    
+
     # Check that custom suffix is used
-    items_props = openai_schema.schema_dict["properties"][schema.EXTRACTIONS_KEY]["items"]["properties"]
+    items_props = openai_schema.schema_dict["properties"][
+        schema.EXTRACTIONS_KEY
+    ]["items"]["properties"]
     self.assertIn("entity_props", items_props)
     self.assertNotIn("entity_attributes", items_props)
 
