@@ -613,17 +613,14 @@ class BedrockConverseLanguageModel(BaseLanguageModel):
 
     # Check if credentials are available in environment
     if 'AWS_BEARER_TOKEN_BEDROCK' not in os.environ:
-      raise ValueError(
-          'AWS_BEARER_TOKEN_BEDROCK not found in'
-          ' environment'
-      )
+      raise ValueError('AWS_BEARER_TOKEN_BEDROCK not found in environment')
 
     # Set region, defaulting to us-east-1 if not specified
     if 'AWS_DEFAULT_REGION' in os.environ:
       region = os.environ['AWS_DEFAULT_REGION']
     else:
       region = AWS_DEFAULT_REGION
-      
+
     self._client = boto3.client(
         service_name='bedrock-runtime', region_name=region
     )
@@ -651,10 +648,14 @@ class BedrockConverseLanguageModel(BaseLanguageModel):
           'temperature': config.get('temperature', self.temperature),
       }
 
-      if 'max_output_tokens' in config:
-        inference_config['topP'] = config.get('top_p')
-      if 'top_p' in config:
-        inference_config['topP'] = config.get('top_p')
+      # Only include maxTokens and topP if they have values
+      if (
+          'max_output_tokens' in config
+          and config['max_output_tokens'] is not None
+      ):
+        inference_config['maxTokens'] = config['max_output_tokens']
+      if 'top_p' in config and config['top_p'] is not None:
+        inference_config['topP'] = config['top_p']
 
       response = self._client.converse(
           modelId=self.model_id,
@@ -688,6 +689,8 @@ class BedrockConverseLanguageModel(BaseLanguageModel):
     }
     if 'max_output_tokens' in kwargs:
       config['max_output_tokens'] = kwargs['max_output_tokens']
+    if 'top_p' in kwargs:
+      config['top_p'] = kwargs['top_p']
 
     # Use parallel processing for batches larger than 1
     if len(batch_prompts) > 1 and self.max_workers > 1:
