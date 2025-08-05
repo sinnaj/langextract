@@ -1,4 +1,4 @@
-name: Check infrastructure changes
+name: Protect Infrastructure Files
 
 on:
   pull_request:
@@ -36,9 +36,19 @@ jobs:
               pull_number: context.payload.pull_request.number
             });
 
-            // Check for .github directory changes
+            // Check for infrastructure file changes
             const infrastructureFiles = files.filter(file =>
-              file.filename.startsWith('.github/')
+              file.filename.startsWith('.github/') ||
+              file.filename === 'pyproject.toml' ||
+              file.filename === 'tox.ini' ||
+              file.filename === '.pre-commit-config.yaml' ||
+              file.filename === '.pylintrc' ||
+              file.filename === 'Dockerfile' ||
+              file.filename === 'autoformat.sh' ||
+              file.filename === '.gitignore' ||
+              file.filename === 'CONTRIBUTING.md' ||
+              file.filename === 'LICENSE' ||
+              file.filename === 'CITATION.cff'
             );
 
             if (infrastructureFiles.length > 0 && !isMaintainer) {
@@ -65,7 +75,7 @@ jobs:
                 issue_number: context.payload.pull_request.number,
                 body: `❌ **Infrastructure File Protection**\n\n` +
                       `This PR modifies protected infrastructure files:\n\n${fileList}\n\n` +
-                      `Only repository maintainers are allowed to modify files in the \`.github/\` directory.\n\n` +
+                      `Only repository maintainers are allowed to modify infrastructure files (including \`.github/\`, build configuration, and repository documentation).\n\n` +
                       `**Note**: If these are only formatting changes, please:\n` +
                       `1. Revert changes to \`.github/\` files\n` +
                       `2. Use \`./autoformat.sh\` to format only source code directories\n` +
@@ -77,7 +87,7 @@ jobs:
               });
 
               core.setFailed(
-                `This PR modifies ${infrastructureFiles.length} infrastructure file(s) in .github/. ` +
+                `This PR modifies ${infrastructureFiles.length} protected infrastructure file(s). ` +
                 `Only maintainers can modify these files. ` +
                 `Use ./autoformat.sh to format code without touching infrastructure.`
               );
