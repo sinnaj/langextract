@@ -275,7 +275,7 @@ Note: OpenAI models require `fence_output=True` and `use_schema_constraints=Fals
 
 ## Using Amazon Bedrock Models
 
-LangExtract also supports Amazon Bedrock models via the Converse API and Bedrock API keys. A full list of models on Bedrock supported by the Converse API can be found [here](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html). Example Bedrock configuration:
+LangExtract also supports Amazon Bedrock models via the Converse API and Bedrock API keys. A full list of models on Bedrock supported by the Converse API can be found [here](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html). Follow [Setting up API Keys](https://github.com/google/langextract?tab=readme-ov-file#setting-up-api-key-in-your-environment) to export AWS_BEARER_TOKEN_BEDROCK and AWS_DEFAULT_REGION to your environment. Example Bedrock configuration:
 
 ```python
 from langextract.inference import BedrockConverseLanguageModel
@@ -286,7 +286,6 @@ result = lx.extract(
     examples=examples,
     language_model_type=BedrockConverseLanguageModel,
     model_id='us.anthropic.claude-sonnet-4-20250514-v1:0',
-    api_key=os.environ.get('AWS_BEARER_TOKEN_BEDROCK'), # Optional, it's recommended to export AWS_BEARER_TOKEN_BEDROCK and AWS_DEFAULT_REGION to environment
     fence_output=True,
     use_schema_constraints=False
 )
