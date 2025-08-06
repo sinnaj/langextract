@@ -1,0 +1,116 @@
+name: Revalidate PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to validate'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR data
+        id: pr_data
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: ${{ inputs.pr_number }}
+            });
+            
+            core.info(`Validating PR #${pr.number}: ${pr.title}`);
+            core.info(`Author: ${pr.user.login}`);
+            core.info(`Changes: +${pr.additions} -${pr.deletions}`);
+            
+            return pr;
+
+      - name: Check PR size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = ${{ steps.pr_data.outputs.result }};
+            const totalChanges = pr.additions + pr.deletions;
+            
+            const sizeLabel =
+              totalChanges < 50   ? 'size/XS' :
+              totalChanges < 150  ? 'size/S'  :
+              totalChanges < 600  ? 'size/M'  :
+              totalChanges < 1000 ? 'size/L'  : 'size/XL';
+            
+            core.info(`PR size: ${sizeLabel} (${totalChanges} lines)`);
+            
+            const MAX_LINES = 1000;
+            if (totalChanges > MAX_LINES) {
+              core.setFailed(
+                `PR contains ${totalChanges} lines of changes, exceeding the ${MAX_LINES} line limit.`
+              );
+            }
+
+      - name: Check PR template
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = ${{ steps.pr_data.outputs.result }};
+            const body = pr.body || '';
+            
+            const required = ["# Description", "Fixes #", "# How Has This Been Tested?", "# Checklist"];
+            const missing = [];
+            
+            for (const section of required) {
+              if (!body.includes(section)) {
+                missing.push(section);
+              }
+            }
+            
+            if (body.match(/Replace this with|Choose one:|Fixes #\[issue number\]/i)) {
+              core.setFailed('PR template contains unmodified placeholders');
+            }
+            
+            if (missing.length > 0) {
+              core.setFailed(`PR template missing sections: ${missing.join(', ')}`);
+            }
+
+      - name: Check linked issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = ${{ steps.pr_data.outputs.result }};
+            const body = pr.body || '';
+            
+            const match = body.match(/(?:Fixes|Closes|Resolves)\s+#(\d+)/i);
+            if (!match) {
+              core.setFailed('No linked issue found. PRs must include "Fixes #123" or similar.');
+              return;
+            }
+            
+            const issueNumber = Number(match[1]);
+            core.info(`Found linked issue: #${issueNumber}`);
+
+      - name: Add validation comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = ${{ steps.pr_data.outputs.result }};
+            const checks = [
+              `Size: ${pr.additions + pr.deletions} lines`,
+              `Template: ${pr.body?.includes('# Description') ? '✓' : '✗'}`,
+              `Linked issue: ${pr.body?.match(/(?:Fixes|Closes|Resolves)\s+#(\d+)/i) ? '✓' : '✗'}`
+            ];
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: `Manual validation results:\n\n${checks.join('\n')}\n\nRun ID: ${context.runId}`
+            });
