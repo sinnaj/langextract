@@ -44,9 +44,9 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.inputs?.pr_number;
-            
+
             // Get list of open PRs
-            const prs = prNumber 
+            const prs = prNumber
               ? [(await github.rest.pulls.get({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -59,13 +59,13 @@ jobs:
                   sort: 'updated',
                   direction: 'desc'
                 });
-            
+
             console.log(`Found ${prs.length} open PRs to check`);
-            
+
             // Constants for comment flood control
             const UPDATE_COMMENT_COOLDOWN_DAYS = 7;
             const COOLDOWN_MS = UPDATE_COMMENT_COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
-            
+
             for (const pr of prs) {
               // Skip bot PRs and drafts
               if (pr.user.login.includes('[bot]')) {
@@ -76,7 +76,7 @@ jobs:
                 console.log(`Skipping draft PR #${pr.number}`);
                 continue;
               }
-              
+
               try {
                 // Check if PR is behind main (base...head comparison)
                 const { data: comparison } = await github.rest.repos.compareCommits({
@@ -85,10 +85,10 @@ jobs:
                   base: pr.base.ref,  // main branch
                   head: `${pr.head.repo.owner.login}:${pr.head.ref}`  // Fully qualified ref for forks
                 });
-                
+
                 if (comparison.behind_by > 0) {
                   console.log(`PR #${pr.number} is ${comparison.behind_by} commits behind ${pr.base.ref}`);
-                  
+
                   // Check if the PR allows maintainer edits
                   if (pr.maintainer_can_modify) {
                     // Try to update the branch
@@ -98,9 +98,9 @@ jobs:
                         repo: context.repo.repo,
                         pull_number: pr.number
                       });
-                      
+
                       console.log(`✅ Updated PR #${pr.number}`);
-                      
+
                       // Add a comment
                       await github.rest.issues.createComment({
                         owner: context.repo.owner,
@@ -110,7 +110,7 @@ jobs:
                       });
                     } catch (updateError) {
                       console.log(`Could not auto-update PR #${pr.number}: ${updateError.message}`);
-                      
+
                       // Determine the reason for failure
                       let failureReason = '';
                       if (updateError.status === 409 || updateError.message.includes('merge conflict')) {
@@ -118,7 +118,7 @@ jobs:
                       } else if (updateError.status === 422) {
                         failureReason = '\n\n**Note:** Cannot push to fork. Please update manually.';
                       }
-                      
+
                       // Notify the contributor to update manually
                       await github.rest.issues.createComment({
                         owner: context.repo.owner,
@@ -130,7 +130,7 @@ jobs:
                   } else {
                     // Can't modify, just notify
                     console.log(`PR #${pr.number} doesn't allow maintainer edits`);
-                    
+
                     // Check if we already commented recently (within last 7 days)
                     const { data: comments } = await github.rest.issues.listComments({
                       owner: context.repo.owner,
@@ -138,12 +138,12 @@ jobs:
                       issue_number: pr.number,
                       since: new Date(Date.now() - COOLDOWN_MS).toISOString()
                     });
-                    
-                    const hasRecentUpdateComment = comments.some(c => 
-                      c.body?.includes('Branch Update Required') && 
+
+                    const hasRecentUpdateComment = comments.some(c =>
+                      c.body?.includes('Branch Update Required') &&
                       c.user?.login === 'github-actions[bot]'
                     );
-                    
+
                     if (!hasRecentUpdateComment) {
                       await github.rest.issues.createComment({
                         owner: context.repo.owner,
@@ -160,7 +160,7 @@ jobs:
                 console.error(`Error processing PR #${pr.number}:`, error.message);
               }
             }
-            
+
             // Log rate limit status
             const { data: rateLimit } = await github.rest.rateLimit.get();
             console.log(`API rate limit remaining: ${rateLimit.rate.remaining}/${rateLimit.rate.limit}`);
