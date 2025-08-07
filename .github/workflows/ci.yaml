@@ -154,7 +154,7 @@ jobs:
               repo: context.repo.repo,
               username: context.actor
             });
-            
+
             const isMaintainer = ['admin', 'maintain'].includes(permission.permission);
             if (!isMaintainer) {
               throw new Error(`User ${context.actor} does not have maintainer permissions.`);
@@ -170,7 +170,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           # pull_request_target runs in base repo context, so this is safe
           git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-to-test
           git merge pr-to-test --no-ff --no-edit

@@ -28,7 +28,7 @@ for pr in $PR_NUMBERS; do
     COUNT=$((COUNT + 1))
     echo "[$COUNT/$TOTAL] Triggering revalidation for PR #$pr..."
     gh workflow run revalidate-pr.yml -f pr_number=$pr
-    
+
     # Small delay to avoid rate limiting
     sleep 2
 done
