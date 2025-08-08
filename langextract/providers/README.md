@@ -349,14 +349,6 @@ The factory automatically resolves API keys from environment:
 4. **Explicit Control**: Users can force specific providers when needed
 5. **Pattern Priority**: All patterns have equal priority (0) by default
 
-## Migration Path for OpenAI
-
-Currently, OpenAI is an optional built-in provider. Future plan:
-1. Move to external plugin package (`langextract-openai`)
-2. Users install via `pip install langextract-openai`
-3. Usage remains exactly the same
-4. Benefits: Cleaner dependencies, better modularity
-
 ## Common Issues
 
 ### Provider Not Found
