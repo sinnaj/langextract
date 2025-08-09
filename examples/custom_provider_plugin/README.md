@@ -61,6 +61,7 @@ Since this example registers the same pattern as the default Gemini provider, yo
 ```python
 import langextract as lx
 
+# Create a configured model with explicit provider selection
 config = lx.factory.ModelConfig(
     model_id="gemini-2.5-flash",
     provider="CustomGeminiProvider",
@@ -68,11 +69,22 @@ config = lx.factory.ModelConfig(
 )
 model = lx.factory.create_model(config)
 
+# Note: Passing model directly to extract() is coming soon.
+# For now, use the model's infer() method directly or pass parameters individually:
 result = lx.extract(
     text_or_documents="Your text here",
-    model=model,
-    prompt_description="Extract key information"
+    model_id="gemini-2.5-flash",
+    api_key="your-api-key",
+    prompt_description="Extract key information",
+    examples=[...]
 )
+
+# Coming soon: Direct model passing
+# result = lx.extract(
+#     text_or_documents="Your text here",
+#     model=model,  # Planned feature
+#     prompt_description="Extract key information"
+# )
 ```
 
 ## Creating Your Own Provider
