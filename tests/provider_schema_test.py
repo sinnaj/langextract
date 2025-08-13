@@ -208,44 +208,48 @@ class OllamaFormatParameterTest(absltest.TestCase):
       }
       mock_post.return_value = mock_response
 
-      examples = [
-          data.ExampleData(
-              text="Sample text",
-              extractions=[
-                  data.Extraction(
-                      extraction_class="test",
-                      extraction_text="sample",
-                  )
-              ],
-          )
-      ]
+      # Mock the registry to return OllamaLanguageModel
+      with mock.patch("langextract.providers.registry.resolve") as mock_resolve:
+        mock_resolve.return_value = ollama.OllamaLanguageModel
 
-      result = lx.extract(
-          text_or_documents="Test document",
-          prompt_description="Extract test information",
-          examples=examples,
-          model_id="gemma2:2b",
-          model_url="http://localhost:11434",
-          format_type=data.FormatType.JSON,
-          use_schema_constraints=True,
-      )
+        examples = [
+            data.ExampleData(
+                text="Sample text",
+                extractions=[
+                    data.Extraction(
+                        extraction_class="test",
+                        extraction_text="sample",
+                    )
+                ],
+            )
+        ]
 
-      mock_post.assert_called()
+        result = lx.extract(
+            text_or_documents="Test document",
+            prompt_description="Extract test information",
+            examples=examples,
+            model_id="gemma2:2b",
+            model_url="http://localhost:11434",
+            format_type=data.FormatType.JSON,
+            use_schema_constraints=True,
+        )
 
-      last_call = mock_post.call_args_list[-1]
-      payload = last_call[1]["json"]
+        mock_post.assert_called()
 
-      self.assertEqual(
-          payload["format"],
-          "json",
-          msg="Format should be json in extract() call",
-      )
-      self.assertEqual(
-          payload["model"], "gemma2:2b", msg="Model ID should match"
-      )
+        last_call = mock_post.call_args_list[-1]
+        payload = last_call[1]["json"]
 
-      self.assertIsNotNone(result)
-      self.assertIsInstance(result, data.AnnotatedDocument)
+        self.assertEqual(
+            payload["format"],
+            "json",
+            msg="Format should be json in extract() call",
+        )
+        self.assertEqual(
+            payload["model"], "gemma2:2b", msg="Model ID should match"
+        )
+
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, data.AnnotatedDocument)
 
 
 class OllamaYAMLOverrideTest(absltest.TestCase):
