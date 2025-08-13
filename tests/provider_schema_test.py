@@ -22,6 +22,7 @@ from langextract import data
 from langextract import exceptions
 from langextract import factory
 from langextract import schema
+import langextract as lx
 from langextract.providers import gemini as gemini_provider
 from langextract.providers import ollama
 from langextract.providers import openai
@@ -141,6 +142,110 @@ class FormatModeSchemaTest(absltest.TestCase):
         schema2.to_provider_config(),
         msg="Different examples should produce same config for Ollama",
     )
+
+
+class OllamaFormatParameterTest(absltest.TestCase):
+  """Tests for Ollama format parameter handling."""
+
+  def test_ollama_json_format_in_request_payload(self):
+    """Test that JSON format is passed to Ollama API by default."""
+    with mock.patch("requests.post", autospec=True) as mock_post:
+      mock_response = mock.Mock(spec=["status_code", "json"])
+      mock_response.status_code = 200
+      mock_response.json.return_value = {"response": '{"test": "value"}'}
+      mock_post.return_value = mock_response
+
+      model = ollama.OllamaLanguageModel(
+          model_id="test-model",
+          format_type=data.FormatType.JSON,
+      )
+
+      list(model.infer(["Test prompt"]))
+
+      mock_post.assert_called_once()
+      call_kwargs = mock_post.call_args[1]
+      payload = call_kwargs["json"]
+
+      self.assertEqual(payload["format"], "json", msg="Format should be json")
+      self.assertEqual(
+          payload["model"], "test-model", msg="Model ID should match"
+      )
+      self.assertEqual(
+          payload["prompt"], "Test prompt", msg="Prompt should match"
+      )
+      self.assertFalse(payload["stream"], msg="Stream should be False")
+
+  def test_ollama_default_format_is_json(self):
+    """Test that JSON is the default format when not specified."""
+    with mock.patch("requests.post", autospec=True) as mock_post:
+      mock_response = mock.Mock(spec=["status_code", "json"])
+      mock_response.status_code = 200
+      mock_response.json.return_value = {"response": '{"test": "value"}'}
+      mock_post.return_value = mock_response
+
+      model = ollama.OllamaLanguageModel(model_id="test-model")
+
+      list(model.infer(["Test prompt"]))
+
+      mock_post.assert_called_once()
+      call_kwargs = mock_post.call_args[1]
+      payload = call_kwargs["json"]
+
+      self.assertEqual(
+          payload["format"], "json", msg="Default format should be json"
+      )
+
+  def test_extract_with_ollama_passes_json_format(self):
+    """Test that lx.extract() correctly passes JSON format to Ollama API."""
+    with mock.patch("requests.post", autospec=True) as mock_post:
+      mock_response = mock.Mock(spec=["status_code", "json"])
+      mock_response.status_code = 200
+      mock_response.json.return_value = {
+          "response": (
+              '{"extractions": [{"extraction_class": "test", "extraction_text":'
+              ' "example"}]}'
+          )
+      }
+      mock_post.return_value = mock_response
+
+      examples = [
+          data.ExampleData(
+              text="Sample text",
+              extractions=[
+                  data.Extraction(
+                      extraction_class="test",
+                      extraction_text="sample",
+                  )
+              ],
+          )
+      ]
+
+      result = lx.extract(
+          text_or_documents="Test document",
+          prompt_description="Extract test information",
+          examples=examples,
+          model_id="gemma2:2b",
+          model_url="http://localhost:11434",
+          format_type=data.FormatType.JSON,
+          use_schema_constraints=True,
+      )
+
+      mock_post.assert_called()
+
+      last_call = mock_post.call_args_list[-1]
+      payload = last_call[1]["json"]
+
+      self.assertEqual(
+          payload["format"],
+          "json",
+          msg="Format should be json in extract() call",
+      )
+      self.assertEqual(
+          payload["model"], "gemma2:2b", msg="Model ID should match"
+      )
+
+      self.assertIsNotNone(result)
+      self.assertIsInstance(result, data.AnnotatedDocument)
 
 
 class OllamaYAMLOverrideTest(absltest.TestCase):
