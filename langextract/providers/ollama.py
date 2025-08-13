@@ -12,7 +12,61 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Ollama provider for LangExtract."""
+"""Ollama provider for LangExtract.
+
+This provider enables using local Ollama models with LangExtract's extract() function.
+No API key is required since Ollama runs locally on your machine.
+
+Usage with extract():
+    import langextract as lx
+    from langextract.data import ExampleData, Extraction
+
+    # Create an example for few-shot learning
+    example = ExampleData(
+        text="Marie Curie was a pioneering physicist and chemist.",
+        extractions=[
+            Extraction(
+                extraction_class="person",
+                extraction_text="Marie Curie",
+                attributes={"name": "Marie Curie", "field": "physics and chemistry"}
+            )
+        ]
+    )
+
+    # Basic usage with Ollama
+    result = lx.extract(
+        text_or_documents="Isaac Asimov was a prolific science fiction writer.",
+        model_id="gemma2:2b",
+        prompt_description="Extract the person's name and field",
+        examples=[example],
+    )
+
+Direct provider instantiation (when model ID conflicts with other providers):
+    from langextract.providers.ollama import OllamaLanguageModel
+
+    # Create Ollama provider directly
+    model = OllamaLanguageModel(
+        model_id="gemma2:2b",
+        model_url="http://localhost:11434",  # optional, uses default if not specified
+    )
+
+    # Use with extract by passing the model instance
+    result = lx.extract(
+        text_or_documents="Your text here",
+        model=model,  # Pass the model instance directly
+        prompt_description="Extract information",
+        examples=[example],
+    )
+
+Supported model ID formats:
+    - Standard Ollama: llama3.2:1b, gemma2:2b, mistral:7b, qwen2.5:7b, etc.
+    - Hugging Face style: meta-llama/Llama-3.2-1B-Instruct, google/gemma-2b, etc.
+
+Prerequisites:
+    1. Install Ollama: https://ollama.ai
+    2. Pull the model: ollama pull gemma2:2b
+    3. Ollama server will start automatically when you use extract()
+"""
 # pylint: disable=cyclic-import,duplicate-code
 
 from __future__ import annotations
@@ -33,7 +87,7 @@ _OLLAMA_DEFAULT_MODEL_URL = 'http://localhost:11434'
 
 
 @registry.register(
-    # Latest open models via Ollama (2024-2025)
+    # Standard Ollama naming patterns
     r'^gemma',  # gemma2:2b, gemma2:9b, gemma2:27b, etc.
     r'^llama',  # llama3.2:1b, llama3.2:3b, llama3.1:8b, llama3.1:70b, etc.
     r'^mistral',  # mistral:7b, mistral-nemo:12b, mistral-large, etc.
@@ -47,6 +101,19 @@ _OLLAMA_DEFAULT_MODEL_URL = 'http://localhost:11434'
     r'^codegemma',  # codegemma:2b, codegemma:7b, etc.
     r'^tinyllama',  # tinyllama:1.1b, etc.
     r'^wizardcoder',  # wizardcoder:7b, wizardcoder:13b, wizardcoder:34b, etc.
+    r'^gpt-oss',  # gpt-oss:20b, etc.
+    # Hugging Face style model IDs (organization/model-name)
+    r'^meta-llama/[Ll]lama',  # meta-llama/Llama-3.2-1B-Instruct, etc.
+    r'^google/gemma',  # google/gemma-2b, google/gemma-7b-it, etc.
+    r'^mistralai/[Mm]istral',  # mistralai/Mistral-7B-v0.1, etc.
+    r'^mistralai/[Mm]ixtral',  # mistralai/Mixtral-8x7B-v0.1, etc.
+    r'^microsoft/phi',  # microsoft/phi-2, microsoft/phi-3-mini, etc.
+    r'^Qwen/',  # Qwen/Qwen2.5-7B, Qwen/Qwen2.5-Coder, etc.
+    r'^deepseek-ai/',  # deepseek-ai/deepseek-coder-v2, etc.
+    r'^bigcode/starcoder',  # bigcode/starcoder2-3b, etc.
+    r'^codellama/',  # codellama/CodeLlama-7b-Python, etc.
+    r'^TinyLlama/',  # TinyLlama/TinyLlama-1.1B-Chat-v1.0, etc.
+    r'^WizardLM/',  # WizardLM/WizardCoder-Python-7B-V1.0, etc.
     priority=10,
 )
 @dataclasses.dataclass(init=False)

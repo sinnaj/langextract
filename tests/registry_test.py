@@ -190,6 +190,42 @@ class RegistryTest(absltest.TestCase):
       registry.resolve_provider("UnknownProvider")
     self.assertIn("No provider found matching", str(cm.exception))
 
+  def test_hf_style_model_id_patterns(self):
+    """Test that Hugging Face style model ID patterns work.
+
+    This addresses issue #129 where HF-style model IDs like
+    'meta-llama/Llama-3.2-1B-Instruct' weren't being recognized.
+    """
+
+    @registry.register(
+        r"^meta-llama/[Ll]lama",
+        r"^google/gemma",
+        r"^mistralai/[Mm]istral",
+        r"^microsoft/phi",
+        r"^Qwen/",
+        r"^TinyLlama/",
+        priority=100,
+    )
+    class TestHFProvider(inference.BaseLanguageModel):
+
+      def infer(self, batch_prompts, **kwargs):
+        return []
+
+    hf_model_ids = [
+        "meta-llama/Llama-3.2-1B-Instruct",
+        "meta-llama/llama-2-7b",
+        "google/gemma-2b",
+        "mistralai/Mistral-7B-v0.1",
+        "microsoft/phi-3-mini",
+        "Qwen/Qwen2.5-7B",
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    ]
+
+    for model_id in hf_model_ids:
+      with self.subTest(model_id=model_id):
+        provider_class = registry.resolve(model_id)
+        self.assertEqual(provider_class, TestHFProvider)
+
 
 if __name__ == "__main__":
   absltest.main()
