@@ -27,6 +27,7 @@ from typing_extensions import deprecated
 import yaml
 
 from langextract import data
+from langextract import debug_utils
 from langextract import exceptions
 from langextract import schema
 
@@ -63,23 +64,28 @@ class BaseLanguageModel(abc.ABC):
     _constraint: A `Constraint` object specifying constraints for model output.
   """
 
-  def __init__(self, constraint: schema.Constraint = schema.Constraint()):
+  @debug_utils.debug_log_calls
+  def __init__(
+      self, constraint: schema.Constraint | None = None, **kwargs: Any
+  ):
     """Initializes the BaseLanguageModel with an optional constraint.
 
     Args:
       constraint: Applies constraints when decoding the output. Defaults to no
         constraint.
+      **kwargs: Additional keyword arguments passed to the model.
     """
-    self._constraint = constraint
+    self._constraint = constraint or schema.Constraint()
     self._schema: schema.BaseSchema | None = None
     self._fence_output_override: bool | None = None
-    self._extra_kwargs: dict[str, Any] = {}
+    self._extra_kwargs: dict[str, Any] = kwargs.copy()
 
   @classmethod
   def get_schema_class(cls) -> type[schema.BaseSchema] | None:
     """Return the schema class this provider supports."""
     return None
 
+  @debug_utils.debug_log_calls
   def apply_schema(self, schema_instance: schema.BaseSchema | None) -> None:
     """Apply a schema instance to this provider.
 
