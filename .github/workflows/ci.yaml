@@ -65,24 +65,19 @@ jobs:
           isort --check-only --diff .
 
       - name: Comment on PR if formatting fails
-        if: always() && steps.format-check.outcome == 'failure'
+        if: failure() && steps.format-check.outcome == 'failure'
         uses: actions/github-script@v7
+        continue-on-error: true
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `❌ **Formatting Check Failed**
-
-            Your PR has formatting issues. Please run the following command locally and push the changes:
-
-            \`\`\`bash
-            ./autoformat.sh
-            \`\`\`
-
-            This will automatically fix all formatting issues using pyink (Google's Python formatter) and isort.`
-            })
+              body: '❌ **Formatting Check Failed**\n\nYour PR has formatting issues. Please run the following command locally and push the changes:\n\n```bash\n./autoformat.sh\n```\n\nThis will automatically fix all formatting issues using pyink (Google\'s Python formatter) and isort.'
+            }).catch(err => {
+              console.log('Comment posting failed:', err.message);
+            });
 
   test:
     runs-on: ubuntu-latest
