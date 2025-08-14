@@ -29,6 +29,7 @@ import typing
 
 from absl import logging
 
+from langextract import exceptions
 from langextract import inference
 
 
@@ -130,9 +131,12 @@ def resolve(model_id: str) -> type[inference.BaseLanguageModel]:
     if any(pattern.search(model_id) for pattern in entry.patterns):
       return entry.loader()
 
-  raise ValueError(
-      f"No provider registered for model_id={model_id!r}. Available patterns:"
-      f" {[str(p.pattern) for e in _ENTRIES for p in e.patterns]}"
+  available_patterns = [str(p.pattern) for e in _ENTRIES for p in e.patterns]
+  raise exceptions.InferenceConfigError(
+      f"No provider registered for model_id={model_id!r}. "
+      f"Available patterns: {available_patterns}\n"
+      "Tip: You can explicitly specify a provider using 'config' parameter "
+      "with factory.ModelConfig and a provider class."
   )
 
 
@@ -181,7 +185,7 @@ def resolve_provider(provider_name: str) -> type[inference.BaseLanguageModel]:
   except re.error:
     pass
 
-  raise ValueError(
+  raise exceptions.InferenceConfigError(
       f"No provider found matching: {provider_name!r}. "
       "Available providers can be listed with list_providers()"
   )

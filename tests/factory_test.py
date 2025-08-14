@@ -162,10 +162,10 @@ class FactoryTest(absltest.TestCase):
     self.assertIn("API key required", str(cm.exception))
 
   def test_raises_error_when_no_provider_matches_model_id(self):
-    """Factory should raise ValueError for unregistered model IDs."""
+    """Factory should raise InferenceConfigError for unregistered model IDs."""
     config = factory.ModelConfig(model_id="unknown-model")
 
-    with self.assertRaises(ValueError) as cm:
+    with self.assertRaises(exceptions.InferenceConfigError) as cm:
       factory.create_model(config)
 
     self.assertIn("No provider registered", str(cm.exception))
