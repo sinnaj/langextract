@@ -43,6 +43,39 @@ jobs:
             const references = [...prText.matchAll(referenceRe)];
             const first = closings[0] || references[0];
 
+            // Check for draft PRs and bots
+            const pr = context.payload.pull_request;
+            const isDraft = !!pr.draft;
+            const login = pr.user.login;
+            const isBot = pr.user.type === 'Bot' || /\[bot\]$/.test(login);
+
+            if (isDraft || isBot) {
+              core.info('Draft or bot PR – skipping enforcement');
+              return;
+            }
+
+            // Check if PR author is a maintainer
+            let authorPerm = 'none';
+            try {
+              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                username: pr.user.login,
+              });
+              authorPerm = data.permission || 'none';
+            } catch (_) {
+              // User might not have any permissions
+            }
+
+            core.info(`Author permission: ${authorPerm}`);
+            const isMaintainer = ['admin', 'maintain'].includes(authorPerm);  // Removed 'write' for stricter maintainer definition
+
+            // Maintainers bypass entirely
+            if (isMaintainer) {
+              core.info(`Maintainer ${pr.user.login} - bypassing linked issue requirement`);
+              return;
+            }
+
             if (!first) {
               // Check for existing comment to avoid duplicates
               const MARKER = '<!-- linkcheck:missing-issue -->';
@@ -89,21 +122,16 @@ jobs:
             const repo = groups.r1 || groups.r2 || context.repo.repo;
             const issue_number = Number(groups.num || groups.n1 || groups.n2);
 
-            core.info(`Found linked issue: ${owner}/${repo}#${issue_number}`);
-
-            // Check if PR author is a maintainer (include write permission)
-            let authorPerm = 'none';
-            try {
-              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                username: context.payload.pull_request.user.login,
-              });
-              authorPerm = data.permission || 'none';
-            } catch (_) {
-              // User might not have any permissions
+            // Validate issue number
+            if (!Number.isInteger(issue_number) || issue_number <= 0) {
+              core.setFailed(
+                'Found a potential issue link but no valid number. ' +
+                'Use "Fixes #123" or "Related to owner/repo#123".'
+              );
+              return;
             }
-            const isMaintainer = ['admin', 'maintain', 'write'].includes(authorPerm);
+
+            core.info(`Found linked issue: ${owner}/${repo}#${issue_number}`);
 
             // Count unique users who reacted with 👍 on the linked issue (excluding bots and PR author)
             try {
@@ -114,23 +142,47 @@ jobs:
                 per_page: 100,
               });
 
-              const prAuthorId = context.payload.pull_request.user.id;
+              const prAuthorId = pr.user.id;
               const uniqueThumbs = new Set(
                 reactions
-                  .filter(r => r.content === '+1' && r.user && r.user.type !== 'Bot' && r.user.id !== prAuthorId)
+                  .filter(r =>
+                    r.content === '+1' &&
+                    r.user &&
+                    r.user.id !== prAuthorId &&
+                    r.user.type !== 'Bot' &&
+                    !String(r.user.login || '').endsWith('[bot]')
+                  )
                   .map(r => r.user.id)
               ).size;
 
               core.info(`Issue ${owner}/${repo}#${issue_number} has ${uniqueThumbs} unique 👍 reactions`);
 
               const REQUIRED_THUMBS_UP = 5;
-              if (uniqueThumbs < REQUIRED_THUMBS_UP && !isMaintainer) {
-                core.setFailed(`Linked issue ${owner}/${repo}#${issue_number} has only ${uniqueThumbs} 👍 (need ${REQUIRED_THUMBS_UP}). A maintainer can override.`);
+              if (uniqueThumbs < REQUIRED_THUMBS_UP) {
+                core.setFailed(`Linked issue ${owner}/${repo}#${issue_number} has only ${uniqueThumbs} 👍 (need ${REQUIRED_THUMBS_UP}).`);
                 return;
-              } else if (isMaintainer && uniqueThumbs < REQUIRED_THUMBS_UP) {
-                core.info(`Maintainer ${context.payload.pull_request.user.login} bypassing community support requirement (issue has ${uniqueThumbs} 👍 reactions)`);
               }
             } catch (error) {
-              core.warning(`Could not check reactions for ${owner}/${repo}#${issue_number}: ${error.message}`);
-              // Don't fail if we can't access the issue (might be in different repo)
+              const isSameRepo = owner === context.repo.owner && repo === context.repo.repo;
+              if (error.status === 404 || error.status === 403) {
+                if (!isSameRepo) {
+                  core.setFailed(
+                    `Linked issue ${owner}/${repo}#${issue_number} is not accessible. ` +
+                    `Please link to an issue in ${context.repo.owner}/${context.repo.repo} or a public repo.`
+                  );
+                } else {
+                  core.info(`Cannot access reactions for ${owner}/${repo}#${issue_number}; skipping enforcement for same-repo issue.`);
+                }
+                return;
+              }
+
+              // Any other error should fail to prevent accidental bypass
+              const msg = (error && error.message) ? String(error.message).toLowerCase() : '';
+              const isRateLimit = msg.includes('rate limit') || error?.headers?.['x-ratelimit-remaining'] === '0';
+
+              if (isRateLimit) {
+                core.setFailed(`Rate limit while checking reactions for ${owner}/${repo}#${issue_number}. Please retry the workflow.`);
+              } else {
+                core.setFailed(`Unexpected error checking reactions for ${owner}/${repo}#${issue_number}: ${error?.message || error}`);
+              }
             }
