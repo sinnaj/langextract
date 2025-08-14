@@ -1,0 +1,28 @@
+name: Test Comment Posting
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to comment on'
+        required: true
+        type: string
+
+jobs:
+  test-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Test comment posting
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ inputs.pr_number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🧪 **Test Comment**\n\nThis is a test comment from the test-comment workflow.\n\n```bash\n./autoformat.sh\n```\n\nIf you see this, comment posting is working!'
+            }).catch(err => {
+              console.log('Comment posting failed:', err.message);
+              throw err; // Re-throw to fail the job
+            });
