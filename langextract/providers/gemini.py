@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import concurrent.futures
 import dataclasses
-from typing import Any, Iterator, Sequence
+from typing import Any, Final, Iterator, Sequence
 
 from langextract import data
 from langextract import exceptions
@@ -27,9 +27,19 @@ from langextract import inference
 from langextract import schema
 from langextract.providers import registry
 
+_API_CONFIG_KEYS: Final[set[str]] = {
+    'response_mime_type',
+    'response_schema',
+    'safety_settings',
+    'system_instruction',
+    'tools',
+    'stop_sequences',
+    'candidate_count',
+}
+
 
 @registry.register(
-    r'^gemini',  # gemini-2.5-flash, gemini-2.5-pro, etc.
+    r'^gemini',
     priority=10,
 )
 @dataclasses.dataclass(init=False)
@@ -109,37 +119,31 @@ class GeminiLanguageModel(inference.BaseLanguageModel):
     self.temperature = temperature
     self.max_workers = max_workers
     self.fence_output = fence_output
-    api_config_keys = {
-        'response_schema',
-        'response_mime_type',
-        'tools',
-        'safety_settings',
-        'stop_sequences',
-        'candidate_count',
-        'system_instruction',
-    }
-    self._extra_kwargs = {
-        k: v for k, v in (kwargs or {}).items() if k in api_config_keys
-    }
 
     if not self.api_key:
-      raise exceptions.InferenceConfigError('API key not provided for Gemini.')
+      raise exceptions.InferenceConfigError('API key not provided.')
 
     self._client = genai.Client(api_key=self.api_key)
 
     super().__init__(
         constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)
     )
+    self._extra_kwargs = {
+        k: v for k, v in (kwargs or {}).items() if k in _API_CONFIG_KEYS
+    }
 
   def _process_single_prompt(
       self, prompt: str, config: dict
   ) -> inference.ScoredOutput:
     """Process a single prompt and return a ScoredOutput."""
     try:
-      if self._extra_kwargs:
-        config.update(self._extra_kwargs)
+      # Apply stored kwargs that weren't already set in config
+      for key, value in self._extra_kwargs.items():
+        if key not in config and value is not None:
+          config[key] = value
+
       if self.gemini_schema:
-        # Gemini structured output only supports JSON
+        # Structured output requires JSON format
         if self.format_type != data.FormatType.JSON:
           raise exceptions.InferenceConfigError(
               'Gemini structured output only supports JSON format. '
@@ -149,7 +153,7 @@ class GeminiLanguageModel(inference.BaseLanguageModel):
         config.setdefault('response_schema', self.gemini_schema.schema_dict)
 
       response = self._client.models.generate_content(
-          model=self.model_id, contents=prompt, config=config  # type: ignore[arg-type]
+          model=self.model_id, contents=prompt, config=config
       )
 
       return inference.ScoredOutput(score=1.0, output=response.text)
@@ -171,15 +175,26 @@ class GeminiLanguageModel(inference.BaseLanguageModel):
     Yields:
       Lists of ScoredOutputs.
     """
+    merged_kwargs = self.merge_kwargs(kwargs)
+
     config = {
-        'temperature': kwargs.get('temperature', self.temperature),
+        'temperature': merged_kwargs.get('temperature', self.temperature),
     }
-    if 'max_output_tokens' in kwargs:
-      config['max_output_tokens'] = kwargs['max_output_tokens']
-    if 'top_p' in kwargs:
-      config['top_p'] = kwargs['top_p']
-    if 'top_k' in kwargs:
-      config['top_k'] = kwargs['top_k']
+    if 'max_output_tokens' in merged_kwargs:
+      config['max_output_tokens'] = merged_kwargs['max_output_tokens']
+    if 'top_p' in merged_kwargs:
+      config['top_p'] = merged_kwargs['top_p']
+    if 'top_k' in merged_kwargs:
+      config['top_k'] = merged_kwargs['top_k']
+
+    handled_keys = {'temperature', 'max_output_tokens', 'top_p', 'top_k'}
+    for key, value in merged_kwargs.items():
+      if (
+          key not in handled_keys
+          and key in _API_CONFIG_KEYS
+          and value is not None
+      ):
+        config[key] = value
 
     # Use parallel processing for batches larger than 1
     if len(batch_prompts) > 1 and self.max_workers > 1:

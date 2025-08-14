@@ -49,6 +49,13 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
       default_factory=dict, repr=False, compare=False
   )
 
+  @property
+  def requires_fence_output(self) -> bool:
+    """OpenAI JSON mode returns raw JSON without fences."""
+    if self.format_type == data.FormatType.JSON:
+      return False
+    return super().requires_fence_output
+
   def __init__(
       self,
       model_id: str = 'gpt-4o-mini',
@@ -90,10 +97,9 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
-    self._extra_kwargs = kwargs or {}
 
     if not self.api_key:
-      raise exceptions.InferenceConfigError('API key not provided for OpenAI.')
+      raise exceptions.InferenceConfigError('API key not provided.')
 
     # Initialize the OpenAI client
     self._client = openai.OpenAI(
@@ -105,13 +111,13 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
     super().__init__(
         constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)
     )
+    self._extra_kwargs = kwargs or {}
 
   def _process_single_prompt(
       self, prompt: str, config: dict
   ) -> inference.ScoredOutput:
     """Process a single prompt and return a ScoredOutput."""
     try:
-      # Prepare the system message for structured output
       system_message = ''
       if self.format_type == data.FormatType.JSON:
         system_message = (
@@ -122,17 +128,37 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
             'You are a helpful assistant that responds in YAML format.'
         )
 
-      response = self._client.chat.completions.create(
-          model=self.model_id,
-          messages=[
-              {'role': 'system', 'content': system_message},
-              {'role': 'user', 'content': prompt},
-          ],
-          temperature=config.get('temperature', self.temperature),
-          max_tokens=config.get('max_output_tokens'),
-          top_p=config.get('top_p'),
-          n=1,
-      )
+      messages = [{'role': 'user', 'content': prompt}]
+      if system_message:
+        messages.insert(0, {'role': 'system', 'content': system_message})
+
+      api_params = {
+          'model': self.model_id,
+          'messages': messages,
+          'temperature': config.get('temperature', self.temperature),
+          'n': 1,
+      }
+
+      if self.format_type == data.FormatType.JSON:
+        # Enables structured JSON output for compatible models
+        api_params['response_format'] = {'type': 'json_object'}
+
+      if (v := config.get('max_output_tokens')) is not None:
+        api_params['max_tokens'] = v
+      if (v := config.get('top_p')) is not None:
+        api_params['top_p'] = v
+      for key in [
+          'frequency_penalty',
+          'presence_penalty',
+          'seed',
+          'stop',
+          'logprobs',
+          'top_logprobs',
+      ]:
+        if (v := config.get(key)) is not None:
+          api_params[key] = v
+
+      response = self._client.chat.completions.create(**api_params)
 
       # Extract the response text using the v1.x response format
       output_text = response.choices[0].message.content
@@ -156,13 +182,27 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
     Yields:
       Lists of ScoredOutputs.
     """
+    merged_kwargs = self.merge_kwargs(kwargs)
+
     config = {
-        'temperature': kwargs.get('temperature', self.temperature),
+        'temperature': merged_kwargs.get('temperature', self.temperature),
     }
-    if 'max_output_tokens' in kwargs:
-      config['max_output_tokens'] = kwargs['max_output_tokens']
-    if 'top_p' in kwargs:
-      config['top_p'] = kwargs['top_p']
+    if 'max_output_tokens' in merged_kwargs:
+      config['max_output_tokens'] = merged_kwargs['max_output_tokens']
+    if 'top_p' in merged_kwargs:
+      config['top_p'] = merged_kwargs['top_p']
+
+    # Forward OpenAI-specific parameters
+    for key in [
+        'frequency_penalty',
+        'presence_penalty',
+        'seed',
+        'stop',
+        'logprobs',
+        'top_logprobs',
+    ]:
+      if key in merged_kwargs:
+        config[key] = merged_kwargs[key]
 
     # Use parallel processing for batches larger than 1
     if len(batch_prompts) > 1 and self.max_workers > 1:

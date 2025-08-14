@@ -20,7 +20,7 @@ import dataclasses
 import enum
 import json
 import textwrap
-from typing import Any
+from typing import Any, Mapping
 
 from absl import logging
 from typing_extensions import deprecated
@@ -73,6 +73,7 @@ class BaseLanguageModel(abc.ABC):
     self._constraint = constraint
     self._schema: schema.BaseSchema | None = None
     self._fence_output_override: bool | None = None
+    self._extra_kwargs: dict[str, Any] = {}
 
   @classmethod
   def get_schema_class(cls) -> type[schema.BaseSchema] | None:
@@ -115,6 +116,23 @@ class BaseLanguageModel(abc.ABC):
     if not hasattr(self, '_schema') or self._schema is None:
       return True
     return not self._schema.supports_strict_mode
+
+  def merge_kwargs(
+      self, runtime_kwargs: Mapping[str, Any] | None = None
+  ) -> dict[str, Any]:
+    """Merge stored extra kwargs with runtime kwargs.
+
+    Runtime kwargs take precedence over stored kwargs.
+
+    Args:
+      runtime_kwargs: Kwargs provided at inference time, or None.
+
+    Returns:
+      Merged kwargs dictionary.
+    """
+    base = getattr(self, '_extra_kwargs', {}) or {}
+    incoming = dict(runtime_kwargs or {})
+    return {**base, **incoming}
 
   @abc.abstractmethod
   def infer(

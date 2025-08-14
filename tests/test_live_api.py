@@ -501,7 +501,6 @@ class TestLiveAPIOpenAI(unittest.TestCase):
         examples=examples,
         model_id=DEFAULT_OPENAI_MODEL,
         api_key=OPENAI_API_KEY,
-        fence_output=True,
         use_schema_constraints=False,
         language_model_params=OPENAI_MODEL_PARAMS,
     )
@@ -559,7 +558,6 @@ class TestLiveAPIOpenAI(unittest.TestCase):
         provider="OpenAILanguageModel",  # Explicit provider selection
         provider_kwargs={
             "api_key": OPENAI_API_KEY,
-            "fence_output": True,
             "temperature": 0.0,
         },
     )
@@ -610,7 +608,6 @@ class TestLiveAPIOpenAI(unittest.TestCase):
         examples=examples,
         model_id=DEFAULT_OPENAI_MODEL,
         api_key=OPENAI_API_KEY,
-        fence_output=True,
         use_schema_constraints=False,
         language_model_params=OPENAI_MODEL_PARAMS,
     )
