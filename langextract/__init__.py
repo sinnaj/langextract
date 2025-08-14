@@ -55,11 +55,7 @@ LanguageModelT = TypeVar("LanguageModelT", bound=inference.BaseLanguageModel)
 # Set up visualization helper at the top level (lx.visualize).
 visualize = visualization.visualize
 
-# Load environment variables from .env file
-# NOTE: This behavior will be changed to opt-in in v2.0.0
-# Libraries typically should not auto-load .env files, but this is kept
-# for backward compatibility. Users can set environment variables directly
-# or use python-dotenv explicitly in their own code.
+# Auto-load .env for backward compatibility (will be opt-in in v2.0.0)
 dotenv.load_dotenv()
 
 
@@ -143,7 +139,9 @@ def extract(
         Suffix for keys containing extraction attributes. Default is
         "_attributes".
       language_model_params: Additional parameters for the language model.
-      debug: Whether to populate debug fields.
+      debug: Whether to enable debug logging. When True, enables detailed logging
+        of function calls, arguments, return values, and timing for the langextract
+        namespace. Note: Debug logging remains enabled for the process once activated.
       model_url: Endpoint URL for self-hosted or on-prem models. Only forwarded
         when the selected `language_model_type` accepts this argument.
       extraction_passes: Number of sequential extraction attempts to improve
@@ -174,6 +172,12 @@ def extract(
         "Examples are required for reliable extraction. Please provide at least"
         " one ExampleData object with sample extractions."
     )
+
+  if debug:
+    # pylint: disable=import-outside-toplevel
+    from langextract import debug_utils
+
+    debug_utils.configure_debug_logging()
 
   if max_workers is not None and batch_length < max_workers:
     warnings.warn(
