@@ -49,6 +49,13 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
       default_factory=dict, repr=False, compare=False
   )
 
+  @property
+  def requires_fence_output(self) -> bool:
+    """OpenAI JSON mode returns raw JSON without fences."""
+    if self.format_type == data.FormatType.JSON:
+      return False
+    return super().requires_fence_output
+
   def __init__(
       self,
       model_id: str = 'gpt-4o-mini',
