@@ -19,6 +19,7 @@ from unittest import mock
 
 from absl.testing import absltest
 
+from langextract import exceptions
 from langextract import inference
 from langextract.providers import registry
 
@@ -94,7 +95,8 @@ class RegistryTest(absltest.TestCase):
   def test_no_provider_registered(self):
     """Test error when no provider matches."""
     with self.assertRaisesRegex(
-        ValueError, "No provider registered for model_id='unknown-model'"
+        exceptions.InferenceConfigError,
+        "No provider registered for model_id='unknown-model'",
     ):
       registry.resolve("unknown-model")
 
@@ -121,7 +123,7 @@ class RegistryTest(absltest.TestCase):
     registry.clear()
 
     # Should fail after clear
-    with self.assertRaises(ValueError):
+    with self.assertRaises(exceptions.InferenceConfigError):
       registry.resolve("temp-model")
 
   def test_list_entries(self):
@@ -166,7 +168,7 @@ class RegistryTest(absltest.TestCase):
     self.assertEqual(registry.resolve("custom-123"), CustomProvider)
 
     # Should not match without digits
-    with self.assertRaises(ValueError):
+    with self.assertRaises(exceptions.InferenceConfigError):
       registry.resolve("custom-abc")
 
   def test_resolve_provider_by_name(self):
@@ -186,7 +188,7 @@ class RegistryTest(absltest.TestCase):
 
   def test_resolve_provider_not_found(self):
     """Test resolve_provider raises for unknown provider."""
-    with self.assertRaises(ValueError) as cm:
+    with self.assertRaises(exceptions.InferenceConfigError) as cm:
       registry.resolve_provider("UnknownProvider")
     self.assertIn("No provider found matching", str(cm.exception))
 

@@ -555,6 +555,29 @@ class TestOpenAILanguageModel(absltest.TestCase):
     self.assertEqual(call_args.kwargs["n"], 1)
 
   @mock.patch("openai.OpenAI")
+  def test_openai_temperature_none_not_sent(self, mock_openai_class):
+    """Test that temperature=None is not sent to the API."""
+    mock_client = mock.Mock()
+    mock_openai_class.return_value = mock_client
+
+    mock_response = mock.Mock()
+    mock_response.choices = [
+        mock.Mock(message=mock.Mock(content='{"result": "test"}'))
+    ]
+    mock_client.chat.completions.create.return_value = mock_response
+
+    # Test with temperature=None in model init
+    model = openai_provider.OpenAILanguageModel(
+        api_key="test-key",
+        temperature=None,
+    )
+
+    list(model.infer(["test prompt"]))
+
+    call_args = mock_client.chat.completions.create.call_args
+    self.assertNotIn("temperature", call_args.kwargs)
+
+  @mock.patch("openai.OpenAI")
   def test_openai_none_values_filtered(self, mock_openai_class):
     """Test that None values are not passed to the API."""
     mock_client = mock.Mock()

@@ -185,7 +185,9 @@ class PluginSmokeTest(absltest.TestCase):
           list,
           "Registry should remain functional with bad provider",
       )
-      with self.assertRaisesRegex(ValueError, "No provider registered"):
+      with self.assertRaisesRegex(
+          lx.exceptions.InferenceConfigError, "No provider registered"
+      ):
         lx.providers.registry.resolve("bad")
 
   def test_plugin_priority_override_core_provider(self):
@@ -649,7 +651,8 @@ class PluginE2ETest(absltest.TestCase):
         lx.providers.load_plugins_once()
 
         with self.assertRaisesRegex(
-            ValueError, "No provider registered for model_id='test-pip-model"
+            lx.exceptions.InferenceConfigError,
+            "No provider registered for model_id='test-pip-model",
         ):
           lx.providers.registry.resolve("test-pip-model-789")
 

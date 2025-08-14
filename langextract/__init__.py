@@ -68,7 +68,7 @@ def extract(
     language_model_type: Type[LanguageModelT] = inference.GeminiLanguageModel,
     format_type: data.FormatType = data.FormatType.JSON,
     max_char_buffer: int = 1000,
-    temperature: float = 0.5,
+    temperature: float | None = None,
     fence_output: bool | None = None,
     use_schema_constraints: bool = True,
     batch_length: int = 10,
@@ -102,16 +102,19 @@ def extract(
         multiple times. Note that max_workers improves processing speed without
         additional token costs. Refer to your API provider's pricing details and
         monitor usage with small test runs to estimate costs.
-      model_id: The model ID to use for extraction.
+      model_id: The model ID to use for extraction (e.g., 'gemini-2.5-flash').
+        If your model ID is not recognized or you need to use a custom provider,
+        use the 'config' parameter with factory.ModelConfig to specify the
+        provider explicitly.
       language_model_type: [DEPRECATED] The type of language model to use for
         inference. Warning triggers when value differs from the legacy default
         (GeminiLanguageModel). This parameter will be removed in v2.0.0. Use
         the model, config, or model_id parameters instead.
       format_type: The format type for the output (JSON or YAML).
       max_char_buffer: Max number of characters for inference.
-      temperature: The sampling temperature for generation. Higher values (e.g.,
-        0.5) can improve performance with schema constraints on some models by
-        reducing repetitive outputs. Defaults to 0.5.
+      temperature: The sampling temperature for generation. When None (default),
+        uses the model's default temperature. Set to 0.0 for deterministic output
+        or higher values for more variation.
       fence_output: Whether to expect/generate fenced output (```json or
         ```yaml). When True, the model is prompted to generate fenced output and
         the resolver expects it. When False, raw JSON/YAML is expected. When None,

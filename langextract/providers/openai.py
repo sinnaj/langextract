@@ -29,8 +29,10 @@ from langextract.providers import registry
 
 
 @registry.register(
-    r'^gpt-4',  # gpt-4.1, gpt-4o, gpt-4-turbo, etc.
-    r'^gpt4\.',  # gpt4.1-mini, gpt4.1-nano, etc.
+    r'^gpt-4',  # gpt-4, gpt-4o, gpt-4-turbo, etc.
+    r'^gpt4\.',  # gpt4.1-mini, etc.
+    r'^gpt-5',  # gpt-5, gpt-5-mini, gpt-5-nano, etc.
+    r'^gpt5\.',  # gpt5.1, etc.
     priority=10,
 )
 @dataclasses.dataclass(init=False)
@@ -42,7 +44,7 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
   base_url: str | None = None
   organization: str | None = None
   format_type: data.FormatType = data.FormatType.JSON
-  temperature: float = 0.0
+  temperature: float | None = None
   max_workers: int = 10
   _client: Any = dataclasses.field(default=None, repr=False, compare=False)
   _extra_kwargs: dict[str, Any] = dataclasses.field(
@@ -63,7 +65,7 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
       base_url: str | None = None,
       organization: str | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
-      temperature: float = 0.0,
+      temperature: float | None = None,
       max_workers: int = 10,
       **kwargs,
   ) -> None:
@@ -135,9 +137,13 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
       api_params = {
           'model': self.model_id,
           'messages': messages,
-          'temperature': config.get('temperature', self.temperature),
           'n': 1,
       }
+
+      # Only set temperature if explicitly provided
+      temp = config.get('temperature', self.temperature)
+      if temp is not None:
+        api_params['temperature'] = temp
 
       if self.format_type == data.FormatType.JSON:
         # Enables structured JSON output for compatible models
@@ -184,9 +190,12 @@ class OpenAILanguageModel(inference.BaseLanguageModel):
     """
     merged_kwargs = self.merge_kwargs(kwargs)
 
-    config = {
-        'temperature': merged_kwargs.get('temperature', self.temperature),
-    }
+    config = {}
+
+    # Only add temperature if it's not None
+    temp = merged_kwargs.get('temperature', self.temperature)
+    if temp is not None:
+      config['temperature'] = temp
     if 'max_output_tokens' in merged_kwargs:
       config['max_output_tokens'] = merged_kwargs['max_output_tokens']
     if 'top_p' in merged_kwargs:
