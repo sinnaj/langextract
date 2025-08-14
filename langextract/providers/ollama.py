@@ -83,7 +83,12 @@ from langextract import inference
 from langextract import schema
 from langextract.providers import registry
 
+# Ollama defaults
 _OLLAMA_DEFAULT_MODEL_URL = 'http://localhost:11434'
+_DEFAULT_TEMPERATURE = 0.8
+_DEFAULT_TIMEOUT = 30
+_DEFAULT_KEEP_ALIVE = 5 * 60  # 5 minutes
+_DEFAULT_NUM_CTX = 2048
 
 
 @registry.register(
@@ -193,8 +198,8 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
     self._model_url = base_url or model_url or _OLLAMA_DEFAULT_MODEL_URL
     self.format_type = format_type
     self._constraint = constraint
-    self._extra_kwargs = kwargs or {}
     super().__init__(constraint=constraint)
+    self._extra_kwargs = kwargs or {}
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
@@ -208,6 +213,8 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
     Yields:
       Lists of ScoredOutputs.
     """
+    combined_kwargs = self.merge_kwargs(kwargs)
+
     for prompt in batch_prompts:
       try:
         response = self._ollama_query(
@@ -217,7 +224,7 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
             if self.format_type == data.FormatType.JSON
             else 'yaml',
             model_url=self._model_url,
-            **kwargs,
+            **combined_kwargs,
         )
         # No score for Ollama. Default to 1.0
         yield [inference.ScoredOutput(score=1.0, output=response['response'])]
@@ -230,18 +237,20 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
       self,
       prompt: str,
       model: str | None = None,
-      temperature: float = 0.8,
+      temperature: float | None = None,
       seed: int | None = None,
       top_k: int | None = None,
+      top_p: float | None = None,
       max_output_tokens: int | None = None,
       structured_output_format: str | None = None,
       system: str = '',
       raw: bool = False,
       model_url: str | None = None,
-      timeout: int = 30,
-      keep_alive: int = 5 * 60,
+      timeout: int | None = None,
+      keep_alive: int | None = None,
       num_threads: int | None = None,
-      num_ctx: int = 2048,
+      num_ctx: int | None = None,
+      stop: str | list[str] | None = None,
       **kwargs,  # pylint: disable=unused-argument
   ) -> Mapping[str, Any]:
     """Sends a prompt to an Ollama model and returns the generated response.
@@ -257,6 +266,7 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
         output.
       seed: Seed for reproducible generation. If None, random seed is used.
       top_k: The top-K parameter for sampling.
+      top_p: The top-P (nucleus) sampling parameter.
       max_output_tokens: Maximum tokens to generate. If None, the model's
         default is used.
       structured_output_format: If set to "json" or a JSON schema dict, requests
@@ -272,6 +282,7 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
         heuristic.
       num_ctx: Number of context tokens allowed. If None, uses model's default
         or config.
+      stop: Stop sequences to halt generation. Can be a string or list of strings.
       **kwargs: Additional parameters passed through.
 
     Returns:
@@ -291,19 +302,30 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
           'json' if self.format_type == data.FormatType.JSON else 'yaml'
       )
 
-    options: dict[str, Any] = {'keep_alive': keep_alive}
-    if seed:
+    options: dict[str, Any] = {}
+    if keep_alive is not None:
+      options['keep_alive'] = keep_alive
+    else:
+      options['keep_alive'] = _DEFAULT_KEEP_ALIVE
+
+    if seed is not None:
       options['seed'] = seed
-    if temperature:
+    if temperature is not None:
       options['temperature'] = temperature
-    if top_k:
+    else:
+      options['temperature'] = _DEFAULT_TEMPERATURE
+    if top_k is not None:
       options['top_k'] = top_k
-    if num_threads:
+    if top_p is not None:
+      options['top_p'] = top_p
+    if num_threads is not None:
       options['num_thread'] = num_threads
-    if max_output_tokens:
+    if max_output_tokens is not None:
       options['num_predict'] = max_output_tokens
-    if num_ctx:
+    if num_ctx is not None:
       options['num_ctx'] = num_ctx
+    else:
+      options['num_ctx'] = _DEFAULT_NUM_CTX
 
     api_url = model_url + '/api/generate'
 
@@ -317,6 +339,12 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
         'options': options,
     }
 
+    # Add stop sequences if provided (top-level in Ollama API)
+    if stop is not None:
+      payload['stop'] = stop
+
+    request_timeout = timeout if timeout is not None else _DEFAULT_TIMEOUT
+
     try:
       response = self._requests.post(
           api_url,
@@ -325,12 +353,12 @@ class OllamaLanguageModel(inference.BaseLanguageModel):
               'Accept': 'application/json',
           },
           json=payload,
-          timeout=timeout,
+          timeout=request_timeout,
       )
     except self._requests.exceptions.RequestException as e:
       if isinstance(e, self._requests.exceptions.ReadTimeout):
         msg = (
-            f'Ollama Model timed out (timeout={timeout},'
+            f'Ollama Model timed out (timeout={request_timeout},'
             f' num_threads={num_threads})'
         )
         raise exceptions.InferenceRuntimeError(
