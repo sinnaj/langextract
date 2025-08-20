@@ -19,9 +19,9 @@ It supports both built-in providers and third-party providers via entry points.
 """
 from __future__ import annotations
 
+from functools import lru_cache
 from importlib import import_module
 from importlib.metadata import entry_points
-from functools import lru_cache
 from typing import Dict, List, Type
 
 from absl import logging

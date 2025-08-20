@@ -25,7 +25,7 @@ from langextract.core import base_model
 from langextract.core import data
 from langextract.core import exceptions
 from langextract.core import schema
-from langextract.core import types
+from langextract.core import types as core_types
 from langextract.providers import patterns
 from langextract.providers import router
 from langextract.providers import schemas
@@ -137,7 +137,7 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):
 
   def _process_single_prompt(
       self, prompt: str, config: dict
-  ) -> types.ScoredOutput:
+  ) -> core_types.ScoredOutput:
     """Process a single prompt and return a ScoredOutput."""
     try:
       # Apply stored kwargs that weren't already set in config
@@ -159,7 +159,7 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):
           model=self.model_id, contents=prompt, config=config
       )
 
-      return types.ScoredOutput(score=1.0, output=response.text)
+      return core_types.ScoredOutput(score=1.0, output=response.text)
 
     except Exception as e:
       raise exceptions.InferenceRuntimeError(
@@ -168,7 +168,7 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
-  ) -> Iterator[Sequence[types.ScoredOutput]]:
+  ) -> Iterator[Sequence[core_types.ScoredOutput]]:
     """Runs inference on a list of prompts via Gemini's API.
 
     Args:
@@ -211,7 +211,9 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):
             for i, prompt in enumerate(batch_prompts)
         }
 
-        results: list[types.ScoredOutput | None] = [None] * len(batch_prompts)
+        results: list[core_types.ScoredOutput | None] = [None] * len(
+            batch_prompts
+        )
         for future in concurrent.futures.as_completed(future_to_index):
           index = future_to_index[future]
           try:
