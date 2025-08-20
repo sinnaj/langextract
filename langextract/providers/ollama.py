@@ -81,7 +81,7 @@ import requests
 from langextract.core import base_model
 from langextract.core import exceptions
 from langextract.core import schema
-from langextract.core import types as core_types
+from langextract.core import types
 from langextract.providers import patterns
 from langextract.providers import router
 
@@ -107,7 +107,7 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
 
   _model: str
   _model_url: str
-  format_type: core_types.FormatType = core_types.FormatType.JSON
+  format_type: types.FormatType = types.FormatType.JSON
   _constraint: schema.Constraint = dataclasses.field(
       default_factory=schema.Constraint, repr=False, compare=False
   )
@@ -129,7 +129,7 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
       model_id: str,
       model_url: str = _OLLAMA_DEFAULT_MODEL_URL,
       base_url: str | None = None,  # Alias for model_url
-      format_type: core_types.FormatType | None = None,
+      format_type: types.FormatType | None = None,
       structured_output_format: str | None = None,  # Deprecated
       constraint: schema.Constraint = schema.Constraint(),
       timeout: int | None = None,
@@ -160,22 +160,20 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
       # Only use structured_output_format if format_type wasn't explicitly provided
       if format_type is None:
         format_type = (
-            core_types.FormatType.JSON
+            types.FormatType.JSON
             if structured_output_format == 'json'
-            else core_types.FormatType.YAML
+            else types.FormatType.YAML
         )
 
     fmt = kwargs.pop('format', None)
     if format_type is None and fmt in ('json', 'yaml'):
       format_type = (
-          core_types.FormatType.JSON
-          if fmt == 'json'
-          else core_types.FormatType.YAML
+          types.FormatType.JSON if fmt == 'json' else types.FormatType.YAML
       )
 
     # Default to JSON if neither parameter was provided
     if format_type is None:
-      format_type = core_types.FormatType.JSON
+      format_type = types.FormatType.JSON
 
     self._model = model_id
     # Support both model_url and base_url parameters
@@ -189,7 +187,7 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
-  ) -> Iterator[Sequence[core_types.ScoredOutput]]:
+  ) -> Iterator[Sequence[types.ScoredOutput]]:
     """Runs inference on a list of prompts via Ollama's API.
 
     Args:
@@ -207,13 +205,13 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
             prompt=prompt,
             model=self._model,
             structured_output_format='json'
-            if self.format_type == core_types.FormatType.JSON
+            if self.format_type == types.FormatType.JSON
             else 'yaml',
             model_url=self._model_url,
             **combined_kwargs,
         )
         # No score for Ollama. Default to 1.0
-        yield [core_types.ScoredOutput(score=1.0, output=response['response'])]
+        yield [types.ScoredOutput(score=1.0, output=response['response'])]
       except Exception as e:
         raise exceptions.InferenceRuntimeError(
             f'Ollama API error: {str(e)}', original=e
@@ -288,7 +286,7 @@ class OllamaLanguageModel(base_model.BaseLanguageModel):
     model_url = model_url or self._model_url
     if structured_output_format is None:
       structured_output_format = (
-          'json' if self.format_type == core_types.FormatType.JSON else 'yaml'
+          'json' if self.format_type == types.FormatType.JSON else 'yaml'
       )
 
     options: dict[str, Any] = {}

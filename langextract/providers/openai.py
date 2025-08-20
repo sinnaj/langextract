@@ -25,7 +25,7 @@ from langextract.core import base_model
 from langextract.core import data
 from langextract.core import exceptions
 from langextract.core import schema
-from langextract.core import types as core_types
+from langextract.core import types
 from langextract.providers import patterns
 from langextract.providers import router
 
@@ -116,7 +116,7 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
 
   def _process_single_prompt(
       self, prompt: str, config: dict
-  ) -> core_types.ScoredOutput:
+  ) -> types.ScoredOutput:
     """Process a single prompt and return a ScoredOutput."""
     try:
       system_message = ''
@@ -168,7 +168,7 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
       # Extract the response text using the v1.x response format
       output_text = response.choices[0].message.content
 
-      return core_types.ScoredOutput(score=1.0, output=output_text)
+      return types.ScoredOutput(score=1.0, output=output_text)
 
     except Exception as e:
       raise exceptions.InferenceRuntimeError(
@@ -177,7 +177,7 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
 
   def infer(
       self, batch_prompts: Sequence[str], **kwargs
-  ) -> Iterator[Sequence[core_types.ScoredOutput]]:
+  ) -> Iterator[Sequence[types.ScoredOutput]]:
     """Runs inference on a list of prompts via OpenAI's API.
 
     Args:
@@ -224,9 +224,7 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
             for i, prompt in enumerate(batch_prompts)
         }
 
-        results: list[core_types.ScoredOutput | None] = [None] * len(
-            batch_prompts
-        )
+        results: list[types.ScoredOutput | None] = [None] * len(batch_prompts)
         for future in concurrent.futures.as_completed(future_to_index):
           index = future_to_index[future]
           try:
