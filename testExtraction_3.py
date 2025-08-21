@@ -527,7 +527,7 @@ def legacy_wrap(doc: Dict[str, Any]) -> Dict[str, Any]:
     for idx, item in enumerate(raw_extractions, start=1):
         if not isinstance(item, dict):
             continue  # skip invalid items
-        attrs = item.get("Norm_attributes") or item.get("attributes", {})
+        attrs = item.get("Norm_attributes") or item.get("attributes") or {}
         norms.append(
             {
                 "id": f"N::{idx:04d}",
@@ -793,49 +793,51 @@ def enrich_parameters(obj: Dict[str, Any]):
 def merge_duplicate_tags(obj: Dict[str, Any]):
     """Collapse duplicate ACTIVE tags with identical tag_path marking extras as MERGED."""
     tags = obj.get("tags", [])
-    seen: Dict[str, Dict[str, Any]] = {}
-    collapsed = []
-    for t in tags:
-        path = t.get("tag_path")
-        status = t.get("status", "ACTIVE")
-        if not path or status != "ACTIVE":
-            continue
-        if path not in seen:
-            seen[path] = t
-        else:
-            # merge duplicate
-            t["status"] = "MERGED"
-            t["merge_target"] = path
-            collapsed.append(path)
-    if collapsed:
-        obj.setdefault("quality", {}).setdefault("warnings", []).extend(sorted(set(f"DUPLICATE_TAG_COLLAPSED:{c}" for c in collapsed)))
-
-def repair_cross_refs(obj: Dict[str, Any]):
-    """Ensure all referenced IDs exist; remove dangling references or create placeholders (prefer removal to fabrication)."""
-    id_map = {item.get("id"): item for key in ("norms","tags","locations","questions","consequences","parameters") for item in obj.get(key, []) if isinstance(item, dict) and item.get("id")}
-    # Norm references
-    for norm in obj.get("norms", []):
-        for fld in ("extracted_parameters_ids", "consequence_ids"):
-            ids = norm.get(fld)
-            if not ids:
-                continue
-            norm[fld] = [i for i in ids if i in id_map]
-    # Consequence activations
-    for cons in obj.get("consequences", []):
-        for fld in ("activates_norm_ids", "activates_question_ids"):
-            ids = cons.get(fld)
-            if not ids:
-                continue
-            cons[fld] = [i for i in ids if i in id_map]
-
-def compute_metrics(obj: Dict[str, Any]) -> Dict[str, float]:
-    norms = obj.get("norms", [])
-    params = obj.get("parameters", [])
-    questions = obj.get("questions", [])
-    tags = obj.get("tags", [])
-    # Parameter reuse ratio: average norm_ids per parameter
-    if params:
-        avg_param_reuse = sum(len(p.get("norm_ids", [])) for p in params)/len(params)
+    norms: List[Dict[str, Any]] = []
+    for idx, item in enumerate(raw_extractions, start=1):
+        if not isinstance(item, dict):
+            continue  # skip invalid items
+        attrs = item.get("Norm_attributes") or item.get("attributes", {})
+        norms.append(
+            {
+                "id": f"N::{idx:04d}",
+                "Norm": item.get("Norm", item.get("extraction_text", "")),
+                "obligation_type": "MANDATORY",
+                "paragraph_number": attrs.get("paragraph_number"),
+                "applies_if": attrs.get("applies_if", "TRUE"),
+                "satisfied_if": attrs.get("satisfied_if", "TRUE"),
+                "exempt_if": attrs.get("exempt_if"),
+                "priority": 3,
+                "relevant_tags": [],
+                "relevant_roles": [],
+                "project_dimensions": {},
+                "lifecycle_phase": [],
+                "topics": [],
+                "location_scope": {
+                    "COUNTRY": "ES",
+                    "STATES": [],
+                    "PROVINCES": [],
+                    "REGIONS": [],
+                    "COMMUNES": [],
+                    "ZONES": [],
+                    "GEO_CODES": [],
+                    "UNCERTAINTY": 1.0,
+                },
+                "source": {
+                    "doc_id": "UNKNOWN",
+                    "article": None,
+                    "page": -1,
+                    "span_char_start": -1,
+                    "span_char_end": -1,
+                    "visual_refs": [],
+                },
+                "extracted_parameters_ids": [],
+                "consequence_ids": [],
+                "confidence": 0.4,
+                "uncertainty": 0.6,
+                "notes": "Legacy fallback",
+            }
+        )
     else:
         avg_param_reuse = 0.0
     # Question coverage: fraction of root-level tags (depth 1) that have questions referencing them (tag_path exact match or prefix)

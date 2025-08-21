@@ -6,18 +6,18 @@
       "truncated": false,
       "has_more": false,
       "window_config": {
-        "input_chars": 120,
+        "input_chars": 100,
         "max_norms_per_5k_tokens": 35,
         "extracted_norm_count": 1
       },
       "global_disclaimer": "NO LEGAL ADVICE",
       "document_metadata": {
-        "doc_id": "unknown_doc",
-        "doc_title": "Unknown Document",
+        "doc_id": "unknown_doc_id",
+        "doc_title": "Building Regulations Snippet",
         "source_language": "es",
         "received_chunk_span": {
           "char_start": 0,
-          "char_end": 120
+          "char_end": 100
         },
         "page_range": {
           "start": -1,
@@ -44,14 +44,16 @@
           "Norm": "Cuando la puerta esté situada en itinerario accesible según DB SUA la fuerza para apertura abatible no excederá 25 N (65 N si resistente al fuego).",
           "obligation_type": "MANDATORY",
           "paragraph_number": 6,
-          "applies_if": "ROUTE.ACCESSIBLE == TRUE AND STANDARD.DB_SUA.APPLIES == TRUE",
+          "applies_if": "DOOR.LOCATION == 'ACCESSIBLE_ROUTE' AND STANDARD.DB_SUA == TRUE",
           "satisfied_if": "(DOOR.FIRE_RATING == 'FIRE_RESISTANT' AND DOOR.OPENING.PUSH_FORCE_N <= 65); OR (NOT DOOR.FIRE_RATING == 'FIRE_RESISTANT' AND DOOR.OPENING.PUSH_FORCE_N <= 25)",
           "exempt_if": null,
           "priority": 4,
           "relevant_tags": [
-            "DOOR.SWING",
+            "DOOR",
+            "ACCESSIBILITY",
             "ROUTE.ACCESSIBLE",
             "STANDARD.DB_SUA",
+            "DOOR.OPENING",
             "DOOR.FIRE_RATING"
           ],
           "relevant_roles": [
@@ -60,7 +62,8 @@
           ],
           "project_dimensions": {},
           "lifecycle_phase": [
-            "DESIGN"
+            "DESIGN",
+            "EXECUTION"
           ],
           "topics": [
             "ACCESSIBILITY",
@@ -77,11 +80,11 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "unknown_doc",
-            "article": null,
+            "doc_id": "unknown_doc_id",
+            "article": "6",
             "page": -1,
             "span_char_start": 0,
-            "span_char_end": 120,
+            "span_char_end": 100,
             "visual_refs": []
           },
           "extracted_parameters_ids": [
@@ -91,18 +94,16 @@
           "consequence_ids": [],
           "confidence": 0.95,
           "uncertainty": 0.05,
-          "notes": "Combined conditional force requirements into a single norm's satisfied_if."
+          "notes": "Force limits for swing doors in accessible routes, with a higher limit for fire-resistant doors."
         }
       ],
       "tags": [
         {
           "id": "T::0001",
-          "tag_path": "DOOR.SWING",
-          "parent": "DOOR",
-          "definition": "Puerta abatible",
-          "synonyms": [
-            "puerta abatible"
-          ],
+          "tag_path": "DOOR",
+          "parent": null,
+          "definition": "Elemento constructivo para acceso",
+          "synonyms": [],
           "introduced_by_norm_ids": [
             "N::0001"
           ],
@@ -115,11 +116,63 @@
         },
         {
           "id": "T::0002",
+          "tag_path": "ACCESSIBILITY",
+          "parent": null,
+          "definition": "Condiciones para el acceso y uso universal",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0003",
           "tag_path": "ROUTE.ACCESSIBLE",
-          "parent": "ROUTE",
-          "definition": "Itinerario o ruta que cumple con los requisitos de accesibilidad",
+          "parent": "ACCESSIBILITY",
+          "definition": "Itinerario que cumple con los requisitos de accesibilidad",
           "synonyms": [
             "itinerario accesible"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [
+            "DOOR"
+          ],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0004",
+          "tag_path": "STANDARD",
+          "parent": null,
+          "definition": "Documento normativo o estándar técnico",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.85,
+          "uncertainty": 0.15
+        },
+        {
+          "id": "T::0005",
+          "tag_path": "STANDARD.DB_SUA",
+          "parent": "STANDARD",
+          "definition": "Documento Básico de Seguridad de Utilización y Accesibilidad",
+          "synonyms": [
+            "DB SUA"
           ],
           "introduced_by_norm_ids": [
             "N::0001"
@@ -134,34 +187,30 @@
           "uncertainty": 0.1
         },
         {
-          "id": "T::0003",
-          "tag_path": "STANDARD.DB_SUA",
-          "parent": "STANDARD",
-          "definition": "Documento Básico de Seguridad de Utilización y Accesibilidad del Código Técnico de la Edificación (CTE)",
+          "id": "T::0006",
+          "tag_path": "DOOR.OPENING",
+          "parent": "DOOR",
+          "definition": "Acción de abrir una puerta",
           "synonyms": [
-            "DB SUA"
+            "apertura de puerta"
           ],
           "introduced_by_norm_ids": [
             "N::0001"
           ],
           "refined_by_norm_ids": [],
-          "related_tag_paths": [
-            "ACCESSIBILITY",
-            "SAFETY.USE"
-          ],
+          "related_tag_paths": [],
           "status": "ACTIVE",
           "merge_target": null,
           "confidence": 0.9,
           "uncertainty": 0.1
         },
         {
-          "id": "T::0004",
+          "id": "T::0007",
           "tag_path": "DOOR.FIRE_RATING",
           "parent": "DOOR",
-          "definition": "Clasificación de la resistencia al fuego de una puerta",
+          "definition": "Clasificación de resistencia al fuego de una puerta",
           "synonyms": [
-            "resistente al fuego",
-            "puerta cortafuego"
+            "resistente al fuego"
           ],
           "introduced_by_norm_ids": [
             "N::0001"
@@ -180,12 +229,12 @@
       "questions": [
         {
           "id": "Q::0001",
-          "tag_path": "ROUTE.ACCESSIBLE",
-          "question_text": "¿La puerta está situada en un itinerario accesible según DB SUA?",
+          "tag_path": "DOOR.FIRE_RATING",
+          "question_text": "¿La puerta es resistente al fuego?",
           "answer_type": "BOOLEAN",
           "enum_values": [],
           "outputs": [
-            "ROUTE.ACCESSIBLE"
+            "DOOR.FIRE_RATING"
           ],
           "derived_follow_up_question_ids": [],
           "trigger_norm_ids": [
@@ -196,12 +245,13 @@
         },
         {
           "id": "Q::0002",
-          "tag_path": "DOOR.FIRE_RATING",
-          "question_text": "¿La puerta es resistente al fuego?",
+          "tag_path": "ROUTE.ACCESSIBLE",
+          "question_text": "¿La puerta está situada en un itinerario accesible según DB SUA?",
           "answer_type": "BOOLEAN",
           "enum_values": [],
           "outputs": [
-            "DOOR.FIRE_RATING"
+            "DOOR.LOCATION",
+            "STANDARD.DB_SUA"
           ],
           "derived_follow_up_question_ids": [],
           "trigger_norm_ids": [
@@ -223,8 +273,8 @@
           "norm_ids": [
             "N::0001"
           ],
-          "confidence": 0.9,
-          "uncertainty": 0.1
+          "confidence": 0.95,
+          "uncertainty": 0.05
         },
         {
           "id": "P::0002",
@@ -236,8 +286,8 @@
           "norm_ids": [
             "N::0001"
           ],
-          "confidence": 0.9,
-          "uncertainty": 0.1
+          "confidence": 0.95,
+          "uncertainty": 0.05
         }
       ],
       "quality": {
