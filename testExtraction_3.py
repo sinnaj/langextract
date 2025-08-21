@@ -96,21 +96,17 @@ if TEACH_MODE:
 # illustrate cross-array structure. Attribute keys mirror target schema fields.
 
 EXAMPLES: List[lx.data.ExampleData] = [
-    # Example A: MANDATORY Norm with alternatives & exemption + embedded rich demo
+    # RICH: multi-entity with alternatives & exemption + embedded miniature demo
     lx.data.ExampleData(
         text=(
             "1 Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad."
-            "Se incluye solamente las puertas que forman parte del itinerario principal de evacuación y que sirven a ocupaciones simultáneas."
-            "La exigencia se centra en reducir fricción operativa y eliminar barreras de salida en situaciones de emergencia."
-            "La alternativa de mantener el sistema de cierre desactivado es válida siempre que el control de acceso quede asegurado por otros medios pasivos."
-            "No se aplica a puertas automáticas con sistema de abatimiento seguro que garantice apertura libre en caso de fallo energético."
+            "No se aplica a puertas automáticas con sistema de abatimiento seguro."
         ),
         extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
                 extraction_text=(
-                    "Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave "
-                    "o mantener el sistema de cierre desactivado durante la actividad."
+                    "Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad."
                 ),
                 attributes={
                     "paragraph_number": 1,
@@ -121,145 +117,83 @@ EXAMPLES: List[lx.data.ExampleData] = [
                         "(CLOSING.SYSTEM.ENABLED == FALSE)"
                     ),
                     "exempt_if": "DOOR.TYPE == 'AUTOMATIC' AND HAS(DOOR.OPTION.SWING_ALLOWED)",
-                    # Pedagogical micro multi-array snapshot (placeholder IDs)
                     "rich_demo": {
-                        "norms": [
-                            {
-                                "id": "N::DEMO1",
-                                "obligation_type": "MANDATORY",
-                                "priority": 5,
-                                "extracted_parameters_ids": ["P::DEMO1"],
-                                "consequence_ids": ["C::DEMO1"],
-                                "relevant_tags": ["DOOR.AUTOMATIC", "EVACUATION"],
-                            }
+                        "parameters": [
+                            {"id": "P::DEMO1", "field_path": "DOOR.OPENING.MECHANISMS_COUNT", "operator": "<=", "value": 1, "unit": None}
                         ],
                         "tags": [
-                            {
-                                "id": "T::DEMO1",
-                                "tag_path": "DOOR.AUTOMATIC",
-                                "parent": "DOOR",
-                                "definition": "Puerta accionada automáticamente",
-                                "status": "ACTIVE",
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "id": "P::DEMO1",
-                                "field_path": "DOOR.OPENING.MECHANISMS_COUNT",
-                                "operator": "<=",
-                                "value": 1,
-                                "unit": None,
-                            }
+                            {"id": "T::DEMO1", "tag_path": "DOOR.AUTOMATIC", "parent": "DOOR", "definition": "Puerta automática", "status": "ACTIVE"}
                         ],
                         "questions": [
-                            {
-                                "id": "Q::DEMO1",
-                                "tag_path": "DOOR.TYPE",
-                                "question_text": "¿Cuál es el tipo de puerta?",
-                                "answer_type": "ENUM",
-                                "enum_values": [
-                                    "SWING",
-                                    "SLIDING",
-                                    "FOLDING",
-                                    "AUTOMATIC",
-                                    "AUTOMATIC_PEDESTRIAN",
-                                ],
-                            }
+                            {"id": "Q::DEMO1", "tag_path": "DOOR.TYPE", "question_text": "¿Cuál es el tipo de puerta?", "answer_type": "ENUM", "enum_values": ["SWING","SLIDING","FOLDING","AUTOMATIC"]}
                         ],
                         "consequences": [
-                            {
-                                "id": "C::DEMO1",
-                                "kind": "ANNEX",
-                                "reference_code": "Anexo III",
-                                "source_norm_ids": ["N::DEMO1"],
-                                "activates_question_ids": ["Q::DEMO1"],
-                            }
+                            {"id": "C::DEMO1", "kind": "ANNEX", "reference_code": "Anexo III"}
                         ],
                         "locations": [
-                            {
-                                "id": "L::DEMO1",
-                                "type": "PLANNING_ZONE",
-                                "code": "R6.2",
-                                "parent_codes": ["ES", "CAT", "BARCELONA"],
-                            }
+                            {"id": "L::DEMO1", "type": "PLANNING_ZONE", "code": "R6.2", "parent_codes": ["ES","CAT"]}
                         ],
                     },
                 },
-            )
+            ),
+            lx.data.Extraction(
+                extraction_class="Parameter",
+                extraction_text="> 50 personas",
+                attributes={
+                    "field_path": "EVACUATION.PERSONS",
+                    "operator": ">",
+                    "value": 50,
+                    "unit": None,
+                    "original_text": "> 50 personas",
+                },
+            ),
+            lx.data.Extraction(
+                extraction_class="Tag",
+                extraction_text="DOOR.AUTOMATIC",
+                attributes={
+                    "tag_path": "DOOR.AUTOMATIC",
+                    "parent": "DOOR",
+                    "definition": "Puerta automática",
+                    "status": "ACTIVE",
+                },
+            ),
         ],
     ),
-    # Example B: PROHIBITION Norm (negative phrasing)
+    # MINIMAL: prohibition norm
     lx.data.ExampleData(
-        text=(
-            "2 No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas."
-            "La 'ruta de evacuación principal' comprende vestíbulos, corredores y puertas de salida de planta designadas como primarias."
-            "Esta prohibición evita retrasos de apertura generados por localización de llaves u obstrucciones de mecanismos."
-            "El criterio de ocupación se evalúa sobre el cálculo aprobado y no sobre mediciones eventuales de uso real."
-            "Se aceptan mecanismos accionados por barra antipánico que no requieren llave para desbloqueo desde el interior."
-        ),
+        text="2 No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.",
         extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text=(
-                    "No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas."
-                ),
+                extraction_text="No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.",
                 attributes={
                     "paragraph_number": 2,
-                    "applies_if": "EVACUATION.PERSONS > 100 AND ROUTE.ACCESSIBLE == TRUE",
+                    "applies_if": "EVACUATION.PERSONS > 100",
                     "satisfied_if": "DOOR.OPENING.REQUIRES_KEY == FALSE",
                     "exempt_if": None,
                 },
             )
         ],
     ),
-    # Example C: Standalone ontology & parameter emergence plus consequence and question
+    # MINIMAL: consequence + question + parameter linkage
     lx.data.ExampleData(
         text=(
-            "En la zona urbanística R6.2 se requerirá la presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia."
-            "La mención a la zona R6.2 implica verificación de código urbanístico local y su jerarquía administrativa."
-            "El Anexo III documenta medidas de seguridad y justificaciones técnicas asociadas a la intervención."
-            "La fuerza de apertura máxima permitida para salidas de emergencia se controla mediante parámetros adicionales (<= 220 N)."
-            "Las reformas menores de acabado que no alteren elementos de evacuación quedan excluidas implícitamente."
+            "En la zona R6.2 se requerirá la presentación del Anexo III cuando la fuerza de apertura sea <= 220 N."
         ),
         extractions=[
-            # A conditional Norm referencing a parameter & consequence
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text=(
-                    "Se requerirá la presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia."
-                ),
+                extraction_text="Se requerirá la presentación del Anexo III cuando la fuerza de apertura sea <= 220 N.",
                 attributes={
-                    "paragraph_number": 4,
-                    "applies_if": "ZONE.CODE == 'R6.2' AND WORK.TYPE IN['CONSTRUCTION.STRUCTURAL','REFORM']",
+                    "paragraph_number": 3,
+                    "applies_if": "ZONE.CODE == 'R6.2'",
                     "satisfied_if": "ANNEX.ANEXO_III.SUBMITTED == TRUE",
                     "exempt_if": None,
                 },
             ),
-            # Tag introduction
-            lx.data.Extraction(
-                extraction_class="Tag",
-                extraction_text="DOOR.AUTOMATIC.PEDESTRIAN",
-                attributes={
-                    "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN",
-                    "parent": "DOOR.AUTOMATIC",
-                    "definition": "Puerta automática destinada a tránsito peatonal",
-                    "status": "ACTIVE",
-                },
-            ),
-            # Location entity
-            lx.data.Extraction(
-                extraction_class="Location",
-                extraction_text="R6.2",
-                attributes={
-                    "type": "PLANNING_ZONE",
-                    "code": "R6.2",
-                    "parent_codes": ["ES", "CAT"],
-                },
-            ),
-            # Parameter
             lx.data.Extraction(
                 extraction_class="Parameter",
-                extraction_text="220 N",
+                extraction_text="<= 220 N",
                 attributes={
                     "field_path": "DOOR.OPENING.PUSH_FORCE_N",
                     "operator": "<=",
@@ -268,17 +202,15 @@ EXAMPLES: List[lx.data.ExampleData] = [
                     "original_text": "<= 220 N",
                 },
             ),
-            # Consequence (Annex)
             lx.data.Extraction(
                 extraction_class="Consequence",
                 extraction_text="Anexo III",
                 attributes={
                     "kind": "ANNEX",
                     "reference_code": "Anexo III",
-                    "description": "Presentación del Anexo III obligatoria en zona R6.2",
+                    "description": "Presentación obligatoria",
                 },
             ),
-            # Question triggered by tag variability
             lx.data.Extraction(
                 extraction_class="Question",
                 extraction_text="¿Qué tipo de puerta automática es?",
@@ -286,198 +218,8 @@ EXAMPLES: List[lx.data.ExampleData] = [
                     "tag_path": "DOOR.AUTOMATIC.TYPE",
                     "question_text": "¿Qué tipo de puerta automática es?",
                     "answer_type": "ENUM",
-                    "enum_values": ["PEDESTRIAN", "INDUSTRIAL"],
+                    "enum_values": ["PEDESTRIAN","INDUSTRIAL"],
                     "outputs": ["DOOR.AUTOMATIC.TYPE"],
-                },
-            ),
-        ],
-    ),
-    # Example D: OPTIONAL Norm with multi-parameter IN[] list, NOT operator, HAS() predicate and decimal value capture
-    lx.data.ExampleData(
-        text=(
-            "7 Para recintos de reunión de tipo A o B con ocupación entre 80 y 150 personas se recomienda disponer de apertura asistida."
-            "El carácter de recomendación implica mejora de usabilidad y reducción de fatiga operativa."
-            "Se activa la recomendación cuando la fuerza manual excede 180 N o el peso de la hoja supera 65 kg."
-            "Un mecanismo redundante certificado puede justificar la no adopción del sistema asistido."
-            "La evaluación de peso se basa en la hoja individual y no en conjuntos múltiples articulados."
-        ),
-        extractions=[
-            lx.data.Extraction(
-                extraction_class="Norm",
-                extraction_text=(
-                    "Se recomienda disponer de sistema de apertura asistida si la fuerza manual excede 180 N o la puerta pesa más de 65 kg."
-                ),
-                attributes={
-                    "paragraph_number": 7,
-                    "obligation_type": "RECOMMENDATION",
-                    "applies_if": "VENUE.TYPE IN['A','B'] AND OCCUPANCY.PERSONS >= 80 AND OCCUPANCY.PERSONS <= 150",
-                    "satisfied_if": "(DOOR.OPENING.ASSISTED == TRUE); OR (DOOR.OPENING.PUSH_FORCE_N <= 180); OR (DOOR.WEIGHT_KG <= 65)",
-                    "exempt_if": "HAS(DOOR.MECHANISM.REDUNDANT_CERTIFIED) AND NOT DOOR.OPENING.ASSISTED",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Parameter",
-                extraction_text="180 N",
-                attributes={
-                    "field_path": "DOOR.OPENING.PUSH_FORCE_N",
-                    "operator": ">",
-                    "value": 180,
-                    "unit": "N",
-                    "original_text": "> 180 N",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Parameter",
-                extraction_text="65 kg",
-                attributes={
-                    "field_path": "DOOR.WEIGHT_KG",
-                    "operator": ">",
-                    "value": 65,
-                    "unit": "kg",
-                    "original_text": "> 65 kg",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Tag",
-                extraction_text="DOOR.MECHANISM.REDUNDANT_CERTIFIED",
-                attributes={
-                    "tag_path": "DOOR.MECHANISM.REDUNDANT_CERTIFIED",
-                    "parent": "DOOR.MECHANISM",
-                    "definition": "Mecanismo redundante con certificación homologada",
-                    "status": "ACTIVE",
-                },
-            ),
-        ],
-    ),
-    # Example E: PROHIBITION with ADJACENT_TO and OVERLAPS geo logic & location, plus consequence referencing future annex
-    lx.data.ExampleData(
-        text=(
-            "8 No se permitirá instalar salidas de emergencia que abran hacia zonas de carga con interferencias de riesgo."
-            "La condición aplica si el área de evacuación se superpone o es adyacente a la zona de almacenamiento peligrosa ZH-41."
-            "Se busca evitar corrientes cruzadas entre flujos de evacuación y operaciones de manipulación peligrosa."
-            "Cuando exista esta proximidad, se exige un rediseño de orientación o barrera física validada."
-            "El incumplimiento desencadena requerimiento de informe técnico adicional (Anexo IV)."
-        ),
-        extractions=[
-            lx.data.Extraction(
-                extraction_class="Norm",
-                extraction_text=(
-                    "No se permitirá instalar salidas de emergencia que abran hacia zonas de carga si el área de evacuación se superpone o es adyacente a una zona de almacenamiento de materiales peligrosos ZH-41."
-                ),
-                attributes={
-                    "paragraph_number": 8,
-                    "obligation_type": "PROHIBITION",
-                    "applies_if": "EVACUATION.AREA.OVERLAPS('ZH-41') OR EVACUATION.AREA.ADJACENT_TO('ZH-41')",
-                    "satisfied_if": "EMERGENCY.EXIT.ORIENTATION != 'TOWARDS_LOADING_AREA'",
-                    "exempt_if": "STORAGE.MATERIALS_HAZARD_CLASS NOT IN['P1','P2']",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Location",
-                extraction_text="ZH-41",
-                attributes={
-                    "type": "INDUSTRIAL_ZONE",
-                    "code": "ZH-41",
-                    "parent_codes": ["ES", "CAT", "BARCELONA"],
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Consequence",
-                extraction_text="Anexo IV",
-                attributes={
-                    "kind": "ANNEX",
-                    "reference_code": "Anexo IV",
-                    "description": "Requiere informe técnico adicional por proximidad a zona peligrosa",
-                },
-            ),
-        ],
-    ),
-    # Example F: OPTIONAL norm with question enumeration & parameter reuse, demonstrates HAS() negation
-    lx.data.ExampleData(
-        text=(
-            "9 Se podrá omitir el dispositivo de cierre automático bajo condiciones específicas controladas."
-            "Debe existir sistema de supervisión activo y la ocupación servida ser <= 45 personas."
-            "La puerta no debe poseer clasificación cortafuego ya que perdería una función de contención crítica."
-            "La supervisión puede ser continua, temporizada o inexistente (caso que desactiva la posibilidad de omisión)."
-            "Se interroga al operador: ¿Cuál es el sistema de supervisión instalado?"
-        ),
-        extractions=[
-            lx.data.Extraction(
-                extraction_class="Norm",
-                extraction_text=(
-                    "Se podrá omitir el dispositivo de cierre automático si la puerta peatonal automática dispone de sistema de supervisión y la ocupación servida es <= 45 personas, siempre que no sea cortafuego."
-                ),
-                attributes={
-                    "paragraph_number": 9,
-                    "obligation_type": "OPTIONAL",
-                    "applies_if": "DOOR.TYPE == 'AUTOMATIC_PEDESTRIAN' AND HAS(DOOR.SUPERVISION.SYSTEM) AND OCCUPANCY.SERVED <= 45",
-                    "satisfied_if": "DOOR.CLOSING.AUTOMATIC_DEVICE == FALSE",
-                    "exempt_if": "DOOR.FIRE_RATING == 'FIRE_RESISTANT'",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Parameter",
-                extraction_text="<= 45 personas",
-                attributes={
-                    "field_path": "OCCUPANCY.SERVED",
-                    "operator": "<=",
-                    "value": 45,
-                    "unit": "PERSONAS",
-                    "original_text": "<= 45 personas",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Question",
-                extraction_text="¿Cuál es el sistema de supervisión instalado?",
-                attributes={
-                    "tag_path": "DOOR.SUPERVISION.SYSTEM",
-                    "question_text": "¿Cuál es el sistema de supervisión instalado?",
-                    "answer_type": "ENUM",
-                    "enum_values": ["SENSOR_CONTINUO", "TEMPORIZADO", "NINGUNO"],
-                    "outputs": ["DOOR.SUPERVISION.SYSTEM"],
-                },
-            ),
-        ],
-    ),
-    # Example G: Consequence activating multiple norms & questions; tag hierarchy depth 4
-    lx.data.ExampleData(
-        text=(
-            "10 La activación del protocolo de evacuación avanzada (Anexo V) obedece a umbrales combinados."
-            "Se activa cuando la fuerza de apertura excede 220 N en más de dos puertas críticas designadas."
-            "También se activa cuando el sistema de supervisión declarado es 'NINGUNO'."
-            "La finalidad del protocolo es incrementar vigilancia operacional y redundancia documental."
-            "El Anexo V consolida procedimientos escalonados y verificaciones post-evento."
-        ),
-        extractions=[
-            lx.data.Extraction(
-                extraction_class="Consequence",
-                extraction_text="Anexo V",
-                attributes={
-                    "kind": "ANNEX",
-                    "reference_code": "Anexo V",
-                    "description": "Protocolo de evacuación avanzada",
-                    # The model in full output should fill in source_norm_ids / activates_question_ids appropriately
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Tag",
-                extraction_text="DOOR.OPENING.MONITOR.METHOD",
-                attributes={
-                    "tag_path": "DOOR.OPENING.MONITOR.METHOD",
-                    "parent": "DOOR.OPENING.MONITOR",
-                    "definition": "Método de monitorización de apertura de puerta",
-                    "status": "ACTIVE",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Question",
-                extraction_text="¿Qué método de monitorización de apertura está instalado?",
-                attributes={
-                    "tag_path": "DOOR.OPENING.MONITOR.METHOD",
-                    "question_text": "¿Qué método de monitorización de apertura está instalado?",
-                    "answer_type": "ENUM",
-                    "enum_values": ["SENSOR_CONTINUO", "TEMPORIZADO", "NINGUNO"],
-                    "outputs": ["DOOR.OPENING.MONITOR.METHOD"],
                 },
             ),
         ],
