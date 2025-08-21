@@ -1,154 +1,56 @@
-# Regulatory Norm & Ontology Extraction Prompt (Spain – Building Laws & Norms)
+## COMPACT SPEC (v1)
+Purpose: produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdown fences, NO extra prose. If data absent use empty lists, never null (except allowed nullable scalar fields noted).
 
-schema_version: 1.0.0  
-ontology_version: 0.0.1 (bootstrap – model MUST evolve hierarchy in-session)  
-mode: single-pass (norms + emergent taxonomy + questionnaires + consequences + location entities)  
-jurisdictions: Spain (ES) – multi-level (State / Autonomous Community / Province / Region / Commune / Planning Zones)  
+TOP LEVEL REQUIRED KEYS (1 extraction object min): schema_version, ontology_version, dsl_version (optional), run_info (optional), truncated, has_more, window_config{input_chars,max_norms_per_5k_tokens,extracted_norm_count}, global_disclaimer, document_metadata{doc_id,doc_title,source_language,received_chunk_span{char_start,char_end},page_range{start,end},topics[],location_scope{COUNTRY,STATES,PROVINCES,REGIONS,COMMUNES,ZONES,GEO_CODES,UNCERTAINTY}}, norms[], tags[], locations[], questions[], consequences[], parameters[], quality{errors[],warnings[],confidence_global,uncertainty_global}.
 
-IMPORTANT: This prompt governs a mission‑critical pipeline. Precision, traceability, and non‑fabrication are mandatory. If ANY required datum is missing or uncertain you MUST output explicit uncertainty scores rather than invent content.
+INVALID: legacy top arrays, missing root key, markdown fences, legacy keys NORM/NORM_attributes, null for required arrays, extra top-level keys.
 
---------------------------------------------------------------------------------
-## 1. OBJECTIVE
-From Spanish or Catalan regulatory free text (building codes, regional ordinances, municipal plans, zoning documents) extract:
-1. Atomic regulatory Norms (obligations, prohibitions, permissions, conditional rules)
-2. Hierarchical Tag ontology (multi-level topic/entity taxonomy) – dynamically extended & restructured as new mid-chain concepts emerge
-3. Location Entities (administrative + planning zones + inferred spatial scopes & their relationships)
-4. Questionnaire Items (decision narrowing questions at higher-level, ambiguous, broad or branching tags/topics)
-5. Consequences (annexes/forms, declarations, inspections, triggers, activation of further norms/questions/tags)
-6. Cross-cutting numeric parameters, thresholds & enumerations for normalization
-7. Quality, priority, confidence & uncertainty metadata
+SELF-CHECK (must pass before emitting): single root key extractions; each extraction has all required keys; arrays exist; JSON parses; no legacy keys; ids referenced exist; DSL tokens valid.
 
-All in a SINGLE JSON object with SEGREGATED arrays (Option B). The model MUST maintain internal memory during the run to avoid duplicating tags and to refactor hierarchy if a new concept belongs mid-chain (re-parenting). When hierarchy is refactored, earlier tag objects MUST be re-output in their updated canonical form within the same result (never rely on earlier stale definition).
+### NORM FIELDS
+Each norm: id, statement_text, obligation_type ∈ {MANDATORY, PROHIBITION, PERMISSION, CONDITIONAL, OPTIONAL, RECOMMENDATION}, paragraph_number (int|null), applies_if (DSL or TRUE), satisfied_if (DSL), exempt_if (DSL|null), priority (1..5), priority_factors (optional object), relevant_tags[], relevant_roles[], project_dimensions (optional object), lifecycle_phase[], topics[], location_scope (object), source{doc_id,page,span_char_start,span_char_end,...}, extracted_parameters_ids[], consequence_ids[], confidence, uncertainty, notes(optional).
+Rules: split by differing triggers/thresholds/obligation_type; merge only identical core logic; no fabrication; negative phrasing → PROHIBITION + encode state; unconditional → applies_if TRUE; use exempt_if not extra norm; page unknown → page=-1 plus PAGE_MISSING error.
 
---------------------------------------------------------------------------------
-## 2. TOP-LEVEL JSON STRUCTURE (STRICT)
+### DSL
+Tokens UPPERCASE.DOTCASE. Operators: == != < <= > >= AND OR NOT IN[...] WITHIN() OVERLAPS() ADJACENT_TO() HAS(). Booleans TRUE/FALSE. Strings single quotes. Alternatives in satisfied_if separated by "; OR ". No free prose.
 
-Return EXACTLY one UTF-8 JSON object (no markdown fences, no prose before/after). The top-level key MUST be "extractions", whose value is a LIST of extraction objects (even if there is only one). Each extraction object contains all the required keys (schema_version, norms, tags, etc.). Example structure:
+### TAG OBJECT
+id, tag_path, parent|null, definition, synonyms[], introduced_by_norm_ids[], refined_by_norm_ids[], related_tag_paths[], status ∈ {ACTIVE,MERGED,REPLACED}, merge_target|null, confidence, uncertainty.
 
-{
-  "extractions": [
-    {
-  "schema_version": "1.0.0",
-  "ontology_version": "0.0.1",
-  "dsl_version": "0.1.0",               // OPTIONAL meta
-  "run_info": {"generated_at": "<iso8601>", "strategy": "full_pass"}, // OPTIONAL meta
-      "truncated": false,
-      "has_more": false,
-      "window_config": {"input_chars": 3450, "max_norms_per_5k_tokens": 35, "extracted_norm_count": 2},
-      "global_disclaimer": "NO LEGAL ADVICE",
-      "document_metadata": {
-        "doc_id": "ccte_si.pdf",
-        "doc_title": "CTE SI 3",
-        "source_language": "es",
-        "received_chunk_span": {"char_start": 0, "char_end": 3400},
-        "page_range": {"start": 120, "end": 121},
-        "topics": ["SAFETY.FIRE"],
-        "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05}
-      },
-      "norms": [ ... ],
-      "tags": [ ... ],
-      "locations": [ ... ],
-      "questions": [ ... ],
-      "consequences": [ ... ],
-      "parameters": [ ... ],
-      "quality": { ... }
-    }
-    // If multiple extractions, add more objects here
-  ]
-}
+### LOCATION OBJECT
+id, type ∈ {COUNTRY,STATE,PROVINCE,REGION,COMMUNE,PLANNING_ZONE,INDUSTRIAL_ZONE}, code, name|null, parent_codes[], classification[], related_zone_codes[], source{doc_id,page,span_char_start,span_char_end}, confidence, uncertainty.
 
-No additional top-level keys are allowed. Empty arrays are allowed. NEVER omit required keys.
+### QUESTION OBJECT
+id, tag_path, question_text, answer_type ∈ {BOOLEAN,ENUM,NUMBER,STRING}, enum_values[], outputs[], derived_follow_up_question_ids[], trigger_norm_ids[], confidence, uncertainty.
 
-DO NOT wrap your output in markdown code fences or any language identifier. Output ONLY the raw JSON object.
+### CONSEQUENCE OBJECT
+id, kind ∈ {ANNEX,DECLARATION,STATEMENT,CERTIFICATION,INSPECTION,SURVEY,TRIGGER,QUESTIONNAIRE,NORM_ACTIVATION,TAG_ACTIVATION}, reference_code|null, description, activates_norm_ids[], activates_tag_paths[], activates_question_ids[], required_documents[], source_norm_ids[], confidence, triggers[] (optional), effects[] (optional), uncertainty.
 
-INCORRECT (do NOT do this):
-```json
-{
-  ...
-}
-```
+### PARAMETER OBJECT
+id, field_path, operator ∈ {<=,<,>=,>,==,!=}, value (num|string), unit|null, original_text, norm_ids[], confidence, uncertainty.
 
-CORRECT (do this):
-{
-  ...
-}
+### QUALITY
+quality.errors[], quality.warnings[], confidence_global, uncertainty_global. Common errors: PAGE_MISSING, QUALITY_TRUNCATED, DUPLICATE_TAG_COLLAPSED:<tag>, UNSUPPORTED_OPERATOR:<tok>, INVALID_DSL_SYNTAX:<reason>, MISSING_REQUIRED_FIELD:<field>.
 
-### 2A. STRICT OUTPUT TEMPLATE (COPY EXACTLY THE SHAPE)
-Your ONLY valid output is a single JSON object with one key: "extractions". Its value is a JSON array of one or more extraction objects. Every extraction object MUST contain ALL of the keys below (never omit; use empty arrays where content is absent):
+### ENUM BLOCKS (use exactly; no invention; omit unused in DSL but keep tag paths in norms/questions):
+ENUM.PROJECT.TYPE=[NEW,REFORM,AMPLIACION_ESTRUCTURA,LEGALISATION]
+ENUM.OWNERSHIP=[PRIVATE,COMMERCIAL,EDUCATION,PUBLIC]
+ENUM.USAGE=[FAMILY.SINGLE,FAMILY.MULTIPLE,PUBLIC.EDUCATION,PUBLIC.GOV,PUBLIC.PARK,HOSPITAL,AGRICULTURE]
+ENUM.WORK.TYPE=[NEW_BUILD,DEMOLITION.PARTIAL,DEMOLITION.TOTAL,USAGE.CHANGE.WHOLE,USAGE.CHANGE.PARTIAL,CONSTRUCTION.INSIDE,CONSTRUCTION.OUTSIDE,CONSTRUCTION.STRUCTURAL,CONSTRUCTION.FLOORS,CONSTRUCTION.DOORS,CONSTRUCTION.WINDOWS,CONSTRUCTION.STAIRS,CONSTRUCTION.EMERGENCYPATH,ELECTRO.ELEVATOR,ELECTRO.HEATING,ELECTRO.CLIMATE,ELECTRO.PHOTOVOLTAIC,ELECTRO.PHOTOVOLTAIC.INTERIOR,ELECTRO.PHOTOVOLTAIC.EXTERIOR,ELECTRO.PHOTOVOLTAIC.EXTERIOR.GARDEN,ELECTRO.RADIOCOMMUNICATION,ELECTRO.OTHER,GAS.HEATING,GAS.KITCHEN,GAS.OTHER]
+ENUM.WORK.EFFECTS=[CLOSURE.STREET,CLOSURE.PARK,CLOSURE.AREA,CONSTRUCTION.FACILITIES]
+ENUM.WORK.TYPE.AUXILARY=[CONSTRUCTION,SWIMMINGPOOL,ELECTRO.RADIOCOMMUNICATION]
+ENUM.TOPICS=[SAFETY.STRUCTURAL,SAFETY.FIRE,SAFETY.USE,ACCESSIBILITY,SAFETY.ACCIDENTPREVENTION,HEALTH,SANITATION,PROTECTION.DAMP,PROTECTION.INDOOR.AIR,PROTECTION.ELECTRONICS,PROTECTION.SUPPLY.WATER,PROTECTION.NOISE,ENERGYSAVING,ENERGYSAVING.THERMAL,ENERGYSAVINGS.SOLAR,ENERGYSAVINGS.PV,ENERGYSAVINGS.HVAC.EFFICIENCY,ENERGYSAVINGS.LIGHTING.EFFICIENCY]
+ENUM.MATERIALSANDEFFECTS=[LOADS,SNOW,WIND,EARTHQUAKES,RAIN,FOUNDATIONS,STEEL,MASONRY,TIMBER,ALUMINIUM]
 
-{
-  "extractions": [
-    {
-  "schema_version": "1.0.0",
-  "ontology_version": "0.0.1",
-  "dsl_version": "0.1.0",
-  "run_info": {"generated_at": "<iso8601>", "strategy": "full_pass"},
-      "truncated": false,
-      "has_more": false,
-      "window_config": {"input_chars": <int>, "max_norms_per_5k_tokens": <int>, "extracted_norm_count": <int>},
-      "global_disclaimer": "NO LEGAL ADVICE",
-      "document_metadata": {
-        "doc_id": "<string>",
-        "doc_title": "<string>",
-        "source_language": "es" | "ca",
-        "received_chunk_span": {"char_start": <int>, "char_end": <int>},
-        "page_range": {"start": <int>, "end": <int>},
-        "topics": ["SAFETY.FIRE", ...],
-        "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": <float>}
-      },
-      "norms": [],
-      "tags": [],
-      "locations": [],
-      "questions": [],
-      "consequences": [],
-      "parameters": [],
-      "quality": {"errors": [], "warnings": [], "confidence_global": <float>, "uncertainty_global": <float>}
-    }
-  ]
-}
+### PRIORITY HEURISTICS
+5 safety/emergency/legal gate; 4 major design impact; 3 standard technical; 2 narrow edge case; 1 minor clarifier.
 
-Do NOT add or rename keys. Do NOT output null in place of required arrays; use [] (empty list) instead.
+### TRUNCATION
+If truncation: truncated=true + QUALITY_TRUNCATED in errors; if more norms than emitted set has_more=true.
 
-### 2B. MACHINE-READABLE FIELD CONTRACT (MINI JSON SCHEMA)
-For each extraction object:
-- schema_version: string (exact "1.0.0")
-- ontology_version: string
-- dsl_version: string (optional)
-- run_info: object {generated_at:string,strategy:string} (optional)
-- truncated: boolean
-- has_more: boolean
-- window_config: object {input_chars:int, max_norms_per_5k_tokens:int, extracted_norm_count:int}
-- global_disclaimer: string
-- document_metadata: object with mandatory keys doc_id, doc_title, source_language, received_chunk_span{char_start:int,char_end:int}, page_range{start:int,end:int}, topics[list[str]], location_scope{COUNTRY:str, STATES:list[str], PROVINCES:list[str], REGIONS:list[str], COMMUNES:list[str], ZONES:list[str], GEO_CODES:list[str], UNCERTAINTY:float}
-- norms/tags/locations/questions/consequences/parameters: each a list (may be empty)
-- quality: object {errors:list[str], warnings:list[str], confidence_global:float, uncertainty_global:float}
+### AUTO-REPAIR (pre-output): If any required key missing / invalid structure / legacy key present / arrays null / JSON invalid → rebuild internally then emit only corrected final JSON once.
 
-### 2C. LEGACY / INVALID OUTPUT ANTI-PATTERNS (FORBIDDEN)
-You MUST NOT produce any of these legacy formats:
-1. A top-level array of Norm objects (e.g. [{"id":"N::0001", ...}, ...]) – FORBIDDEN.
-2. A top-level object whose keys are class names (e.g. {"norms":[...], "tags":[...]}) WITHOUT wrapping in {"extractions":[{ ... }]} – FORBIDDEN.
-3. Emitting only legacy obligation text key "Norm" without canonical "statement_text".
-4. Output split across multiple JSON objects or with markdown fences.
-5. Using camelCase, snake_case, or lowercase where UPPERCASE.DOTCASE is required for DSL tokens.
-6. Omitting required keys when an array would simply be empty.
-
-If unsure, ALWAYS default to the rich structure template above and leave arrays empty rather than inventing data. Always emit statement_text for each norm; including legacy Norm is optional and may be phased out.
-
-### 2D. DETECTION SELF-CHECK BEFORE OUTPUT (CRITICAL)
-Before finalizing, internally verify ALL of the following are TRUE; if any is FALSE, correct the structure:
-1. The root object has exactly one key: "extractions".
-2. extractions is a JSON array with length >= 1.
-3. Every extraction object contains ALL required keys listed in Section 2A in EXACT spelling.
-4. No unexpected top-level keys (e.g., "norm_count", "metadata", "NORM").
-5. Every Norm object resides ONLY inside the "norms" array.
-6. No legacy placeholder keys like "NORM", "NORM_attributes", "Tag_attributes" exist.
-7. All arrays exist; none are null.
-8. JSON parses (no trailing commas, no comments).
-
-If any check fails you must fix before emitting. Never emit a legacy or partial structure.
-
---------------------------------------------------------------------------------
-## 3. NORM OBJECT SPECIFICATION
+END OF COMPACT SPEC.
 Each element of "norms":
 {
   "id": "N::<stable_local_id>",          // e.g., N::0001 (unique within output)
