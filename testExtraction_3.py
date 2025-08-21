@@ -525,6 +525,8 @@ def legacy_wrap(doc: Dict[str, Any]) -> Dict[str, Any]:
     raw_extractions = doc.get("extractions", [])
     norms: List[Dict[str, Any]] = []
     for idx, item in enumerate(raw_extractions, start=1):
+        if not isinstance(item, dict):
+            continue  # skip invalid items
         attrs = item.get("Norm_attributes") or item.get("attributes", {})
         norms.append(
             {
