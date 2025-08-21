@@ -26,6 +26,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
+from datetime import datetime
 
 from dotenv import load_dotenv
 import langextract as lx
@@ -35,15 +36,21 @@ import langextract as lx
 # ---------------------------------------------------------------------------
 load_dotenv()
 
+USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
+OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")  # repurposed for OpenRouter
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-if not GOOGLE_API_KEY:
-    print("WARNING: GOOGLE_API_KEY not set – model call will likely fail.", file=sys.stderr)
+if USE_OPENROUTER:
+    if not OPENROUTER_KEY:
+        print("WARNING: OPENROUTER (OPENAI_API_KEY) key not set – OpenRouter call will fail.", file=sys.stderr)
+else:
+    if not GOOGLE_API_KEY:
+        print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
 
 PROMPT_FILE = Path("prompts/extraction_prompt.md")
 OUTPUT_FILE = Path("rich_norms_full.json")
 GLOSSARY_FILE = Path("dsl_glossary.json")
 MAX_NORMS_PER_5K = 10  # matches spec guidance
-MODEL_ID = "gemini-2.5-flash"
+MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
 MODEL_TEMPERATURE = 0.15
 
 if not PROMPT_FILE.exists():
@@ -481,15 +488,8 @@ EXAMPLES: List[lx.data.ExampleData] = [
 # ---------------------------------------------------------------------------
 # 2. Sample Input Text (multi-concept to test breadth)
 # ---------------------------------------------------------------------------
-INPUT_TEXT = (
-    "1 Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad. "
-    "No se aplica a puertas automáticas con sistema de abatimiento seguro. "
-    "2 No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas. "
-    "3 Para edificios de uso Residencial Vivienda en la Provincia de Barcelona (CAT) la puerta principal de evacuación abrirá en el sentido de la salida cuando SERVED personas exceda 200. "
-    "4 En la zona urbanística R6.2 se requerirá la presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia. "
-    "5 Cuando exista fallo de suministro eléctrico o señal de emergencia las puertas peatonales automáticas correderas o plegables deberán abrir y mantenerse abiertas o permitir apertura abatible con fuerza <= 220 N. "
-    "6 Cuando la puerta esté situada en itinerario accesible según DB SUA la fuerza para apertura abatible no excederá 25 N (65 N si resistente al fuego)."
-)
+INPUT_TEXT = "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo. Las anteriores condiciones no son aplicables cuando se tra-te de puertas automáticas. 2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante ma-nilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009. 3 Abrirá en el sentido de la evacuación toda puerta de salida: a) prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. b) prevista para más de 50 ocupantes del recinto o espacio en el que esté situada. Para la determinación del número de personas que se indica en a) y b) se deberán tener en cuenta los criterios de asignación de los ocupantes establecidos en el apartado 4.1 de esta Sección. 4 Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N. La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista. 5 Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: a) Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA. b) Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente), abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itine-rario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego. La fuerza de apertura abatible se considera aplicada de forma estática en el borde de la hoja, per-pendicularmente a la misma y a una altura de 1000 ±10 mm, Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de manteni-miento conforme a la norma UNE 85121:2018."
+
 
 
 # ---------------------------------------------------------------------------
@@ -498,6 +498,7 @@ INPUT_TEXT = (
 TOP_LEVEL_REQUIRED = [
     "schema_version",
     "ontology_version",
+    # (dsl_version, run_info) intentionally excluded from strict required list during transition
     "truncated",
     "has_more",
     "window_config",
@@ -517,102 +518,6 @@ def is_rich_schema(d: Any) -> bool:
     return isinstance(d, dict) and all(k in d for k in TOP_LEVEL_REQUIRED)
 
 
-def legacy_wrap(doc: Dict[str, Any]) -> Dict[str, Any]:
-    """Wrap classic `extractions` output into rich schema skeleton.
-
-    This is a last-resort fallback; downstream logic should still function albeit with sparse fields.
-    """
-    raw_extractions = doc.get("extractions", [])
-    norms: List[Dict[str, Any]] = []
-    for idx, item in enumerate(raw_extractions, start=1):
-        if not isinstance(item, dict):
-            continue  # skip invalid items
-        attrs = item.get("Norm_attributes") or item.get("attributes") or {}
-        norms.append(
-            {
-                "id": f"N::{idx:04d}",
-                "Norm": item.get("Norm", item.get("extraction_text", "")),
-                "obligation_type": "MANDATORY",
-                "paragraph_number": attrs.get("paragraph_number"),
-                "applies_if": attrs.get("applies_if", "TRUE"),
-                "satisfied_if": attrs.get("satisfied_if", "TRUE"),
-                "exempt_if": attrs.get("exempt_if"),
-                "priority": 3,
-                "relevant_tags": [],
-                "relevant_roles": [],
-                "project_dimensions": {},
-                "lifecycle_phase": [],
-                "topics": [],
-                "location_scope": {
-                    "COUNTRY": "ES",
-                    "STATES": [],
-                    "PROVINCES": [],
-                    "REGIONS": [],
-                    "COMMUNES": [],
-                    "ZONES": [],
-                    "GEO_CODES": [],
-                    "UNCERTAINTY": 1.0,
-                },
-                "source": {
-                    "doc_id": "UNKNOWN",
-                    "article": None,
-                    "page": -1,
-                    "span_char_start": -1,
-                    "span_char_end": -1,
-                    "visual_refs": [],
-                },
-                "extracted_parameters_ids": [],
-                "consequence_ids": [],
-                "confidence": 0.4,
-                "uncertainty": 0.6,
-                "notes": "Legacy fallback",
-            }
-        )
-
-    return {
-        "schema_version": "1.0.0",
-        "ontology_version": "0.0.1",
-        "truncated": False,
-        "has_more": False,
-        "window_config": {
-            "input_chars": len(INPUT_TEXT),
-            "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
-            "extracted_norm_count": len(norms),
-        },
-        "global_disclaimer": "NO LEGAL ADVICE",
-        "document_metadata": {
-            "doc_id": "UNKNOWN",
-            "doc_title": None,
-            "source_language": "es",
-            "received_chunk_span": {"char_start": 0, "char_end": len(INPUT_TEXT)},
-            "page_range": {"start": -1, "end": -1},
-            "topics": [],
-            "location_scope": {
-                "COUNTRY": "ES",
-                "STATES": [],
-                "PROVINCES": [],
-                "REGIONS": [],
-                "COMMUNES": [],
-                "ZONES": [],
-                "GEO_CODES": [],
-                "UNCERTAINTY": 1.0,
-            },
-        },
-        "norms": norms,
-        "tags": [],
-        "locations": [],
-        "questions": [],
-        "consequences": [],
-        "parameters": [],
-        "quality": {
-            "errors": ["LEGACY_FALLBACK"],
-            "warnings": [],
-            "confidence_global": 0.4,
-            "uncertainty_global": 0.6,
-        },
-    }
-
-
 DSL_TOKEN_PATTERN = re.compile(r"^[A-Z][A-Z0-9_]*(?:\.[A-Z][A-Z0-9_]*)*$")
 
 
@@ -622,6 +527,10 @@ def validate_rich(obj: Dict[str, Any]) -> List[str]:
     for k in TOP_LEVEL_REQUIRED:
         if k not in obj:
             errors.append(f"MISSING_TOP_LEVEL:{k}")
+    # Soft missing (transition)
+    for soft in ("dsl_version", "run_info"):
+        if soft not in obj:
+            errors.append(f"WARN_SOFT_MISSING:{soft}")
     # Basic type checks
     for arr_key in ("norms", "tags", "locations", "questions", "consequences", "parameters"):
         if arr_key in obj and not isinstance(obj[arr_key], list):
@@ -752,15 +661,14 @@ def enrich_parameters(obj: Dict[str, Any]):
                 if pid not in collected_ids:
                     collected_ids.add(pid)
         # attempt capture of numeric with unit inside Norm text
-        text_snip = norm.get("Norm") or ""
+        text_snip = norm.get("statement_text") or norm.get("Norm") or ""
         for mu in UNIT_NUMBER_PATTERN.finditer(text_snip):
             val = float(mu.group("val"))
             unit_found: Optional[str] = mu.group("unit").upper() if mu.group("unit") else None
-            # Guess field_path from nearby heuristic tokens
             field_path = "DOOR.OPENING.PUSH_FORCE_N" if unit_found == "N" else None
             if not field_path:
                 continue
-            op = "<="  # heuristic default; refine later
+            op = "<="
             key_u = (field_path, op, val, unit_found)
             if key_u not in index:
                 pid = f"P::{next_id_int:04d}"
@@ -793,82 +701,31 @@ def enrich_parameters(obj: Dict[str, Any]):
 def merge_duplicate_tags(obj: Dict[str, Any]):
     """Collapse duplicate ACTIVE tags with identical tag_path marking extras as MERGED."""
     tags = obj.get("tags", [])
-    norms: List[Dict[str, Any]] = []
-    for idx, item in enumerate(raw_extractions, start=1):
-        if not isinstance(item, dict):
-            continue  # skip invalid items
-        attrs = item.get("Norm_attributes") or item.get("attributes", {})
-        norms.append(
-            {
-                "id": f"N::{idx:04d}",
-                "Norm": item.get("Norm", item.get("extraction_text", "")),
-                "obligation_type": "MANDATORY",
-                "paragraph_number": attrs.get("paragraph_number"),
-                "applies_if": attrs.get("applies_if", "TRUE"),
-                "satisfied_if": attrs.get("satisfied_if", "TRUE"),
-                "exempt_if": attrs.get("exempt_if"),
-                "priority": 3,
-                "relevant_tags": [],
-                "relevant_roles": [],
-                "project_dimensions": {},
-                "lifecycle_phase": [],
-                "topics": [],
-                "location_scope": {
-                    "COUNTRY": "ES",
-                    "STATES": [],
-                    "PROVINCES": [],
-                    "REGIONS": [],
-                    "COMMUNES": [],
-                    "ZONES": [],
-                    "GEO_CODES": [],
-                    "UNCERTAINTY": 1.0,
-                },
-                "source": {
-                    "doc_id": "UNKNOWN",
-                    "article": None,
-                    "page": -1,
-                    "span_char_start": -1,
-                    "span_char_end": -1,
-                    "visual_refs": [],
-                },
-                "extracted_parameters_ids": [],
-                "consequence_ids": [],
-                "confidence": 0.4,
-                "uncertainty": 0.6,
-                "notes": "Legacy fallback",
-            }
-        )
-    else:
-        avg_param_reuse = 0.0
-    # Question coverage: fraction of root-level tags (depth 1) that have questions referencing them (tag_path exact match or prefix)
-    root_tags = {t.get("tag_path") for t in tags if t.get("tag_path") and t.get("tag_path").count('.')==0}
-    questioned = set()
-    for q in questions:
-        tp = q.get("tag_path")
-        if not isinstance(tp, str):
+    seen: Dict[str, Dict[str, Any]] = {}
+    merged = 0
+    for t in tags:
+        if not isinstance(t, dict):
             continue
-        root = tp.split('.')[0]
-        questioned.add(root)
-    root_coverage = (len(questioned & root_tags)/len(root_tags)) if root_tags else 0.0
-    return {
-        "avg_param_reuse": round(avg_param_reuse, 3),
-        "root_question_coverage": round(root_coverage, 3),
-        "norm_count": float(len(norms)),
-    }
+        path = t.get("tag_path")
+        status = t.get("status")
+        if not path or status != "ACTIVE":
+            continue
+        if path in seen:
+            # mark duplicate as MERGED
+            t["status"] = "MERGED"
+            t["merge_target"] = path
+            merged += 1
+        else:
+            seen[path] = t
+    if merged:
+        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"DUPLICATE_TAGS_MERGED:{merged}")
 
 def apply_enrichment_pipeline(obj: Dict[str, Any]):
     enrich_parameters(obj)
     merge_duplicate_tags(obj)
-    repair_cross_refs(obj)
     autophrase_questions(obj)
-    metrics = compute_metrics(obj)
-    # Store metrics as warnings (non-breaking) for observability
-    obj.setdefault("quality", {}).setdefault("warnings", []).append(f"METRICS:{json.dumps(metrics)}")
-    # Extended relationship inference & metrics (teach mode only)
     if TEACH_MODE:
         infer_relationships(obj)
-        extended = compute_extended_metrics(obj)
-        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"EXT_METRICS:{json.dumps(extended)}")
 
 # ---------------------------------------------------------------------------
 # 3c. Relationship Inference (Tags, Questions, Consequences, Locations)
@@ -1034,12 +891,14 @@ def autophrase_questions(obj: Dict[str, Any]):
 # 4. Execute Extraction
 # ---------------------------------------------------------------------------
 print("[INFO] Invoking model for rich extraction ...")
-result = lx.extract(
+lm_params = {
+    "temperature": MODEL_TEMPERATURE,
+}
+extract_kwargs = dict(
     text_or_documents=INPUT_TEXT,
     prompt_description=PROMPT_DESCRIPTION,
     examples=EXAMPLES,
     model_id=MODEL_ID,
-    api_key=GOOGLE_API_KEY,
     fence_output=False,
     use_schema_constraints=False,
     temperature=MODEL_TEMPERATURE,
@@ -1047,11 +906,34 @@ result = lx.extract(
         "fence_output": False,
         "format_type": lx.data.FormatType.JSON,
     },
-    language_model_params={"temperature": MODEL_TEMPERATURE},
+    language_model_params=lm_params,
 )
+if USE_OPENROUTER:
+    # OpenRouter (OpenAI-compatible) path.
+    # NOTE: Only pass arguments accepted by extract(); provider-specific values must go inside
+    # language_model_params so they propagate to provider_kwargs. Top-level unsupported kwargs
+    # like base_url would raise TypeError (as observed).
+    extract_kwargs["api_key"] = OPENROUTER_KEY
+    lm_extra = extract_kwargs.setdefault("language_model_params", {})
+    lm_extra.update({
+        "base_url": "https://openrouter.ai/api/v1",  # forwarded to OpenAI-compatible client
+        # Optional attribution headers (OpenRouter specific)
+        "openrouter_referer": os.getenv("OPENROUTER_REFERER"),
+        "openrouter_title": os.getenv("OPENROUTER_TITLE", "LangExtract Rich Schema Runner"),
+    })
+else:
+    # Direct Gemini path
+    extract_kwargs.update({
+        "api_key": GOOGLE_API_KEY,
+    })
+
+extract_kwargs["max_char_buffer"] = 5000
+
+print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
+result = lx.extract(**extract_kwargs)
 
 
-# Try to access raw JSON directly if model produced it verbatim.
+# Try to access raw JSON directly (model MUST produce rich schema root object with 'extractions').
 raw_candidate = getattr(result, "raw_response", None)
 
 # --- Save the string that will actually be parsed ---
@@ -1067,52 +949,127 @@ else:
     to_parse = str(result)
 RAW_OUTPUT_FILE.write_text(to_parse or '', encoding="utf-8")
 
-parsed: Dict[str, Any] | None = None
+parsed_root: Dict[str, Any] | None = None
 if to_parse:
     try:
-        parsed = json.loads(to_parse)
+        parsed_root = json.loads(to_parse)
     except Exception:
-        parsed = None
+        parsed_root = None
 
-if parsed is None:
-    # Convert annotated doc (legacy style) -> potential dict
-    from langextract import data_lib  # local import to avoid overhead earlier
+# --- Salvage logic: extract first balanced JSON object if wrapper text present ---
+def salvage_first_json(text: str) -> Optional[Dict[str, Any]]:
+    """Attempt to locate the first balanced JSON object within an arbitrary wrapper string.
 
-    legacy_dict = data_lib.annotated_document_to_dict(result)
-    if is_rich_schema(legacy_dict):
-        parsed = legacy_dict
+    Strategy:
+      1. Find first '{'.
+      2. Incrementally scan, tracking nesting depth; when depth returns to 0, slice candidate.
+      3. Attempt json.loads on slice; if fails, progressively extend forward searching for next '}' occurrences.
+      4. If object loads and has 'extractions' key (rich schema root) OR is an object whose key 'extractions' appears nested at top-level, return it.
+    This intentionally refuses arrays at root to maintain strict contract. Returns None if no valid object found.
+    """
+    if not isinstance(text, str):
+        return None
+    # Prefer explicit pattern start for our root
+    pattern_indices = []
+    root_pat = '{"extractions"'
+    idx = 0
+    while True:
+        idx = text.find(root_pat, idx)
+        if idx == -1:
+            break
+        pattern_indices.append(idx)
+        idx += 1
+    # Fallback to first '{' if pattern not found
+    if not pattern_indices:
+        try:
+            pattern_indices = [text.index('{')]
+        except ValueError:
+            return None
+    for start in pattern_indices:
+        depth = 0
+        for i in range(start, len(text)):
+            ch = text[i]
+            if ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    candidate = text[start:i+1]
+                    try:
+                        obj = json.loads(candidate)
+                        if isinstance(obj, dict) and 'extractions' in obj:
+                            return obj
+                    except Exception:
+                        pass
+    return None
+
+if parsed_root is None:
+    # Secondary recovery path: the internal Resolver already writes the raw JSON
+    # it successfully parsed (or attempted to) to resolver_raw_output.txt. If
+    # the AnnotatedDocument string repr hides the original JSON, we can often
+    # still recover the rich schema root from that file.
+    resolver_raw_path = Path("resolver_raw_output.txt")
+    if resolver_raw_path.exists():
+        try:
+            candidate_text = resolver_raw_path.read_text(encoding="utf-8")
+            candidate_obj = json.loads(candidate_text)
+            if isinstance(candidate_obj, dict) and isinstance(candidate_obj.get("extractions"), list):
+                parsed_root = candidate_obj
+                print("[INFO] Loaded rich schema JSON from resolver_raw_output.txt (fallback).")
+        except Exception:
+            pass
+
+if parsed_root is None:
+    salvaged = salvage_first_json(to_parse or '')
+    if salvaged is not None:
+        print("[INFO] Salvaged embedded JSON object from wrapper text.")
+        parsed_root = salvaged
     else:
-        parsed = legacy_dict  # maybe has only 'extractions'
+        snippet = (to_parse or '')[:200].replace('\n', ' ') if to_parse else ''
+        print(f"[FATAL] Model did not return parseable JSON (first200='{snippet}'). Failing fast (legacy output no longer accepted).")
+        sys.exit(2)
 
-if not is_rich_schema(parsed):
-    print("[WARN] Model did not emit full rich schema – applying legacy wrapper.")
-    parsed = legacy_wrap(parsed)
+# Expect root with single key 'extractions'
+if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):
+    print("[FATAL] Model output is not a valid rich schema root (missing 'extractions' non-empty list). Failing.")
+    sys.exit(3)
+
+extractions_list = parsed_root["extractions"]
+invalid_objects = [i for i, obj in enumerate(extractions_list) if not is_rich_schema(obj)]
+if invalid_objects:
+    print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
+    sys.exit(4)
+
+# For downstream enrichment/summary we operate on first extraction object (could be extended to iterate)
+primary = extractions_list[0]
 
 # Validate structure & append any errors
-schema_errors = validate_rich(parsed)
+schema_errors = validate_rich(primary)
 if schema_errors:
-    parsed.setdefault("quality", {}).setdefault("errors", []).extend(schema_errors)
+    primary.setdefault("quality", {}).setdefault("errors", []).extend(schema_errors)
 
 # Ensure window_config present & updated counts if model omitted or incorrect.
-wc = parsed.setdefault("window_config", {})
+wc = primary.setdefault("window_config", {})
 wc.setdefault("input_chars", len(INPUT_TEXT))
 wc.setdefault("max_norms_per_5k_tokens", MAX_NORMS_PER_5K)
-wc["extracted_norm_count"] = len(parsed.get("norms", []))
+wc["extracted_norm_count"] = len(primary.get("norms", []))
 
 # Optional enrichment (post-validation) – only if teach mode or explicitly requested
 if TEACH_MODE:
-    apply_enrichment_pipeline(parsed)
+    apply_enrichment_pipeline(primary)
 
 # ---------------------------------------------------------------------------
 # 5. Persist Result
 # ---------------------------------------------------------------------------
-OUTPUT_FILE.write_text(json.dumps(parsed, ensure_ascii=False, indent=2), encoding="utf-8")
-print(f"[INFO] Saved rich schema JSON → {OUTPUT_FILE}")
+
+# Persist root as provided (may contain >1 extraction objects)
+OUTPUT_FILE.write_text(json.dumps(parsed_root, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"[INFO] Saved rich schema JSON root → {OUTPUT_FILE}")
 
 # ---------------------------------------------------------------------------
 # 6. DSL Glossary Draft
 # ---------------------------------------------------------------------------
-dsl_keys = sorted(collect_dsl_keys(parsed))
+dsl_keys = sorted(collect_dsl_keys(primary))
 glossary = {k: "" for k in dsl_keys}
 GLOSSARY_FILE.write_text(json.dumps(glossary, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"[INFO] Saved DSL glossary stub ({len(dsl_keys)} keys) → {GLOSSARY_FILE}")
@@ -1121,13 +1078,13 @@ print(f"[INFO] Saved DSL glossary stub ({len(dsl_keys)} keys) → {GLOSSARY_FILE
 # 7. Console Summary
 # ---------------------------------------------------------------------------
 print("=== Extraction Summary ===")
-print(f"Norms: {len(parsed.get('norms', []))}")
-print(f"Tags: {len(parsed.get('tags', []))}")
-print(f"Locations: {len(parsed.get('locations', []))}")
-print(f"Questions: {len(parsed.get('questions', []))}")
-print(f"Consequences: {len(parsed.get('consequences', []))}")
-print(f"Parameters: {len(parsed.get('parameters', []))}")
-print(f"Errors: {parsed.get('quality', {}).get('errors', [])}")
-print(f"Warnings: {parsed.get('quality', {}).get('warnings', [])}")
+print(f"Norms: {len(primary.get('norms', []))}")
+print(f"Tags: {len(primary.get('tags', []))}")
+print(f"Locations: {len(primary.get('locations', []))}")
+print(f"Questions: {len(primary.get('questions', []))}")
+print(f"Consequences: {len(primary.get('consequences', []))}")
+print(f"Parameters: {len(primary.get('parameters', []))}")
+print(f"Errors: {primary.get('quality', {}).get('errors', [])}")
+print(f"Warnings: {primary.get('quality', {}).get('warnings', [])}")
 
 print("Done.")
