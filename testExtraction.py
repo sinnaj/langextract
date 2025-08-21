@@ -256,13 +256,13 @@ result = lx.extract(
     text_or_documents=input_text,
     prompt_description=prompt,
     examples=examples,
-    model_id="gemini-2.5-flash",
-    api_key=os.environ["GOOGLE_API_KEY"],
+    model_id="google/gemini-2.5-flash-lite",  # or any OpenRouter-supported model
+    api_key=os.environ["OPENAI_API_KEY"],
     fence_output=False,
-    use_schema_constraints=False, # Schema constraints not enforced for local model
+    use_schema_constraints=False,
     temperature=0.2,
     resolver_params={
-        "fence_output": False,  # Parse raw JSON (no markers)
+        "fence_output": False,
         "format_type": lx.data.FormatType.JSON,
     },
     language_model_params={"temperature": 0.2},

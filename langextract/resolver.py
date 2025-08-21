@@ -304,6 +304,7 @@ class Resolver(AbstractResolver):
 
     logging.info("Completed alignment process for the provided source_text.")
 
+
   def _extract_and_parse_content(
       self,
       input_string: str,
@@ -312,8 +313,6 @@ class Resolver(AbstractResolver):
       | Sequence[Mapping[str, ExtractionValueType]]
   ):
     """Helper function to extract and parse content based on the delimiter.
-
-    delimiter, and parse it as YAML or JSON.
 
     Args:
         input_string: The input string to be processed.
@@ -325,6 +324,8 @@ class Resolver(AbstractResolver):
     Returns:
         The parsed Python object (dict or list).
     """
+    import os
+    from pathlib import Path
     logging.info("Starting string parsing.")
     logging.debug("input_string: %s", input_string)
 
@@ -345,6 +346,13 @@ class Resolver(AbstractResolver):
       logging.debug("Content: %s", content)
     else:
       content = input_string
+
+    # --- Save the raw content to a file before parsing ---
+    try:
+      raw_out_path = Path(os.getcwd()) / "resolver_raw_output.txt"
+      raw_out_path.write_text(content, encoding="utf-8")
+    except Exception as file_exc:
+      logging.warning(f"Failed to write raw resolver output: {file_exc}")
 
     try:
       if self.format_type == data.FormatType.YAML:

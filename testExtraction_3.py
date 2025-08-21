@@ -42,7 +42,7 @@ if not GOOGLE_API_KEY:
 PROMPT_FILE = Path("prompts/extraction_prompt.md")
 OUTPUT_FILE = Path("rich_norms_full.json")
 GLOSSARY_FILE = Path("dsl_glossary.json")
-MAX_NORMS_PER_5K = 35  # matches spec guidance
+MAX_NORMS_PER_5K = 10  # matches spec guidance
 MODEL_ID = "gemini-2.5-flash"
 MODEL_TEMPERATURE = 0.15
 
@@ -1046,12 +1046,27 @@ result = lx.extract(
     language_model_params={"temperature": MODEL_TEMPERATURE},
 )
 
+
 # Try to access raw JSON directly if model produced it verbatim.
 raw_candidate = getattr(result, "raw_response", None)
+
+# --- Save the string that will actually be parsed ---
+RAW_OUTPUT_FILE = Path("raw_model_output.txt")
+to_parse = None
+if isinstance(raw_candidate, str) and raw_candidate.strip():
+    to_parse = raw_candidate
+elif hasattr(result, 'content') and isinstance(result.content, str):
+    to_parse = result.content
+elif isinstance(result, str):
+    to_parse = result
+else:
+    to_parse = str(result)
+RAW_OUTPUT_FILE.write_text(to_parse or '', encoding="utf-8")
+
 parsed: Dict[str, Any] | None = None
-if isinstance(raw_candidate, str):
+if to_parse:
     try:
-        parsed = json.loads(raw_candidate)
+        parsed = json.loads(to_parse)
     except Exception:
         parsed = None
 
