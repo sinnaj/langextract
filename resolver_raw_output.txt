@@ -1,0 +1,1052 @@
+{
+  "extractions": {
+    "schema_version": "1.0.0",
+    "ontology_version": "0.0.1",
+    "truncated": false,
+    "has_more": false,
+    "window_config": {
+      "input_chars": 880,
+      "max_norms_per_5k_tokens": 35,
+      "extracted_norm_count": 5
+    },
+    "global_disclaimer": "NO LEGAL ADVICE",
+    "document_metadata": {
+      "doc_id": "building_laws_spain.txt",
+      "doc_title": "Building Regulations Excerpt",
+      "source_language": "es",
+      "received_chunk_span": {
+        "char_start": 0,
+        "char_end": 880
+      },
+      "page_range": {
+        "start": 1,
+        "end": 1
+      },
+      "topics": [
+        "SAFETY.FIRE",
+        "SAFETY.USE",
+        "ACCESSIBILITY",
+        "SAFETY.STRUCTURAL",
+        "PROTECTION.ELECTRONICS"
+      ],
+      "location_scope": {
+        "COUNTRY": "ES",
+        "STATES": [
+          "CAT"
+        ],
+        "PROVINCES": [
+          "BARCELONA"
+        ],
+        "REGIONS": [],
+        "COMMUNES": [],
+        "ZONES": [
+          "R6.2"
+        ],
+        "GEO_CODES": [
+          "ES.CT.BCN"
+        ],
+        "UNCERTAINTY": 0.05
+      }
+    },
+    "norms": [
+      {
+        "id": "N::0001",
+        "Norm": "Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad.",
+        "obligation_type": "MANDATORY",
+        "paragraph_number": 1,
+        "applies_if": "EVACUATION.PERSONS > 50",
+        "satisfied_if": "DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'; OR DOOR.OPENING.REQUIRES_KEY == FALSE; OR CLOSING.SYSTEM.ENABLED == FALSE",
+        "exempt_if": "DOOR.TYPE == 'AUTOMATIC' AND HAS(DOOR.SWING_SAFE_SYSTEM)",
+        "priority": 5,
+        "relevant_tags": [
+          "DOOR.SWING",
+          "EVACUATION",
+          "DOOR.OPENING",
+          "CLOSING.SYSTEM",
+          "DOOR.AUTOMATIC",
+          "DOOR.SWING_SAFE_SYSTEM"
+        ],
+        "relevant_roles": [
+          "ARCHITECT"
+        ],
+        "project_dimensions": {},
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "article": null,
+          "page": 1,
+          "span_char_start": 2,
+          "span_char_end": 220,
+          "visual_refs": []
+        },
+        "extracted_parameters_ids": [
+          "P::0001"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null
+      },
+      {
+        "id": "N::0002",
+        "Norm": "No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.",
+        "obligation_type": "PROHIBITION",
+        "paragraph_number": 2,
+        "applies_if": "EVACUATION.PERSONS > 100 AND ROUTE.TYPE == 'PRINCIPAL_EVACUATION'",
+        "satisfied_if": "DOOR.OPENING.REQUIRES_KEY == FALSE",
+        "exempt_if": null,
+        "priority": 5,
+        "relevant_tags": [
+          "EVACUATION",
+          "ROUTE.PRINCIPAL_EVACUATION",
+          "DOOR.OPENING"
+        ],
+        "relevant_roles": [
+          "ARCHITECT"
+        ],
+        "project_dimensions": {},
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "article": null,
+          "page": 1,
+          "span_char_start": 222,
+          "span_char_end": 360,
+          "visual_refs": []
+        },
+        "extracted_parameters_ids": [
+          "P::0002"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null
+      },
+      {
+        "id": "N::0003",
+        "Norm": "Para edificios de uso Residencial Vivienda en la Provincia de Barcelona (CAT) la puerta principal de evacuación abrirá en el sentido de la salida cuando SERVED personas exceda 200.",
+        "obligation_type": "MANDATORY",
+        "paragraph_number": 3,
+        "applies_if": "(USAGE == 'FAMILY.SINGLE' OR USAGE == 'FAMILY.MULTIPLE') AND LOCATION.PROVINCE == 'BARCELONA' AND EVACUATION.PERSONS_SERVED > 200",
+        "satisfied_if": "DOOR.OPENING.DIRECTION == 'OUTWARD'",
+        "exempt_if": null,
+        "priority": 4,
+        "relevant_tags": [
+          "USAGE.FAMILY.SINGLE",
+          "USAGE.FAMILY.MULTIPLE",
+          "LOCATION.PROVINCE",
+          "EVACUATION",
+          "DOOR.OPENING.DIRECTION"
+        ],
+        "relevant_roles": [
+          "ARCHITECT"
+        ],
+        "project_dimensions": {
+          "USAGE": [
+            "FAMILY.SINGLE",
+            "FAMILY.MULTIPLE"
+          ]
+        },
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [
+            "CAT"
+          ],
+          "PROVINCES": [
+            "BARCELONA"
+          ],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [
+            "ES.CT.BCN"
+          ],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "article": null,
+          "page": 1,
+          "span_char_start": 362,
+          "span_char_end": 530,
+          "visual_refs": []
+        },
+        "extracted_parameters_ids": [
+          "P::0003"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null
+      },
+      {
+        "id": "N::0004",
+        "Norm": "En la zona urbanística R6.2 se requerirá la presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia.",
+        "obligation_type": "MANDATORY",
+        "paragraph_number": 4,
+        "applies_if": "LOCATION.ZONE == 'R6.2' AND (WORK.TYPE == 'REFORM' OR WORK.TYPE == 'CONSTRUCTION.STRUCTURAL') AND HAS(EMERGENCY.EXIT)",
+        "satisfied_if": "ANNEX.ANEXO_III.SUBMITTED == TRUE",
+        "exempt_if": null,
+        "priority": 4,
+        "relevant_tags": [
+          "LOCATION.ZONE",
+          "WORK.TYPE.REFORM",
+          "WORK.TYPE.CONSTRUCTION.STRUCTURAL",
+          "EMERGENCY.EXIT",
+          "ANNEX.ANEXO_III"
+        ],
+        "relevant_roles": [
+          "ARCHITECT",
+          "OWNER"
+        ],
+        "project_dimensions": {
+          "WORK.TYPE": [
+            "REFORM",
+            "CONSTRUCTION.STRUCTURAL"
+          ]
+        },
+        "lifecycle_phase": [
+          "DESIGN",
+          "EXECUTION"
+        ],
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [
+            "R6.2"
+          ],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "article": null,
+          "page": 1,
+          "span_char_start": 532,
+          "span_char_end": 660,
+          "visual_refs": []
+        },
+        "extracted_parameters_ids": [],
+        "consequence_ids": [
+          "C::0001"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null
+      },
+      {
+        "id": "N::0005",
+        "Norm": "Cuando exista fallo de suministro eléctrico o señal de emergencia las puertas peatonales automáticas correderas o plegables deberán abrir y mantenerse abiertas o permitir apertura abatible con fuerza <= 220 N.",
+        "obligation_type": "MANDATORY",
+        "paragraph_number": 5,
+        "applies_if": "POWER.SUPPLY.FAILURE == TRUE OR EMERGENCY.SIGNAL.ACTIVE == TRUE",
+        "satisfied_if": "(DOOR.TYPE IN['AUTOMATIC_PEDESTRIAN_SLIDING','AUTOMATIC_PEDESTRIAN_FOLDING'] AND DOOR.STATE == 'OPEN'); OR (DOOR.TYPE IN['AUTOMATIC_PEDESTRIAN_SLIDING','AUTOMATIC_PEDESTRIAN_FOLDING'] AND DOOR.OPENING.TYPE == 'SWING' AND DOOR.OPENING.PUSH_FORCE_N <= 220)",
+        "exempt_if": null,
+        "priority": 5,
+        "relevant_tags": [
+          "POWER.SUPPLY.FAILURE",
+          "EMERGENCY.SIGNAL",
+          "DOOR.AUTOMATIC.PEDESTRIAN.SLIDING",
+          "DOOR.AUTOMATIC.PEDESTRIAN.FOLDING",
+          "DOOR.STATE",
+          "DOOR.OPENING.TYPE",
+          "DOOR.OPENING.PUSH_FORCE_N"
+        ],
+        "relevant_roles": [
+          "ARCHITECT",
+          "INSTALLER",
+          "MAINTAINER"
+        ],
+        "project_dimensions": {
+          "WORK.TYPE": [
+            "ELECTRO.OTHER"
+          ]
+        },
+        "lifecycle_phase": [
+          "DESIGN",
+          "EXECUTION",
+          "MAINTENANCE"
+        ],
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE",
+          "PROTECTION.ELECTRONICS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "article": null,
+          "page": 1,
+          "span_char_start": 662,
+          "span_char_end": 880,
+          "visual_refs": []
+        },
+        "extracted_parameters_ids": [
+          "P::0004"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null
+      }
+    ],
+    "tags": [
+      {
+        "id": "T::0001",
+        "tag_path": "DOOR",
+        "parent": null,
+        "definition": "Elemento constructivo para acceso o salida",
+        "synonyms": [
+          "puerta"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0002",
+        "tag_path": "DOOR.SWING",
+        "parent": "DOOR",
+        "definition": "Puerta abatible",
+        "synonyms": [
+          "puerta abatible"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0003",
+        "tag_path": "EVACUATION",
+        "parent": null,
+        "definition": "Proceso de salida de personas de un lugar",
+        "synonyms": [
+          "evacuación"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [
+          "N::0002",
+          "N::0003"
+        ],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0004",
+        "tag_path": "DOOR.OPENING",
+        "parent": "DOOR",
+        "definition": "Acción o mecanismo de apertura de una puerta",
+        "synonyms": [
+          "apertura de puerta"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [
+          "N::0002",
+          "N::0003",
+          "N::0005"
+        ],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0005",
+        "tag_path": "CLOSING.SYSTEM",
+        "parent": null,
+        "definition": "Sistema de cierre de una puerta",
+        "synonyms": [
+          "sistema de cierre"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0006",
+        "tag_path": "DOOR.AUTOMATIC",
+        "parent": "DOOR",
+        "definition": "Puerta accionada automáticamente",
+        "synonyms": [
+          "puerta automática"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [
+          "N::0005"
+        ],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0007",
+        "tag_path": "DOOR.SWING_SAFE_SYSTEM",
+        "parent": "DOOR.AUTOMATIC",
+        "definition": "Sistema de abatimiento seguro para puertas automáticas",
+        "synonyms": [
+          "sistema de abatimiento seguro"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0001"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0008",
+        "tag_path": "ROUTE",
+        "parent": null,
+        "definition": "Camino o itinerario",
+        "synonyms": [
+          "ruta",
+          "itinerario"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0002"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0009",
+        "tag_path": "ROUTE.PRINCIPAL_EVACUATION",
+        "parent": "ROUTE",
+        "definition": "Ruta principal designada para la evacuación",
+        "synonyms": [
+          "ruta de evacuación principal"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0002"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [
+          "EVACUATION"
+        ],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0010",
+        "tag_path": "USAGE",
+        "parent": null,
+        "definition": "Tipo de uso o destino de un edificio o espacio",
+        "synonyms": [
+          "uso"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0011",
+        "tag_path": "USAGE.FAMILY.SINGLE",
+        "parent": "USAGE",
+        "definition": "Uso residencial de vivienda unifamiliar",
+        "synonyms": [
+          "residencial vivienda unifamiliar"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0012",
+        "tag_path": "USAGE.FAMILY.MULTIPLE",
+        "parent": "USAGE",
+        "definition": "Uso residencial de vivienda multifamiliar",
+        "synonyms": [
+          "residencial vivienda multifamiliar"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0013",
+        "tag_path": "LOCATION",
+        "parent": null,
+        "definition": "Entidad geográfica o administrativa",
+        "synonyms": [
+          "ubicación",
+          "zona"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [
+          "N::0004"
+        ],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0014",
+        "tag_path": "LOCATION.PROVINCE",
+        "parent": "LOCATION",
+        "definition": "Provincia geográfica o administrativa",
+        "synonyms": [
+          "provincia"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0015",
+        "tag_path": "DOOR.OPENING.DIRECTION",
+        "parent": "DOOR.OPENING",
+        "definition": "Sentido de apertura de la puerta",
+        "synonyms": [
+          "sentido de salida"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0003"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0016",
+        "tag_path": "LOCATION.ZONE",
+        "parent": "LOCATION",
+        "definition": "Zona urbanística o de planificación",
+        "synonyms": [
+          "zona urbanística"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0017",
+        "tag_path": "WORK.TYPE",
+        "parent": null,
+        "definition": "Tipo de trabajo o intervención en una edificación",
+        "synonyms": [
+          "tipo de obra"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [
+          "N::0005"
+        ],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0018",
+        "tag_path": "WORK.TYPE.REFORM",
+        "parent": "WORK.TYPE",
+        "definition": "Trabajo de reforma en una edificación",
+        "synonyms": [
+          "reforma"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0019",
+        "tag_path": "WORK.TYPE.CONSTRUCTION.STRUCTURAL",
+        "parent": "WORK.TYPE",
+        "definition": "Trabajo de construcción que afecta la estructura",
+        "synonyms": [
+          "reforma estructural"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0020",
+        "tag_path": "EMERGENCY.EXIT",
+        "parent": null,
+        "definition": "Salida designada para uso en caso de emergencia",
+        "synonyms": [
+          "salida de emergencia"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [
+          "EVACUATION"
+        ],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0021",
+        "tag_path": "ANNEX",
+        "parent": null,
+        "definition": "Documento o sección adicional que complementa un texto principal",
+        "synonyms": [
+          "anexo"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0022",
+        "tag_path": "ANNEX.ANEXO_III",
+        "parent": "ANNEX",
+        "definition": "Anexo identificado como Anexo III",
+        "synonyms": [
+          "Anexo III"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0004"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0023",
+        "tag_path": "POWER.SUPPLY.FAILURE",
+        "parent": null,
+        "definition": "Fallo o interrupción del suministro eléctrico",
+        "synonyms": [
+          "fallo de suministro eléctrico"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0024",
+        "tag_path": "EMERGENCY.SIGNAL",
+        "parent": null,
+        "definition": "Señal o aviso de emergencia",
+        "synonyms": [
+          "señal de emergencia"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0025",
+        "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN",
+        "parent": "DOOR.AUTOMATIC",
+        "definition": "Puerta automática diseñada para el tránsito de personas",
+        "synonyms": [
+          "puerta peatonal automática"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0026",
+        "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN.SLIDING",
+        "parent": "DOOR.AUTOMATIC.PEDESTRIAN",
+        "definition": "Puerta automática peatonal de tipo corredera",
+        "synonyms": [
+          "puerta corredera automática"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0027",
+        "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN.FOLDING",
+        "parent": "DOOR.AUTOMATIC.PEDESTRIAN",
+        "definition": "Puerta automática peatonal de tipo plegable",
+        "synonyms": [
+          "puerta plegable automática"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0028",
+        "tag_path": "DOOR.STATE",
+        "parent": "DOOR",
+        "definition": "Estado de la puerta (abierta, cerrada, etc.)",
+        "synonyms": [
+          "estado de puerta"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      },
+      {
+        "id": "T::0029",
+        "tag_path": "DOOR.OPENING.TYPE",
+        "parent": "DOOR.OPENING",
+        "definition": "Tipo de mecanismo o acción de apertura de la puerta",
+        "synonyms": [
+          "tipo de apertura"
+        ],
+        "introduced_by_norm_ids": [
+          "N::0005"
+        ],
+        "refined_by_norm_ids": [],
+        "related_tag_paths": [],
+        "status": "ACTIVE",
+        "merge_target": null,
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      }
+    ],
+    "locations": [
+      {
+        "id": "L::0001",
+        "type": "STATE",
+        "code": "CAT",
+        "name": "Cataluña",
+        "parent_codes": [
+          "ES"
+        ],
+        "classification": [],
+        "related_zone_codes": [],
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "page": 1,
+          "span_char_start": 400,
+          "span_char_end": 403
+        },
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      },
+      {
+        "id": "L::0002",
+        "type": "PROVINCE",
+        "code": "BARCELONA",
+        "name": "Barcelona",
+        "parent_codes": [
+          "ES",
+          "CAT"
+        ],
+        "classification": [],
+        "related_zone_codes": [],
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "page": 1,
+          "span_char_start": 389,
+          "span_char_end": 398
+        },
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      },
+      {
+        "id": "L::0003",
+        "type": "PLANNING_ZONE",
+        "code": "R6.2",
+        "name": null,
+        "parent_codes": [],
+        "classification": [],
+        "related_zone_codes": [],
+        "source": {
+          "doc_id": "building_laws_spain.txt",
+          "page": 1,
+          "span_char_start": 549,
+          "span_char_end": 553
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      }
+    ],
+    "questions": [
+      {
+        "id": "Q::0001",
+        "tag_path": "DOOR.TYPE",
+        "question_text": "¿Qué tipo de puerta es?",
+        "answer_type": "ENUM",
+        "enum_values": [
+          "SWING",
+          "SLIDING",
+          "FOLDING",
+          "AUTOMATIC",
+          "AUTOMATIC_PEDESTRIAN"
+        ],
+        "outputs": [
+          "DOOR.TYPE"
+        ],
+        "derived_follow_up_question_ids": [],
+        "trigger_norm_ids": [
+          "N::0001",
+          "N::0005"
+        ],
+        "confidence": 0.9,
+        "uncertainty": 0.1
+      }
+    ],
+    "consequences": [
+      {
+        "id": "C::0001",
+        "kind": "ANNEX",
+        "reference_code": "Anexo III",
+        "description": "Presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia.",
+        "activates_norm_ids": [],
+        "activates_tag_paths": [],
+        "activates_question_ids": [],
+        "required_documents": [],
+        "source_norm_ids": [
+          "N::0004"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      }
+    ],
+    "parameters": [
+      {
+        "id": "P::0001",
+        "field_path": "EVACUATION.PERSONS",
+        "operator": ">",
+        "value": 50,
+        "unit": null,
+        "original_text": "más de 50 personas",
+        "norm_ids": [
+          "N::0001"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      },
+      {
+        "id": "P::0002",
+        "field_path": "EVACUATION.PERSONS",
+        "operator": ">",
+        "value": 100,
+        "unit": null,
+        "original_text": "superior a 100 personas",
+        "norm_ids": [
+          "N::0002"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      },
+      {
+        "id": "P::0003",
+        "field_path": "EVACUATION.PERSONS_SERVED",
+        "operator": ">",
+        "value": 200,
+        "unit": null,
+        "original_text": "exceda 200",
+        "norm_ids": [
+          "N::0003"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      },
+      {
+        "id": "P::0004",
+        "field_path": "DOOR.OPENING.PUSH_FORCE_N",
+        "operator": "<=",
+        "value": 220,
+        "unit": "N",
+        "original_text": "<= 220 N",
+        "norm_ids": [
+          "N::0005"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05
+      }
+    ],
+    "quality": {
+      "errors": [],
+      "warnings": [],
+      "confidence_global": 0.95,
+      "uncertainty_global": 0.05
+    }
+  }
+}

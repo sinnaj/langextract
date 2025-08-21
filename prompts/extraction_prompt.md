@@ -22,51 +22,54 @@ All in a SINGLE JSON object with SEGREGATED arrays (Option B). The model MUST ma
 
 --------------------------------------------------------------------------------
 ## 2. TOP-LEVEL JSON STRUCTURE (STRICT)
-Return EXACTLY one UTF-8 JSON object (no markdown fences, no prose before/after). Keys (order recommended):
+
+Return EXACTLY one UTF-8 JSON object (no markdown fences, no prose before/after). The top-level key MUST be "extractions", whose value is a LIST of extraction objects (even if there is only one). Each extraction object contains all the required keys (schema_version, norms, tags, etc.). Example structure:
+
 {
-  "schema_version": "1.0.0",
-  "ontology_version": "0.0.1",  // increment if you materially restructure existing paths in this output
-  "truncated": false,            // true only if output had to be curtailed due to token limits
-  "has_more": false,             // true if you intentionally deferred valid extractions due to norm_per_window cap
-  "window_config": {             // declare your applied windowing strategy
-    "input_chars": <int>,
-    "max_norms_per_5k_tokens": <int>,
-    "extracted_norm_count": <int>
-  },
-  "global_disclaimer": "NO LEGAL ADVICE",
-  "document_metadata": {
-    "doc_id": "...",            // filename or stable identifier
-    "doc_title": "...",         // from source or null
-    "source_language": "es" | "ca",
-    "received_chunk_span": {"char_start": <int>, "char_end": <int>},
-    "page_range": {"start": <int>, "end": <int>},  // MUST be present; if uncertain set both to -1 and add error
-    "topics": ["SAFETY.FIRE", ...],                  // high-level mapped topics (see §5)
-    "location_scope": {                               // document-level coverage if explicitly declared
-      "COUNTRY": "ES",
-      "STATES": ["CAT", "AND", ...] | [],
-      "PROVINCES": ["BARCELONA"],
-      "REGIONS": ["..."],
-      "COMMUNES": ["Barcelona"],
-      "ZONES": ["R6.2", "PEM2"],
-      "GEO_CODES": ["ES.CT.BCN"],
-      "UNCERTAINTY": 0.0
+  "extractions": [
+    {
+      "schema_version": "1.0.0",
+      "ontology_version": "0.0.1",
+      "truncated": false,
+      "has_more": false,
+      "window_config": {"input_chars": 3450, "max_norms_per_5k_tokens": 35, "extracted_norm_count": 2},
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "ccte_si.pdf",
+        "doc_title": "CTE SI 3",
+        "source_language": "es",
+        "received_chunk_span": {"char_start": 0, "char_end": 3400},
+        "page_range": {"start": 120, "end": 121},
+        "topics": ["SAFETY.FIRE"],
+        "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05}
+      },
+      "norms": [ ... ],
+      "tags": [ ... ],
+      "locations": [ ... ],
+      "questions": [ ... ],
+      "consequences": [ ... ],
+      "parameters": [ ... ],
+      "quality": { ... }
     }
-  },
-  "norms": [ ... Norm objects ... ],
-  "tags": [ ... Tag objects ... ],
-  "locations": [ ... LocationEntity objects ... ],
-  "questions": [ ... Question objects ... ],
-  "consequences": [ ... Consequence objects ... ],
-  "parameters": [ ... Parameter objects ... ],
-  "quality": {
-    "errors": ["PAGE_MISSING", ...],
-    "warnings": ["DUPLICATE_TAG_COLLAPSED: DOOR.AUTOMATIC"],
-    "confidence_global": <float 0..1>,
-    "uncertainty_global": <float 0..1>
-  }
+    // If multiple extractions, add more objects here
+  ]
 }
 
 No additional top-level keys are allowed. Empty arrays are allowed. NEVER omit required keys.
+
+DO NOT wrap your output in markdown code fences or any language identifier. Output ONLY the raw JSON object.
+
+INCORRECT (do NOT do this):
+```json
+{
+  ...
+}
+```
+
+CORRECT (do this):
+{
+  ...
+}
 
 --------------------------------------------------------------------------------
 ## 3. NORM OBJECT SPECIFICATION
@@ -296,60 +299,65 @@ Choose a reasonable max_norms_per_5k_tokens (e.g., 35) to ensure JSON integrity.
 12. OUTPUT final JSON object.
 
 --------------------------------------------------------------------------------
+
 ## 16. MINIMAL EXAMPLE (ABBREVIATED – Illustrative ONLY)
 {
-  "schema_version": "1.0.0",
-  "ontology_version": "0.0.1",
-  "truncated": false,
-  "has_more": false,
-  "window_config": {"input_chars": 3450, "max_norms_per_5k_tokens": 35, "extracted_norm_count": 2},
-  "global_disclaimer": "NO LEGAL ADVICE",
-  "document_metadata": {
-    "doc_id": "ccte_si.pdf",
-    "doc_title": "CTE SI 3",
-    "source_language": "es",
-    "received_chunk_span": {"char_start": 0, "char_end": 3400},
-    "page_range": {"start": 120, "end": 121},
-    "topics": ["SAFETY.FIRE"],
-    "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05}
-  },
-  "norms": [
+  "extractions": [
     {
-      "id": "N::0001",
-      "Norm": "Las puertas previstas como salida ... serán abatibles ...",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": 1,
-      "applies_if": "DOOR.USE == 'EXIT' OR EVACUATION.PERSONS > 50",
-      "satisfied_if": "DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'; OR CLOSING.SYSTEM.ENABLED == FALSE; OR (DOOR.OPENING.FROM_EVACUATION_SIDE == TRUE AND DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1)",
-      "exempt_if": "DOOR.TYPE == 'AUTOMATIC'",
-      "priority": 5,
-      "relevant_tags": ["DOOR.SWING","EVACUATION"],
-      "relevant_roles": ["ARCHITECT"],
-      "project_dimensions": {"PROJECT.TYPE": ["NEW","REFORM"]},
-      "lifecycle_phase": ["DESIGN"],
-      "topics": ["SAFETY.FIRE"],
-      "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05},
-      "source": {"doc_id": "ccte_si.pdf", "article": "SI 3 6", "page": 120, "span_char_start": 15, "span_char_end": 390, "visual_refs": []},
-      "extracted_parameters_ids": ["P::0001","P::0002"],
-      "consequence_ids": [],
-      "confidence": 0.92,
-      "uncertainty": 0.07,
-      "notes": "Alternatives represented via ; OR"
+      "schema_version": "1.0.0",
+      "ontology_version": "0.0.1",
+      "truncated": false,
+      "has_more": false,
+      "window_config": {"input_chars": 3450, "max_norms_per_5k_tokens": 35, "extracted_norm_count": 2},
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "ccte_si.pdf",
+        "doc_title": "CTE SI 3",
+        "source_language": "es",
+        "received_chunk_span": {"char_start": 0, "char_end": 3400},
+        "page_range": {"start": 120, "end": 121},
+        "topics": ["SAFETY.FIRE"],
+        "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05}
+      },
+      "norms": [
+        {
+          "id": "N::0001",
+          "Norm": "Las puertas previstas como salida ... serán abatibles ...",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "DOOR.USE == 'EXIT' OR EVACUATION.PERSONS > 50",
+          "satisfied_if": "DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'; OR CLOSING.SYSTEM.ENABLED == FALSE; OR (DOOR.OPENING.FROM_EVACUATION_SIDE == TRUE AND DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1)",
+          "exempt_if": "DOOR.TYPE == 'AUTOMATIC'",
+          "priority": 5,
+          "relevant_tags": ["DOOR.SWING","EVACUATION"],
+          "relevant_roles": ["ARCHITECT"],
+          "project_dimensions": {"PROJECT.TYPE": ["NEW","REFORM"]},
+          "lifecycle_phase": ["DESIGN"],
+          "topics": ["SAFETY.FIRE"],
+          "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.05},
+          "source": {"doc_id": "ccte_si.pdf", "article": "SI 3 6", "page": 120, "span_char_start": 15, "span_char_end": 390, "visual_refs": []},
+          "extracted_parameters_ids": ["P::0001","P::0002"],
+          "consequence_ids": [],
+          "confidence": 0.92,
+          "uncertainty": 0.07,
+          "notes": "Alternatives represented via ; OR"
+        }
+      ],
+      "tags": [
+        {"id": "T::0001", "tag_path": "DOOR.SWING", "parent": "DOOR", "definition": "Puerta abatible", "synonyms": ["puerta abatible"], "introduced_by_norm_ids": ["N::0001"], "refined_by_norm_ids": [], "related_tag_paths": ["EVACUATION"], "status": "ACTIVE", "merge_target": null, "confidence": 0.9, "uncertainty": 0.1}
+      ],
+      "locations": [],
+      "questions": [
+        {"id": "Q::0001", "tag_path": "DOOR.TYPE", "question_text": "¿Qué tipo de puerta es?", "answer_type": "ENUM", "enum_values": ["SWING","SLIDING","FOLDING","TILT_TURN","AUTOMATIC","AUTOMATIC_PEDESTRIAN"], "outputs": ["DOOR.TYPE"], "derived_follow_up_question_ids": [], "trigger_norm_ids": ["N::0001"], "confidence": 0.9, "uncertainty": 0.1}
+      ],
+      "consequences": [],
+      "parameters": [
+        {"id": "P::0001", "field_path": "DOOR.OPENING.MECHANISMS_COUNT", "operator": "<=", "value": 1, "unit": null, "original_text": "más de un mecanismo", "norm_ids": ["N::0001"], "confidence": 0.85, "uncertainty": 0.15},
+        {"id": "P::0002", "field_path": "EVACUATION.PERSONS", "operator": ">", "value": 50, "unit": null, "original_text": "> 50 personas", "norm_ids": ["N::0001"], "confidence": 0.9, "uncertainty": 0.1}
+      ],
+      "quality": {"errors": [], "warnings": [], "confidence_global": 0.9, "uncertainty_global": 0.1}
     }
-  ],
-  "tags": [
-    {"id": "T::0001", "tag_path": "DOOR.SWING", "parent": "DOOR", "definition": "Puerta abatible", "synonyms": ["puerta abatible"], "introduced_by_norm_ids": ["N::0001"], "refined_by_norm_ids": [], "related_tag_paths": ["EVACUATION"], "status": "ACTIVE", "merge_target": null, "confidence": 0.9, "uncertainty": 0.1}
-  ],
-  "locations": [],
-  "questions": [
-    {"id": "Q::0001", "tag_path": "DOOR.TYPE", "question_text": "¿Qué tipo de puerta es?", "answer_type": "ENUM", "enum_values": ["SWING","SLIDING","FOLDING","TILT_TURN","AUTOMATIC","AUTOMATIC_PEDESTRIAN"], "outputs": ["DOOR.TYPE"], "derived_follow_up_question_ids": [], "trigger_norm_ids": ["N::0001"], "confidence": 0.9, "uncertainty": 0.1}
-  ],
-  "consequences": [],
-  "parameters": [
-    {"id": "P::0001", "field_path": "DOOR.OPENING.MECHANISMS_COUNT", "operator": "<=", "value": 1, "unit": null, "original_text": "más de un mecanismo", "norm_ids": ["N::0001"], "confidence": 0.85, "uncertainty": 0.15},
-    {"id": "P::0002", "field_path": "EVACUATION.PERSONS", "operator": ">", "value": 50, "unit": null, "original_text": "> 50 personas", "norm_ids": ["N::0001"], "confidence": 0.9, "uncertainty": 0.1}
-  ],
-  "quality": {"errors": [], "warnings": [], "confidence_global": 0.9, "uncertainty_global": 0.1}
+  ]
 }
 
 --------------------------------------------------------------------------------
