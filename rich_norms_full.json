@@ -1,1115 +1,1149 @@
 {
-  "schema_version": "1.0.0",
-  "ontology_version": "0.0.1",
-  "truncated": false,
-  "has_more": false,
-  "window_config": {
-    "input_chars": 1104,
-    "max_norms_per_5k_tokens": 10,
-    "extracted_norm_count": 28
-  },
-  "global_disclaimer": "NO LEGAL ADVICE",
-  "document_metadata": {
-    "doc_id": "UNKNOWN",
-    "doc_title": null,
-    "source_language": "es",
-    "received_chunk_span": {
-      "char_start": 0,
-      "char_end": 1104
-    },
-    "page_range": {
-      "start": -1,
-      "end": -1
-    },
-    "topics": [],
-    "location_scope": {
-      "COUNTRY": "ES",
-      "STATES": [],
-      "PROVINCES": [],
-      "REGIONS": [],
-      "COMMUNES": [],
-      "ZONES": [],
-      "GEO_CODES": [],
-      "UNCERTAINTY": 1.0
+  "extractions": [
+    {
+      "schema_version": "1.0.0",
+      "ontology_version": "0.0.1",
+      "dsl_version": "0.1.0",
+      "run_info": {
+        "generated_at": "2024-07-30T12:00:00Z",
+        "strategy": "full_pass"
+      },
+      "truncated": false,
+      "has_more": false,
+      "window_config": {
+        "input_chars": 2697,
+        "max_norms_per_5k_tokens": 35,
+        "extracted_norm_count": 8
+      },
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "ccte_si.pdf",
+        "doc_title": "CTE SI 3",
+        "source_language": "es",
+        "received_chunk_span": {
+          "char_start": 0,
+          "char_end": 2697
+        },
+        "page_range": {
+          "start": 1,
+          "end": 1
+        },
+        "topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY",
+          "ENERGYSAVING"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        }
+      },
+      "norms": [
+        {
+          "id": "N::0001",
+          "statement_text": "Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo.",
+          "Norm": "Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "DOOR.USE == 'EXIT' OR EVACUATION.PERSONS > 50",
+          "satisfied_if": "(DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL') OR (CLOSING.SYSTEM.ENABLED == FALSE AND ACTIVITY.PRESENT == TRUE) OR (DOOR.OPENING.FROM_EVACUATION_SIDE == TRUE AND DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1)",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.SWING",
+            "EVACUATION",
+            "DOOR.OPENING"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "DESIGN",
+            "EXECUTION"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "1",
+            "page": 1,
+            "span_char_start": 0,
+            "span_char_end": 480,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0001",
+            "P::0002"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        },
+        {
+          "id": "N::0002",
+          "statement_text": "Las anteriores condiciones no son aplicables cuando se trate de puertas automáticas.",
+          "Norm": "Las anteriores condiciones no son aplicables cuando se trate de puertas automáticas.",
+          "obligation_type": "EXEMPTION",
+          "paragraph_number": 1,
+          "applies_if": "DOOR.TYPE == 'AUTOMATIC'",
+          "satisfied_if": "TRUE",
+          "exempt_if": null,
+          "priority": 3,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.AUTOMATIC"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "1",
+            "page": 1,
+            "span_char_start": 481,
+            "span_char_end": 550,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": "This norm acts as an exemption for N::0001"
+        },
+        {
+          "id": "N::0003",
+          "statement_text": "Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009.",
+          "Norm": "Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009.",
+          "obligation_type": "PERMISSION",
+          "paragraph_number": 2,
+          "applies_if": "TRUE",
+          "satisfied_if": "(DOOR.OPENING.DEVICE == 'HANDLE' OR DOOR.OPENING.DEVICE == 'PUSH_BUTTON') AND DOOR.STANDARD == 'UNE-EN 179:2009' AND EVACUATION.OCCUPANTS.FAMILIARIZED == TRUE; OR (DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND (DOOR.OPENING.DEVICE == 'PUSH_BAR_HORIZONTAL' OR DOOR.OPENING.DEVICE == 'SLIDING_BAR') AND DOOR.STANDARD == 'UNE EN 1125:2009')",
+          "exempt_if": null,
+          "priority": 3,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.OPENING.DEVICE",
+            "EVACUATION"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
+          "topics": [
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "2",
+            "page": 1,
+            "span_char_start": 551,
+            "span_char_end": 1050,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0004",
+          "statement_text": "Abrirá en el sentido de la evacuación toda puerta de salida: a) prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. b) prevista para más de 50 ocupantes del recinto o espacio en el que esté situada.",
+          "Norm": "Abrirá en el sentido de la evacuación toda puerta de salida: a) prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. b) prevista para más de 50 ocupantes del recinto o espacio en el que esté situada.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 3,
+          "applies_if": "(DOOR.USE == 'EXIT' AND (OCCUPANCY.PERSONS > 200 AND USAGE == 'FAMILY.MULTIPLE') OR (OCCUPANCY.PERSONS > 100 AND USAGE != 'FAMILY.MULTIPLE')) OR (OCCUPANCY.PERSONS > 50 AND LOCATION.TYPE == 'ENCLOSED_SPACE')",
+          "satisfied_if": "DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION'",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.OPENING.DIRECTION",
+            "EVACUATION"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {
+            "USAGE": [
+              "FAMILY.MULTIPLE"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "3",
+            "page": 1,
+            "span_char_start": 1051,
+            "span_char_end": 1470,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0003",
+            "P::0004",
+            "P::0005"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        },
+        {
+          "id": "N::0005",
+          "statement_text": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
+          "Norm": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 4,
+          "applies_if": "DOOR.TYPE == 'REVOLVING'",
+          "satisfied_if": "DOOR.TYPE.ADJACENT == 'SWING' AND DOOR.OPENING.TYPE == 'MANUAL'; OR (DOOR.TYPE == 'REVOLVING' AND DOOR.AUTOMATIC == TRUE AND DOOR.SYSTEM.SWING_OUT_EMERGENCY == TRUE AND DOOR.OPENING.FORCE_N <= 220)",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.REVOLVING",
+            "DOOR.SWING",
+            "DOOR.AUTOMATIC",
+            "EMERGENCY"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "4",
+            "page": 1,
+            "span_char_start": 1570,
+            "span_char_end": 2000,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0006"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        },
+        {
+          "id": "N::0006",
+          "statement_text": "La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista.",
+          "Norm": "La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 4,
+          "applies_if": "DOOR.TYPE == 'REVOLVING' AND DOOR.AUTOMATIC == TRUE AND DOOR.SYSTEM.SWING_OUT_EMERGENCY == TRUE",
+          "satisfied_if": "DOOR.WIDTH.USEFUL == EVACUATION.CAPACITY.REQUIRED",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.WIDTH",
+            "EVACUATION"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "4",
+            "page": 1,
+            "span_char_start": 2001,
+            "span_char_end": 2150,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0007",
+          "statement_text": "Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: a) Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA. b) Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente), abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itinerario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego.",
+          "Norm": "Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: a) Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA. b) Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente), abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itinerario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 5,
+          "applies_if": "DOOR.TYPE == 'AUTOMATIC_PEDESTRIAN' AND (POWER.SUPPLY.FAILURE == TRUE OR EMERGENCY.SIGNAL == TRUE) AND DOOR.POSITION != 'SECURE_CLOSED'",
+          "satisfied_if": "(DOOR.TYPE IN['SLIDING','FOLDING'] AND (DOOR.STATE == 'OPEN' OR (DOOR.OPENING.TYPE == 'SWING' AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND DOOR.OPENING.FORCE_N <= 220 AND ACCESSIBLE.ROUTE == FALSE))) OR (DOOR.TYPE IN['SWING','TILT_TURN'] AND (DOOR.STATE == 'OPEN' OR (DOOR.OPENING.TYPE == 'SWING' AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND DOOR.OPENING.FORCE_N <= 150 AND (ACCESSIBLE.ROUTE == FALSE OR (ACCESSIBLE.ROUTE == TRUE AND DOOR.OPENING.FORCE_N <= 25) OR (ACCESSIBLE.ROUTE == TRUE AND DOOR.FIRE_RATING == 'FIRE_RESISTANT' AND DOOR.OPENING.FORCE_N <= 65))))",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.AUTOMATIC.PEDESTRIAN",
+            "EMERGENCY",
+            "ACCESSIBILITY",
+            "SAFETY.FIRE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "DESIGN",
+            "EXECUTION"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE",
+            "ACCESSIBILITY"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "5",
+            "page": 1,
+            "span_char_start": 2151,
+            "span_char_end": 2900,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0007",
+            "P::0008",
+            "P::0009",
+            "P::0010"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        },
+        {
+          "id": "N::0008",
+          "statement_text": "Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018.",
+          "Norm": "Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 5,
+          "applies_if": "DOOR.TYPE == 'AUTOMATIC_PEDESTRIAN'",
+          "satisfied_if": "MAINTENANCE.COMPLIANT_WITH_STANDARD == 'UNE 85121:2018'",
+          "exempt_if": null,
+          "priority": 3,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.AUTOMATIC.PEDESTRIAN",
+            "MAINTENANCE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [
+            "MAINTENANCE"
+          ],
+          "topics": [
+            "SAFETY.USE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": "5",
+            "page": 1,
+            "span_char_start": 2901,
+            "span_char_end": 3050,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        }
+      ],
+      "tags": [
+        {
+          "id": "T::0001",
+          "tag_path": "DOOR.SWING",
+          "parent": "DOOR",
+          "definition": "Puerta abatible con eje de giro vertical.",
+          "synonyms": [
+            "puerta abatible"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0002",
+          "tag_path": "EVACUATION.PERSONS",
+          "parent": "EVACUATION",
+          "definition": "Número de personas para las que se prevé la evacuación.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [
+            "N::0004"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0003",
+          "tag_path": "DOOR.OPENING.REQUIRES_KEY",
+          "parent": "DOOR.OPENING",
+          "definition": "Indica si la apertura de la puerta requiere el uso de una llave.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0004",
+          "tag_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "parent": "DOOR.OPENING",
+          "definition": "Número de mecanismos que deben accionarse para abrir la puerta.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0005",
+          "tag_path": "DOOR.AUTOMATIC",
+          "parent": "DOOR",
+          "definition": "Puerta que se abre y cierra automáticamente.",
+          "synonyms": [
+            "puerta automática"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [
+            "N::0005",
+            "N::0007",
+            "N::0008"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0006",
+          "tag_path": "DOOR.OPENING.DEVICE",
+          "parent": "DOOR.OPENING",
+          "definition": "Tipo de dispositivo utilizado para la apertura de la puerta.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0007",
+          "tag_path": "DOOR.STANDARD",
+          "parent": "DOOR",
+          "definition": "Norma técnica a la que se ajusta la puerta o su dispositivo de apertura.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003"
+          ],
+          "refined_by_norm_ids": [
+            "N::0008"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0008",
+          "tag_path": "EVACUATION.OCCUPANTS.FAMILIARIZED",
+          "parent": "EVACUATION.OCCUPANTS",
+          "definition": "Indica si las personas que ocupan la zona están familiarizadas con la puerta de evacuación.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0009",
+          "tag_path": "DOOR.OPENING.DIRECTION",
+          "parent": "DOOR.OPENING",
+          "definition": "Dirección de apertura de la puerta.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003",
+            "N::0004"
+          ],
+          "refined_by_norm_ids": [
+            "N::0005",
+            "N::0007"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0010",
+          "tag_path": "OCCUPANCY.PERSONS",
+          "parent": "OCCUPANCY",
+          "definition": "Número de personas que ocupan un recinto o espacio.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0004"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0011",
+          "tag_path": "DOOR.REVOLVING",
+          "parent": "DOOR",
+          "definition": "Puerta giratoria.",
+          "synonyms": [
+            "puertas giratorias"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0005"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0012",
+          "tag_path": "DOOR.OPENING.FORCE_N",
+          "parent": "DOOR.OPENING",
+          "definition": "Fuerza necesaria para abrir la puerta, expresada en Newtons.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0005"
+          ],
+          "refined_by_norm_ids": [
+            "N::0007"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0013",
+          "tag_path": "DOOR.WIDTH.USEFUL",
+          "parent": "DOOR.WIDTH",
+          "definition": "Anchura útil de la puerta para la evacuación.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0014",
+          "tag_path": "EVACUATION.CAPACITY.REQUIRED",
+          "parent": "EVACUATION.CAPACITY",
+          "definition": "Capacidad de evacuación total prevista.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0015",
+          "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN",
+          "parent": "DOOR.AUTOMATIC",
+          "definition": "Puerta automática diseñada para el paso de peatones.",
+          "synonyms": [
+            "puertas peatonales automáticas"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [
+            "N::0008"
+          ],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0016",
+          "tag_path": "POWER.SUPPLY.FAILURE",
+          "parent": "POWER.SUPPLY",
+          "definition": "Fallo en el suministro de energía eléctrica.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0017",
+          "tag_path": "EMERGENCY.SIGNAL",
+          "parent": "EMERGENCY",
+          "definition": "Señal de emergencia activada.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0018",
+          "tag_path": "DOOR.POSITION",
+          "parent": "DOOR",
+          "definition": "Posición actual de la puerta (abierta, cerrada, cerrado seguro).",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0019",
+          "tag_path": "ACCESSIBLE.ROUTE",
+          "parent": "ACCESSIBLE",
+          "definition": "Indica si la puerta está situada en un itinerario accesible según DB SUA.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0020",
+          "tag_path": "DOOR.FIRE_RATING",
+          "parent": "DOOR",
+          "definition": "Clasificación de resistencia al fuego de la puerta.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0021",
+          "tag_path": "MAINTENANCE.COMPLIANT_WITH_STANDARD",
+          "parent": "MAINTENANCE",
+          "definition": "Indica si el mantenimiento cumple con una norma específica.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0008"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
+      "locations": [],
+      "questions": [
+        {
+          "id": "Q::0001",
+          "tag_path": "DOOR.TYPE",
+          "question_text": "¿Qué tipo de puerta es?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "SWING",
+            "SLIDING",
+            "FOLDING",
+            "REVOLVING",
+            "AUTOMATIC",
+            "AUTOMATIC_PEDESTRIAN",
+            "TILT_TURN"
+          ],
+          "outputs": [
+            "DOOR.TYPE"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001",
+            "N::0002",
+            "N::0005",
+            "N::0007",
+            "N::0008"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0002",
+          "tag_path": "EVACUATION.PERSONS",
+          "question_text": "¿Cuántas personas se prevén para la evacuación?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "EVACUATION.PERSONS"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001",
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0003",
+          "tag_path": "DOOR.OPENING.REQUIRES_KEY",
+          "question_text": "¿La apertura de la puerta requiere el uso de una llave?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.REQUIRES_KEY"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0004",
+          "tag_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "question_text": "¿Cuántos mecanismos deben accionarse para abrir la puerta?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.MECHANISMS_COUNT"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0005",
+          "tag_path": "DOOR.OPENING.DEVICE",
+          "question_text": "¿Qué tipo de dispositivo se utiliza para la apertura de la puerta?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "HANDLE",
+            "PUSH_BUTTON",
+            "PUSH_BAR_HORIZONTAL",
+            "SLIDING_BAR"
+          ],
+          "outputs": [
+            "DOOR.OPENING.DEVICE"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0006",
+          "tag_path": "EVACUATION.OCCUPANTS.FAMILIARIZED",
+          "question_text": "¿Están las personas que ocupan la zona familiarizadas con la puerta de evacuación?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "EVACUATION.OCCUPANTS.FAMILIARIZED"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0007",
+          "tag_path": "DOOR.OPENING.DIRECTION",
+          "question_text": "¿Cuál es la dirección de apertura de la puerta?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "EVACUATION_DIRECTION",
+            "OPPOSITE_EVACUATION_DIRECTION"
+          ],
+          "outputs": [
+            "DOOR.OPENING.DIRECTION"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0003",
+            "N::0004",
+            "N::0005",
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0008",
+          "tag_path": "DOOR.OPENING.FORCE_N",
+          "question_text": "¿Cuál es la fuerza necesaria para abrir la puerta en Newtons?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.FORCE_N"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0005",
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0009",
+          "tag_path": "ACCESSIBLE.ROUTE",
+          "question_text": "¿La puerta está situada en un itinerario accesible según DB SUA?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "ACCESSIBLE.ROUTE"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0010",
+          "tag_path": "DOOR.FIRE_RATING",
+          "question_text": "¿Cuál es la clasificación de resistencia al fuego de la puerta?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "FIRE_RESISTANT",
+            "NON_FIRE_RESISTANT"
+          ],
+          "outputs": [
+            "DOOR.FIRE_RATING"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
+      "consequences": [],
+      "parameters": [
+        {
+          "id": "P::0001",
+          "field_path": "EVACUATION.PERSONS",
+          "operator": ">",
+          "value": 50,
+          "unit": null,
+          "original_text": "más de 50 personas",
+          "norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0002",
+          "field_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "operator": "<=",
+          "value": 1,
+          "unit": null,
+          "original_text": "más de un mecanismo",
+          "norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.85,
+          "uncertainty": 0.15
+        },
+        {
+          "id": "P::0003",
+          "field_path": "OCCUPANCY.PERSONS",
+          "operator": ">",
+          "value": 200,
+          "unit": null,
+          "original_text": "más de 200 personas",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0004",
+          "field_path": "OCCUPANCY.PERSONS",
+          "operator": ">",
+          "value": 100,
+          "unit": null,
+          "original_text": "100 personas",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0005",
+          "field_path": "OCCUPANCY.PERSONS",
+          "operator": ">",
+          "value": 50,
+          "unit": null,
+          "original_text": "más de 50 ocupantes",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0006",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 220,
+          "unit": "N",
+          "original_text": "no superior a 220 N",
+          "norm_ids": [
+            "N::0005",
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0007",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 150,
+          "unit": "N",
+          "original_text": "no exceda de 150 N",
+          "norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0008",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 25,
+          "unit": "N",
+          "original_text": "no excederá de 25 N",
+          "norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0009",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 65,
+          "unit": "N",
+          "original_text": "de 65 N",
+          "norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0010",
+          "field_path": "DOOR.OPENING.FORCE_APPLICATION_HEIGHT_MM",
+          "operator": "==",
+          "value": 1000,
+          "unit": "mm",
+          "original_text": "a una altura de 1000 ±10 mm",
+          "norm_ids": [
+            "N::0007"
+          ],
+          "confidence": 0.8,
+          "uncertainty": 0.2
+        }
+      ],
+      "quality": {
+        "errors": [],
+        "warnings": [],
+        "confidence_global": 0.92,
+        "uncertainty_global": 0.08
+      }
     }
-  },
-  "norms": [
-    {
-      "id": "N::0001",
-      "Norm": "1.0.0",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0002",
-      "Norm": "0.0.1",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0003",
-      "Norm": "False",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0004",
-      "Norm": "False",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0005",
-      "Norm": "{'input_chars': 579, 'max_norms_per_5k_tokens': 35, 'extracted_norm_count': 5}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0006",
-      "Norm": "NO LEGAL ADVICE",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0007",
-      "Norm": "{'doc_id': 'building_ordinance_es.pdf', 'doc_title': 'Ordenanza Municipal de Edificación', 'source_language': 'es', 'received_chunk_span': {'char_start': 0, 'char_end': 1000}, 'page_range': {'start': 1, 'end': 1}, 'topics': ['PROTECTION.ELECTRONICS', 'SAFETY.FIRE', 'SAFETY.STRUCTURAL', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': ['CAT'], 'PROVINCES': ['BARCELONA'], 'REGIONS': [], 'COMMUNES': [], 'ZONES': ['R6.2'], 'GEO_CODES': ['ES.CT.BCN'], 'UNCERTAINTY': 0.05}}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0008",
-      "Norm": "[{'id': 'N::0001', 'Norm': 'Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad.', 'obligation_type': 'MANDATORY', 'paragraph_number': 1, 'applies_if': 'EVACUATION.PERSONS > 50', 'satisfied_if': \"DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'; OR DOOR.OPENING.REQUIRES_KEY == FALSE; OR CLOSING.SYSTEM.ENABLED == FALSE\", 'exempt_if': \"DOOR.TYPE == 'AUTOMATIC' AND HAS(DOOR.AUTOMATIC.SWING_SAFE_SYSTEM)\", 'priority': 5, 'relevant_tags': ['DOOR.SWING', 'EVACUATION', 'DOOR.AUTOMATIC', 'DOOR.AUTOMATIC.SWING_SAFE_SYSTEM', 'DOOR.OPENING.REQUIRES_KEY', 'CLOSING.SYSTEM.ENABLED'], 'relevant_roles': ['ARCHITECT', 'OWNER'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM']}, 'lifecycle_phase': ['DESIGN', 'EXECUTION'], 'topics': ['SAFETY.FIRE', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'building_ordinance_es.pdf', 'article': '1', 'page': 1, 'span_char_start': 1, 'span_char_end': 178, 'visual_refs': []}, 'extracted_parameters_ids': ['P::0001'], 'consequence_ids': [], 'confidence': 0.92, 'uncertainty': 0.07, 'notes': 'Alternatives represented via ; OR'}, {'id': 'N::0002', 'Norm': 'No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.', 'obligation_type': 'PROHIBITION', 'paragraph_number': 2, 'applies_if': 'EVACUATION.PERSONS > 100 AND HAS(ROUTE.EVACUATION.PRINCIPAL)', 'satisfied_if': 'DOOR.OPENING.REQUIRES_KEY == FALSE', 'exempt_if': None, 'priority': 5, 'relevant_tags': ['ROUTE.EVACUATION.PRINCIPAL', 'DOOR.OPENING.REQUIRES_KEY'], 'relevant_roles': ['ARCHITECT', 'OWNER'], 'project_dimensions': {}, 'lifecycle_phase': ['DESIGN', 'EXECUTION'], 'topics': ['SAFETY.FIRE', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'building_ordinance_es.pdf', 'article': '2', 'page': 1, 'span_char_start': 204, 'span_char_end': 328, 'visual_refs': []}, 'extracted_parameters_ids': ['P::0002'], 'consequence_ids': [], 'confidence': 0.92, 'uncertainty': 0.07, 'notes': None}, {'id': 'N::0003', 'Norm': 'Para edificios de uso Residencial Vivienda en la Provincia de Barcelona (CAT) la puerta principal de evacuación abrirá en el sentido de la salida cuando SERVED personas exceda 200.', 'obligation_type': 'MANDATORY', 'paragraph_number': 3, 'applies_if': \"USAGE == 'FAMILY.MULTIPLE' AND LOCATION.PROVINCE == 'BARCELONA' AND LOCATION.STATE == 'CAT' AND EVACUATION.PERSONS.SERVED > 200\", 'satisfied_if': \"DOOR.EVACUATION.PRINCIPAL.OPENING_DIRECTION == 'OUTWARD'\", 'exempt_if': None, 'priority': 5, 'relevant_tags': ['USAGE.FAMILY.MULTIPLE', 'DOOR.EVACUATION.PRINCIPAL', 'DOOR.EVACUATION.PRINCIPAL.OPENING_DIRECTION'], 'relevant_roles': ['ARCHITECT', 'OWNER'], 'project_dimensions': {'USAGE': ['FAMILY.MULTIPLE']}, 'lifecycle_phase': ['DESIGN', 'EXECUTION'], 'topics': ['SAFETY.FIRE', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': ['CAT'], 'PROVINCES': ['BARCELONA'], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': ['ES.CT.BCN'], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'building_ordinance_es.pdf', 'article': '3', 'page': 1, 'span_char_start': 330, 'span_char_end': 484, 'visual_refs': []}, 'extracted_parameters_ids': ['P::0003'], 'consequence_ids': [], 'confidence': 0.92, 'uncertainty': 0.07, 'notes': None}, {'id': 'N::0004', 'Norm': 'En la zona urbanística R6.2 se requerirá la presentación del Anexo III para cualquier reforma estructural que afecte salidas de emergencia.', 'obligation_type': 'MANDATORY', 'paragraph_number': 4, 'applies_if': \"LOCATION.ZONE == 'R6.2' AND WORK.TYPE IN['REFORM','CONSTRUCTION.STRUCTURAL'] AND HAS(EMERGENCY.EXIT.AFFECTED)\", 'satisfied_if': 'ANNEX.ANEXO_III.SUBMITTED == TRUE', 'exempt_if': None, 'priority': 4, 'relevant_tags': ['WORK.TYPE.REFORM', 'WORK.TYPE.CONSTRUCTION.STRUCTURAL', 'EMERGENCY.EXIT.AFFECTED', 'ANNEX.ANEXO_III'], 'relevant_roles': ['ARCHITECT', 'OWNER'], 'project_dimensions': {'WORK.TYPE': ['REFORM', 'CONSTRUCTION.STRUCTURAL']}, 'lifecycle_phase': ['DESIGN', 'EXECUTION'], 'topics': ['SAFETY.FIRE', 'SAFETY.STRUCTURAL'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': ['R6.2'], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'building_ordinance_es.pdf', 'article': '4', 'page': 1, 'span_char_start': 486, 'span_char_end': 609, 'visual_refs': []}, 'extracted_parameters_ids': [], 'consequence_ids': ['C::0001'], 'confidence': 0.92, 'uncertainty': 0.07, 'notes': None}, {'id': 'N::0005', 'Norm': 'Cuando exista fallo de suministro eléctrico o señal de emergencia las puertas peatonales automáticas correderas o plegables deberán abrir y mantenerse abiertas o permitir apertura abatible con fuerza <= 220 N.', 'obligation_type': 'MANDATORY', 'paragraph_number': 5, 'applies_if': \"(POWER.SUPPLY.FAILURE == TRUE OR EMERGENCY.SIGNAL.ACTIVE == TRUE) AND DOOR.TYPE IN['AUTOMATIC_PEDESTRIAN_SLIDING','AUTOMATIC_PEDESTRIAN_FOLDING']\", 'satisfied_if': \"(DOOR.STATE == 'OPEN' AND DOOR.MAINTAIN_OPEN == TRUE); OR (DOOR.OPENING.TYPE == 'SWING' AND DOOR.OPENING.PUSH_FORCE_N <= 220)\", 'exempt_if': None, 'priority': 5, 'relevant_tags': ['POWER.SUPPLY.FAILURE', 'EMERGENCY.SIGNAL', 'DOOR.AUTOMATIC.PEDESTRIAN.SLIDING', 'DOOR.AUTOMATIC.PEDESTRIAN.FOLDING', 'DOOR.STATE', 'DOOR.MAINTAIN_OPEN', 'DOOR.OPENING.TYPE', 'DOOR.OPENING.PUSH_FORCE_N'], 'relevant_roles': ['ARCHITECT', 'MAINTENANCE_TECHNICIAN'], 'project_dimensions': {}, 'lifecycle_phase': ['EXECUTION', 'MAINTENANCE'], 'topics': ['SAFETY.FIRE', 'SAFETY.USE', 'PROTECTION.ELECTRONICS'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'building_ordinance_es.pdf', 'article': '5', 'page': 1, 'span_char_start': 611, 'span_char_end': 800, 'visual_refs': []}, 'extracted_parameters_ids': ['P::0004'], 'consequence_ids': [], 'confidence': 0.92, 'uncertainty': 0.07, 'notes': None}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0009",
-      "Norm": "[{'id': 'T::0001', 'tag_path': 'DOOR', 'parent': None, 'definition': 'Concepto general de puerta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0002', 'tag_path': 'EVACUATION', 'parent': None, 'definition': 'Proceso de salida de personas de un lugar', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0003', 'tag_path': 'DOOR.SWING', 'parent': 'DOOR', 'definition': 'Puerta abatible', 'synonyms': ['puerta abatible'], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': ['DOOR.TYPE'], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0004', 'tag_path': 'DOOR.AXIS', 'parent': 'DOOR', 'definition': 'Eje de giro de la puerta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0005', 'tag_path': 'DOOR.OPENING', 'parent': 'DOOR', 'definition': 'Acción de abrir una puerta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001', 'N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0006', 'tag_path': 'DOOR.OPENING.REQUIRES_KEY', 'parent': 'DOOR.OPENING', 'definition': 'Indica si la apertura de la puerta requiere el uso de una llave', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001', 'N::0002'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0007', 'tag_path': 'CLOSING.SYSTEM', 'parent': None, 'definition': 'Sistema de cierre de una puerta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0008', 'tag_path': 'CLOSING.SYSTEM.ENABLED', 'parent': 'CLOSING.SYSTEM', 'definition': 'Indica si el sistema de cierre está activado', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0009', 'tag_path': 'DOOR.AUTOMATIC', 'parent': 'DOOR', 'definition': 'Puerta accionada automáticamente', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001', 'N::0005'], 'refined_by_norm_ids': ['N::0005'], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0010', 'tag_path': 'DOOR.AUTOMATIC.SWING_SAFE_SYSTEM', 'parent': 'DOOR.AUTOMATIC', 'definition': 'Sistema de abatimiento seguro para puertas automáticas', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0011', 'tag_path': 'ROUTE', 'parent': None, 'definition': 'Concepto general de ruta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0002'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0012', 'tag_path': 'ROUTE.EVACUATION', 'parent': 'ROUTE', 'definition': 'Ruta de evacuación', 'synonyms': [], 'introduced_by_norm_ids': ['N::0002'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0013', 'tag_path': 'ROUTE.EVACUATION.PRINCIPAL', 'parent': 'ROUTE.EVACUATION', 'definition': 'Ruta de evacuación principal', 'synonyms': [], 'introduced_by_norm_ids': ['N::0002'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0014', 'tag_path': 'USAGE', 'parent': None, 'definition': 'Tipo de uso de un edificio', 'synonyms': [], 'introduced_by_norm_ids': ['N::0003'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0015', 'tag_path': 'USAGE.FAMILY.MULTIPLE', 'parent': 'USAGE', 'definition': 'Uso residencial de vivienda multifamiliar', 'synonyms': [], 'introduced_by_norm_ids': ['N::0003'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0016', 'tag_path': 'DOOR.EVACUATION.PRINCIPAL', 'parent': 'DOOR', 'definition': 'Puerta principal de evacuación', 'synonyms': [], 'introduced_by_norm_ids': ['N::0003'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0017', 'tag_path': 'DOOR.EVACUATION.PRINCIPAL.OPENING_DIRECTION', 'parent': 'DOOR.EVACUATION.PRINCIPAL', 'definition': 'Sentido de apertura de la puerta principal de evacuación', 'synonyms': [], 'introduced_by_norm_ids': ['N::0003'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0018', 'tag_path': 'WORK.TYPE', 'parent': None, 'definition': 'Tipo de trabajo o intervención', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0019', 'tag_path': 'WORK.TYPE.REFORM', 'parent': 'WORK.TYPE', 'definition': 'Reforma de una edificación', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0020', 'tag_path': 'WORK.TYPE.CONSTRUCTION.STRUCTURAL', 'parent': 'WORK.TYPE', 'definition': 'Trabajo de construcción estructural', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0021', 'tag_path': 'EMERGENCY.EXIT', 'parent': None, 'definition': 'Salida de emergencia', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0022', 'tag_path': 'EMERGENCY.EXIT.AFFECTED', 'parent': 'EMERGENCY.EXIT', 'definition': 'Indica si una salida de emergencia es afectada por una intervención', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0023', 'tag_path': 'ANNEX', 'parent': None, 'definition': 'Anexo o documento adjunto', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0024', 'tag_path': 'ANNEX.ANEXO_III', 'parent': 'ANNEX', 'definition': 'Anexo III', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0025', 'tag_path': 'ANNEX.ANEXO_III.SUBMITTED', 'parent': 'ANNEX.ANEXO_III', 'definition': 'Indica si el Anexo III ha sido presentado', 'synonyms': [], 'introduced_by_norm_ids': ['N::0004'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0026', 'tag_path': 'POWER.SUPPLY', 'parent': None, 'definition': 'Suministro de energía eléctrica', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0027', 'tag_path': 'POWER.SUPPLY.FAILURE', 'parent': 'POWER.SUPPLY', 'definition': 'Fallo en el suministro de energía eléctrica', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0028', 'tag_path': 'EMERGENCY.SIGNAL', 'parent': None, 'definition': 'Señal de emergencia', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0029', 'tag_path': 'DOOR.AUTOMATIC.PEDESTRIAN', 'parent': 'DOOR.AUTOMATIC', 'definition': 'Puerta automática destinada a tránsito peatonal', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': ['N::0005'], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0030', 'tag_path': 'DOOR.AUTOMATIC.PEDESTRIAN.SLIDING', 'parent': 'DOOR.AUTOMATIC.PEDESTRIAN', 'definition': 'Puerta automática peatonal corredera', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0031', 'tag_path': 'DOOR.AUTOMATIC.PEDESTRIAN.FOLDING', 'parent': 'DOOR.AUTOMATIC.PEDESTRIAN', 'definition': 'Puerta automática peatonal plegable', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0032', 'tag_path': 'DOOR.STATE', 'parent': 'DOOR', 'definition': 'Estado de la puerta (abierta, cerrada)', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0033', 'tag_path': 'DOOR.MAINTAIN_OPEN', 'parent': 'DOOR', 'definition': 'Indica si la puerta debe permanecer abierta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0034', 'tag_path': 'DOOR.OPENING.TYPE', 'parent': 'DOOR.OPENING', 'definition': 'Tipo de apertura de la puerta', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0035', 'tag_path': 'DOOR.OPENING.PUSH_FORCE_N', 'parent': 'DOOR.OPENING', 'definition': 'Fuerza de empuje para la apertura de la puerta en Newtons', 'synonyms': [], 'introduced_by_norm_ids': ['N::0005'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0010",
-      "Norm": "[{'id': 'L::0001', 'type': 'COUNTRY', 'code': 'ES', 'name': 'España', 'parent_codes': [], 'classification': [], 'related_zone_codes': [], 'source': {'doc_id': 'ccte_si.pdf', 'page': -1, 'span_char_start': -1, 'span_char_end': -1}, 'confidence': 0.95, 'uncertainty': 0.05}, {'id': 'L::0002', 'type': 'STATE', 'code': 'CAT', 'name': 'Cataluña', 'parent_codes': ['ES'], 'classification': [], 'related_zone_codes': [], 'source': {'doc_id': 'ccte_si.pdf', 'page': -1, 'span_char_start': -1, 'span_char_end': -1}, 'confidence': 0.95, 'uncertainty': 0.05}, {'id': 'L::0003', 'type': 'PROVINCE', 'code': 'BARCELONA', 'name': 'Barcelona', 'parent_codes': ['ES', 'CAT'], 'classification': [], 'related_zone_codes': [], 'source': {'doc_id': 'ccte_si.pdf', 'page': -1, 'span_char_start': -1, 'span_char_end': -1}, 'confidence': 0.95, 'uncertainty': 0.05}, {'id': 'L::0004', 'type': 'PLANNING_ZONE', 'code': 'R6.2', 'name': None, 'parent_codes': ['ES', 'CAT'], 'classification': [], 'related_zone_codes': [], 'source': {'doc_id': 'ccte_si.pdf', 'page': -1, 'span_char_start': -1, 'span_char_end': -1}, 'confidence': 0.95, 'uncertainty': 0.05}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0011",
-      "Norm": "[{'id': 'Q::0001', 'tag_path': 'DOOR.TYPE', 'question_text': '¿Qué tipo de puerta es?', 'answer_type': 'ENUM', 'enum_values': ['SWING', 'SLIDING', 'FOLDING', 'TILT_TURN', 'AUTOMATIC', 'AUTOMATIC_PEDESTRIAN'], 'outputs': ['DOOR.TYPE'], 'derived_follow_up_question_ids': [], 'trigger_norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'Q::0002', 'tag_path': 'CLOSING.SYSTEM.ENABLED', 'question_text': '¿Está el sistema de cierre activado?', 'answer_type': 'BOOLEAN', 'enum_values': [], 'outputs': ['CLOSING.SYSTEM.ENABLED'], 'derived_follow_up_question_ids': [], 'trigger_norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'Q::0003', 'tag_path': 'DOOR.AUTOMATIC.SWING_SAFE_SYSTEM', 'question_text': '¿La puerta automática tiene sistema de abatimiento seguro?', 'answer_type': 'BOOLEAN', 'enum_values': [], 'outputs': ['DOOR.AUTOMATIC.SWING_SAFE_SYSTEM'], 'derived_follow_up_question_ids': [], 'trigger_norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0012",
-      "Norm": "[{'id': 'C::0001', 'kind': 'ANNEX', 'reference_code': 'Anexo III', 'description': 'Presentación del Anexo III obligatoria', 'activates_norm_ids': [], 'activates_tag_paths': [], 'activates_question_ids': [], 'required_documents': [], 'source_norm_ids': ['N::0004'], 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0013",
-      "Norm": "[{'id': 'P::0001', 'field_path': 'EVACUATION.PERSONS', 'operator': '>', 'value': 50, 'unit': None, 'original_text': 'más de 50 personas', 'norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'P::0002', 'field_path': 'EVACUATION.PERSONS', 'operator': '>', 'value': 100, 'unit': None, 'original_text': 'superior a 100 personas', 'norm_ids': ['N::0002'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'P::0003', 'field_path': 'EVACUATION.PERSONS.SERVED', 'operator': '>', 'value': 200, 'unit': None, 'original_text': 'exceda 200', 'norm_ids': ['N::0003'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'P::0004', 'field_path': 'DOOR.OPENING.PUSH_FORCE_N', 'operator': '<=', 'value': 220, 'unit': 'N', 'original_text': '220 N', 'norm_ids': ['N::0005'], 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0014",
-      "Norm": "{'errors': [], 'warnings': [], 'confidence_global': 0.9, 'uncertainty_global': 0.1}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0015",
-      "Norm": "1.0.0",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0016",
-      "Norm": "0.0.1",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0017",
-      "Norm": "False",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0018",
-      "Norm": "False",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0019",
-      "Norm": "{'input_chars': 100, 'max_norms_per_5k_tokens': 35, 'extracted_norm_count': 1}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0020",
-      "Norm": "NO LEGAL ADVICE",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0021",
-      "Norm": "{'doc_id': 'unknown_doc_id', 'doc_title': 'Building Regulations Snippet', 'source_language': 'es', 'received_chunk_span': {'char_start': 0, 'char_end': 100}, 'page_range': {'start': -1, 'end': -1}, 'topics': ['ACCESSIBILITY', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0022",
-      "Norm": "[{'id': 'N::0001', 'Norm': 'Cuando la puerta esté situada en itinerario accesible según DB SUA la fuerza para apertura abatible no excederá 25 N (65 N si resistente al fuego).', 'obligation_type': 'MANDATORY', 'paragraph_number': 6, 'applies_if': \"DOOR.LOCATION == 'ACCESSIBLE_ROUTE' AND STANDARD.DB_SUA == TRUE\", 'satisfied_if': \"(DOOR.FIRE_RATING == 'FIRE_RESISTANT' AND DOOR.OPENING.PUSH_FORCE_N <= 65); OR (NOT DOOR.FIRE_RATING == 'FIRE_RESISTANT' AND DOOR.OPENING.PUSH_FORCE_N <= 25)\", 'exempt_if': None, 'priority': 4, 'relevant_tags': ['DOOR', 'ACCESSIBILITY', 'ROUTE.ACCESSIBLE', 'STANDARD.DB_SUA', 'DOOR.OPENING', 'DOOR.FIRE_RATING'], 'relevant_roles': ['ARCHITECT', 'ENGINEER'], 'project_dimensions': {}, 'lifecycle_phase': ['DESIGN', 'EXECUTION'], 'topics': ['ACCESSIBILITY', 'SAFETY.USE'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'doc_id': 'unknown_doc_id', 'article': '6', 'page': -1, 'span_char_start': 0, 'span_char_end': 100, 'visual_refs': []}, 'extracted_parameters_ids': ['P::0001', 'P::0002'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': 'Force limits for swing doors in accessible routes, with a higher limit for fire-resistant doors.'}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0023",
-      "Norm": "[{'id': 'T::0001', 'tag_path': 'DOOR', 'parent': None, 'definition': 'Elemento constructivo para acceso', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0002', 'tag_path': 'ACCESSIBILITY', 'parent': None, 'definition': 'Condiciones para el acceso y uso universal', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0003', 'tag_path': 'ROUTE.ACCESSIBLE', 'parent': 'ACCESSIBILITY', 'definition': 'Itinerario que cumple con los requisitos de accesibilidad', 'synonyms': ['itinerario accesible'], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': ['DOOR'], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0004', 'tag_path': 'STANDARD', 'parent': None, 'definition': 'Documento normativo o estándar técnico', 'synonyms': [], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.85, 'uncertainty': 0.15}, {'id': 'T::0005', 'tag_path': 'STANDARD.DB_SUA', 'parent': 'STANDARD', 'definition': 'Documento Básico de Seguridad de Utilización y Accesibilidad', 'synonyms': ['DB SUA'], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': ['ACCESSIBILITY'], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0006', 'tag_path': 'DOOR.OPENING', 'parent': 'DOOR', 'definition': 'Acción de abrir una puerta', 'synonyms': ['apertura de puerta'], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': [], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'T::0007', 'tag_path': 'DOOR.FIRE_RATING', 'parent': 'DOOR', 'definition': 'Clasificación de resistencia al fuego de una puerta', 'synonyms': ['resistente al fuego'], 'introduced_by_norm_ids': ['N::0001'], 'refined_by_norm_ids': [], 'related_tag_paths': ['SAFETY.FIRE'], 'status': 'ACTIVE', 'merge_target': None, 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0024",
-      "Norm": "[]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0025",
-      "Norm": "[{'id': 'Q::0001', 'tag_path': 'DOOR.FIRE_RATING', 'question_text': '¿La puerta es resistente al fuego?', 'answer_type': 'BOOLEAN', 'enum_values': [], 'outputs': ['DOOR.FIRE_RATING'], 'derived_follow_up_question_ids': [], 'trigger_norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}, {'id': 'Q::0002', 'tag_path': 'ROUTE.ACCESSIBLE', 'question_text': '¿La puerta está situada en un itinerario accesible según DB SUA?', 'answer_type': 'BOOLEAN', 'enum_values': [], 'outputs': ['DOOR.LOCATION', 'STANDARD.DB_SUA'], 'derived_follow_up_question_ids': [], 'trigger_norm_ids': ['N::0001'], 'confidence': 0.9, 'uncertainty': 0.1}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0026",
-      "Norm": "[]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0027",
-      "Norm": "[{'id': 'P::0001', 'field_path': 'DOOR.OPENING.PUSH_FORCE_N', 'operator': '<=', 'value': 25, 'unit': 'N', 'original_text': '25 N', 'norm_ids': ['N::0001'], 'confidence': 0.95, 'uncertainty': 0.05}, {'id': 'P::0002', 'field_path': 'DOOR.OPENING.PUSH_FORCE_N', 'operator': '<=', 'value': 65, 'unit': 'N', 'original_text': '65 N', 'norm_ids': ['N::0001'], 'confidence': 0.95, 'uncertainty': 0.05}]",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    },
-    {
-      "id": "N::0028",
-      "Norm": "{'errors': ['PAGE_MISSING'], 'warnings': [], 'confidence_global': 0.9, 'uncertainty_global': 0.1}",
-      "obligation_type": "MANDATORY",
-      "paragraph_number": null,
-      "applies_if": "TRUE",
-      "satisfied_if": "TRUE",
-      "exempt_if": null,
-      "priority": 3,
-      "relevant_tags": [],
-      "relevant_roles": [],
-      "project_dimensions": {},
-      "lifecycle_phase": [],
-      "topics": [],
-      "location_scope": {
-        "COUNTRY": "ES",
-        "STATES": [],
-        "PROVINCES": [],
-        "REGIONS": [],
-        "COMMUNES": [],
-        "ZONES": [],
-        "GEO_CODES": [],
-        "UNCERTAINTY": 1.0
-      },
-      "source": {
-        "doc_id": "UNKNOWN",
-        "article": null,
-        "page": -1,
-        "span_char_start": -1,
-        "span_char_end": -1,
-        "visual_refs": []
-      },
-      "extracted_parameters_ids": [],
-      "consequence_ids": [],
-      "confidence": 0.4,
-      "uncertainty": 0.6,
-      "notes": "Legacy fallback"
-    }
-  ],
-  "tags": [],
-  "locations": [],
-  "questions": [],
-  "consequences": [],
-  "parameters": [],
-  "quality": {
-    "errors": [
-      "LEGACY_FALLBACK"
-    ],
-    "warnings": [],
-    "confidence_global": 0.4,
-    "uncertainty_global": 0.6
-  }
+  ]
 }

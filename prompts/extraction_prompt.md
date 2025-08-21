@@ -28,8 +28,10 @@ Return EXACTLY one UTF-8 JSON object (no markdown fences, no prose before/after)
 {
   "extractions": [
     {
-      "schema_version": "1.0.0",
-      "ontology_version": "0.0.1",
+  "schema_version": "1.0.0",
+  "ontology_version": "0.0.1",
+  "dsl_version": "0.1.0",               // OPTIONAL meta
+  "run_info": {"generated_at": "<iso8601>", "strategy": "full_pass"}, // OPTIONAL meta
       "truncated": false,
       "has_more": false,
       "window_config": {"input_chars": 3450, "max_norms_per_5k_tokens": 35, "extracted_norm_count": 2},
@@ -71,18 +73,97 @@ CORRECT (do this):
   ...
 }
 
+### 2A. STRICT OUTPUT TEMPLATE (COPY EXACTLY THE SHAPE)
+Your ONLY valid output is a single JSON object with one key: "extractions". Its value is a JSON array of one or more extraction objects. Every extraction object MUST contain ALL of the keys below (never omit; use empty arrays where content is absent):
+
+{
+  "extractions": [
+    {
+  "schema_version": "1.0.0",
+  "ontology_version": "0.0.1",
+  "dsl_version": "0.1.0",
+  "run_info": {"generated_at": "<iso8601>", "strategy": "full_pass"},
+      "truncated": false,
+      "has_more": false,
+      "window_config": {"input_chars": <int>, "max_norms_per_5k_tokens": <int>, "extracted_norm_count": <int>},
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "<string>",
+        "doc_title": "<string>",
+        "source_language": "es" | "ca",
+        "received_chunk_span": {"char_start": <int>, "char_end": <int>},
+        "page_range": {"start": <int>, "end": <int>},
+        "topics": ["SAFETY.FIRE", ...],
+        "location_scope": {"COUNTRY": "ES", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": <float>}
+      },
+      "norms": [],
+      "tags": [],
+      "locations": [],
+      "questions": [],
+      "consequences": [],
+      "parameters": [],
+      "quality": {"errors": [], "warnings": [], "confidence_global": <float>, "uncertainty_global": <float>}
+    }
+  ]
+}
+
+Do NOT add or rename keys. Do NOT output null in place of required arrays; use [] (empty list) instead.
+
+### 2B. MACHINE-READABLE FIELD CONTRACT (MINI JSON SCHEMA)
+For each extraction object:
+- schema_version: string (exact "1.0.0")
+- ontology_version: string
+- dsl_version: string (optional)
+- run_info: object {generated_at:string,strategy:string} (optional)
+- truncated: boolean
+- has_more: boolean
+- window_config: object {input_chars:int, max_norms_per_5k_tokens:int, extracted_norm_count:int}
+- global_disclaimer: string
+- document_metadata: object with mandatory keys doc_id, doc_title, source_language, received_chunk_span{char_start:int,char_end:int}, page_range{start:int,end:int}, topics[list[str]], location_scope{COUNTRY:str, STATES:list[str], PROVINCES:list[str], REGIONS:list[str], COMMUNES:list[str], ZONES:list[str], GEO_CODES:list[str], UNCERTAINTY:float}
+- norms/tags/locations/questions/consequences/parameters: each a list (may be empty)
+- quality: object {errors:list[str], warnings:list[str], confidence_global:float, uncertainty_global:float}
+
+### 2C. LEGACY / INVALID OUTPUT ANTI-PATTERNS (FORBIDDEN)
+You MUST NOT produce any of these legacy formats:
+1. A top-level array of Norm objects (e.g. [{"id":"N::0001", ...}, ...]) – FORBIDDEN.
+2. A top-level object whose keys are class names (e.g. {"norms":[...], "tags":[...]}) WITHOUT wrapping in {"extractions":[{ ... }]} – FORBIDDEN.
+3. Emitting only legacy obligation text key "Norm" without canonical "statement_text".
+4. Output split across multiple JSON objects or with markdown fences.
+5. Using camelCase, snake_case, or lowercase where UPPERCASE.DOTCASE is required for DSL tokens.
+6. Omitting required keys when an array would simply be empty.
+
+If unsure, ALWAYS default to the rich structure template above and leave arrays empty rather than inventing data. Always emit statement_text for each norm; including legacy Norm is optional and may be phased out.
+
+### 2D. DETECTION SELF-CHECK BEFORE OUTPUT (CRITICAL)
+Before finalizing, internally verify ALL of the following are TRUE; if any is FALSE, correct the structure:
+1. The root object has exactly one key: "extractions".
+2. extractions is a JSON array with length >= 1.
+3. Every extraction object contains ALL required keys listed in Section 2A in EXACT spelling.
+4. No unexpected top-level keys (e.g., "norm_count", "metadata", "NORM").
+5. Every Norm object resides ONLY inside the "norms" array.
+6. No legacy placeholder keys like "NORM", "NORM_attributes", "Tag_attributes" exist.
+7. All arrays exist; none are null.
+8. JSON parses (no trailing commas, no comments).
+
+If any check fails you must fix before emitting. Never emit a legacy or partial structure.
+
 --------------------------------------------------------------------------------
 ## 3. NORM OBJECT SPECIFICATION
 Each element of "norms":
 {
   "id": "N::<stable_local_id>",          // e.g., N::0001 (unique within output)
-  "Norm": "<canonical extracted sentence/span in source language (Spanish/Catalan), normalized whitespace>",
+  "statement_text": "<canonical extracted sentence/span in source language (Spanish/Catalan), normalized whitespace>",
   "obligation_type": "MANDATORY" | "PROHIBITION" | "PERMISSION" | "CONDITIONAL",
   "paragraph_number": <int | null>,
   "applies_if": "<DSL or TRUE>",
   "satisfied_if": "<DSL>",               // minimal compliance state
   "exempt_if": "<DSL or null>",
   "priority": <int 1..5>,                 // 5 = critical (e.g., safety, emergency); derive heuristically
+  "priority_factors": {                   // OPTIONAL decomposition
+    "severity": <float|null>,
+    "likelihood": <float|null>,
+    "impact": <float|null>
+  },
   "relevant_tags": ["DOOR.AUTOMATIC", ...],
   "relevant_roles": ["ARCHITECT", "OWNER", ...] | [],
   "project_dimensions": {                 // only include if referenced or implied
@@ -223,6 +304,8 @@ Each in "consequences":
   "required_documents": ["FORM-ER-999"],
   "source_norm_ids": ["N::0005"],
   "confidence": <float>,
+  "triggers": [],                 // OPTIONAL future structured trigger predicates
+  "effects": [],                  // OPTIONAL future structured effect descriptors
   "uncertainty": <float>
 }
 
@@ -322,13 +405,15 @@ Choose a reasonable max_norms_per_5k_tokens (e.g., 35) to ensure JSON integrity.
       "norms": [
         {
           "id": "N::0001",
-          "Norm": "Las puertas previstas como salida ... serán abatibles ...",
+          "statement_text": "Las puertas previstas como salida ... serán abatibles ...",
+          "Norm": "Las puertas previstas como salida ... serán abatibles ...",  // legacy duplicate (optional)
           "obligation_type": "MANDATORY",
           "paragraph_number": 1,
           "applies_if": "DOOR.USE == 'EXIT' OR EVACUATION.PERSONS > 50",
           "satisfied_if": "DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'; OR CLOSING.SYSTEM.ENABLED == FALSE; OR (DOOR.OPENING.FROM_EVACUATION_SIDE == TRUE AND DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1)",
           "exempt_if": "DOOR.TYPE == 'AUTOMATIC'",
           "priority": 5,
+          "priority_factors": {"severity": null, "likelihood": null, "impact": null},
           "relevant_tags": ["DOOR.SWING","EVACUATION"],
           "relevant_roles": ["ARCHITECT"],
           "project_dimensions": {"PROJECT.TYPE": ["NEW","REFORM"]},
@@ -379,5 +464,16 @@ Choose a reasonable max_norms_per_5k_tokens (e.g., 35) to ensure JSON integrity.
 6. No duplicate tag_path with conflicting ACTIVE definitions.
 7. page present (not -1) unless error logged.
 8. has_more/truncated flags consistent with counts.
+
+### 19. AUTO-REPAIR / REGENERATION DIRECTIVE (STRICT)
+IF during your internal self-check ANY of the following issues are detected you MUST discard the draft and rebuild a corrected JSON before emitting:
+ - Root object not exactly {"extractions": [...]}
+ - Any extraction object missing a required key
+ - Any norm missing "statement_text"
+ - Presence of legacy keys: "NORM", "NORM_attributes", "Tag_attributes" (uppercase legacy forms) or stray class objects outside arrays
+ - Null instead of [] for any required array
+ - Trailing commas or other JSON syntax errors
+
+You have ONE opportunity: only emit the final corrected JSON once. Never emit explanations, apologies, or fences. Never emit a partial first then a corrected second (only the corrected final). If constraints cannot be satisfied, still emit a syntactically valid minimal JSON following the template with empty arrays and at least one extraction object.
 
 END OF SPECIFICATION.
