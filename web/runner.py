@@ -21,6 +21,7 @@ class RunState:
     log_path: Optional[Path] = None
     stats: Optional[dict] = None
     buffer: List[str] = field(default_factory=list)
+    exit_code: Optional[int] = None
 
 class Runner:
     def __init__(self, run_id: str, env: dict, args: list[str], run_dir: Path):
@@ -49,6 +50,7 @@ class Runner:
                     except Exception:
                         pass
             code = self.proc.wait()
+            self.state.exit_code = int(code) if isinstance(code, int) else None
             self.state.ended_at = time.time()
             self.state.status = "finished" if code == 0 else "error"
             # Fallback stats
