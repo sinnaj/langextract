@@ -3,9 +3,46 @@
   const consoleEl = $("console");
   const runIdEl = $("run-id");
   const statsEl = $("stats");
-  const fileListEl = $("file-list");
+  const fileBadgesEl = $("file-badges");
   const previewEl = $("preview");
   const form = $("run-form");
+  let selectedFilePath = null;
+
+  // --- Persistence helpers (localStorage) ---
+  const LS_PREFIX = 'le_last_';
+  const SAVE_FIELDS = [
+    'MODEL_ID',
+    'MODEL_TEMPERATURE',
+    'MAX_NORMS_PER_5K',
+    'INPUT_PROMPTFILE',
+    'INPUT_GLOSSARYFILE',
+    'INPUT_EXAMPLESFILE',
+    'INPUT_SEMANTCSFILE',
+    'INPUT_TEACHFILE',
+  ];
+  const lsKey = (id) => LS_PREFIX + id;
+  const saveValue = (id, value) => {
+    try { localStorage.setItem(lsKey(id), value ?? ''); } catch {}
+  };
+  const loadValue = (id) => {
+    try { return localStorage.getItem(lsKey(id)); } catch { return null; }
+  };
+  const applySavedToInput = (id) => {
+    const v = loadValue(id);
+    if (v !== null && $(id)) $(id).value = v;
+  };
+  const applySavedToSelect = (id) => {
+    const saved = loadValue(id);
+    if (!saved) return;
+    const sel = $(id);
+    if (!sel) return;
+    for (const opt of sel.options) {
+      if (opt.value === saved) {
+        sel.value = saved;
+        break;
+      }
+    }
+  };
 
   async function loadChoices() {
     try {
@@ -31,6 +68,8 @@
           opt.textContent = f;
           sel.appendChild(opt);
         }
+        // After populating, re-apply saved selection if any
+        applySavedToSelect(id);
       }
       // badges
       const badgesWrap = $("model-badges");
@@ -40,7 +79,10 @@
         b.type = 'button';
         b.className = 'text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded';
         b.textContent = m;
-        b.addEventListener('click', () => { $("MODEL_ID").value = m; });
+        b.addEventListener('click', () => {
+          $("MODEL_ID").value = m;
+          saveValue('MODEL_ID', m);
+        });
         badgesWrap.appendChild(b);
       }
     } catch (e) {
@@ -75,12 +117,40 @@
     try {
       const res = await fetch(`/runs/${runId}/files`);
       const files = await res.json();
-      fileListEl.innerHTML = '';
-      for (const f of files) {
-        const li = document.createElement('li');
-        li.className = 'px-3 py-2 hover:bg-gray-50 cursor-pointer';
-        li.textContent = `${f.path} (${f.size} B)`;
-        li.addEventListener('click', async () => {
+      if (fileBadgesEl) fileBadgesEl.innerHTML = '';
+      const makeBadge = (f) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.path = f.path;
+        btn.className = 'text-xs px-2 py-1 rounded-full border bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200';
+        const baseName = f.path.split('/').pop();
+        btn.textContent = baseName || f.path;
+        const applySelected = () => {
+          const isSel = selectedFilePath === f.path;
+          if (isSel) {
+            btn.classList.remove('bg-gray-100','text-gray-800','border-gray-300');
+            btn.classList.add('bg-blue-600','text-white','border-blue-600');
+          } else {
+            btn.classList.add('bg-gray-100','text-gray-800','border-gray-300');
+            btn.classList.remove('bg-blue-600','text-white','border-blue-600');
+          }
+        };
+        btn.addEventListener('click', async () => {
+          selectedFilePath = f.path;
+          // Update all badges selection state
+          if (fileBadgesEl) {
+            Array.from(fileBadgesEl.children).forEach((el) => {
+              const p = el.dataset.path;
+              if (!p) return;
+              if (p === selectedFilePath) {
+                el.classList.remove('bg-gray-100','text-gray-800','border-gray-300');
+                el.classList.add('bg-blue-600','text-white','border-blue-600');
+              } else {
+                el.classList.add('bg-gray-100','text-gray-800','border-gray-300');
+                el.classList.remove('bg-blue-600','text-white','border-blue-600');
+              }
+            });
+          }
           const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(f.path)}`);
           const ct = resp.headers.get('content-type') || '';
           if (ct.startsWith('text/') || ct.includes('application/json')) {
@@ -91,7 +161,13 @@
             window.location.href = `/runs/${runId}/file?path=${encodeURIComponent(f.path)}`;
           }
         });
-        fileListEl.appendChild(li);
+        // Initialize selection state
+        applySelected();
+        return btn;
+      };
+      for (const f of files) {
+        const badge = makeBadge(f);
+        if (fileBadgesEl) fileBadgesEl.appendChild(badge);
       }
     } catch (e) {
       console.error('files error', e);
@@ -103,8 +179,14 @@
     $("form-error").textContent = '';
     consoleEl.textContent = '';
     statsEl.textContent = '';
-    fileListEl.innerHTML = '';
+  if (fileBadgesEl) fileBadgesEl.innerHTML = '';
     previewEl.textContent = '';
+
+    // Save current form values
+    for (const fid of SAVE_FIELDS) {
+      const el = $(fid);
+      if (el) saveValue(fid, el.value);
+    }
 
     const formData = new FormData(form);
     try {
@@ -142,6 +224,20 @@
       $("form-error").textContent = 'Network error starting run';
     }
   });
+
+  // Restore saved inputs before loading choices (for text/number inputs)
+  applySavedToInput('MODEL_ID');
+  applySavedToInput('MODEL_TEMPERATURE');
+  applySavedToInput('MAX_NORMS_PER_5K');
+
+  // Persist on change for all save fields (except file input)
+  for (const fid of SAVE_FIELDS) {
+    const el = $(fid);
+    if (el && fid !== 'input_document') {
+      el.addEventListener('change', () => saveValue(fid, el.value));
+      el.addEventListener('input', () => saveValue(fid, el.value));
+    }
+  }
 
   loadChoices();
 })();
