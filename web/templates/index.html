@@ -61,9 +61,10 @@
               <label class="block text-sm font-medium mb-1">Input document (optional)</label>
               <input type="file" name="input_document" id="input_document" class="w-full text-gray-900 dark:text-gray-100" />
             </div>
-            <div class="flex gap-3">
+            <div class="flex gap-3 items-center">
               <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded" type="submit">Start Run</button>
-              <span id="run-id" class="text-sm text-gray-600"></span>
+              <button id="cancel-run" type="button" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed" disabled>Cancel Run</button>
+              <span id="run-id" class="text-sm text-gray-600 dark:text-gray-300"></span>
             </div>
             <p id="form-error" class="text-sm text-red-600"></p>
           </form>

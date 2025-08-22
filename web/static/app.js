@@ -6,7 +6,9 @@
   const fileBadgesEl = $("file-badges");
   const previewEl = $("preview");
   const form = $("run-form");
+  const cancelBtn = $("cancel-run");
   let selectedFilePath = null;
+  let currentRunId = null;
 
   // Escape HTML for safe insertion into <code> blocks
   function escapeHtml(str) {
@@ -112,8 +114,9 @@
       if (data.stats) {
         statsEl.textContent = JSON.stringify(data.stats, null, 2);
       }
-      if (data.status === 'finished' || data.status === 'error') {
+      if (data.status === 'finished' || data.status === 'error' || data.status === 'canceled') {
         await loadFiles(runId);
+        if (cancelBtn) cancelBtn.disabled = true;
       } else {
         setTimeout(() => pollStatus(runId), 2000);
       }
@@ -250,8 +253,10 @@
         return;
       }
       const data = await res.json();
-      const runId = data.run_id;
-      runIdEl.textContent = `Run: ${runId}`;
+  const runId = data.run_id;
+  currentRunId = runId;
+  runIdEl.textContent = `Run: ${runId}`;
+  if (cancelBtn) cancelBtn.disabled = false;
 
       // SSE
       const sse = new EventSource(`/runs/${runId}/logs`);
@@ -261,6 +266,7 @@
           if (payload.event === 'complete') {
             sse.close();
             pollStatus(runId);
+            if (cancelBtn) cancelBtn.disabled = true;
           } else if (payload.line) {
             appendConsole(payload.line);
           }
@@ -293,4 +299,16 @@
   }
 
   loadChoices();
+
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', async () => {
+      if (!currentRunId) return;
+      cancelBtn.disabled = true;
+      try {
+        await fetch(`/runs/${currentRunId}/cancel`, { method: 'POST' });
+      } catch (e) {
+        // ignore
+      }
+    });
+  }
 })();
