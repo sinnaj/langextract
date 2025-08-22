@@ -34,6 +34,7 @@ from postprocessing.is_rich_schema import (
     is_rich_schema,
     validate_rich,
     validate_rich_verbose,
+    collect_dsl_keys
 )
 from postprocessing.enrich_parameters import enrich_parameters
 
@@ -513,7 +514,7 @@ wc["extracted_norm_count"] = len(primary.get("norms", []))
 
 # Optional enrichment (post-validation) – only if teach mode or explicitly requested
 if TEACH_MODE:
-    apply_enrichment_pipeline(primary)
+    validate_rich_schema(primary)
 
 # ---------------------------------------------------------------------------
 # 5. Persist Result
