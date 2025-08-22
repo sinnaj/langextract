@@ -1,0 +1,368 @@
+{
+  "name": "arqio_intent_categorization",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        -48
+      ],
+      "id": "2dac85fb-d0f6-4a92-b6b8-056522ae588b",
+      "name": "When chat message received",
+      "webhookId": "231e575b-580b-4c44-80d0-8a5da097eed1"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.chatInput }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "regulation_lookup",
+              "description": "User is asking which legal regulation, law, or normative framework applies to a specific case, location, or building scenario. Useful to retrieve legal texts or summarize their implications. Examples:  What building rules apply to this plot? ¿Qué norma urbanística se aplica? Quina normativa d'edificació regula això?"
+            },
+            {
+              "category": "authority_lookup",
+              "description": "User wants to identify the competent institution or public body responsible for approving, issuing, or managing a given regulation, plan, or document. Examples:  Who approved this zoning plan?  ¿Qué organismo aprobó este POUM?  Qui va aprovar aquest planejament?"
+            },
+            {
+              "category": "location_lookup",
+              "description": "User is asking about a location (e.g., address, city, landmark) to get geographical or jurisdictional context. Typically used to derive zoning or administrative information. Examples:  Where is the town hall of Girona?  ¿Dónde está la catedral de Viladrau?  On es troba l’ajuntament de Girona?"
+            },
+            {
+              "category": "geo_reverse",
+              "description": "User provides geographic coordinates (latitude and longitude) and wants to retrieve information such as zoning, land use classification, or parcel data for that point. Examples:  I have coordinates, what zone is this?  Tengo latitud y longitud, ¿qué zona es?  Tinc unes coordenades, quina clau urbanística és?"
+            },
+            {
+              "category": "numeric_calc",
+              "description": "User asks for basic numeric operations, surface calculations, volume, or unit conversions relevant to construction or planning (e.g., square meters, distances). Examples:  How many square meters is a 20 × 30 m plot?  Convierte 12 metros a centímetros  Quants metres quadrats té un terreny de 20 × 30 m?"
+            },
+            {
+              "category": "general_chat",
+              "description": "User starts small talk, unrelated to architecture or building law. This can be handled gracefully or redirected toward the bot's purpose. Examples:  How's your week going?  ¿Cómo está el tiempo hoy?  Com va la teva setmana?"
+            }
+          ]
+        },
+        "options": {
+          "multiClass": true,
+          "systemPromptTemplate": "Please classify the text provided by the user into one of the following categories: {categories}, and use the provided formatting instructions below. Make sure it's proper json syntax and all problematic characters are escaped. You should return raw JSON, no markdown wrapping, and no schema object inside the field values. Just a flat JSON object with booleans only."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        272,
+        -128
+      ],
+      "id": "ee13204a-f20f-4c4a-8a39-689d45310679",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        272,
+        224
+      ],
+      "id": "0dd377cb-db3c-4f12-b267-4bcb70bcb0e1",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "11lMCQ3eK2vKmca2",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"regulation_lookup\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        -304
+      ],
+      "id": "70e5b3a9-aafb-45c3-8c78-01e2a6fa77fc",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"authority_lookup\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        -144
+      ],
+      "id": "dbbb7b7b-b853-4673-9c1f-3165a379b203",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"location_lookup\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        -16
+      ],
+      "id": "01d83868-0bee-4d38-bbdd-35f330694295",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"geo_reverse\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        112
+      ],
+      "id": "dad05ca7-8aee-4cd2-8146-bbcd3f01af77",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"numeric_calc\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        240
+      ],
+      "id": "887bae6b-5723-4f75-8642-c461877279dd",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { category: \"general_chat\" };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        384
+      ],
+      "id": "55bb290e-4ead-4752-9ae1-e880f4355a4c",
+      "name": "Code5"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1184,
+        -96
+      ],
+      "id": "50e1fdcd-284b-4d21-95af-bdb97020ae2a",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "var categories = Array();\n\n$input.all().map(c => categories.push(c.json.category.toString()))\nconst initial = $(\"When chat message received\").first().json;\nreturn {\n  intents: categories,\n  sessionId: initial.sessionId,\n  originalPrompt: initial.chatInput.normalize()\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1472,
+        -96
+      ],
+      "id": "6b3d772b-17d1-4645-9d8e-6cddc713aadb",
+      "name": "Code6"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        -96
+      ],
+      "id": "c399af06-812f-4363-a11e-35c29862b5ee",
+      "name": "No Operation, do nothing",
+      "alwaysOutputData": false
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0c7e8b06-ea55-4bf5-bea9-3873a8a61f97",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "414f8d358ece88fc3e9200114a84526a7488ef0232f4dafa7043bf818aa7b15b"
+  },
+  "id": "ibERQXauK4zft05B",
+  "tags": []
+}
