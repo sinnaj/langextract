@@ -8,6 +8,16 @@
   const form = $("run-form");
   let selectedFilePath = null;
 
+  // Escape HTML for safe insertion into <code> blocks
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   // --- Persistence helpers (localStorage) ---
   const LS_PREFIX = 'le_last_';
   const SAVE_FIELDS = [
@@ -154,17 +164,36 @@
           }
           const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(f.path)}`);
           const ct = resp.headers.get('content-type') || '';
-          if (ct.startsWith('text/') || ct.includes('application/json')) {
+          if (ct.startsWith('text/') || ct.includes('application/json') || f.path.toLowerCase().endsWith('.md')) {
             const text = await resp.text();
-            if (ct.includes('application/json')) {
+            // Render Markdown
+            if (f.path.toLowerCase().endsWith('.md') || ct.includes('text/markdown')) {
               try {
-                const obj = JSON.parse(text);
-                previewEl.textContent = JSON.stringify(obj, null, 2);
+                const rawHtml = marked.parse(text, { mangle: false, headerIds: true });
+                const safeHtml = DOMPurify.sanitize(rawHtml);
+                previewEl.innerHTML = safeHtml;
+                // highlight code blocks
+                document.querySelectorAll('#preview pre code').forEach((el) => {
+                  try { hljs.highlightElement(el); } catch {}
+                });
               } catch {
                 previewEl.textContent = text;
               }
+            } else if (ct.includes('application/json') || f.path.toLowerCase().endsWith('.json')) {
+              // Pretty JSON
+              try {
+                const obj = JSON.parse(text);
+                const pretty = JSON.stringify(obj, null, 2);
+                previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code class="language-json">${escapeHtml(pretty)}</code></pre>`;
+                document.querySelectorAll('#preview pre code').forEach((el) => {
+                  try { hljs.highlightElement(el); } catch {}
+                });
+              } catch {
+                previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
+              }
             } else {
-              previewEl.textContent = text;
+              // Plain text
+              previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
             }
           } else {
             previewEl.textContent = '[Binary file] Downloading...';
