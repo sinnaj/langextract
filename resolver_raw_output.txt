@@ -8,9 +8,9 @@
       "truncated": false,
       "has_more": false,
       "window_config": {
-        "input_chars": 348,
+        "input_chars": 2963,
         "max_norms_per_5k_tokens": 35,
-        "extracted_norm_count": 1
+        "extracted_norm_count": 10
       },
       "global_disclaimer": "NO LEGAL ADVICE",
       "document_metadata": {
@@ -19,13 +19,15 @@
         "source_language": "es",
         "received_chunk_span": {
           "char_start": 0,
-          "char_end": 348
+          "char_end": 2963
         },
         "page_range": {
           "start": 1,
-          "end": 1
+          "end": 2
         },
-        "topics": [],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
         "location_scope": {
           "COUNTRY": "ES",
           "STATES": [],
@@ -40,19 +42,21 @@
       "norms": [
         {
           "id": "N::0001",
-          "statement_text": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
+          "statement_text": "Las señales se dispondrán de forma coherente con la asignación de ocupantes que se pretenda hacer a cada salida, conforme a lo establecido en el capítulo 4 de esta Sección.",
           "obligation_type": "MANDATORY",
           "paragraph_number": null,
-          "applies_if": "DOOR.TYPE == 'REVOLVING'",
-          "satisfied_if": "DOOR.ADJACENT_TO.TYPE == 'SWING' AND DOOR.ADJACENT_TO.OPERATION == 'MANUAL'",
-          "exempt_if": "DOOR.TYPE == 'REVOLVING' AND DOOR.OPERATION == 'AUTOMATIC' AND HAS(DOOR.SYSTEM.SWING_OUT_EMERGENCY) AND (EMERGENCY.OCCURRED == TRUE OR POWER.SUPPLY.FAILURE == TRUE) AND DOOR.SWING_OUT_FORCE <= 220",
-          "priority": 4,
+          "applies_if": "TRUE",
+          "satisfied_if": "SIGNAGE.DISPOSITION == 'COHERENT' AND SIGNAGE.CONFORMS_TO == 'CHAPTER_4'",
+          "exempt_if": null,
+          "priority": 3,
           "priority_factors": {},
           "relevant_tags": [],
           "relevant_roles": [],
           "project_dimensions": {},
           "lifecycle_phase": [],
-          "topics": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
           "location_scope": {
             "COUNTRY": "ES",
             "STATES": [],
@@ -68,7 +72,376 @@
             "article": null,
             "page": -1,
             "span_char_start": 0,
-            "span_char_end": 348,
+            "span_char_end": 180,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0002",
+          "statement_text": "Los itinerarios accesibles (ver definición en el Anejo A del DB SUA) para personas con discapacidad que conduzcan a una zona de refugio, a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, o a una salida del edificio accesible se señalizarán mediante las señales establecidas en los párrafos anteriores a), b), c) y d) acompañadas del SIA (Símbolo Internacional de Accesibilidad para la movilidad).",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "ITINERARY.ACCESSIBLE == TRUE AND ITINERARY.FOR_DISABILITY == TRUE AND (ITINERARY.LEADS_TO == 'REFUGE_ZONE' OR ITINERARY.LEADS_TO == 'ALTERNATIVE_FIRE_SECTOR' OR ITINERARY.LEADS_TO == 'ACCESSIBLE_BUILDING_EXIT')",
+          "satisfied_if": "SIGNAGE.TYPE IN ['A','B','C','D'] AND SIGNAGE.INCLUDES == 'SIA'",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 181,
+            "span_char_end": 590,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0003",
+          "statement_text": "Cuando dichos itinerarios accesibles conduzcan a una zona de refugio o a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, irán además acompañadas del rótulo “ZONA DE REFUGIO”.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "ITINERARY.ACCESSIBLE == TRUE AND ITINERARY.FOR_DISABILITY == TRUE AND (ITINERARY.LEADS_TO == 'REFUGE_ZONE' OR ITINERARY.LEADS_TO == 'ALTERNATIVE_FIRE_SECTOR')",
+          "satisfied_if": "SIGNAGE.INCLUDES == 'ZONA_DE_REFUGIO_LABEL'",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 591,
+            "span_char_end": 790,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0004",
+          "statement_text": "La superficie de las zonas de refugio se señalizará mediante diferente color en el pavimento y el rótulo “ZONA DE REFUGIO” acompañado del SIA colocado en una pared adyacente a la zona.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "TRUE",
+          "satisfied_if": "REFUGE_ZONE.SURFACE.COLOR != 'STANDARD' AND SIGNAGE.INCLUDES == 'ZONA_DE_REFUGIO_LABEL' AND SIGNAGE.INCLUDES == 'SIA' AND SIGNAGE.LOCATION == 'ADJACENT_WALL'",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 791,
+            "span_char_end": 990,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0005",
+          "statement_text": "Las señales deben ser visibles incluso en caso de fallo en el suministro al alumbrado normal.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "TRUE",
+          "satisfied_if": "SIGNAGE.VISIBILITY == 'MAINTAINED' AND LIGHTING.NORMAL_SUPPLY.FAILURE == TRUE",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 991,
+            "span_char_end": 1090,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0006",
+          "statement_text": "Cuando sean fotoluminiscentes deben cumplir lo establecido en las normas UNE 23035-1:2003, UNE 23035-2:2003 y UNE 23035-4:2003 y su mantenimiento se realizará conforme a lo establecido en la norma UNE 23035-3:2003.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "SIGNAGE.TYPE == 'PHOTOLUMINESCENT'",
+          "satisfied_if": "SIGNAGE.COMPLIES_WITH IN ['UNE_23035_1_2003', 'UNE_23035_2_2003', 'UNE_23035_4_2003'] AND SIGNAGE.MAINTENANCE.COMPLIES_WITH == 'UNE_23035_3_2003'",
+          "exempt_if": null,
+          "priority": 4,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 1091,
+            "span_char_end": 1350,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0007",
+          "statement_text": "En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad: a) Zonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto; b) Establecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas; c) Atrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "(ZONE.USE == 'PARKING' AND ZONE.TYPE != 'OPEN_PARKING'); OR (ESTABLISHMENT.USE IN ['COMMERCIAL', 'PUBLIC_CONCURRENCE'] AND OCCUPANCY > 1000); OR (ATRIUM.OCCUPANCY > 500 OR ATRIUM.EVACUATION_CAPACITY > 500)",
+          "satisfied_if": "SMOKE_CONTROL_SYSTEM.INSTALLED == TRUE AND SMOKE_CONTROL_SYSTEM.CAPABILITY == 'EVACUATION_SAFETY'",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 1351,
+            "span_char_end": 2000,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0008",
+          "statement_text": "El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008, UNE 23585:2017 y UNE-EN 12101-6:2006.",
+          "obligation_type": "OPTIONAL",
+          "paragraph_number": 2,
+          "applies_if": "TRUE",
+          "satisfied_if": "SYSTEM.DESIGN.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.CALCULATION.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.INSTALLATION.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.MAINTENANCE.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006']",
+          "exempt_if": null,
+          "priority": 3,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2001,
+            "span_char_end": 2180,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0009",
+          "statement_text": "En zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS-3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas: a) El sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuertas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas. b) Los ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60. c) Los conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "ZONE.USE == 'PARKING' AND VENTILATION_SYSTEM.TYPE == 'MECHANICAL'",
+          "satisfied_if": "VENTILATION_SYSTEM.COMPLIES_WITH == 'DB_HS_3' AND VENTILATION_SYSTEM.EXTRACTION_FLOW >= 150 AND VENTILATION_SYSTEM.INPUT_FLOW <= 120 AND VENTILATION_SYSTEM.ACTIVATION == 'AUTOMATIC_FIRE_DETECTION' AND (FLOOR.HEIGHT > 4 AND EXTRACTION_OPENINGS.CLOSURE == 'AUTOMATIC_E300_60'); OR FANS.CLASSIFICATION == 'F300_60'; OR DUCTS.SINGLE_FIRE_SECTOR.CLASSIFICATION == 'E300_60'; OR DUCTS.CROSS_FIRE_SECTOR.CLASSIFICATION == 'EI_60'",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2181,
+            "span_char_end": 2963,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        },
+        {
+          "id": "N::0010",
+          "statement_text": "En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público, Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m2, toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación: - una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2; - excepto en uso Residencial Vivienda, una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2. En terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "(BUILDING.USE == 'RESIDENTIAL_HOUSING' AND EVACUATION.HEIGHT > 28) OR (BUILDING.USE IN ['RESIDENTIAL_PUBLIC', 'ADMINISTRATIVE', 'EDUCATIONAL'] AND EVACUATION.HEIGHT > 14) OR (BUILDING.USE IN ['COMMERCIAL', 'PUBLIC_CONCURRENCE'] AND EVACUATION.HEIGHT > 10) OR (FLOOR.USE == 'PARKING' AND FLOOR.AREA > 1500) AND FLOOR.OCCUPANCY_ZONE != 'NULL' AND FLOOR.ACCESSIBLE_EXIT == FALSE",
+          "satisfied_if": "FLOOR.HAS_ALTERNATIVE_FIRE_SECTOR_ACCESS == TRUE OR FLOOR.HAS_REFUGE_ZONE == TRUE AND REFUGE_ZONE.CAPACITY.WHEELCHAIR >= (OCCUPANTS / 100) AND (BUILDING.USE != 'RESIDENTIAL_HOUSING' AND REFUGE_ZONE.CAPACITY.REDUCED_MOBILITY >= (OCCUPANTS / 33))",
+          "exempt_if": null,
+          "priority": 5,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2964,
+            "span_char_end": 3800,
             "visual_refs": []
           },
           "extracted_parameters_ids": [],
