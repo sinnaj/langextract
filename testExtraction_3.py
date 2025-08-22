@@ -230,8 +230,9 @@ EXAMPLES: List[lx.data.ExampleData] = [
 # ---------------------------------------------------------------------------
 # 2. Sample Input Text (multi-concept to test breadth)
 # ---------------------------------------------------------------------------
-INPUT_TEXT = "6 Puertas situadas en recorridos de evacuación 1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo. Las anteriores condiciones no son aplicables cuando se trate de puertas automáticas. 2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009. 3 Abrirá en el sentido de la evacuación toda puerta de salida: a) prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. b) prevista para más de 50 ocupantes del recinto o espacio en el que esté situada. Para la determinación del número de personas que se indica en a) y b) se deberán tener en cuenta los criterios de asignación de los ocupantes establecidos en el apartado 4.1 de esta Sección. 4 Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N. La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista. 5 Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: a) Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA. b) Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente), abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itinerario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego. La fuerza de apertura abatible se considera aplicada de forma estática en el borde de la hoja, perpendicularmente a la misma y a una altura de 1000 ±10 mm, Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018. 7 Señalización de los medios de evacuación 1 Se utilizarán las señales de evacuación definidas en la norma UNE 23034:1988, conforme a los siguientes criterios: a) Las salidas de recinto, planta o edificio tendrán una señal con el rótulo “SALIDA”, excepto en edificios de uso Residencial Vivienda y, en otros usos, cuando se trate de salidas de recintos cuya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los ocupantes estén familiarizados con el edificio. b) La señal con el rótulo “Salida de emergencia” debe utilizarse en toda salida prevista para uso exclusivo en caso de emergencia. c) Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de evacuación desde el que no se perciban directamente las salidas o sus señales indicativas y, en particular, frente a toda salida de un recinto con ocupación mayor que 100 personas que acceda lateralmente a un pasillo. d) En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a error, también se dispondrán las señales antes citadas, de forma que quede claramente indicada la alternativa correcta. Tal es el caso de determinados cruces o bifurcaciones de pasillos, así como de aquellas escaleras que, en la planta de salida del edificio, continúen su trazado hacia plantas más bajas, etc. e) En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evacuación debe disponerse la señal con el rótulo “Sin salida” en lugar fácilmente visible pero en ningún caso sobre las hojas de las puertas. f) Las señales se dispondrán de forma coherente con la asignación de ocupantes que se pretenda hacer a cada salida, conforme a lo establecido en el capítulo 4 de esta Sección. g) Los itinerarios accesibles (ver definición en el Anejo A del DB SUA) para personas con discapacidad que conduzcan a una zona de refugio, a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, o a una salida del edificio accesible se señalizarán mediante las señales establecidas en los párrafos anteriores a), b), c) y d) acompañadas del SIA (Símbolo Internacional de Accesibilidad para la movilidad). Cuando dichos itinerarios accesibles conduzcan a una zona de refugio o a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, irán además acompañadas del rótulo “ZONA DE REFUGIO”. h) La superficie de las zonas de refugio se señalizará mediante diferente color en el pavimento y el rótulo “ZONA DE REFUGIO” acompañado del SIA colocado en una pared adyacente a la zona. Las señales deben ser visibles incluso en caso de fallo en el suministro al alumbrado normal. Cuando sean fotoluminiscentes deben cumplir lo establecido en las normas UNE 23035-1:2003, UNE 23035-2:2003 y UNE 23035-4:2003 y su mantenimiento se realizará conforme a lo establecido en la norma UNE 23035-3:2003. 8 Control del humo de incendio 1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad: a) Zonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto; b) Establecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas; c) Atrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas. 2 El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008, UNE 23585:2017 y UNE-EN 12101-6:2006. En zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS-3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas: a) El sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuertas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas. b) Los ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60. c) Los conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60. 9 Evacuación de personas con discapacidad en caso de incendio 1 En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público, Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m2, toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación: - una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2; - excepto en uso Residencial Vivienda, una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2. En terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad. 2 Toda planta que disponga de zonas de refugio o de una salida de planta accesible de paso a un sector alternativo contará con algún itinerario accesible entre todo origen de evacuación situado en una zona accesible y aquéllas. 3 Toda planta de salida del edificio dispondrá de algún itinerario accesible desde todo origen de evacuación situado en una zona accesible hasta alguna salida del edificio accesible. 4 En plantas de salida del edificio podrán habilitarse salidas de emergencia accesibles para personas con discapacidad diferentes de los accesos principales del edificio."
-
+INPUT_TEXT = (
+  "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
+      )
 
 
 
@@ -631,73 +632,115 @@ def autophrase_questions(obj: Dict[str, Any]):
 
 
 # ---------------------------------------------------------------------------
-# 4. Execute Extraction
+# 4. Execute Extraction (manual chunking + aggregation)
 # ---------------------------------------------------------------------------
-print("[INFO] Invoking model for rich extraction ...")
-lm_params = {
-    "temperature": MODEL_TEMPERATURE,
-}
-extract_kwargs = dict(
-    text_or_documents=INPUT_TEXT,
-    prompt_description=PROMPT_DESCRIPTION,
-    examples=EXAMPLES,
-    model_id=MODEL_ID,
-    fence_output=False,
-    use_schema_constraints=False,
-    temperature=MODEL_TEMPERATURE,
-    resolver_params={
-        "fence_output": False,
-        "format_type": lx.data.FormatType.JSON,
-    },
-    language_model_params=lm_params,
-)
-if USE_OPENROUTER:
-    # OpenRouter (OpenAI-compatible) path.
-    # NOTE: Only pass arguments accepted by extract(); provider-specific values must go inside
-    # language_model_params so they propagate to provider_kwargs. Top-level unsupported kwargs
-    # like base_url would raise TypeError (as observed).
-    extract_kwargs["api_key"] = OPENROUTER_KEY
-    lm_extra = extract_kwargs.setdefault("language_model_params", {})
-    lm_extra.update({
-        "base_url": "https://openrouter.ai/api/v1",  # forwarded to OpenAI-compatible client
-        # Optional attribution headers (OpenRouter specific)
-        "openrouter_referer": os.getenv("OPENROUTER_REFERER"),
-        "openrouter_title": os.getenv("OPENROUTER_TITLE", "LangExtract Rich Schema Runner"),
-    })
-else:
-    # Direct Gemini path
-    extract_kwargs.update({
-        "api_key": GOOGLE_API_KEY,
-    })
 
-extract_kwargs["max_char_buffer"] = 5000
+def chunk_text(text: str, max_chars: int = 4000, overlap: int = 350) -> List[Tuple[int,str]]:
+    """Produce (offset, substring) pairs covering full text.
+    Keeps mild overlap to avoid boundary loss. Offsets are absolute char positions in original text.
+    """
+    spans: List[Tuple[int,str]] = []
+    i = 0
+    n = len(text)
+    while i < n:
+        end = min(n, i + max_chars)
+        spans.append((i, text[i:end]))
+        if end >= n:
+            break
+        # step forward with overlap
+        i = end - overlap
+        if i < 0 or i >= n:
+            break
+    return spans
 
-print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
-result = lx.extract(**extract_kwargs)
+# Inject directive to enforce atomic (bullet-level) norms
+ATOMIC_DIRECTIVE = "\nSTRICT_NORM_GRANULARITY: Emit ONE norm per distinct obligation/prohibition statement (do not merge separate lettered bullets a), b), c)... nor separate numeric paragraphs).\n"
+prompt_with_directive = PROMPT_DESCRIPTION + ATOMIC_DIRECTIVE
 
-
-# Try to access raw JSON directly (model MUST produce rich schema root object with 'extractions').
-raw_candidate = getattr(result, "raw_response", None)
-
-# --- Save the string that will actually be parsed ---
-RAW_OUTPUT_FILE = Path("raw_model_output.txt")
-to_parse = None
-if isinstance(raw_candidate, str) and raw_candidate.strip():
-    to_parse = raw_candidate
-elif hasattr(result, 'content') and isinstance(result.content, str):
-    to_parse = result.content
-elif isinstance(result, str):
-    to_parse = result
-else:
-    to_parse = str(result)
-RAW_OUTPUT_FILE.write_text(to_parse or '', encoding="utf-8")
-
-parsed_root: Dict[str, Any] | None = None
-if to_parse:
+spans = chunk_text(INPUT_TEXT, max_chars=3500, overlap=300)
+print(f"[INFO] Created {len(spans)} manual chunk(s) (total chars={len(INPUT_TEXT)})")
+all_chunk_objs: List[Dict[str, Any]] = []
+for idx, (offset, subtxt) in enumerate(spans, start=1):
+    print(f"[INFO] Invoking model for chunk {idx}/{len(spans)} char_offset={offset} len={len(subtxt)} ...")
+    lm_params = {"temperature": MODEL_TEMPERATURE}
+    extract_kwargs = dict(
+        text_or_documents=subtxt,
+        prompt_description=prompt_with_directive,
+        examples=EXAMPLES,
+        model_id=MODEL_ID,
+        fence_output=False,
+        use_schema_constraints=False,
+        temperature=MODEL_TEMPERATURE,
+        resolver_params={
+            "fence_output": False,
+            "format_type": lx.data.FormatType.JSON,
+        },
+        language_model_params=lm_params,
+    )
+    if USE_OPENROUTER:
+        extract_kwargs["api_key"] = OPENROUTER_KEY
+        lm_extra = extract_kwargs.setdefault("language_model_params", {})
+        lm_extra.update({
+            "base_url": "https://openrouter.ai/api/v1",
+            "openrouter_referer": os.getenv("OPENROUTER_REFERER"),
+            "openrouter_title": os.getenv("OPENROUTER_TITLE", "LangExtract Rich Schema Runner"),
+        })
+    else:
+        extract_kwargs.update({"api_key": GOOGLE_API_KEY})
+    extract_kwargs["max_char_buffer"] = 5000
+    # Perform extraction; AnnotatedDocument doesn't expose raw JSON rich schema, so read resolver_raw_output.txt
+    _ = lx.extract(**extract_kwargs)
+    raw_file = Path("resolver_raw_output.txt")
+    if not raw_file.exists():
+        print(f"[WARN] Chunk {idx} missing resolver_raw_output.txt – skipping.")
+        continue
+    raw_text = raw_file.read_text(encoding="utf-8").strip()
+    parsed: Optional[Dict[str, Any]] = None
     try:
-        parsed_root = json.loads(to_parse)
+        parsed = json.loads(raw_text)
     except Exception:
-        parsed_root = None
+        # Attempt salvage if noise present
+        try:
+            if 'salvage_first_json' in globals():
+                parsed = salvage_first_json(raw_text)  # type: ignore
+        except Exception:
+            parsed = None
+    if not (isinstance(parsed, dict) and isinstance(parsed.get("extractions"), list)):
+        snippet = raw_text[:160].replace('\n',' ')
+        print(f"[WARN] Chunk {idx} not rich schema (snippet='{snippet}'); skipping.")
+        continue
+    for obj in parsed.get("extractions", []):
+        if not is_rich_schema(obj):
+            continue
+        # Adjust source span offsets & normalize statement_text
+        for norm in obj.get("norms", []):
+            if isinstance(norm, dict):
+                # Normalize statement_text if absent
+                if "statement_text" not in norm:
+                    for alt_key in ("Norm", "norm", "text", "NORM"):
+                        if isinstance(norm.get(alt_key), str):
+                            norm["statement_text"] = norm.get(alt_key)
+                            break
+                src = norm.get("source") or {}
+                if isinstance(src, dict):
+                    if isinstance(src.get("span_char_start"), int):
+                        src["span_char_start"] += offset
+                    if isinstance(src.get("span_char_end"), int):
+                        src["span_char_end"] += offset
+                    norm["source"] = src
+        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"CHUNK_INDEX:{idx}")
+        wc = obj.get("window_config") or {}
+        if isinstance(wc, dict):
+            wc["input_chars"] = len(subtxt)
+            obj["window_config"] = wc
+        all_chunk_objs.append(obj)
+
+# If no chunks yielded, abort
+if not all_chunk_objs:
+    print("[FATAL] No chunk produced a valid rich schema object.")
+    sys.exit(3)
+print(f"[INFO] Parsed {len(all_chunk_objs)} rich chunk object(s); aggregating ...")
+parsed_root = {"extractions": all_chunk_objs}
 
 # --- Salvage logic: extract first balanced JSON object if wrapper text present ---
 def salvage_first_json(text: str) -> Optional[Dict[str, Any]]:
@@ -763,14 +806,9 @@ if parsed_root is None:
             pass
 
 if parsed_root is None:
-    salvaged = salvage_first_json(to_parse or '')
-    if salvaged is not None:
-        print("[INFO] Salvaged embedded JSON object from wrapper text.")
-        parsed_root = salvaged
-    else:
-        snippet = (to_parse or '')[:200].replace('\n', ' ') if to_parse else ''
-        print(f"[FATAL] Model did not return parseable JSON (first200='{snippet}'). Failing fast (legacy output no longer accepted).")
-        sys.exit(2)
+    # No alternate raw string variable retained after refactor; cannot salvage further.
+    print("[FATAL] Model did not return parseable JSON (no rich root after chunk attempts). Failing fast.")
+    sys.exit(2)
 
 # Expect root with single key 'extractions'
 if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):
@@ -783,8 +821,158 @@ if invalid_objects:
     print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
     sys.exit(4)
 
-# For downstream enrichment/summary we operate on first extraction object (could be extended to iterate)
-primary = extractions_list[0]
+def aggregate_extractions(chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Merge multiple chunk extraction objects into a single unified object.
+
+    Strategy:
+      1. Concatenate arrays preserving chunk order.
+      2. Re-index IDs sequentially per entity type (N/T/L/Q/C/P) to avoid collisions.
+      3. Remap all reference fields to new IDs.
+      4. Merge metadata: doc_id must match across chunks else fallback MULTI_CHUNK; page_range union; topics union.
+      5. window_config: input_chars = sum of chunk window_config.input_chars (fallback length of INPUT_TEXT), extracted_norm_count updated, max_norms_per_5k_tokens = max across chunks.
+      6. truncated / has_more true if any chunk true.
+      7. quality.errors & warnings union (deduplicated, order preserved by first appearance).
+    """
+    if not chunks:
+        return {}
+    if len(chunks) == 1:
+        return chunks[0]
+    # Base skeleton from first chunk (shallow copy of scalar sections)
+    merged: Dict[str, Any] = {k: chunks[0].get(k) for k in chunks[0].keys() if k not in {"norms","tags","locations","questions","consequences","parameters","quality","window_config","document_metadata"}}
+    # Collect arrays
+    merged["norms"] = [n for idx,c in enumerate(chunks) for n in c.get("norms", [])]
+    merged["tags"] = [t for c in chunks for t in c.get("tags", [])]
+    merged["locations"] = [l for c in chunks for l in c.get("locations", [])]
+    merged["questions"] = [q for c in chunks for q in c.get("questions", [])]
+    merged["consequences"] = [cns for c in chunks for cns in c.get("consequences", [])]
+    merged["parameters"] = [p for c in chunks for p in c.get("parameters", [])]
+
+    # Metadata merge
+    doc_ids = {c.get("document_metadata", {}).get("doc_id") for c in chunks if c.get("document_metadata")}
+    first_md = chunks[0].get("document_metadata", {})
+    md: Dict[str, Any] = dict(first_md)
+    if len(doc_ids) > 1:
+        md["doc_id"] = "MULTI_CHUNK"
+    # Page range
+    starts = [c.get("document_metadata", {}).get("page_range", {}).get("start") for c in chunks if c.get("document_metadata", {}).get("page_range")]
+    ends = [c.get("document_metadata", {}).get("page_range", {}).get("end") for c in chunks if c.get("document_metadata", {}).get("page_range")]
+    if starts and ends:
+        md.setdefault("page_range", {})
+        md["page_range"]["start"] = min(s for s in starts if isinstance(s, int)) if any(isinstance(s,int) for s in starts) else -1
+        md["page_range"]["end"] = max(e for e in ends if isinstance(e, int)) if any(isinstance(e,int) for e in ends) else -1
+    # Topics union
+    topics_union: List[str] = []
+    seen_topics = set()
+    for c in chunks:
+        for t in c.get("document_metadata", {}).get("topics", []) or []:
+            if t not in seen_topics:
+                seen_topics.add(t)
+                topics_union.append(t)
+    if topics_union:
+        md["topics"] = topics_union
+    merged["document_metadata"] = md
+
+    # window_config merge
+    wc_total_chars = 0
+    max_norms_setting = 0
+    for c in chunks:
+        cw = c.get("window_config", {}) or {}
+        wc_total_chars += int(cw.get("input_chars") or 0)
+        max_norms_setting = max(max_norms_setting, int(cw.get("max_norms_per_5k_tokens") or 0))
+    merged_wc = {
+        "input_chars": wc_total_chars or len(INPUT_TEXT),
+        "max_norms_per_5k_tokens": max_norms_setting or MAX_NORMS_PER_5K,
+        "extracted_norm_count": len(merged["norms"]),
+    }
+    merged["window_config"] = merged_wc
+
+    # truncated / has_more
+    merged["truncated"] = any(c.get("truncated") for c in chunks)
+    merged["has_more"] = any(c.get("has_more") for c in chunks)
+
+    # Quality combine
+    def combine_quality(chunks):
+        def norm_item(x: Any) -> str:
+            if isinstance(x, (str, int, float)):
+                return str(x)
+            try:
+                return json.dumps(x, sort_keys=True, ensure_ascii=False)
+            except Exception:
+                return repr(x)
+        err_order: List[Any] = []
+        warn_order: List[Any] = []
+        err_seen: Set[str] = set(); warn_seen: Set[str] = set()
+        for c in chunks:
+            q = c.get("quality", {}) or {}
+            for e in q.get("errors", []) or []:
+                key = norm_item(e)
+                if key not in err_seen:
+                    err_seen.add(key); err_order.append(e)
+            for w in q.get("warnings", []) or []:
+                key = norm_item(w)
+                if key not in warn_seen:
+                    warn_seen.add(key); warn_order.append(w)
+        return {"errors": err_order, "warnings": warn_order}
+    merged_quality = combine_quality(chunks)
+    merged_quality.setdefault("errors", [])
+    merged_quality.setdefault("warnings", [])
+    merged_quality["errors"].append(f"AGGREGATED_CHUNKS:{len(chunks)}")
+    merged["quality"] = merged_quality
+
+    # Re-index IDs
+    id_prefixes = [
+        ("norms", "N"),
+        ("tags", "T"),
+        ("locations", "L"),
+        ("questions", "Q"),
+        ("consequences", "C"),
+        ("parameters", "P"),
+    ]
+    mapping: Dict[str, str] = {}
+    for collection, prefix in id_prefixes:
+        new_list = []
+        counter = 1
+        for obj in merged.get(collection, []):
+            if not isinstance(obj, dict):
+                continue
+            old_id = obj.get("id")
+            new_id = f"{prefix}::{counter:04d}"
+            mapping[old_id] = new_id
+            obj["id"] = new_id
+            counter += 1
+            new_list.append(obj)
+        merged[collection] = new_list
+
+    # Patch references with new IDs
+    for n in merged.get("norms", []):
+        for fld in ("extracted_parameters_ids", "consequence_ids"):
+            ids = n.get(fld) or []
+            n[fld] = [mapping.get(i, i) for i in ids]
+    for t in merged.get("tags", []):
+        for fld in ("introduced_by_norm_ids", "refined_by_norm_ids"):
+            ids = t.get(fld) or []
+            if ids:
+                t[fld] = [mapping.get(i, i) for i in ids]
+    for q in merged.get("questions", []):
+        ids = q.get("trigger_norm_ids") or []
+        if ids:
+            q["trigger_norm_ids"] = [mapping.get(i, i) for i in ids]
+    for cns in merged.get("consequences", []):
+        for fld in ("activates_norm_ids", "activates_question_ids", "source_norm_ids"):
+            ids = cns.get(fld) or []
+            if ids:
+                cns[fld] = [mapping.get(i, i) for i in ids]
+    for p in merged.get("parameters", []):
+        ids = p.get("norm_ids") or []
+        if ids:
+            p["norm_ids"] = [mapping.get(i, i) for i in ids]
+
+    return merged
+
+# Aggregate if multiple chunks
+primary = aggregate_extractions(extractions_list)
+if len(extractions_list) > 1:
+    print(f"[INFO] Aggregated {len(extractions_list)} chunk extraction objects into one unified schema.")
 
 # Validate structure & append any errors
 schema_errors = validate_rich(primary)
