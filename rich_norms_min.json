@@ -6,7 +6,7 @@
       "truncated": false,
       "has_more": false,
       "window_config": {
-        "input_chars": 2480,
+        "input_chars": 1,
         "max_norms_per_5k_tokens": 35,
         "extracted_norm_count": 10
       },
@@ -976,7 +976,9 @@
         "errors": [
           "PAGE_MISSING"
         ],
-        "warnings": [],
+        "warnings": [
+          "CHUNK_INDEX:1"
+        ],
         "confidence_global": 0.9,
         "uncertainty_global": 0.1
       }

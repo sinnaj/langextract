@@ -372,7 +372,6 @@ IF during your internal self-check ANY of the following issues are detected you 
  - Root object not exactly {"extractions": [...]}
  - Any extraction object missing a required key
  - Any norm missing "statement_text"
- - Presence of legacy keys: "NORM", "NORM_attributes", "Tag_attributes" (uppercase legacy forms) or stray class objects outside arrays
  - Null instead of [] for any required array
  - Trailing commas or other JSON syntax errors
 
