@@ -37,6 +37,7 @@ from dotenv import load_dotenv
 #
 #
 from postprocessing.aggregate_extractions import aggregate_extractions
+#
 from preprocessing.chunk_text import chunk_text
 import langextract as lx
 from postprocessing.is_rich_schema import (
@@ -101,6 +102,19 @@ def makeRun(
     g[SEMANTICS_FILE] = Path(INPUT_SEMANTCSFILE)
     g[TEACH_FILE] = Path(INPUT_TEACHFILE)
     g[INPUT_FILE] = Path(INPUT_FILE)
+
+# Explicitly export makeRun for dynamic loader usage
+__all__ = ["makeRun"]
+
+# Ensure the module is also addressable under the expected name when loaded in alternative ways
+if __name__ != "lxRunnerExtraction":
+    try:
+        import sys as _sys
+        _mod = _sys.modules.get(__name__)
+        if _mod is not None:
+            _sys.modules["lxRunnerExtraction"] = _mod
+    except Exception:
+        pass
 
 PROMPT_DESCRIPTION = [PROMPT_FILE].read_text(encoding="utf-8")
 

@@ -1,5 +1,4 @@
-"""Comprehensive extraction runner aligned with `prompts/extraction_prompt_norms_min.md`.
-
+"""
 This is a minimal-variation copy of `testExtraction_3.py` that only changes:
 - The prompt file to the minimal norms-only prompt.
 - The few-shot EXAMPLES reduced to Norms only (no Tag/Parameter/Question/Consequence extras).
