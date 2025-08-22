@@ -1,0 +1,91 @@
+from testExtraction_3_norms_min_copy import PARAM_PATTERN, UNIT_NUMBER_PATTERN, build_existing_param_index
+
+
+from typing import Any, Dict
+
+
+def enrich_parameters(obj: Dict[str, Any]):
+    """Derive parameter objects from DSL expressions & Norm text if missing.
+    Non-destructive: adds only new parameters and links them to norms.
+    """
+    norms = obj.get("norms", [])
+    params = obj.setdefault("parameters", [])
+    index = build_existing_param_index(obj)
+    next_id_int = len(params) + 1
+    created = 0
+    for norm in norms:
+        collected_ids = set(norm.get("extracted_parameters_ids") or [])
+        # DSL fields
+        for fld in ("applies_if", "satisfied_if", "exempt_if"):
+            expr = norm.get(fld)
+            if not isinstance(expr, str):
+                continue
+            for m in PARAM_PATTERN.finditer(expr):
+                field_path = m.group("field")
+                op = m.group("op")
+                val = float(m.group("val"))
+                unit = None  # unit not in DSL component; may capture from norm text later
+                key = (field_path, op, val, unit)
+                if key not in index:
+                    pid = f"P::{next_id_int:04d}"
+                    param_obj = {
+                        "id": pid,
+                        "field_path": field_path,
+                        "operator": op,
+                        "value": val if val % 1 else int(val),
+                        "unit": unit,
+                        "original_text": None,
+                        "norm_ids": [norm.get("id")],
+                        "confidence": 0.75,
+                        "uncertainty": 0.25,
+                    }
+                    params.append(param_obj)
+                    index[key] = param_obj
+                    next_id_int += 1
+                    created += 1
+                else:
+                    index[key].setdefault("norm_ids", [])
+                    nid = norm.get("id")
+                    if nid and nid not in index[key]["norm_ids"]:
+                        index[key]["norm_ids"].append(nid)
+                # ensure linkage in norm
+                pid = index[key]["id"]
+                if pid not in collected_ids:
+                    collected_ids.add(pid)
+        # attempt capture of numeric with unit inside Norm text
+        text_snip = norm.get("statement_text") or norm.get("Norm") or ""
+        for mu in UNIT_NUMBER_PATTERN.finditer(text_snip):
+            val = float(mu.group("val"))
+            unit_found: Optional[str] = mu.group("unit").upper() if mu.group("unit") else None
+            field_path = "DOOR.OPENING.PUSH_FORCE_N" if unit_found == "N" else None
+            if not field_path:
+                continue
+            op = "<="
+            key_u = (field_path, op, val, unit_found)
+            if key_u not in index:
+                pid = f"P::{next_id_int:04d}"
+                param_obj = {
+                    "id": pid,
+                    "field_path": field_path,
+                    "operator": op,
+                    "value": val if val % 1 else int(val),
+                    "unit": unit_found,
+                    "original_text": mu.group(0),
+                    "norm_ids": [norm.get("id")],
+                    "confidence": 0.65,
+                    "uncertainty": 0.35,
+                }
+                params.append(param_obj)
+                index[key_u] = param_obj
+                next_id_int += 1
+                created += 1
+            else:
+                nid = norm.get("id")
+                if nid and nid not in index[key_u]["norm_ids"]:
+                    index[key_u]["norm_ids"].append(nid)
+            pid = index[key_u]["id"]
+            collected_ids.add(pid)
+        if collected_ids:
+            norm["extracted_parameters_ids"] = sorted(collected_ids)
+    if created:
+        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"PARAMETERS_ENRICHED:{created}")
