@@ -29,6 +29,13 @@ from typing import Any, Dict, Iterable, List, Optional
 from datetime import datetime
 
 from dotenv import load_dotenv
+#
+#
+#
+#  TODO:  HIER ENTSTEHT DAS ISSUE JANNIS !!!
+#
+#
+#
 from postprocessing.aggregate_extractions import aggregate_extractions
 from preprocessing.chunk_text import chunk_text
 import langextract as lx
