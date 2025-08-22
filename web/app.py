@@ -4,6 +4,7 @@ import json
 import mimetypes
 import time
 from typing import Dict, Any
+import os
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
 
 from runner import Runner, build_worker_cmd
@@ -224,9 +225,28 @@ def run_file(run_id: str):
         return abort(404)
     mime, _ = mimetypes.guess_type(str(abs_path))
     size = abs_path.stat().st_size
+    # Enhance detection: common text-like extensions
+    ext = abs_path.suffix.lower()
+    text_exts = {".txt", ".md", ".json", ".py", ".log", ".csv", ".tsv", ".yml", ".yaml"}
+    if not mime:
+        if ext == ".json":
+            mime = "application/json"
+        elif ext in text_exts:
+            mime = "text/plain"
     is_text_or_json = False
     if mime:
         is_text_or_json = mime.startswith("text/") or "application/json" in mime
+    # If mime is still inconclusive, sniff small files for utf-8 decodability
+    if not is_text_or_json and size <= 1_000_000:  # only sniff small files
+        try:
+            with open(abs_path, "rb") as fh:
+                chunk = fh.read(65536)
+            chunk.decode("utf-8")
+            is_text_or_json = True
+            if not mime:
+                mime = "text/plain"
+        except Exception:
+            is_text_or_json = False
     as_attachment = True
     if is_text_or_json and size <= 1_000_000:  # 1MB inline limit
         as_attachment = False
@@ -234,4 +254,6 @@ def run_file(run_id: str):
 
 if __name__ == "__main__":
     # Simple dev server
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    # VS Code debugpy triggers a reloader exit (SystemExit: 3); disable reloader under debugger
+    use_reloader = False if os.environ.get("DEBUGPY_LAUNCHER_PORT") else True
+    app.run(host="127.0.0.1", port=5000, debug=True, use_reloader=use_reloader)
