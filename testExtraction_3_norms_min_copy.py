@@ -1,21 +1,10 @@
-"""Comprehensive extraction runner aligned with `prompts/extraction_prompt.md`.
+"""Comprehensive extraction runner aligned with `prompts/extraction_prompt_norms_min.md`.
 
-Imperative Goal:
-  Exercise the full rich schema (Norms, Tags, Locations, Questions, Consequences, Parameters)
-  specified in `extraction_prompt.md`, provide diverse few-shot guidance, invoke the model,
-  validate & normalize output, and persist structured JSON for downstream ingestion.
+This is a minimal-variation copy of `testExtraction_3.py` that only changes:
+- The prompt file to the minimal norms-only prompt.
+- The few-shot EXAMPLES reduced to Norms only (no Tag/Parameter/Question/Consequence extras).
 
-Key Features:
-  * Loads authoritative prompt from file (single source of truth).
-  * Few-shot examples for each extraction class (Norm, Tag, Location, Question, Consequence, Parameter) using the specified DSL grammar (UPPERCASE.DOTCASE, IN[], ; OR separation, geo operators, HAS()).
-  * Post-run validation: required top-level keys, ID reference integrity, DSL surface heuristics.
-  * Legacy fallback wrapper (if model returns only classic `extractions` list) → upgrade into rich schema skeleton.
-  * Optional heuristic enrichment (priority scoring, parameter derivation) if missing.
-  * Glossary creation for discovered DSL field paths.
-
-NOTE: This is an iterative development harness. For production scaling (multi-chunk PDF ingestion,
-ontology merging across runs, persistent ID registry, and deduplication) implement specialized
-pipelines beyond this script.
+All other logic remains identical to the original script.
 """
 from __future__ import annotations
 
@@ -46,10 +35,11 @@ else:
     if not GOOGLE_API_KEY:
         print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
 
+# CHANGED: use the minimal norms-only prompt
 PROMPT_FILE = Path("prompts/extraction_prompt_norms_min.md")
-OUTPUT_FILE = Path("rich_norms_min.json")
-GLOSSARY_FILE = Path("dsl_glossary_min.json")
-MAX_NORMS_PER_5K = 10  # matches spec guidance
+OUTPUT_FILE = Path("rich_norms_full.json")
+GLOSSARY_FILE = Path("dsl_glossary.json")
+MAX_NORMS_PER_5K = 10  # matches spec guidance of the original runner
 MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
 MODEL_TEMPERATURE = 0.15
 
@@ -88,15 +78,10 @@ if TEACH_MODE:
 
 
 # ---------------------------------------------------------------------------
-# 1. Few-Shot Examples
+# 1. Few-Shot Examples (trimmed to Norms only)
 # ---------------------------------------------------------------------------
-# Multi-entity examples demonstrating Norms, Tags, Parameters, Locations, Questions,
-# and Consequences. These DO NOT pre-allocate final IDs – the model must assign
-# fresh sequential IDs in its full JSON output. A small rich_demo is embedded to
-# illustrate cross-array structure. Attribute keys mirror target schema fields.
-
+# Only Norm examples (no Tag/Parameter/Question/Consequence). Attributes kept for Norm guidance.
 EXAMPLES: List[lx.data.ExampleData] = [
-    # RICH: multi-entity with alternatives & exemption + embedded miniature demo
     lx.data.ExampleData(
         text=(
             "1 Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave o mantener el sistema de cierre desactivado durante la actividad."
@@ -121,13 +106,16 @@ EXAMPLES: List[lx.data.ExampleData] = [
             ),
         ],
     ),
-    # MINIMAL: prohibition norm
     lx.data.ExampleData(
-        text="2 No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.",
+        text=(
+            "2 No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas."
+        ),
         extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text="No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas.",
+                extraction_text=(
+                    "No se admite la instalación de dispositivos que requieran llave en la ruta de evacuación principal cuando la ocupación sea superior a 100 personas."
+                ),
                 attributes={
                     "paragraph_number": 2,
                     "applies_if": "EVACUATION.PERSONS > 100",
@@ -137,7 +125,6 @@ EXAMPLES: List[lx.data.ExampleData] = [
             )
         ],
     ),
-    # MINIMAL: consequence + question + parameter linkage
     lx.data.ExampleData(
         text=(
             "En la zona R6.2 se requerirá la presentación del Anexo III cuando la fuerza de apertura sea <= 220 N."
@@ -145,7 +132,9 @@ EXAMPLES: List[lx.data.ExampleData] = [
         extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text="Se requerirá la presentación del Anexo III cuando la fuerza de apertura sea <= 220 N.",
+                extraction_text=(
+                    "Se requerirá la presentación del Anexo III cuando la fuerza de apertura sea <= 220 N."
+                ),
                 attributes={
                     "paragraph_number": 3,
                     "applies_if": "ZONE.CODE == 'R6.2'",
@@ -161,9 +150,7 @@ EXAMPLES: List[lx.data.ExampleData] = [
 # ---------------------------------------------------------------------------
 # 2. Sample Input Text (multi-concept to test breadth)
 # ---------------------------------------------------------------------------
-INPUT_TEXT = (
-  "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
-      )
+INPUT_TEXT = "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N."
 
 
 
@@ -173,6 +160,7 @@ INPUT_TEXT = (
 TOP_LEVEL_REQUIRED = [
     "schema_version",
     "ontology_version",
+    # (dsl_version, run_info) intentionally excluded from strict required list during transition
     "truncated",
     "has_more",
     "window_config",
@@ -562,115 +550,73 @@ def autophrase_questions(obj: Dict[str, Any]):
 
 
 # ---------------------------------------------------------------------------
-# 4. Execute Extraction (manual chunking + aggregation)
+# 4. Execute Extraction
 # ---------------------------------------------------------------------------
+print("[INFO] Invoking model for rich extraction ...")
+lm_params = {
+    "temperature": MODEL_TEMPERATURE,
+}
+extract_kwargs = dict(
+    text_or_documents=INPUT_TEXT,
+    prompt_description=PROMPT_DESCRIPTION,
+    examples=EXAMPLES,
+    model_id=MODEL_ID,
+    fence_output=False,
+    use_schema_constraints=False,
+    temperature=MODEL_TEMPERATURE,
+    resolver_params={
+        "fence_output": False,
+        "format_type": lx.data.FormatType.JSON,
+    },
+    language_model_params=lm_params,
+)
+if USE_OPENROUTER:
+    # OpenRouter (OpenAI-compatible) path.
+    # NOTE: Only pass arguments accepted by extract(); provider-specific values must go inside
+    # language_model_params so they propagate to provider_kwargs. Top-level unsupported kwargs
+    # like base_url would raise TypeError (as observed).
+    extract_kwargs["api_key"] = OPENROUTER_KEY
+    lm_extra = extract_kwargs.setdefault("language_model_params", {})
+    lm_extra.update({
+        "base_url": "https://openrouter.ai/api/v1",  # forwarded to OpenAI-compatible client
+        # Optional attribution headers (OpenRouter specific)
+        "openrouter_referer": os.getenv("OPENROUTER_REFERER"),
+        "openrouter_title": os.getenv("OPENROUTER_TITLE", "LangExtract Rich Schema Runner"),
+    })
+else:
+    # Direct Gemini path
+    extract_kwargs.update({
+        "api_key": GOOGLE_API_KEY,
+    })
 
-def chunk_text(text: str, max_chars: int = 4000, overlap: int = 350) -> List[Tuple[int,str]]:
-    """Produce (offset, substring) pairs covering full text.
-    Keeps mild overlap to avoid boundary loss. Offsets are absolute char positions in original text.
-    """
-    spans: List[Tuple[int,str]] = []
-    i = 0
-    n = len(text)
-    while i < n:
-        end = min(n, i + max_chars)
-        spans.append((i, text[i:end]))
-        if end >= n:
-            break
-        # step forward with overlap
-        i = end - overlap
-        if i < 0 or i >= n:
-            break
-    return spans
+extract_kwargs["max_char_buffer"] = 5000
 
-# Inject directive to enforce atomic (bullet-level) norms
-ATOMIC_DIRECTIVE = "\nSTRICT_NORM_GRANULARITY: Emit ONE norm per distinct obligation/prohibition statement (do not merge separate lettered bullets a), b), c)... nor separate numeric paragraphs).\n"
-prompt_with_directive = PROMPT_DESCRIPTION + ATOMIC_DIRECTIVE
+print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
+result = lx.extract(**extract_kwargs)
 
-spans = chunk_text(INPUT_TEXT, max_chars=3500, overlap=300)
-print(f"[INFO] Created {len(spans)} manual chunk(s) (total chars={len(INPUT_TEXT)})")
-all_chunk_objs: List[Dict[str, Any]] = []
-for idx, (offset, subtxt) in enumerate(spans, start=1):
-    print(f"[INFO] Invoking model for chunk {idx}/{len(spans)} char_offset={offset} len={len(subtxt)} ...")
-    lm_params = {"temperature": MODEL_TEMPERATURE}
-    extract_kwargs = dict(
-        text_or_documents=subtxt,
-        prompt_description=prompt_with_directive,
-        examples=EXAMPLES,
-        model_id=MODEL_ID,
-        fence_output=False,
-        use_schema_constraints=False,
-        temperature=MODEL_TEMPERATURE,
-        resolver_params={
-            "fence_output": False,
-            "format_type": lx.data.FormatType.JSON,
-        },
-        language_model_params=lm_params,
-    )
-    if USE_OPENROUTER:
-        extract_kwargs["api_key"] = OPENROUTER_KEY
-        lm_extra = extract_kwargs.setdefault("language_model_params", {})
-        lm_extra.update({
-            "base_url": "https://openrouter.ai/api/v1",
-            "openrouter_referer": os.getenv("OPENROUTER_REFERER"),
-            "openrouter_title": os.getenv("OPENROUTER_TITLE", "LangExtract Rich Schema Runner"),
-        })
-    else:
-        extract_kwargs.update({"api_key": GOOGLE_API_KEY})
-    extract_kwargs["max_char_buffer"] = 5000
-    # Perform extraction; AnnotatedDocument doesn't expose raw JSON rich schema, so read resolver_raw_output.txt
-    _ = lx.extract(**extract_kwargs)
-    raw_file = Path("resolver_raw_output.txt")
-    if not raw_file.exists():
-        print(f"[WARN] Chunk {idx} missing resolver_raw_output.txt – skipping.")
-        continue
-    raw_text = raw_file.read_text(encoding="utf-8").strip()
-    parsed: Optional[Dict[str, Any]] = None
+
+# Try to access raw JSON directly (model MUST produce rich schema root object with 'extractions').
+raw_candidate = getattr(result, "raw_response", None)
+
+# --- Save the string that will actually be parsed ---
+RAW_OUTPUT_FILE = Path("raw_model_output.txt")
+to_parse = None
+if isinstance(raw_candidate, str) and raw_candidate.strip():
+    to_parse = raw_candidate
+elif hasattr(result, 'content') and isinstance(result.content, str):
+    to_parse = result.content
+elif isinstance(result, str):
+    to_parse = result
+else:
+    to_parse = str(result)
+RAW_OUTPUT_FILE.write_text(to_parse or '', encoding="utf-8")
+
+parsed_root: Dict[str, Any] | None = None
+if to_parse:
     try:
-        parsed = json.loads(raw_text)
+        parsed_root = json.loads(to_parse)
     except Exception:
-        # Attempt salvage if noise present
-        try:
-            if 'salvage_first_json' in globals():
-                parsed = salvage_first_json(raw_text)  # type: ignore
-        except Exception:
-            parsed = None
-    if not (isinstance(parsed, dict) and isinstance(parsed.get("extractions"), list)):
-        snippet = raw_text[:160].replace('\n',' ')
-        print(f"[WARN] Chunk {idx} not rich schema (snippet='{snippet}'); skipping.")
-        continue
-    for obj in parsed.get("extractions", []):
-        if not is_rich_schema(obj):
-            continue
-        # Adjust source span offsets & normalize statement_text
-        for norm in obj.get("norms", []):
-            if isinstance(norm, dict):
-                # Normalize statement_text if absent
-                if "statement_text" not in norm:
-                    for alt_key in ("Norm", "norm", "text", "NORM"):
-                        if isinstance(norm.get(alt_key), str):
-                            norm["statement_text"] = norm.get(alt_key)
-                            break
-                src = norm.get("source") or {}
-                if isinstance(src, dict):
-                    if isinstance(src.get("span_char_start"), int):
-                        src["span_char_start"] += offset
-                    if isinstance(src.get("span_char_end"), int):
-                        src["span_char_end"] += offset
-                    norm["source"] = src
-        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"CHUNK_INDEX:{idx}")
-        wc = obj.get("window_config") or {}
-        if isinstance(wc, dict):
-            wc["input_chars"] = len(subtxt)
-            obj["window_config"] = wc
-        all_chunk_objs.append(obj)
-
-# If no chunks yielded, abort
-if not all_chunk_objs:
-    print("[FATAL] No chunk produced a valid rich schema object.")
-    sys.exit(3)
-print(f"[INFO] Parsed {len(all_chunk_objs)} rich chunk object(s); aggregating ...")
-parsed_root = {"extractions": all_chunk_objs}
+        parsed_root = None
 
 # --- Salvage logic: extract first balanced JSON object if wrapper text present ---
 def salvage_first_json(text: str) -> Optional[Dict[str, Any]]:
@@ -736,9 +682,14 @@ if parsed_root is None:
             pass
 
 if parsed_root is None:
-    # No alternate raw string variable retained after refactor; cannot salvage further.
-    print("[FATAL] Model did not return parseable JSON (no rich root after chunk attempts). Failing fast.")
-    sys.exit(2)
+    salvaged = salvage_first_json(to_parse or '')
+    if salvaged is not None:
+        print("[INFO] Salvaged embedded JSON object from wrapper text.")
+        parsed_root = salvaged
+    else:
+        snippet = (to_parse or '')[:200].replace('\n', ' ') if to_parse else ''
+        print(f"[FATAL] Model did not return parseable JSON (first200='{snippet}'). Failing fast (legacy output no longer accepted).")
+        sys.exit(2)
 
 # Expect root with single key 'extractions'
 if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):
@@ -751,158 +702,8 @@ if invalid_objects:
     print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
     sys.exit(4)
 
-def aggregate_extractions(chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Merge multiple chunk extraction objects into a single unified object.
-
-    Strategy:
-      1. Concatenate arrays preserving chunk order.
-      2. Re-index IDs sequentially per entity type (N/T/L/Q/C/P) to avoid collisions.
-      3. Remap all reference fields to new IDs.
-      4. Merge metadata: doc_id must match across chunks else fallback MULTI_CHUNK; page_range union; topics union.
-      5. window_config: input_chars = sum of chunk window_config.input_chars (fallback length of INPUT_TEXT), extracted_norm_count updated, max_norms_per_5k_tokens = max across chunks.
-      6. truncated / has_more true if any chunk true.
-      7. quality.errors & warnings union (deduplicated, order preserved by first appearance).
-    """
-    if not chunks:
-        return {}
-    if len(chunks) == 1:
-        return chunks[0]
-    # Base skeleton from first chunk (shallow copy of scalar sections)
-    merged: Dict[str, Any] = {k: chunks[0].get(k) for k in chunks[0].keys() if k not in {"norms","tags","locations","questions","consequences","parameters","quality","window_config","document_metadata"}}
-    # Collect arrays
-    merged["norms"] = [n for idx,c in enumerate(chunks) for n in c.get("norms", [])]
-    merged["tags"] = [t for c in chunks for t in c.get("tags", [])]
-    merged["locations"] = [l for c in chunks for l in c.get("locations", [])]
-    merged["questions"] = [q for c in chunks for q in c.get("questions", [])]
-    merged["consequences"] = [cns for c in chunks for cns in c.get("consequences", [])]
-    merged["parameters"] = [p for c in chunks for p in c.get("parameters", [])]
-
-    # Metadata merge
-    doc_ids = {c.get("document_metadata", {}).get("doc_id") for c in chunks if c.get("document_metadata")}
-    first_md = chunks[0].get("document_metadata", {})
-    md: Dict[str, Any] = dict(first_md)
-    if len(doc_ids) > 1:
-        md["doc_id"] = "MULTI_CHUNK"
-    # Page range
-    starts = [c.get("document_metadata", {}).get("page_range", {}).get("start") for c in chunks if c.get("document_metadata", {}).get("page_range")]
-    ends = [c.get("document_metadata", {}).get("page_range", {}).get("end") for c in chunks if c.get("document_metadata", {}).get("page_range")]
-    if starts and ends:
-        md.setdefault("page_range", {})
-        md["page_range"]["start"] = min(s for s in starts if isinstance(s, int)) if any(isinstance(s,int) for s in starts) else -1
-        md["page_range"]["end"] = max(e for e in ends if isinstance(e, int)) if any(isinstance(e,int) for e in ends) else -1
-    # Topics union
-    topics_union: List[str] = []
-    seen_topics = set()
-    for c in chunks:
-        for t in c.get("document_metadata", {}).get("topics", []) or []:
-            if t not in seen_topics:
-                seen_topics.add(t)
-                topics_union.append(t)
-    if topics_union:
-        md["topics"] = topics_union
-    merged["document_metadata"] = md
-
-    # window_config merge
-    wc_total_chars = 0
-    max_norms_setting = 0
-    for c in chunks:
-        cw = c.get("window_config", {}) or {}
-        wc_total_chars += int(cw.get("input_chars") or 0)
-        max_norms_setting = max(max_norms_setting, int(cw.get("max_norms_per_5k_tokens") or 0))
-    merged_wc = {
-        "input_chars": wc_total_chars or len(INPUT_TEXT),
-        "max_norms_per_5k_tokens": max_norms_setting or MAX_NORMS_PER_5K,
-        "extracted_norm_count": len(merged["norms"]),
-    }
-    merged["window_config"] = merged_wc
-
-    # truncated / has_more
-    merged["truncated"] = any(c.get("truncated") for c in chunks)
-    merged["has_more"] = any(c.get("has_more") for c in chunks)
-
-    # Quality combine
-    def combine_quality(chunks):
-        def norm_item(x: Any) -> str:
-            if isinstance(x, (str, int, float)):
-                return str(x)
-            try:
-                return json.dumps(x, sort_keys=True, ensure_ascii=False)
-            except Exception:
-                return repr(x)
-        err_order: List[Any] = []
-        warn_order: List[Any] = []
-        err_seen: Set[str] = set(); warn_seen: Set[str] = set()
-        for c in chunks:
-            q = c.get("quality", {}) or {}
-            for e in q.get("errors", []) or []:
-                key = norm_item(e)
-                if key not in err_seen:
-                    err_seen.add(key); err_order.append(e)
-            for w in q.get("warnings", []) or []:
-                key = norm_item(w)
-                if key not in warn_seen:
-                    warn_seen.add(key); warn_order.append(w)
-        return {"errors": err_order, "warnings": warn_order}
-    merged_quality = combine_quality(chunks)
-    merged_quality.setdefault("errors", [])
-    merged_quality.setdefault("warnings", [])
-    merged_quality["errors"].append(f"AGGREGATED_CHUNKS:{len(chunks)}")
-    merged["quality"] = merged_quality
-
-    # Re-index IDs
-    id_prefixes = [
-        ("norms", "N"),
-        ("tags", "T"),
-        ("locations", "L"),
-        ("questions", "Q"),
-        ("consequences", "C"),
-        ("parameters", "P"),
-    ]
-    mapping: Dict[str, str] = {}
-    for collection, prefix in id_prefixes:
-        new_list = []
-        counter = 1
-        for obj in merged.get(collection, []):
-            if not isinstance(obj, dict):
-                continue
-            old_id = obj.get("id")
-            new_id = f"{prefix}::{counter:04d}"
-            mapping[old_id] = new_id
-            obj["id"] = new_id
-            counter += 1
-            new_list.append(obj)
-        merged[collection] = new_list
-
-    # Patch references with new IDs
-    for n in merged.get("norms", []):
-        for fld in ("extracted_parameters_ids", "consequence_ids"):
-            ids = n.get(fld) or []
-            n[fld] = [mapping.get(i, i) for i in ids]
-    for t in merged.get("tags", []):
-        for fld in ("introduced_by_norm_ids", "refined_by_norm_ids"):
-            ids = t.get(fld) or []
-            if ids:
-                t[fld] = [mapping.get(i, i) for i in ids]
-    for q in merged.get("questions", []):
-        ids = q.get("trigger_norm_ids") or []
-        if ids:
-            q["trigger_norm_ids"] = [mapping.get(i, i) for i in ids]
-    for cns in merged.get("consequences", []):
-        for fld in ("activates_norm_ids", "activates_question_ids", "source_norm_ids"):
-            ids = cns.get(fld) or []
-            if ids:
-                cns[fld] = [mapping.get(i, i) for i in ids]
-    for p in merged.get("parameters", []):
-        ids = p.get("norm_ids") or []
-        if ids:
-            p["norm_ids"] = [mapping.get(i, i) for i in ids]
-
-    return merged
-
-# Aggregate if multiple chunks
-primary = aggregate_extractions(extractions_list)
-if len(extractions_list) > 1:
-    print(f"[INFO] Aggregated {len(extractions_list)} chunk extraction objects into one unified schema.")
+# For downstream enrichment/summary we operate on first extraction object (could be extended to iterate)
+primary = extractions_list[0]
 
 # Validate structure & append any errors
 schema_errors = validate_rich(primary)

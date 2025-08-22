@@ -46,9 +46,9 @@ else:
     if not GOOGLE_API_KEY:
         print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
 
-PROMPT_FILE = Path("prompts/extraction_prompt.md")
-OUTPUT_FILE = Path("rich_norms_full.json")
-GLOSSARY_FILE = Path("dsl_glossary.json")
+PROMPT_FILE = Path("prompts/extraction_prompt_norms_min.md")
+OUTPUT_FILE = Path("rich_norms_min.json")
+GLOSSARY_FILE = Path("dsl_glossary_min.json")
 MAX_NORMS_PER_5K = 10  # matches spec guidance
 MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
 MODEL_TEMPERATURE = 0.15
@@ -117,44 +117,6 @@ EXAMPLES: List[lx.data.ExampleData] = [
                         "(CLOSING.SYSTEM.ENABLED == FALSE)"
                     ),
                     "exempt_if": "DOOR.TYPE == 'AUTOMATIC' AND HAS(DOOR.OPTION.SWING_ALLOWED)",
-                    "rich_demo": {
-                        "parameters": [
-                            {"id": "P::DEMO1", "field_path": "DOOR.OPENING.MECHANISMS_COUNT", "operator": "<=", "value": 1, "unit": None}
-                        ],
-                        "tags": [
-                            {"id": "T::DEMO1", "tag_path": "DOOR.AUTOMATIC", "parent": "DOOR", "definition": "Puerta automática", "status": "ACTIVE"}
-                        ],
-                        "questions": [
-                            {"id": "Q::DEMO1", "tag_path": "DOOR.TYPE", "question_text": "¿Cuál es el tipo de puerta?", "answer_type": "ENUM", "enum_values": ["SWING","SLIDING","FOLDING","AUTOMATIC"]}
-                        ],
-                        "consequences": [
-                            {"id": "C::DEMO1", "kind": "ANNEX", "reference_code": "Anexo III"}
-                        ],
-                        "locations": [
-                            {"id": "L::DEMO1", "type": "PLANNING_ZONE", "code": "R6.2", "parent_codes": ["ES","CAT"]}
-                        ],
-                    },
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Parameter",
-                extraction_text="> 50 personas",
-                attributes={
-                    "field_path": "EVACUATION.PERSONS",
-                    "operator": ">",
-                    "value": 50,
-                    "unit": None,
-                    "original_text": "> 50 personas",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Tag",
-                extraction_text="DOOR.AUTOMATIC",
-                attributes={
-                    "tag_path": "DOOR.AUTOMATIC",
-                    "parent": "DOOR",
-                    "definition": "Puerta automática",
-                    "status": "ACTIVE",
                 },
             ),
         ],
@@ -191,40 +153,10 @@ EXAMPLES: List[lx.data.ExampleData] = [
                     "exempt_if": None,
                 },
             ),
-            lx.data.Extraction(
-                extraction_class="Parameter",
-                extraction_text="<= 220 N",
-                attributes={
-                    "field_path": "DOOR.OPENING.PUSH_FORCE_N",
-                    "operator": "<=",
-                    "value": 220,
-                    "unit": "N",
-                    "original_text": "<= 220 N",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Consequence",
-                extraction_text="Anexo III",
-                attributes={
-                    "kind": "ANNEX",
-                    "reference_code": "Anexo III",
-                    "description": "Presentación obligatoria",
-                },
-            ),
-            lx.data.Extraction(
-                extraction_class="Question",
-                extraction_text="¿Qué tipo de puerta automática es?",
-                attributes={
-                    "tag_path": "DOOR.AUTOMATIC.TYPE",
-                    "question_text": "¿Qué tipo de puerta automática es?",
-                    "answer_type": "ENUM",
-                    "enum_values": ["PEDESTRIAN","INDUSTRIAL"],
-                    "outputs": ["DOOR.AUTOMATIC.TYPE"],
-                },
-            ),
         ],
     ),
 ]
+
 
 
 # ---------------------------------------------------------------------------

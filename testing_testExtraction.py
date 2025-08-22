@@ -7,6 +7,10 @@ import json
 from pathlib import Path
 from typing import Any, Dict
 
+from apply_enrichment_pipeline import apply_enrichment_pipeline
+from collect_dsl_keys import collect_dsl_keys
+from validate_rich import validate_rich
+
 RAW_OUTPUT_FILE = Path("raw_model_output.txt")
 OUTPUT_FILE = Path("rich_norms_full.json")
 GLOSSARY_FILE = Path("dsl_glossary.json")
@@ -15,9 +19,6 @@ GLOSSARY_FILE = Path("dsl_glossary.json")
 from testExtraction_3 import (
     is_rich_schema,
     legacy_wrap,
-    validate_rich,
-    collect_dsl_keys,
-    apply_enrichment_pipeline,
     TEACH_MODE,
     MAX_NORMS_PER_5K,
 )
