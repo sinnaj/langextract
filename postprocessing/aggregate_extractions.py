@@ -1,6 +1,3 @@
-from extractionExperiment import INPUT_TEXT, MAX_NORMS_PER_5K
-
-
 import json
 from typing import Any, Dict, List, Set
 
