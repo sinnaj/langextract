@@ -1,4 +1,4 @@
-from build_question_from_tag_path import build_question_from_tag_path
+from postprocessing.build_question_from_tag_path import build_question_from_tag_path
 
 
 from typing import Any, Dict
