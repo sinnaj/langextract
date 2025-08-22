@@ -56,11 +56,11 @@ def main():
         try:
             spec = spec_from_file_location("lxRunnerExtraction", ee_path)
             if spec and spec.loader:
-                EE = module_from_spec(spec)  # type: ignore
+                lxRunnerExtraction = module_from_spec(spec)  # type: ignore
                 # Ensure the module name is bound to avoid duplicate imports elsewhere
-                sys.modules["lxRunnerExtraction"] = EE  # type: ignore
-                spec.loader.exec_module(EE)  # type: ignore
-                makeRun = getattr(EE, "makeRun", None)
+                sys.modules["lxRunnerExtraction"] = lxRunnerExtraction  # type: ignore
+                spec.loader.exec_module(lxRunnerExtraction)  # type: ignore
+                makeRun = getattr(lxRunnerExtraction, "makeRun", None)
         except Exception as e:
             _print(f"ERROR importing {ee_path}: {e}")
             makeRun = None
