@@ -87,7 +87,7 @@
       for (const m of (data.pastmodels || [])) {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded';
+        b.className = 'text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100';
         b.textContent = m;
         b.addEventListener('click', () => {
           $("MODEL_ID").value = m;
@@ -133,7 +133,7 @@
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.dataset.path = f.path;
-        btn.className = 'text-xs px-2 py-1 rounded-full border bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200';
+  btn.className = 'text-xs px-2 py-1 rounded-full border bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-600';
         const baseName = f.path.split('/').pop();
         btn.textContent = baseName || f.path;
         const applySelected = () => {
@@ -154,10 +154,10 @@
               const p = el.dataset.path;
               if (!p) return;
               if (p === selectedFilePath) {
-                el.classList.remove('bg-gray-100','text-gray-800','border-gray-300');
+                el.classList.remove('bg-gray-100','text-gray-800','border-gray-300','dark:bg-gray-700','dark:text-gray-100','dark:border-gray-600');
                 el.classList.add('bg-blue-600','text-white','border-blue-600');
               } else {
-                el.classList.add('bg-gray-100','text-gray-800','border-gray-300');
+                el.classList.add('bg-gray-100','text-gray-800','border-gray-300','dark:bg-gray-700','dark:text-gray-100','dark:border-gray-600');
                 el.classList.remove('bg-blue-600','text-white','border-blue-600');
               }
             });

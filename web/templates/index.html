@@ -4,15 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LangExtract Runner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Highlight.js for code coloring -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Highlight.js for code coloring (light/dark via media queries) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js"></script>
     <!-- Marked for Markdown parsing and DOMPurify for sanitization -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
   </head>
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
     <div class="max-w-8xl mx-auto p-6">
       <h1 class="text-2xl font-bold mb-4">LangExtract Workshop Runner</h1>
       <div id="app" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -21,44 +22,44 @@
           <form id="run-form" class="space-y-4" enctype="multipart/form-data">
             <div>
               <label class="block text-sm font-medium mb-1">Model ID</label>
-              <input name="MODEL_ID" id="MODEL_ID" class="w-full border rounded px-3 py-2" placeholder="e.g. gpt-4o-mini" />
+              <input name="MODEL_ID" id="MODEL_ID" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700" placeholder="e.g. gpt-4o-mini" />
               <div id="model-badges" class="flex flex-wrap gap-2 mt-2"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium mb-1">Model Temperature</label>
-                <input name="MODEL_TEMPERATURE" id="MODEL_TEMPERATURE" type="number" step="0.01" value="0.15" class="w-full border rounded px-3 py-2" />
+                <input name="MODEL_TEMPERATURE" id="MODEL_TEMPERATURE" type="number" step="0.01" value="0.15" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700" />
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Max Norms per 5k</label>
-                <input name="MAX_NORMS_PER_5K" id="MAX_NORMS_PER_5K" type="number" step="1" value="10" class="w-full border rounded px-3 py-2" />
+                <input name="MAX_NORMS_PER_5K" id="MAX_NORMS_PER_5K" type="number" step="1" value="10" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700" />
               </div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium mb-1">Prompt file</label>
-                <select name="INPUT_PROMPTFILE" id="INPUT_PROMPTFILE" class="w-full border rounded px-3 py-2"></select>
+                <select name="INPUT_PROMPTFILE" id="INPUT_PROMPTFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Glossary file</label>
-                <select name="INPUT_GLOSSARYFILE" id="INPUT_GLOSSARYFILE" class="w-full border rounded px-3 py-2"></select>
+                <select name="INPUT_GLOSSARYFILE" id="INPUT_GLOSSARYFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Examples file</label>
-                <select name="INPUT_EXAMPLESFILE" id="INPUT_EXAMPLESFILE" class="w-full border rounded px-3 py-2"></select>
+                <select name="INPUT_EXAMPLESFILE" id="INPUT_EXAMPLESFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Semantics file</label>
-                <select name="INPUT_SEMANTCSFILE" id="INPUT_SEMANTCSFILE" class="w-full border rounded px-3 py-2"></select>
+                <select name="INPUT_SEMANTCSFILE" id="INPUT_SEMANTCSFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Teach file</label>
-                <select name="INPUT_TEACHFILE" id="INPUT_TEACHFILE" class="w-full border rounded px-3 py-2"></select>
+                <select name="INPUT_TEACHFILE" id="INPUT_TEACHFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
             </div>
             <div>
               <label class="block text-sm font-medium mb-1">Input document (optional)</label>
-              <input type="file" name="input_document" id="input_document" class="w-full" />
+              <input type="file" name="input_document" id="input_document" class="w-full text-gray-900 dark:text-gray-100" />
             </div>
             <div class="flex gap-3">
               <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded" type="submit">Start Run</button>
@@ -74,7 +75,7 @@
 
           <div>
             <h2 class="text-lg font-semibold mb-2">Stats</h2>
-            <pre id="stats" class="bg-white border rounded p-3 h-40 overflow-auto"></pre>
+            <pre id="stats" class="bg-white border rounded p-3 h-40 overflow-auto dark:bg-gray-800 dark:border-gray-700"></pre>
           </div>
         </div>
 
@@ -85,7 +86,7 @@
               <h2 class="text-lg font-semibold">Preview</h2>
             </div>
             <div id="file-badges" class="flex flex-wrap gap-2 mb-2"></div>
-            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-9rem)] min-h-[400px] overflow-auto"></div>
+            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-9rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
           </div>
         </aside>
       </div>
