@@ -15,6 +15,10 @@
 # output run logs
 /output_run/
 /output_run/**
+/output_run/**/
+/output_run/**/**
+/output_run/**/input/**
+/output_run/**/input
 
 # Byte-compiled / Cache files
 __pycache__/
