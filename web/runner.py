@@ -30,6 +30,7 @@ class Runner:
         self.env = env
         self.args = args
         self.proc: Optional[Popen] = None
+        self._canceled: bool = False
 
     def start(self):
         log_path = self.run_dir / "run.log"
@@ -52,7 +53,10 @@ class Runner:
             code = self.proc.wait()
             self.state.exit_code = int(code) if isinstance(code, int) else None
             self.state.ended_at = time.time()
-            self.state.status = "finished" if code == 0 else "error"
+            if self._canceled:
+                self.state.status = "canceled"
+            else:
+                self.state.status = "finished" if code == 0 else "error"
             # Fallback stats
             if self.state.stats is None:
                 stats_file = self.run_dir / "stats.json"
@@ -63,6 +67,36 @@ class Runner:
                         pass
             f.close()
         Thread(target=pump, daemon=True).start()
+
+    def cancel(self) -> bool:
+        """Attempt to cancel the running process.
+        Returns True if a cancel signal was sent, False if not running.
+        """
+        if not self.proc or self.proc.poll() is not None:
+            return False
+        self._canceled = True
+        try:
+            # Write a note to log and buffer
+            msg = "[runner] Canceled by user"
+            if self.state.log_path:
+                try:
+                    with open(self.state.log_path, "a", encoding="utf-8", buffering=1) as lf:
+                        lf.write(msg + "\n")
+                except Exception:
+                    pass
+            self.state.buffer.append(msg)
+            # Terminate process (works on Windows and POSIX)
+            self.proc.terminate()
+            # Optional: give it a moment, then kill if still alive
+            for _ in range(50):  # up to ~5s
+                if self.proc.poll() is not None:
+                    break
+                time.sleep(0.1)
+            if self.proc.poll() is None:
+                self.proc.kill()
+            return True
+        except Exception:
+            return False
 
 # Helper to build env and args for a worker that imports and calls makeRun
 

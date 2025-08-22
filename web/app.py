@@ -169,7 +169,7 @@ def stream_logs(run_id: str):
                 line = buf[idx]
                 idx += 1
                 yield f"data: {json.dumps({'line': line, 'run_id': run_id, 'ts': time.time()})}\n\n"
-            if r.state.status in ("finished", "error"):
+            if r.state.status in ("finished", "error", "canceled"):
                 payload = {"event": "complete", "run_id": run_id, "status": r.state.status}
                 # exit_code added if Runner stores it
                 exit_code = getattr(r.state, 'exit_code', None)
@@ -191,6 +191,14 @@ def run_status(run_id: str):
         "ended_at": r.state.ended_at,
         "stats": r.state.stats,
     })
+
+@app.post("/runs/<run_id>/cancel")
+def cancel_run(run_id: str):
+    r = RUNNERS.get(run_id)
+    if not r:
+        return abort(404)
+    ok = r.cancel()
+    return jsonify({"ok": ok, "status": r.state.status})
 
 @app.get("/runs/<run_id>/files")
 def run_files(run_id: str):

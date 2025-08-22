@@ -3,6 +3,7 @@ import json
 import os
 import sys
 from pathlib import Path
+from importlib.util import spec_from_file_location, module_from_spec
 from time import sleep, time
 
 
@@ -48,15 +49,26 @@ def main():
     INPUT_SEMANTCSFILE = payload.get("INPUT_SEMANTCSFILE")
     INPUT_TEACHFILE = payload.get("INPUT_TEACHFILE")
 
-    # Attempt to import extractionExperiment.makeRun
-    try:
-        import extractionExperiment as EE  # type: ignore
-        makeRun = getattr(EE, "makeRun", None)
-    except Exception:
-        makeRun = None
+    # Attempt to import the exact file REPO_ROOT/lxRunnerExtraction.py (no other qualifies)
+    makeRun = None
+    ee_path = REPO_ROOT / "lxRunnerExtraction.py"
+    if ee_path.exists():
+        try:
+            spec = spec_from_file_location("lxRunnerExtraction", ee_path)
+            if spec and spec.loader:
+                EE = module_from_spec(spec)  # type: ignore
+                # Ensure the module name is bound to avoid duplicate imports elsewhere
+                sys.modules["lxRunnerExtraction"] = EE  # type: ignore
+                spec.loader.exec_module(EE)  # type: ignore
+                makeRun = getattr(EE, "makeRun", None)
+        except Exception as e:
+            _print(f"ERROR importing {ee_path}: {e}")
+            makeRun = None
+    else:
+        _print(f"File not found: {ee_path}")
 
     if makeRun is None:
-        _print("extractionExperiment.makeRun not found; running dummy simulation.")
+        _print("lxRunnerExtraction.makeRun not found in repository root; running dummy simulation.")
         _run_dummy(run_dir, payload)
         return
 
