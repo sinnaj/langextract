@@ -118,6 +118,7 @@
       const res = await fetch(`/runs/${runId}/files`);
       const files = await res.json();
       if (fileBadgesEl) fileBadgesEl.innerHTML = '';
+      const createdBadges = [];
       const makeBadge = (f) => {
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -155,7 +156,16 @@
           const ct = resp.headers.get('content-type') || '';
           if (ct.startsWith('text/') || ct.includes('application/json')) {
             const text = await resp.text();
-            previewEl.textContent = text;
+            if (ct.includes('application/json')) {
+              try {
+                const obj = JSON.parse(text);
+                previewEl.textContent = JSON.stringify(obj, null, 2);
+              } catch {
+                previewEl.textContent = text;
+              }
+            } else {
+              previewEl.textContent = text;
+            }
           } else {
             previewEl.textContent = '[Binary file] Downloading...';
             window.location.href = `/runs/${runId}/file?path=${encodeURIComponent(f.path)}`;
@@ -163,11 +173,25 @@
         });
         // Initialize selection state
         applySelected();
+        createdBadges.push({ btn, file: f });
         return btn;
       };
       for (const f of files) {
         const badge = makeBadge(f);
         if (fileBadgesEl) fileBadgesEl.appendChild(badge);
+      }
+      // If nothing selected yet, auto-open the first readable file (preferring json/log/txt)
+      if (!selectedFilePath && createdBadges.length) {
+        const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
+        const findPreferred = () => {
+          for (const ext of preferExt) {
+            const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext));
+            if (found) return found;
+          }
+          return createdBadges[0];
+        };
+        const target = findPreferred();
+        if (target) target.btn.click();
       }
     } catch (e) {
       console.error('files error', e);
