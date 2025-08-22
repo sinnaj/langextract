@@ -1,6 +1,17 @@
+READ THE PLAN IN ITS ENTIRETY AND DRAW YOUR NEXT ACTIONS FROM IT. WHENEVER YOU FINISH A TASK, REPORT BACK, UPDATE THE TASKLIST OF THIS PLAN AND SEQUENTIALLY MOVE ON TO THE NEXT TASK/TOPIC:
+
+Tasklist (single-use workshop build)
+1) Scaffold files: `web/app.py`, `web/templates/index.html` (Tailwind via CDN), `web/static/app.js`, `web/requirements.txt`, `web/runner.py`, `web/README.md`
+2) Implement endpoints: `GET /`, `GET /choices`, `POST /run` (multipart with `input_document`), SSE `GET /runs/<run_id>/logs`, `GET /runs/<run_id>/status`, `GET /runs/<run_id>/files`, `GET /runs/<run_id>/file`
+3) Implement form UI with structured fields and badges; wire Tailwind; submit as multipart; show live logs, stats, files, and preview
+4) Read dropdown options from input folders; manage model badges via `web/pastmodels.json` (create/update, dedupe, keep last 10)
+5) On submit: generate `RUN_ID`, write `run_input.json`, save optional `input_document` to `output_runs/<run_id>/input/`, start run, stream logs
+6) Call `extractionExperiment.makeRun(...)` with typed params; set `LE_RUN_DIR`; capture `STATS:` line or `stats.json`
+7) Produce `web/README.md` with Windows PowerShell steps; quick smoke test
+
 Build a tiny, single-page workshop web app in `/web/` that launches a Python run with a given config, streams live logs, and shows outputs and statistics after completion. Keep it simple and pragmatic for a one-time internal workshop.
 
-Build a tiny, single-page web app in `/web/` that launches a Python run with a given config, streams live logs, and shows outputs and statistics after completion. The web app must call `extractionExperiment.py` function `makeRun(...)` with the following exact signature and typed parameters:
+The web app must call `extractionExperiment.py` function `makeRun(...)` with the following exact signature and typed parameters:
 
 ```
 makeRun(
@@ -18,18 +29,11 @@ makeRun(
  Serve one page that lets a user submit a configuration via structured fields and start a run.
  On submit, generate a run-id (UNIX timestamp), persist the submitted config as `/output_runs/{run-id}/run_input.json` (the JSON reflects the above `makeRun` parameters), and execute `makeRun(...)` with those values.
  Use Server-Sent Events (SSE) for live log streaming; avoid WebSockets to keep it simple. Use Tailwind CSS via CDN (`https://cdn.tailwindcss.com`) for styling; no CSS build step.
- - The run function is `makeRun(...)` as defined above and lives in `extractionExperiment.py` at repo root. The app should import and call it directly.
- - If `extractionExperiment.py` is not present, provide a fallback dummy runner so the web app remains demoable.
- `web/static/app.js`: Client logic for form submit, SSE log streaming, fetching status/files, preview rendering, and model badge interactions.
+ The run function is `makeRun(...)` as defined above and lives in `extractionExperiment.py` at repo root. The app should import and call it directly. If `extractionExperiment.py` is not present, provide a fallback dummy runner so the web app remains demoable.
+ Client script (`web/static/app.js`): handles form submit (multipart), SSE logs, status/files fetching, preview rendering, and model badge interactions.
  Config input: structured fields mapped 1:1 to `makeRun` parameters (see UI below). Validate types client-side and server-side.
- 3. Start the run via `runner.py` (see Runner details) which imports `extractionExperiment.makeRun` and calls it with the typed parameters.
-- Use Server-Sent Events (SSE) for live log streaming; avoid WebSockets to keep it simple.
- - Invocation model:
-	- Import `extractionExperiment` from repo root, resolve `makeRun` and call it as `makeRun(RUN_ID, MODEL_ID, MODEL_TEMPERATURE, MAX_NORMS_PER_5K, INPUT_PROMPTFILE, INPUT_GLOSSARYFILE, INPUT_EXAMPLESFILE, INPUT_SEMANTCSFILE, INPUT_TEACHFILE)`.
-	- Ensure `PYTHONPATH` includes repo root; set env var `LE_RUN_DIR` to the run folder. Set current working directory to repo root or run folder as appropriate.
-	- Fallback if import fails: call a dummy target that sleeps, prints logs, writes `stats.json`, and creates files.
 ## Endpoints
- `GET /choices` -> returns dropdown options gathered from the input folders (see below) and `pastmodels.json`.
+ `GET /choices` -> returns dropdown options gathered from the input folders (see below) and `web/pastmodels.json` (created if missing).
  `POST /run` -> accepts `multipart/form-data` with the structured fields below and an optional file input named `input_document`:
 	```json
 	{
@@ -52,7 +56,7 @@ makeRun(
  `GET /runs` -> optional list of recent runs based on folder names in `output_runs`.
 
  - Form fields and defaults:
-	- `MODEL_ID` (text input) with clickable badges rendered from `pastmodels.json` (most recent first) to prefill the input on click. On successful run, the chosen model id is appended/updated in `pastmodels.json` (dedupe; keep up to 10).
+	 - `MODEL_ID` (text input) with clickable badges rendered from `web/pastmodels.json` (most recent first) to prefill the input on click. On successful run, the chosen model id is appended/updated in `web/pastmodels.json` (dedupe; keep up to 10).
 	- `MODEL_TEMPERATURE` (number input) default `0.15`.
 	- `MAX_NORMS_PER_5K` (number input) default `10`.
 	- `INPUT_PROMPTFILE` (dropdown) options: `None` plus all filenames discovered in `/input_promptfiles`.
@@ -133,10 +137,7 @@ makeRun(
 - The sidebar lists all files present in `output_runs/<run_id>/` and clicking shows a preview for text/JSON files; binaries download.
 - Works on Windows PowerShell and POSIX shells; paths handled via `pathlib`.
 
-## Implementation Notes
-- Use `subprocess.Popen([...], stdout=PIPE, stderr=STDOUT, text=True, bufsize=1)` and ensure unbuffered Python via `-u` when invoking Python targets for immediate stdout flush.
-- Use a background thread per run to read lines and push to a per-run queue/buffer; SSE endpoint consumes from that buffer.
-- Persist a minimal `run_meta.json` in the run folder with `{ run_id, started_at, ended_at, status }`.
+## —
 
 ## Setup and Run (Windows PowerShell)
 Add these run instructions to `web/README.md` and ensure they work locally:
