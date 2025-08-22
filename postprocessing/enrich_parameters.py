@@ -1,8 +1,23 @@
-from testExtraction_3_norms_min_copy import PARAM_PATTERN, UNIT_NUMBER_PATTERN, build_existing_param_index
+import re
+from typing import Any, Dict, Optional, Tuple
 
 
-from typing import Any, Dict
+# Regex patterns used to identify parameters in DSL expressions and inline text
+PARAM_PATTERN = re.compile(r"(?P<field>[A-Z][A-Z0-9_]*(?:\.[A-Z][A-Z0-9_]*)+)\s*(?P<op>>=|<=|==|!=|>|<)\s*(?P<val>-?\d+(?:\.\d+)?)")
+UNIT_NUMBER_PATTERN = re.compile(r"(?P<val>\d+(?:\.\d+)?)\s?(?P<unit>N|m|kg|personas?|N/m2|kg/m2)\b", re.IGNORECASE)
 
+ParamKey = Tuple[str, str, float, Optional[str]]
+
+
+def build_existing_param_index(obj: Dict[str, Any]) -> Dict[ParamKey, Dict[str, Any]]:
+    index: Dict[ParamKey, Dict[str,Any]] = {}
+    for p in obj.get("parameters", []):
+        try:
+            key = (p.get("field_path"), p.get("operator"), float(p.get("value")), p.get("unit"))
+            index[key] = p
+        except Exception:
+            continue
+    return index
 
 def enrich_parameters(obj: Dict[str, Any]):
     """Derive parameter objects from DSL expressions & Norm text if missing.
