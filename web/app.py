@@ -26,6 +26,10 @@ INPUT_DIRS = {
 
 PAST_MODELS_FILE = REPO_ROOT / "web" / "pastmodels.json"
 
+# Ensure input dirs exist
+for _k, _p in INPUT_DIRS.items():
+    _p.mkdir(parents=True, exist_ok=True)
+
 def _list_rel_files(dir_key: str):
     p = INPUT_DIRS[dir_key]
     if not p.exists() or not p.is_dir():
@@ -52,6 +56,25 @@ def _update_past_models(model_id: str):
     new_list = [model_id] + [m for m in models if m != model_id]
     new_list = new_list[:10]
     PAST_MODELS_FILE.write_text(json.dumps(new_list, indent=2), encoding="utf-8")
+
+@app.get("/runs")
+def list_runs():
+    runs = []
+    if OUTPUT_ROOT.exists():
+        for d in OUTPUT_ROOT.iterdir():
+            if d.is_dir():
+                try:
+                    rid = d.name
+                    meta = {}
+                    meta_path = d / "run_input.json"
+                    if meta_path.exists():
+                        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+                    ts = d.stat().st_mtime
+                    runs.append({"run_id": rid, "mtime": ts, "meta": meta})
+                except Exception:
+                    continue
+    runs.sort(key=lambda x: x["mtime"], reverse=True)
+    return jsonify(runs)
 
 @app.get("/")
 def index():
@@ -144,9 +167,14 @@ def stream_logs(run_id: str):
             while idx < len(buf):
                 line = buf[idx]
                 idx += 1
-                yield f"data: {json.dumps({'line': line})}\n\n"
+                yield f"data: {json.dumps({'line': line, 'run_id': run_id, 'ts': time.time()})}\n\n"
             if r.state.status in ("finished", "error"):
-                yield f"data: {json.dumps({'event': 'complete'})}\n\n"
+                payload = {"event": "complete", "run_id": run_id, "status": r.state.status}
+                # exit_code added if Runner stores it
+                exit_code = getattr(r.state, 'exit_code', None)
+                if exit_code is not None:
+                    payload["code"] = exit_code
+                yield f"data: {json.dumps(payload)}\n\n"
                 break
             time.sleep(0.2)
     return Response(generate(), mimetype="text/event-stream")
@@ -195,7 +223,14 @@ def run_file(run_id: str):
     if not str(abs_path).startswith(str(run_dir_res)) or not abs_path.exists() or not abs_path.is_file():
         return abort(404)
     mime, _ = mimetypes.guess_type(str(abs_path))
-    return send_file(str(abs_path), mimetype=mime or "application/octet-stream", as_attachment=False)
+    size = abs_path.stat().st_size
+    is_text_or_json = False
+    if mime:
+        is_text_or_json = mime.startswith("text/") or "application/json" in mime
+    as_attachment = True
+    if is_text_or_json and size <= 1_000_000:  # 1MB inline limit
+        as_attachment = False
+    return send_file(str(abs_path), mimetype=mime or "application/octet-stream", as_attachment=as_attachment)
 
 if __name__ == "__main__":
     # Simple dev server
