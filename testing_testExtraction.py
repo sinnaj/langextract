@@ -9,6 +9,7 @@ from typing import Any, Dict
 
 from apply_enrichment_pipeline import apply_enrichment_pipeline
 from collect_dsl_keys import collect_dsl_keys
+from is_rich_schema import is_rich_schema
 from validate_rich import validate_rich
 
 RAW_OUTPUT_FILE = Path("raw_model_output.txt")
@@ -17,7 +18,6 @@ GLOSSARY_FILE = Path("dsl_glossary.json")
 
 # Import helpers from main extraction script
 from testExtraction_3 import (
-    is_rich_schema,
     legacy_wrap,
     TEACH_MODE,
     MAX_NORMS_PER_5K,
