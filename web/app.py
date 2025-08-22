@@ -247,8 +247,13 @@ def run_file(run_id: str):
                 mime = "text/plain"
         except Exception:
             is_text_or_json = False
+    # Decide inline vs download: allow larger inline for text-like files
+    inline_limit = 1_000_000  # default 1MB
+    if ext in {".log", ".txt", ".md", ".csv", ".tsv", ".py", ".json"}:
+        inline_limit = 5_000_000  # 5MB for common text files (incl. logs)
+
     as_attachment = True
-    if is_text_or_json and size <= 1_000_000:  # 1MB inline limit
+    if is_text_or_json and size <= inline_limit:
         as_attachment = False
     return send_file(str(abs_path), mimetype=mime or "application/octet-stream", as_attachment=as_attachment)
 
