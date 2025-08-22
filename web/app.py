@@ -5,6 +5,10 @@ import mimetypes
 import time
 from typing import Dict, Any
 import os
+import sys
+import atexit
+import signal
+import socket
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
 
 from runner import Runner, build_worker_cmd
@@ -14,6 +18,12 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = REPO_ROOT / "output_runs"
 OUTPUT_ROOT.mkdir(exist_ok=True)
+
+# Single-instance lock file in output_runs
+LOCK_FILE_PATH = OUTPUT_ROOT / ".web_app.lock"
+
+# Track shutdown to avoid duplicate attempts
+_SHUTTING_DOWN = False
 
 RUNNERS: Dict[str, Runner] = {}
 
@@ -265,8 +275,115 @@ def run_file(run_id: str):
         as_attachment = False
     return send_file(str(abs_path), mimetype=mime or "application/octet-stream", as_attachment=as_attachment)
 
+def _is_port_in_use(host: str, port: int) -> bool:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(0.5)
+    try:
+        return s.connect_ex((host, port)) == 0
+    except Exception:
+        return False
+    finally:
+        try:
+            s.close()
+        except Exception:
+            pass
+
+
+def _acquire_single_instance_lock(host: str, port: int) -> None:
+    """Create an exclusive lock file; if an active server seems to hold it, exit.
+    If stale lock is detected and port is free, remove it and continue.
+    """
+    if LOCK_FILE_PATH.exists():
+        # If port is in use, assume another instance is running and exit
+        if _is_port_in_use(host, port):
+            msg = f"Another web app instance appears to be running on {host}:{port}."
+            print(msg, file=sys.stderr)
+            sys.exit(1)
+        # Port is free -> stale lock, attempt to remove
+        try:
+            LOCK_FILE_PATH.unlink(missing_ok=True)  # type: ignore[arg-type]
+        except Exception:
+            # Can't remove -> bail to avoid double spawn
+            print("Could not remove stale lock file; aborting start.", file=sys.stderr)
+            sys.exit(1)
+    try:
+        LOCK_FILE_PATH.write_text(json.dumps({
+            "pid": os.getpid(),
+            "ts": time.time(),
+        }), encoding="utf-8")
+    except Exception as e:
+        print(f"Failed to create lock file: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def _release_single_instance_lock() -> None:
+    try:
+        if LOCK_FILE_PATH.exists():
+            LOCK_FILE_PATH.unlink(missing_ok=True)  # type: ignore[arg-type]
+    except Exception:
+        pass
+
+
+def _cancel_all_runs():
+    # Attempt to cancel all active runs and give them a moment to exit
+    for rid, r in list(RUNNERS.items()):
+        try:
+            r.cancel()
+        except Exception:
+            pass
+    # Best-effort brief wait
+    time.sleep(0.25)
+
+
+def _graceful_shutdown(signum: int | None = None, _frame: Any | None = None):
+    global _SHUTTING_DOWN
+    if _SHUTTING_DOWN:
+        return
+    _SHUTTING_DOWN = True
+    try:
+        # Write a small note so SSE consumers see a final line if possible
+        for rid, r in list(RUNNERS.items()):
+            try:
+                if r.state.log_path:
+                    with open(r.state.log_path, "a", encoding="utf-8", buffering=1) as lf:
+                        lf.write("[app] Shutting down web app; canceling run\n")
+                r.state.buffer.append("[app] Shutting down web app; canceling run")
+            except Exception:
+                pass
+    finally:
+        try:
+            _cancel_all_runs()
+        finally:
+            _release_single_instance_lock()
+
+
+def _install_signal_handlers():
+    # Handle Ctrl+C / TERM / BREAK (Windows) to cleanly shutdown and kill workers
+    for sig in (getattr(signal, "SIGINT", None), getattr(signal, "SIGTERM", None)):
+        if sig is not None:
+            try:
+                signal.signal(sig, _graceful_shutdown)  # type: ignore[arg-type]
+            except Exception:
+                pass
+    # Windows specific Ctrl+Break
+    if hasattr(signal, "SIGBREAK"):
+        try:
+            signal.signal(signal.SIGBREAK, _graceful_shutdown)  # type: ignore[arg-type]
+        except Exception:
+            pass
+
+
 if __name__ == "__main__":
-    # Simple dev server
-    # VS Code debugpy triggers a reloader exit (SystemExit: 3); disable reloader under debugger
-    use_reloader = False if os.environ.get("DEBUGPY_LAUNCHER_PORT") else True
-    app.run(host="127.0.0.1", port=5000, debug=True, use_reloader=use_reloader)
+    # Ensure single instance and graceful shutdown
+    host = "127.0.0.1"
+    port = 5000
+    _acquire_single_instance_lock(host, port)
+    atexit.register(_graceful_shutdown)
+    _install_signal_handlers()
+
+    # Simple dev server: disable reloader to avoid double-spawn
+    use_reloader = False
+    try:
+        app.run(host=host, port=port, debug=True, use_reloader=use_reloader)
+    finally:
+        _graceful_shutdown()
