@@ -14,6 +14,20 @@
       "cwd": "${workspaceFolder}",
       "args": [],
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "Run LangExtract Web (No Debug Profile)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/web/app.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "cwd": "${workspaceFolder}",
+      "args": [],
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

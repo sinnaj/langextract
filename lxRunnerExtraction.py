@@ -30,13 +30,9 @@ import importlib.util
 
 from dotenv import load_dotenv
 import langextract as lx
-from postprocessing.enrich_outputdata import enrich_parameters
-from postprocessing.enrich_outputdata import merge_duplicate_tags
-from postprocessing.output_schema_validation import is_rich_schema
-from postprocessing.output_schema_validation import validate_rich
-from postprocessing.enrich_outputdata import collect_dsl_keys
-from postprocessing.relationship_inference import infer_relationships
-from postprocessing.relationship_inference import autophrase_questions
+from postprocessing import enrich_outputdata as pp_enrich
+from postprocessing import output_schema_validation as pp_schema
+from postprocessing import relationship_inference as pp_rel
 
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
@@ -80,20 +76,35 @@ def makeRun(
     MODEL_TEMPERATURE = 0.15
     EXAMPLES_FILE = Path(INPUT_EXAMPLESFILE) if INPUT_EXAMPLESFILE else None
     SEMANTICS_FILE = Path(INPUT_SEMANTCSFILE) if INPUT_SEMANTCSFILE else None
-    # Pick the newest file in output_runs/<RUN_ID>/ as input; handle missing folder gracefully
-    _run_folder = Path("output_runs") / RUN_ID
-    try:
-        INPUT_FILE = next(
-            iter(
-                sorted(
-                    (p for p in _run_folder.iterdir() if p.is_file()),
-                    key=lambda p: p.stat().st_mtime,
-                )
-            ),
-            None,
-        )
-    except FileNotFoundError:
-        INPUT_FILE = None
+    # Determine input file: prefer explicit override, then text-like inputs in run folder
+    input_override = os.getenv("LE_INPUT_FILE")
+    if input_override:
+        INPUT_FILE = Path(input_override)
+    else:
+        _run_folder = Path("output_runs") / RUN_ID / "input"
+        allowed_exts = {".txt", ".md"}
+        exclude_names = {
+            "raw_model_output.txt",
+            "resolver_raw_output.txt",
+            "stats.json",
+        }
+        try:
+            files = [p for p in _run_folder.iterdir() if p.is_file()]
+        except FileNotFoundError:
+            files = []
+        # Prioritize text-like files and skip known generated outputs
+        preferred = [
+            p for p in files
+            if p.suffix.lower() in allowed_exts and p.name not in exclude_names and not p.name.endswith("_output.json")
+        ]
+        fallback = [
+            p for p in files
+            if p.name not in exclude_names and not p.name.endswith("_output.json")
+        ]
+        candidates = preferred or fallback
+        INPUT_FILE = candidates[0] if candidates else None
+    if INPUT_FILE:
+        print(f"[INFO] Selected input file: {INPUT_FILE}")
     TEACH_FILE = Path(INPUT_TEACHFILE) if INPUT_TEACHFILE else None
 
     # Default examples module if EXAMPLES_FILE is not provided via makeRun
@@ -111,9 +122,9 @@ def makeRun(
         print(f"FATAL: Prompt file missing at {PROMPT_FILE}", file=sys.stderr)
         sys.exit(1)
 
-    # if not INPUT_FILE or not INPUT_FILE.exists():
-    #     print(f"FATAL: Input file missing at {INPUT_FILE}", file=sys.stderr)
-        # sys.exit(1)
+    if not INPUT_FILE or not INPUT_FILE.exists():
+        print(f"FATAL: Input file missing at {INPUT_FILE}", file=sys.stderr)
+        sys.exit(1)
 
     # Base prompt
     PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
@@ -196,11 +207,11 @@ def makeRun(
 
 
     def apply_enrichment_pipeline(obj: Dict[str, Any]):
-        enrich_parameters(obj)
-        merge_duplicate_tags(obj)
-        autophrase_questions(obj)
+        pp_enrich.enrich_parameters(obj)
+        pp_enrich.merge_duplicate_tags(obj)
+        pp_rel.autophrase_questions(obj)
         if TEACH_MODE:
-            infer_relationships(obj)
+            pp_rel.infer_relationships(obj)
 
 
 
@@ -360,7 +371,7 @@ def makeRun(
         sys.exit(3)
 
     extractions_list = parsed_root["extractions"]
-    invalid_objects = [i for i, obj in enumerate(extractions_list) if not is_rich_schema(obj)]
+    invalid_objects = [i for i, obj in enumerate(extractions_list) if not pp_schema.is_rich_schema(obj)]
     if invalid_objects:
         print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
         sys.exit(4)
@@ -369,7 +380,7 @@ def makeRun(
     primary = extractions_list[0]
 
     # Validate structure & append any errors
-    schema_errors = validate_rich(primary)
+    schema_errors = pp_schema.validate_rich(primary)
     if schema_errors:
         primary.setdefault("quality", {}).setdefault("errors", []).extend(schema_errors)
 
@@ -394,7 +405,7 @@ def makeRun(
     # ---------------------------------------------------------------------------
     # 6. DSL Glossary Draft
     # ---------------------------------------------------------------------------
-    dsl_keys = sorted(collect_dsl_keys(primary))
+    dsl_keys = sorted(pp_enrich.collect_dsl_keys(primary))
     glossary = {k: "" for k in dsl_keys}
     GLOSSARY_FILE.write_text(json.dumps(glossary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[INFO] Saved DSL glossary stub ({len(dsl_keys)} keys) → {GLOSSARY_FILE}")
