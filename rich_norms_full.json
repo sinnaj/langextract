@@ -3,30 +3,29 @@
     {
       "schema_version": "1.0.0",
       "ontology_version": "0.0.1",
-      "dsl_version": "1",
-      "run_info": {},
       "truncated": false,
       "has_more": false,
       "window_config": {
-        "input_chars": 2963,
+        "input_chars": 2660,
         "max_norms_per_5k_tokens": 35,
-        "extracted_norm_count": 10
+        "extracted_norm_count": 7
       },
       "global_disclaimer": "NO LEGAL ADVICE",
       "document_metadata": {
-        "doc_id": "doc_xyz.pdf",
-        "doc_title": "CTE SI 3 (extracto)",
+        "doc_id": "ccte_si.pdf",
+        "doc_title": "CTE SI 3",
         "source_language": "es",
         "received_chunk_span": {
           "char_start": 0,
-          "char_end": 2963
+          "char_end": 2660
         },
         "page_range": {
           "start": 1,
-          "end": 2
+          "end": 1
         },
         "topics": [
-          "SAFETY.FIRE"
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
         ],
         "location_scope": {
           "COUNTRY": "ES",
@@ -42,20 +41,30 @@
       "norms": [
         {
           "id": "N::0001",
-          "statement_text": "Las señales se dispondrán de forma coherente con la asignación de ocupantes que se pretenda hacer a cada salida, conforme a lo establecido en el capítulo 4 de esta Sección.",
+          "statement_text": "Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "TRUE",
-          "satisfied_if": "SIGNAGE.DISPOSITION == 'COHERENT' AND SIGNAGE.CONFORMS_TO == 'CHAPTER_4'",
-          "exempt_if": null,
-          "priority": 3,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "paragraph_number": 1,
+          "applies_if": "DOOR.USE == 'EXIT' OR EVACUATION.PERSONS > 50",
+          "satisfied_if": "DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL' AND CLOSING.SYSTEM.ENABLED == FALSE; OR DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL' AND DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1",
+          "exempt_if": "DOOR.TYPE == 'AUTOMATIC'",
+          "priority": 5,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.SWING",
+            "EVACUATION"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -68,35 +77,48 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 0,
-            "span_char_end": 180,
+            "page": 1,
+            "span_char_start": 2,
+            "span_char_end": 403,
             "visual_refs": []
           },
-          "extracted_parameters_ids": [],
+          "extracted_parameters_ids": [
+            "P::0001",
+            "P::0002"
+          ],
           "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
         },
         {
           "id": "N::0002",
-          "statement_text": "Los itinerarios accesibles (ver definición en el Anejo A del DB SUA) para personas con discapacidad que conduzcan a una zona de refugio, a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, o a una salida del edificio accesible se señalizarán mediante las señales establecidas en los párrafos anteriores a), b), c) y d) acompañadas del SIA (Símbolo Internacional de Accesibilidad para la movilidad).",
-          "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "ITINERARY.ACCESSIBLE == TRUE AND ITINERARY.FOR_DISABILITY == TRUE AND (ITINERARY.LEADS_TO == 'REFUGE_ZONE' OR ITINERARY.LEADS_TO == 'ALTERNATIVE_FIRE_SECTOR' OR ITINERARY.LEADS_TO == 'ACCESSIBLE_BUILDING_EXIT')",
-          "satisfied_if": "SIGNAGE.TYPE IN ['A','B','C','D'] AND SIGNAGE.INCLUDES == 'SIA'",
+          "statement_text": "Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009.",
+          "obligation_type": "PERMISSION",
+          "paragraph_number": 2,
+          "applies_if": "TRUE",
+          "satisfied_if": "DOOR.OPENING.MECHANISM == 'HANDLE' AND DOOR.STANDARD == 'UNE-EN 179:2009' AND EVACUATION.PERSONS.FAMILIARIZED == TRUE; OR DOOR.OPENING.MECHANISM == 'PUSH_BAR' AND DOOR.STANDARD == 'UNE EN 1125:2009' AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION'",
           "exempt_if": null,
-          "priority": 4,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "priority": 3,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.OPENING.MECHANISM",
+            "DOOR.STANDARD"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -109,35 +131,44 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 181,
-            "span_char_end": 590,
+            "page": 1,
+            "span_char_start": 405,
+            "span_char_end": 978,
             "visual_refs": []
           },
           "extracted_parameters_ids": [],
           "consequence_ids": [],
           "confidence": 0.9,
           "uncertainty": 0.1,
-          "notes": ""
+          "notes": null
         },
         {
           "id": "N::0003",
-          "statement_text": "Cuando dichos itinerarios accesibles conduzcan a una zona de refugio o a un sector de incendio alternativo previsto para la evacuación de personas con discapacidad, irán además acompañadas del rótulo “ZONA DE REFUGIO”.",
+          "statement_text": "Abrirá en el sentido de la evacuación toda puerta de salida: a) prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. b) prevista para más de 50 ocupantes del recinto o espacio en el que esté situada.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "ITINERARY.ACCESSIBLE == TRUE AND ITINERARY.FOR_DISABILITY == TRUE AND (ITINERARY.LEADS_TO == 'REFUGE_ZONE' OR ITINERARY.LEADS_TO == 'ALTERNATIVE_FIRE_SECTOR')",
-          "satisfied_if": "SIGNAGE.INCLUDES == 'ZONA_DE_REFUGIO_LABEL'",
+          "paragraph_number": 3,
+          "applies_if": "(DOOR.USE == 'EXIT' AND USAGE == 'FAMILY.SINGLE' AND EVACUATION.PERSONS > 200) OR (DOOR.USE == 'EXIT' AND USAGE != 'FAMILY.SINGLE' AND EVACUATION.PERSONS > 100) OR (DOOR.USE == 'EXIT' AND EVACUATION.OCCUPANTS > 50)",
+          "satisfied_if": "DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION'",
           "exempt_if": null,
           "priority": 4,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.OPENING.DIRECTION"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "USAGE": [
+              "FAMILY.SINGLE"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -150,35 +181,50 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 591,
-            "span_char_end": 790,
+            "page": 1,
+            "span_char_start": 980,
+            "span_char_end": 1400,
             "visual_refs": []
           },
-          "extracted_parameters_ids": [],
+          "extracted_parameters_ids": [
+            "P::0003",
+            "P::0004",
+            "P::0005"
+          ],
           "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
         },
         {
           "id": "N::0004",
-          "statement_text": "La superficie de las zonas de refugio se señalizará mediante diferente color en el pavimento y el rótulo “ZONA DE REFUGIO” acompañado del SIA colocado en una pared adyacente a la zona.",
+          "statement_text": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "TRUE",
-          "satisfied_if": "REFUGE_ZONE.SURFACE.COLOR != 'STANDARD' AND SIGNAGE.INCLUDES == 'ZONA_DE_REFUGIO_LABEL' AND SIGNAGE.INCLUDES == 'SIA' AND SIGNAGE.LOCATION == 'ADJACENT_WALL'",
+          "paragraph_number": 4,
+          "applies_if": "DOOR.TYPE == 'REVOLVING'",
+          "satisfied_if": "DOOR.TYPE.ADJACENT == 'SWING' AND DOOR.OPENING.TYPE == 'MANUAL'; OR DOOR.TYPE == 'REVOLVING' AND DOOR.AUTOMATIC == TRUE AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND DOOR.OPENING.FORCE_N <= 220",
           "exempt_if": null,
-          "priority": 4,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "priority": 5,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.REVOLVING",
+            "DOOR.SWING",
+            "DOOR.AUTOMATIC"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -191,35 +237,47 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 791,
-            "span_char_end": 990,
+            "page": 1,
+            "span_char_start": 1500,
+            "span_char_end": 1900,
             "visual_refs": []
           },
-          "extracted_parameters_ids": [],
+          "extracted_parameters_ids": [
+            "P::0006"
+          ],
           "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
         },
         {
           "id": "N::0005",
-          "statement_text": "Las señales deben ser visibles incluso en caso de fallo en el suministro al alumbrado normal.",
+          "statement_text": "La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "TRUE",
-          "satisfied_if": "SIGNAGE.VISIBILITY == 'MAINTAINED' AND LIGHTING.NORMAL_SUPPLY.FAILURE == TRUE",
+          "paragraph_number": 4,
+          "applies_if": "DOOR.TYPE == 'REVOLVING' OR DOOR.TYPE == 'AUTOMATIC_SWING'",
+          "satisfied_if": "DOOR.WIDTH.USEFUL == 'EVACUATION_DIMENSIONED'",
           "exempt_if": null,
-          "priority": 5,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "priority": 4,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.WIDTH",
+            "EVACUATION"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -232,35 +290,51 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 991,
-            "span_char_end": 1090,
+            "page": 1,
+            "span_char_start": 1902,
+            "span_char_end": 2040,
             "visual_refs": []
           },
           "extracted_parameters_ids": [],
           "consequence_ids": [],
           "confidence": 0.9,
           "uncertainty": 0.1,
-          "notes": ""
+          "notes": null
         },
         {
           "id": "N::0006",
-          "statement_text": "Cuando sean fotoluminiscentes deben cumplir lo establecido en las normas UNE 23035-1:2003, UNE 23035-2:2003 y UNE 23035-4:2003 y su mantenimiento se realizará conforme a lo establecido en la norma UNE 23035-3:2003.",
+          "statement_text": "Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: a) Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA. b) Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente), abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itine-rario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "SIGNAGE.TYPE == 'PHOTOLUMINESCENT'",
-          "satisfied_if": "SIGNAGE.COMPLIES_WITH IN ['UNE_23035_1_2003', 'UNE_23035_2_2003', 'UNE_23035_4_2003'] AND SIGNAGE.MAINTENANCE.COMPLIES_WITH == 'UNE_23035_3_2003'",
-          "exempt_if": null,
-          "priority": 4,
-          "priority_factors": {},
-          "relevant_tags": [],
-          "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
-          "topics": [
+          "paragraph_number": 5,
+          "applies_if": "DOOR.TYPE == 'AUTOMATIC_PEDESTRIAN'",
+          "satisfied_if": "(DOOR.TYPE == 'SLIDING' OR DOOR.TYPE == 'FOLDING') AND DOOR.OPENING.FORCE_N <= 220 AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND NOT (DOOR.LOCATION == 'ACCESSIBLE_ROUTE'); OR (DOOR.TYPE == 'SWING' OR DOOR.TYPE == 'TILT_TURN') AND DOOR.OPENING.FORCE_N <= 150 AND DOOR.OPENING.DIRECTION == 'EVACUATION_DIRECTION' AND NOT (DOOR.LOCATION == 'ACCESSIBLE_ROUTE' AND DOOR.OPENING.FORCE_N > 25) AND NOT (DOOR.LOCATION == 'ACCESSIBLE_ROUTE' AND DOOR.FIRE_RESISTANT == TRUE AND DOOR.OPENING.FORCE_N > 65)",
+          "exempt_if": "DOOR.CLOSING.SECURE == TRUE",
+          "priority": 5,
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.AUTOMATIC.PEDESTRIAN",
+            "DOOR.SLIDING",
+            "DOOR.FOLDING",
+            "DOOR.SWING",
+            "DOOR.TILT_TURN",
+            "ACCESSIBILITY",
             "SAFETY.FIRE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "DESIGN"
+          ],
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.USE",
+            "ACCESSIBILITY"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -273,76 +347,49 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 1091,
-            "span_char_end": 1350,
+            "page": 1,
+            "span_char_start": 2042,
+            "span_char_end": 2600,
             "visual_refs": []
           },
-          "extracted_parameters_ids": [],
+          "extracted_parameters_ids": [
+            "P::0007",
+            "P::0008",
+            "P::0009",
+            "P::0010"
+          ],
           "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
         },
         {
           "id": "N::0007",
-          "statement_text": "En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad: a) Zonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto; b) Establecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas; c) Atrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.",
+          "statement_text": "Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018.",
           "obligation_type": "MANDATORY",
-          "paragraph_number": 1,
-          "applies_if": "(ZONE.USE == 'PARKING' AND ZONE.TYPE != 'OPEN_PARKING'); OR (ESTABLISHMENT.USE IN ['COMMERCIAL', 'PUBLIC_CONCURRENCE'] AND OCCUPANCY > 1000); OR (ATRIUM.OCCUPANCY > 500 OR ATRIUM.EVACUATION_CAPACITY > 500)",
-          "satisfied_if": "SMOKE_CONTROL_SYSTEM.INSTALLED == TRUE AND SMOKE_CONTROL_SYSTEM.CAPABILITY == 'EVACUATION_SAFETY'",
-          "exempt_if": null,
-          "priority": 5,
-          "priority_factors": {},
-          "relevant_tags": [],
-          "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "doc_xyz.pdf",
-            "article": null,
-            "page": -1,
-            "span_char_start": 1351,
-            "span_char_end": 2000,
-            "visual_refs": []
-          },
-          "extracted_parameters_ids": [],
-          "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
-        },
-        {
-          "id": "N::0008",
-          "statement_text": "El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008, UNE 23585:2017 y UNE-EN 12101-6:2006.",
-          "obligation_type": "OPTIONAL",
-          "paragraph_number": 2,
-          "applies_if": "TRUE",
-          "satisfied_if": "SYSTEM.DESIGN.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.CALCULATION.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.INSTALLATION.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006'] AND SYSTEM.MAINTENANCE.COMPLIES_WITH IN ['UNE_23584_2008', 'UNE_23585_2017', 'UNE_EN_12101_6_2006']",
+          "paragraph_number": 5,
+          "applies_if": "DOOR.TYPE == 'AUTOMATIC_PEDESTRIAN'",
+          "satisfied_if": "DOOR.MAINTENANCE.STANDARD == 'UNE 85121:2018'",
           "exempt_if": null,
           "priority": 3,
-          "priority_factors": {},
-          "relevant_tags": [],
+          "priority_factors": null,
+          "relevant_tags": [
+            "DOOR.AUTOMATIC.PEDESTRIAN",
+            "DOOR.MAINTENANCE"
+          ],
           "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
+          "project_dimensions": {
+            "WORK.TYPE": [
+              "CONSTRUCTION.DOORS"
+            ]
+          },
+          "lifecycle_phase": [
+            "MAINTENANCE"
+          ],
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.USE"
           ],
           "location_scope": {
             "COUNTRY": "ES",
@@ -355,110 +402,749 @@
             "UNCERTAINTY": 0.05
           },
           "source": {
-            "doc_id": "doc_xyz.pdf",
+            "doc_id": "ccte_si.pdf",
             "article": null,
-            "page": -1,
-            "span_char_start": 2001,
-            "span_char_end": 2180,
+            "page": 1,
+            "span_char_start": 2602,
+            "span_char_end": 2660,
             "visual_refs": []
           },
           "extracted_parameters_ids": [],
           "consequence_ids": [],
           "confidence": 0.9,
           "uncertainty": 0.1,
-          "notes": ""
-        },
-        {
-          "id": "N::0009",
-          "statement_text": "En zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS-3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas: a) El sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuertas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas. b) Los ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60. c) Los conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60.",
-          "obligation_type": "MANDATORY",
-          "paragraph_number": null,
-          "applies_if": "ZONE.USE == 'PARKING' AND VENTILATION_SYSTEM.TYPE == 'MECHANICAL'",
-          "satisfied_if": "VENTILATION_SYSTEM.COMPLIES_WITH == 'DB_HS_3' AND VENTILATION_SYSTEM.EXTRACTION_FLOW >= 150 AND VENTILATION_SYSTEM.INPUT_FLOW <= 120 AND VENTILATION_SYSTEM.ACTIVATION == 'AUTOMATIC_FIRE_DETECTION' AND (FLOOR.HEIGHT > 4 AND EXTRACTION_OPENINGS.CLOSURE == 'AUTOMATIC_E300_60'); OR FANS.CLASSIFICATION == 'F300_60'; OR DUCTS.SINGLE_FIRE_SECTOR.CLASSIFICATION == 'E300_60'; OR DUCTS.CROSS_FIRE_SECTOR.CLASSIFICATION == 'EI_60'",
-          "exempt_if": null,
-          "priority": 5,
-          "priority_factors": {},
-          "relevant_tags": [],
-          "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "doc_xyz.pdf",
-            "article": null,
-            "page": -1,
-            "span_char_start": 2181,
-            "span_char_end": 2963,
-            "visual_refs": []
-          },
-          "extracted_parameters_ids": [],
-          "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
-        },
-        {
-          "id": "N::0010",
-          "statement_text": "En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público, Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m2, toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación: - una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2; - excepto en uso Residencial Vivienda, una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2. En terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad.",
-          "obligation_type": "MANDATORY",
-          "paragraph_number": 1,
-          "applies_if": "(BUILDING.USE == 'RESIDENTIAL_HOUSING' AND EVACUATION.HEIGHT > 28) OR (BUILDING.USE IN ['RESIDENTIAL_PUBLIC', 'ADMINISTRATIVE', 'EDUCATIONAL'] AND EVACUATION.HEIGHT > 14) OR (BUILDING.USE IN ['COMMERCIAL', 'PUBLIC_CONCURRENCE'] AND EVACUATION.HEIGHT > 10) OR (FLOOR.USE == 'PARKING' AND FLOOR.AREA > 1500) AND FLOOR.OCCUPANCY_ZONE != 'NULL' AND FLOOR.ACCESSIBLE_EXIT == FALSE",
-          "satisfied_if": "FLOOR.HAS_ALTERNATIVE_FIRE_SECTOR_ACCESS == TRUE OR FLOOR.HAS_REFUGE_ZONE == TRUE AND REFUGE_ZONE.CAPACITY.WHEELCHAIR >= (OCCUPANTS / 100) AND (BUILDING.USE != 'RESIDENTIAL_HOUSING' AND REFUGE_ZONE.CAPACITY.REDUCED_MOBILITY >= (OCCUPANTS / 33))",
-          "exempt_if": null,
-          "priority": 5,
-          "priority_factors": {},
-          "relevant_tags": [],
-          "relevant_roles": [],
-          "project_dimensions": {},
-          "lifecycle_phase": [],
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "doc_xyz.pdf",
-            "article": null,
-            "page": -1,
-            "span_char_start": 2964,
-            "span_char_end": 3800,
-            "visual_refs": []
-          },
-          "extracted_parameters_ids": [],
-          "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
-          "notes": ""
+          "notes": null
         }
       ],
-      "tags": [],
+      "tags": [
+        {
+          "id": "T::0001",
+          "tag_path": "DOOR.SWING",
+          "parent": "DOOR",
+          "definition": "Puerta abatible",
+          "synonyms": [
+            "puerta abatible"
+          ],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0002",
+          "tag_path": "EVACUATION.PERSONS",
+          "parent": "EVACUATION",
+          "definition": "Número de personas en la evacuación",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0003",
+          "tag_path": "DOOR.AXIS",
+          "parent": "DOOR",
+          "definition": "Eje de giro de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0004",
+          "tag_path": "CLOSING.SYSTEM.ENABLED",
+          "parent": "CLOSING.SYSTEM",
+          "definition": "Sistema de cierre activado",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0005",
+          "tag_path": "DOOR.OPENING.REQUIRES_KEY",
+          "parent": "DOOR.OPENING",
+          "definition": "La apertura de la puerta requiere llave",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0006",
+          "tag_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "parent": "DOOR.OPENING",
+          "definition": "Número de mecanismos de apertura de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0007",
+          "tag_path": "DOOR.AUTOMATIC",
+          "parent": "DOOR",
+          "definition": "Puerta automática",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0008",
+          "tag_path": "DOOR.OPENING.MECHANISM",
+          "parent": "DOOR.OPENING",
+          "definition": "Mecanismo de apertura de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0009",
+          "tag_path": "DOOR.STANDARD",
+          "parent": "DOOR",
+          "definition": "Norma de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0010",
+          "tag_path": "EVACUATION.PERSONS.FAMILIARIZED",
+          "parent": "EVACUATION.PERSONS",
+          "definition": "Personas familiarizadas con la puerta en la evacuación",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0011",
+          "tag_path": "DOOR.OPENING.DIRECTION",
+          "parent": "DOOR.OPENING",
+          "definition": "Dirección de apertura de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0012",
+          "tag_path": "EVACUATION.OCCUPANTS",
+          "parent": "EVACUATION",
+          "definition": "Número de ocupantes en la evacuación",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0013",
+          "tag_path": "DOOR.REVOLVING",
+          "parent": "DOOR",
+          "definition": "Puerta giratoria",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0004"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0014",
+          "tag_path": "DOOR.OPENING.TYPE",
+          "parent": "DOOR.OPENING",
+          "definition": "Tipo de apertura de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0004"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0015",
+          "tag_path": "DOOR.OPENING.FORCE_N",
+          "parent": "DOOR.OPENING",
+          "definition": "Fuerza de apertura de la puerta en Newtons",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0004"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0016",
+          "tag_path": "DOOR.WIDTH.USEFUL",
+          "parent": "DOOR.WIDTH",
+          "definition": "Anchura útil de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0005"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0017",
+          "tag_path": "DOOR.AUTOMATIC.PEDESTRIAN",
+          "parent": "DOOR.AUTOMATIC",
+          "definition": "Puerta automática peatonal",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0018",
+          "tag_path": "DOOR.CLOSING.SECURE",
+          "parent": "DOOR.CLOSING",
+          "definition": "La puerta está en posición de cerrado seguro",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0019",
+          "tag_path": "DOOR.SLIDING",
+          "parent": "DOOR",
+          "definition": "Puerta corredera",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0020",
+          "tag_path": "DOOR.FOLDING",
+          "parent": "DOOR",
+          "definition": "Puerta plegable",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0021",
+          "tag_path": "DOOR.LOCATION",
+          "parent": "DOOR",
+          "definition": "Ubicación de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0022",
+          "tag_path": "DOOR.TILT_TURN",
+          "parent": "DOOR",
+          "definition": "Puerta oscilo-batiente",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0023",
+          "tag_path": "DOOR.FIRE_RESISTANT",
+          "parent": "DOOR",
+          "definition": "La puerta es resistente al fuego",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0024",
+          "tag_path": "DOOR.MAINTENANCE.STANDARD",
+          "parent": "DOOR.MAINTENANCE",
+          "definition": "Norma de mantenimiento de la puerta",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
       "locations": [],
-      "questions": [],
+      "questions": [
+        {
+          "id": "Q::0001",
+          "tag_path": "DOOR.TYPE",
+          "question_text": "¿Qué tipo de puerta es?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "SWING",
+            "SLIDING",
+            "FOLDING",
+            "TILT_TURN",
+            "REVOLVING",
+            "AUTOMATIC",
+            "AUTOMATIC_PEDESTRIAN"
+          ],
+          "outputs": [
+            "DOOR.TYPE"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001",
+            "N::0004",
+            "N::0005",
+            "N::0006",
+            "N::0007"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0002",
+          "tag_path": "EVACUATION.PERSONS",
+          "question_text": "¿Cuántas personas se prevén para la evacuación?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "EVACUATION.PERSONS"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001",
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0003",
+          "tag_path": "DOOR.OPENING.REQUIRES_KEY",
+          "question_text": "¿La apertura de la puerta requiere llave?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.REQUIRES_KEY"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0004",
+          "tag_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "question_text": "¿Cuántos mecanismos de apertura tiene la puerta?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.MECHANISMS_COUNT"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0005",
+          "tag_path": "DOOR.OPENING.MECHANISM",
+          "question_text": "¿Cuál es el mecanismo de apertura de la puerta?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "HANDLE",
+            "PUSH_BUTTON",
+            "PUSH_BAR",
+            "SLIDING_BAR"
+          ],
+          "outputs": [
+            "DOOR.OPENING.MECHANISM"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0002"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0006",
+          "tag_path": "EVACUATION.PERSONS.FAMILIARIZED",
+          "question_text": "¿Las personas en la zona de evacuación están familiarizadas con la puerta?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "EVACUATION.PERSONS.FAMILIARIZED"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0002"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0007",
+          "tag_path": "DOOR.OPENING.DIRECTION",
+          "question_text": "¿La puerta abre en el sentido de la evacuación?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.DIRECTION"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0002",
+            "N::0003",
+            "N::0004",
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0008",
+          "tag_path": "EVACUATION.OCCUPANTS",
+          "question_text": "¿Cuántos ocupantes se prevén en el recinto o espacio?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "EVACUATION.OCCUPANTS"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0009",
+          "tag_path": "DOOR.OPENING.FORCE_N",
+          "question_text": "¿Cuál es la fuerza de apertura de la puerta en Newtons?",
+          "answer_type": "NUMBER",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.OPENING.FORCE_N"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0004",
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0010",
+          "tag_path": "DOOR.LOCATION",
+          "question_text": "¿Dónde está situada la puerta?",
+          "answer_type": "ENUM",
+          "enum_values": [
+            "ACCESSIBLE_ROUTE"
+          ],
+          "outputs": [
+            "DOOR.LOCATION"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "Q::0011",
+          "tag_path": "DOOR.FIRE_RESISTANT",
+          "question_text": "¿La puerta es resistente al fuego?",
+          "answer_type": "BOOLEAN",
+          "enum_values": [],
+          "outputs": [
+            "DOOR.FIRE_RESISTANT"
+          ],
+          "derived_follow_up_question_ids": [],
+          "trigger_norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
       "consequences": [],
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "P::0001",
+          "field_path": "EVACUATION.PERSONS",
+          "operator": ">",
+          "value": 50,
+          "unit": null,
+          "original_text": "más de 50 personas",
+          "norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0002",
+          "field_path": "DOOR.OPENING.MECHANISMS_COUNT",
+          "operator": "<=",
+          "value": 1,
+          "unit": null,
+          "original_text": "más de un mecanismo",
+          "norm_ids": [
+            "N::0001"
+          ],
+          "confidence": 0.85,
+          "uncertainty": 0.15
+        },
+        {
+          "id": "P::0003",
+          "field_path": "EVACUATION.PERSONS",
+          "operator": ">",
+          "value": 200,
+          "unit": null,
+          "original_text": "más de 200 personas",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0004",
+          "field_path": "EVACUATION.PERSONS",
+          "operator": ">",
+          "value": 100,
+          "unit": null,
+          "original_text": "100 personas",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0005",
+          "field_path": "EVACUATION.OCCUPANTS",
+          "operator": ">",
+          "value": 50,
+          "unit": null,
+          "original_text": "más de 50 ocupantes",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0006",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 220,
+          "unit": "N",
+          "original_text": "no superior a 220 N",
+          "norm_ids": [
+            "N::0004",
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0007",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 150,
+          "unit": "N",
+          "original_text": "no exceda de 150 N",
+          "norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0008",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 25,
+          "unit": "N",
+          "original_text": "no excederá de 25 N",
+          "norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0009",
+          "field_path": "DOOR.OPENING.FORCE_N",
+          "operator": "<=",
+          "value": 65,
+          "unit": "N",
+          "original_text": "65 N",
+          "norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0010",
+          "field_path": "DOOR.OPENING.HEIGHT",
+          "operator": "==",
+          "value": 1000,
+          "unit": "mm",
+          "original_text": "1000 ±10 mm",
+          "norm_ids": [
+            "N::0006"
+          ],
+          "confidence": 0.8,
+          "uncertainty": 0.2
+        }
+      ],
       "quality": {
         "errors": [
-          "PAGE_MISSING"
+          "WARN_SOFT_MISSING:dsl_version",
+          "WARN_SOFT_MISSING:run_info"
         ],
         "warnings": [],
         "confidence_global": 0.9,
