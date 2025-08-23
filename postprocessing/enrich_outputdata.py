@@ -1,15 +1,32 @@
+
 import re
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Set, Tuple, Optional
 
 
-# Regex patterns used to identify parameters in DSL expressions and inline text
+
+
 PARAM_PATTERN = re.compile(r"(?P<field>[A-Z][A-Z0-9_]*(?:\.[A-Z][A-Z0-9_]*)+)\s*(?P<op>>=|<=|==|!=|>|<)\s*(?P<val>-?\d+(?:\.\d+)?)")
 UNIT_NUMBER_PATTERN = re.compile(r"(?P<val>\d+(?:\.\d+)?)\s?(?P<unit>N|m|kg|personas?|N/m2|kg/m2)\b", re.IGNORECASE)
 
 ParamKey = Tuple[str, str, float, Optional[str]]
 
+def collect_dsl_keys(obj: Dict[str, Any]) -> Set[str]:
+    keys: Set[str] = set()
+    dsl_fields = ("applies_if", "satisfied_if", "exempt_if")
+    pattern = re.compile(r"[A-Z][A-Z0-9_]*(?:\.[A-Z][A-Z0-9_]*)+")
+    for norm in obj.get("norms", []):
+        for f in dsl_fields:
+            v = norm.get(f)
+            if isinstance(v, str):
+                for m in pattern.findall(v):
+                    keys.add(m)
+    for param in obj.get("parameters", []):
+        fp = param.get("field_path")
+        if isinstance(fp, str):
+            keys.add(fp)
+    return keys
 
-def build_existing_param_index(obj: Dict[str, Any]) -> Dict[ParamKey, Dict[str, Any]]:
+def build_existing_param_index(obj: Dict[str, Any]) -> Dict[ParamKey, Dict[str,Any]]:
     index: Dict[ParamKey, Dict[str,Any]] = {}
     for p in obj.get("parameters", []):
         try:
@@ -18,6 +35,7 @@ def build_existing_param_index(obj: Dict[str, Any]) -> Dict[ParamKey, Dict[str, 
         except Exception:
             continue
     return index
+
 
 def enrich_parameters(obj: Dict[str, Any]):
     """Derive parameter objects from DSL expressions & Norm text if missing.
@@ -104,3 +122,26 @@ def enrich_parameters(obj: Dict[str, Any]):
             norm["extracted_parameters_ids"] = sorted(collected_ids)
     if created:
         obj.setdefault("quality", {}).setdefault("warnings", []).append(f"PARAMETERS_ENRICHED:{created}")
+
+
+def merge_duplicate_tags(obj: Dict[str, Any]):
+    """Collapse duplicate ACTIVE tags with identical tag_path marking extras as MERGED."""
+    tags = obj.get("tags", [])
+    seen: Dict[str, Dict[str, Any]] = {}
+    merged = 0
+    for t in tags:
+        if not isinstance(t, dict):
+            continue
+        path = t.get("tag_path")
+        status = t.get("status")
+        if not path or status != "ACTIVE":
+            continue
+        if path in seen:
+            # mark duplicate as MERGED
+            t["status"] = "MERGED"
+            t["merge_target"] = path
+            merged += 1
+        else:
+            seen[path] = t
+    if merged:
+        obj.setdefault("quality", {}).setdefault("warnings", []).append(f"DUPLICATE_TAGS_MERGED:{merged}")
