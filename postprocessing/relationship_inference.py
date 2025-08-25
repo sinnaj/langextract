@@ -1,5 +1,5 @@
 import re
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 
 def ensure_tag(obj: Dict[str, Any], tag_path: str) -> Optional[str]:
