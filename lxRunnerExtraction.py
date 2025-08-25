@@ -272,9 +272,9 @@ def makeRun(
 
     def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
-        # Avoid internal chunking for a single call
+        # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
+        # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
-        extract_kwargs["max_char_buffer"] = max(len(text) + 1, 1)
         try:
             annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
         except Exception as e:
@@ -334,19 +334,12 @@ def makeRun(
 
         return result
 
-    if len(words) > 5000:
-        chunks = chunk_document(INPUT_TEXT)
-        print(f"[INFO] Processing {len(chunks)} chunks")
-        for i, chunk in enumerate(chunks, start=1):
-            print(f"[INFO] Processing chunk {i}/{len(chunks)} (words: {len(chunk.split())})")
-            pr = _call_and_capture(chunk, i)
-            if pr and isinstance(pr.get("extractions"), list):
-                all_extractions.extend(pr["extractions"])
-    else:
-        print(f"[INFO] Processing single chunk (length: {len(words)} words)")
-        pr = _call_and_capture(INPUT_TEXT, None)
-        if pr and isinstance(pr.get("extractions"), list):
-            all_extractions.extend(pr["extractions"])
+    # Test path: rely solely on library chunking (character-based) and disable
+    # the runner's word-based chunking logic above.
+    print("[INFO] Library-managed chunking enabled (max_char_buffer governs internal splits)")
+    pr = _call_and_capture(INPUT_TEXT, None)
+    if pr and isinstance(pr.get("extractions"), list):
+        all_extractions.extend(pr["extractions"])
 
     # If nothing was extracted, handle as fatal
     if not all_extractions:
