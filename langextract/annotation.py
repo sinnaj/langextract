@@ -340,6 +340,7 @@ class Annotator:
               document_id=curr_document.document_id,
               extractions=annotated_extractions,
               text=curr_document.text,
+              rich=getattr(curr_document, "_rich_cache", None),
           )
           yield annotated_doc
           annotated_extractions.clear()
@@ -356,6 +357,11 @@ class Annotator:
         annotated_chunk_extractions = resolver.resolve(
             top_inference_result, debug=debug, **kwargs
         )
+        # Cache the resolver's parsed rich object for this document
+        try:
+          text_chunk.document._rich_cache = getattr(resolver, "last_parsed", None)
+        except Exception:
+          pass
         chunk_text = text_chunk.chunk_text
         token_offset = text_chunk.token_interval.start_index
         char_offset = text_chunk.char_interval.start_pos
@@ -383,6 +389,7 @@ class Annotator:
           document_id=curr_document.document_id,
           extractions=annotated_extractions,
           text=curr_document.text,
+          rich=getattr(curr_document, "_rich_cache", None),
       )
 
       yield annotated_doc
@@ -535,9 +542,5 @@ class Annotator:
           chars_processed=len(text),
           num_chunks=num_chunks,
       )
-
-    return data.AnnotatedDocument(
-        document_id=annotations[0].document_id,
-        extractions=annotations[0].extractions,
-        text=annotations[0].text,
-    )
+    # Return the produced annotation (already includes rich if available)
+    return annotations[0]
