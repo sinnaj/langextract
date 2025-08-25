@@ -69,8 +69,13 @@ def makeRun(
 
 
     PROMPT_FILE = Path(INPUT_PROMPTFILE)
-    OUTPUT_FILE = Path("output_runs") / f"{RUN_ID}_output.json"
-    GLOSSARY_FILE = Path(INPUT_GLOSSARYFILE) if INPUT_GLOSSARYFILE else None
+    run_dir = Path("output_runs") / RUN_ID
+    chunks_dir = run_dir / "chunks"
+    run_dir.mkdir(parents=True, exist_ok=True)
+    chunks_dir.mkdir(parents=True, exist_ok=True)
+    OUTPUT_FILE = run_dir / "output.json"
+    # Default glossary path to run_dir when not provided
+    GLOSSARY_FILE = Path(INPUT_GLOSSARYFILE) if INPUT_GLOSSARYFILE else (run_dir / "glossary.json")
 
     MAX_NORMS_PER_5K = 10  # matches spec guidance
     MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
@@ -82,7 +87,7 @@ def makeRun(
     if input_override:
         INPUT_FILE = Path(input_override)
     else:
-        _run_folder = Path("output_runs") / RUN_ID / "input"
+        _run_folder = run_dir / "input"
         allowed_exts = {".txt", ".md"}
         exclude_names = {
             "raw_model_output.txt",
@@ -261,114 +266,61 @@ def makeRun(
     print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
 
     words = INPUT_TEXT.split()
+    all_extractions: List[Dict[str, Any]] = []
+    run_warnings: List[str] = []
+
+    def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
+        nonlocal run_warnings
+        # Ensure resolver writes exactly one raw output per call by disabling internal chunking
+        extract_kwargs["text_or_documents"] = text
+        extract_kwargs["max_char_buffer"] = max(len(text) + 1, 1)
+        try:
+            res = lx.extract(**extract_kwargs)
+        except Exception as e:
+            msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {e}"
+            print(msg, file=sys.stderr)
+            run_warnings.append(msg)
+            return None
+        # Read resolver-emitted raw JSON for this call
+        resolver_raw_path = Path.cwd() / "resolver_raw_output.txt"
+        if not resolver_raw_path.exists():
+            msg = f"[WARN] resolver_raw_output.txt not found after extraction for chunk {idx if idx is not None else 'single'}"
+            print(msg, file=sys.stderr)
+            run_warnings.append(msg)
+            return None
+        raw = resolver_raw_path.read_text(encoding="utf-8")
+        # Save per-chunk raw JSON to run folder
+        raw_name = f"raw_chunk_{idx:03}.json" if idx is not None else "raw_single.json"
+        (chunks_dir / raw_name).write_text(raw, encoding="utf-8")
+        # Parse JSON strictly (no salvage/fallbacks)
+        try:
+            return json.loads(raw)
+        except Exception as je:
+            msg = f"[WARN] Could not parse JSON for chunk {idx if idx is not None else 'single'}: {je}"
+            print(msg, file=sys.stderr)
+            run_warnings.append(msg)
+            return None
+
     if len(words) > 5000:
         chunks = chunk_document(INPUT_TEXT)
-        for chunk in chunks:
-            print(f"[INFO] Processing chunk (length: {len(chunk.split())} words)")
-            extract_kwargs["text_or_documents"] = chunk
-            result = lx.extract(**extract_kwargs)
+        print(f"[INFO] Processing {len(chunks)} chunks")
+        for i, chunk in enumerate(chunks, start=1):
+            print(f"[INFO] Processing chunk {i}/{len(chunks)} (words: {len(chunk.split())})")
+            pr = _call_and_capture(chunk, i)
+            if pr and isinstance(pr.get("extractions"), list):
+                all_extractions.extend(pr["extractions"])
     else:
         print(f"[INFO] Processing single chunk (length: {len(words)} words)")
-        result = lx.extract(**extract_kwargs)
+        pr = _call_and_capture(INPUT_TEXT, None)
+        if pr and isinstance(pr.get("extractions"), list):
+            all_extractions.extend(pr["extractions"])
 
-    # Try to access raw JSON directly (model MUST produce rich schema root object with 'extractions').
-    raw_candidate = getattr(result, "raw_response", None)
+    # If nothing was extracted, handle as fatal
+    if not all_extractions:
+        print("[FATAL] No valid extractions produced across all chunks.", file=sys.stderr)
+        sys.exit(3)
 
-    # --- Save the string that will actually be parsed ---
-    RAW_OUTPUT_FILE = Path("raw_model_output.txt")
-    to_parse = None
-    if isinstance(raw_candidate, str) and raw_candidate.strip():
-        to_parse = raw_candidate
-    elif hasattr(result, 'content') and isinstance(result.content, str):
-        to_parse = result.content
-    elif isinstance(result, str):
-        to_parse = result
-    else:
-        to_parse = str(result)
-    RAW_OUTPUT_FILE.write_text(to_parse or '', encoding="utf-8")
-
-    parsed_root: Dict[str, Any] | None = None
-    if to_parse:
-        try:
-            parsed_root = json.loads(to_parse)
-        except Exception:
-            parsed_root = None
-
-    ##I BELIEVE THIS WAS A HELPER TO DEAL WITH UNEXPECTED JSON STRUCTURE.
-    ### COMMENTED OUT FOR TESTING
-
-    # --- Salvage logic: extract first balanced JSON object if wrapper text present ---
-    def salvage_first_json(text: str) -> Optional[Dict[str, Any]]:
-    #     """Attempt to locate the first balanced JSON object within an arbitrary wrapper string.
-
-    #     Strategy:
-    #       1. Find first '{'.
-    #       2. Incrementally scan, tracking nesting depth; when depth returns to 0, slice candidate.
-    #       3. Attempt json.loads on slice; if fails, progressively extend forward searching for next '}' occurrences.
-    #       4. If object loads and has 'extractions' key (rich schema root) OR is an object whose key 'extractions' appears nested at top-level, return it.
-    #     This intentionally refuses arrays at root to maintain strict contract. Returns None if no valid object found.
-    #     """
-        if not isinstance(text, str):
-            return None
-        # Prefer explicit pattern start for our root
-        pattern_indices = []
-        root_pat = '{"extractions"'
-        idx = 0
-        while True:
-            idx = text.find(root_pat, idx)
-            if idx == -1:
-                break
-            pattern_indices.append(idx)
-            idx += 1
-        # Fallback to first '{' if pattern not found
-        if not pattern_indices:
-            try:
-                pattern_indices = [text.index('{')]
-            except ValueError:
-                return None
-        for start in pattern_indices:
-            depth = 0
-            for i in range(start, len(text)):
-                ch = text[i]
-                if ch == '{':
-                    depth += 1
-                elif ch == '}':
-                    depth -= 1
-                    if depth == 0:
-                        candidate = text[start:i+1]
-                        try:
-                            obj = json.loads(candidate)
-                            if isinstance(obj, dict) and 'extractions' in obj:
-                                return obj
-                        except Exception:
-                            pass
-        return None
-
-    if parsed_root is None:
-        # Secondary recovery path: the internal Resolver already writes the raw JSON
-        # it successfully parsed (or attempted to) to resolver_raw_output.txt. If
-        # the AnnotatedDocument string repr hides the original JSON, we can often
-        # still recover the rich schema root from that file.
-        resolver_raw_path = Path("resolver_raw_output.txt")
-        if resolver_raw_path.exists():
-            try:
-                candidate_text = resolver_raw_path.read_text(encoding="utf-8")
-                candidate_obj = json.loads(candidate_text)
-                if isinstance(candidate_obj, dict) and isinstance(candidate_obj.get("extractions"), list):
-                    parsed_root = candidate_obj
-                    print("[INFO] Loaded rich schema JSON from resolver_raw_output.txt (fallback).")
-            except Exception:
-                pass
-
-    if parsed_root is None:
-        salvaged = salvage_first_json(to_parse or '')
-        if salvaged is not None:
-            print("[INFO] Salvaged embedded JSON object from wrapper text.")
-            parsed_root = salvaged
-        else:
-            snippet = (to_parse or '')[:200].replace('\n', ' ') if to_parse else ''
-            print(f"[FATAL] Model did not return parseable JSON (first200='{snippet}'). Failing fast (legacy output no longer accepted).")
-            sys.exit(2)
+    parsed_root: Dict[str, Any] = {"extractions": all_extractions}
 
     # Expect root with single key 'extractions'
     if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):

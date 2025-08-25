@@ -36,7 +36,18 @@ class Runner:
         log_path = self.run_dir / "run.log"
         self.state.log_path = log_path
         f = open(log_path, "a", encoding="utf-8", buffering=1)
-        self.proc = Popen(self.args, stdout=PIPE, stderr=STDOUT, text=True, bufsize=1, cwd=str(REPO_ROOT), env=self.env)
+        # Read UTF-8 text from the child process to avoid cp1252 decode errors on Windows
+        self.proc = Popen(
+            self.args,
+            stdout=PIPE,
+            stderr=STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            bufsize=1,
+            cwd=str(REPO_ROOT),
+            env=self.env,
+        )
 
         def pump():
             assert self.proc and self.proc.stdout
@@ -107,4 +118,7 @@ def build_worker_cmd(run_id: str, payload: dict, run_dir: Path) -> tuple[list[st
     env = os.environ.copy()
     env["PYTHONPATH"] = str(REPO_ROOT) + os.pathsep + env.get("PYTHONPATH", "")
     env["LE_RUN_DIR"] = str(run_dir)
+    # Force UTF-8 for child process stdio to avoid decode issues on Windows
+    env.setdefault("PYTHONUTF8", "1")
+    env.setdefault("PYTHONIOENCODING", "utf-8")
     return args, env
