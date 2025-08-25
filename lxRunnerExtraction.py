@@ -33,6 +33,7 @@ import langextract as lx
 from postprocessing import enrich_outputdata as pp_enrich
 from postprocessing import output_schema_validation as pp_schema
 from postprocessing import relationship_inference as pp_rel
+from preprocessing.chunk_input import chunk_document
 
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
@@ -109,13 +110,6 @@ def makeRun(
 
     # Default examples module if EXAMPLES_FILE is not provided via makeRun
     DEFAULT_EXAMPLES_PATH = Path("input_examplefiles/default.py")
-
-
-    print("COMMENT OUTSIDE OF MAIN RUNNER")
-
-
-
-
 
 
     if not PROMPT_FILE.exists():
@@ -200,6 +194,8 @@ def makeRun(
     else:
         INPUT_TEXT = INPUT_FILE.read_text(encoding="utf-8")
 
+
+
     # ---------------------------------------------------------------------------
     # 3. Enrich Output
     # ---------------------------------------------------------------------------
@@ -263,8 +259,17 @@ def makeRun(
     extract_kwargs["max_char_buffer"] = 5000
 
     print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
-    result = lx.extract(**extract_kwargs)
 
+    words = INPUT_TEXT.split()
+    if len(words) > 5000:
+        chunks = chunk_document(INPUT_TEXT)
+        for chunk in chunks:
+            print(f"[INFO] Processing chunk (length: {len(chunk.split())} words)")
+            extract_kwargs["text_or_documents"] = chunk
+            result = lx.extract(**extract_kwargs)
+    else:
+        print(f"[INFO] Processing single chunk (length: {len(words)} words)")
+        result = lx.extract(**extract_kwargs)
 
     # Try to access raw JSON directly (model MUST produce rich schema root object with 'extractions').
     raw_candidate = getattr(result, "raw_response", None)
