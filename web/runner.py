@@ -11,6 +11,7 @@ from typing import Optional, List
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = REPO_ROOT / "output_runs"
+MAX_BUFFER_LINES = 10000  # limit in-memory lines to keep UI responsive
 
 @dataclass
 class RunState:
@@ -22,6 +23,8 @@ class RunState:
     stats: Optional[dict] = None
     buffer: List[str] = field(default_factory=list)
     exit_code: Optional[int] = None
+    # Number of lines dropped from the start of buffer due to truncation
+    buffer_offset: int = 0
 
 class Runner:
     def __init__(self, run_id: str, env: dict, args: list[str], run_dir: Path):
@@ -55,6 +58,12 @@ class Runner:
                 line = line.rstrip("\n")
                 f.write(line + "\n")
                 self.state.buffer.append(line)
+                # Trim buffer to prevent unbounded growth
+                if len(self.state.buffer) > MAX_BUFFER_LINES:
+                    drop = len(self.state.buffer) - MAX_BUFFER_LINES
+                    # Increment offset to reflect dropped lines
+                    self.state.buffer_offset += drop
+                    self.state.buffer = self.state.buffer[drop:]
                 if line.startswith("STATS:"):
                     try:
                         payload = json.loads(line[len("STATS:"):].strip())
