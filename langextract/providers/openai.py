@@ -45,6 +45,9 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
   format_type: data.FormatType = data.FormatType.JSON
   temperature: float | None = None
   max_workers: int = 10
+  # Optional OpenRouter headers (HTTP-Referer / X-Title) for attribution if using OpenRouter
+  openrouter_referer: str | None = None
+  openrouter_title: str | None = None
   _client: Any = dataclasses.field(default=None, repr=False, compare=False)
   _extra_kwargs: dict[str, Any] = dataclasses.field(
       default_factory=dict, repr=False, compare=False
@@ -84,13 +87,14 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
     # Lazy import: OpenAI package required
     try:
       # pylint: disable=import-outside-toplevel
-      import openai
+      import openai  # type: ignore
     except ImportError as e:
       raise exceptions.InferenceConfigError(
           'OpenAI provider requires openai package. '
           'Install with: pip install langextract[openai]'
       ) from e
 
+    # Assign configuration
     self.model_id = model_id
     self.api_key = api_key
     self.base_url = base_url
@@ -98,16 +102,29 @@ class OpenAILanguageModel(base_model.BaseLanguageModel):
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
+    # Extract OpenRouter-specific optional attribution headers from kwargs (non-fatal if absent)
+    self.openrouter_referer = kwargs.pop('openrouter_referer', None)
+    self.openrouter_title = kwargs.pop('openrouter_title', None)
 
     if not self.api_key:
       raise exceptions.InferenceConfigError('API key not provided.')
 
     # Initialize the OpenAI client
-    self._client = openai.OpenAI(
-        api_key=self.api_key,
-        base_url=self.base_url,
-        organization=self.organization,
-    )
+    client_kwargs: dict[str, Any] = {
+        'api_key': self.api_key,
+        'base_url': self.base_url,
+        'organization': self.organization,
+    }
+    # OpenRouter requires attribution headers; only attach if provided to stay generic for standard OpenAI usage.
+    default_headers: dict[str, str] = {}
+    if self.openrouter_referer:
+      default_headers['HTTP-Referer'] = self.openrouter_referer
+    if self.openrouter_title:
+      default_headers['X-Title'] = self.openrouter_title
+    if default_headers:
+      client_kwargs['default_headers'] = default_headers
+
+    self._client = openai.OpenAI(**client_kwargs)
 
     super().__init__(
         constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)

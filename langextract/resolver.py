@@ -304,6 +304,7 @@ class Resolver(AbstractResolver):
 
     logging.info("Completed alignment process for the provided source_text.")
 
+
   def _extract_and_parse_content(
       self,
       input_string: str,
@@ -312,8 +313,6 @@ class Resolver(AbstractResolver):
       | Sequence[Mapping[str, ExtractionValueType]]
   ):
     """Helper function to extract and parse content based on the delimiter.
-
-    delimiter, and parse it as YAML or JSON.
 
     Args:
         input_string: The input string to be processed.
@@ -325,6 +324,8 @@ class Resolver(AbstractResolver):
     Returns:
         The parsed Python object (dict or list).
     """
+    import os
+    from pathlib import Path
     logging.info("Starting string parsing.")
     logging.debug("input_string: %s", input_string)
 
@@ -345,6 +346,13 @@ class Resolver(AbstractResolver):
       logging.debug("Content: %s", content)
     else:
       content = input_string
+
+    # --- Save the raw content to a file before parsing ---
+    try:
+      raw_out_path = Path(os.getcwd()) / "resolver_raw_output.txt"
+      raw_out_path.write_text(content, encoding="utf-8")
+    except Exception as file_exc:
+      logging.warning(f"Failed to write raw resolver output: {file_exc}")
 
     try:
       if self.format_type == data.FormatType.YAML:
@@ -382,41 +390,103 @@ class Resolver(AbstractResolver):
     """
     parsed_data = self._extract_and_parse_content(input_string)
 
+  # CASE 1: Rich schema (prompt-compliant) detected.
+  # The new prompt returns: { "extractions": [ { schema_version, norms: [...], tags:[...], ... } ] }
+  # Older downstream code expects a list of small mapping objects with extraction_class keys.
+  # To avoid a sweeping refactor, we PROJECT rich Norm objects into that legacy shape so that
+  # extract_ordered_extractions() can still operate. We only surface Norm texts as Extractions;
+  # richer arrays (tags, parameters, etc.) are accessible earlier in the pipeline if needed.
+    if isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY in parsed_data:
+      rich_list = parsed_data[schema.EXTRACTIONS_KEY]
+      if not isinstance(rich_list, list):
+        raise ResolverParsingError("'extractions' must be a list of objects")
+      # Basic shape validation (only first object strictly validated here to stay lightweight)
+      required_arrays = [
+          "norms", "tags", "locations", "questions", "consequences", "parameters"
+      ]
+      for i, rich_obj in enumerate(rich_list):
+        if not isinstance(rich_obj, dict):
+          raise ResolverParsingError(f"Extraction list item {i} is not an object")
+        missing = [k for k in required_arrays if k not in rich_obj]
+        if missing:
+          raise ResolverParsingError(
+              f"Extraction list item {i} missing required array keys: {missing}"
+          )
+      logging.info("Rich schema detected with %d extraction object(s).", len(rich_list))
+
+  # Backward compatibility note:
+  # We collapse rich norms into synthetic mapping entries shaped like:
+  #   { "NORM": <norm_text>, "NORM_index": <i>, "NORM_attributes": {...subset...} }
+  # so existing ordering / alignment code remains usable. If full rich alignment is needed
+  # in future, create a parallel path instead of overloading this adapter.
+      legacy_groups: list[dict[str, ExtractionValueType]] = []
+      norm_index = 0
+      for extraction_obj in rich_list:
+        norms = extraction_obj.get("norms", []) or []
+        for norm in norms:
+            # Accept either already-dict norm entries or malformed items gracefully
+            if not isinstance(norm, dict):
+              continue
+            norm_text = norm.get("Norm") or norm.get("norm") or norm.get("text")
+            if not isinstance(norm_text, str):
+              continue
+            norm_index += 1
+            # Build a mapping with an index suffix so ordering is preserved.
+            entry: dict[str, ExtractionValueType] = {
+                "NORM": norm_text,
+            }
+            if self.extraction_index_suffix:
+              entry["NORM" + self.extraction_index_suffix] = norm_index
+            # Attach original attributes under the attributes suffix if configured
+            if self.extraction_attributes_suffix:
+              entry["NORM" + self.extraction_attributes_suffix] = {
+                  "id": norm.get("id"),
+                  "obligation_type": norm.get("obligation_type"),
+                  "priority": norm.get("priority"),
+                  "confidence": norm.get("confidence"),
+                  "uncertainty": norm.get("uncertainty"),
+                  "applies_if": norm.get("applies_if"),
+                  "satisfied_if": norm.get("satisfied_if"),
+              }
+            legacy_groups.append(entry)
+      # If there were no norms, still return an empty list – caller will handle.
+      return legacy_groups
+
+  # CASE 2: Flat legacy list of extraction_class objects (already normalized elsewhere)
+  # Example: [ {"extraction_class": "Norm", "extraction_text": "Door shall ..."}, ...]
+  # We convert each element to a mapping keyed by the uppercased class label to reuse ordering logic.
+    if isinstance(parsed_data, list) and all(isinstance(x, dict) and "extraction_class" in x for x in parsed_data):
+      logging.info("Flat legacy extraction_class list detected (%d items).", len(parsed_data))
+      legacy_groups: list[dict[str, ExtractionValueType]] = []
+      for i, item in enumerate(parsed_data, start=1):
+        cls = str(item.get("extraction_class") or "").upper() or "ITEM"
+        text = item.get("extraction_text") or item.get("text") or item.get("Norm")
+        if not isinstance(text, str):
+          continue
+        entry: dict[str, ExtractionValueType] = {cls: text}
+        if self.extraction_index_suffix:
+          entry[cls + self.extraction_index_suffix] = i
+        if self.extraction_attributes_suffix:
+          # Pass through remaining metadata except extraction_class/text
+          attrs = {k: v for k, v in item.items() if k not in {"extraction_class", "extraction_text", "text", "Norm"}}
+          entry[cls + self.extraction_attributes_suffix] = attrs
+        legacy_groups.append(entry)
+      return legacy_groups
+
+  # CASE 3: Already legacy shape (dict with extractions but not rich arrays) – original behavior
+  # (Least common now; retained for completeness.)
     if not isinstance(parsed_data, dict):
-      logging.error("Expected content to be a mapping (dict).")
       raise ResolverParsingError(
-          f"Content must be a mapping with an '{schema.EXTRACTIONS_KEY}' key."
+          "Parsed content must be either rich schema dict, flat list, or legacy mapping with 'extractions'."
       )
     if schema.EXTRACTIONS_KEY not in parsed_data:
-      logging.error("Content does not contain 'extractions' key.")
       raise ResolverParsingError("Content must contain an 'extractions' key.")
     extractions = parsed_data[schema.EXTRACTIONS_KEY]
-
     if not isinstance(extractions, list):
-      logging.error("The content must be a sequence (list) of mappings.")
-      raise ResolverParsingError(
-          "The extractions must be a sequence (list) of mappings."
-      )
-
-    # Validate each item in the extractions list
+      raise ResolverParsingError("'extractions' must be a list.")
     for item in extractions:
       if not isinstance(item, dict):
-        logging.error("Each item in the sequence must be a mapping.")
-        raise ResolverParsingError(
-            "Each item in the sequence must be a mapping."
-        )
-
-      for key, value in item.items():
-        if not isinstance(key, str) or not isinstance(
-            value, ExtractionValueType
-        ):
-          logging.error("Invalid key or value type detected in content.")
-          raise ResolverParsingError(
-              "All keys must be strings and values must be either strings,"
-              " integers, floats, dicts, or None."
-          )
-
-    logging.info("Completed parsing of string.")
+        raise ResolverParsingError("Each extraction group must be a mapping.")
     return extractions
 
   def extract_ordered_extractions(

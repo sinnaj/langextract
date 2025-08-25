@@ -1,0 +1,96 @@
+{
+  "extractions": [
+    {
+      "schema_version": "1.0.0",
+      "ontology_version": "0.0.1",
+      "dsl_version": "1",
+      "run_info": {},
+      "truncated": false,
+      "has_more": false,
+      "window_config": {
+        "input_chars": 348,
+        "max_norms_per_5k_tokens": 35,
+        "extracted_norm_count": 1
+      },
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "doc_xyz.pdf",
+        "doc_title": "CTE SI 3 (extracto)",
+        "source_language": "es",
+        "received_chunk_span": {
+          "char_start": 0,
+          "char_end": 348
+        },
+        "page_range": {
+          "start": 1,
+          "end": 1
+        },
+        "topics": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        }
+      },
+      "norms": [
+        {
+          "id": "N::0001",
+          "statement_text": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": null,
+          "applies_if": "DOOR.TYPE == 'REVOLVING'",
+          "satisfied_if": "DOOR.ADJACENT_TO.TYPE == 'SWING' AND DOOR.ADJACENT_TO.OPERATION == 'MANUAL'",
+          "exempt_if": "DOOR.TYPE == 'REVOLVING' AND DOOR.OPERATION == 'AUTOMATIC' AND HAS(DOOR.SYSTEM.SWING_OUT_EMERGENCY) AND (EMERGENCY.OCCURRED == TRUE OR POWER.SUPPLY.FAILURE == TRUE) AND DOOR.SWING_OUT_FORCE <= 220",
+          "priority": 4,
+          "priority_factors": {},
+          "relevant_tags": [],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "doc_xyz.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 0,
+            "span_char_end": 348,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": ""
+        }
+      ],
+      "tags": [],
+      "locations": [],
+      "questions": [],
+      "consequences": [],
+      "parameters": [],
+      "quality": {
+        "errors": [
+          "PAGE_MISSING"
+        ],
+        "warnings": [],
+        "confidence_global": 0.9,
+        "uncertainty_global": 0.1
+      }
+    }
+  ]
+}

@@ -12,6 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# output run logs (new location)
+/output_runs/
+/output_runs/**
+/output_runs/**/
+/output_runs/**/**
+/output_runs/**/input/**
+/output_runs/**/input
+
+# legacy pattern (kept for compatibility if used elsewhere)
+/output_run/
+/output_run/**
+/output_run/**/
+/output_run/**/**
+/output_run/**/input/**
+/output_run/**/input
+
 # Byte-compiled / Cache files
 __pycache__/
 *.py[cod]
