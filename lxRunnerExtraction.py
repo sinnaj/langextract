@@ -271,35 +271,67 @@ def makeRun(
 
     def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
-        # Ensure resolver writes exactly one raw output per call by disabling internal chunking
+        # Avoid internal chunking for a single call
         extract_kwargs["text_or_documents"] = text
         extract_kwargs["max_char_buffer"] = max(len(text) + 1, 1)
         try:
-            res = lx.extract(**extract_kwargs)
+            annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
         except Exception as e:
             msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {e}"
             print(msg, file=sys.stderr)
             run_warnings.append(msg)
             return None
-        # Read resolver-emitted raw JSON for this call
-        resolver_raw_path = Path.cwd() / "resolver_raw_output.txt"
-        if not resolver_raw_path.exists():
-            msg = f"[WARN] resolver_raw_output.txt not found after extraction for chunk {idx if idx is not None else 'single'}"
+
+        # Consume the resolver's rich JSON directly from the AnnotatedDocument
+        parsed_json = getattr(annotated, "rich", None)
+        if parsed_json is None:
+            msg = "[FATAL] Resolver did not provide rich parsed output on AnnotatedDocument."
             print(msg, file=sys.stderr)
             run_warnings.append(msg)
             return None
-        raw = resolver_raw_path.read_text(encoding="utf-8")
-        # Save per-chunk raw JSON to run folder
-        raw_name = f"raw_chunk_{idx:03}.json" if idx is not None else "raw_single.json"
-        (chunks_dir / raw_name).write_text(raw, encoding="utf-8")
-        # Parse JSON strictly (no salvage/fallbacks)
+        # Normalize into a root with 'extractions': [ ... ]
+        if isinstance(parsed_json, dict) and isinstance(parsed_json.get("extractions"), list):
+            result = parsed_json
+        elif isinstance(parsed_json, dict):
+            result = {"extractions": [parsed_json]}
+        elif isinstance(parsed_json, list):
+            result = {"extractions": parsed_json}
+        else:
+            msg = "[FATAL] Resolver rich output on document is not a valid rich schema shape."
+            print(msg, file=sys.stderr)
+            run_warnings.append(msg)
+            return None
+
+        # Augment window_config minimally per extraction object
         try:
-            return json.loads(raw)
-        except Exception as je:
-            msg = f"[WARN] Could not parse JSON for chunk {idx if idx is not None else 'single'}: {je}"
-            print(msg, file=sys.stderr)
-            run_warnings.append(msg)
-            return None
+            for obj in result.get("extractions", []):
+                if not isinstance(obj, dict):
+                    continue
+                wc = obj.setdefault("window_config", {})
+                wc.setdefault("input_chars", len(text))
+                wc.setdefault("max_norms_per_5k_tokens", MAX_NORMS_PER_5K)
+                if "extracted_norm_count" not in wc:
+                    norms = obj.get("norms")
+                    wc["extracted_norm_count"] = len(norms) if isinstance(norms, list) else 0
+                # Ensure minimal metadata
+                obj.setdefault("document_metadata", {}).update({
+                    "source": obj.get("document_metadata", {}).get("source", "web-runner"),
+                    "run_id": RUN_ID,
+                    **({"chunk_index": idx} if idx is not None else {}),
+                })
+                obj.setdefault("quality", {}).setdefault("warnings", [])
+        except Exception:
+            # Non-fatal; continue with what we have
+            pass
+
+        # Persist the raw rich output per chunk for traceability
+        raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
+        try:
+            (chunks_dir / raw_name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
+        return result
 
     if len(words) > 5000:
         chunks = chunk_document(INPUT_TEXT)

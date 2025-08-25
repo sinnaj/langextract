@@ -196,6 +196,18 @@ class Resolver(AbstractResolver):
     self.extraction_index_suffix = extraction_index_suffix
     self.extraction_attributes_suffix = extraction_attributes_suffix
     self.format_type = format_type
+    # Holds the raw parsed data (dict/list) from the last call to
+    # _extract_and_parse_content/string_to_extraction_data.
+    self._last_parsed: Mapping[str, ExtractionValueType] | Sequence[Mapping[str, ExtractionValueType]] | None = None
+
+  @property
+  def last_parsed(self):
+    """Returns the raw parsed object from the most recent resolve call.
+
+    This is the JSON/YAML object prior to any projection into legacy shapes.
+    Can be a dict (rich root) or other parsed types depending on model output.
+    """
+    return self._last_parsed
 
   def resolve(
       self,
@@ -347,12 +359,8 @@ class Resolver(AbstractResolver):
     else:
       content = input_string
 
-    # --- Save the raw content to a file before parsing ---
-    try:
-      raw_out_path = Path(os.getcwd()) / "resolver_raw_output.txt"
-      raw_out_path.write_text(content, encoding="utf-8")
-    except Exception as file_exc:
-      logging.warning(f"Failed to write raw resolver output: {file_exc}")
+    # Note: Previously wrote resolver_raw_output.txt for debugging. We now avoid
+    # temp files and keep the parsed object in-memory for consumers.
 
     try:
       if self.format_type == data.FormatType.YAML:
@@ -363,6 +371,8 @@ class Resolver(AbstractResolver):
     except (yaml.YAMLError, json.JSONDecodeError) as e:
       logging.exception("Failed to parse content.")
       raise ResolverParsingError("Failed to parse content.") from e
+    # Store for consumers (e.g., annotator/runner) to access rich object
+    self._last_parsed = parsed_data
 
     return parsed_data
 
@@ -427,7 +437,13 @@ class Resolver(AbstractResolver):
             # Accept either already-dict norm entries or malformed items gracefully
             if not isinstance(norm, dict):
               continue
-            norm_text = norm.get("Norm") or norm.get("norm") or norm.get("text")
+            # Prefer canonical 'statement_text' if present; fall back to legacy keys
+            norm_text = (
+                norm.get("statement_text")
+                or norm.get("Norm")
+                or norm.get("norm")
+                or norm.get("text")
+            )
             if not isinstance(norm_text, str):
               continue
             norm_index += 1
