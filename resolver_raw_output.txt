@@ -1,0 +1,1587 @@
+{
+  "extractions": [
+    {
+      "schema_version": "1.0.0",
+      "ontology_version": "0.0.1",
+      "truncated": false,
+      "has_more": false,
+      "window_config": {
+        "input_chars": 3450,
+        "max_norms_per_5k_tokens": 35,
+        "extracted_norm_count": 13
+      },
+      "global_disclaimer": "NO LEGAL ADVICE",
+      "document_metadata": {
+        "doc_id": "ccte_si.pdf",
+        "doc_title": "CTE SI 3",
+        "source_language": "es",
+        "received_chunk_span": {
+          "char_start": 0,
+          "char_end": 3400
+        },
+        "page_range": {
+          "start": -1,
+          "end": -1
+        },
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        }
+      },
+      "norms": [
+        {
+          "id": "N::0001",
+          "statement_text": "La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "TRUE",
+          "satisfied_if": "FIRE.PROTECTION.MANUAL_INSTALLATIONS.SIGNAGE.COMPLIES_WITH_RD_513_2017 == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "FIRE.PROTECTION.MANUAL_INSTALLATIONS",
+            "SIGNAGE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 66,
+            "span_char_end": 260,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0002",
+          "statement_text": "Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes: a) anchura mínima libre 3,5 m; b) altura mínima libre o gálibo 4,5 m; c)capacidad portante del vial 20 kN/m².",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "TRUE",
+          "satisfied_if": "FIRE.VEHICLE.APPROACH_ROAD.WIDTH >= 3.5 AND FIRE.VEHICLE.APPROACH_ROAD.HEIGHT >= 4.5 AND FIRE.VEHICLE.APPROACH_ROAD.BEARING_CAPACITY >= 20",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "FIRE.VEHICLE.APPROACH_ROAD",
+            "FIRE.VEHICLE.MANEUVER_SPACE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 403,
+            "span_char_end": 605,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0001",
+            "P::0002",
+            "P::0003"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0003",
+          "statement_text": "En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 2,
+          "applies_if": "ROAD.SECTION.CURVED == TRUE",
+          "satisfied_if": "ROAD.LANE.MIN_RADIUS_1 == 5.30 AND ROAD.LANE.MIN_RADIUS_2 == 12.50 AND ROAD.LANE.FREE_WIDTH == 7.20",
+          "exempt_if": null,
+          "priority": 3,
+          "relevant_tags": [
+            "ROAD.LANE.CURVED"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 608,
+            "span_char_end": 791,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0004",
+            "P::0005",
+            "P::0006"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0004",
+          "statement_text": "Los edificios con una altura de evacuación descendente mayor que 9 m deben disponer de un espacio de maniobra para los bomberos que cumpla las siguientes condiciones a lo largo de las fachadas en las que estén situados los accesos, o bien al interior del edificio, o bien al espacio abierto interior en el que se encuentren aquellos: a) anchura mínima libre 5 m b) altura libre la del edificio c) separación máximo del vehículo de bomberos a la fachada del edificio - edificios de hasta 15 m de altura de evacuación 23 m - edificios de más de 15 m y hasta 20 m de altura de evacuación 18 m - edificios de más de 20 m de altura de evacuación 10 m d) distancia máximo hasta los accesos al edificio necesarios para poder llegar hasta todas sus zonas 30 m e) pendiente máximo 10% f) resistencia al punzonamiento del suelo 100 kN sobre 20 cm φ",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "BUILDING.EVACUATION.DESCENDING_HEIGHT > 9",
+          "satisfied_if": "FIRE.MANEUVER_SPACE.WIDTH >= 5 AND FIRE.MANEUVER_SPACE.HEIGHT == BUILDING.HEIGHT AND (BUILDING.EVACUATION.HEIGHT <= 15 AND FIRE.VEHICLE.FACADE_SEPARATION <= 23) OR (BUILDING.EVACUATION.HEIGHT > 15 AND BUILDING.EVACUATION.HEIGHT <= 20 AND FIRE.VEHICLE.FACADE_SEPARATION <= 18) OR (BUILDING.EVACUATION.HEIGHT > 20 AND FIRE.VEHICLE.FACADE_SEPARATION <= 10) AND FIRE.MANEUVER_SPACE.ACCESS_DISTANCE <= 30 AND FIRE.MANEUVER_SPACE.MAX_SLOPE <= 10 AND FIRE.MANEUVER_SPACE.PUNCHING_RESISTANCE >= 100",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "FIRE.MANEUVER_SPACE",
+            "BUILDING.EVACUATION.HEIGHT"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 820,
+            "span_char_end": 1740,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0007",
+            "P::0008",
+            "P::0009",
+            "P::0010",
+            "P::0011",
+            "P::0012",
+            "P::0013",
+            "P::0014",
+            "P::0015"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0005",
+          "statement_text": "La condición referida al punzonamiento debe cumplirse en las tapas de registro de las canalizaciones de servicios públicos situadas en ese espacio, cuando sus dimensiones fueran mayores que 0,15m x 0,15m,abiendo cenirse a las especificaciones de la norma UNE- EN 124:2015.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 2,
+          "applies_if": "MANHOLE_COVER.DIMENSION.LENGTH > 0.15 AND MANHOLE_COVER.DIMENSION.WIDTH > 0.15",
+          "satisfied_if": "MANHOLE_COVER.PUNCHING_RESISTANCE.COMPLIES_WITH_UNE_EN_124_2015 == TRUE",
+          "exempt_if": null,
+          "priority": 3,
+          "relevant_tags": [
+            "MANHOLE_COVER",
+            "PUNCHING_RESISTANCE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 1743,
+            "span_char_end": 1999,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0016",
+            "P::0017"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0006",
+          "statement_text": "El espacio de maniobra debe mantenense libre de mobiliario urbano, arbolado, jardines, mojones u otros obstáculos.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 3,
+          "applies_if": "TRUE",
+          "satisfied_if": "FIRE.MANEUVER_SPACE.FREE_OF_OBSTACLES == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "FIRE.MANEUVER_SPACE",
+            "OBSTACLES"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2002,
+            "span_char_end": 2110,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0007",
+          "statement_text": "De igual forma, donde se prevea el acceso a una fachada con escaleras o plataformas hidraulicas, se evitaran elementos tales como cables eléctricos aéreos o ramas de árboles que puedan interferir con las escaleras, etc.",
+          "obligation_type": "PROHIBITION",
+          "paragraph_number": 3,
+          "applies_if": "FACADE.ACCESS.HYDRAULIC_PLATFORM_OR_STAIRS == TRUE",
+          "satisfied_if": "FACADE.ACCESS.FREE_OF_INTERFERENCE == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "FACADE.ACCESS",
+            "HYDRAULIC_PLATFORM",
+            "STAIRS"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2110,
+            "span_char_end": 2364,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0008",
+          "statement_text": "En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de bombeo a menos de 18m de cada punto de conexión a ella.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 4,
+          "applies_if": "BUILDING.EQUIPPED_WITH.DRY_RISER == TRUE",
+          "satisfied_if": "PUMPING_EQUIPMENT.ACCESS_DISTANCE <= 18",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "DRY_RISER",
+            "PUMPING_EQUIPMENT.ACCESS"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2367,
+            "span_char_end": 2505,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0018"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0009",
+          "statement_text": "El punto de conexión sería visible desde el camión de bombeo.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 4,
+          "applies_if": "BUILDING.EQUIPPED_WITH.DRY_RISER == TRUE",
+          "satisfied_if": "CONNECTION_POINT.VISIBLE_FROM_PUMPING_TRUCK == TRUE",
+          "exempt_if": null,
+          "priority": 3,
+          "relevant_tags": [
+            "DRY_RISER",
+            "CONNECTION_POINT"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2505,
+            "span_char_end": 2564,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0010",
+          "statement_text": "En las vías de acceso sin salida de más de 20m de largo se dispondirá de un espacio suficiente para la maniobra de los vehículos del servicio de extinción de incendios.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 5,
+          "applies_if": "ACCESS_ROAD.DEAD_END == TRUE AND ACCESS_ROAD.LENGTH > 20",
+          "satisfied_if": "FIRE_EXTINGUISHING_VEHICLE.MANEUVER_SPACE.SUFFICIENT == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "ACCESS_ROAD.DEAD_END",
+            "FIRE_EXTINGUISHING_VEHICLE.MANEUVER_SPACE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2567,
+            "span_char_end": 2736,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0019"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0011",
+          "statement_text": "En zonas edificadas limitrofes o interiores a áreas forestales, deben cumplirse las condiciones siguientes: a) Debe haber una franja de 25m de anchura separando la zona edificada de la forestal, libre de arbustos o vegetación que pueda propagar un incendio del área forestal así como un camino perimetral de 5m , que podrá estar incluido en la citada franja;",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 6,
+          "applies_if": "ZONE.CLASSIFICATION IN ['BUILT_UP_AREA','FOREST_BORDER_AREA']",
+          "satisfied_if": "FIRE_BREAK.WIDTH >= 25 AND FIRE_BREAK.FREE_OF_COMBUSTIBLE_VEGETATION == TRUE AND PERIMETER_PATH.WIDTH >= 5",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "FIRE_BREAK",
+            "PERIMETER_PATH"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 2739,
+            "span_char_end": 3127,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0020",
+            "P::0021"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0012",
+          "statement_text": "b) La zona edificada o urbanizada debe disponer preferentemente de dos vías de acceso alternativas, cada una de las cuales debe cumplir las condiciones expuestos en el apartado 1.1;",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 6,
+          "applies_if": "ZONE.CLASSIFICATION IN ['BUILT_UP_AREA','URBANIZED_AREA']",
+          "satisfied_if": "ACCESS_ROAD.ALTERNATIVE_COUNT >= 2 AND ACCESS_ROAD.ALTERNATIVE.COMPLIES_WITH_SECTION_1_1 == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "ACCESS_ROAD.ALTERNATIVE"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 3127,
+            "span_char_end": 3290,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0013",
+          "statement_text": "c) Cuando no se pueda disponer de las dos vías alternativas indicadas en el párrafo anterior, el acceso único debe finalizar en un fondo de saco de forma circular de 12,50m de radio, en el que se cumplan las condiciones expresadas en el primer párrafo de este apartado.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 6,
+          "applies_if": "ACCESS_ROAD.ALTERNATIVE_COUNT < 2",
+          "satisfied_if": "ACCESS_ROAD.DEAD_END.CIRCULAR_RADIUS == 12.50 AND ACCESS_ROAD.DEAD_END.COMPLIES_WITH_FIRST_PARAGRAPH == TRUE",
+          "exempt_if": null,
+          "priority": 4,
+          "relevant_tags": [
+            "ACCESS_ROAD.DEAD_END.CIRCULAR"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 3290,
+            "span_char_end": 3609,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0022"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0014",
+          "statement_text": "Las fachadas a las que se hace referencia en el apartado 1.2 deben disponer de huecos que permitan el acceso desde el exterior al personal del servicio de extinción de incendios.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "TRUE",
+          "satisfied_if": "FACADE.OPENINGS.FIRE_SERVICE_ACCESS == TRUE",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "FACADE.OPENINGS",
+            "FIRE_SERVICE_ACCESS"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 3640,
+            "span_char_end": 3816,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0015",
+          "statement_text": "Dichos huecos deben cumplir las condiciones siguientes: a) Facilitar el acceso a cada una de las plantas del edificio, de forma que la altura del alfeizar respecto del nivel de la planta a la que accede no sea mayor que 1,20m b) Sus dimensiones horizontal y vertical deben ser, al menos, 0,80m y 1,20m respectivamente. La distancia maxima entre los ejes verticales de dos huecos consecutivos no debe exceder de 25 m, medida sobre la fachada; c) No se deben instalar en fachada elementos que impidan o dificulten la accesibilidad al interior del edificio a través de dichos huecos, a excepción de los elementos de seguridad situados en los huecos de las plantas cuya altura de evacuación no exceda de 9m",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 1,
+          "applies_if": "TRUE",
+          "satisfied_if": "OPENING.SILL_HEIGHT <= 1.20 AND OPENING.WIDTH >= 0.80 AND OPENING.HEIGHT >= 1.20 AND OPENING.VERTICAL_AXIS_DISTANCE <= 25 AND FACADE.ELEMENTS.IMPEDING_ACCESS == FALSE OR (FACADE.ELEMENTS.IMPEDING_ACCESS == TRUE AND EVACUATION.HEIGHT <= 9)",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "OPENING.ACCESS",
+            "OPENING.DIMENSIONS",
+            "FACADE.ELEMENTS"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 3816,
+            "span_char_end": 4488,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0023",
+            "P::0024",
+            "P::0025",
+            "P::0026",
+            "P::0027"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        },
+        {
+          "id": "N::0016",
+          "statement_text": "Los aparcamientos robotizados dispondrán, en cada sector de incendios en que estén compartimientos, de una via compartimentada con elementos El 120 y puertas El2 60- C5 que permita el acceso de los bomberos hasta cada nivel existente, así como de un sistema mecánico de extracción de humo capaz realizar 3 renovaciones/hora.",
+          "obligation_type": "MANDATORY",
+          "paragraph_number": 2,
+          "applies_if": "PARKING.TYPE == 'ROBOTIZED'",
+          "satisfied_if": "FIRE_SECTOR.COMPARTMENTED_ACCESS_ROUTE.FIRE_RESISTANCE == 'EI_120' AND FIRE_SECTOR.DOOR.FIRE_RESISTANCE == 'EI2_60_C5' AND SMOKE_EXTRACTION_SYSTEM.CAPACITY >= 3",
+          "exempt_if": null,
+          "priority": 5,
+          "relevant_tags": [
+            "PARKING.ROBOTIZED",
+            "FIRE_SECTOR",
+            "SMOKE_EXTRACTION_SYSTEM"
+          ],
+          "relevant_roles": [],
+          "project_dimensions": {},
+          "lifecycle_phase": [],
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "ccte_si.pdf",
+            "article": null,
+            "page": -1,
+            "span_char_start": 4491,
+            "span_char_end": 4843,
+            "visual_refs": []
+          },
+          "extracted_parameters_ids": [
+            "P::0028"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null
+        }
+      ],
+      "tags": [
+        {
+          "id": "T::0001",
+          "tag_path": "FIRE.PROTECTION.MANUAL_INSTALLATIONS",
+          "parent": "FIRE.PROTECTION",
+          "definition": "Instalaciones manuales de protección contra incendios.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0002",
+          "tag_path": "SIGNAGE",
+          "parent": null,
+          "definition": "Señalización.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0001"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0003",
+          "tag_path": "FIRE.VEHICLE.APPROACH_ROAD",
+          "parent": "FIRE.VEHICLE",
+          "definition": "Vías de aproximación para vehículos de bomberos.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0004",
+          "tag_path": "FIRE.VEHICLE.MANEUVER_SPACE",
+          "parent": "FIRE.VEHICLE",
+          "definition": "Espacio de maniobra para vehículos de bomberos.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0002",
+            "N::0004",
+            "N::0006",
+            "N::0010"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0005",
+          "tag_path": "ROAD.LANE.CURVED",
+          "parent": "ROAD.LANE",
+          "definition": "Carril de rodadura en tramos curvos.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0003"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0006",
+          "tag_path": "BUILDING.EVACUATION.HEIGHT",
+          "parent": "BUILDING.EVACUATION",
+          "definition": "Altura de evacuación de un edificio.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0004",
+            "N::0015"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0007",
+          "tag_path": "MANHOLE_COVER",
+          "parent": null,
+          "definition": "Tapas de registro de canalizaciones.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0005"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0008",
+          "tag_path": "PUNCHING_RESISTANCE",
+          "parent": null,
+          "definition": "Resistencia al punzonamiento.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0005"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0009",
+          "tag_path": "OBSTACLES",
+          "parent": null,
+          "definition": "Obstáculos en el espacio de maniobra.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0006"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0010",
+          "tag_path": "FACADE.ACCESS",
+          "parent": "FACADE",
+          "definition": "Acceso a fachada.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007",
+            "N::0014"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0011",
+          "tag_path": "HYDRAULIC_PLATFORM",
+          "parent": null,
+          "definition": "Plataformas hidráulicas.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0012",
+          "tag_path": "STAIRS",
+          "parent": null,
+          "definition": "Escaleras.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0007"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0013",
+          "tag_path": "DRY_RISER",
+          "parent": null,
+          "definition": "Columna seca.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0008",
+            "N::0009"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0014",
+          "tag_path": "PUMPING_EQUIPMENT.ACCESS",
+          "parent": "PUMPING_EQUIPMENT",
+          "definition": "Acceso para equipo de bombeo.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0008"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0015",
+          "tag_path": "CONNECTION_POINT",
+          "parent": null,
+          "definition": "Punto de conexión.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0009"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0016",
+          "tag_path": "ACCESS_ROAD.DEAD_END",
+          "parent": "ACCESS_ROAD",
+          "definition": "Vía de acceso sin salida.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0010"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0017",
+          "tag_path": "FIRE_EXTINGUISHING_VEHICLE.MANEUVER_SPACE",
+          "parent": "FIRE_EXTINGUISHING_VEHICLE",
+          "definition": "Espacio de maniobra para vehículos de extinción de incendios.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0010"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0018",
+          "tag_path": "FIRE_BREAK",
+          "parent": null,
+          "definition": "Franja de separación para prevención de incendios.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0011"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0019",
+          "tag_path": "PERIMETER_PATH",
+          "parent": null,
+          "definition": "Camino perimetral.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0011"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0020",
+          "tag_path": "ACCESS_ROAD.ALTERNATIVE",
+          "parent": "ACCESS_ROAD",
+          "definition": "Vías de acceso alternativas.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0012"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0021",
+          "tag_path": "ACCESS_ROAD.DEAD_END.CIRCULAR",
+          "parent": "ACCESS_ROAD.DEAD_END",
+          "definition": "Fondo de saco de forma circular en vía de acceso.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0013"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0022",
+          "tag_path": "OPENING.ACCESS",
+          "parent": "OPENING",
+          "definition": "Huecos que permiten el acceso.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0015"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0023",
+          "tag_path": "OPENING.DIMENSIONS",
+          "parent": "OPENING",
+          "definition": "Dimensiones de los huecos.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0015"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0024",
+          "tag_path": "FACADE.ELEMENTS",
+          "parent": "FACADE",
+          "definition": "Elementos en fachada.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0015"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0025",
+          "tag_path": "PARKING.ROBOTIZED",
+          "parent": "PARKING",
+          "definition": "Aparcamientos robotizados.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0016"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0026",
+          "tag_path": "FIRE_SECTOR",
+          "parent": null,
+          "definition": "Sector de incendios.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0016"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "T::0027",
+          "tag_path": "SMOKE_EXTRACTION_SYSTEM",
+          "parent": null,
+          "definition": "Sistema de extracción de humo.",
+          "synonyms": [],
+          "introduced_by_norm_ids": [
+            "N::0016"
+          ],
+          "refined_by_norm_ids": [],
+          "related_tag_paths": [],
+          "status": "ACTIVE",
+          "merge_target": null,
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
+      "locations": [],
+      "questions": [],
+      "consequences": [],
+      "parameters": [
+        {
+          "id": "P::0001",
+          "field_path": "FIRE.VEHICLE.APPROACH_ROAD.WIDTH",
+          "operator": ">=",
+          "value": 3.5,
+          "unit": "m",
+          "original_text": "3,5 m",
+          "norm_ids": [
+            "N::0002"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0002",
+          "field_path": "FIRE.VEHICLE.APPROACH_ROAD.HEIGHT",
+          "operator": ">=",
+          "value": 4.5,
+          "unit": "m",
+          "original_text": "4,5 m",
+          "norm_ids": [
+            "N::0002"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0003",
+          "field_path": "FIRE.VEHICLE.APPROACH_ROAD.BEARING_CAPACITY",
+          "operator": ">=",
+          "value": 20,
+          "unit": "kN/m²",
+          "original_text": "20 kN/m²",
+          "norm_ids": [
+            "N::0002"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0004",
+          "field_path": "ROAD.LANE.MIN_RADIUS_1",
+          "operator": "==",
+          "value": 5.30,
+          "unit": "m",
+          "original_text": "5,30 m",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0005",
+          "field_path": "ROAD.LANE.MIN_RADIUS_2",
+          "operator": "==",
+          "value": 12.50,
+          "unit": "m",
+          "original_text": "12,50 m",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0006",
+          "field_path": "ROAD.LANE.FREE_WIDTH",
+          "operator": "==",
+          "value": 7.20,
+          "unit": "m",
+          "original_text": "7,20 m",
+          "norm_ids": [
+            "N::0003"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0007",
+          "field_path": "BUILDING.EVACUATION.DESCENDING_HEIGHT",
+          "operator": ">",
+          "value": 9,
+          "unit": "m",
+          "original_text": "9 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0008",
+          "field_path": "FIRE.MANEUVER_SPACE.WIDTH",
+          "operator": ">=",
+          "value": 5,
+          "unit": "m",
+          "original_text": "5 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0009",
+          "field_path": "BUILDING.EVACUATION.HEIGHT",
+          "operator": "<=",
+          "value": 15,
+          "unit": "m",
+          "original_text": "15 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0010",
+          "field_path": "FIRE.VEHICLE.FACADE_SEPARATION",
+          "operator": "<=",
+          "value": 23,
+          "unit": "m",
+          "original_text": "23 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0011",
+          "field_path": "BUILDING.EVACUATION.HEIGHT",
+          "operator": ">",
+          "value": 15,
+          "unit": "m",
+          "original_text": "15 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0012",
+          "field_path": "BUILDING.EVACUATION.HEIGHT",
+          "operator": "<=",
+          "value": 20,
+          "unit": "m",
+          "original_text": "20 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0013",
+          "field_path": "FIRE.VEHICLE.FACADE_SEPARATION",
+          "operator": "<=",
+          "value": 18,
+          "unit": "m",
+          "original_text": "18 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0014",
+          "field_path": "FIRE.VEHICLE.FACADE_SEPARATION",
+          "operator": "<=",
+          "value": 10,
+          "unit": "m",
+          "original_text": "10 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0015",
+          "field_path": "FIRE.MANEUVER_SPACE.ACCESS_DISTANCE",
+          "operator": "<=",
+          "value": 30,
+          "unit": "m",
+          "original_text": "30 m",
+          "norm_ids": [
+            "N::0004"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0016",
+          "field_path": "MANHOLE_COVER.DIMENSION.LENGTH",
+          "operator": ">",
+          "value": 0.15,
+          "unit": "m",
+          "original_text": "0,15m",
+          "norm_ids": [
+            "N::0005"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0017",
+          "field_path": "MANHOLE_COVER.DIMENSION.WIDTH",
+          "operator": ">",
+          "value": 0.15,
+          "unit": "m",
+          "original_text": "0,15m",
+          "norm_ids": [
+            "N::0005"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0018",
+          "field_path": "PUMPING_EQUIPMENT.ACCESS_DISTANCE",
+          "operator": "<=",
+          "value": 18,
+          "unit": "m",
+          "original_text": "18m",
+          "norm_ids": [
+            "N::0008"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0019",
+          "field_path": "ACCESS_ROAD.LENGTH",
+          "operator": ">",
+          "value": 20,
+          "unit": "m",
+          "original_text": "20m",
+          "norm_ids": [
+            "N::0010"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0020",
+          "field_path": "FIRE_BREAK.WIDTH",
+          "operator": ">=",
+          "value": 25,
+          "unit": "m",
+          "original_text": "25m",
+          "norm_ids": [
+            "N::0011"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0021",
+          "field_path": "PERIMETER_PATH.WIDTH",
+          "operator": ">=",
+          "value": 5,
+          "unit": "m",
+          "original_text": "5m",
+          "norm_ids": [
+            "N::0011"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0022",
+          "field_path": "ACCESS_ROAD.DEAD_END.CIRCULAR_RADIUS",
+          "operator": "==",
+          "value": 12.50,
+          "unit": "m",
+          "original_text": "12,50m",
+          "norm_ids": [
+            "N::0013"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0023",
+          "field_path": "OPENING.SILL_HEIGHT",
+          "operator": "<=",
+          "value": 1.20,
+          "unit": "m",
+          "original_text": "1,20m",
+          "norm_ids": [
+            "N::0015"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0024",
+          "field_path": "OPENING.WIDTH",
+          "operator": ">=",
+          "value": 0.80,
+          "unit": "m",
+          "original_text": "0,80m",
+          "norm_ids": [
+            "N::0015"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0025",
+          "field_path": "OPENING.HEIGHT",
+          "operator": ">=",
+          "value": 1.20,
+          "unit": "m",
+          "original_text": "1,20m",
+          "norm_ids": [
+            "N::0015"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0026",
+          "field_path": "OPENING.VERTICAL_AXIS_DISTANCE",
+          "operator": "<=",
+          "value": 25,
+          "unit": "m",
+          "original_text": "25 m",
+          "norm_ids": [
+            "N::0015"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0027",
+          "field_path": "EVACUATION.HEIGHT",
+          "operator": "<=",
+          "value": 9,
+          "unit": "m",
+          "original_text": "9m",
+          "norm_ids": [
+            "N::0015"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        },
+        {
+          "id": "P::0028",
+          "field_path": "SMOKE_EXTRACTION_SYSTEM.CAPACITY",
+          "operator": ">=",
+          "value": 3,
+          "unit": "renovaciones/hora",
+          "original_text": "3 renovaciones/hora",
+          "norm_ids": [
+            "N::0016"
+          ],
+          "confidence": 0.9,
+          "uncertainty": 0.1
+        }
+      ],
+      "quality": {
+        "errors": [
+          "PAGE_MISSING"
+        ],
+        "warnings": [],
+        "confidence_global": 0.9,
+        "uncertainty_global": 0.1
+      }
+    }
+  ]
+}
