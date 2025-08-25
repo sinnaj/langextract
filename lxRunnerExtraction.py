@@ -109,6 +109,7 @@ def makeRun(
         ]
         candidates = preferred or fallback
         INPUT_FILE = candidates[0] if candidates else None
+
     if INPUT_FILE:
         print(f"[INFO] Selected input file: {INPUT_FILE}")
     TEACH_FILE = Path(INPUT_TEACHFILE) if INPUT_TEACHFILE else None
