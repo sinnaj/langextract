@@ -171,14 +171,23 @@ def stream_logs(run_id: str):
         return abort(404)
 
     def generate():
+        # Absolute line index accounting for truncation
         idx = 0
+        last_emit = time.time()
+        # Initial comment to open SSE stream promptly
+        yield ": connected\n\n"
         # Send any buffered lines first
         while True:
             buf = r.state.buffer
-            while idx < len(buf):
-                line = buf[idx]
+            offset = getattr(r.state, "buffer_offset", 0)
+            # Skip ahead if the buffer was truncated
+            if idx < offset:
+                idx = offset
+            while idx - offset < len(buf):
+                line = buf[idx - offset]
                 idx += 1
                 yield f"data: {json.dumps({'line': line, 'run_id': run_id, 'ts': time.time()})}\n\n"
+                last_emit = time.time()
             if r.state.status in ("finished", "error", "canceled"):
                 payload = {"event": "complete", "run_id": run_id, "status": r.state.status}
                 # exit_code added if Runner stores it
@@ -187,8 +196,18 @@ def stream_logs(run_id: str):
                     payload["code"] = exit_code
                 yield f"data: {json.dumps(payload)}\n\n"
                 break
+            # Periodic keepalive to prevent proxy timeouts
+            now = time.time()
+            if now - last_emit > 10:
+                yield ": keepalive\n\n"
+                last_emit = now
             time.sleep(0.2)
-    return Response(generate(), mimetype="text/event-stream")
+    resp = Response(generate(), mimetype="text/event-stream")
+    # Prevent buffering by proxies and encourage streaming
+    resp.headers["Cache-Control"] = "no-cache"
+    resp.headers["X-Accel-Buffering"] = "no"
+    resp.headers["Connection"] = "keep-alive"
+    return resp
 
 @app.get("/runs/<run_id>/status")
 def run_status(run_id: str):
@@ -384,6 +403,7 @@ if __name__ == "__main__":
     # Simple dev server: disable reloader to avoid double-spawn
     use_reloader = False
     try:
-        app.run(host=host, port=port, debug=True, use_reloader=use_reloader)
+        # Enable threading so SSE and other requests don't block each other
+        app.run(host=host, port=port, debug=True, use_reloader=use_reloader, threaded=True)
     finally:
         _graceful_shutdown()
