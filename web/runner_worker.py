@@ -54,6 +54,9 @@ def main():
     ee_path = REPO_ROOT / "lxRunnerExtraction.py"
     if ee_path.exists():
         try:
+            # Remove any cached module to ensure we load latest edits
+            if "lxRunnerExtraction" in sys.modules:
+                del sys.modules["lxRunnerExtraction"]
             spec = spec_from_file_location("lxRunnerExtraction", ee_path)
             if spec and spec.loader:
                 lxRunnerExtraction = module_from_spec(spec)  # type: ignore

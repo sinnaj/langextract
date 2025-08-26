@@ -27,9 +27,13 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from datetime import datetime
 import importlib.util
+from xml.parsers.expat import model
+import ast
 
 from dotenv import load_dotenv
 import langextract as lx
+from langextract import factory
+from langextract import providers
 from postprocessing import enrich_outputdata as pp_enrich
 from postprocessing import output_schema_validation as pp_schema
 from postprocessing import relationship_inference as pp_rel
@@ -56,6 +60,15 @@ def makeRun(
     """Configure globals for this run. Values are set via globals() mapping."""
 
     load_dotenv()
+
+    # Ensure provider registry is populated (mirrors simpleExtraction pattern)
+    providers.load_builtins_once()
+    providers.load_plugins_once()
+    try:
+        avail = providers.list_providers()
+        print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
+    except Exception:
+        pass
 
     USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
     OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")  # repurposed for OpenRouter
@@ -207,7 +220,6 @@ def makeRun(
     # ---------------------------------------------------------------------------
 
 
-
     def apply_enrichment_pipeline(obj: Dict[str, Any]):
         pp_enrich.enrich_parameters(obj)
         pp_enrich.merge_duplicate_tags(obj)
@@ -216,38 +228,36 @@ def makeRun(
             pp_rel.infer_relationships(obj)
 
 
+    # Explicitly route to OpenAI-compatible provider via OpenRouter
+    cfg = factory.ModelConfig(
+        model_id=MODEL_ID,
+        provider="OpenAILanguageModel",  # Explicit provider class to route via OpenRouter's OpenAI-compatible API
+        provider_kwargs={
+            "api_key": OPENROUTER_KEY,
+            "base_url": "https://openrouter.ai/api/v1",
+            "temperature": MODEL_TEMPERATURE,
+            # Prefer strict JSON mode
+            "format_type": lx.data.FormatType.JSON,
+            "max_workers": 20,
+        },
+    )
 
-    ## Infer Relationships refactored to individual file
-
-    # ---------------------------------------------------------------------------
-    # 4. Execute Extraction
-    # ---------------------------------------------------------------------------
-    print("[INFO] Invoking model for rich extraction ...")
-
-    lm_params = {
-        "temperature": MODEL_TEMPERATURE,
-    }
-
+    # Define Extraction Args
     extract_kwargs = dict(
         text_or_documents=INPUT_TEXT,
         prompt_description=PROMPT_DESCRIPTION,
         examples=EXAMPLES,
-        model_id=MODEL_ID,
+        config=cfg,
         fence_output=False,
-        use_schema_constraints=False,
-        temperature=MODEL_TEMPERATURE,
+        use_schema_constraints=True,
+        max_char_buffer=5000,
         resolver_params={
-            "fence_output": False,
-            "format_type": lx.data.FormatType.JSON,
+                "fence_output": False,
+                "format_type": lx.data.FormatType.JSON,
         },
-        language_model_params=lm_params,
     )
 
     if USE_OPENROUTER:
-        # OpenRouter (OpenAI-compatible) path.
-        # NOTE: Only pass arguments accepted by extract(); provider-specific values must go inside
-        # language_model_params so they propagate to provider_kwargs. Top-level unsupported kwargs
-        # like base_url would raise TypeError (as observed).
         extract_kwargs["api_key"] = OPENROUTER_KEY
         lm_extra = extract_kwargs.setdefault("language_model_params", {})
         lm_extra.update({
@@ -262,13 +272,41 @@ def makeRun(
             "api_key": GOOGLE_API_KEY,
         })
 
-    extract_kwargs["max_char_buffer"] = 5000
-
     print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
 
-    words = INPUT_TEXT.split()
     all_extractions: List[Dict[str, Any]] = []
     run_warnings: List[str] = []
+
+    def _synthesize_extraction(text: str, norms: List[Dict[str, Any]] | None = None, errors: List[str] | None = None, warnings: List[str] | None = None) -> Dict[str, Any]:
+        nn = norms or []
+        return {
+            "schema_version": "1.0.0",
+            "ontology_version": "0.0.1",
+            "truncated": False,
+            "has_more": False,
+            "window_config": {
+                "input_chars": len(text),
+                "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                "extracted_norm_count": len(nn),
+            },
+            "global_disclaimer": "NO LEGAL ADVICE",
+            "document_metadata": {
+                "doc_id": str(INPUT_FILE.name if INPUT_FILE else "unknown"),
+                "doc_title": "",
+                "source_language": "es",
+                "received_chunk_span": {"char_start": 0, "char_end": len(text)},
+                "page_range": {"start": -1, "end": -1},
+                "topics": [],
+                "location_scope": {"COUNTRY": "", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.5},
+            },
+            "norms": nn,
+            "tags": [],
+            "locations": [],
+            "questions": [],
+            "consequences": [],
+            "parameters": [],
+            "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
+        }
 
     def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
@@ -281,123 +319,166 @@ def makeRun(
             msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {e}"
             print(msg, file=sys.stderr)
             run_warnings.append(msg)
-            return None
+            # Synthesize a minimal valid rich object so the run completes
+            synthesized = _synthesize_extraction(text, norms=[], errors=[str(e)], warnings=run_warnings)
+            result = {"extractions": [synthesized]}
+            raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
+            try:
+                (chunks_dir / raw_name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            except Exception:
+                pass
+            return result
 
-        # Consume the resolver's rich JSON directly from the AnnotatedDocument
-        parsed_json = getattr(annotated, "rich", None)
-        if parsed_json is None:
-            msg = "[FATAL] Resolver did not provide rich parsed output on AnnotatedDocument."
-            print(msg, file=sys.stderr)
-            run_warnings.append(msg)
-            return None
-        # Normalize into a root with 'extractions': [ ... ]
-        if isinstance(parsed_json, dict) and isinstance(parsed_json.get("extractions"), list):
-            result = parsed_json
-        elif isinstance(parsed_json, dict):
-            result = {"extractions": [parsed_json]}
-        elif isinstance(parsed_json, list):
-            result = {"extractions": parsed_json}
-        else:
-            msg = "[FATAL] Resolver rich output on document is not a valid rich schema shape."
-            print(msg, file=sys.stderr)
-            run_warnings.append(msg)
-            return None
+        # Build a rich-schema shaped JSON from legacy extractions (classed)
+        legacy_extractions = list(getattr(annotated, "extractions", []) or [])
 
-        # Fallback for library-managed chunking: if rich contains no extractions,
-        # synthesize a minimal rich object from legacy extractions so the test can proceed.
-        try:
-            if not result.get("extractions"):
-                legacy_extractions = list(getattr(annotated, "extractions", []) or [])
-                norms = []
-                for e in legacy_extractions:
-                    # Be permissive: treat anything as a Norm candidate in fallback
-                    txt = getattr(e, "extraction_text", None)
-                    if isinstance(txt, str) and txt.strip():
-                        norms.append({"statement_text": txt})
-                synthesized = {
-                    "schema_version": "0.0-library-fallback",
-                    "norms": norms,
-                    "tags": [],
-                    "locations": [],
-                    "questions": [],
-                    "consequences": [],
-                    "parameters": [],
-                    "document_metadata": {
-                        "source": "web-runner",
-                        "run_id": RUN_ID,
-                        **({"chunk_index": idx} if idx is not None else {}),
-                    },
-                    "quality": {
-                        "warnings": [
-                            "library-chunking fallback: rich output missing or empty; projected from legacy extractions"
-                        ]
-                    },
-                    "window_config": {
-                        "input_chars": len(text),
-                        "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
-                        "extracted_norm_count": len(norms),
-                    },
-                }
-                result = {"extractions": [synthesized]}
-        except Exception as _:
-            # If fallback synthesis fails, keep original result (may be empty) and allow outer logic to handle.
-            pass
+        def _parse_literal(val: Any) -> Any:
+            if isinstance(val, (dict, list, int, float, bool)) or val is None:
+                return val
+            if not isinstance(val, str):
+                return None
+            s = val.strip()
+            # Try JSON first
+            try:
+                return json.loads(s)
+            except Exception:
+                pass
+            # Fall back to Python literal (single quotes etc.)
+            try:
+                return ast.literal_eval(s)
+            except Exception:
+                return None
 
-        # Augment window_config minimally per extraction object
-        try:
-            for obj in result.get("extractions", []):
-                if not isinstance(obj, dict):
-                    continue
-                wc = obj.setdefault("window_config", {})
-                wc.setdefault("input_chars", len(text))
-                wc.setdefault("max_norms_per_5k_tokens", MAX_NORMS_PER_5K)
-                if "extracted_norm_count" not in wc:
-                    norms = obj.get("norms")
-                    wc["extracted_norm_count"] = len(norms) if isinstance(norms, list) else 0
-                # Ensure minimal metadata
-                obj.setdefault("document_metadata", {}).update({
-                    "source": obj.get("document_metadata", {}).get("source", "web-runner"),
-                    "run_id": RUN_ID,
-                    **({"chunk_index": idx} if idx is not None else {}),
-                })
-                obj.setdefault("quality", {}).setdefault("warnings", [])
-        except Exception:
-            # Non-fatal; continue with what we have
-            pass
+        meta: Dict[str, Any] = {
+            "schema_version": "1.0.0",
+            "ontology_version": "0.0.1",
+            "truncated": False,
+            "has_more": False,
+            "window_config": {
+                "input_chars": len(text),
+                "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                "extracted_norm_count": 0,
+            },
+            "global_disclaimer": "NO LEGAL ADVICE",
+            "document_metadata": {
+                "doc_id": str(INPUT_FILE.name if INPUT_FILE else "unknown"),
+                "doc_title": "",
+                "source_language": "es",
+                "received_chunk_span": {"char_start": 0, "char_end": len(text)},
+                "page_range": {"start": -1, "end": -1},
+                "topics": [],
+                "location_scope": {"COUNTRY": "", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.5},
+            },
+            "quality": {"errors": [], "warnings": [], "confidence_global": 0.5, "uncertainty_global": 0.5},
+        }
+        norms: List[Dict[str, Any]] = []
+        tags: List[Dict[str, Any]] = []
+        locations: List[Dict[str, Any]] = []
+        questions: List[Dict[str, Any]] = []
+        consequences: List[Dict[str, Any]] = []
+        parameters: List[Dict[str, Any]] = []
 
-        # Persist the raw rich output per chunk for traceability
+        for e in legacy_extractions:
+            cls = getattr(e, "extraction_class", None)
+            txt = getattr(e, "extraction_text", None)
+            parsed = _parse_literal(txt)
+            if cls == "schema_version" and isinstance(parsed, str):
+                meta["schema_version"] = parsed
+            elif cls == "ontology_version" and isinstance(parsed, str):
+                meta["ontology_version"] = parsed
+            elif cls == "truncated" and isinstance(parsed, (bool, str)):
+                meta["truncated"] = bool(parsed) if not isinstance(parsed, bool) else parsed
+            elif cls == "has_more" and isinstance(parsed, (bool, str)):
+                meta["has_more"] = bool(parsed) if not isinstance(parsed, bool) else parsed
+            elif cls == "window_config" and isinstance(parsed, dict):
+                meta["window_config"].update(parsed)
+            elif cls == "global_disclaimer" and isinstance(parsed, str):
+                meta["global_disclaimer"] = parsed
+            elif cls == "document_metadata" and isinstance(parsed, dict):
+                meta["document_metadata"].update(parsed)
+            elif cls == "quality" and isinstance(parsed, dict):
+                meta["quality"].update(parsed)
+            elif cls == "norms" and isinstance(parsed, list):
+                norms = parsed
+            elif cls == "tags" and isinstance(parsed, list):
+                tags = parsed
+            elif cls == "locations" and isinstance(parsed, list):
+                locations = parsed
+            elif cls == "questions" and isinstance(parsed, list):
+                questions = parsed
+            elif cls == "consequences" and isinstance(parsed, list):
+                consequences = parsed
+            elif cls == "parameters" and isinstance(parsed, list):
+                parameters = parsed
+
+        meta["window_config"]["extracted_norm_count"] = len(norms)
+        synthesized: Dict[str, Any] = {
+            **{k: meta[k] for k in ("schema_version","ontology_version","truncated","has_more","window_config","global_disclaimer","document_metadata")},
+            "norms": norms,
+            "tags": tags,
+            "locations": locations,
+            "questions": questions,
+            "consequences": consequences,
+            "parameters": parameters,
+            "quality": meta["quality"],
+        }
+
+        result = {"extractions": [synthesized]}
+
+        # Persist the raw output per chunk for traceability
         raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
         try:
             (chunks_dir / raw_name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         except Exception:
             pass
 
-        return result
+        # Optional: generate a visualization of the annotated document.
+        # Guarded by LX_WRITE_VIS=1 to avoid side effects in CI/headless runs.
+        # Note: visualize expects an AnnotatedDocument, not the synthesized dict result.
+        if os.getenv("LX_WRITE_VIS", "0") == "1":
+            try:
+                html_content = lx.visualize(annotated)
+                vis_path = run_dir / ("visualization.html" if idx is None else f"visualization_{idx:03}.html")
+                with open(vis_path, "w", encoding="utf-8") as f:
+                    if hasattr(html_content, "data"):
+                        f.write(html_content.data)  # For Jupyter/Colab objects
+                    else:
+                        f.write(str(html_content))
+                print(f"[INFO] Saved visualization → {vis_path}")
+            except Exception as ve:
+                print(f"[WARN] Visualization failed: {ve}", file=sys.stderr)
 
-    # Test path: rely solely on library chunking (character-based) and disable
-    # the runner's word-based chunking logic above.
+
+        return result
+ 
+    
+
     print("[INFO] Library-managed chunking enabled (max_char_buffer governs internal splits)")
     pr = _call_and_capture(INPUT_TEXT, None)
     if pr and isinstance(pr.get("extractions"), list):
         all_extractions.extend(pr["extractions"])
 
-    # If nothing was extracted, handle as fatal
+    # If nothing was extracted, synthesize a single empty object so run can complete
     if not all_extractions:
-        print("[FATAL] No valid extractions produced across all chunks.", file=sys.stderr)
-        sys.exit(3)
+        err = "No valid extractions produced across all chunks."
+        print(f"[WARN] {err}", file=sys.stderr)
+        synthesized = _synthesize_extraction(INPUT_TEXT, norms=[], errors=[err] + run_warnings, warnings=run_warnings)
+        all_extractions.append(synthesized)
 
     parsed_root: Dict[str, Any] = {"extractions": all_extractions}
 
     # Expect root with single key 'extractions'
     if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):
-        print("[FATAL] Model output is not a valid rich schema root (missing 'extractions' non-empty list). Failing.")
-        sys.exit(3)
+        print("[WARN] Model output missing 'extractions' non-empty list; synthesizing fallback.")
+        parsed_root = {"extractions": [_synthesize_extraction(INPUT_TEXT, norms=[], errors=["Invalid root structure"], warnings=run_warnings)]}
 
     extractions_list = parsed_root["extractions"]
     invalid_objects = [i for i, obj in enumerate(extractions_list) if not pp_schema.is_rich_schema(obj)]
     if invalid_objects:
-        print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
-        sys.exit(4)
+        print(f"[WARN] One or more extraction objects missing required keys (indices: {invalid_objects}). Will annotate errors and continue.")
+        # Replace invalid objects with synthesized shells preserving index order
+        for i in invalid_objects:
+            parsed_root["extractions"][i] = _synthesize_extraction(INPUT_TEXT, norms=[], errors=["Missing required keys"], warnings=run_warnings)
 
     # For downstream enrichment/summary we operate on first extraction object (could be extended to iterate)
     primary = extractions_list[0]

@@ -249,6 +249,16 @@ def run_files(run_id: str):
 @app.get("/runs/<run_id>/file")
 def run_file(run_id: str):
     rel_path = request.args.get("path", "")
+    # Optional query params:
+    #  - preview=1 returns a truncated text preview for large files
+    #  - maxBytes sets preview byte cap (default 1MB)
+    #  - inline=1 forces inline delivery even if file exceeds inline limits
+    preview_flag = request.args.get("preview", "0") == "1"
+    inline_flag = request.args.get("inline", "0") == "1"
+    try:
+        max_bytes = int(request.args.get("maxBytes", "1000000"))
+    except Exception:
+        max_bytes = 1_000_000
     run_dir = OUTPUT_ROOT / run_id
     if not rel_path:
         return abort(400)
@@ -284,15 +294,45 @@ def run_file(run_id: str):
                 mime = "text/plain"
         except Exception:
             is_text_or_json = False
+    # If preview requested, return a truncated text view regardless of original type
+    if preview_flag:
+        try:
+            # Read up to max_bytes for preview
+            with open(abs_path, "rb") as fh:
+                chunk = fh.read(max_bytes)
+            truncated = size > len(chunk)
+            # Attempt UTF-8 decode with replacement to avoid failures
+            text = chunk.decode("utf-8", errors="replace")
+            if truncated:
+                text += f"\n\n--- TRUNCATED PREVIEW ({len(chunk)} of {size} bytes) ---\n"
+            resp = Response(text, mimetype="text/plain; charset=utf-8")
+            # Always serve preview inline
+            resp.headers["Content-Disposition"] = "inline"
+            resp.headers["X-Preview"] = "1"
+            resp.headers["X-Preview-Truncated"] = "1" if truncated else "0"
+            resp.headers["X-File-Size"] = str(size)
+            resp.headers["X-Preview-Max-Bytes"] = str(max_bytes)
+            return resp
+        except Exception:
+            return abort(404)
+
     # Decide inline vs download: allow larger inline for text-like files
     inline_limit = 1_000_000  # default 1MB
     if ext in {".log", ".txt", ".md", ".csv", ".tsv", ".py", ".json"}:
-        inline_limit = 5_000_000  # 5MB for common text files (incl. logs)
+        inline_limit = 10_000_000  # 10MB for common text files (incl. logs)
 
+    # Determine Content-Disposition
     as_attachment = True
-    if is_text_or_json and size <= inline_limit:
+    if inline_flag:
         as_attachment = False
-    return send_file(str(abs_path), mimetype=mime or "application/octet-stream", as_attachment=as_attachment)
+    elif is_text_or_json and size <= inline_limit:
+        as_attachment = False
+
+    return send_file(
+        str(abs_path),
+        mimetype=mime or "application/octet-stream",
+        as_attachment=as_attachment,
+    )
 
 def _is_port_in_use(host: str, port: int) -> bool:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

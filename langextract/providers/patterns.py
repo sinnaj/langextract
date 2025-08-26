@@ -28,8 +28,6 @@ OPENAI_PATTERNS = (
     r'^gpt4\.',
     r'^gpt-5',
     r'^gpt5\.',
-    # OpenRouter Gemini (use OpenAI-compatible API surface via base_url)
-    r'^google/gemini',  # e.g. google/gemini-2.5-flash, google/gemini-1.5-pro
 )
 OPENAI_PRIORITY = 10
 
