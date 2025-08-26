@@ -303,6 +303,46 @@ def makeRun(
             run_warnings.append(msg)
             return None
 
+        # Fallback for library-managed chunking: if rich contains no extractions,
+        # synthesize a minimal rich object from legacy extractions so the test can proceed.
+        try:
+            if not result.get("extractions"):
+                legacy_extractions = list(getattr(annotated, "extractions", []) or [])
+                norms = []
+                for e in legacy_extractions:
+                    # Be permissive: treat anything as a Norm candidate in fallback
+                    txt = getattr(e, "extraction_text", None)
+                    if isinstance(txt, str) and txt.strip():
+                        norms.append({"statement_text": txt})
+                synthesized = {
+                    "schema_version": "0.0-library-fallback",
+                    "norms": norms,
+                    "tags": [],
+                    "locations": [],
+                    "questions": [],
+                    "consequences": [],
+                    "parameters": [],
+                    "document_metadata": {
+                        "source": "web-runner",
+                        "run_id": RUN_ID,
+                        **({"chunk_index": idx} if idx is not None else {}),
+                    },
+                    "quality": {
+                        "warnings": [
+                            "library-chunking fallback: rich output missing or empty; projected from legacy extractions"
+                        ]
+                    },
+                    "window_config": {
+                        "input_chars": len(text),
+                        "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                        "extracted_norm_count": len(norms),
+                    },
+                }
+                result = {"extractions": [synthesized]}
+        except Exception as _:
+            # If fallback synthesis fails, keep original result (may be empty) and allow outer logic to handle.
+            pass
+
         # Augment window_config minimally per extraction object
         try:
             for obj in result.get("extractions", []):
