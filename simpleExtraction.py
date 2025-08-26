@@ -8,17 +8,24 @@ import importlib.util
 import langextract as lx
 from dotenv import load_dotenv
 from langextract import data_lib
-import sys
+from langextract import providers
 import time
 import traceback
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
 from absl import logging as absl_logging
 import requests
+from langextract import factory
+from langextract.resolver import ResolverParsingError
+from langextract.core import data as core_data
 
 # Load .env so OPENAI_API_KEY is available when running from terminal
 load_dotenv()
 absl_logging.set_verbosity(absl_logging.ERROR)
+
+# Ensure provider registry is populated even when schema path is used
+providers.load_builtins_once()
+providers.load_plugins_once()
 
 # --- Simple timestamped logger to both console and file ---
 LOG_FILE = "simpleExtraction.log"
@@ -35,7 +42,9 @@ def log(msg: str) -> None:
 
 OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")
 prompt = Path("input_promptfiles/extraction_prompt.md")
-examples_path = Path("input_examplefiles/default.py")
+# Optional appendix that nudges the model to emit Tags/Questions consistently
+semantics_appendix = Path("input_semanticsfiles/prompt_appendix_entity_semantics_min.md")
+examples_path = Path("input_examplefiles/examples_enhanced.py")
 # Use forward slashes or raw string to avoid escape sequences on Windows
 model = "google/gemini-2.5-flash"
 
@@ -58,7 +67,13 @@ if not OPENROUTER_KEY:
     log("[FATAL] OPENAI_API_KEY is not set. Add it to your .env or environment for OpenRouter usage.")
     raise RuntimeError("OPENAI_API_KEY is not set. Add it to your .env or environment for OpenRouter usage.")
 
-input_source = "https://filebin.net/fdh1r18p0h48br8s/DBSI-29.pdf"
+# Read local file contents as input text (UTF-8 with fallback)
+file_path = Path(r"C:\Projects\Arqio\LangExtract\langextract\docs\test_docs\small_test_norms.txt")
+try:
+    input_source = file_path.read_text(encoding="utf-8")
+except UnicodeDecodeError:
+    input_source = file_path.read_text(encoding="latin-1")
+log(f"[INFO] Loaded local file {file_path} ({len(input_source)} chars)")
 
 # Basic URL preflight to surface network/content-type issues early
 def _is_url(s: str) -> bool:
@@ -72,30 +87,76 @@ if _is_url(input_source):
     except Exception as e:
         log(f"[WARN] HEAD request failed: {e}")
 
+# Explicitly route to OpenAI-compatible provider via OpenRouter
+cfg = factory.ModelConfig(
+    model_id=model,
+    provider="OpenAILanguageModel",  # Explicit provider class to route via OpenRouter's OpenAI-compatible API
+    provider_kwargs={
+        "api_key": OPENROUTER_KEY,
+        "base_url": "https://openrouter.ai/api/v1",
+        "temperature": 0.1,
+        # Encourage strict JSON mode on providers that support it
+        "format_type": core_data.FormatType.JSON,
+        "max_workers": 20,
+    },
+)
+
+# Build prompt description with optional semantics appendix to drive Tag emission
+prompt_description = prompt.read_text(encoding="utf-8") if prompt.exists() else ""
+if semantics_appendix.exists():
+    try:
+        prompt_description += "\n\n" + semantics_appendix.read_text(encoding="utf-8")
+        log(f"[INFO] Appended semantics appendix: {semantics_appendix}")
+    except Exception as e:
+        log(f"[WARN] Failed to read semantics appendix {semantics_appendix}: {e}")
+
 extract_kwargs = dict(
     text_or_documents=input_source,
-   ## text_or_documents=document_path.read_text(encoding="utf-8") if document_path.exists() else "",
-    prompt_description=prompt.read_text(encoding="utf-8") if prompt.exists() else "",
+    ## text_or_documents=document_path.read_text(encoding="utf-8") if document_path.exists() else "",
+    prompt_description=prompt_description,
     examples=examples,
-    model_id=model,
-    fence_output=True,
-    use_schema_constraints=False,
-    temperature=0.1,
-    api_key=OPENROUTER_KEY,
-    # Route through OpenRouter (OpenAI-compatible API) for google/gemini-* models
-    language_model_params={
-        "base_url": "https://openrouter.ai/api/v1",
-    },
-    extraction_passes=3,    # Improves recall through multiple passes
+    config=cfg,
+    # IMPORTANT: The compact spec forbids markdown fences; keep resolver/model non-fenced JSON
+    fence_output=False,
+    # Enable schema constraints so examples inform the provider when supported
+    use_schema_constraints=True,
+    extraction_passes=1,    # Improves recall through multiple passes
     max_workers=20,         # Parallel processing for speed
-    max_char_buffer=1000    # Smaller contexts for better accuracy
+    max_char_buffer=5000,   # Smaller contexts for better accuracy
+    ## debug=False             # Reduce absl DEBUG noise during normal runs
 )
+
+# Make resolver expectations explicit and consistent with non-fenced JSON
+extract_kwargs["resolver_params"] = {
+    "fence_output": False,
+    "format_type": core_data.FormatType.JSON,
+}
 
 # Run the extraction with a heartbeat so terminal doesn't just go silent
 log("[INFO] Invoking lx.extract...")
 start = time.time()
 def _do_extract():
-    return lx.extract(**extract_kwargs)
+    try:
+        return lx.extract(**extract_kwargs)
+    except ResolverParsingError:
+        log("[WARN] Resolver failed to parse JSON; retrying with fenced YAML...")
+        # Switch provider and extractor to YAML format and retain fences
+        cfg_yaml = factory.ModelConfig(
+            model_id=model,
+            provider="OpenAILanguageModel",
+            provider_kwargs={
+                **cfg.provider_kwargs,
+                "format_type": core_data.FormatType.YAML,
+            },
+        )
+        ek = dict(extract_kwargs)
+        ek["config"] = cfg_yaml
+        ek["fence_output"] = True
+        ek["use_schema_constraints"] = True
+        ek["debug"] = extract_kwargs.get("debug", False)
+        ek["format_type"] = core_data.FormatType.YAML
+        ek["resolver_params"] = {"fence_output": True, "format_type": core_data.FormatType.YAML}
+        return lx.extract(**ek)
 
 result = None
 with ThreadPoolExecutor(max_workers=1) as ex:
@@ -123,10 +184,10 @@ doc_dict = data_lib.annotated_document_to_dict(result)
 with open("extraction_results.jsonl", "w", encoding="utf-8") as f:
     f.write(json.dumps(doc_dict, ensure_ascii=False) + "\n")
 
-# # Generate the visualization directly from the AnnotatedDocument
-# html_content = lx.visualize(result)
-# with open("visualization.html", "w", encoding="utf-8") as f:
-#     if hasattr(html_content, 'data'):
-#         f.write(html_content.data)  # For Jupyter/Colab
-#     else:
-#         f.write(html_content)
+# Generate the visualization directly from the AnnotatedDocument
+html_content = lx.visualize(result)
+with open("visualization.html", "w", encoding="utf-8") as f:
+    if hasattr(html_content, 'data'):
+        f.write(html_content.data)  # For Jupyter/Colab
+    else:
+        f.write(html_content)

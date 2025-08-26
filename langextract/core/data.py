@@ -24,6 +24,16 @@ from langextract.core import types
 
 FormatType = types.FormatType  # Backward compat
 
+__all__ = [
+    "AlignmentStatus",
+    "CharInterval",
+    "Extraction",
+    "Document",
+    "AnnotatedDocument",
+    "ExampleData",
+    "FormatType",
+]
+
 
 class AlignmentStatus(enum.Enum):
   MATCH_EXACT = "match_exact"
@@ -185,10 +195,6 @@ class AnnotatedDocument:
   _tokenized_text: tokenizer.TokenizedText | None = dataclasses.field(
       init=False, default=None, repr=False, compare=False
   )
-  # Optional: carries the resolver's last parsed JSON/YAML object(s).
-  # When annotating text, this will typically be a list with one dict
-  # shaped like {"extractions": [ { ...rich arrays... } ]}.
-  rich: dict | list | None = None
 
   def __init__(
       self,
@@ -196,12 +202,10 @@ class AnnotatedDocument:
       document_id: str | None = None,
       extractions: list[Extraction] | None = None,
       text: str | None = None,
-      rich: dict | list | None = None,
   ):
     self.extractions = extractions
     self.text = text
     self._document_id = document_id
-    self.rich = rich
 
   @property
   def document_id(self) -> str:
