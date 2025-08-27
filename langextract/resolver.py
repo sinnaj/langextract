@@ -26,6 +26,7 @@ import functools
 import itertools
 import json
 import operator
+import re
 
 from absl import logging
 import yaml
@@ -322,11 +323,13 @@ class Resolver(AbstractResolver):
         ValueError: If the input is invalid or does not contain expected format.
         ResolverParsingError: If parsing fails.
 
-    Returns:
-        The parsed Python object (dict or list).
-    """
+  Returns:
+    The parsed Python object (dict or list).
+  """
     logging.info("Starting string parsing.")
-    logging.debug("input_string: %s", input_string)
+    # Truncate potentially huge content in debug logs
+    _dbg_preview = input_string[:1000] + (" …[truncated]" if len(input_string) > 1000 else "")
+    logging.debug("input_string (preview): %s", _dbg_preview)
 
     if not input_string or not isinstance(input_string, str):
       logging.error("Input string must be a non-empty string.")
@@ -342,19 +345,48 @@ class Resolver(AbstractResolver):
         raise ValueError("Input string does not contain valid markers.")
 
       content = input_string[left + prefix_length : right].strip()
-      logging.debug("Content: %s", content)
+      _cnt_preview = content[:1000] + (" …[truncated]" if len(content) > 1000 else "")
+      logging.debug("Content (preview): %s", _cnt_preview)
     else:
       content = input_string
+
+    def _sanitize_json_string(s: str) -> str:
+      # Escape any backslash not followed by a valid JSON escape char
+      s2 = re.sub(r"\\(?![\\\"/bfnrtu])", r"\\\\", s)
+      # Remove unprintable control characters except TAB(\t), LF(\n), CR(\r)
+      s2 = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", s2)
+      return s2
 
     try:
       if self.format_type == data.FormatType.YAML:
         parsed_data = yaml.safe_load(content)
       else:
+        # Primary: strict JSON
         parsed_data = json.loads(content)
       logging.debug("Successfully parsed content.")
-    except (yaml.YAMLError, json.JSONDecodeError) as e:
-      logging.exception("Failed to parse content.")
-      raise ResolverParsingError("Failed to parse content.") from e
+    except json.JSONDecodeError as je:
+      logging.warning("JSON parse failed, attempting YAML fallback and sanitization: %s", je)
+      # Fallback 1: YAML can often handle minor JSON deviations
+      try:
+        parsed_data = yaml.safe_load(content)
+        logging.debug("YAML fallback succeeded.")
+      except yaml.YAMLError:
+        # Fallback 2: sanitize common invalid backslashes/control chars and retry JSON
+        try:
+          sanitized = _sanitize_json_string(content)
+          parsed_data = json.loads(sanitized)
+          logging.debug("Sanitized JSON parse succeeded.")
+        except Exception as e2:
+          logging.exception("Failed to parse content after fallbacks.")
+          raise ResolverParsingError("Failed to parse content.") from e2
+    except yaml.YAMLError as ye:
+      logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
+      try:
+        parsed_data = json.loads(content)
+        logging.debug("JSON fallback succeeded.")
+      except Exception as e3:
+        logging.exception("Failed to parse content after fallbacks.")
+        raise ResolverParsingError("Failed to parse content.") from e3
 
     return parsed_data
 
