@@ -29,6 +29,7 @@ from datetime import datetime
 import importlib.util
 from xml.parsers.expat import model
 import ast
+import re
 
 from dotenv import load_dotenv
 import langextract as lx
@@ -251,6 +252,7 @@ def makeRun(
         fence_output=False,
         use_schema_constraints=True,
         max_char_buffer=5000,
+        suppress_parse_errors=True,
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
@@ -310,17 +312,39 @@ def makeRun(
 
     def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
+        
+        def _sanitize_for_log(raw: str, limit: int = 2000) -> str:
+            try:
+                s = str(raw)
+            except Exception:
+                s = "<unprintable>"
+            # Redact obvious secrets
+            try:
+                if OPENROUTER_KEY:
+                    s = s.replace(OPENROUTER_KEY, "[REDACTED]")
+            except Exception:
+                pass
+            # Redact common api_key patterns
+            try:
+                s = re.sub(r"(api_key\s*[=:]\s*)([A-Za-z0-9_\-\.]+)", r"\1[REDACTED]", s, flags=re.IGNORECASE)
+                s = re.sub(r"(Authorization:\s*Bearer\s+)([A-Za-z0-9_\-\.]+)", r"\1[REDACTED]", s, flags=re.IGNORECASE)
+            except Exception:
+                pass
+            if len(s) > limit:
+                s = s[:limit] + " ... [truncated]"
+            return s
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
         try:
             annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
         except Exception as e:
-            msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {e}"
+            safe_err = _sanitize_for_log(e)
+            msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {safe_err}"
             print(msg, file=sys.stderr)
             run_warnings.append(msg)
             # Synthesize a minimal valid rich object so the run completes
-            synthesized = _synthesize_extraction(text, norms=[], errors=[str(e)], warnings=run_warnings)
+            synthesized = _synthesize_extraction(text, norms=[], errors=[safe_err], warnings=run_warnings)
             result = {"extractions": [synthesized]}
             raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
             try:
