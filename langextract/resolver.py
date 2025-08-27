@@ -178,7 +178,8 @@ class Resolver(AbstractResolver):
       extraction_attributes_suffix: str | None = "_attributes",
       constraint: schema.Constraint = schema.Constraint(),
       format_type: data.FormatType = data.FormatType.JSON,
-    suppress_parse_errors_default: bool = False,
+      suppress_parse_errors_default: bool = False,
+      align_only_classes_default: Sequence[str] | None = None,
   ):
     """Constructor.
 
@@ -200,6 +201,8 @@ class Resolver(AbstractResolver):
     self.format_type = format_type
     # When True, resolve() will return [] instead of raising on parse errors unless overridden per-call.
     self._suppress_parse_errors_default = suppress_parse_errors_default
+    # Optional default allowlist of extraction_class names to align; others are passed through unchanged.
+    self._align_only_classes_default = list(align_only_classes_default) if align_only_classes_default else None
 
   def resolve(
       self,
@@ -257,6 +260,7 @@ class Resolver(AbstractResolver):
       enable_fuzzy_alignment: bool = True,
       fuzzy_alignment_threshold: float = _FUZZY_ALIGNMENT_MIN_THRESHOLD,
       accept_match_lesser: bool = True,
+      align_only_classes: Sequence[str] | None = None,
       **kwargs,
   ) -> Iterator[data.Extraction]:
     """Aligns annotated extractions with source text.
@@ -293,16 +297,69 @@ class Resolver(AbstractResolver):
     else:
       extractions_group = [extractions]
 
+    # Determine allowed classes list for alignment (constructor default can be overridden per call)
+    # Build a case-insensitive allowlist for class filtering
+    allowed_classes = None
+    if align_only_classes is not None:
+      allowed_classes = {str(c).lower() for c in align_only_classes}
+    elif self._align_only_classes_default is not None:
+      allowed_classes = {str(c).lower() for c in self._align_only_classes_default}
+
     aligner = WordAligner()
-    aligned_yaml_extractions = aligner.align_extractions(
-        extractions_group,
-        source_text,
-        token_offset,
-        char_offset or 0,
-        enable_fuzzy_alignment=enable_fuzzy_alignment,
-        fuzzy_alignment_threshold=fuzzy_alignment_threshold,
-        accept_match_lesser=accept_match_lesser,
-    )
+
+    if allowed_classes is None:
+      # Align all extractions (existing behavior)
+      aligned_yaml_extractions = aligner.align_extractions(
+          extractions_group,
+          source_text,
+          token_offset,
+          char_offset or 0,
+          enable_fuzzy_alignment=enable_fuzzy_alignment,
+          fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+          accept_match_lesser=accept_match_lesser,
+      )
+    else:
+      # Align only allowed classes; pass through the rest unchanged
+      def _looks_jsonish(text: str) -> bool:
+        t = (text or "").strip()
+        if not t:
+          return False
+        if t[0] in "[{":
+          return True
+        # Heuristic: JSON-ish if contains a colon and any brace/bracket
+        return (":" in t) and any(ch in t for ch in "{}[]")
+
+      filtered_groups: list[list[data.Extraction]] = []
+      excluded_groups: list[list[data.Extraction]] = []
+      for group in extractions_group:
+        fg = [
+            e
+            for e in group
+            if e.extraction_class
+            and e.extraction_class.lower() in allowed_classes
+            and not _looks_jsonish(e.extraction_text)
+        ]
+        eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
+        filtered_groups.append(fg)
+        excluded_groups.append(eg)
+
+      if all(len(g) == 0 for g in filtered_groups):
+        aligned_yaml_extractions = excluded_groups
+      else:
+        aligned_filtered = aligner.align_extractions(
+            filtered_groups,
+            source_text,
+            token_offset,
+            char_offset or 0,
+            enable_fuzzy_alignment=enable_fuzzy_alignment,
+            fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+            accept_match_lesser=accept_match_lesser,
+        )
+        # Merge aligned allowed + excluded (unaligned) per group
+        aligned_yaml_extractions = [
+            list(aligned_allowed) + list(excluded)
+            for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
+        ]
     logging.debug(
         "Aligned extractions count: %d",
         sum(len(group) for group in aligned_yaml_extractions),
@@ -423,13 +480,85 @@ class Resolver(AbstractResolver):
     """
     parsed_data = self._extract_and_parse_content(input_string)
 
+    # If model misused 'extractions' to hold Norm objects, coerce into expected shape:
+    # {"extractions":[{ norms: [...], tags: [...], parameters: [...], ... }]}.
+    # Handle both cases:
+    #  a) dict with 'extractions' alongside other rich keys
+    #  b) dict with only 'extractions' that itself is a list of Norm-like objects
+    if isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY in parsed_data:
+      rich_side_keys = {"tags", "locations", "questions", "consequences", "parameters", "quality"}
+      exts_val = parsed_data.get(schema.EXTRACTIONS_KEY)
+
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        # Heuristics for a Norm object
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        # Or an id that resembles a Norm ID
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
+
+      if isinstance(exts_val, list) and exts_val and all(
+          _looks_like_norm_obj(item) for item in exts_val if isinstance(item, dict)
+      ):
+        # Case (a): also has other rich arrays/objects
+        if any(k in parsed_data for k in rich_side_keys):
+          logging.warning(
+              "Detected top-level 'extractions' list containing Norm-like objects with other rich keys; coercing to rich root with 'norms'."
+          )
+          coerced_root = dict(parsed_data)  # shallow copy
+          coerced_root["norms"] = exts_val
+          coerced_root.pop(schema.EXTRACTIONS_KEY, None)
+          parsed_data = {schema.EXTRACTIONS_KEY: [coerced_root]}
+        else:
+          # Case (b): only 'extractions' present containing Norms; wrap into single extraction with norms
+          logging.warning(
+              "Detected only 'extractions' with Norm-like objects; wrapping into single extraction root with 'norms'."
+          )
+          parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": exts_val}]}
+
+    # Tolerate common variants by gently coercing into expected shape
+    if isinstance(parsed_data, list):
+      # If it's a bare list of Norm-like objects, wrap as single extraction root
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
+
+      if parsed_data and all(_looks_like_norm_obj(item) for item in parsed_data if isinstance(item, dict)):
+        logging.warning("Top-level list of Norm-like objects detected; wrapping into single extraction root under 'norms'.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": parsed_data}]}
+      else:
+        logging.warning("Top-level list detected; coercing to {'extractions': [...]} shape.")
+        parsed_data = {schema.EXTRACTIONS_KEY: parsed_data}
+    elif isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY not in parsed_data:
+      # If dict looks like a rich object (contains any known rich keys), wrap it
+      rich_keys = {
+          "norms",
+          "tags",
+          "locations",
+          "questions",
+          "consequences",
+          "parameters",
+          "quality",
+      }
+      if any(k in parsed_data for k in rich_keys):
+        logging.warning("Dict without 'extractions' detected; wrapping as single extraction object.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [parsed_data]}
+
     if not isinstance(parsed_data, dict):
-      logging.error("Expected content to be a mapping (dict).")
+      logging.error("Expected content to be a mapping (dict). Got %s", type(parsed_data))
       raise ResolverParsingError(
           f"Content must be a mapping with an '{schema.EXTRACTIONS_KEY}' key."
       )
     if schema.EXTRACTIONS_KEY not in parsed_data:
-      logging.error("Content does not contain 'extractions' key.")
+      logging.error("Content does not contain 'extractions' key after coercion.")
       raise ResolverParsingError("Content must contain an 'extractions' key.")
     extractions = parsed_data[schema.EXTRACTIONS_KEY]
 
