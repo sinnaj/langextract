@@ -43,6 +43,8 @@ def main():
     MODEL_ID = payload.get("MODEL_ID")
     MODEL_TEMPERATURE = payload.get("MODEL_TEMPERATURE")
     MAX_NORMS_PER_5K = payload.get("MAX_NORMS_PER_5K")
+    MAX_CHAR_BUFFER = payload.get("MAX_CHAR_BUFFER")
+    EXTRACTION_PASSES = payload.get("EXTRACTION_PASSES")
     INPUT_PROMPTFILE = payload.get("INPUT_PROMPTFILE")
     INPUT_GLOSSARYFILE = payload.get("INPUT_GLOSSARYFILE")
     INPUT_EXAMPLESFILE = payload.get("INPUT_EXAMPLESFILE")
@@ -83,6 +85,8 @@ def main():
             MODEL_ID,
             MODEL_TEMPERATURE,
             MAX_NORMS_PER_5K,
+            MAX_CHAR_BUFFER,
+            EXTRACTION_PASSES,
             INPUT_PROMPTFILE,
             INPUT_GLOSSARYFILE,
             INPUT_EXAMPLESFILE,

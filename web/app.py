@@ -111,6 +111,8 @@ def start_run():
     model_id = form.get("MODEL_ID", "").strip()
     model_temperature = form.get("MODEL_TEMPERATURE", "0.15").strip()
     max_norms = form.get("MAX_NORMS_PER_5K", "10").strip()
+    max_char_buffer = form.get("MAX_CHAR_BUFFER", "5000").strip()
+    extraction_passes = form.get("EXTRACTION_PASSES", "2").strip()
     input_prompt = form.get("INPUT_PROMPTFILE") or ""
     input_glossary = form.get("INPUT_GLOSSARYFILE") or ""
     input_examples = form.get("INPUT_EXAMPLESFILE") or ""
@@ -122,6 +124,8 @@ def start_run():
         "MODEL_ID": model_id,
         "MODEL_TEMPERATURE": float(model_temperature) if model_temperature else 0.15,
         "MAX_NORMS_PER_5K": int(max_norms) if max_norms else 10,
+        "MAX_CHAR_BUFFER": int(max_char_buffer) if max_char_buffer else 5000,
+        "EXTRACTION_PASSES": int(extraction_passes) if extraction_passes else 2,
         "INPUT_PROMPTFILE": input_prompt or None,
         "INPUT_GLOSSARYFILE": input_glossary or None,
         "INPUT_EXAMPLESFILE": input_examples or None,
@@ -145,6 +149,8 @@ def start_run():
         "MODEL_ID": model_id,
         "MODEL_TEMPERATURE": model_temperature,
         "MAX_NORMS_PER_5K": max_norms,
+        "MAX_CHAR_BUFFER": max_char_buffer,
+        "EXTRACTION_PASSES": extraction_passes,
         "INPUT_PROMPTFILE": input_prompt,
         "INPUT_GLOSSARYFILE": input_glossary,
         "INPUT_EXAMPLESFILE": input_examples,
@@ -174,34 +180,54 @@ def stream_logs(run_id: str):
         # Absolute line index accounting for truncation
         idx = 0
         last_emit = time.time()
+        start_time = last_emit
+        max_stream_seconds = 60 * 60  # 1 hour safety cutoff
         # Initial comment to open SSE stream promptly
-        yield ": connected\n\n"
+        try:
+            yield ": connected\n\n"
+        except Exception:
+            return
         # Send any buffered lines first
         while True:
-            buf = r.state.buffer
-            offset = getattr(r.state, "buffer_offset", 0)
-            # Skip ahead if the buffer was truncated
-            if idx < offset:
-                idx = offset
-            while idx - offset < len(buf):
-                line = buf[idx - offset]
-                idx += 1
-                yield f"data: {json.dumps({'line': line, 'run_id': run_id, 'ts': time.time()})}\n\n"
-                last_emit = time.time()
-            if r.state.status in ("finished", "error", "canceled"):
-                payload = {"event": "complete", "run_id": run_id, "status": r.state.status}
-                # exit_code added if Runner stores it
-                exit_code = getattr(r.state, 'exit_code', None)
-                if exit_code is not None:
-                    payload["code"] = exit_code
-                yield f"data: {json.dumps(payload)}\n\n"
+            try:
+                buf = r.state.buffer
+                offset = getattr(r.state, "buffer_offset", 0)
+                # Skip ahead if the buffer was truncated
+                if idx < offset:
+                    idx = offset
+                while idx - offset < len(buf):
+                    line = buf[idx - offset]
+                    idx += 1
+                    yield f"data: {json.dumps({'line': line, 'run_id': run_id, 'ts': time.time()})}\n\n"
+                    last_emit = time.time()
+                if r.state.status in ("finished", "error", "canceled"):
+                    payload = {"event": "complete", "run_id": run_id, "status": r.state.status}
+                    # exit_code added if Runner stores it
+                    exit_code = getattr(r.state, 'exit_code', None)
+                    if exit_code is not None:
+                        payload["code"] = exit_code
+                    yield f"data: {json.dumps(payload)}\n\n"
+                    break
+                # Periodic keepalive to prevent proxy timeouts
+                now = time.time()
+                if now - last_emit > 10:
+                    yield ": keepalive\n\n"
+                    last_emit = now
+                # Safety cutoff to avoid run-away streams
+                if now - start_time > max_stream_seconds:
+                    yield f"data: {json.dumps({'event':'timeout','run_id': run_id})}\n\n"
+                    break
+                time.sleep(0.2)
+            except (GeneratorExit, ConnectionResetError, BrokenPipeError):
+                # Client disconnected; stop streaming
                 break
-            # Periodic keepalive to prevent proxy timeouts
-            now = time.time()
-            if now - last_emit > 10:
-                yield ": keepalive\n\n"
-                last_emit = now
-            time.sleep(0.2)
+            except Exception:
+                # On unexpected errors, try to emit a final message and close
+                try:
+                    yield f"data: {json.dumps({'event':'error','run_id': run_id})}\n\n"
+                except Exception:
+                    pass
+                break
     resp = Response(generate(), mimetype="text/event-stream")
     # Prevent buffering by proxies and encourage streaming
     resp.headers["Cache-Control"] = "no-cache"
@@ -313,7 +339,18 @@ def run_file(run_id: str):
             resp.headers["X-File-Size"] = str(size)
             resp.headers["X-Preview-Max-Bytes"] = str(max_bytes)
             return resp
-        except Exception:
+        except PermissionError:
+            # Likely locked by writer (Windows sharing). Advise client to retry.
+            msg = "File is temporarily locked; please retry shortly."
+            resp = Response(msg, status=423, mimetype="text/plain; charset=utf-8")
+            resp.headers["Retry-After"] = "1"
+            return resp
+        except OSError as oe:
+            if getattr(oe, 'errno', None) in (13, 32):  # Permission denied / sharing violation
+                msg = "File is temporarily unavailable; please retry shortly."
+                resp = Response(msg, status=423, mimetype="text/plain; charset=utf-8")
+                resp.headers["Retry-After"] = "1"
+                return resp
             return abort(404)
 
     # Decide inline vs download: allow larger inline for text-like files
@@ -328,6 +365,19 @@ def run_file(run_id: str):
     elif is_text_or_json and size <= inline_limit:
         as_attachment = False
 
+    # Proactively test readability to avoid server hangs on locked files
+    try:
+        with open(abs_path, "rb"):
+            pass
+    except PermissionError:
+        resp = Response("File is temporarily locked; please retry shortly.", status=423, mimetype="text/plain; charset=utf-8")
+        resp.headers["Retry-After"] = "1"
+        return resp
+    except OSError as oe:
+        if getattr(oe, 'errno', None) in (13, 32):
+            resp = Response("File is temporarily unavailable; please retry shortly.", status=423, mimetype="text/plain; charset=utf-8")
+            resp.headers["Retry-After"] = "1"
+            return resp
     return send_file(
         str(abs_path),
         mimetype=mime or "application/octet-stream",

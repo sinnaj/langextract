@@ -51,13 +51,15 @@ def makeRun(
     MODEL_ID: str,
     MODEL_TEMPERATURE: float,
     MAX_NORMS_PER_5K: int,
+    MAX_CHAR_BUFFER: int,
+    EXTRACTION_PASSES: int,
     INPUT_PROMPTFILE: str,
     INPUT_GLOSSARYFILE: str,
     INPUT_EXAMPLESFILE: str,
     INPUT_SEMANTCSFILE: str,
     INPUT_TEACHFILE: str,
 ):
-    print(f"makeRun called with RUN_ID={RUN_ID}, MODEL_ID={MODEL_ID}, MODEL_TEMPERATURE={MODEL_TEMPERATURE}, MAX_NORMS_PER_5K={MAX_NORMS_PER_5K}, INPUT_PROMPTFILE={INPUT_PROMPTFILE}, INPUT_GLOSSARYFILE={INPUT_GLOSSARYFILE}, INPUT_EXAMPLESFILE={INPUT_EXAMPLESFILE}, INPUT_SEMANTCSFILE={INPUT_SEMANTCSFILE}, INPUT_TEACHFILE={INPUT_TEACHFILE}")
+    print(f"makeRun called with RUN_ID={RUN_ID}, MODEL_ID={MODEL_ID}, MODEL_TEMPERATURE={MODEL_TEMPERATURE}, MAX_NORMS_PER_5K={MAX_NORMS_PER_5K}, MAX_CHAR_BUFFER={MAX_CHAR_BUFFER}, EXTRACTION_PASSES={EXTRACTION_PASSES}, INPUT_PROMPTFILE={INPUT_PROMPTFILE}, INPUT_GLOSSARYFILE={INPUT_GLOSSARYFILE}, INPUT_EXAMPLESFILE={INPUT_EXAMPLESFILE}, INPUT_SEMANTCSFILE={INPUT_SEMANTCSFILE}, INPUT_TEACHFILE={INPUT_TEACHFILE}")
     """Configure globals for this run. Values are set via globals() mapping."""
 
     load_dotenv()
@@ -91,7 +93,19 @@ def makeRun(
     # Default glossary path to run_dir when not provided
     GLOSSARY_FILE = Path(INPUT_GLOSSARYFILE) if INPUT_GLOSSARYFILE else (run_dir / "glossary.json")
 
-    MAX_NORMS_PER_5K = 10  # matches spec guidance
+    # Honor the provided cap; do not override. Fallback default remains 10 if an invalid value is passed.
+    try:
+        MAX_NORMS_PER_5K = int(MAX_NORMS_PER_5K)
+    except Exception:
+        MAX_NORMS_PER_5K = 10
+    try:
+        MAX_CHAR_BUFFER = int(MAX_CHAR_BUFFER) if MAX_CHAR_BUFFER is not None else 5000
+    except Exception:
+        MAX_CHAR_BUFFER = 5000
+    try:
+        EXTRACTION_PASSES = int(EXTRACTION_PASSES) if EXTRACTION_PASSES is not None else 2
+    except Exception:
+        EXTRACTION_PASSES = 2
     MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
     MODEL_TEMPERATURE = 0.15
     EXAMPLES_FILE = Path(INPUT_EXAMPLESFILE) if INPUT_EXAMPLESFILE else None
@@ -250,12 +264,15 @@ def makeRun(
         examples=EXAMPLES,
         config=cfg,
         fence_output=False,
-        use_schema_constraints=True,
-        max_char_buffer=5000,
+        use_schema_constraints=False,
+        max_char_buffer=MAX_CHAR_BUFFER,
+        extraction_passes=EXTRACTION_PASSES,   # Improves recall through multiple passes
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
                 "suppress_parse_errors_default": True,
+        # Re-enabled alignment allowlist: only align extraction_text for these classes
+        "align_only_classes_default": ["Norm", "Tag", "Parameter"],
         },
     )
 
@@ -289,6 +306,8 @@ def makeRun(
             "window_config": {
                 "input_chars": len(text),
                 "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                "max_char_buffer": MAX_CHAR_BUFFER,
+                "extraction_passes": EXTRACTION_PASSES,
                 "extracted_norm_count": len(nn),
             },
             "global_disclaimer": "NO LEGAL ADVICE",
@@ -355,6 +374,7 @@ def makeRun(
 
         # Build a rich-schema shaped JSON from legacy extractions (classed)
         legacy_extractions = list(getattr(annotated, "extractions", []) or [])
+        print(f"[DEBUG] Legacy extractions returned: {len(legacy_extractions)}")
 
         def _parse_literal(val: Any) -> Any:
             if isinstance(val, (dict, list, int, float, bool)) or val is None:
@@ -381,6 +401,8 @@ def makeRun(
             "window_config": {
                 "input_chars": len(text),
                 "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                "max_char_buffer": MAX_CHAR_BUFFER,
+                "extraction_passes": EXTRACTION_PASSES,
                 "extracted_norm_count": 0,
             },
             "global_disclaimer": "NO LEGAL ADVICE",
@@ -395,12 +417,89 @@ def makeRun(
             },
             "quality": {"errors": [], "warnings": [], "confidence_global": 0.5, "uncertainty_global": 0.5},
         }
+        # Accumulators with content-based de-duplication (more robust than raw id-based)
         norms: List[Dict[str, Any]] = []
+        _norm_sigs: set[tuple] = set()
+        _norm_raw_count = 0
+
         tags: List[Dict[str, Any]] = []
+        _tag_sigs: set[tuple] = set()
+        _tag_raw_count = 0
+
         locations: List[Dict[str, Any]] = []
+        _loc_sigs: set[tuple] = set()
+        _loc_raw_count = 0
+
         questions: List[Dict[str, Any]] = []
+        _q_sigs: set[tuple] = set()
+        _q_raw_count = 0
+
         consequences: List[Dict[str, Any]] = []
+        _cons_sigs: set[tuple] = set()
+        _cons_raw_count = 0
+
         parameters: List[Dict[str, Any]] = []
+        _param_sigs: set[tuple] = set()
+        _param_raw_count = 0
+
+        def _as_str(x: Any) -> str:
+            try:
+                if isinstance(x, (dict, list)):
+                    return json.dumps(x, sort_keys=True, ensure_ascii=False)
+                return str(x) if x is not None else ""
+            except Exception:
+                return str(x)
+
+        def _norm_signature(item: Dict[str, Any]) -> tuple:
+            # Focus on semantic core to avoid duplicate drops due to id reuse across chunks/passes
+            stmt = _as_str(item.get("statement_text", "")).strip().lower()
+            applies = _as_str(item.get("applies_if", "")).strip().lower()
+            satisfied = _as_str(item.get("satisfied_if", "")).strip().lower()
+            exempt = _as_str(item.get("exempt_if", "")).strip().lower()
+            obl = _as_str(item.get("obligation_type", "")).strip().upper()
+            # tags in any order shouldn't change identity
+            rtags = item.get("relevant_tags", [])
+            if isinstance(rtags, list):
+                try:
+                    rtags = sorted([_as_str(t).strip().lower() for t in rtags])
+                except Exception:
+                    rtags = []
+            else:
+                rtags = []
+            return (stmt, applies, satisfied, exempt, obl, tuple(rtags))
+
+        def _tag_signature(item: Dict[str, Any]) -> tuple:
+            path = _as_str(item.get("tag_path", "")).strip().lower()
+            parent = _as_str(item.get("parent", "")).strip().lower()
+            return (path, parent)
+
+        def _location_signature(item: Dict[str, Any]) -> tuple:
+            # Use structured fields when present, else full JSON
+            scope = item.get("location_scope")
+            if isinstance(scope, dict):
+                return ("scope", _as_str(scope))
+            return ("raw", _as_str(item))
+
+        def _question_signature(item: Dict[str, Any]) -> tuple:
+            txt = _as_str(item.get("question_text", "")).strip().lower()
+            tagp = _as_str(item.get("tag_path", "")).strip().lower()
+            at = _as_str(item.get("answer_type", "")).strip().upper()
+            outs = item.get("outputs", [])
+            outs_norm = tuple(sorted([_as_str(o).strip().lower() for o in outs])) if isinstance(outs, list) else tuple()
+            return (txt, tagp, at, outs_norm)
+
+        def _consequence_signature(item: Dict[str, Any]) -> tuple:
+            # Generic fallback
+            return ("cons", _as_str(item))
+
+        def _parameter_signature(item: Dict[str, Any]) -> tuple:
+            # Try name + path style identity; fallback to full JSON
+            name = _as_str(item.get("name", "")).strip().lower()
+            pth = _as_str(item.get("parameter_path", item.get("tag_path", ""))).strip().lower()
+            unit = _as_str(item.get("unit", "")).strip().lower()
+            if name or pth or unit:
+                return (name, pth, unit)
+            return ("param", _as_str(item))
 
         for e in legacy_extractions:
             cls = getattr(e, "extraction_class", None)
@@ -423,19 +522,91 @@ def makeRun(
             elif cls == "quality" and isinstance(parsed, dict):
                 meta["quality"].update(parsed)
             elif cls == "norms" and isinstance(parsed, list):
-                norms = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _norm_raw_count += 1
+                        sig = _norm_signature(item)
+                        if sig in _norm_sigs:
+                            continue
+                        _norm_sigs.add(sig)
+                        norms.append(item)
             elif cls == "tags" and isinstance(parsed, list):
-                tags = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _tag_raw_count += 1
+                        sig = _tag_signature(item)
+                        if sig in _tag_sigs:
+                            continue
+                        _tag_sigs.add(sig)
+                        tags.append(item)
             elif cls == "locations" and isinstance(parsed, list):
-                locations = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _loc_raw_count += 1
+                        sig = _location_signature(item)
+                        if sig in _loc_sigs:
+                            continue
+                        _loc_sigs.add(sig)
+                        locations.append(item)
             elif cls == "questions" and isinstance(parsed, list):
-                questions = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _q_raw_count += 1
+                        sig = _question_signature(item)
+                        if sig in _q_sigs:
+                            continue
+                        _q_sigs.add(sig)
+                        questions.append(item)
             elif cls == "consequences" and isinstance(parsed, list):
-                consequences = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _cons_raw_count += 1
+                        sig = _consequence_signature(item)
+                        if sig in _cons_sigs:
+                            continue
+                        _cons_sigs.add(sig)
+                        consequences.append(item)
             elif cls == "parameters" and isinstance(parsed, list):
-                parameters = parsed
+                for item in parsed:
+                    if isinstance(item, dict):
+                        _param_raw_count += 1
+                        sig = _parameter_signature(item)
+                        if sig in _param_sigs:
+                            continue
+                        _param_sigs.add(sig)
+                        parameters.append(item)
 
-        meta["window_config"]["extracted_norm_count"] = len(norms)
+        # Debug counters
+        meta["window_config"].update({
+            "extracted_norm_count": len(norms),
+            "debug_counts": {
+                "norms_pre": _norm_raw_count,
+                "norms_post_dedup": len(norms),
+                "tags_pre": _tag_raw_count,
+                "tags_post_dedup": len(tags),
+                "locations_pre": _loc_raw_count,
+                "locations_post_dedup": len(locations),
+                "questions_pre": _q_raw_count,
+                "questions_post_dedup": len(questions),
+                "consequences_pre": _cons_raw_count,
+                "consequences_post_dedup": len(consequences),
+                "parameters_pre": _param_raw_count,
+                "parameters_post_dedup": len(parameters),
+                # post_cap_* can be added later if cap is enforced here; for now equals post_dedup
+                "norms_post_cap": len(norms),
+                "tags_post_cap": len(tags),
+                "locations_post_cap": len(locations),
+                "questions_post_cap": len(questions),
+                "consequences_post_cap": len(consequences),
+                "parameters_post_cap": len(parameters),
+            }
+        })
+
+        print(
+            f"[DEBUG] Aggregation counts — norms: pre={_norm_raw_count}, post_dedup={len(norms)}; "
+            f"tags: pre={_tag_raw_count}, post_dedup={len(tags)}; "
+            f"params: pre={_param_raw_count}, post_dedup={len(parameters)}"
+        )
         synthesized: Dict[str, Any] = {
             **{k: meta[k] for k in ("schema_version","ontology_version","truncated","has_more","window_config","global_disclaimer","document_metadata")},
             "norms": norms,
@@ -471,7 +642,6 @@ def makeRun(
                 print(f"[INFO] Saved visualization → {vis_path}")
             except Exception as ve:
                 print(f"[WARN] Visualization failed: {ve}", file=sys.stderr)
-
 
         return result
  
@@ -516,6 +686,8 @@ def makeRun(
     wc = primary.setdefault("window_config", {})
     wc.setdefault("input_chars", len(INPUT_TEXT))
     wc.setdefault("max_norms_per_5k_tokens", MAX_NORMS_PER_5K)
+    wc.setdefault("max_char_buffer", MAX_CHAR_BUFFER)
+    wc.setdefault("extraction_passes", EXTRACTION_PASSES)
     wc["extracted_norm_count"] = len(primary.get("norms", []))
 
     # Optional enrichment (post-validation) – only if teach mode or explicitly requested
