@@ -252,10 +252,10 @@ def makeRun(
         fence_output=False,
         use_schema_constraints=True,
         max_char_buffer=5000,
-        suppress_parse_errors=True,
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
+                "suppress_parse_errors_default": True,
         },
     )
 

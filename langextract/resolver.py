@@ -178,6 +178,7 @@ class Resolver(AbstractResolver):
       extraction_attributes_suffix: str | None = "_attributes",
       constraint: schema.Constraint = schema.Constraint(),
       format_type: data.FormatType = data.FormatType.JSON,
+    suppress_parse_errors_default: bool = False,
   ):
     """Constructor.
 
@@ -197,11 +198,13 @@ class Resolver(AbstractResolver):
     self.extraction_index_suffix = extraction_index_suffix
     self.extraction_attributes_suffix = extraction_attributes_suffix
     self.format_type = format_type
+    # When True, resolve() will return [] instead of raising on parse errors unless overridden per-call.
+    self._suppress_parse_errors_default = suppress_parse_errors_default
 
   def resolve(
       self,
       input_text: str,
-      suppress_parse_errors: bool = False,
+      suppress_parse_errors: bool | None = None,
       **kwargs,
   ) -> Sequence[data.Extraction]:
     """Runs resolve function on text with YAML/JSON extraction data.
@@ -221,12 +224,18 @@ class Resolver(AbstractResolver):
     logging.info("Starting resolver process for input text.")
     logging.debug("Input Text: %s", input_text)
 
+    # Decide suppression behavior: per-call flag overrides constructor default.
+    if suppress_parse_errors is None:
+      suppress_flag = self._suppress_parse_errors_default
+    else:
+      suppress_flag = suppress_parse_errors
+
     try:
       extraction_data = self.string_to_extraction_data(input_text)
       logging.debug("Parsed content: %s", extraction_data)
 
     except (ResolverParsingError, ValueError) as e:
-      if suppress_parse_errors:
+      if suppress_flag:
         logging.exception(
             "Failed to parse input_text: %s, error: %s", input_text, e
         )
