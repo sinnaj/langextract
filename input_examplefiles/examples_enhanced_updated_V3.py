@@ -48,6 +48,20 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
     debe constituir al menos un sector de incendio diferenciado, incluido el posible vesti-bulo común a diferentes salas.(5)"""),
         extractions=[
             lx.data.Extraction(
+                extraction_class="DocumentMetadata",
+                extraction_text="1 Compartimentación en sectores de incendio",
+                attributes={
+                    "id": "DM::000001",
+                    "document_title": None,
+                    "section_title": "Compartimentación en sectores de incendio",
+                    "author": None,
+                    "date": None,
+                    "source": None,
+                    "document_purpose": "Establish rules for compartmentalization in fire sectors",
+                    "document_application": None,
+                }
+            ),
+            lx.data.Extraction(
                 extraction_class="Procedure",
                 extraction_text=('2 A efectos del computo de la superficie de un sector de incendio, se considera que los locales de riesgo especial, las escaleras y pasillos protegidos, los vestibulos de independencia y las escaleras compartmentadas como sector de incendios, que esten contenidos en dicho sector no forman parte del mismo.'),
                 attributes={

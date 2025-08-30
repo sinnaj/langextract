@@ -1,5 +1,5 @@
 ## COMPACT SPEC (v1)
-Purpose: produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdown fences, NO extra prose. If data absent use empty lists, never null (except allowed nullable scalar fields noted).
+Purpose: Create a comprehensive list of entities: Norms, Procedures, Tags, Parameters & Questions from the provided Building Regulation Documents. Produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdown fences, NO extra prose. If data absent use empty lists, never null (except allowed nullable scalar fields noted).
 
 TOP LEVEL REQUIRED KEYS (1 extraction object min): norms[], tags[], locations[], questions[], consequences[], parameters[], quality{errors[],warnings[],confidence_global,uncertainty_global}.
 
@@ -95,12 +95,14 @@ Each element of "norms":
 
 RULES:
 1. Atomicity: split into separate norms if different thresholds OR different applicability triggers OR distinct obligation types.
-2. Merge only if identical (applies_if, satisfied_if, obligation_type) AND same location scope.
+2. Merge if identical (satisfied_if) AND same location scope.
 3. Do NOT fabricate numeric values or enum members; only copy explicitly present or logically derivable from text (e.g., plural implies count >=2 NOT okay unless explicitly numeric).
 4. If obligation phrased negatively ("no se admite"), set obligation_type PROHIBITION and encode satisfied_if reflecting the required negative state (e.g., DOOR.OPENING.REQUIRES_KEY == FALSE).
 5. If unconditional: applies_if = TRUE.
 6. If an explicit exemption sentence exists, integrate as exempt_if not separate Norm.
+7. If a statement about application/exemption is made
 7. If page cannot be confidently determined, set page = -1 and add quality.errors entry PAGE_MISSING (but per spec this should be exceptional).
+8. If no location information is present set "COUNTRY": "ES"
 
 --------------------------------------------------------------------------------
 ## 4. DSL GRAMMAR (STRICT)
