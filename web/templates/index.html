@@ -37,6 +37,16 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
+                <label class="block text-sm font-medium mb-1">Max Char Buffer</label>
+                <input name="MAX_CHAR_BUFFER" id="MAX_CHAR_BUFFER" type="number" step="1" value="5000" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1">Extraction Passes</label>
+                <input name="EXTRACTION_PASSES" id="EXTRACTION_PASSES" type="number" step="1" value="2" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
                 <label class="block text-sm font-medium mb-1">Prompt file</label>
                 <select name="INPUT_PROMPTFILE" id="INPUT_PROMPTFILE" class="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"></select>
               </div>
