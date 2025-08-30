@@ -21,15 +21,14 @@ EXAMPLES: List[lx.data.ExampleData] = [
                 extraction_class="Norm",
                 extraction_text=(
                     "Las puertas de salida para la evacuación de más de 50 personas deben ser abatibles con eje vertical y permitir apertura sin llave "
-                    "o mantener el sistema de cierre desactivado durante la actividad."
+                    "o mantener el sistema de cierre desactivado durante la actividad. No se aplica a puertas automáticas con abatimiento seguro."
                 ),
                 attributes={
                     "paragraph_number": 1,
                     "obligation_type": "MANDATORY",
                     "applies_if": "EVACUATION.PERSONS > 50",
                     "satisfied_if": (
-                        "(DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL'); OR "
-                        "(DOOR.OPENING.REQUIRES_KEY == FALSE AND DOOR.OPENING.MECHANISMS_COUNT <= 1); OR "
+                        "(DOOR.TYPE == 'SWING' AND DOOR.AXIS == 'VERTICAL' AND DOOR.OPENING.REQUIRES_KEY == FALSE); OR "
                         "(CLOSING.SYSTEM.ENABLED == FALSE)"
                     ),
                     "exempt_if": "DOOR.TYPE == 'AUTOMATIC' AND HAS(DOOR.OPTION.SWING_ALLOWED)",
@@ -357,7 +356,7 @@ EXAMPLES: List[lx.data.ExampleData] = [
                         "ROOM.TYPE",
                     ],
                     "relevant_roles": [],
-                    "project_dimensions": {},
+                    "project_dimensions": {"USAGE": ["HOSPITAL"], "WORK.TYPE": ["CONSTRUCTION.DOORS"]},
                     "lifecycle_phase": [],
                     "location_scope": {
                         "COUNTRY": None,

@@ -1,0 +1,228 @@
+<style>
+.lx-highlight { position: relative; border-radius:3px; padding:1px 2px;}
+.lx-highlight .lx-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  max-width: 240px;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.lx-highlight:hover .lx-tooltip { visibility: visible; opacity:1; }
+.lx-animated-wrapper { max-width: 100%; font-family: Arial, sans-serif; }
+.lx-controls {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 8px;
+  padding: 12px; margin-bottom: 16px;
+}
+.lx-button-row {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 12px;
+}
+.lx-control-btn {
+  background: #4285f4; color: white; border: none; border-radius: 4px;
+  padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: background-color 0.2s;
+}
+.lx-control-btn:hover { background: #3367d6; }
+.lx-progress-container {
+  margin-bottom: 8px;
+}
+.lx-progress-slider {
+  width: 100%; margin: 0; appearance: none; height: 6px;
+  background: #ddd; border-radius: 3px; outline: none;
+}
+.lx-progress-slider::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; background: #4285f4;
+  border-radius: 50%; cursor: pointer;
+}
+.lx-progress-slider::-moz-range-thumb {
+  width: 18px; height: 18px; background: #4285f4; border-radius: 50%;
+  cursor: pointer; border: none;
+}
+.lx-status-text {
+  text-align: center; font-size: 12px; color: #666; margin-top: 4px;
+}
+.lx-text-window {
+  font-family: monospace; white-space: pre-wrap; border: 1px solid #90caf9;
+  padding: 12px; max-height: 260px; overflow-y: auto; margin-bottom: 12px;
+  line-height: 1.6;
+}
+.lx-attributes-panel {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 6px;
+  padding: 8px 10px; margin-top: 8px; font-size: 13px;
+}
+.lx-current-highlight {
+  border-bottom: 4px solid #ff4444;
+  font-weight: bold;
+  animation: lx-pulse 1s ease-in-out;
+}
+@keyframes lx-pulse {
+  0% { text-decoration-color: #ff4444; }
+  50% { text-decoration-color: #ff0000; }
+  100% { text-decoration-color: #ff4444; }
+}
+.lx-legend {
+  font-size: 12px; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #e0e0e0;
+}
+.lx-label {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 4px;
+  color: #000;
+}
+.lx-attr-key {
+  font-weight: 600;
+  color: #1565c0;
+  letter-spacing: 0.3px;
+}
+.lx-attr-value {
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+}
+
+/* Add optimizations with larger fonts and better readability for GIFs */
+.lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
+.lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
+.lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
+</style>
+    <div class="lx-animated-wrapper lx-gif-optimized">
+      <div class="lx-attributes-panel">
+        <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">ontology_version</span> <span class="lx-label" style="background-color:#C8E6C9;">schema_version</span></div>
+        <div id="attributesContainer"></div>
+      </div>
+      <div class="lx-text-window" id="textWindow">
+        # 2 Senalizacion de las instalaciones manuales de proteccion contra incendios
+
+1 La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.
+
+# Sección SI 5 Intervención de los bomberos
+
+# 1 Condiciones de aproximación y entorno(1)
+
+# 1.1 Aproximación a los edificios
+
+1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes:
+
+a) anchura mínima libre 3,5 m;  
+b) altura mínima libre o gálibo 4,5 m;  
+c)capacidad portante del vial 20 kN/m².
+
+2 En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.
+
+# 1.2 Entorno de los edificios
+
+1 Los edificios con una altura de evacuación descendente mayor que 9 m deben disponer de un espacio de maniobra para los bomberos que cumpla las siguientes condiciones a lo largo de las fachadas en las que estén situados los accesos, o bien al interior del edificio, o bien al espacio abierto interior en el que se encuentren aquellos:
+
+a) anchura mínima libre 5 m  
+b) altura libre la del edificio  
+c) separación máximo del vehículo de bomberos a la fachada del edificio  - edificios de hasta 15 m de altura de evacuación 23 m  - edificios de más de 15 m y hasta 20 m de altura de evacuación 18 m  - edificios de más de 20 m de altura de evacuación 10 m  
+d) distancia máximo hasta los accesos al edificio necesarios para poder llegar hasta todas sus zonas 30 m  
+e) pendiente máximo 10%  
+f) resistencia al punzonamiento del suelo 100 kN sobre 20 cm φ
+
+2 La condición referida al punzonamiento debe cumplirse en las tapas de registro de las canalizaciones de servicios públicos situadas en ese espacio, cuando sus dimensiones fueran mayores que 0,15m x <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">0,15m,abiendo cenirse a las especificaciones de la norma UNE- EN 124:2015.
+
+3 El espacio de maniobra debe mantenense libre de mobiliario urbano, arbolado, jardines, mojones u otros obstáculos. De igual forma, donde se prevea el acceso a una fachada con escaleras o plataformas hidraulicas, se evitaran elementos tales como cables eléctricos aéreos o ramas de árboles que puedan interferir con las escaleras, etc.4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de bombeo a menos de  $18m$  de cada punto de conexión a ella. El punto de conexión sería visible desde el camión de bombeo.5 En las vías de acceso sin salida de más de  $20m$  de largo se dispondirá de un espacio suficiente para la maniobra de los vehículos del servicio de extinción de incendios.6 En zonas edificadas limitrofes o interiores a áreas forestales, deben cumplirse las condiciones siguientes:  a) Debe haber una franja de  $25m$  de anchura separando la zona edificada de la forestal, libre de arbustos o vegetación que pueda propagar un incendio del área forestal así como un camino perimetral de  $5m$ , que podrá estar incluido en la citada franja;  b) La zona edificada o urbanizada debe disponer preferentemente de dos vías de acceso alternativas, cada una de las cuales debe cumplir las condiciones expuestos en el apartado 1</span>.1;  c) Cuando no se pueda disponer de las dos vías alternativas indicadas en el párrafo anterior, el acceso único debe finalizar en un fondo de saco de forma circular de  $12,50m$  de radio, en el que se cumplan las condiciones expresadas en el primer párrafo de este apartado.
+
+# 2 Accesibilidad por fachada
+
+1 Las fachadas a las que se hace referencia en el apartado <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">1.2 deben disponer de huecos que permitan el acceso desde el exterior al personal del servicio de extinción de incendios. Dichos huecos deben cumplir las condiciones siguientes:
+
+a) Facilitar el acceso a cada una de las plantas del edificio, de forma que la altura del alfeizar respecto del nivel de la planta a la que accede no sea mayor que  $1,20m$  b) Sus dimensiones horizontal y vertical deben ser, al menos,  $0</span>,80m$  y  $1,20m$  respectivamente. La distancia maxima entre los ejes verticales de dos huecos consecutivos no debe exceder de 25 m, medida sobre la fachada; c) No se deben instalar en fachada elementos que impidan o dificulten la accesibilidad al interior del edificio a través de dichos huecos, a excepción de los elementos de seguridad situados en los huecos de las plantas cuya altura de evacuación no exceda de  $9m$
+
+2 Los aparcamientos robotizados dispondrán, en cada sector de incendios en que estén compartimientos, de una via compartimentada con elementos El 120 y puertas El2 60- C5 que permita el acceso de los bomberos hasta cada nivel existente, así como de un sistema mecánico de extracción de humo capaz realizar 3 renovaciones/hora.
+      </div>
+      <div class="lx-controls">
+        <div class="lx-button-row">
+          <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+          <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+          <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+        </div>
+        <div class="lx-progress-container">
+          <input type="range" id="progressSlider" class="lx-progress-slider"
+                 min="0" max="1" value="0"
+                 onchange="jumpToExtraction(this.value)">
+        </div>
+        <div class="lx-status-text">
+          Entity <span id="entityInfo">1/2</span> |
+          Pos <span id="posInfo">[3744-4162]</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const extractions = [{"index": 0, "class": "ontology_version", "text": "0.0.1", "color": "#D2E3FC", "startPos": 2020, "endPos": 3374, "beforeText": "lirse en las tapas de registro de las canalizaciones de servicios p\u00fablicos situadas en ese espacio, cuando sus dimensiones fueran mayores que 0,15m x ", "extractionText": "0,15m,abiendo cenirse a las especificaciones de la norma UNE- EN 124:2015.\n\n3 El espacio de maniobra debe mantenense libre de mobiliario urbano, arbolado, jardines, mojones u otros obst\u00e1culos. De igual forma, donde se prevea el acceso a una fachada con escaleras o plataformas hidraulicas, se evitaran elementos tales como cables el\u00e9ctricos a\u00e9reos o ramas de \u00e1rboles que puedan interferir con las escaleras, etc.4 En el caso de que el edificio est\u00e9 equipado con columna seca debe haber acceso para un equipo de bombeo a menos de  $18m$  de cada punto de conexi\u00f3n a ella. El punto de conexi\u00f3n ser\u00eda visible desde el cami\u00f3n de bombeo.5 En las v\u00edas de acceso sin salida de m\u00e1s de  $20m$  de largo se dispondir\u00e1 de un espacio suficiente para la maniobra de los veh\u00edculos del servicio de extinci\u00f3n de incendios.6 En zonas edificadas limitrofes o interiores a \u00e1reas forestales, deben cumplirse las condiciones siguientes:  a) Debe haber una franja de  $25m$  de anchura separando la zona edificada de la forestal, libre de arbustos o vegetaci\u00f3n que pueda propagar un incendio del \u00e1rea forestal as\u00ed como un camino perimetral de  $5m$ , que podr\u00e1 estar incluido en la citada franja;  b) La zona edificada o urbanizada debe disponer preferentemente de dos v\u00edas de acceso alternativas, cada una de las cuales debe cumplir las condiciones expuestos en el apartado 1", "afterText": ".1;  c) Cuando no se pueda disponer de las dos v\u00edas alternativas indicadas en el p\u00e1rrafo anterior, el acceso \u00fanico debe finalizar en un fondo de saco ", "attributesHtml": "<div><strong>class:</strong> ontology_version</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "schema_version", "text": "1.0.0", "color": "#C8E6C9", "startPos": 3744, "endPos": 4162, "beforeText": "diciones expresadas en el primer p\u00e1rrafo de este apartado.\n\n# 2 Accesibilidad por fachada\n\n1 Las fachadas a las que se hace referencia en el apartado ", "extractionText": "1.2 deben disponer de huecos que permitan el acceso desde el exterior al personal del servicio de extinci\u00f3n de incendios. Dichos huecos deben cumplir las condiciones siguientes:\n\na) Facilitar el acceso a cada una de las plantas del edificio, de forma que la altura del alfeizar respecto del nivel de la planta a la que accede no sea mayor que  $1,20m$  b) Sus dimensiones horizontal y vertical deben ser, al menos,  $0", "afterText": ",80m$  y  $1,20m$  respectivamente. La distancia maxima entre los ejes verticales de dos huecos consecutivos no debe exceder de 25 m, medida sobre la ", "attributesHtml": "<div><strong>class:</strong> schema_version</div><div><strong>attributes:</strong> {}</div>"}];
+        let currentIndex = 0;
+        let isPlaying = false;
+        let animationInterval = null;
+        let animationSpeed = 1.0;
+
+        function updateDisplay() {
+          const extraction = extractions[currentIndex];
+          if (!extraction) return;
+
+          document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+          document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+          document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+          document.getElementById('progressSlider').value = currentIndex;
+
+          const playBtn = document.querySelector('.lx-control-btn');
+          if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+          const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+          if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+          const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+          if (currentSpan) {
+            currentSpan.classList.add('lx-current-highlight');
+            currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }
+        }
+
+        function nextExtraction() {
+          currentIndex = (currentIndex + 1) % extractions.length;
+          updateDisplay();
+        }
+
+        function prevExtraction() {
+          currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+          updateDisplay();
+        }
+
+        function jumpToExtraction(index) {
+          currentIndex = parseInt(index);
+          updateDisplay();
+        }
+
+        function playPause() {
+          if (isPlaying) {
+            clearInterval(animationInterval);
+            isPlaying = false;
+          } else {
+            animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+            isPlaying = true;
+          }
+          updateDisplay();
+        }
+
+        window.playPause = playPause;
+        window.nextExtraction = nextExtraction;
+        window.prevExtraction = prevExtraction;
+        window.jumpToExtraction = jumpToExtraction;
+
+        updateDisplay();
+      })();
+    </script>
