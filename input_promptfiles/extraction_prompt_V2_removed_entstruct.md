@@ -14,7 +14,7 @@ A Norm is an atomic statement about regulation that needs to be followed. A Norm
 2. Merge if identical (satisfied_if) AND same location scope.
 3. Do NOT fabricate numeric values or enum members; only copy explicitly present or logically derivable from text (e.g., plural implies count >=2 NOT okay unless explicitly numeric).
 4. If obligation phrased negatively ("no se admite"), set obligation_type PROHIBITION and encode satisfied_if reflecting the required negative state (e.g., DOOR.OPENING.REQUIRES_KEY == FALSE).
-5. If unconditional: applies_if = TRUE.
+5. A valid norm must always have a valid applies_if statement. It cannot be "True".
 6. If an explicit exemption sentence exists, integrate as exempt_if not separate Norm.
 7. If a statement about application/exemption is made
 7. If page cannot be confidently determined, set page = -1 and add quality.errors entry PAGE_MISSING (but per spec this should be exceptional).
