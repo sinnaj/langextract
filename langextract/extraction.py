@@ -47,7 +47,7 @@ def extract(
     additional_context: str | None = None,
     resolver_params: dict | None = None,
     language_model_params: dict | None = None,
-    debug: bool = True,
+    debug: bool = False,
     model_url: str | None = None,
     extraction_passes: int = 1,
     config: typing.Any = None,
