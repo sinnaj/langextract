@@ -417,11 +417,156 @@ class Resolver(AbstractResolver):
       content = input_string
 
     def _sanitize_json_string(s: str) -> str:
-      # Escape any backslash not followed by a valid JSON escape char
-      s2 = re.sub(r"\\(?![\\\"/bfnrtu])", r"\\\\", s)
-      # Remove unprintable control characters except TAB(\t), LF(\n), CR(\r)
-      s2 = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", s2)
-      return s2
+      r"""Best-effort sanitizer for nearly-JSON strings with stray backslashes.
+
+      Handles LaTeX-style sequences (e.g., \mathsf, ^{\circ}) and incomplete
+      unicode escapes that cause json.loads to fail.
+
+      Steps:
+      1) Temporarily protect valid \uXXXX sequences so they aren't double-escaped.
+      2) Fix incomplete unicode: replace "\\u" not followed by 4 hex digits with "\\\\u".
+      3) Perform a string-aware pass: inside double-quoted JSON strings, double any
+         backslash that does not start a valid JSON escape (\\, \", \/, \b, \f, \n, \r, \t, \u).
+         This safely converts sequences like \mathsf and \circ into \\mathsf and \\circ.
+      4) Strip ASCII control chars except TAB, LF, CR.
+      5) Restore protected unicode escapes.
+      """
+      if not s:
+        return s
+
+      def _protect_valid_unicode(m: re.Match[str]) -> str:
+        # Keep as a placeholder to restore later; retain the hex digits
+        return f"§§UNICODE§§{m.group(1)}"
+
+      # Protect valid unicode escapes \uXXXX
+      protected = re.sub(r"\\u([0-9a-fA-F]{4})", _protect_valid_unicode, s)
+      # Make incomplete unicode escapes explicit (e.g., \u12 -> \\\\u12)
+      protected = re.sub(r"\\u(?![0-9a-fA-F]{4})", r"\\\\u", protected)
+
+      # FIRST: Fix HTML attribute quotes BEFORE doing backslash processing
+      # This prevents interference between the two sanitization steps
+      def escape_html_attributes_only(match):
+        full_match = match.group(0)
+        # Extract the string content (remove surrounding quotes)
+        content = full_match[1:-1]
+        
+        # Use a more targeted approach: only escape quotes that look like HTML attributes
+        # and are not already escaped
+        def replace_html_attr_quotes(attr_match):
+          attr_name = attr_match.group(1)
+          attr_value = attr_match.group(2)
+          return f'{attr_name}=\\"{attr_value}\\"'
+        
+        # Pattern to find unescaped HTML attribute="value" pairs
+        # Look for: word="value" but not word=\"value\" 
+        attr_pattern = r'(\w+)=(?<!\\)"([^"]*)"(?!\\")'
+        content = re.sub(attr_pattern, replace_html_attr_quotes, content)
+        
+        return f'"{content}"'
+      
+      # Pattern to match JSON string values containing HTML with unescaped attributes
+      html_attr_pattern = r'"[^"]*<\w+[^>]*\s+\w+="[^"]*"[^>]*>[^"]*"'
+      
+      # Apply HTML quote escaping first (before backslash processing)
+      max_iterations = 5
+      iteration = 0
+      
+      while iteration < max_iterations:
+        if not re.search(html_attr_pattern, protected):
+          break
+          
+        original_protected = protected
+        protected = re.sub(html_attr_pattern, escape_html_attributes_only, protected)
+        
+        if protected == original_protected:
+          break
+          
+        iteration += 1
+
+      # SECOND: String-aware pass for LaTeX backslashes (after HTML quotes are fixed)
+      out_chars: list[str] = []
+      in_string = False
+      escaped = False
+      i = 0
+      L = len(protected)
+      valid_escapes = set('"\\/bfnrtu')
+      
+      while i < L:
+        ch = protected[i]
+        if ch == '"' and not escaped:
+          in_string = not in_string
+          out_chars.append(ch)
+          i += 1
+          continue
+
+        if in_string:
+          if ch == '\\' and not escaped:
+            # Look ahead to decide whether to keep or double the backslash
+            if i + 1 < L:
+              nxt = protected[i + 1]
+              if nxt in valid_escapes:
+                # Valid JSON escape, but also ensure \u has 4 hex digits
+                if nxt == 'u':
+                  hex_ok = (
+                      i + 6 <= L
+                      and re.match(r"^[0-9a-fA-F]{4}$", protected[i + 2 : i + 6] or "") is not None
+                  )
+                  if not hex_ok:
+                    # Make incomplete unicode explicit: \\u...
+                    out_chars.append('\\\\u')
+                    i += 2
+                    continue
+                # Keep valid JSON escape as-is
+                out_chars.append('\\')
+                i += 1
+                continue
+              else:
+                # Check if this is already a double-escaped sequence
+                # Look back to see if there's already a backslash before this one
+                already_escaped = (
+                  len(out_chars) > 0 and out_chars[-1] == '\\' and 
+                  not (len(out_chars) > 1 and out_chars[-2] == '\\')  # But not triple-escaped
+                )
+                
+                if already_escaped:
+                  # This backslash is already escaped (e.g., we're seeing the second \ in \\mathsf)
+                  # Don't double it again
+                  out_chars.append('\\')
+                  i += 1
+                  continue
+                else:
+                  # This is a raw backslash that needs escaping (e.g., \mathsf -> \\mathsf)
+                  out_chars.append('\\\\')
+                  i += 1
+                  continue
+            else:
+              # Trailing backslash inside a string -> escape it
+              out_chars.append('\\\\')
+              i += 1
+              continue
+
+          # Normal char inside string
+          out_chars.append(ch)
+          escaped = (ch == '\\') and not escaped
+          i += 1
+          continue
+
+        # Outside of string, just copy
+        out_chars.append(ch)
+        escaped = False
+        i += 1
+
+      protected = "".join(out_chars)
+      
+      # Remove control chars except TAB, LF, CR
+      protected = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", protected)
+
+      # Restore valid unicode escapes
+      def _restore_valid_unicode(m: re.Match[str]) -> str:
+        return f"\\u{m.group(1)}"
+
+      restored = re.sub(r"§§UNICODE§§([0-9a-fA-F]{4})", _restore_valid_unicode, protected)
+      return restored
 
     try:
       if self.format_type == data.FormatType.YAML:
@@ -431,20 +576,36 @@ class Resolver(AbstractResolver):
         parsed_data = json.loads(content)
       logging.debug("Successfully parsed content.")
     except json.JSONDecodeError as je:
-      logging.warning("JSON parse failed, attempting YAML fallback and sanitization: %s", je)
-      # Fallback 1: YAML can often handle minor JSON deviations
+      logging.warning(
+          "JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: %s",
+          je,
+      )
+      # First try sanitized JSON (handles stray backslashes like \mathsf)
       try:
-        parsed_data = yaml.safe_load(content)
-        logging.debug("YAML fallback succeeded.")
-      except yaml.YAMLError:
-        # Fallback 2: sanitize common invalid backslashes/control chars and retry JSON
+        sanitized = _sanitize_json_string(content)
+        logging.debug("Sanitized content: %s", sanitized[:200] + "..." if len(sanitized) > 200 else sanitized)
+        parsed_data = json.loads(sanitized)
+        logging.debug("Sanitized JSON parse succeeded.")
+      except Exception as e_san:
+        logging.debug("Sanitized JSON parse failed: %s", e_san)
+        # Try tolerant parser if available
         try:
-          sanitized = _sanitize_json_string(content)
-          parsed_data = json.loads(sanitized)
-          logging.debug("Sanitized JSON parse succeeded.")
-        except Exception as e2:
-          logging.exception("Failed to parse content after fallbacks.")
-          raise ResolverParsingError("Failed to parse content.") from e2
+          import dirtyjson  # type: ignore
+
+          try:
+            parsed_data = dirtyjson.loads(sanitized)
+            logging.debug("dirtyjson parse succeeded on sanitized content.")
+          except Exception:
+            parsed_data = dirtyjson.loads(content)
+            logging.debug("dirtyjson parse succeeded on original content.")
+        except Exception:
+          # As a last resort try YAML load
+          try:
+            parsed_data = yaml.safe_load(content)
+            logging.debug("YAML fallback succeeded after sanitization failure.")
+          except Exception as e2:
+            logging.exception("Failed to parse content after sanitization, dirtyjson, and YAML fallback.")
+            raise ResolverParsingError("Failed to parse content.") from e2
     except yaml.YAMLError as ye:
       logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
       try:
