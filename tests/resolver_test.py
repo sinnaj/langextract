@@ -1739,6 +1739,19 @@ class ResolverTest(parameterized.TestCase):
         format_type=data.FormatType.JSON,
     )
 
+    def test_parse_with_latex_backslashes_in_json(self):
+        raw = (
+                '{"extractions": ['
+                '{"entity": "Norm", '
+                '"extracted_text": "Angle is $30^{\\circ}$ and tensor $\\mathsf{E}1_{2}$", '
+                '"attributes": {"norm_statement": "Maintain $30^{\\circ}$"}}'
+                ']}'
+        )
+        resolver = resolver_lib.Resolver(format_type=data.FormatType.JSON, fence_output=False)
+        parsed = resolver._extract_and_parse_content(raw)
+        self.assertIn("extractions", parsed)
+        self.assertEqual(parsed["extractions"][0]["entity"], "Norm")
+
   @parameterized.named_parameters(
       dict(
           testcase_name="json_with_fence",

@@ -7,7 +7,7 @@ Produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdo
 TOP LEVEL REQUIRED KEYS (1 extraction object min): sections[], norms[], procedures[], classifications[], legal_docs[], quality{errors[], warnings[], confidence}.
 
 ## Document Section
-Sections divide the provided document depending on their content. Sections can take the form of but are not limited to Document Title, Headlines, Article, Apendix etc.
+The Structure of the provided document should be reflected in Sections. Sections can take the form of but are not limited to Document Title, Headlines, Articles, Apendix etc. Sections always carry a reference to their parent, so that the structural outline of the document can be understood from them. General statements like "All buildings need to be compartmentalized" section_application_guidannce
 
 ### Norms
 A Norm is an atomic statement about regulation that needs to be followed. A norm is always applicable and valid in and of itself without further context being necessary. A valid Norm always has an applies_if statement that fences conditions under which it should be applied. A valid norm further dictates a satisfied_if condition that dictates the minimum requirements to comply with it.

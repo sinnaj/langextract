@@ -130,16 +130,18 @@ def makeRun(
     # Default examples module if EXAMPLES_FILE is not provided via makeRun
     DEFAULT_EXAMPLES_PATH = Path("input_examplefiles/default.py")
 
+    # Base prompt (be tolerant in web/worker context)
     if not PROMPT_FILE.exists():
-        print(f"FATAL: Prompt file missing at {PROMPT_FILE}", file=sys.stderr)
-        sys.exit(1)
+        print(f"[WARN] Prompt file missing at {PROMPT_FILE}; using minimal default prompt.", file=sys.stderr)
+        PROMPT_DESCRIPTION = (
+            "Extract Norms, Tags, and Parameters. Return a JSON object with an 'extractions' array."
+        )
+    else:
+        PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
 
     if not INPUT_FILE or not INPUT_FILE.exists():
-        print(f"FATAL: Input file missing at {INPUT_FILE}", file=sys.stderr)
-        sys.exit(1)
-
-    # Base prompt
-    PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
+        print(f"[WARN] Input file missing at {INPUT_FILE}; proceeding with empty input text.", file=sys.stderr)
+        # Leave INPUT_FILE as None; later section sets INPUT_TEXT = "" accordingly.
 
     # Teaching appendix injection & known field paths (if LX_TEACH_MODE=1)
     TEACH_MODE = os.getenv("LX_TEACH_MODE") == "1"
