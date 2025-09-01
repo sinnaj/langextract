@@ -18,7 +18,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     if (consoleEl) {
       consoleOptimizer = new ConsoleOptimizer(consoleEl, {
-        maxLines: 10000,
+        maxLines: 500,
         autoScroll: true,
         debounceMs: 16
       });
