@@ -1,0 +1,446 @@
+{
+  "resolver_debug": {
+    "source_text_preview": "# 2 Senalizacion de las instalaciones manuales de proteccion contra incendios\n\n1 La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n\n# Sección SI 5 Intervención de los bomberos\n\n# 1 Condiciones de aproximación y entorno(1)\n\n# 1.1 Aproximación a los edificios\n\n1 Los viales de aproximación de los vehículos de los bombe...",
+    "source_text_length": 991,
+    "token_offset": 0,
+    "char_offset": 0,
+    "num_extractions_input": 9,
+    "num_aligned_groups": 1,
+    "alignment_settings": {
+      "enable_fuzzy_alignment": true,
+      "fuzzy_alignment_threshold": 0.75,
+      "accept_match_lesser": true
+    },
+    "extractions": [
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "2 Senalizacion de las instalaciones manuales de proteccion contra incendios",
+        "extraction_index": 1,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 1,
+          "end_index": 11
+        },
+        "char_interval": {
+          "start_pos": 2,
+          "end_pos": 77
+        },
+        "attributes": {
+          "id": "SE::000007",
+          "sectioning_type": "ARTICLE",
+          "section_title": "Señalización de las instalaciones manuales de protección contra incendios",
+          "parent_type": "DOCUMENT",
+          "parent_id": "SE::000002",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Requirements for signage of manual fire protection installations.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "NORM",
+        "extraction_text": "La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+        "extraction_index": 2,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 12,
+          "end_index": 49
+        },
+        "char_interval": {
+          "start_pos": 81,
+          "end_pos": 313
+        },
+        "attributes": {
+          "id": "N::000003",
+          "parent_section_id": "SE::000007",
+          "paragraph_number": 1,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "Signage of manual fire protection installations must comply with the current Regulation on fire protection installations.",
+          "applies_if": "TRUE",
+          "satisfied_if": "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNAGE.COMPLIES_WITH_REGULATION('Real Decreto 513/2017, de 22 de mayo')",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNAGE"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": 2,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "extracted_parameters": [],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "LEGAL_DOCUMENT",
+        "extraction_text": "Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+        "extraction_index": 3,
+        "alignment_status": "MATCH_FUZZY",
+        "token_interval": {
+          "start_index": 29,
+          "end_index": 49
+        },
+        "char_interval": {
+          "start_pos": 200,
+          "end_pos": 313
+        },
+        "attributes": {
+          "id": "LD::000001",
+          "title": "Reglamento de instalaciones de proteccion contra incendios",
+          "document_type": "REAL DECRETO",
+          "document_number": "513/2017",
+          "date": "2017-05-22",
+          "jurisdiction": "ES",
+          "url": null,
+          "summary": "Regulation on fire protection installations.",
+          "relevant_topics": [
+            "SAFETY.FIRE"
+          ],
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": 2,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          }
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "Sección SI 5 Intervención de los bomberos",
+        "extraction_index": 4,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 50,
+          "end_index": 61
+        },
+        "char_interval": {
+          "start_pos": 317,
+          "end_pos": 358
+        },
+        "attributes": {
+          "id": "SE::000008",
+          "sectioning_type": "SECTION",
+          "section_title": "Intervención de los bomberos",
+          "parent_type": "DOCUMENT",
+          "parent_id": "SE::000002",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Requirements for fire brigade intervention.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "1 Condiciones de aproximación y entorno(1)",
+        "extraction_index": 5,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 62,
+          "end_index": 73
+        },
+        "char_interval": {
+          "start_pos": 362,
+          "end_pos": 404
+        },
+        "attributes": {
+          "id": "SE::000009",
+          "sectioning_type": "ARTICLE",
+          "section_title": "Condiciones de aproximación y entorno",
+          "parent_type": "SECTION",
+          "parent_id": "SE::000008",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Conditions for fire brigade approach and surrounding area.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "1.1 Aproximación a los edificios",
+        "extraction_index": 6,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 74,
+          "end_index": 83
+        },
+        "char_interval": {
+          "start_pos": 408,
+          "end_pos": 440
+        },
+        "attributes": {
+          "id": "SE::000010",
+          "sectioning_type": "SUB_ARTICLE",
+          "section_title": "Aproximación a los edificios",
+          "parent_type": "ARTICLE",
+          "parent_id": "SE::000009",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Conditions for fire brigade approach to buildings.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "NORM",
+        "extraction_text": "Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes: a) anchura mínima libre 3,5 m; b) altura mínima libre o gálibo 4,5 m; c)capacidad portante del vial 20 kN/m².",
+        "extraction_index": 7,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 84,
+          "end_index": 157
+        },
+        "char_interval": {
+          "start_pos": 444,
+          "end_pos": 725
+        },
+        "attributes": {
+          "id": "N::000004",
+          "parent_section_id": "SE::000010",
+          "paragraph_number": 1,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "Fire brigade vehicle approach roads to maneuvering spaces must meet the following conditions: a) minimum clear width 3.5 m; b) minimum clear height or gauge 4.5 m; c) road bearing capacity 20 kN/m².",
+          "applies_if": "TRUE",
+          "satisfied_if": "ROAD.WIDTH >= 3.5 AND ROAD.HEIGHT >= 4.5 AND ROAD.BEARING_CAPACITY >= 20",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "FIRE.BRIGADE.ACCESS",
+            "ROAD.WIDTH",
+            "ROAD.HEIGHT",
+            "ROAD.BEARING_CAPACITY"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": 1.1,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "extracted_parameters": [
+            "ROAD.WIDTH >= 3.5 m",
+            "ROAD.HEIGHT >= 4.5 m",
+            "ROAD.BEARING_CAPACITY >= 20 kN/m²"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "NORM",
+        "extraction_text": "En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
+        "extraction_index": 8,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 158,
+          "end_index": 208
+        },
+        "char_interval": {
+          "start_pos": 729,
+          "end_pos": 930
+        },
+        "attributes": {
+          "id": "N::000005",
+          "parent_section_id": "SE::000010",
+          "paragraph_number": 2,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "On curved sections, the road lane must be delimited by the trace of a circular crown whose minimum radii must be 5.30 m and 12.50 m, with a clear width for circulation of 7.20 m.",
+          "applies_if": "ROAD.SECTION.TYPE == 'CURVED'",
+          "satisfied_if": "ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_1 == 5.30 AND ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_2 == 12.50 AND ROAD.LANE.CLEAR_WIDTH == 7.20",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "FIRE.BRIGADE.ACCESS",
+            "ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_1",
+            "ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_2",
+            "ROAD.LANE.CLEAR_WIDTH"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": 1.1,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "extracted_parameters": [
+            "ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_1 == 5.30 m",
+            "ROAD.LANE.CIRCULAR_CROWN.MIN_RADIUS_2 == 12.50 m",
+            "ROAD.LANE.CLEAR_WIDTH == 7.20 m"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "PROCEDURE",
+        "extraction_text": "d_ef = d_1 + 0,5d_2",
+        "extraction_index": 9,
+        "alignment_status": "MATCH_LESSER",
+        "token_interval": {
+          "start_index": 211,
+          "end_index": 212
+        },
+        "char_interval": {
+          "start_pos": 941,
+          "end_pos": 942
+        },
+        "attributes": {
+          "id": "PD::000003",
+          "parent_section_id": "SE::000010",
+          "Procedure": "Calculation of effective distance: d_ef = d_1 + 0.5 * d_2",
+          "target_reference": [],
+          "Tags": [
+            "CALCULATION",
+            "DISTANCE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "Chapter": null,
+            "article": 1.1,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          }
+        }
+      }
+    ]
+  }
+}

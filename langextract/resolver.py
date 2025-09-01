@@ -27,6 +27,7 @@ import itertools
 import json
 import operator
 import re
+from pathlib import Path
 
 from absl import logging
 import yaml
@@ -317,58 +318,61 @@ class Resolver(AbstractResolver):
         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
         accept_match_lesser=accept_match_lesser,
     )
-    # else:
-    #   # Align only allowed classes; pass through the rest unchanged
-    #   def _looks_jsonish(text: str) -> bool:
-    #     t = (text or "").strip()
-    #     if not t:
-    #       return False
-    #     if t[0] in "[{":
-    #       return True
-    #     # Heuristic: JSON-ish if contains a colon and any brace/bracket
-    #     return (":" in t) and any(ch in t for ch in "{}[]")
+    
+    # Debug output: Save resolver output to root folder
+    try:
+      debug_output = {
+        "resolver_debug": {
+          "source_text_preview": source_text[:500] + ("..." if len(source_text) > 500 else ""),
+          "source_text_length": len(source_text),
+          "token_offset": token_offset,
+          "char_offset": char_offset or 0,
+          "num_extractions_input": len(extractions),
+          "num_aligned_groups": len(aligned_yaml_extractions),
+          "alignment_settings": {
+            "enable_fuzzy_alignment": enable_fuzzy_alignment,
+            "fuzzy_alignment_threshold": fuzzy_alignment_threshold,
+            "accept_match_lesser": accept_match_lesser,
+          },
+          "extractions": []
+        }
+      }
+      
+      # Add detailed extraction information
+      for group_idx, group in enumerate(aligned_yaml_extractions):
+        for extraction in group:
+          extraction_info = {
+            "group_index": group_idx,
+            "extraction_class": extraction.extraction_class,
+            "extraction_text": extraction.extraction_text,
+            "extraction_index": extraction.extraction_index,
+            "alignment_status": extraction.alignment_status.name if extraction.alignment_status else None,
+            "token_interval": {
+              "start_index": extraction.token_interval.start_index if extraction.token_interval else None,
+              "end_index": extraction.token_interval.end_index if extraction.token_interval else None,
+            } if extraction.token_interval else None,
+            "char_interval": {
+              "start_pos": extraction.char_interval.start_pos if extraction.char_interval else None,
+              "end_pos": extraction.char_interval.end_pos if extraction.char_interval else None,
+            } if extraction.char_interval else None,
+            "attributes": extraction.attributes,
+          }
+          debug_output["resolver_debug"]["extractions"].append(extraction_info)
+      
+      # Save to root folder
+      debug_file = Path("resolver_output.json")
+      with open(debug_file, 'w', encoding='utf-8') as f:
+        json.dump(debug_output, f, indent=2, ensure_ascii=False)
+      logging.info("Resolver debug output saved to: %s", debug_file.absolute())
+      
+    except Exception as debug_error:
+      logging.warning("Failed to save resolver debug output: %s", debug_error)
 
-    #   filtered_groups: list[list[data.Extraction]] = []
-    #   excluded_groups: list[list[data.Extraction]] = []
-    #   for group in extractions_group:
-    #     fg = [
-    #         e
-    #         for e in group
-    #         if e.extraction_class
-    #         and e.extraction_class.lower() in allowed_classes
-    #         and not _looks_jsonish(e.extraction_text)
-    #     ]
-    #     eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
-    #     filtered_groups.append(fg)
-    #     excluded_groups.append(eg)
+    for extraction in itertools.chain(*aligned_yaml_extractions):
+      logging.debug("Yielding aligned extraction: %s", extraction)
+      yield extraction
 
-    #   if all(len(g) == 0 for g in filtered_groups):
-    #     aligned_yaml_extractions = excluded_groups
-    #   else:
-    #     aligned_filtered = aligner.align_extractions(
-    #         filtered_groups,
-    #         source_text,
-    #         token_offset,
-    #         char_offset or 0,
-    #         enable_fuzzy_alignment=enable_fuzzy_alignment,
-    #         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
-    #         accept_match_lesser=accept_match_lesser,
-    #     )
-    #     # Merge aligned allowed + excluded (unaligned) per group
-    #     aligned_yaml_extractions = [
-    #         list(aligned_allowed) + list(excluded)
-    #         for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
-    #     ]
-    # logging.debug(
-    #     "Aligned extractions count: %d",
-    #     sum(len(group) for group in aligned_yaml_extractions),
-    # )
-
-    # for extraction in itertools.chain(*aligned_yaml_extractions):
-    #   logging.debug("Yielding aligned extraction: %s", extraction)
-    #   yield extraction
-
-    # logging.info("Completed alignment process for the provided source_text.")
+    logging.info("Completed alignment process for the provided source_text.")
 
   def _extract_and_parse_content(
       self,

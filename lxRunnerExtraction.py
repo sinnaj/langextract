@@ -345,6 +345,37 @@ def makeRun(
             # Immediate safety check
             if annotated is None:
                 raise ValueError("lx.extract returned None - this should not happen")
+            
+            # IMMEDIATE raw save before ANY processing
+            try:
+                emergency_save_path = lx_output_dir / f"emergency_raw_annotated_{'single' if idx is None else f'{idx:03}'}.txt"
+                with open(emergency_save_path, 'w', encoding='utf-8') as f:
+                    f.write(f"ANNOTATED OBJECT EMERGENCY SAVE\n")
+                    f.write(f"Type: {type(annotated)}\n")
+                    f.write(f"Dir: {dir(annotated)}\n")
+                    f.write(f"Str repr: {str(annotated)}\n")
+                    f.write(f"Has extractions: {hasattr(annotated, 'extractions')}\n")
+                    if hasattr(annotated, 'extractions'):
+                        extractions = getattr(annotated, 'extractions')
+                        f.write(f"Extractions type: {type(extractions)}\n")
+                        f.write(f"Extractions is None: {extractions is None}\n")
+                        f.write(f"Extractions str: {str(extractions)}\n")
+                        if extractions is not None and hasattr(extractions, '__len__'):
+                            f.write(f"Extractions length: {len(extractions)}\n")
+                        if extractions is not None and hasattr(extractions, '__iter__'):
+                            f.write(f"Extractions is iterable: True\n")
+                            try:
+                                for i, item in enumerate(extractions):
+                                    if i >= 3:  # Only first 3
+                                        break
+                                    f.write(f"Item {i}: {type(item)} -> {str(item)[:100]}...\n")
+                            except Exception as iter_err:
+                                f.write(f"Iteration failed: {iter_err}\n")
+                        else:
+                            f.write(f"Extractions is not iterable\n")
+                print(f"[DEBUG] Emergency save completed to {emergency_save_path}", file=sys.stderr)
+            except Exception as emergency_err:
+                print(f"[ERROR] Emergency save failed: {emergency_err}", file=sys.stderr)
                 
         except Exception as e:
             safe_err = _sanitize_for_log(e)
@@ -360,6 +391,114 @@ def makeRun(
             except Exception:
                 pass
             return result
+
+        # Save RAW annotated document as-is for structure analysis (BEFORE any processing)
+        print(f"[DEBUG] Starting to save raw annotated document for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
+        try:
+            raw_annotated_name = f"raw_annotated_document_{idx:03}.json" if idx is not None else "raw_annotated_document_single.json"
+            
+            # First, try to serialize the entire annotated object using its built-in methods if available
+            raw_annotated_data = {}
+            
+            # Basic metadata about the annotated object
+            raw_annotated_data["object_type"] = str(type(annotated))
+            raw_annotated_data["object_is_none"] = annotated is None
+            raw_annotated_data["object_attributes"] = [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
+            
+            # Try to serialize using common serialization methods
+            serialization_attempts = {}
+            
+            # Attempt 1: Check for to_dict method
+            try:
+                if hasattr(annotated, 'to_dict'):
+                    raw_annotated_data["to_dict_result"] = annotated.to_dict()
+                    serialization_attempts["to_dict"] = "success"
+                else:
+                    serialization_attempts["to_dict"] = "method_not_available"
+            except Exception as dict_err:
+                serialization_attempts["to_dict"] = f"error: {str(dict_err)}"
+            
+            # Attempt 2: Check for __dict__ attribute
+            try:
+                if hasattr(annotated, '__dict__'):
+                    # Convert __dict__ to JSON-serializable format
+                    dict_data = {}
+                    for key, value in annotated.__dict__.items():
+                        try:
+                            # Test JSON serialization
+                            json.dumps(value)
+                            dict_data[key] = value
+                        except (TypeError, ValueError):
+                            # Not JSON serializable, store as string representation
+                            dict_data[key] = str(value)
+                    raw_annotated_data["__dict___result"] = dict_data
+                    serialization_attempts["__dict__"] = "success"
+                else:
+                    serialization_attempts["__dict__"] = "attribute_not_available"
+            except Exception as dict_err:
+                serialization_attempts["__dict__"] = f"error: {str(dict_err)}"
+            
+            # Attempt 3: Manual attribute extraction for key properties
+            try:
+                manual_extraction = {}
+                key_attributes = ["document_id", "extractions", "text", "metadata", "config", "results"]
+                
+                for attr_name in key_attributes:
+                    try:
+                        if hasattr(annotated, attr_name):
+                            attr_value = getattr(annotated, attr_name)
+                            # Try to serialize, fall back to string representation
+                            try:
+                                json.dumps(attr_value)
+                                manual_extraction[attr_name] = attr_value
+                            except (TypeError, ValueError):
+                                manual_extraction[attr_name] = {
+                                    "type": str(type(attr_value)),
+                                    "string_repr": str(attr_value),
+                                    "is_none": attr_value is None,
+                                    "has_len": hasattr(attr_value, '__len__'),
+                                    "length": len(attr_value) if hasattr(attr_value, '__len__') else None,
+                                    "is_iterable": hasattr(attr_value, '__iter__'),
+                                }
+                                # If it's extractions, try to get more details
+                                if attr_name == "extractions" and attr_value is not None:
+                                    try:
+                                        if hasattr(attr_value, '__iter__') and not isinstance(attr_value, str):
+                                            first_few = []
+                                            for i, item in enumerate(attr_value):
+                                                if i >= 3:  # Only first 3 items
+                                                    break
+                                                first_few.append({
+                                                    "index": i,
+                                                    "type": str(type(item)),
+                                                    "string_repr": str(item)[:300] + "..." if len(str(item)) > 300 else str(item),
+                                                    "attributes": [attr for attr in dir(item) if not attr.startswith('_')] if hasattr(item, '__dict__') else []
+                                                })
+                                            manual_extraction[attr_name]["sample_items"] = first_few
+                                    except Exception as sample_err:
+                                        manual_extraction[attr_name]["sample_error"] = str(sample_err)
+                        else:
+                            manual_extraction[attr_name] = "attribute_not_found"
+                    except Exception as attr_err:
+                        manual_extraction[attr_name] = f"error: {str(attr_err)}"
+                
+                raw_annotated_data["manual_extraction"] = manual_extraction
+                serialization_attempts["manual_extraction"] = "success"
+                
+            except Exception as manual_err:
+                serialization_attempts["manual_extraction"] = f"error: {str(manual_err)}"
+            
+            raw_annotated_data["serialization_attempts"] = serialization_attempts
+            
+            # Save the raw annotated document structure
+            (lx_output_dir / raw_annotated_name).write_text(
+                json.dumps(raw_annotated_data, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            print(f"[DEBUG] Raw annotated document saved to: {raw_annotated_name}", file=sys.stderr)
+            
+        except Exception as raw_annotated_err:
+            print(f"[WARN] Failed to save raw annotated document: {raw_annotated_err}", file=sys.stderr)
 
         # Save RAW resolver output for debugging (before any processing)
         print(f"[DEBUG] Starting to save raw resolver output for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
@@ -445,10 +584,22 @@ def makeRun(
                     "start_index": getattr(ti, "start_index", None),
                     "end_index": getattr(ti, "end_index", None),
                 }
+            
+            def _get_alignment_status_value(alignment_status):
+                """Extract alignment status value from enum or string"""
+                if alignment_status is None:
+                    return None
+                # Handle enum objects with .value attribute
+                if hasattr(alignment_status, "value"):
+                    return alignment_status.value
+                # Handle string values directly
+                return alignment_status
 
             log_debug(f"Starting post-processing with annotated type: {type(annotated)}")
             log_debug(f"Annotated is None: {annotated is None}")
+            log_debug(f"Annotated type: {type(annotated)}")
             log_debug(f"Annotated has extractions attr: {hasattr(annotated, 'extractions')}")
+            log_debug(f"Annotated dir: {dir(annotated) if annotated is not None else 'None'}")
             
             raw_items = []
             
@@ -505,7 +656,7 @@ def makeRun(
                     log_debug(f"CRITICAL: Cannot create iterator for extractions: {iter_err}")
                     # This is likely our problem - force to empty list
                     extractions = []
-                
+
                 for extraction_index, e in enumerate(extractions):
                     extraction_count += 1
                     log_debug(f"Processing extraction {extraction_index}: type={type(e)}, is_none={e is None}")
@@ -564,7 +715,7 @@ def makeRun(
                                     "extraction_text": getattr(e, "extraction_text", None),
                                     "attributes": attributes,
                                     "char_interval": _ci_dict(getattr(e, "char_interval", None)),
-                                    "alignment_status": getattr(getattr(e, "alignment_status", None), "value", None) if hasattr(getattr(e, "alignment_status", None), "value") else getattr(e, "alignment_status", None),
+                                    "alignment_status": _get_alignment_status_value(getattr(e, "alignment_status", None)),
                                     "extraction_index": getattr(e, "extraction_index", None),
                                     "group_index": getattr(e, "group_index", None),
                                     "description": getattr(e, "description", None),
