@@ -29,7 +29,13 @@
           const stats = consoleOptimizer.getStats();
           const statsEl = $('console-stats');
           if (statsEl) {
-            statsEl.textContent = `${stats.totalLines} lines`;
+            const wrapIndicator = stats.wordWrap ? '↩️' : '↔️';
+            statsEl.textContent = `${stats.totalLines} lines ${wrapIndicator}`;
+          }
+          // Update word wrap button opacity
+          const wordWrapBtn = $('console-word-wrap');
+          if (wordWrapBtn) {
+            wordWrapBtn.style.opacity = stats.wordWrap ? '1' : '0.5';
           }
         }
       }, 1000);
@@ -72,6 +78,19 @@
           if (newMax && !isNaN(newMax)) {
             consoleOptimizer.setMaxLines(parseInt(newMax));
           }
+        }
+      });
+    }
+
+    // Add word wrap toggle
+    const consoleWordWrapBtn = $('console-word-wrap');
+    if (consoleWordWrapBtn) {
+      consoleWordWrapBtn.addEventListener('click', () => {
+        if (consoleOptimizer) {
+          consoleOptimizer.toggleWordWrap();
+          // Update button appearance based on state
+          const stats = consoleOptimizer.getStats();
+          consoleWordWrapBtn.style.opacity = stats.wordWrap ? '1' : '0.5';
         }
       });
     }

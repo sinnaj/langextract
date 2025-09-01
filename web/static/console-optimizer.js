@@ -10,6 +10,7 @@ class ConsoleOptimizer {
       chunkSize: options.chunkSize || 100,
       debounceMs: options.debounceMs || 16, // ~60fps
       autoScroll: options.autoScroll !== false,
+      wordWrap: options.wordWrap !== false, // default to true for wrapping
       ...options
     };
     
@@ -44,7 +45,7 @@ class ConsoleOptimizer {
     this.viewport.style.fontFamily = 'monospace';
     this.viewport.style.fontSize = '14px';
     this.viewport.style.lineHeight = '1.4';
-    this.viewport.style.whiteSpace = 'pre-wrap';
+    this.applyWordWrapSetting();
     this.virtualContainer.appendChild(this.viewport);
     
     // Measure line height
@@ -55,6 +56,16 @@ class ConsoleOptimizer {
     
     // Initial render
     this.updateDisplay();
+  }
+  
+  applyWordWrapSetting() {
+    if (this.options.wordWrap) {
+      this.viewport.style.whiteSpace = 'pre-wrap';
+      this.viewport.style.overflowX = 'hidden';
+    } else {
+      this.viewport.style.whiteSpace = 'pre';
+      this.viewport.style.overflowX = 'auto';
+    }
   }
   
   measureLineHeight() {
@@ -136,6 +147,38 @@ class ConsoleOptimizer {
       return;
     }
     
+    if (this.options.wordWrap) {
+      // When word wrap is enabled, use simpler rendering without virtual scrolling
+      this.renderAllLines();
+    } else {
+      // When word wrap is disabled, use virtual scrolling for performance
+      this.renderVirtualLines();
+    }
+  }
+  
+  renderAllLines() {
+    // Clear viewport
+    this.viewport.innerHTML = '';
+    this.viewport.style.transform = '';
+    
+    // Render all lines without virtual scrolling
+    const fragment = document.createDocumentFragment();
+    
+    // Calculate which lines should be visible based on buffer limit
+    const startIdx = Math.max(0, this.lines.length - this.options.maxLines);
+    
+    for (let i = startIdx; i < this.lines.length; i++) {
+      const lineDiv = document.createElement('div');
+      lineDiv.textContent = this.lines[i];
+      // Remove fixed height to allow natural wrapping
+      fragment.appendChild(lineDiv);
+    }
+    
+    this.viewport.appendChild(fragment);
+    this.virtualContainer.style.height = 'auto';
+  }
+  
+  renderVirtualLines() {
     const containerHeight = this.element.clientHeight;
     const scrollTop = this.element.scrollTop;
     
@@ -197,13 +240,38 @@ class ConsoleOptimizer {
     }
   }
   
+  toggleWordWrap() {
+    this.options.wordWrap = !this.options.wordWrap;
+    this.applyWordWrapSetting();
+    this.updateDisplay();
+    
+    // Auto-scroll to bottom if we were auto-scrolling
+    if (this.isAutoScrolling) {
+      this.scrollToBottom();
+    }
+  }
+  
+  setWordWrap(enabled) {
+    this.options.wordWrap = enabled;
+    this.applyWordWrapSetting();
+    this.updateDisplay();
+    
+    // Auto-scroll to bottom if we were auto-scrolling
+    if (this.isAutoScrolling) {
+      this.scrollToBottom();
+    }
+  }
+  
   getStats() {
     return {
       totalLines: this.lines.length,
-      displayedLines: this.displayEndIndex - this.displayStartIndex,
+      displayedLines: this.options.wordWrap ? 
+        Math.max(0, this.lines.length - Math.max(0, this.lines.length - this.options.maxLines)) :
+        this.displayEndIndex - this.displayStartIndex,
       maxLines: this.options.maxLines,
       isAutoScrolling: this.isAutoScrolling,
-      lineHeight: this.lineHeight
+      lineHeight: this.lineHeight,
+      wordWrap: this.options.wordWrap
     };
   }
   
