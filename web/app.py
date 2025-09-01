@@ -10,6 +10,8 @@ import atexit
 import signal
 import socket
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
+from urllib.request import urlopen  # stdlib, avoid extra deps
+from urllib.error import URLError, HTTPError
 
 from runner import Runner, build_worker_cmd
 
@@ -18,6 +20,58 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = REPO_ROOT / "output_runs"
 OUTPUT_ROOT.mkdir(exist_ok=True)
+
+# Local cache for CDN assets
+STATIC_ROOT = Path(__file__).resolve().parent / "static"
+VENDOR_ROOT = STATIC_ROOT / "vendor"
+VENDOR_ROOT.mkdir(parents=True, exist_ok=True)
+
+# Map of local vendor paths -> source CDN URLs (prefer unpinned or maintained versions)
+VENDOR_ASSETS: dict[str, str] = {
+    # Tailwind CDN runtime (generates CSS in browser). Using canonical URL for latest.
+    str(VENDOR_ROOT / "tailwindcss.js"): "https://cdn.tailwindcss.com",
+    # Highlight.js core (common languages) + themes for light/dark
+    str(VENDOR_ROOT / "highlightjs" / "common.min.js"): "https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js",
+    str(VENDOR_ROOT / "highlightjs" / "github.min.css"): "https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css",
+    str(VENDOR_ROOT / "highlightjs" / "github-dark.min.css"): "https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css",
+    # Markdown and sanitization
+    str(VENDOR_ROOT / "marked" / "marked.min.js"): "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+    str(VENDOR_ROOT / "dompurify" / "purify.min.js"): "https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js",
+}
+
+
+def _ensure_parent_dirs(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def _download_url_to_file(url: str, dest_path: Path, timeout: float = 10.0) -> bool:
+    """Best-effort download of a URL to a local file. Returns True on success.
+    Non-fatal on failures (returns False). Uses stdlib urllib to avoid extra deps.
+    """
+    try:
+        _ensure_parent_dirs(dest_path)
+        with urlopen(url, timeout=timeout) as resp:  # nosec - fetching public static assets
+            data = resp.read()
+        dest_path.write_bytes(data)
+        return True
+    except (URLError, HTTPError, TimeoutError, OSError):
+        return False
+    except Exception:
+        return False
+
+
+def ensure_vendor_assets() -> None:
+    """Ensure local cached copies of critical CDN assets exist.
+    We only download if the file is missing to keep startup fast and offline-friendly.
+    """
+    for local_str, url in VENDOR_ASSETS.items():
+        local_path = Path(local_str)
+        try:
+            if not local_path.exists() or local_path.stat().st_size == 0:
+                _download_url_to_file(url, local_path)
+        except Exception:
+            # Never fail startup for vendor caching
+            pass
 
 # Single-instance lock file in output_runs
 LOCK_FILE_PATH = OUTPUT_ROOT / ".web_app.lock"
@@ -486,6 +540,8 @@ if __name__ == "__main__":
     # Ensure single instance and graceful shutdown
     host = "127.0.0.1"
     port = 5000
+    # Try to cache vendor assets locally for CDN fallbacks
+    ensure_vendor_assets()
     _acquire_single_instance_lock(host, port)
     atexit.register(_graceful_shutdown)
     _install_signal_handlers()

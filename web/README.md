@@ -15,6 +15,26 @@ Open http://127.0.0.1:5000/ and ensure `output_runs/` exists at repo root.
 
 Tailwind CSS is loaded via CDN; no build step needed.
 
+## Offline/No-CDN Environments
+
+Some environments block external CDNs. The UI references a few JS/CSS libraries (Tailwind CDN runtime, Highlight.js, Marked, DOMPurify). To remain functional offline or with blocked CDNs:
+
+- On startup, the Flask app attempts to download and cache local copies of these assets into `web/static/vendor/`.
+- The HTML uses robust fallbacks:
+	- `onerror` attributes switch `<script>`/`<link>` to local paths if the CDN fails to load.
+	- A small runtime check verifies globals (`hljs`, `marked`, `DOMPurify`) and loads local scripts if needed. It also swaps Highlight.js CSS to local copies if the stylesheet is blocked.
+
+Cached paths:
+
+- `/static/vendor/tailwindcss.js`
+- `/static/vendor/highlightjs/common.min.js`
+- `/static/vendor/highlightjs/github.min.css`
+- `/static/vendor/highlightjs/github-dark.min.css`
+- `/static/vendor/marked/marked.min.js`
+- `/static/vendor/dompurify/purify.min.js`
+
+If your environment is fully offline, you can pre-populate these files manually in the same locations before running the server. The app will use local versions automatically.
+
 ## Try it
 - Pick or type a `MODEL_ID` (badges show last used models).
 - Adjust `MODEL_TEMPERATURE` and `MAX_NORMS_PER_5K` if needed.
