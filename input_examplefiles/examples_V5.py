@@ -48,7 +48,7 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
     debe constituir al menos un sector de incendio diferenciado, incluido el posible vesti-bulo común a diferentes salas.(5)"""),
         extractions=[
             lx.data.Extraction(
-                extraction_class="Sectioning",
+                extraction_class="SECTION",
                 extraction_text="1 Compartimentación en sectores de incendio",
                 attributes={
                     "id": "SE::000001",
@@ -131,7 +131,7 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
             ),
 
             lx.data.Extraction(
-                extraction_class="Norm",
+                extraction_class="NORM",
                 extraction_text=(
                     """Table 1.1 Condiciones de compartmentacion en sectores de incendio  
                     <table><tr><td>Uso previsto del edifi-cio o establecimiento</td><td>Condiciones</td></tr><tr><td>En general</td><td>- Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta-blecimientos cuya superficie construida no exceda de 500 m² y cuyo uso sea Docente, Administrativo o Residencial Público."""
@@ -192,7 +192,7 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                     "notes": "sq_m can be doubled if automatic extinguish system is present",
                 },
             ),
-            lx.data.Extraction(  extraction_class="Norm",
+            lx.data.Extraction(  extraction_class="NORM",
                 extraction_text=(
                     """- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diffe-rente cuando supere los siguientes límites: Zona de uso Residencial Vivienda en todo caso.
                     Zona de alojamiento (1) o de uso Administrativo, Comercial, Docente cuya superficie construida exceda de 500 m² o cuya superficie construida exceda de 250 m² en caso de uso principal Almacén.
