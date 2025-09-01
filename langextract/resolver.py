@@ -260,10 +260,6 @@ class Resolver(AbstractResolver):
       enable_fuzzy_alignment: bool = True,
       fuzzy_alignment_threshold: float = _FUZZY_ALIGNMENT_MIN_THRESHOLD,
       accept_match_lesser: bool = True,
-<<<<<<< HEAD
-      align_only_classes: Sequence[str] | None = None,
-=======
->>>>>>> upstream/main
       **kwargs,
   ) -> Iterator[data.Extraction]:
     """Aligns annotated extractions with source text.
@@ -302,77 +298,77 @@ class Resolver(AbstractResolver):
 
     # Determine allowed classes list for alignment (constructor default can be overridden per call)
     # Build a case-insensitive allowlist for class filtering
-    allowed_classes = None
-    if align_only_classes is not None:
-      allowed_classes = {str(c).lower() for c in align_only_classes}
-    elif self._align_only_classes_default is not None:
-      allowed_classes = {str(c).lower() for c in self._align_only_classes_default}
+    # allowed_classes = None
+    # if align_only_classes is not None:
+    #   allowed_classes = {str(c).lower() for c in align_only_classes}
+    # elif self._align_only_classes_default is not None:
+    #   allowed_classes = {str(c).lower() for c in self._align_only_classes_default}
 
     aligner = WordAligner()
 
-    if allowed_classes is None:
+    # if allowed_classes is None:
       # Align all extractions (existing behavior)
-      aligned_yaml_extractions = aligner.align_extractions(
-          extractions_group,
-          source_text,
-          token_offset,
-          char_offset or 0,
-          enable_fuzzy_alignment=enable_fuzzy_alignment,
-          fuzzy_alignment_threshold=fuzzy_alignment_threshold,
-          accept_match_lesser=accept_match_lesser,
-      )
-    else:
-      # Align only allowed classes; pass through the rest unchanged
-      def _looks_jsonish(text: str) -> bool:
-        t = (text or "").strip()
-        if not t:
-          return False
-        if t[0] in "[{":
-          return True
-        # Heuristic: JSON-ish if contains a colon and any brace/bracket
-        return (":" in t) and any(ch in t for ch in "{}[]")
-
-      filtered_groups: list[list[data.Extraction]] = []
-      excluded_groups: list[list[data.Extraction]] = []
-      for group in extractions_group:
-        fg = [
-            e
-            for e in group
-            if e.extraction_class
-            and e.extraction_class.lower() in allowed_classes
-            and not _looks_jsonish(e.extraction_text)
-        ]
-        eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
-        filtered_groups.append(fg)
-        excluded_groups.append(eg)
-
-      if all(len(g) == 0 for g in filtered_groups):
-        aligned_yaml_extractions = excluded_groups
-      else:
-        aligned_filtered = aligner.align_extractions(
-            filtered_groups,
-            source_text,
-            token_offset,
-            char_offset or 0,
-            enable_fuzzy_alignment=enable_fuzzy_alignment,
-            fuzzy_alignment_threshold=fuzzy_alignment_threshold,
-            accept_match_lesser=accept_match_lesser,
-        )
-        # Merge aligned allowed + excluded (unaligned) per group
-        aligned_yaml_extractions = [
-            list(aligned_allowed) + list(excluded)
-            for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
-        ]
-    logging.debug(
-        "Aligned extractions count: %d",
-        sum(len(group) for group in aligned_yaml_extractions),
+    aligned_yaml_extractions = aligner.align_extractions(
+        extractions_group,
+        source_text,
+        token_offset,
+        char_offset or 0,
+        enable_fuzzy_alignment=enable_fuzzy_alignment,
+        fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+        accept_match_lesser=accept_match_lesser,
     )
+    # else:
+    #   # Align only allowed classes; pass through the rest unchanged
+    #   def _looks_jsonish(text: str) -> bool:
+    #     t = (text or "").strip()
+    #     if not t:
+    #       return False
+    #     if t[0] in "[{":
+    #       return True
+    #     # Heuristic: JSON-ish if contains a colon and any brace/bracket
+    #     return (":" in t) and any(ch in t for ch in "{}[]")
 
-    for extraction in itertools.chain(*aligned_yaml_extractions):
-      logging.debug("Yielding aligned extraction: %s", extraction)
-      yield extraction
+    #   filtered_groups: list[list[data.Extraction]] = []
+    #   excluded_groups: list[list[data.Extraction]] = []
+    #   for group in extractions_group:
+    #     fg = [
+    #         e
+    #         for e in group
+    #         if e.extraction_class
+    #         and e.extraction_class.lower() in allowed_classes
+    #         and not _looks_jsonish(e.extraction_text)
+    #     ]
+    #     eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
+    #     filtered_groups.append(fg)
+    #     excluded_groups.append(eg)
 
-    logging.info("Completed alignment process for the provided source_text.")
+    #   if all(len(g) == 0 for g in filtered_groups):
+    #     aligned_yaml_extractions = excluded_groups
+    #   else:
+    #     aligned_filtered = aligner.align_extractions(
+    #         filtered_groups,
+    #         source_text,
+    #         token_offset,
+    #         char_offset or 0,
+    #         enable_fuzzy_alignment=enable_fuzzy_alignment,
+    #         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+    #         accept_match_lesser=accept_match_lesser,
+    #     )
+    #     # Merge aligned allowed + excluded (unaligned) per group
+    #     aligned_yaml_extractions = [
+    #         list(aligned_allowed) + list(excluded)
+    #         for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
+    #     ]
+    # logging.debug(
+    #     "Aligned extractions count: %d",
+    #     sum(len(group) for group in aligned_yaml_extractions),
+    # )
+
+    # for extraction in itertools.chain(*aligned_yaml_extractions):
+    #   logging.debug("Yielding aligned extraction: %s", extraction)
+    #   yield extraction
+
+    # logging.info("Completed alignment process for the provided source_text.")
 
   def _extract_and_parse_content(
       self,
