@@ -12,23 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-<<<<<<<< HEAD:langextract/providers/schemas/__init__.py
-"""Provider-specific schema implementations."""
-from __future__ import annotations
+"""Example custom provider plugin for LangExtract."""
 
-from langextract.providers.schemas import gemini
+from langextract_provider_example.provider import CustomGeminiProvider
 
-GeminiSchema = gemini.GeminiSchema  # Backward compat
-
-__all__ = ["GeminiSchema"]
-========
-FROM python:3.11-slim-bookworm
-
-WORKDIR /app
-
-RUN pip install langextract
-
-COPY quickstart.py .
-
-CMD ["python", "quickstart.py"]
->>>>>>>> upstream/main:examples/ollama/Dockerfile
+__all__ = ["CustomGeminiProvider"]
+__version__ = "0.1.0"

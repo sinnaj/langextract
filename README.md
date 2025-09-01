@@ -24,6 +24,7 @@
   - [*Romeo and Juliet* Full Text Extraction](#romeo-and-juliet-full-text-extraction)
   - [Medication Extraction](#medication-extraction)
   - [Radiology Report Structuring: RadExtract](#radiology-report-structuring-radextract)
+- [Community Providers](#community-providers)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Disclaimer](#disclaimer)
@@ -258,6 +259,27 @@ result = lx.extract(
 )
 ```
 
+<<<<<<< HEAD
+=======
+**Option 4: Vertex AI (Service Accounts)**
+
+Use [Vertex AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) for authentication with service accounts:
+
+```python
+result = lx.extract(
+    text_or_documents=input_text,
+    prompt_description="Extract information...",
+    examples=[...],
+    model_id="gemini-2.5-flash",
+    language_model_params={
+        "vertexai": True,
+        "project": "your-project-id",
+        "location": "global"  # or regional endpoint
+    }
+)
+```
+
+>>>>>>> upstream/main
 ## Adding Custom Model Providers
 
 LangExtract supports custom LLM providers via a lightweight plugin system. You can add support for new models without changing core code.
@@ -338,6 +360,12 @@ LangExtract excels at extracting structured medical information from clinical te
 Explore RadExtract, a live interactive demo on HuggingFace Spaces that shows how LangExtract can automatically structure radiology reports. Try it directly in your browser with no setup required.
 
 **[View RadExtract Demo →](https://huggingface.co/spaces/google/radextract)**
+
+## Community Providers
+
+Extend LangExtract with custom model providers! Check out our [Community Provider Plugins](COMMUNITY_PROVIDERS.md) registry to discover providers created by the community or add your own.
+
+For detailed instructions on creating a provider plugin, see the [Custom Provider Plugin Example](examples/custom_provider_plugin/).
 
 ## Contributing
 
@@ -425,6 +453,7 @@ For health-related applications, use of LangExtract is also subject to the
 ---
 
 **Happy Extracting!**
+<<<<<<< HEAD
 
 # lxRunnerExtraction: Rich Schema Extraction Runner
 
@@ -597,3 +626,5 @@ Outputs will land in `output_runs/<RUN_ID>/`.
 - Can I use direct Gemini? Set `USE_OPENROUTER=0` and provide `GOOGLE_API_KEY`.
 - How do I change the model? Remove the internal overrides (`MODEL_ID`, `MODEL_TEMPERATURE`) and pass your choices to `makeRun`.
 - Why do I see synthesized outputs? Errors are trapped so a run always produces a well-formed root. Check `quality.errors` and per-chunk JSON under `chunks/`.
+=======
+>>>>>>> upstream/main
