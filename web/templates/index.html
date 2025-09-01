@@ -18,7 +18,7 @@
       <h1 class="text-2xl font-bold mb-4">LangExtract Workshop Runner</h1>
       <div id="app" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <!-- Left: form + console + stats + files -->
-        <div class="lg:col-span-7 space-y-4">
+        <div id="input-panel" class="lg:col-span-7 space-y-4 transition-all duration-300">
           <form id="run-form" class="space-y-4" enctype="multipart/form-data">
             <div>
               <label class="block text-sm font-medium mb-1">Model ID</label>
@@ -104,29 +104,45 @@
         </div>
 
         <!-- Right: preview (full-height sticky sidebar) -->
-        <aside class="space-y-4 self-start lg:sticky lg:top-6 lg:col-span-5">
-          <div class="w-full">
-            <div class="flex items-center justify-between mb-2">
-              <h2 class="text-lg font-semibold">Preview</h2>
-              <div class="flex items-center space-x-2 text-xs text-gray-500">
-                <button id="load-existing-run" class="hover:text-gray-700 dark:hover:text-gray-300" title="Load results from existing run">
-                  📁
-                </button>
-                <button id="preview-search" class="hover:text-gray-700 dark:hover:text-gray-300" title="Search in file">
-                  🔍
-                </button>
-                <span id="preview-stats" class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
-                  Ready
-                </span>
+        <aside id="preview-container" class="space-y-4 self-start lg:sticky lg:top-6 lg:col-span-5 transition-all duration-300">
+          <!-- Column Switch Button (hidden by default) -->
+          <div id="column-switch" class="hidden mb-2">
+            <div class="flex justify-center space-x-2">
+              <button id="col-1" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">1</button>
+              <button id="col-2" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">2</button>
+              <button id="col-3" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">3</button>
+            </div>
+          </div>
+          
+          <!-- Preview Panels Container -->
+          <div id="preview-panels" class="space-y-4">
+            <!-- Panel 1 (original) -->
+            <div class="preview-panel w-full" data-panel="1">
+              <div class="flex items-center justify-between mb-2">
+                <h2 class="text-lg font-semibold">Preview</h2>
+                <div class="flex items-center space-x-2 text-xs text-gray-500">
+                  <button class="collapse-toggle hover:text-gray-700 dark:hover:text-gray-300" title="Toggle input panel">
+                    ◀
+                  </button>
+                  <button class="load-existing-run hover:text-gray-700 dark:hover:text-gray-300" title="Load results from existing run">
+                    📁
+                  </button>
+                  <button class="preview-search hover:text-gray-700 dark:hover:text-gray-300" title="Search in file">
+                    🔍
+                  </button>
+                  <span class="preview-stats bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                    Ready
+                  </span>
+                </div>
               </div>
+              <div class="run-selector mb-2 hidden">
+                <select class="existing-runs w-full text-xs border rounded px-2 py-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700">
+                  <option value="">Select a previous run...</option>
+                </select>
+              </div>
+              <div class="file-badges flex flex-wrap gap-2 mb-2"></div>
+              <div class="preview bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
             </div>
-            <div id="run-selector" class="mb-2 hidden">
-              <select id="existing-runs" class="w-full text-xs border rounded px-2 py-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700">
-                <option value="">Select a previous run...</option>
-              </select>
-            </div>
-            <div id="file-badges" class="flex flex-wrap gap-2 mb-2"></div>
-            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
           </div>
         </aside>
       </div>
