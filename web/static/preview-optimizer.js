@@ -16,6 +16,7 @@ class PreviewOptimizer {
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
+  this._lastSearchQuery = '';
     
     this.init();
   }
@@ -121,6 +122,11 @@ class PreviewOptimizer {
       this.renderMarkdown(content, meta);  
     } else {
       this.renderText(content, meta);
+    }
+
+    // Re-apply search highlights if a search query is active
+    if (this._lastSearchQuery) {
+      this.applySearchHighlight(this._lastSearchQuery);
     }
   }
   
@@ -235,15 +241,28 @@ class PreviewOptimizer {
   }
   
   renderJson(content, meta) {
+    // Handle JSON Lines formats gracefully
+    const lowerPath = (this.currentFile?.filePath || '').toLowerCase();
+    const isJsonl = lowerPath.endsWith('.jsonl') || lowerPath.endsWith('.ndjson');
+    if (isJsonl) {
+      return this.renderJsonl(content, meta);
+    }
+
     try {
       const obj = JSON.parse(content);
       const pretty = JSON.stringify(obj, null, 2);
-      
-      // Check if prettified JSON is too large
-      if (pretty.length > 500000) { // 500KB
-        this.renderTextContent(content, meta, 'json'); // Show raw JSON instead
+
+      // Prefer JSONFormatter for structured view if available and content size is reasonable
+      if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
+        this.renderEnhancedJsonObject(obj, meta);
+        return;
+      }
+
+      // Fallback to pretty-printed code if too large or formatter missing
+      if (pretty.length > 1000000) {
+        this.renderTextContent(content, meta, 'json');
       } else {
-        this.renderTextContent(pretty, meta, 'json');
+        this.renderEnhancedJson(pretty, meta);
       }
     } catch (e) {
       // Invalid JSON, render as text
@@ -251,14 +270,244 @@ class PreviewOptimizer {
     }
   }
   
+  renderJsonl(content, meta) {
+    const lines = content.split('\n');
+    const total = lines.length;
+    const maxLines = 200; // avoid DOM explosion
+    const shown = Math.min(total, maxLines);
+
+    const container = document.createElement('div');
+    container.className = 'jsonl-viewer space-y-2';
+
+    // Info banner
+    const info = document.createElement('div');
+    info.className = 'text-xs text-gray-500';
+    info.textContent = `JSONL preview: showing first ${shown.toLocaleString()} of ${total.toLocaleString()} lines`;
+    container.appendChild(info);
+
+    for (let i = 0; i < shown; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      const block = document.createElement('div');
+      block.className = 'rounded border border-gray-200 dark:border-gray-700 p-2 bg-white dark:bg-gray-800';
+
+      const header = document.createElement('div');
+      header.className = 'text-xs text-gray-400 mb-1';
+      header.textContent = `Line ${i + 1}`;
+      block.appendChild(header);
+
+      try {
+        const obj = JSON.parse(line);
+        if (typeof JSONFormatter !== 'undefined') {
+          const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
+          block.appendChild(formatter.render());
+        } else {
+          const pretty = JSON.stringify(obj, null, 2);
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.className = 'language-json';
+          code.textContent = pretty;
+          pre.appendChild(code);
+          block.appendChild(pre);
+        }
+      } catch (e) {
+        // Not a JSON line; show raw
+        const pre = document.createElement('pre');
+        const code = document.createElement('code');
+        code.textContent = line;
+        pre.appendChild(code);
+        block.appendChild(pre);
+      }
+
+      container.appendChild(block);
+    }
+
+    this.element.innerHTML = '';
+    this.element.appendChild(container);
+    this.applySyntaxHighlighting();
+  }
+
+  renderEnhancedJson(jsonString, meta) {
+    // Prefer JSONFormatter for interactive, collapsible JSON rendering if available
+    if (typeof JSONFormatter !== 'undefined') {
+      try {
+        const obj = JSON.parse(jsonString);
+        const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, {
+          theme: 'dark' // theme hint; CSS controls final look
+        });
+        const container = document.createElement('div');
+        container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
+        container.appendChild(formatter.render());
+        this.element.appendChild(container);
+        return;
+      } catch (e) {
+        // Fallback to code block rendering below
+      }
+    }
+
+    // Fallback: pretty-print with syntax highlighting
+    const container = document.createElement('div');
+    container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg overflow-auto';
+    const pre = document.createElement('pre');
+    pre.className = 'font-mono text-sm leading-relaxed m-0';
+    const code = document.createElement('code');
+    code.className = 'language-json';
+    code.textContent = jsonString;
+    pre.appendChild(code);
+    container.appendChild(pre);
+    this.element.appendChild(container);
+    if (typeof hljs !== 'undefined') {
+      setTimeout(() => { try { hljs.highlightElement(code); } catch(e){} }, 50);
+    }
+  }
+
+  renderEnhancedJsonObject(obj, meta) {
+    // Use JSONFormatter directly on parsed object
+    try {
+  const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
+      const container = document.createElement('div');
+      container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
+      container.appendChild(formatter.render());
+      this.element.appendChild(container);
+    } catch (e) {
+      // Fallback: pretty print
+      const pretty = JSON.stringify(obj, null, 2);
+      this.renderEnhancedJson(pretty, meta);
+    }
+  }
+  
+  isExpandableLine(trimmedLine, lines, index) {
+    // Check if this line starts an object or array
+    if (trimmedLine.endsWith('{') || trimmedLine.endsWith('[')) {
+      // Look ahead to see if there's content to collapse
+      let bracketCount = 0;
+      const isArray = trimmedLine.endsWith('[');
+      const openBracket = isArray ? '[' : '{';
+      const closeBracket = isArray ? ']' : '}';
+      
+      for (let i = index; i < lines.length; i++) {
+        const line = lines[i];
+        for (const char of line) {
+          if (char === openBracket) bracketCount++;
+          if (char === closeBracket) bracketCount--;
+          
+          if (bracketCount === 0 && i > index) {
+            // Found the closing bracket, this is expandable
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+  
+  toggleJsonSection(toggleBtn) {
+    const isCollapsed = toggleBtn.getAttribute('data-collapsed') === 'true';
+    const contentLine = toggleBtn.closest('.json-line');
+    const lineNumber = parseInt(contentLine.getAttribute('data-line'));
+    
+    if (isCollapsed) {
+      // Expand
+      toggleBtn.innerHTML = '▼';
+      toggleBtn.setAttribute('data-collapsed', 'false');
+      this.showJsonSection(contentLine, lineNumber);
+    } else {
+      // Collapse
+      toggleBtn.innerHTML = '▶';
+      toggleBtn.setAttribute('data-collapsed', 'true');
+      this.hideJsonSection(contentLine, lineNumber);
+    }
+  }
+  
+  showJsonSection(startLine, startLineNumber) {
+    const container = startLine.closest('.json-viewer');
+    const allLines = container.querySelectorAll('.json-line');
+    
+    // Find the matching closing bracket
+    const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
+    
+    // Show all lines in between
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum > startLineNumber && currentLineNum <= endLineNumber) {
+        line.style.display = '';
+        // Also show corresponding gutter line
+        const gutterLines = container.querySelectorAll('.flex-shrink-0 > div');
+        if (gutterLines[currentLineNum - 1]) {
+          gutterLines[currentLineNum - 1].style.display = '';
+        }
+      }
+    }
+  }
+  
+  hideJsonSection(startLine, startLineNumber) {
+    const container = startLine.closest('.json-viewer');
+    const allLines = container.querySelectorAll('.json-line');
+    
+    // Find the matching closing bracket
+    const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
+    
+    // Hide all lines in between (but not the closing line)
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum > startLineNumber && currentLineNum < endLineNumber) {
+        line.style.display = 'none';
+        // Also hide corresponding gutter line
+        const gutterLines = container.querySelectorAll('.flex-shrink-0 > div');
+        if (gutterLines[currentLineNum - 1]) {
+          gutterLines[currentLineNum - 1].style.display = 'none';
+        }
+      }
+    }
+  }
+  
+  findMatchingClosingLine(startLine, startLineNumber, allLines) {
+    const startText = startLine.textContent.trim();
+    const isArray = startText.endsWith('[');
+    const openBracket = isArray ? '[' : '{';
+    const closeBracket = isArray ? ']' : '}';
+    
+    let bracketCount = 0;
+    
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum >= startLineNumber) {
+        const lineText = line.textContent;
+        
+        for (const char of lineText) {
+          if (char === openBracket) bracketCount++;
+          if (char === closeBracket) bracketCount--;
+          
+          if (bracketCount === 0 && currentLineNum > startLineNumber) {
+            return currentLineNum;
+          }
+        }
+      }
+    }
+    
+    return startLineNumber; // Fallback if no matching bracket found
+  }
+
+  getIndentLevel(line) {
+    const match = line.match(/^(\s*)/);
+    return match ? Math.floor(match[1].length / 2) : 0; // Assuming 2 spaces per indent
+  }
+  
   renderMarkdown(content, meta) {
     try {
       if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
         const rawHtml = marked.parse(content, { mangle: false, headerIds: true });
         const safeHtml = DOMPurify.sanitize(rawHtml);
-        
+        // Prefer GitHub Markdown CSS if present
         const container = document.createElement('div');
-        container.className = 'prose dark:prose-invert max-w-none';
+        container.className = 'markdown-body prose dark:prose-invert max-w-none';
         container.innerHTML = safeHtml;
         this.element.appendChild(container);
         
@@ -368,23 +617,68 @@ class PreviewOptimizer {
   
   search(query) {
     if (!query || !this.element.textContent) return [];
-    
-    // Simple text search - could be enhanced with regex support
-    const content = this.element.textContent;
+    // Clear previous highlights, then apply new
+    this.clearSearchHighlight();
+    this._lastSearchQuery = query;
+    const results = this.applySearchHighlight(query);
+    return results;
+  }
+
+  clearSearchHighlight() {
+    // Remove existing highlights
+    const marks = this.element.querySelectorAll('.search-highlight');
+    marks.forEach(mark => {
+      const parent = mark.parentNode;
+      if (!parent) return;
+      // Replace the mark with its text content
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      // Merge adjacent text nodes if needed
+      parent.normalize && parent.normalize();
+    });
+  }
+
+  applySearchHighlight(query) {
+    const lc = query.toLowerCase();
+    const textNodes = this._collectTextNodes(this.element);
     const results = [];
-    const lines = content.split('\n');
-    const lowerQuery = query.toLowerCase();
-    
-    lines.forEach((line, index) => {
-      if (line.toLowerCase().includes(lowerQuery)) {
-        results.push({
-          lineIndex: index,
-          line: line,
-          preview: line.length > 100 ? line.substring(0, 100) + '...' : line
-        });
+    textNodes.forEach(node => {
+      const text = node.nodeValue;
+      if (!text) return;
+      const idx = text.toLowerCase().indexOf(lc);
+      if (idx === -1) return;
+      // Split node: before, match, after
+      const before = document.createTextNode(text.slice(0, idx));
+      const matchText = text.slice(idx, idx + query.length);
+      const after = document.createTextNode(text.slice(idx + query.length));
+      const mark = document.createElement('span');
+      mark.className = 'search-highlight';
+      mark.textContent = matchText;
+      const parent = node.parentNode;
+      if (!parent) return;
+      parent.replaceChild(after, node);
+      parent.insertBefore(mark, after);
+      parent.insertBefore(before, mark);
+      results.push({ text: matchText });
+    });
+    return results;
+  }
+
+  _collectTextNodes(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        // Skip highlighting inside scripts and styles
+        const p = node.parentNode;
+        if (!p || (p.tagName && /^(SCRIPT|STYLE)$/.test(p.tagName))) return NodeFilter.FILTER_REJECT;
+        // Skip highlights themselves
+        if (p.classList && p.classList.contains('search-highlight')) return NodeFilter.FILTER_REJECT;
+        // Only consider reasonably sized nodes
+        if (node.nodeValue && node.nodeValue.trim().length > 0) return NodeFilter.FILTER_ACCEPT;
+        return NodeFilter.FILTER_REJECT;
       }
     });
-    
-    return results;
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    return nodes;
   }
 }

@@ -4,21 +4,95 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LangExtract Runner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Highlight.js for code coloring (light/dark via media queries) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css" media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js"></script>
-    <!-- Marked for Markdown parsing and DOMPurify for sanitization -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  <!-- Tailwind via CDN with local fallback -->
+  <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
+
+  <!-- Highlight.js styles with local fallbacks -->
+  <link id="hljs-theme-light" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css" media="(prefers-color-scheme: light)" onerror="this.onerror=null;this.href='/static/vendor/highlightjs/github.min.css'">
+  <link id="hljs-theme-dark" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" onerror="this.onerror=null;this.href='/static/vendor/highlightjs/github-dark.min.css'">
+
+  <!-- GitHub Markdown CSS for better Markdown rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" onerror="this.onerror=null;this.href='/static/vendor/github-markdown.min.css'">
+  <style>
+    /* Ensure markdown-body spans the container width */
+    .markdown-body { box-sizing: border-box; }
+    .markdown-body pre { overflow: auto; }
+    /* JSON indentation vertical guide lines via nested children borders */
+    .json-viewer .json-formatter-children {
+      border-left: 1px solid rgba(107, 114, 128, 0.35); /* gray-500 @ ~35% */
+      margin-left: 0.5rem; /* 8px */
+      padding-left: 0.75rem; /* 12px */
+    }
+    .dark .json-viewer .json-formatter-children {
+      border-left-color: rgba(75, 85, 99, 0.5); /* gray-600 @ 50% */
+    }
+    /* Search highlight */
+    .search-highlight {
+      background-color: #fde68a; /* amber-200 */
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .dark .search-highlight {
+      background-color: #b45309; /* amber-700 */
+    }
+  </style>
+
+  <!-- Highlight.js core with fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js" onerror="this.onerror=null;this.src='/static/vendor/highlightjs/common.min.js'"></script>
+
+  <!-- Marked + DOMPurify with fallbacks -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" onerror="this.onerror=null;this.src='/static/vendor/marked/marked.min.js'"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" onerror="this.onerror=null;this.src='/static/vendor/dompurify/purify.min.js'"></script>
+
+  <!-- JSON Formatter (collapsible JSON viewer) with fallbacks -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.css" onerror="this.onerror=null;this.href='/static/vendor/json-formatter/json-formatter.css'">
+  <script src="https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.umd.js" onerror="this.onerror=null;this.src='/static/vendor/json-formatter/json-formatter.umd.js'"></script>
+
+  <!-- Runtime verification to patch in local fallbacks if CDN blocked by CSP without network error events -->
+  <script>
+    (function(){
+      function loadScript(src, cb){
+        var s=document.createElement('script');
+        s.src=src; s.onload=function(){cb&&cb(true)}; s.onerror=function(){cb&&cb(false)}; document.head.appendChild(s);
+      }
+      function ensureGlobal(name, test, localSrc){
+        try{
+          if (test()) return; // already available
+        }catch(_){}
+        loadScript(localSrc, function(){});
+      }
+      // Some networks block CDN silently; verify and attempt local copies
+      ensureGlobal('hljs', function(){return typeof window.hljs!=='undefined';}, '/static/vendor/highlightjs/common.min.js');
+      ensureGlobal('marked', function(){return typeof window.marked!=='undefined';}, '/static/vendor/marked/marked.min.js');
+      ensureGlobal('DOMPurify', function(){return typeof window.DOMPurify!=='undefined';}, '/static/vendor/dompurify/purify.min.js');
+  ensureGlobal('JSONFormatter', function(){return typeof window.JSONFormatter!=='undefined';}, '/static/vendor/json-formatter/json-formatter.umd.js');
+      // Validate HLJS CSS loaded; if not, swap to local
+      function cssLoadedHint(id){
+        var link=document.getElementById(id);
+        if (!link) return true;
+        // Heuristic: if stylesheet not accessible, disable and replace with local
+        try{
+          var sheet=Array.from(document.styleSheets).find(ss=>ss.ownerNode===link);
+          if (!sheet) throw new Error('missing');
+          return true;
+        }catch(e){
+          if (id==='hljs-theme-light') link.href='/static/vendor/highlightjs/github.min.css';
+          if (id==='hljs-theme-dark') link.href='/static/vendor/highlightjs/github-dark.min.css';
+          return false;
+        }
+      }
+      cssLoadedHint('hljs-theme-light');
+      cssLoadedHint('hljs-theme-dark');
+    })();
+  </script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
     <div class="max-w-8xl mx-auto p-6">
       <h1 class="text-2xl font-bold mb-4">LangExtract Workshop Runner</h1>
       <div id="app" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <!-- Left: form + console + stats + files -->
-        <div class="lg:col-span-7 space-y-4">
+        <div id="input-panel" class="lg:col-span-7 space-y-4 transition-all duration-300">
           <form id="run-form" class="space-y-4" enctype="multipart/form-data">
             <div>
               <label class="block text-sm font-medium mb-1">Model ID</label>
@@ -104,29 +178,45 @@
         </div>
 
         <!-- Right: preview (full-height sticky sidebar) -->
-        <aside class="space-y-4 self-start lg:sticky lg:top-6 lg:col-span-5">
-          <div class="w-full">
-            <div class="flex items-center justify-between mb-2">
-              <h2 class="text-lg font-semibold">Preview</h2>
-              <div class="flex items-center space-x-2 text-xs text-gray-500">
-                <button id="load-existing-run" class="hover:text-gray-700 dark:hover:text-gray-300" title="Load results from existing run">
-                  📁
-                </button>
-                <button id="preview-search" class="hover:text-gray-700 dark:hover:text-gray-300" title="Search in file">
-                  🔍
-                </button>
-                <span id="preview-stats" class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
-                  Ready
-                </span>
+        <aside id="preview-container" class="space-y-4 self-start lg:sticky lg:top-6 lg:col-span-5 transition-all duration-300">
+          <!-- Column Switch Button (hidden by default) -->
+          <div id="column-switch" class="mb-2 hidden">
+            <div class="flex justify-center space-x-2">
+              <button id="col-1" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">1</button>
+              <button id="col-2" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">2</button>
+              <button id="col-3" class="px-3 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded dark:bg-gray-700 dark:hover:bg-gray-600">3</button>
+            </div>
+          </div>
+          
+          <!-- Preview Panels Container -->
+          <div id="preview-panels" class="space-y-4">
+            <!-- Panel 1 (original) -->
+            <div class="preview-panel w-full" data-panel="1">
+              <div class="flex items-center justify-between mb-2">
+                <h2 class="text-lg font-semibold">Preview</h2>
+                <div class="flex items-center space-x-2 text-xs text-gray-500">
+                  <button class="collapse-toggle hover:text-gray-700 dark:hover:text-gray-300" title="Toggle input panel">
+                    ◀
+                  </button>
+                  <button class="load-existing-run hover:text-gray-700 dark:hover:text-gray-300" title="Load results from existing run">
+                    📁
+                  </button>
+                  <button class="preview-search hover:text-gray-700 dark:hover:text-gray-300" title="Search in file">
+                    🔍
+                  </button>
+                  <span class="preview-stats bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                    Ready
+                  </span>
+                </div>
               </div>
+              <div class="run-selector mb-2 hidden">
+                <select class="existing-runs w-full text-xs border rounded px-2 py-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700">
+                  <option value="">Select a previous run...</option>
+                </select>
+              </div>
+              <div class="file-badges flex flex-wrap gap-2 mb-2"></div>
+              <div class="preview bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
             </div>
-            <div id="run-selector" class="mb-2 hidden">
-              <select id="existing-runs" class="w-full text-xs border rounded px-2 py-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700">
-                <option value="">Select a previous run...</option>
-              </select>
-            </div>
-            <div id="file-badges" class="flex flex-wrap gap-2 mb-2"></div>
-            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
           </div>
         </aside>
       </div>

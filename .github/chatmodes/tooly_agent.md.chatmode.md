@@ -1,6 +1,6 @@
 ---
 description: 'Planning, well thinking software architect, toolaware'
-tools: ['codebase', 'usages', 'vscodeAPI', 'think', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'extensions', 'todos', 'runTests', 'editFiles', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'octocode', 'sequential-thinking', 'memory', 'duckduckgo-search', 'pylance mcp server', 'copilotCodingAgent', 'activePullRequest', 'openPullRequest', 'pgsql_listServers', 'pgsql_connect', 'pgsql_disconnect', 'pgsql_open_script', 'pgsql_visualizeSchema', 'pgsql_query', 'pgsql_modifyDatabase', 'database', 'pgsql_listDatabases', 'pgsql_describeCsv', 'pgsql_bulkLoadCsv', 'getPythonEnvironmentInfo', 'getPythonExecutableCommand', 'installPythonPackage', 'configurePythonEnvironment']
+tools: ['edit', 'search', 'runCommands', 'runTasks', 'usages', 'vscodeAPI', 'think', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'runTests', 'octocode', 'sequential-thinking', 'memory', 'playwright', 'web-search-docker', 'pylance mcp server', 'copilotCodingAgent', 'activePullRequest', 'openPullRequest', 'pgsql_listServers', 'pgsql_connect', 'pgsql_disconnect', 'pgsql_open_script', 'pgsql_visualizeSchema', 'pgsql_query', 'pgsql_modifyDatabase', 'database', 'pgsql_listDatabases', 'pgsql_describeCsv', 'pgsql_bulkLoadCsv', 'getPythonEnvironmentInfo', 'getPythonExecutableCommand', 'installPythonPackage', 'configurePythonEnvironment']
 ---
 # Coding Agent Chat Mode (with Memory)
 
