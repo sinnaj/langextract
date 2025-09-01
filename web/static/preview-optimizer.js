@@ -253,57 +253,110 @@ class PreviewOptimizer {
   
   renderEnhancedJson(jsonString, meta) {
     const container = document.createElement('div');
-    container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-auto';
+    container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg overflow-auto';
     
-    // Create a pre element with enhanced JSON display
+    // Create main layout with separate gutter and content
+    const layout = document.createElement('div');
+    layout.className = 'flex';
+    
+    // Line number gutter (fixed width, separate column)
+    const gutter = document.createElement('div');
+    gutter.className = 'flex-shrink-0 bg-gray-100 dark:bg-gray-800 border-r border-gray-300 dark:border-gray-600 p-2 pr-3';
+    gutter.style.minWidth = '3rem';
+    
+    // Content area
+    const contentArea = document.createElement('div');
+    contentArea.className = 'flex-1 p-4';
+    
     const pre = document.createElement('pre');
-    pre.className = 'font-mono text-sm leading-relaxed relative';
-    pre.style.paddingLeft = '2rem'; // Space for indentation guides
+    pre.className = 'font-mono text-sm leading-relaxed relative m-0';
     
     const code = document.createElement('code');
     code.className = 'language-json';
     
-    // Split JSON into lines and add indentation guides
+    // Split JSON into lines and create structure
     const lines = jsonString.split('\n');
-    const enhancedLines = lines.map((line, index) => {
+    const gutterLines = [];
+    const contentLines = [];
+    
+    lines.forEach((line, index) => {
       const indent = this.getIndentLevel(line);
-      const lineDiv = document.createElement('div');
-      lineDiv.className = 'json-line relative';
-      lineDiv.style.paddingLeft = `${indent * 1.5}rem`;
+      const lineNumber = index + 1;
       
-      // Add indentation guide lines
-      if (indent > 0) {
-        for (let i = 1; i <= indent; i++) {
-          const guide = document.createElement('div');
-          guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
-          guide.style.left = `${(i - 1) * 1.5 + 0.75}rem`;
-          lineDiv.appendChild(guide);
+      // Create line number for gutter
+      const gutterLine = document.createElement('div');
+      gutterLine.className = 'text-gray-500 dark:text-gray-400 text-xs text-right leading-relaxed';
+      gutterLine.textContent = lineNumber;
+      gutterLines.push(gutterLine);
+      
+      // Create content line
+      const contentLine = document.createElement('div');
+      contentLine.className = 'json-line relative leading-relaxed';
+      contentLine.setAttribute('data-line', lineNumber);
+      
+      // Check if this is an expandable line (object or array start)
+      const trimmedLine = line.trim();
+      const isExpandable = this.isExpandableLine(trimmedLine, lines, index);
+      
+      if (isExpandable) {
+        // Add collapse/expand button
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'json-toggle inline-flex items-center justify-center w-4 h-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 mr-1';
+        toggleBtn.innerHTML = '▼';
+        toggleBtn.setAttribute('data-collapsed', 'false');
+        toggleBtn.onclick = (e) => this.toggleJsonSection(e.target);
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'inline';
+        contentDiv.style.paddingLeft = `${indent * 1.5}rem`;
+        
+        // Add indentation guide lines
+        if (indent > 0) {
+          for (let i = 1; i <= indent; i++) {
+            const guide = document.createElement('div');
+            guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
+            guide.style.left = `${(i - 1) * 1.5 + 0.75}rem`;
+            contentDiv.appendChild(guide);
+          }
         }
+        
+        const textSpan = document.createElement('span');
+        textSpan.textContent = line.trimStart();
+        contentDiv.appendChild(textSpan);
+        
+        contentLine.appendChild(toggleBtn);
+        contentLine.appendChild(contentDiv);
+      } else {
+        // Regular line without toggle
+        contentLine.style.paddingLeft = `${(indent * 1.5) + 1.25}rem`; // Extra space for toggle alignment
+        
+        // Add indentation guide lines
+        if (indent > 0) {
+          for (let i = 1; i <= indent; i++) {
+            const guide = document.createElement('div');
+            guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
+            guide.style.left = `${(i - 1) * 1.5 + 1.5}rem`; // Offset for toggle space
+            contentLine.appendChild(guide);
+          }
+        }
+        
+        const textSpan = document.createElement('span');
+        textSpan.textContent = line.trimStart();
+        contentLine.appendChild(textSpan);
       }
       
-      // Add line number
-      const lineNumber = document.createElement('span');
-      lineNumber.className = 'absolute left-0 text-gray-400 text-xs w-6 text-right';
-      lineNumber.textContent = index + 1;
-      lineNumber.style.left = '0.25rem';
-      lineNumber.style.width = '1.5rem';
-      lineDiv.appendChild(lineNumber);
-      
-      // Add the actual content
-      const content = document.createElement('span');
-      content.textContent = line.trimStart();
-      lineDiv.appendChild(content);
-      
-      return lineDiv;
+      contentLines.push(contentLine);
     });
     
-    // Create a wrapper for all lines
-    const linesContainer = document.createElement('div');
-    enhancedLines.forEach(lineDiv => linesContainer.appendChild(lineDiv));
+    // Add lines to gutter and content
+    gutterLines.forEach(line => gutter.appendChild(line));
+    contentLines.forEach(line => code.appendChild(line));
     
-    code.appendChild(linesContainer);
     pre.appendChild(code);
-    container.appendChild(pre);
+    contentArea.appendChild(pre);
+    layout.appendChild(gutter);
+    layout.appendChild(contentArea);
+    container.appendChild(layout);
     this.element.appendChild(container);
     
     // Apply syntax highlighting
@@ -318,6 +371,124 @@ class PreviewOptimizer {
     }
   }
   
+  isExpandableLine(trimmedLine, lines, index) {
+    // Check if this line starts an object or array
+    if (trimmedLine.endsWith('{') || trimmedLine.endsWith('[')) {
+      // Look ahead to see if there's content to collapse
+      let bracketCount = 0;
+      const isArray = trimmedLine.endsWith('[');
+      const openBracket = isArray ? '[' : '{';
+      const closeBracket = isArray ? ']' : '}';
+      
+      for (let i = index; i < lines.length; i++) {
+        const line = lines[i];
+        for (const char of line) {
+          if (char === openBracket) bracketCount++;
+          if (char === closeBracket) bracketCount--;
+          
+          if (bracketCount === 0 && i > index) {
+            // Found the closing bracket, this is expandable
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+  
+  toggleJsonSection(toggleBtn) {
+    const isCollapsed = toggleBtn.getAttribute('data-collapsed') === 'true';
+    const contentLine = toggleBtn.closest('.json-line');
+    const lineNumber = parseInt(contentLine.getAttribute('data-line'));
+    
+    if (isCollapsed) {
+      // Expand
+      toggleBtn.innerHTML = '▼';
+      toggleBtn.setAttribute('data-collapsed', 'false');
+      this.showJsonSection(contentLine, lineNumber);
+    } else {
+      // Collapse
+      toggleBtn.innerHTML = '▶';
+      toggleBtn.setAttribute('data-collapsed', 'true');
+      this.hideJsonSection(contentLine, lineNumber);
+    }
+  }
+  
+  showJsonSection(startLine, startLineNumber) {
+    const container = startLine.closest('.json-viewer');
+    const allLines = container.querySelectorAll('.json-line');
+    
+    // Find the matching closing bracket
+    const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
+    
+    // Show all lines in between
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum > startLineNumber && currentLineNum <= endLineNumber) {
+        line.style.display = '';
+        // Also show corresponding gutter line
+        const gutterLines = container.querySelectorAll('.flex-shrink-0 > div');
+        if (gutterLines[currentLineNum - 1]) {
+          gutterLines[currentLineNum - 1].style.display = '';
+        }
+      }
+    }
+  }
+  
+  hideJsonSection(startLine, startLineNumber) {
+    const container = startLine.closest('.json-viewer');
+    const allLines = container.querySelectorAll('.json-line');
+    
+    // Find the matching closing bracket
+    const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
+    
+    // Hide all lines in between (but not the closing line)
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum > startLineNumber && currentLineNum < endLineNumber) {
+        line.style.display = 'none';
+        // Also hide corresponding gutter line
+        const gutterLines = container.querySelectorAll('.flex-shrink-0 > div');
+        if (gutterLines[currentLineNum - 1]) {
+          gutterLines[currentLineNum - 1].style.display = 'none';
+        }
+      }
+    }
+  }
+  
+  findMatchingClosingLine(startLine, startLineNumber, allLines) {
+    const startText = startLine.textContent.trim();
+    const isArray = startText.endsWith('[');
+    const openBracket = isArray ? '[' : '{';
+    const closeBracket = isArray ? ']' : '}';
+    
+    let bracketCount = 0;
+    
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i];
+      const currentLineNum = parseInt(line.getAttribute('data-line'));
+      
+      if (currentLineNum >= startLineNumber) {
+        const lineText = line.textContent;
+        
+        for (const char of lineText) {
+          if (char === openBracket) bracketCount++;
+          if (char === closeBracket) bracketCount--;
+          
+          if (bracketCount === 0 && currentLineNum > startLineNumber) {
+            return currentLineNum;
+          }
+        }
+      }
+    }
+    
+    return startLineNumber; // Fallback if no matching bracket found
+  }
+
   getIndentLevel(line) {
     const match = line.match(/^(\s*)/);
     return match ? Math.floor(match[1].length / 2) : 0; // Assuming 2 spaces per indent
