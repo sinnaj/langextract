@@ -6,7 +6,7 @@ class ConsoleOptimizer {
   constructor(element, options = {}) {
     this.element = element;
     this.options = {
-      maxLines: options.maxLines || 10000,
+      maxLines: options.maxLines || 500,
       chunkSize: options.chunkSize || 100,
       debounceMs: options.debounceMs || 16, // ~60fps
       autoScroll: options.autoScroll !== false,
