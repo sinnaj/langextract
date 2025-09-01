@@ -43,6 +43,8 @@ def main():
     MODEL_ID = payload.get("MODEL_ID")
     MODEL_TEMPERATURE = payload.get("MODEL_TEMPERATURE")
     MAX_NORMS_PER_5K = payload.get("MAX_NORMS_PER_5K")
+    MAX_CHAR_BUFFER = payload.get("MAX_CHAR_BUFFER")
+    EXTRACTION_PASSES = payload.get("EXTRACTION_PASSES")
     INPUT_PROMPTFILE = payload.get("INPUT_PROMPTFILE")
     INPUT_GLOSSARYFILE = payload.get("INPUT_GLOSSARYFILE")
     INPUT_EXAMPLESFILE = payload.get("INPUT_EXAMPLESFILE")
@@ -54,6 +56,9 @@ def main():
     ee_path = REPO_ROOT / "lxRunnerExtraction.py"
     if ee_path.exists():
         try:
+            # Remove any cached module to ensure we load latest edits
+            if "lxRunnerExtraction" in sys.modules:
+                del sys.modules["lxRunnerExtraction"]
             spec = spec_from_file_location("lxRunnerExtraction", ee_path)
             if spec and spec.loader:
                 lxRunnerExtraction = module_from_spec(spec)  # type: ignore
@@ -80,6 +85,8 @@ def main():
             MODEL_ID,
             MODEL_TEMPERATURE,
             MAX_NORMS_PER_5K,
+            MAX_CHAR_BUFFER,
+            EXTRACTION_PASSES,
             INPUT_PROMPTFILE,
             INPUT_GLOSSARYFILE,
             INPUT_EXAMPLESFILE,

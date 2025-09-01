@@ -26,6 +26,8 @@
     'MODEL_ID',
     'MODEL_TEMPERATURE',
     'MAX_NORMS_PER_5K',
+    'MAX_CHAR_BUFFER',
+    'EXTRACTION_PASSES',
     'INPUT_PROMPTFILE',
     'INPUT_GLOSSARYFILE',
     'INPUT_EXAMPLESFILE',
@@ -288,6 +290,8 @@
   applySavedToInput('MODEL_ID');
   applySavedToInput('MODEL_TEMPERATURE');
   applySavedToInput('MAX_NORMS_PER_5K');
+  applySavedToInput('MAX_CHAR_BUFFER');
+  applySavedToInput('EXTRACTION_PASSES');
 
   // Persist on change for all save fields (except file input)
   for (const fid of SAVE_FIELDS) {

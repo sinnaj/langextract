@@ -26,6 +26,7 @@ import functools
 import itertools
 import json
 import operator
+import re
 
 from absl import logging
 import yaml
@@ -177,6 +178,8 @@ class Resolver(AbstractResolver):
       extraction_attributes_suffix: str | None = "_attributes",
       constraint: schema.Constraint = schema.Constraint(),
       format_type: data.FormatType = data.FormatType.JSON,
+      suppress_parse_errors_default: bool = False,
+      align_only_classes_default: Sequence[str] | None = None,
   ):
     """Constructor.
 
@@ -196,11 +199,15 @@ class Resolver(AbstractResolver):
     self.extraction_index_suffix = extraction_index_suffix
     self.extraction_attributes_suffix = extraction_attributes_suffix
     self.format_type = format_type
+    # When True, resolve() will return [] instead of raising on parse errors unless overridden per-call.
+    self._suppress_parse_errors_default = suppress_parse_errors_default
+    # Optional default allowlist of extraction_class names to align; others are passed through unchanged.
+    self._align_only_classes_default = list(align_only_classes_default) if align_only_classes_default else None
 
   def resolve(
       self,
       input_text: str,
-      suppress_parse_errors: bool = False,
+      suppress_parse_errors: bool | None = None,
       **kwargs,
   ) -> Sequence[data.Extraction]:
     """Runs resolve function on text with YAML/JSON extraction data.
@@ -220,12 +227,18 @@ class Resolver(AbstractResolver):
     logging.info("Starting resolver process for input text.")
     logging.debug("Input Text: %s", input_text)
 
+    # Decide suppression behavior: per-call flag overrides constructor default.
+    if suppress_parse_errors is None:
+      suppress_flag = self._suppress_parse_errors_default
+    else:
+      suppress_flag = suppress_parse_errors
+
     try:
       extraction_data = self.string_to_extraction_data(input_text)
       logging.debug("Parsed content: %s", extraction_data)
 
     except (ResolverParsingError, ValueError) as e:
-      if suppress_parse_errors:
+      if suppress_flag:
         logging.exception(
             "Failed to parse input_text: %s, error: %s", input_text, e
         )
@@ -247,6 +260,7 @@ class Resolver(AbstractResolver):
       enable_fuzzy_alignment: bool = True,
       fuzzy_alignment_threshold: float = _FUZZY_ALIGNMENT_MIN_THRESHOLD,
       accept_match_lesser: bool = True,
+      align_only_classes: Sequence[str] | None = None,
       **kwargs,
   ) -> Iterator[data.Extraction]:
     """Aligns annotated extractions with source text.
@@ -283,16 +297,69 @@ class Resolver(AbstractResolver):
     else:
       extractions_group = [extractions]
 
+    # Determine allowed classes list for alignment (constructor default can be overridden per call)
+    # Build a case-insensitive allowlist for class filtering
+    allowed_classes = None
+    if align_only_classes is not None:
+      allowed_classes = {str(c).lower() for c in align_only_classes}
+    elif self._align_only_classes_default is not None:
+      allowed_classes = {str(c).lower() for c in self._align_only_classes_default}
+
     aligner = WordAligner()
-    aligned_yaml_extractions = aligner.align_extractions(
-        extractions_group,
-        source_text,
-        token_offset,
-        char_offset or 0,
-        enable_fuzzy_alignment=enable_fuzzy_alignment,
-        fuzzy_alignment_threshold=fuzzy_alignment_threshold,
-        accept_match_lesser=accept_match_lesser,
-    )
+
+    if allowed_classes is None:
+      # Align all extractions (existing behavior)
+      aligned_yaml_extractions = aligner.align_extractions(
+          extractions_group,
+          source_text,
+          token_offset,
+          char_offset or 0,
+          enable_fuzzy_alignment=enable_fuzzy_alignment,
+          fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+          accept_match_lesser=accept_match_lesser,
+      )
+    else:
+      # Align only allowed classes; pass through the rest unchanged
+      def _looks_jsonish(text: str) -> bool:
+        t = (text or "").strip()
+        if not t:
+          return False
+        if t[0] in "[{":
+          return True
+        # Heuristic: JSON-ish if contains a colon and any brace/bracket
+        return (":" in t) and any(ch in t for ch in "{}[]")
+
+      filtered_groups: list[list[data.Extraction]] = []
+      excluded_groups: list[list[data.Extraction]] = []
+      for group in extractions_group:
+        fg = [
+            e
+            for e in group
+            if e.extraction_class
+            and e.extraction_class.lower() in allowed_classes
+            and not _looks_jsonish(e.extraction_text)
+        ]
+        eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
+        filtered_groups.append(fg)
+        excluded_groups.append(eg)
+
+      if all(len(g) == 0 for g in filtered_groups):
+        aligned_yaml_extractions = excluded_groups
+      else:
+        aligned_filtered = aligner.align_extractions(
+            filtered_groups,
+            source_text,
+            token_offset,
+            char_offset or 0,
+            enable_fuzzy_alignment=enable_fuzzy_alignment,
+            fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+            accept_match_lesser=accept_match_lesser,
+        )
+        # Merge aligned allowed + excluded (unaligned) per group
+        aligned_yaml_extractions = [
+            list(aligned_allowed) + list(excluded)
+            for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
+        ]
     logging.debug(
         "Aligned extractions count: %d",
         sum(len(group) for group in aligned_yaml_extractions),
@@ -304,7 +371,6 @@ class Resolver(AbstractResolver):
 
     logging.info("Completed alignment process for the provided source_text.")
 
-
   def _extract_and_parse_content(
       self,
       input_string: str,
@@ -314,6 +380,8 @@ class Resolver(AbstractResolver):
   ):
     """Helper function to extract and parse content based on the delimiter.
 
+    delimiter, and parse it as YAML or JSON.
+
     Args:
         input_string: The input string to be processed.
 
@@ -321,13 +389,13 @@ class Resolver(AbstractResolver):
         ValueError: If the input is invalid or does not contain expected format.
         ResolverParsingError: If parsing fails.
 
-    Returns:
-        The parsed Python object (dict or list).
-    """
-    import os
-    from pathlib import Path
+  Returns:
+    The parsed Python object (dict or list).
+  """
     logging.info("Starting string parsing.")
-    logging.debug("input_string: %s", input_string)
+    # Truncate potentially huge content in debug logs
+    _dbg_preview = input_string[:1000] + (" …[truncated]" if len(input_string) > 1000 else "")
+    logging.debug("input_string (preview): %s", _dbg_preview)
 
     if not input_string or not isinstance(input_string, str):
       logging.error("Input string must be a non-empty string.")
@@ -343,26 +411,209 @@ class Resolver(AbstractResolver):
         raise ValueError("Input string does not contain valid markers.")
 
       content = input_string[left + prefix_length : right].strip()
-      logging.debug("Content: %s", content)
+      _cnt_preview = content[:1000] + (" …[truncated]" if len(content) > 1000 else "")
+      logging.debug("Content (preview): %s", _cnt_preview)
     else:
       content = input_string
 
-    # --- Save the raw content to a file before parsing ---
-    try:
-      raw_out_path = Path(os.getcwd()) / "resolver_raw_output.txt"
-      raw_out_path.write_text(content, encoding="utf-8")
-    except Exception as file_exc:
-      logging.warning(f"Failed to write raw resolver output: {file_exc}")
+    def _sanitize_json_string(s: str) -> str:
+      r"""Best-effort sanitizer for nearly-JSON strings with stray backslashes.
+
+      Handles LaTeX-style sequences (e.g., \mathsf, ^{\circ}) and incomplete
+      unicode escapes that cause json.loads to fail.
+
+      Steps:
+      1) Temporarily protect valid \uXXXX sequences so they aren't double-escaped.
+      2) Fix incomplete unicode: replace "\\u" not followed by 4 hex digits with "\\\\u".
+      3) Perform a string-aware pass: inside double-quoted JSON strings, double any
+         backslash that does not start a valid JSON escape (\\, \", \/, \b, \f, \n, \r, \t, \u).
+         This safely converts sequences like \mathsf and \circ into \\mathsf and \\circ.
+      4) Strip ASCII control chars except TAB, LF, CR.
+      5) Restore protected unicode escapes.
+      """
+      if not s:
+        return s
+
+      def _protect_valid_unicode(m: re.Match[str]) -> str:
+        # Keep as a placeholder to restore later; retain the hex digits
+        return f"§§UNICODE§§{m.group(1)}"
+
+      # Protect valid unicode escapes \uXXXX
+      protected = re.sub(r"\\u([0-9a-fA-F]{4})", _protect_valid_unicode, s)
+      # Make incomplete unicode escapes explicit (e.g., \u12 -> \\\\u12)
+      protected = re.sub(r"\\u(?![0-9a-fA-F]{4})", r"\\\\u", protected)
+
+      # FIRST: Fix HTML attribute quotes BEFORE doing backslash processing
+      # This prevents interference between the two sanitization steps
+      def escape_html_attributes_only(match):
+        full_match = match.group(0)
+        # Extract the string content (remove surrounding quotes)
+        content = full_match[1:-1]
+        
+        # Use a more targeted approach: only escape quotes that look like HTML attributes
+        # and are not already escaped
+        def replace_html_attr_quotes(attr_match):
+          attr_name = attr_match.group(1)
+          attr_value = attr_match.group(2)
+          return f'{attr_name}=\\"{attr_value}\\"'
+        
+        # Pattern to find unescaped HTML attribute="value" pairs
+        # Look for: word="value" but not word=\"value\" 
+        attr_pattern = r'(\w+)=(?<!\\)"([^"]*)"(?!\\")'
+        content = re.sub(attr_pattern, replace_html_attr_quotes, content)
+        
+        return f'"{content}"'
+      
+      # Pattern to match JSON string values containing HTML with unescaped attributes
+      html_attr_pattern = r'"[^"]*<\w+[^>]*\s+\w+="[^"]*"[^>]*>[^"]*"'
+      
+      # Apply HTML quote escaping first (before backslash processing)
+      max_iterations = 5
+      iteration = 0
+      
+      while iteration < max_iterations:
+        if not re.search(html_attr_pattern, protected):
+          break
+          
+        original_protected = protected
+        protected = re.sub(html_attr_pattern, escape_html_attributes_only, protected)
+        
+        if protected == original_protected:
+          break
+          
+        iteration += 1
+
+      # SECOND: String-aware pass for LaTeX backslashes (after HTML quotes are fixed)
+      out_chars: list[str] = []
+      in_string = False
+      escaped = False
+      i = 0
+      L = len(protected)
+      valid_escapes = set('"\\/bfnrtu')
+      
+      while i < L:
+        ch = protected[i]
+        if ch == '"' and not escaped:
+          in_string = not in_string
+          out_chars.append(ch)
+          i += 1
+          continue
+
+        if in_string:
+          if ch == '\\' and not escaped:
+            # Look ahead to decide whether to keep or double the backslash
+            if i + 1 < L:
+              nxt = protected[i + 1]
+              if nxt in valid_escapes:
+                # Valid JSON escape, but also ensure \u has 4 hex digits
+                if nxt == 'u':
+                  hex_ok = (
+                      i + 6 <= L
+                      and re.match(r"^[0-9a-fA-F]{4}$", protected[i + 2 : i + 6] or "") is not None
+                  )
+                  if not hex_ok:
+                    # Make incomplete unicode explicit: \\u...
+                    out_chars.append('\\\\u')
+                    i += 2
+                    continue
+                # Keep valid JSON escape as-is
+                out_chars.append('\\')
+                i += 1
+                continue
+              else:
+                # Check if this is already a double-escaped sequence
+                # Look back to see if there's already a backslash before this one
+                already_escaped = (
+                  len(out_chars) > 0 and out_chars[-1] == '\\' and 
+                  not (len(out_chars) > 1 and out_chars[-2] == '\\')  # But not triple-escaped
+                )
+                
+                if already_escaped:
+                  # This backslash is already escaped (e.g., we're seeing the second \ in \\mathsf)
+                  # Don't double it again
+                  out_chars.append('\\')
+                  i += 1
+                  continue
+                else:
+                  # This is a raw backslash that needs escaping (e.g., \mathsf -> \\mathsf)
+                  out_chars.append('\\\\')
+                  i += 1
+                  continue
+            else:
+              # Trailing backslash inside a string -> escape it
+              out_chars.append('\\\\')
+              i += 1
+              continue
+
+          # Normal char inside string
+          out_chars.append(ch)
+          escaped = (ch == '\\') and not escaped
+          i += 1
+          continue
+
+        # Outside of string, just copy
+        out_chars.append(ch)
+        escaped = False
+        i += 1
+
+      protected = "".join(out_chars)
+      
+      # Remove control chars except TAB, LF, CR
+      protected = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", protected)
+
+      # Restore valid unicode escapes
+      def _restore_valid_unicode(m: re.Match[str]) -> str:
+        return f"\\u{m.group(1)}"
+
+      restored = re.sub(r"§§UNICODE§§([0-9a-fA-F]{4})", _restore_valid_unicode, protected)
+      return restored
 
     try:
       if self.format_type == data.FormatType.YAML:
         parsed_data = yaml.safe_load(content)
       else:
+        # Primary: strict JSON
         parsed_data = json.loads(content)
       logging.debug("Successfully parsed content.")
-    except (yaml.YAMLError, json.JSONDecodeError) as e:
-      logging.exception("Failed to parse content.")
-      raise ResolverParsingError("Failed to parse content.") from e
+    except json.JSONDecodeError as je:
+      logging.warning(
+          "JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: %s",
+          je,
+      )
+      # First try sanitized JSON (handles stray backslashes like \mathsf)
+      try:
+        sanitized = _sanitize_json_string(content)
+        logging.debug("Sanitized content: %s", sanitized[:200] + "..." if len(sanitized) > 200 else sanitized)
+        parsed_data = json.loads(sanitized)
+        logging.debug("Sanitized JSON parse succeeded.")
+      except Exception as e_san:
+        logging.debug("Sanitized JSON parse failed: %s", e_san)
+        # Try tolerant parser if available
+        try:
+          import dirtyjson  # type: ignore
+
+          try:
+            parsed_data = dirtyjson.loads(sanitized)
+            logging.debug("dirtyjson parse succeeded on sanitized content.")
+          except Exception:
+            parsed_data = dirtyjson.loads(content)
+            logging.debug("dirtyjson parse succeeded on original content.")
+        except Exception:
+          # As a last resort try YAML load
+          try:
+            parsed_data = yaml.safe_load(content)
+            logging.debug("YAML fallback succeeded after sanitization failure.")
+          except Exception as e2:
+            logging.exception("Failed to parse content after sanitization, dirtyjson, and YAML fallback.")
+            raise ResolverParsingError("Failed to parse content.") from e2
+    except yaml.YAMLError as ye:
+      logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
+      try:
+        parsed_data = json.loads(content)
+        logging.debug("JSON fallback succeeded.")
+      except Exception as e3:
+        logging.exception("Failed to parse content after fallbacks.")
+        raise ResolverParsingError("Failed to parse content.") from e3
 
     return parsed_data
 
@@ -390,103 +641,113 @@ class Resolver(AbstractResolver):
     """
     parsed_data = self._extract_and_parse_content(input_string)
 
-  # CASE 1: Rich schema (prompt-compliant) detected.
-  # The new prompt returns: { "extractions": [ { schema_version, norms: [...], tags:[...], ... } ] }
-  # Older downstream code expects a list of small mapping objects with extraction_class keys.
-  # To avoid a sweeping refactor, we PROJECT rich Norm objects into that legacy shape so that
-  # extract_ordered_extractions() can still operate. We only surface Norm texts as Extractions;
-  # richer arrays (tags, parameters, etc.) are accessible earlier in the pipeline if needed.
+    # If model misused 'extractions' to hold Norm objects, coerce into expected shape:
+    # {"extractions":[{ norms: [...], tags: [...], parameters: [...], ... }]}.
+    # Handle both cases:
+    #  a) dict with 'extractions' alongside other rich keys
+    #  b) dict with only 'extractions' that itself is a list of Norm-like objects
     if isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY in parsed_data:
-      rich_list = parsed_data[schema.EXTRACTIONS_KEY]
-      if not isinstance(rich_list, list):
-        raise ResolverParsingError("'extractions' must be a list of objects")
-      # Basic shape validation (only first object strictly validated here to stay lightweight)
-      required_arrays = [
-          "norms", "tags", "locations", "questions", "consequences", "parameters"
-      ]
-      for i, rich_obj in enumerate(rich_list):
-        if not isinstance(rich_obj, dict):
-          raise ResolverParsingError(f"Extraction list item {i} is not an object")
-        missing = [k for k in required_arrays if k not in rich_obj]
-        if missing:
-          raise ResolverParsingError(
-              f"Extraction list item {i} missing required array keys: {missing}"
+      rich_side_keys = {"tags", "locations", "questions", "consequences", "parameters", "quality"}
+      exts_val = parsed_data.get(schema.EXTRACTIONS_KEY)
+
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        # Heuristics for a Norm object
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        # Or an id that resembles a Norm ID
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
+
+      if isinstance(exts_val, list) and exts_val and all(
+          _looks_like_norm_obj(item) for item in exts_val if isinstance(item, dict)
+      ):
+        # Case (a): also has other rich arrays/objects
+        if any(k in parsed_data for k in rich_side_keys):
+          logging.warning(
+              "Detected top-level 'extractions' list containing Norm-like objects with other rich keys; coercing to rich root with 'norms'."
           )
-      logging.info("Rich schema detected with %d extraction object(s).", len(rich_list))
+          coerced_root = dict(parsed_data)  # shallow copy
+          coerced_root["norms"] = exts_val
+          coerced_root.pop(schema.EXTRACTIONS_KEY, None)
+          parsed_data = {schema.EXTRACTIONS_KEY: [coerced_root]}
+        else:
+          # Case (b): only 'extractions' present containing Norms; wrap into single extraction with norms
+          logging.warning(
+              "Detected only 'extractions' with Norm-like objects; wrapping into single extraction root with 'norms'."
+          )
+          parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": exts_val}]}
 
-  # Backward compatibility note:
-  # We collapse rich norms into synthetic mapping entries shaped like:
-  #   { "NORM": <norm_text>, "NORM_index": <i>, "NORM_attributes": {...subset...} }
-  # so existing ordering / alignment code remains usable. If full rich alignment is needed
-  # in future, create a parallel path instead of overloading this adapter.
-      legacy_groups: list[dict[str, ExtractionValueType]] = []
-      norm_index = 0
-      for extraction_obj in rich_list:
-        norms = extraction_obj.get("norms", []) or []
-        for norm in norms:
-            # Accept either already-dict norm entries or malformed items gracefully
-            if not isinstance(norm, dict):
-              continue
-            norm_text = norm.get("Norm") or norm.get("norm") or norm.get("text")
-            if not isinstance(norm_text, str):
-              continue
-            norm_index += 1
-            # Build a mapping with an index suffix so ordering is preserved.
-            entry: dict[str, ExtractionValueType] = {
-                "NORM": norm_text,
-            }
-            if self.extraction_index_suffix:
-              entry["NORM" + self.extraction_index_suffix] = norm_index
-            # Attach original attributes under the attributes suffix if configured
-            if self.extraction_attributes_suffix:
-              entry["NORM" + self.extraction_attributes_suffix] = {
-                  "id": norm.get("id"),
-                  "obligation_type": norm.get("obligation_type"),
-                  "priority": norm.get("priority"),
-                  "confidence": norm.get("confidence"),
-                  "uncertainty": norm.get("uncertainty"),
-                  "applies_if": norm.get("applies_if"),
-                  "satisfied_if": norm.get("satisfied_if"),
-              }
-            legacy_groups.append(entry)
-      # If there were no norms, still return an empty list – caller will handle.
-      return legacy_groups
+    # Tolerate common variants by gently coercing into expected shape
+    if isinstance(parsed_data, list):
+      # If it's a bare list of Norm-like objects, wrap as single extraction root
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
 
-  # CASE 2: Flat legacy list of extraction_class objects (already normalized elsewhere)
-  # Example: [ {"extraction_class": "Norm", "extraction_text": "Door shall ..."}, ...]
-  # We convert each element to a mapping keyed by the uppercased class label to reuse ordering logic.
-    if isinstance(parsed_data, list) and all(isinstance(x, dict) and "extraction_class" in x for x in parsed_data):
-      logging.info("Flat legacy extraction_class list detected (%d items).", len(parsed_data))
-      legacy_groups: list[dict[str, ExtractionValueType]] = []
-      for i, item in enumerate(parsed_data, start=1):
-        cls = str(item.get("extraction_class") or "").upper() or "ITEM"
-        text = item.get("extraction_text") or item.get("text") or item.get("Norm")
-        if not isinstance(text, str):
-          continue
-        entry: dict[str, ExtractionValueType] = {cls: text}
-        if self.extraction_index_suffix:
-          entry[cls + self.extraction_index_suffix] = i
-        if self.extraction_attributes_suffix:
-          # Pass through remaining metadata except extraction_class/text
-          attrs = {k: v for k, v in item.items() if k not in {"extraction_class", "extraction_text", "text", "Norm"}}
-          entry[cls + self.extraction_attributes_suffix] = attrs
-        legacy_groups.append(entry)
-      return legacy_groups
+      if parsed_data and all(_looks_like_norm_obj(item) for item in parsed_data if isinstance(item, dict)):
+        logging.warning("Top-level list of Norm-like objects detected; wrapping into single extraction root under 'norms'.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": parsed_data}]}
+      else:
+        logging.warning("Top-level list detected; coercing to {'extractions': [...]} shape.")
+        parsed_data = {schema.EXTRACTIONS_KEY: parsed_data}
+    elif isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY not in parsed_data:
+      # If dict looks like a rich object (contains any known rich keys), wrap it
+      rich_keys = {
+          "norms",
+          "tags",
+          "locations",
+          "questions",
+          "consequences",
+          "parameters",
+          "quality",
+      }
+      if any(k in parsed_data for k in rich_keys):
+        logging.warning("Dict without 'extractions' detected; wrapping as single extraction object.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [parsed_data]}
 
-  # CASE 3: Already legacy shape (dict with extractions but not rich arrays) – original behavior
-  # (Least common now; retained for completeness.)
     if not isinstance(parsed_data, dict):
+      logging.error("Expected content to be a mapping (dict). Got %s", type(parsed_data))
       raise ResolverParsingError(
-          "Parsed content must be either rich schema dict, flat list, or legacy mapping with 'extractions'."
+          f"Content must be a mapping with an '{schema.EXTRACTIONS_KEY}' key."
       )
     if schema.EXTRACTIONS_KEY not in parsed_data:
+      logging.error("Content does not contain 'extractions' key after coercion.")
       raise ResolverParsingError("Content must contain an 'extractions' key.")
     extractions = parsed_data[schema.EXTRACTIONS_KEY]
+
     if not isinstance(extractions, list):
-      raise ResolverParsingError("'extractions' must be a list.")
+      logging.error("The content must be a sequence (list) of mappings.")
+      raise ResolverParsingError(
+          "The extractions must be a sequence (list) of mappings."
+      )
+
+    # Validate each item in the extractions list
     for item in extractions:
       if not isinstance(item, dict):
-        raise ResolverParsingError("Each extraction group must be a mapping.")
+        logging.error("Each item in the sequence must be a mapping.")
+        raise ResolverParsingError(
+            "Each item in the sequence must be a mapping."
+        )
+
+      for key, value in item.items():
+        if not isinstance(key, str) or not isinstance(
+            value, ExtractionValueType
+        ):
+          logging.error("Invalid key or value type detected in content.")
+          raise ResolverParsingError(
+              "All keys must be strings and values must be either strings,"
+              " integers, floats, dicts, or None."
+          )
+
+    logging.info("Completed parsing of string.")
     return extractions
 
   def extract_ordered_extractions(

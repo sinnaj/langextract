@@ -28,8 +28,22 @@ import dataclasses
 import enum
 import re
 
-from langextract import debug_utils
+from langextract.core import debug_utils
 from langextract.core import exceptions
+
+__all__ = [
+    "BaseTokenizerError",
+    "InvalidTokenIntervalError",
+    "SentenceRangeError",
+    "CharInterval",
+    "TokenInterval",
+    "TokenType",
+    "Token",
+    "TokenizedText",
+    "tokenize",
+    "tokens_text",
+    "find_sentence_range",
+]
 
 
 class BaseTokenizerError(exceptions.LangExtractError):

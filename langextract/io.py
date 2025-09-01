@@ -17,10 +17,12 @@ from __future__ import annotations
 
 import abc
 import dataclasses
+import ipaddress
 import json
 import os
 import pathlib
 from typing import Any, Iterator
+from urllib import parse as urlparse
 
 import pandas as pd
 import requests
@@ -115,7 +117,7 @@ def save_annotated_documents(
       output_path=str(output_file), disable=not show_progress
   )
 
-  with open(output_file, 'w') as f:
+  with open(output_file, 'w', encoding='utf-8') as f:
     for adoc in annotated_documents:
       if not adoc.document_id:
         continue
@@ -167,7 +169,7 @@ def load_annotated_documents_jsonl(
   doc_count = 0
   bytes_read = 0
 
-  with open(jsonl_path, 'r') as f:
+  with open(jsonl_path, 'r', encoding='utf-8') as f:
     for line in f:
       line_bytes = len(line.encode('utf-8'))
       bytes_read += line_bytes
@@ -207,7 +209,7 @@ def _read_csv(
     raise IOError(f'File does not exist: {filepath}')
 
   try:
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
       df = pd.read_csv(f, usecols=column_names, dtype=str, delimiter=delimiter)
       for _, row in df.iterrows():
         yield row.to_dict()
@@ -218,16 +220,42 @@ def _read_csv(
 
 
 def is_url(text: str) -> bool:
-  """Check if the given text is a URL.
+  """Check if the given text is a valid URL.
+
+  Uses urllib.parse to validate that the text is a properly formed URL
+  with http or https scheme and a valid network location.
 
   Args:
     text: The string to check.
 
   Returns:
-    True if the text is a URL (starts with http:// or https://), False
-    otherwise.
+    True if the text is a valid URL with http(s) scheme, False otherwise.
   """
-  return text.startswith('http://') or text.startswith('https://')
+  if not text or not isinstance(text, str):
+    return False
+
+  text = text.strip()
+
+  # Reject text with whitespace (not a pure URL)
+  if ' ' in text or '\n' in text or '\t' in text:
+    return False
+
+  try:
+    result = urlparse.urlparse(text)
+    hostname = result.hostname
+
+    # Must have valid scheme, netloc, and hostname
+    if not (result.scheme in ('http', 'https') and result.netloc and hostname):
+      return False
+
+    # Accept IPs, localhost, or domains with dots
+    try:
+      ipaddress.ip_address(hostname)
+      return True
+    except ValueError:
+      return hostname == 'localhost' or '.' in hostname
+  except (ValueError, AttributeError):
+    return False
 
 
 def download_text_from_url(
