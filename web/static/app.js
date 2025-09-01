@@ -183,13 +183,13 @@
   // Update layout based on panel state
   function updateLayout() {
     if (isInputPanelCollapsed) {
-      inputPanel.style.display = 'none';
+      inputPanel.classList.add('hidden');
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-12');
-      columnSwitch.style.display = 'block';
+      columnSwitch.classList.remove('hidden');
     } else {
-      inputPanel.style.display = 'block';
+      inputPanel.classList.remove('hidden');
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-5');
-      columnSwitch.style.display = 'none';
+      columnSwitch.classList.add('hidden');
       currentColumnCount = 1;
       updatePreviewPanels();
       updateColumnButtons();
@@ -211,9 +211,14 @@
     
     previewPanels.className = `space-y-4 ${gridClass}`;
     
+    // Track which panels were previously hidden that are now being shown
+    const newlyVisiblePanels = [];
+    
     panels.forEach((panel, index) => {
+      const wasHidden = panel.classList.contains('hidden');
+      
       if (index < currentColumnCount) {
-        panel.style.display = 'block';
+        panel.classList.remove('hidden');
         // Adjust height for multiple columns
         const previewEl = panel.querySelector('.preview');
         if (previewEl) {
@@ -223,14 +228,39 @@
             previewEl.className = previewEl.className.replace(/h-\[calc\(100vh-16rem\)\]/, 'h-[calc(100vh-12rem)]');
           }
         }
+        
+        // Track newly visible panels for run syncing
+        if (wasHidden && index > 0) {
+          newlyVisiblePanels.push(index);
+        }
       } else {
-        panel.style.display = 'none';
+        panel.classList.add('hidden');
       }
     });
     
     // Initialize additional panels if needed
     while (previewOptimizers.length < currentColumnCount) {
       createAdditionalPanel();
+      // The newly created panel is at the end, track it for run syncing
+      newlyVisiblePanels.push(previewOptimizers.length - 1);
+    }
+    
+    // Sync current run to newly visible panels
+    if (currentRunId && newlyVisiblePanels.length > 0) {
+      syncRunToNewPanels(newlyVisiblePanels);
+    }
+  }
+  
+  // Sync current run to newly visible panels
+  async function syncRunToNewPanels(panelIndices) {
+    if (!currentRunId) return;
+    
+    for (const panelIndex of panelIndices) {
+      try {
+        await loadExistingRunResults(currentRunId, panelIndex);
+      } catch (e) {
+        console.error(`Failed to sync run to panel ${panelIndex}:`, e);
+      }
     }
   }
   
@@ -368,8 +398,10 @@
     try {
       // Clear current state for this panel
       selectedFilePaths[panelIndex] = null;
-      currentRunId = runId;
+      
+      // Only update global state if loading into the first panel
       if (panelIndex === 0) {
+        currentRunId = runId;
         runIdEl.textContent = `Loaded Run: ${runId}`;
       }
       
@@ -392,8 +424,10 @@
         previewStatsEl.textContent = `Loaded from ${runId}`;
       }
       
-      // Auto-collapse left panel when loading existing run
-      autoCollapseOnRunLoad();
+      // Auto-collapse left panel when loading existing run (only for main panel)
+      if (panelIndex === 0) {
+        autoCollapseOnRunLoad();
+      }
       
       // Also load and display the run status/stats if available (only for first panel)
       if (panelIndex === 0) {
@@ -646,8 +680,14 @@
     }
     
     statsEl.textContent = '';
-  if (fileBadgesEl) fileBadgesEl.innerHTML = '';
-    previewEl.textContent = '';
+    
+    // Clear all preview panels and their badges
+    document.querySelectorAll('.preview-panel').forEach(panel => {
+      const fileBadgesEl = panel.querySelector('.file-badges');
+      const previewEl = panel.querySelector('.preview');
+      if (fileBadgesEl) fileBadgesEl.innerHTML = '';
+      if (previewEl) previewEl.textContent = '';
+    });
 
     // Save current form values
     for (const fid of SAVE_FIELDS) {
