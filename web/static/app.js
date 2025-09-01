@@ -185,11 +185,11 @@
     if (isInputPanelCollapsed) {
       inputPanel.style.display = 'none';
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-12');
-      columnSwitch.classList.remove('hidden');
+      columnSwitch.style.display = 'block';
     } else {
       inputPanel.style.display = 'block';
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-5');
-      columnSwitch.classList.add('hidden');
+      columnSwitch.style.display = 'none';
       currentColumnCount = 1;
       updatePreviewPanels();
       updateColumnButtons();
