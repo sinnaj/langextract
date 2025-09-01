@@ -21,11 +21,8 @@ import concurrent.futures
 import dataclasses
 from typing import Any, Final, Iterator, Sequence
 
-<<<<<<< HEAD
-=======
 from absl import logging
 
->>>>>>> upstream/main
 from langextract.core import base_model
 from langextract.core import data
 from langextract.core import exceptions
@@ -51,23 +48,16 @@ _API_CONFIG_KEYS: Final[set[str]] = {
     priority=patterns.GEMINI_PRIORITY,
 )
 @dataclasses.dataclass(init=False)
-<<<<<<< HEAD
-class GeminiLanguageModel(base_model.BaseLanguageModel):
-=======
 class GeminiLanguageModel(base_model.BaseLanguageModel):  # pylint: disable=too-many-instance-attributes
->>>>>>> upstream/main
   """Language model inference using Google's Gemini API with structured output."""
 
   model_id: str = 'gemini-2.5-flash'
   api_key: str | None = None
-<<<<<<< HEAD
-=======
   vertexai: bool = False
   credentials: Any | None = None
   project: str | None = None
   location: str | None = None
   http_options: Any | None = None
->>>>>>> upstream/main
   gemini_schema: schemas.gemini.GeminiSchema | None = None
   format_type: data.FormatType = data.FormatType.JSON
   temperature: float = 0.0
@@ -101,14 +91,11 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):  # pylint: disable=too-
       self,
       model_id: str = 'gemini-2.5-flash',
       api_key: str | None = None,
-<<<<<<< HEAD
-=======
       vertexai: bool = False,
       credentials: Any | None = None,
       project: str | None = None,
       location: str | None = None,
       http_options: Any | None = None,
->>>>>>> upstream/main
       gemini_schema: schemas.gemini.GeminiSchema | None = None,
       format_type: data.FormatType = data.FormatType.JSON,
       temperature: float = 0.0,
@@ -121,14 +108,11 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):  # pylint: disable=too-
     Args:
       model_id: The Gemini model ID to use.
       api_key: API key for Gemini service.
-<<<<<<< HEAD
-=======
       vertexai: Whether to use Vertex AI instead of API key authentication.
       credentials: Optional Google auth credentials for Vertex AI.
       project: Google Cloud project ID for Vertex AI.
       location: Vertex AI location (e.g., 'global', 'us-central1').
       http_options: Optional HTTP options for the client (e.g., for VPC endpoints).
->>>>>>> upstream/main
       gemini_schema: Optional schema for structured output.
       format_type: Output format (JSON or YAML).
       temperature: Sampling temperature.
@@ -145,36 +129,23 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):  # pylint: disable=too-
       from google import genai
     except ImportError as e:
       raise exceptions.InferenceConfigError(
-<<<<<<< HEAD
-          'Failed to import google-genai. Reinstall: pip install langextract'
-=======
           'google-genai is required for Gemini. Install it with: pip install'
           ' google-genai'
->>>>>>> upstream/main
       ) from e
 
     self.model_id = model_id
     self.api_key = api_key
-<<<<<<< HEAD
-=======
     self.vertexai = vertexai
     self.credentials = credentials
     self.project = project
     self.location = location
     self.http_options = http_options
->>>>>>> upstream/main
     self.gemini_schema = gemini_schema
     self.format_type = format_type
     self.temperature = temperature
     self.max_workers = max_workers
     self.fence_output = fence_output
 
-<<<<<<< HEAD
-    if not self.api_key:
-      raise exceptions.InferenceConfigError('API key not provided.')
-
-    self._client = genai.Client(api_key=self.api_key)
-=======
     if not self.api_key and not self.vertexai:
       raise exceptions.InferenceConfigError(
           'Gemini models require either:\n  - An API key via api_key parameter'
@@ -200,7 +171,6 @@ class GeminiLanguageModel(base_model.BaseLanguageModel):  # pylint: disable=too-
         location=location,
         http_options=http_options,
     )
->>>>>>> upstream/main
 
     super().__init__(
         constraint=schema.Constraint(constraint_type=schema.ConstraintType.NONE)
