@@ -16,6 +16,7 @@ class PreviewOptimizer {
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
+  this._lastSearchQuery = '';
     
     this.init();
   }
@@ -121,6 +122,11 @@ class PreviewOptimizer {
       this.renderMarkdown(content, meta);  
     } else {
       this.renderText(content, meta);
+    }
+
+    // Re-apply search highlights if a search query is active
+    if (this._lastSearchQuery) {
+      this.applySearchHighlight(this._lastSearchQuery);
     }
   }
   
@@ -294,7 +300,7 @@ class PreviewOptimizer {
       try {
         const obj = JSON.parse(line);
         if (typeof JSONFormatter !== 'undefined') {
-          const formatter = new JSONFormatter(obj, 1, { theme: 'dark' });
+          const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
           block.appendChild(formatter.render());
         } else {
           const pretty = JSON.stringify(obj, null, 2);
@@ -327,7 +333,7 @@ class PreviewOptimizer {
     if (typeof JSONFormatter !== 'undefined') {
       try {
         const obj = JSON.parse(jsonString);
-        const formatter = new JSONFormatter(obj, 2, {
+        const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, {
           theme: 'dark' // theme hint; CSS controls final look
         });
         const container = document.createElement('div');
@@ -359,7 +365,7 @@ class PreviewOptimizer {
   renderEnhancedJsonObject(obj, meta) {
     // Use JSONFormatter directly on parsed object
     try {
-      const formatter = new JSONFormatter(obj, 2, { theme: 'dark' });
+  const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
       const container = document.createElement('div');
       container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
       container.appendChild(formatter.render());
@@ -611,23 +617,68 @@ class PreviewOptimizer {
   
   search(query) {
     if (!query || !this.element.textContent) return [];
-    
-    // Simple text search - could be enhanced with regex support
-    const content = this.element.textContent;
+    // Clear previous highlights, then apply new
+    this.clearSearchHighlight();
+    this._lastSearchQuery = query;
+    const results = this.applySearchHighlight(query);
+    return results;
+  }
+
+  clearSearchHighlight() {
+    // Remove existing highlights
+    const marks = this.element.querySelectorAll('.search-highlight');
+    marks.forEach(mark => {
+      const parent = mark.parentNode;
+      if (!parent) return;
+      // Replace the mark with its text content
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      // Merge adjacent text nodes if needed
+      parent.normalize && parent.normalize();
+    });
+  }
+
+  applySearchHighlight(query) {
+    const lc = query.toLowerCase();
+    const textNodes = this._collectTextNodes(this.element);
     const results = [];
-    const lines = content.split('\n');
-    const lowerQuery = query.toLowerCase();
-    
-    lines.forEach((line, index) => {
-      if (line.toLowerCase().includes(lowerQuery)) {
-        results.push({
-          lineIndex: index,
-          line: line,
-          preview: line.length > 100 ? line.substring(0, 100) + '...' : line
-        });
+    textNodes.forEach(node => {
+      const text = node.nodeValue;
+      if (!text) return;
+      const idx = text.toLowerCase().indexOf(lc);
+      if (idx === -1) return;
+      // Split node: before, match, after
+      const before = document.createTextNode(text.slice(0, idx));
+      const matchText = text.slice(idx, idx + query.length);
+      const after = document.createTextNode(text.slice(idx + query.length));
+      const mark = document.createElement('span');
+      mark.className = 'search-highlight';
+      mark.textContent = matchText;
+      const parent = node.parentNode;
+      if (!parent) return;
+      parent.replaceChild(after, node);
+      parent.insertBefore(mark, after);
+      parent.insertBefore(before, mark);
+      results.push({ text: matchText });
+    });
+    return results;
+  }
+
+  _collectTextNodes(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        // Skip highlighting inside scripts and styles
+        const p = node.parentNode;
+        if (!p || (p.tagName && /^(SCRIPT|STYLE)$/.test(p.tagName))) return NodeFilter.FILTER_REJECT;
+        // Skip highlights themselves
+        if (p.classList && p.classList.contains('search-highlight')) return NodeFilter.FILTER_REJECT;
+        // Only consider reasonably sized nodes
+        if (node.nodeValue && node.nodeValue.trim().length > 0) return NodeFilter.FILTER_ACCEPT;
+        return NodeFilter.FILTER_REJECT;
       }
     });
-    
-    return results;
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    return nodes;
   }
 }

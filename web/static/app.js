@@ -123,6 +123,16 @@
   // Initialize buttons for each panel
   function initializePanelButtons() {
     document.querySelectorAll('.preview-panel').forEach((panel, index) => {
+      // Hide certain controls on secondary panels (2 and 3)
+      if (index > 0) {
+        const collapseBtn = panel.querySelector('.collapse-toggle');
+        if (collapseBtn) collapseBtn.classList.add('hidden');
+        const loadExistingRunBtnHidden = panel.querySelector('.load-existing-run');
+        if (loadExistingRunBtnHidden) loadExistingRunBtnHidden.classList.add('hidden');
+        const runSelectorWrap = panel.querySelector('.run-selector');
+        if (runSelectorWrap) runSelectorWrap.classList.add('hidden');
+      }
+      
       // Search functionality
       const searchBtn = panel.querySelector('.preview-search');
       if (searchBtn && !searchBtn.hasAttribute('data-initialized')) {
@@ -131,11 +141,8 @@
           const query = prompt('Search in file:');
           if (query && previewOptimizers[index]) {
             const results = previewOptimizers[index].search(query);
-            if (results.length > 0) {
-              alert(`Found ${results.length} matches`);
-            } else {
-              alert('No matches found');
-            }
+            const count = Array.isArray(results) ? results.length : 0;
+            alert(count > 0 ? `Found ${count} matches` : 'No matches found');
           }
         });
       }
@@ -160,6 +167,13 @@
           const selectedRunId = existingRunsSelect.value;
           if (selectedRunId) {
             await loadExistingRunResults(selectedRunId, index);
+            // If changed from panel 1, propagate to all other visible panels
+            if (index === 0) {
+              const panels = document.querySelectorAll('.preview-panel');
+              for (let i = 1; i < Math.min(currentColumnCount, panels.length); i++) {
+                try { await loadExistingRunResults(selectedRunId, i); } catch (e) { console.error(e); }
+              }
+            }
           }
         });
       }
@@ -291,6 +305,18 @@
     });
     previewOptimizers[panelIndex] = optimizer;
     
+    // Hide folder select and collapse controls on secondary panels
+    const collapseBtn = newPanel.querySelector('.collapse-toggle');
+    if (collapseBtn) collapseBtn.classList.add('hidden');
+    const loadExistingRunBtn = newPanel.querySelector('.load-existing-run');
+    if (loadExistingRunBtn) loadExistingRunBtn.classList.add('hidden');
+    const runSelectorWrap = newPanel.querySelector('.run-selector');
+    if (runSelectorWrap) runSelectorWrap.classList.add('hidden');
+
+    // Clear any data-initialized flags so event handlers attach for this cloned panel
+    newPanel.querySelectorAll('[data-initialized]')
+      .forEach(el => el.removeAttribute('data-initialized'));
+
     // Initialize buttons for the new panel
     initializePanelButtons();
   }
@@ -442,6 +468,12 @@
         } catch (e) {
           // Status endpoint might not be available for completed runs, that's OK
           console.log('Run status not available (completed run)');
+        }
+
+        // Propagate run selection from panel 1 to all other visible panels
+        const panels = document.querySelectorAll('.preview-panel');
+        for (let i = 1; i < Math.min(currentColumnCount, panels.length); i++) {
+          try { await loadExistingRunResults(runId, i); } catch (e) { console.error(e); }
         }
       }
       
