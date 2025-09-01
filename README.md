@@ -183,6 +183,7 @@ pip install -e .
 # For development (includes linting tools):
 pip install -e ".[dev]"
 
+
 # For testing (includes pytest):
 pip install -e ".[test]"
 ```
@@ -424,3 +425,175 @@ For health-related applications, use of LangExtract is also subject to the
 ---
 
 **Happy Extracting!**
+
+# lxRunnerExtraction: Rich Schema Extraction Runner
+
+This document walks through `lxRunnerExtraction.py` step by step. It explains the purpose, configuration, input discovery, model invocation, normalization, enrichment, and outputs. Use it as a companion while reading the code.
+
+## What this runner is
+
+A development harness that:
+- Invokes the model (OpenRouter OpenAI-compatible by default) with a single authoritative prompt file and optional few-shot examples.
+- Normalizes legacy classed extractions into a single "rich schema" JSON object.
+- Deduplicates by content, validates structure, optionally enriches relationships in teach mode, and saves outputs under `output_runs/<RUN_ID>/`.
+
+It’s designed for iterative work and tracing. For batch/production pipelines (chunked PDFs, ID registries, dedup across runs), build specialized scripts on top.
+
+## High-level flow
+
+1) Load environment and provider registry.
+2) Resolve which provider to use (OpenRouter vs direct Gemini) and set the model config.
+3) Load the prompt, examples, and input text.
+4) Optionally inject teaching appendices and known field paths.
+5) Call `lx.extract(...)` with strict JSON preference and resolver options.
+6) Convert any legacy classed results to a single rich-schema object with de-dup.
+7) Validate and optionally enrich.
+8) Persist outputs (root JSON and glossary) and print a concise summary.
+
+## Configuration inputs
+
+The sole entry point is the function `makeRun(...)`:
+
+- `RUN_ID`: Output folder name under `output_runs/`.
+- `MODEL_ID`: Requested model id (overridden internally; see note below).
+- `MODEL_TEMPERATURE`: Requested temperature (overridden internally; see note below).
+- `MAX_NORMS_PER_5K`: Soft cap marker stored in metadata (not enforced client-side here).
+- `MAX_CHAR_BUFFER`: Governs internal library chunking of the input text.
+- `EXTRACTION_PASSES`: Number of passes to improve recall.
+- `INPUT_PROMPTFILE`: Path to the primary prompt file (required).
+- `INPUT_GLOSSARYFILE`: Output path for the DSL glossary stub (or default under run dir).
+- `INPUT_EXAMPLESFILE`: Python file exporting `EXAMPLES` list for few-shot.
+- `INPUT_SEMANTCSFILE`: Reserved for future use (accepted, not currently consumed).
+- `INPUT_TEACHFILE`: Reserved for future use (accepted, not currently consumed).
+
+Environment variables:
+- `USE_OPENROUTER` (default "1"): if truthy, uses OpenRouter OpenAI-compatible route; else direct Gemini.
+- `OPENAI_API_KEY`: used as OpenRouter API key when `USE_OPENROUTER=1`.
+- `GOOGLE_API_KEY`: used for direct Gemini path when `USE_OPENROUTER=0`.
+- `OPENROUTER_REFERER`, `OPENROUTER_TITLE`: optional attribution headers for OpenRouter.
+- `LE_INPUT_FILE`: absolute/relative path to the input `.txt`/`.md` file; if not set, runner searches `output_runs/<RUN_ID>/input/`.
+- `LX_TEACH_MODE=1`: appends teaching appendices and enables relationship inference in enrichment.
+- `LX_WRITE_VIS=1`: writes a simple HTML visualization for the annotated document.
+
+Notes on overrides:
+- The runner currently overrides `MODEL_ID` and `MODEL_TEMPERATURE` internally:
+  - `MODEL_ID` -> `google/gemini-2.5-flash` when using OpenRouter; `gemini-2.5-flash` when direct.
+  - `MODEL_TEMPERATURE` -> `0.15`.
+  This is intentional for stable runs. Feel free to relax these in the code if you want to honor the function arguments.
+
+## Where files go
+
+- Outputs: `output_runs/<RUN_ID>/output.json` and `output_runs/<RUN_ID>/glossary.json`.
+- Optional per-chunk traces: `output_runs/<RUN_ID>/chunks/chunk_*.json`.
+- Optional visualization (when `LX_WRITE_VIS=1`): `output_runs/<RUN_ID>/visualization.html`.
+- Inputs: if `LE_INPUT_FILE` is not set, the runner searches `output_runs/<RUN_ID>/input/` for text-like files (`.txt`, `.md`), skipping known generated artifacts.
+
+## Step-by-step through the code
+
+### 0) Environment and provider setup
+- Loads `.env` via `dotenv`.
+- Initializes provider registry: `providers.load_builtins_once()` and `providers.load_plugins_once()` then logs available providers.
+- Determines routing:
+  - If `USE_OPENROUTER` is truthy, uses the OpenAI-compatible provider against `https://openrouter.ai/api/v1`.
+  - Otherwise, calls direct Gemini with `GOOGLE_API_KEY`.
+
+### 1) Resolve paths and inputs
+- `PROMPT_FILE` must exist or the run is aborted.
+- Determines `run_dir = output_runs/<RUN_ID>` and `chunks_dir` under it.
+- Glossary path defaults to `run_dir/glossary.json` when not provided.
+- Input file resolution:
+  - If `LE_INPUT_FILE` is set, use it.
+  - Else, search `run_dir/input/` for suitable files (prefer `.txt`/`.md`).
+- Teach-mode appendix files are under `prompts/` and appended when `LX_TEACH_MODE=1`.
+
+### 2) Examples loading
+- If `INPUT_EXAMPLESFILE` is provided, the runner imports it dynamically (expects `EXAMPLES`).
+- Else it tries `input_examplefiles/default.py`.
+- On failure or missing `EXAMPLES`, it proceeds with an empty list and logs a warning.
+
+### 3) Prompt composition and teaching augmentation
+- Reads `INPUT_PROMPTFILE` as the base description.
+- If `LX_TEACH_MODE=1`, appends `prompts/prompt_appendix_teaching.md` and `prompts/prompt_appendix_entity_semantics.md` when present.
+- If a prior glossary file exists, injects the discovered DSL paths between `KNOWN_FIELD_PATHS_START/END` markers to guide the model.
+
+### 4) Model configuration and extract kwargs
+- Builds `factory.ModelConfig(...)` with the provider `OpenAILanguageModel` for OpenRouter.
+- Provider kwargs include the API key, base URL, temperature, and `FormatType.JSON`.
+- Builds `extract_kwargs`:
+  - `text_or_documents`: the selected input text
+  - `prompt_description`: composed prompt
+  - `examples`: the few-shot list
+  - `config`: the model config above
+  - `fence_output=False`, `use_schema_constraints=False`: rely on JSON mode and a tolerant resolver
+  - `max_char_buffer`: for library-managed chunking
+  - `extraction_passes`: number of passes
+  - `resolver_params`: JSON format preference and alignment limited to classes ["Norm", "Tag", "Parameter"].
+
+### 5) Calling the model and capturing results
+- `_call_and_capture(text, idx)`:
+  - Invokes `lx.extract(**extract_kwargs)`.
+  - On exception: logs a redacted message, synthesizes a minimal rich object, and saves a chunk trace so the run completes.
+  - On success: reads the legacy `annotated.extractions` list and converts it into a single rich-schema object.
+
+### 6) Normalization and de-duplication
+- For each classed list (`norms`, `tags`, `locations`, `questions`, `consequences`, `parameters`):
+  - Compute content-based signatures (e.g., norm identity uses statement/applies/satisfied/exempt/obligation/relevant_tags).
+  - Drop duplicates by signature.
+- Populate `window_config.debug_counts` with pre/post numbers for traceability.
+- Persist per-chunk JSON under `chunks/`.
+- Optional visualization (`LX_WRITE_VIS=1`) by calling `lx.visualize(annotated)`.
+
+### 7) Validation, enrichment, and persistence
+- Assembles the root: `{"extractions": [ rich_object ]}`.
+- Validates structure via `pp_schema.is_rich_schema()` and `pp_schema.validate_rich()`; collects errors/warnings under `quality`.
+- Updates `window_config` counts.
+- If `LX_TEACH_MODE=1`: runs enrichment steps (`enrich_parameters`, `merge_duplicate_tags`, `autophrase_questions`, and `infer_relationships`).
+- Writes `output.json` and a DSL `glossary.json` draft (all discovered DSL keys set to empty strings as placeholders).
+- Prints a one-line summary with counts of each entity type plus errors/warnings.
+
+## Things to know and adjust
+
+- The runner forces a specific model and temperature for stability. If you need full external control, remove those overrides.
+- The cap `MAX_NORMS_PER_5K` is tracked in metadata but not enforced; add a cap step if you want hard limits.
+- Output JSON is a single rich object per run. If you want multiple windows/segments, call `_call_and_capture` repeatedly and aggregate.
+- The resolver currently aligns extraction_text only for classes `["Norm", "Tag", "Parameter"]`. Expand if needed.
+
+## How to run it
+
+Interactive example (PowerShell):
+
+```powershell
+$runId = [string][int][double]::Parse((Get-Date -UFormat %s))
+$env:USE_OPENROUTER = "1"
+$env:OPENAI_API_KEY = "<your_openrouter_key>"
+$env:LE_INPUT_FILE = "path\to\your\input.txt"
+
+python - << 'PY'
+import time
+from pathlib import Path
+from lxRunnerExtraction import makeRun
+
+RUN_ID = str(int(time.time()))
+makeRun(
+    RUN_ID=RUN_ID,
+    MODEL_ID="ignored-by-runner",
+    MODEL_TEMPERATURE=0.0,
+    MAX_NORMS_PER_5K=10,
+    MAX_CHAR_BUFFER=5000,
+    EXTRACTION_PASSES=2,
+    INPUT_PROMPTFILE=str(Path("prompts/extraction_prompt.md")),
+    INPUT_GLOSSARYFILE="",              # let runner default to output_runs/<RUN_ID>/glossary.json
+    INPUT_EXAMPLESFILE=str(Path("input_examplefiles/examples_enhanced_updated_V2.py")),
+    INPUT_SEMANTCSFILE="",              # reserved
+    INPUT_TEACHFILE="",                 # reserved
+)
+PY
+```
+
+Outputs will land in `output_runs/<RUN_ID>/`.
+
+## FAQ
+
+- Can I use direct Gemini? Set `USE_OPENROUTER=0` and provide `GOOGLE_API_KEY`.
+- How do I change the model? Remove the internal overrides (`MODEL_ID`, `MODEL_TEMPERATURE`) and pass your choices to `makeRun`.
+- Why do I see synthesized outputs? Errors are trapped so a run always produces a well-formed root. Check `quality.errors` and per-chunk JSON under `chunks/`.

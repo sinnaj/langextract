@@ -11,6 +11,18 @@
 				"$eslint-stylish"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Run makeRun 1756231665",
+			"type": "shell",
+			"command": "python -c \"import importlib.util, sys; spec=importlib.util.spec_from_file_location('lxRE','c:/Projects/Arqio/LangExtract/langextract/lxRunnerExtraction.py'); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); m.makeRun('1756231665','google/gemini-2.5-flash',0.15,15,'input_promptfiles/extraction_prompt.md','input_glossaryfiles/dsl_glossary.json','input_examplefiles/default.py','input_semanticsfiles/prompt_appendix_entity_semantics.md','input_teachfiles/prompt_appendix_teaching.md')\"",
+			"args": []
+		},
+		{
+			"label": "Run runner_worker with payload",
+			"type": "shell",
+			"command": "python c:/Projects/Arqio/LangExtract/langextract/web/runner_worker.py \"{\\\"run_id\\\":\\\"1756231665\\\",\\\"MODEL_ID\\\":\\\"google/gemini-2.5-flash\\\",\\\"MODEL_TEMPERATURE\\\":0.15,\\\"MAX_NORMS_PER_5K\\\":15,\\\"INPUT_PROMPTFILE\\\":\\\"input_promptfiles/extraction_prompt.md\\\",\\\"INPUT_GLOSSARYFILE\\\":\\\"input_glossaryfiles/dsl_glossary.json\\\",\\\"INPUT_EXAMPLESFILE\\\":\\\"input_examplefiles/default.py\\\",\\\"INPUT_SEMANTCSFILE\\\":\\\"input_semanticsfiles/prompt_appendix_entity_semantics.md\\\",\\\"INPUT_TEACHFILE\\\":\\\"input_teachfiles/prompt_appendix_teaching.md\\\"}\"",
+			"args": []
 		}
 	]
 }

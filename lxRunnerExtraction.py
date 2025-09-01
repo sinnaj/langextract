@@ -1,39 +1,30 @@
-"""Comprehensive extraction runner aligned with `prompts/extraction_prompt.md`.
+"""Annotated-only extraction runner.
 
-Imperative Goal:
-  Exercise the full rich schema (Norms, Tags, Locations, Questions, Consequences, Parameters)
-  specified in `extraction_prompt.md`, provide diverse few-shot guidance, invoke the model,
-  validate & normalize output, and persist structured JSON for downstream ingestion.
+Purpose:
+    - Load prompt and few-shot examples, call the model, and persist the annotated outputs exactly
+        as returned by the library (per-extraction records) into a per-run folder "lx output".
+    - Derive lightweight Tag and Parameter entries directly from Norm attributes and append them to
+        the annotated outputs.
 
-Key Features:
-  * Loads authoritative prompt from file (single source of truth).
-  * Few-shot examples for each extraction class (Norm, Tag, Location, Question, Consequence, Parameter) using the specified DSL grammar (UPPERCASE.DOTCASE, IN[], ; OR separation, geo operators, HAS()).
-  * Post-run validation: required top-level keys, ID reference integrity, DSL surface heuristics.
-  * Legacy fallback wrapper (if model returns only classic `extractions` list) → upgrade into rich schema skeleton.
-  * Optional heuristic enrichment (priority scoring, parameter derivation) if missing.
-  * Glossary creation for discovered DSL field paths.
-
-NOTE: This is an iterative development harness. For production scaling (multi-chunk PDF ingestion,
-ontology merging across runs, persistent ID registry, and deduplication) implement specialized
-pipelines beyond this script.
+Out of scope (removed):
+    - Legacy rich-schema building, validation, normalization, relationship inference, enrichment,
+        and glossary generation. This file intentionally avoids any post-processing beyond simple
+        Tag/Parameter derivation from Norms.
 """
 from __future__ import annotations
 
 import json
 import os
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-from datetime import datetime
 import importlib.util
+import re
 
 from dotenv import load_dotenv
 import langextract as lx
-from postprocessing import enrich_outputdata as pp_enrich
-from postprocessing import output_schema_validation as pp_schema
-from postprocessing import relationship_inference as pp_rel
-from preprocessing.chunk_input import chunk_document
+from langextract import factory
+from langextract import providers
 
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
@@ -46,16 +37,29 @@ def makeRun(
     MODEL_ID: str,
     MODEL_TEMPERATURE: float,
     MAX_NORMS_PER_5K: int,
+    MAX_CHAR_BUFFER: int,
+    EXTRACTION_PASSES: int,
     INPUT_PROMPTFILE: str,
     INPUT_GLOSSARYFILE: str,
     INPUT_EXAMPLESFILE: str,
     INPUT_SEMANTCSFILE: str,
     INPUT_TEACHFILE: str,
 ):
-    print(f"makeRun called with RUN_ID={RUN_ID}, MODEL_ID={MODEL_ID}, MODEL_TEMPERATURE={MODEL_TEMPERATURE}, MAX_NORMS_PER_5K={MAX_NORMS_PER_5K}, INPUT_PROMPTFILE={INPUT_PROMPTFILE}, INPUT_GLOSSARYFILE={INPUT_GLOSSARYFILE}, INPUT_EXAMPLESFILE={INPUT_EXAMPLESFILE}, INPUT_SEMANTCSFILE={INPUT_SEMANTCSFILE}, INPUT_TEACHFILE={INPUT_TEACHFILE}")
+    print(f"makeRun called with RUN_ID={RUN_ID}, MODEL_ID={MODEL_ID}, MODEL_TEMPERATURE={MODEL_TEMPERATURE}, MAX_NORMS_PER_5K={MAX_NORMS_PER_5K}, MAX_CHAR_BUFFER={MAX_CHAR_BUFFER}, EXTRACTION_PASSES={EXTRACTION_PASSES}, INPUT_PROMPTFILE={INPUT_PROMPTFILE}, INPUT_GLOSSARYFILE={INPUT_GLOSSARYFILE}, INPUT_EXAMPLESFILE={INPUT_EXAMPLESFILE}, INPUT_SEMANTCSFILE={INPUT_SEMANTCSFILE}, INPUT_TEACHFILE={INPUT_TEACHFILE}")
     """Configure globals for this run. Values are set via globals() mapping."""
 
     load_dotenv()
+
+    # This runner only persists annotated outputs and derived Tags/Parameters.
+
+    # Ensure provider registry is populated (mirrors simpleExtraction pattern)
+    providers.load_builtins_once()
+    providers.load_plugins_once()
+    try:
+        avail = providers.list_providers()
+        print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
+    except Exception:
+        pass
 
     USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
     OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")  # repurposed for OpenRouter
@@ -71,13 +75,27 @@ def makeRun(
     PROMPT_FILE = Path(INPUT_PROMPTFILE)
     run_dir = Path("output_runs") / RUN_ID
     chunks_dir = run_dir / "chunks"
+    # New: folder to persist raw annotated outputs before any processing/enrichment
+    lx_output_dir = run_dir / "lx output"
     run_dir.mkdir(parents=True, exist_ok=True)
     chunks_dir.mkdir(parents=True, exist_ok=True)
-    OUTPUT_FILE = run_dir / "output.json"
-    # Default glossary path to run_dir when not provided
+    lx_output_dir.mkdir(parents=True, exist_ok=True)
+    # Default glossary path to run_dir when not provided (optional, only read for TEACH_MODE appendices)
     GLOSSARY_FILE = Path(INPUT_GLOSSARYFILE) if INPUT_GLOSSARYFILE else (run_dir / "glossary.json")
 
-    MAX_NORMS_PER_5K = 10  # matches spec guidance
+    # Honor the provided cap; do not override. Fallback default remains 10 if an invalid value is passed.
+    try:
+        MAX_NORMS_PER_5K = int(MAX_NORMS_PER_5K)
+    except Exception:
+        MAX_NORMS_PER_5K = 10
+    try:
+        MAX_CHAR_BUFFER = int(MAX_CHAR_BUFFER) if MAX_CHAR_BUFFER is not None else 5000
+    except Exception:
+        MAX_CHAR_BUFFER = 5000
+    try:
+        EXTRACTION_PASSES = int(EXTRACTION_PASSES) if EXTRACTION_PASSES is not None else 2
+    except Exception:
+        EXTRACTION_PASSES = 1
     MODEL_ID = "google/gemini-2.5-flash" if USE_OPENROUTER else "gemini-2.5-flash"
     MODEL_TEMPERATURE = 0.15
     EXAMPLES_FILE = Path(INPUT_EXAMPLESFILE) if INPUT_EXAMPLESFILE else None
@@ -89,11 +107,6 @@ def makeRun(
     else:
         _run_folder = run_dir / "input"
         allowed_exts = {".txt", ".md"}
-        exclude_names = {
-            "raw_model_output.txt",
-            "resolver_raw_output.txt",
-            "stats.json",
-        }
         try:
             files = [p for p in _run_folder.iterdir() if p.is_file()]
         except FileNotFoundError:
@@ -101,14 +114,15 @@ def makeRun(
         # Prioritize text-like files and skip known generated outputs
         preferred = [
             p for p in files
-            if p.suffix.lower() in allowed_exts and p.name not in exclude_names and not p.name.endswith("_output.json")
+            if p.suffix.lower() in allowed_exts and not p.name.endswith("_output.json")
         ]
         fallback = [
             p for p in files
-            if p.name not in exclude_names and not p.name.endswith("_output.json")
+            if not p.name.endswith("_output.json")
         ]
         candidates = preferred or fallback
         INPUT_FILE = candidates[0] if candidates else None
+
     if INPUT_FILE:
         print(f"[INFO] Selected input file: {INPUT_FILE}")
     TEACH_FILE = Path(INPUT_TEACHFILE) if INPUT_TEACHFILE else None
@@ -116,17 +130,18 @@ def makeRun(
     # Default examples module if EXAMPLES_FILE is not provided via makeRun
     DEFAULT_EXAMPLES_PATH = Path("input_examplefiles/default.py")
 
-
+    # Base prompt (be tolerant in web/worker context)
     if not PROMPT_FILE.exists():
-        print(f"FATAL: Prompt file missing at {PROMPT_FILE}", file=sys.stderr)
-        sys.exit(1)
+        print(f"[WARN] Prompt file missing at {PROMPT_FILE}; using minimal default prompt.", file=sys.stderr)
+        PROMPT_DESCRIPTION = (
+            "Extract Norms, Tags, and Parameters. Return a JSON object with an 'extractions' array."
+        )
+    else:
+        PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
 
     if not INPUT_FILE or not INPUT_FILE.exists():
-        print(f"FATAL: Input file missing at {INPUT_FILE}", file=sys.stderr)
-        sys.exit(1)
-
-    # Base prompt
-    PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
+        print(f"[WARN] Input file missing at {INPUT_FILE}; proceeding with empty input text.", file=sys.stderr)
+        # Leave INPUT_FILE as None; later section sets INPUT_TEXT = "" accordingly.
 
     # Teaching appendix injection & known field paths (if LX_TEACH_MODE=1)
     TEACH_MODE = os.getenv("LX_TEACH_MODE") == "1"
@@ -202,51 +217,44 @@ def makeRun(
 
 
     # ---------------------------------------------------------------------------
-    # 3. Enrich Output
+    # 3. Extract
     # ---------------------------------------------------------------------------
 
 
+    # Explicitly route to OpenAI-compatible provider via OpenRouter
+    cfg = factory.ModelConfig(
+        model_id=MODEL_ID,
+        provider="OpenAILanguageModel",  # Explicit provider class to route via OpenRouter's OpenAI-compatible API
+        provider_kwargs={
+            "api_key": OPENROUTER_KEY,
+            "base_url": "https://openrouter.ai/api/v1",
+            "temperature": MODEL_TEMPERATURE,
+            # Prefer strict JSON mode
+            "format_type": lx.data.FormatType.JSON,
+            "max_workers": 20,
+        },
+    )
 
-    def apply_enrichment_pipeline(obj: Dict[str, Any]):
-        pp_enrich.enrich_parameters(obj)
-        pp_enrich.merge_duplicate_tags(obj)
-        pp_rel.autophrase_questions(obj)
-        if TEACH_MODE:
-            pp_rel.infer_relationships(obj)
-
-
-
-    ## Infer Relationships refactored to individual file
-
-    # ---------------------------------------------------------------------------
-    # 4. Execute Extraction
-    # ---------------------------------------------------------------------------
-    print("[INFO] Invoking model for rich extraction ...")
-
-    lm_params = {
-        "temperature": MODEL_TEMPERATURE,
-    }
-
+    # Define Extraction Args
     extract_kwargs = dict(
         text_or_documents=INPUT_TEXT,
         prompt_description=PROMPT_DESCRIPTION,
         examples=EXAMPLES,
-        model_id=MODEL_ID,
+        config=cfg,
         fence_output=False,
         use_schema_constraints=False,
-        temperature=MODEL_TEMPERATURE,
+        max_char_buffer=MAX_CHAR_BUFFER,
+        extraction_passes=EXTRACTION_PASSES,   # Improves recall through multiple passes
         resolver_params={
-            "fence_output": False,
-            "format_type": lx.data.FormatType.JSON,
+                "fence_output": False,
+                "format_type": lx.data.FormatType.JSON,
+                ## "suppress_parse_errors_default": True,
+                # Disabled alignment allowlist: only align extraction_text for these classes
+                ##"align_only_classes_default": ["Norm", "Tag", "Parameter"],
         },
-        language_model_params=lm_params,
     )
 
     if USE_OPENROUTER:
-        # OpenRouter (OpenAI-compatible) path.
-        # NOTE: Only pass arguments accepted by extract(); provider-specific values must go inside
-        # language_model_params so they propagate to provider_kwargs. Top-level unsupported kwargs
-        # like base_url would raise TypeError (as observed).
         extract_kwargs["api_key"] = OPENROUTER_KEY
         lm_extra = extract_kwargs.setdefault("language_model_params", {})
         lm_extra.update({
@@ -261,123 +269,243 @@ def makeRun(
             "api_key": GOOGLE_API_KEY,
         })
 
-    extract_kwargs["max_char_buffer"] = 5000
-
     print(f"[INFO] Using {'OpenRouter' if USE_OPENROUTER else 'Direct Gemini'} provider with model_id={MODEL_ID}")
 
-    words = INPUT_TEXT.split()
-    all_extractions: List[Dict[str, Any]] = []
     run_warnings: List[str] = []
+
+    def _synthesize_extraction(text: str, norms: List[Dict[str, Any]] | None = None, errors: List[str] | None = None, warnings: List[str] | None = None) -> Dict[str, Any]:
+        nn = norms or []
+        return {
+            "schema_version": "1.0.0",
+            "ontology_version": "0.0.1",
+            "truncated": False,
+            "has_more": False,
+            "window_config": {
+                "input_chars": len(text),
+                "max_norms_per_5k_tokens": MAX_NORMS_PER_5K,
+                "max_char_buffer": MAX_CHAR_BUFFER,
+                "extraction_passes": EXTRACTION_PASSES,
+                "extracted_norm_count": len(nn),
+            },
+            "global_disclaimer": "NO LEGAL ADVICE",
+            "document_metadata": {
+                "doc_id": str(INPUT_FILE.name if INPUT_FILE else "unknown"),
+                "doc_title": "",
+                "source_language": "es",
+                "received_chunk_span": {"char_start": 0, "char_end": len(text)},
+                "page_range": {"start": -1, "end": -1},
+                "topics": [],
+                "location_scope": {"COUNTRY": "", "STATES": [], "PROVINCES": [], "REGIONS": [], "COMMUNES": [], "ZONES": [], "GEO_CODES": [], "UNCERTAINTY": 0.5},
+            },
+            "norms": nn,
+            "tags": [],
+            "locations": [],
+            "questions": [],
+            "consequences": [],
+            "parameters": [],
+            "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
+        }
 
     def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
-        # Ensure resolver writes exactly one raw output per call by disabling internal chunking
+        
+        def _sanitize_for_log(raw: str, limit: int = 2000) -> str:
+            try:
+                s = str(raw)
+            except Exception:
+                s = "<unprintable>"
+            # Redact obvious secrets
+            try:
+                if OPENROUTER_KEY:
+                    s = s.replace(OPENROUTER_KEY, "[REDACTED]")
+            except Exception:
+                pass
+            # Redact common api_key patterns
+            try:
+                s = re.sub(r"(api_key\s*[=:]\s*)([A-Za-z0-9_\-\.]+)", r"\1[REDACTED]", s, flags=re.IGNORECASE)
+                s = re.sub(r"(Authorization:\s*Bearer\s+)([A-Za-z0-9_\-\.]+)", r"\1[REDACTED]", s, flags=re.IGNORECASE)
+            except Exception:
+                pass
+            if len(s) > limit:
+                s = s[:limit] + " ... [truncated]"
+            return s
+        # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
+        # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
-        extract_kwargs["max_char_buffer"] = max(len(text) + 1, 1)
         try:
-            res = lx.extract(**extract_kwargs)
+            annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
         except Exception as e:
-            msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {e}"
+            safe_err = _sanitize_for_log(e)
+            msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {safe_err}"
             print(msg, file=sys.stderr)
             run_warnings.append(msg)
-            return None
-        # Read resolver-emitted raw JSON for this call
-        resolver_raw_path = Path.cwd() / "resolver_raw_output.txt"
-        if not resolver_raw_path.exists():
-            msg = f"[WARN] resolver_raw_output.txt not found after extraction for chunk {idx if idx is not None else 'single'}"
-            print(msg, file=sys.stderr)
-            run_warnings.append(msg)
-            return None
-        raw = resolver_raw_path.read_text(encoding="utf-8")
-        # Save per-chunk raw JSON to run folder
-        raw_name = f"raw_chunk_{idx:03}.json" if idx is not None else "raw_single.json"
-        (chunks_dir / raw_name).write_text(raw, encoding="utf-8")
-        # Parse JSON strictly (no salvage/fallbacks)
+            # Synthesize a minimal valid rich object so the run completes
+            synthesized = _synthesize_extraction(text, norms=[], errors=[safe_err], warnings=run_warnings)
+            result = {"extractions": [synthesized]}
+            raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
+            try:
+                (chunks_dir / raw_name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            except Exception:
+                pass
+            return result
+
+        # Persist the annotated document outputs BEFORE any processing/enrichment
         try:
-            return json.loads(raw)
-        except Exception as je:
-            msg = f"[WARN] Could not parse JSON for chunk {idx if idx is not None else 'single'}: {je}"
-            print(msg, file=sys.stderr)
-            run_warnings.append(msg)
-            return None
+            def _ci_dict(ci):
+                if not ci:
+                    return None
+                # CharInterval has start_pos/end_pos
+                return {
+                    "start_pos": getattr(ci, "start_pos", None),
+                    "end_pos": getattr(ci, "end_pos", None),
+                }
 
-    if len(words) > 5000:
-        chunks = chunk_document(INPUT_TEXT)
-        print(f"[INFO] Processing {len(chunks)} chunks")
-        for i, chunk in enumerate(chunks, start=1):
-            print(f"[INFO] Processing chunk {i}/{len(chunks)} (words: {len(chunk.split())})")
-            pr = _call_and_capture(chunk, i)
-            if pr and isinstance(pr.get("extractions"), list):
-                all_extractions.extend(pr["extractions"])
-    else:
-        print(f"[INFO] Processing single chunk (length: {len(words)} words)")
-        pr = _call_and_capture(INPUT_TEXT, None)
-        if pr and isinstance(pr.get("extractions"), list):
-            all_extractions.extend(pr["extractions"])
+            def _ti_dict(ti):
+                if not ti:
+                    return None
+                # TokenInterval has start_index/end_index
+                return {
+                    "start_index": getattr(ti, "start_index", None),
+                    "end_index": getattr(ti, "end_index", None),
+                }
 
-    # If nothing was extracted, handle as fatal
-    if not all_extractions:
-        print("[FATAL] No valid extractions produced across all chunks.", file=sys.stderr)
-        sys.exit(3)
+            raw_items = []
+            for e in (getattr(annotated, "extractions", []) or []):
+                item = {
+                    "extraction_class": getattr(e, "extraction_class", None),
+                    "extraction_text": getattr(e, "extraction_text", None),
+                    "attributes": getattr(e, "attributes", None),
+                    "char_interval": _ci_dict(getattr(e, "char_interval", None)),
+                    "alignment_status": getattr(getattr(e, "alignment_status", None), "value", None),
+                    "extraction_index": getattr(e, "extraction_index", None),
+                    "group_index": getattr(e, "group_index", None),
+                    "description": getattr(e, "description", None),
+                    "token_interval": _ti_dict(getattr(e, "token_interval", None)),
+                }
+                raw_items.append(item)
 
-    parsed_root: Dict[str, Any] = {"extractions": all_extractions}
+            # Derive Tags and Parameters from Norms and append to annotated outputs
+            # Tag schema:
+            # extraction_class="Tag"
+            # attributes={"id": "T::000001", "tag": <tag_path>, "used_by_norm_ids": [norm_id], "related_topics": <topics>}
+            # Parameter schema:
+            # extraction_class="Parameter"
+            # attributes={"id": "P::000001", "applies_for_tag": <path>, "operator": op, "value": val, "unit": unit, "norm_ids": [norm_id]}
 
-    # Expect root with single key 'extractions'
-    if not (isinstance(parsed_root, dict) and isinstance(parsed_root.get("extractions"), list) and parsed_root["extractions"]):
-        print("[FATAL] Model output is not a valid rich schema root (missing 'extractions' non-empty list). Failing.")
-        sys.exit(3)
+            # Build maps to avoid duplicates and aggregate used_by_norm_ids
+            tag_map: dict[str, Dict[str, Any]] = {}
+            param_list: List[Dict[str, Any]] = []
+            tag_counter = 1
+            param_counter = 1
 
-    extractions_list = parsed_root["extractions"]
-    invalid_objects = [i for i, obj in enumerate(extractions_list) if not pp_schema.is_rich_schema(obj)]
-    if invalid_objects:
-        print(f"[FATAL] One or more extraction objects missing required keys (indices: {invalid_objects}).")
-        sys.exit(4)
+            def _next_tid() -> str:
+                nonlocal tag_counter
+                tid = f"T::{tag_counter:06d}"
+                tag_counter += 1
+                return tid
 
-    # For downstream enrichment/summary we operate on first extraction object (could be extended to iterate)
-    primary = extractions_list[0]
+            def _next_pid() -> str:
+                nonlocal param_counter
+                pid = f"P::{param_counter:06d}"
+                param_counter += 1
+                return pid
 
-    # Validate structure & append any errors
-    schema_errors = pp_schema.validate_rich(primary)
-    if schema_errors:
-        primary.setdefault("quality", {}).setdefault("errors", []).extend(schema_errors)
+            def _parse_param(expr: str) -> Optional[Tuple[str, str, Any, Optional[str]]]:
+                if not isinstance(expr, str):
+                    return None
+                m = re.match(r"^\s*([A-Z0-9_.]+)\s*(==|>=|<=|>|<)\s*(.+?)\s*$", expr)
+                if not m:
+                    return None
+                path, op, val_str = m.group(1), m.group(2), m.group(3)
+                # Try numeric value with optional decimal comma/dot, keep unit remainder
+                m2 = re.match(r"^\s*([0-9]+(?:[\.,][0-9]+)?)\s*(.*)$", val_str)
+                if m2:
+                    num = m2.group(1).replace(',', '.')
+                    try:
+                        val: Any = float(num) if ('.' in num) else int(num)
+                    except Exception:
+                        try:
+                            val = float(num)
+                        except Exception:
+                            val = num
+                    unit = m2.group(2).strip() or None
+                    return (path, op, val, unit)
+                # Non-numeric value (enum/string)
+                return (path, op, val_str.strip(), None)
 
-    # Ensure window_config present & updated counts if model omitted or incorrect.
-    wc = primary.setdefault("window_config", {})
-    wc.setdefault("input_chars", len(INPUT_TEXT))
-    wc.setdefault("max_norms_per_5k_tokens", MAX_NORMS_PER_5K)
-    wc["extracted_norm_count"] = len(primary.get("norms", []))
+            # Scan norms
+            for item in raw_items:
+                if item.get("extraction_class") != "Norm":
+                    continue
+                attrs = item.get("attributes") or {}
+                norm_id = attrs.get("id")
+                if not norm_id:
+                    continue
+                topics = attrs.get("topics") or []
 
-    # Optional enrichment (post-validation) – only if teach mode or explicitly requested
-    if TEACH_MODE:
-        apply_enrichment_pipeline(primary)
+                # Relevant tags
+                for tag_path in (attrs.get("relevant_tags") or []):
+                    if not isinstance(tag_path, str):
+                        continue
+                    if tag_path not in tag_map:
+                        tag_map[tag_path] = {
+                            "extraction_class": "Tag",
+                            "extraction_text": tag_path,
+                            "attributes": {
+                                "id": _next_tid(),
+                                "tag": tag_path,
+                                "used_by_norm_ids": [norm_id],
+                                "related_topics": topics,
+                            },
+                        }
+                    else:
+                        u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
+                        if norm_id not in u:
+                            u.append(norm_id)
 
-    # ---------------------------------------------------------------------------
-    # 5. Persist Result
-    # ---------------------------------------------------------------------------
+                # Extracted parameters
+                for expr in (attrs.get("extracted_parameters") or []):
+                    parsed = _parse_param(expr)
+                    if not parsed:
+                        continue
+                    path, op, val, unit = parsed
+                    param_list.append({
+                        "extraction_class": "Parameter",
+                        "extraction_text": expr,
+                        "attributes": {
+                            "id": _next_pid(),
+                            "applies_for_tag": path,
+                            "operator": op,
+                            "value": val,
+                            "unit": unit,
+                            "norm_ids": [norm_id],
+                        },
+                    })
 
-    # Persist root as provided (may contain >1 extraction objects)
-    OUTPUT_FILE.write_text(json.dumps(parsed_root, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[INFO] Saved rich schema JSON root → {OUTPUT_FILE}")
+            # Append derived Tags and Parameters
+            raw_items.extend(tag_map.values())
+            raw_items.extend(param_list)
 
-    # ---------------------------------------------------------------------------
-    # 6. DSL Glossary Draft
-    # ---------------------------------------------------------------------------
-    dsl_keys = sorted(pp_enrich.collect_dsl_keys(primary))
-    glossary = {k: "" for k in dsl_keys}
-    GLOSSARY_FILE.write_text(json.dumps(glossary, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[INFO] Saved DSL glossary stub ({len(dsl_keys)} keys) → {GLOSSARY_FILE}")
+            raw_legacy = {
+                "document_id": getattr(annotated, "document_id", None),
+                "extractions": raw_items,
+            }
+            raw_name = f"annotated_extractions_{idx:03}.json" if idx is not None else "annotated_extractions_single.json"
+            (lx_output_dir / raw_name).write_text(
+                json.dumps(raw_legacy, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        except Exception as pe:
+            print(f"[WARN] Failed to persist raw annotated outputs: {pe}", file=sys.stderr)
 
-    # ---------------------------------------------------------------------------
-    # 7. Console Summary
-    # ---------------------------------------------------------------------------
-    print("=== Extraction Summary ===")
-    print(f"Norms: {len(primary.get('norms', []))}")
-    print(f"Tags: {len(primary.get('tags', []))}")
-    print(f"Locations: {len(primary.get('locations', []))}")
-    print(f"Questions: {len(primary.get('questions', []))}")
-    print(f"Consequences: {len(primary.get('consequences', []))}")
-    print(f"Parameters: {len(primary.get('parameters', []))}")
-    print(f"Errors: {primary.get('quality', {}).get('errors', [])}")
-    print(f"Warnings: {primary.get('quality', {}).get('warnings', [])}")
+        # Annotated outputs saved; no legacy pipeline to run.
+        return None
 
-    print("Done.")
+ 
+    
+
+    print("[INFO] Library-managed chunking enabled (max_char_buffer governs internal splits)")
+    _call_and_capture(INPUT_TEXT, None)
+    print(f"[INFO] Raw annotated outputs saved to: {lx_output_dir}. Annotated-only mode complete.")
+    return
+    

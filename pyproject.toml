@@ -31,6 +31,7 @@ dependencies = [
     "absl-py>=1.0.0",
     "aiohttp>=3.8.0",
     "async_timeout>=4.0.0",
+    "dirtyjson>=1.0.0",
     "exceptiongroup>=1.1.0",
     "google-genai>=0.1.0",
     "ml-collections>=0.1.0",
@@ -69,6 +70,12 @@ test = [
 notebook = [
     "ipython>=7.0.0",
     "notebook>=6.0.0"
+]
+translate = [
+    "transformers>=4.41.0",
+    "sentencepiece>=0.1.99",
+    # CPU-only torch; users may choose a different build if needed
+    "torch>=2.1.0",
 ]
 
 [tool.setuptools]
