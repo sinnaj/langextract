@@ -75,6 +75,31 @@
         }
       });
     }
+
+    // Add load existing run functionality
+    const loadExistingRunBtn = $('load-existing-run');
+    const runSelectorEl = $('run-selector');
+    const existingRunsSelect = $('existing-runs');
+    
+    if (loadExistingRunBtn && runSelectorEl && existingRunsSelect) {
+      loadExistingRunBtn.addEventListener('click', async () => {
+        if (runSelectorEl.classList.contains('hidden')) {
+          // Show selector and load runs
+          await loadAvailableRuns();
+          runSelectorEl.classList.remove('hidden');
+        } else {
+          // Hide selector
+          runSelectorEl.classList.add('hidden');
+        }
+      });
+      
+      existingRunsSelect.addEventListener('change', async () => {
+        const selectedRunId = existingRunsSelect.value;
+        if (selectedRunId) {
+          await loadExistingRunResults(selectedRunId);
+        }
+      });
+    }
   });
 
   // Escape HTML for safe insertion into <code> blocks
@@ -124,6 +149,75 @@
       }
     }
   };
+
+  async function loadAvailableRuns() {
+    try {
+      const res = await fetch('/runs');
+      const runs = await res.json();
+      const existingRunsSelect = $('existing-runs');
+      
+      if (existingRunsSelect) {
+        existingRunsSelect.innerHTML = '<option value="">Select a previous run...</option>';
+        
+        for (const run of runs) {
+          const opt = document.createElement('option');
+          opt.value = run.run_id;
+          
+          // Format the display text with timestamp
+          const date = new Date(run.mtime * 1000).toLocaleString();
+          opt.textContent = `${run.run_id} (${date})`;
+          
+          existingRunsSelect.appendChild(opt);
+        }
+      }
+    } catch (e) {
+      console.error('Error loading available runs:', e);
+    }
+  }
+
+  async function loadExistingRunResults(runId) {
+    try {
+      // Clear current state
+      selectedFilePath = null;
+      currentRunId = runId;
+      runIdEl.textContent = `Loaded Run: ${runId}`;
+      
+      // Update preview stats to show we're loading from existing run
+      const previewStatsEl = $('preview-stats');
+      if (previewStatsEl) {
+        previewStatsEl.textContent = `Loading ${runId}...`;
+      }
+      
+      // Load files from the existing run
+      await loadFiles(runId);
+      
+      // Update preview stats
+      if (previewStatsEl) {
+        previewStatsEl.textContent = `Loaded from ${runId}`;
+      }
+      
+      // Also load and display the run status/stats if available
+      try {
+        const statusRes = await fetch(`/runs/${runId}/status`);
+        if (statusRes.ok) {
+          const statusData = await statusRes.json();
+          if (statusData.stats) {
+            statsEl.textContent = JSON.stringify(statusData.stats, null, 2);
+          }
+        }
+      } catch (e) {
+        // Status endpoint might not be available for completed runs, that's OK
+        console.log('Run status not available (completed run)');
+      }
+      
+    } catch (e) {
+      console.error('Error loading existing run results:', e);
+      const previewStatsEl = $('preview-stats');
+      if (previewStatsEl) {
+        previewStatsEl.textContent = 'Error loading run';
+      }
+    }
+  }
 
   async function loadChoices() {
     try {
