@@ -37,6 +37,11 @@ VENDOR_ASSETS: dict[str, str] = {
     # Markdown and sanitization
     str(VENDOR_ROOT / "marked" / "marked.min.js"): "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
     str(VENDOR_ROOT / "dompurify" / "purify.min.js"): "https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js",
+    # JSON viewer (collapsible tree) + CSS
+    str(VENDOR_ROOT / "json-formatter" / "json-formatter.umd.js"): "https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.umd.js",
+    str(VENDOR_ROOT / "json-formatter" / "json-formatter.css"): "https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.css",
+    # GitHub Markdown CSS for nicer MD rendering
+    str(VENDOR_ROOT / "github-markdown.min.css"): "https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css",
 }
 
 
