@@ -11,12 +11,24 @@
   <link id="hljs-theme-light" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css" media="(prefers-color-scheme: light)" onerror="this.onerror=null;this.href='/static/vendor/highlightjs/github.min.css'">
   <link id="hljs-theme-dark" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" onerror="this.onerror=null;this.href='/static/vendor/highlightjs/github-dark.min.css'">
 
+  <!-- GitHub Markdown CSS for better Markdown rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" onerror="this.onerror=null;this.href='/static/vendor/github-markdown.min.css'">
+  <style>
+    /* Ensure markdown-body spans the container width */
+    .markdown-body { box-sizing: border-box; }
+    .markdown-body pre { overflow: auto; }
+  </style>
+
   <!-- Highlight.js core with fallback -->
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js" onerror="this.onerror=null;this.src='/static/vendor/highlightjs/common.min.js'"></script>
 
   <!-- Marked + DOMPurify with fallbacks -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" onerror="this.onerror=null;this.src='/static/vendor/marked/marked.min.js'"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" onerror="this.onerror=null;this.src='/static/vendor/dompurify/purify.min.js'"></script>
+
+  <!-- JSON Formatter (collapsible JSON viewer) with fallbacks -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.css" onerror="this.onerror=null;this.href='/static/vendor/json-formatter/json-formatter.css'">
+  <script src="https://cdn.jsdelivr.net/npm/json-formatter-js@2/dist/json-formatter.umd.js" onerror="this.onerror=null;this.src='/static/vendor/json-formatter/json-formatter.umd.js'"></script>
 
   <!-- Runtime verification to patch in local fallbacks if CDN blocked by CSP without network error events -->
   <script>
@@ -35,6 +47,7 @@
       ensureGlobal('hljs', function(){return typeof window.hljs!=='undefined';}, '/static/vendor/highlightjs/common.min.js');
       ensureGlobal('marked', function(){return typeof window.marked!=='undefined';}, '/static/vendor/marked/marked.min.js');
       ensureGlobal('DOMPurify', function(){return typeof window.DOMPurify!=='undefined';}, '/static/vendor/dompurify/purify.min.js');
+  ensureGlobal('JSONFormatter', function(){return typeof window.JSONFormatter!=='undefined';}, '/static/vendor/json-formatter/json-formatter.umd.js');
       // Validate HLJS CSS loaded; if not, swap to local
       function cssLoadedHint(id){
         var link=document.getElementById(id);

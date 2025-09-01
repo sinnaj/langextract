@@ -235,13 +235,26 @@ class PreviewOptimizer {
   }
   
   renderJson(content, meta) {
+    // Handle JSON Lines formats gracefully
+    const lowerPath = (this.currentFile?.filePath || '').toLowerCase();
+    const isJsonl = lowerPath.endsWith('.jsonl') || lowerPath.endsWith('.ndjson');
+    if (isJsonl) {
+      return this.renderJsonl(content, meta);
+    }
+
     try {
       const obj = JSON.parse(content);
       const pretty = JSON.stringify(obj, null, 2);
-      
-      // Check if prettified JSON is too large
-      if (pretty.length > 500000) { // 500KB
-        this.renderTextContent(content, meta, 'json'); // Show raw JSON instead
+
+      // Prefer JSONFormatter for structured view if available and content size is reasonable
+      if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
+        this.renderEnhancedJsonObject(obj, meta);
+        return;
+      }
+
+      // Fallback to pretty-printed code if too large or formatter missing
+      if (pretty.length > 1000000) {
+        this.renderTextContent(content, meta, 'json');
       } else {
         this.renderEnhancedJson(pretty, meta);
       }
@@ -251,123 +264,110 @@ class PreviewOptimizer {
     }
   }
   
+  renderJsonl(content, meta) {
+    const lines = content.split('\n');
+    const total = lines.length;
+    const maxLines = 200; // avoid DOM explosion
+    const shown = Math.min(total, maxLines);
+
+    const container = document.createElement('div');
+    container.className = 'jsonl-viewer space-y-2';
+
+    // Info banner
+    const info = document.createElement('div');
+    info.className = 'text-xs text-gray-500';
+    info.textContent = `JSONL preview: showing first ${shown.toLocaleString()} of ${total.toLocaleString()} lines`;
+    container.appendChild(info);
+
+    for (let i = 0; i < shown; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      const block = document.createElement('div');
+      block.className = 'rounded border border-gray-200 dark:border-gray-700 p-2 bg-white dark:bg-gray-800';
+
+      const header = document.createElement('div');
+      header.className = 'text-xs text-gray-400 mb-1';
+      header.textContent = `Line ${i + 1}`;
+      block.appendChild(header);
+
+      try {
+        const obj = JSON.parse(line);
+        if (typeof JSONFormatter !== 'undefined') {
+          const formatter = new JSONFormatter(obj, 1, { theme: 'dark' });
+          block.appendChild(formatter.render());
+        } else {
+          const pretty = JSON.stringify(obj, null, 2);
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.className = 'language-json';
+          code.textContent = pretty;
+          pre.appendChild(code);
+          block.appendChild(pre);
+        }
+      } catch (e) {
+        // Not a JSON line; show raw
+        const pre = document.createElement('pre');
+        const code = document.createElement('code');
+        code.textContent = line;
+        pre.appendChild(code);
+        block.appendChild(pre);
+      }
+
+      container.appendChild(block);
+    }
+
+    this.element.innerHTML = '';
+    this.element.appendChild(container);
+    this.applySyntaxHighlighting();
+  }
+
   renderEnhancedJson(jsonString, meta) {
+    // Prefer JSONFormatter for interactive, collapsible JSON rendering if available
+    if (typeof JSONFormatter !== 'undefined') {
+      try {
+        const obj = JSON.parse(jsonString);
+        const formatter = new JSONFormatter(obj, 2, {
+          theme: 'dark' // theme hint; CSS controls final look
+        });
+        const container = document.createElement('div');
+        container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
+        container.appendChild(formatter.render());
+        this.element.appendChild(container);
+        return;
+      } catch (e) {
+        // Fallback to code block rendering below
+      }
+    }
+
+    // Fallback: pretty-print with syntax highlighting
     const container = document.createElement('div');
     container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg overflow-auto';
-    
-    // Create main layout with separate gutter and content
-    const layout = document.createElement('div');
-    layout.className = 'flex';
-    
-    // Line number gutter (fixed width, separate column)
-    const gutter = document.createElement('div');
-    gutter.className = 'flex-shrink-0 bg-gray-100 dark:bg-gray-800 border-r border-gray-300 dark:border-gray-600 p-2 pr-3';
-    gutter.style.minWidth = '3rem';
-    
-    // Content area
-    const contentArea = document.createElement('div');
-    contentArea.className = 'flex-1 p-4';
-    
     const pre = document.createElement('pre');
-    pre.className = 'font-mono text-sm leading-relaxed relative m-0';
-    
+    pre.className = 'font-mono text-sm leading-relaxed m-0';
     const code = document.createElement('code');
     code.className = 'language-json';
-    
-    // Split JSON into lines and create structure
-    const lines = jsonString.split('\n');
-    const gutterLines = [];
-    const contentLines = [];
-    
-    lines.forEach((line, index) => {
-      const indent = this.getIndentLevel(line);
-      const lineNumber = index + 1;
-      
-      // Create line number for gutter
-      const gutterLine = document.createElement('div');
-      gutterLine.className = 'text-gray-500 dark:text-gray-400 text-xs text-right leading-relaxed';
-      gutterLine.textContent = lineNumber;
-      gutterLines.push(gutterLine);
-      
-      // Create content line
-      const contentLine = document.createElement('div');
-      contentLine.className = 'json-line relative leading-relaxed';
-      contentLine.setAttribute('data-line', lineNumber);
-      
-      // Check if this is an expandable line (object or array start)
-      const trimmedLine = line.trim();
-      const isExpandable = this.isExpandableLine(trimmedLine, lines, index);
-      
-      if (isExpandable) {
-        // Add collapse/expand button
-        const toggleBtn = document.createElement('button');
-        toggleBtn.className = 'json-toggle inline-flex items-center justify-center w-4 h-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 mr-1';
-        toggleBtn.innerHTML = '▼';
-        toggleBtn.setAttribute('data-collapsed', 'false');
-        toggleBtn.onclick = (e) => this.toggleJsonSection(e.target);
-        
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'inline';
-        contentDiv.style.paddingLeft = `${indent * 1.5}rem`;
-        
-        // Add indentation guide lines
-        if (indent > 0) {
-          for (let i = 1; i <= indent; i++) {
-            const guide = document.createElement('div');
-            guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
-            guide.style.left = `${(i - 1) * 1.5 + 0.75}rem`;
-            contentDiv.appendChild(guide);
-          }
-        }
-        
-        const textSpan = document.createElement('span');
-        textSpan.textContent = line.trimStart();
-        contentDiv.appendChild(textSpan);
-        
-        contentLine.appendChild(toggleBtn);
-        contentLine.appendChild(contentDiv);
-      } else {
-        // Regular line without toggle
-        contentLine.style.paddingLeft = `${(indent * 1.5) + 1.25}rem`; // Extra space for toggle alignment
-        
-        // Add indentation guide lines
-        if (indent > 0) {
-          for (let i = 1; i <= indent; i++) {
-            const guide = document.createElement('div');
-            guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
-            guide.style.left = `${(i - 1) * 1.5 + 1.5}rem`; // Offset for toggle space
-            contentLine.appendChild(guide);
-          }
-        }
-        
-        const textSpan = document.createElement('span');
-        textSpan.textContent = line.trimStart();
-        contentLine.appendChild(textSpan);
-      }
-      
-      contentLines.push(contentLine);
-    });
-    
-    // Add lines to gutter and content
-    gutterLines.forEach(line => gutter.appendChild(line));
-    contentLines.forEach(line => code.appendChild(line));
-    
+    code.textContent = jsonString;
     pre.appendChild(code);
-    contentArea.appendChild(pre);
-    layout.appendChild(gutter);
-    layout.appendChild(contentArea);
-    container.appendChild(layout);
+    container.appendChild(pre);
     this.element.appendChild(container);
-    
-    // Apply syntax highlighting
     if (typeof hljs !== 'undefined') {
-      setTimeout(() => {
-        try {
-          hljs.highlightElement(code);
-        } catch (e) {
-          // Ignore highlighting errors
-        }
-      }, 50);
+      setTimeout(() => { try { hljs.highlightElement(code); } catch(e){} }, 50);
+    }
+  }
+
+  renderEnhancedJsonObject(obj, meta) {
+    // Use JSONFormatter directly on parsed object
+    try {
+      const formatter = new JSONFormatter(obj, 2, { theme: 'dark' });
+      const container = document.createElement('div');
+      container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
+      container.appendChild(formatter.render());
+      this.element.appendChild(container);
+    } catch (e) {
+      // Fallback: pretty print
+      const pretty = JSON.stringify(obj, null, 2);
+      this.renderEnhancedJson(pretty, meta);
     }
   }
   
@@ -499,9 +499,9 @@ class PreviewOptimizer {
       if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
         const rawHtml = marked.parse(content, { mangle: false, headerIds: true });
         const safeHtml = DOMPurify.sanitize(rawHtml);
-        
+        // Prefer GitHub Markdown CSS if present
         const container = document.createElement('div');
-        container.className = 'prose dark:prose-invert max-w-none';
+        container.className = 'markdown-body prose dark:prose-invert max-w-none';
         container.innerHTML = safeHtml;
         this.element.appendChild(container);
         
