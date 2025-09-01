@@ -243,12 +243,84 @@ class PreviewOptimizer {
       if (pretty.length > 500000) { // 500KB
         this.renderTextContent(content, meta, 'json'); // Show raw JSON instead
       } else {
-        this.renderTextContent(pretty, meta, 'json');
+        this.renderEnhancedJson(pretty, meta);
       }
     } catch (e) {
       // Invalid JSON, render as text
       this.renderTextContent(content, meta);
     }
+  }
+  
+  renderEnhancedJson(jsonString, meta) {
+    const container = document.createElement('div');
+    container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-auto';
+    
+    // Create a pre element with enhanced JSON display
+    const pre = document.createElement('pre');
+    pre.className = 'font-mono text-sm leading-relaxed relative';
+    pre.style.paddingLeft = '2rem'; // Space for indentation guides
+    
+    const code = document.createElement('code');
+    code.className = 'language-json';
+    
+    // Split JSON into lines and add indentation guides
+    const lines = jsonString.split('\n');
+    const enhancedLines = lines.map((line, index) => {
+      const indent = this.getIndentLevel(line);
+      const lineDiv = document.createElement('div');
+      lineDiv.className = 'json-line relative';
+      lineDiv.style.paddingLeft = `${indent * 1.5}rem`;
+      
+      // Add indentation guide lines
+      if (indent > 0) {
+        for (let i = 1; i <= indent; i++) {
+          const guide = document.createElement('div');
+          guide.className = 'absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600';
+          guide.style.left = `${(i - 1) * 1.5 + 0.75}rem`;
+          lineDiv.appendChild(guide);
+        }
+      }
+      
+      // Add line number
+      const lineNumber = document.createElement('span');
+      lineNumber.className = 'absolute left-0 text-gray-400 text-xs w-6 text-right';
+      lineNumber.textContent = index + 1;
+      lineNumber.style.left = '0.25rem';
+      lineNumber.style.width = '1.5rem';
+      lineDiv.appendChild(lineNumber);
+      
+      // Add the actual content
+      const content = document.createElement('span');
+      content.textContent = line.trimStart();
+      lineDiv.appendChild(content);
+      
+      return lineDiv;
+    });
+    
+    // Create a wrapper for all lines
+    const linesContainer = document.createElement('div');
+    enhancedLines.forEach(lineDiv => linesContainer.appendChild(lineDiv));
+    
+    code.appendChild(linesContainer);
+    pre.appendChild(code);
+    container.appendChild(pre);
+    this.element.appendChild(container);
+    
+    // Apply syntax highlighting
+    if (typeof hljs !== 'undefined') {
+      setTimeout(() => {
+        try {
+          hljs.highlightElement(code);
+        } catch (e) {
+          // Ignore highlighting errors
+        }
+      }, 50);
+    }
+  }
+  
+  getIndentLevel(line) {
+    const match = line.match(/^(\s*)/);
+    return match ? Math.floor(match[1].length / 2) : 0; // Assuming 2 spaces per indent
   }
   
   renderMarkdown(content, meta) {
