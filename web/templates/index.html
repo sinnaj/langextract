@@ -17,6 +17,25 @@
     /* Ensure markdown-body spans the container width */
     .markdown-body { box-sizing: border-box; }
     .markdown-body pre { overflow: auto; }
+    /* JSON indentation vertical guide lines via nested children borders */
+    .json-viewer .json-formatter-children {
+      border-left: 1px solid rgba(107, 114, 128, 0.35); /* gray-500 @ ~35% */
+      margin-left: 0.5rem; /* 8px */
+      padding-left: 0.75rem; /* 12px */
+    }
+    .dark .json-viewer .json-formatter-children {
+      border-left-color: rgba(75, 85, 99, 0.5); /* gray-600 @ 50% */
+    }
+    /* Search highlight */
+    .search-highlight {
+      background-color: #fde68a; /* amber-200 */
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .dark .search-highlight {
+      background-color: #b45309; /* amber-700 */
+    }
   </style>
 
   <!-- Highlight.js core with fallback -->
