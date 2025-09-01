@@ -10,6 +10,117 @@
   let selectedFilePath = null;
   let currentRunId = null;
 
+  // Initialize performance optimizers
+  let consoleOptimizer = null;
+  let previewOptimizer = null;
+
+  // Initialize optimizers when elements are available
+  document.addEventListener('DOMContentLoaded', () => {
+    if (consoleEl) {
+      consoleOptimizer = new ConsoleOptimizer(consoleEl, {
+        maxLines: 500,
+        autoScroll: true,
+        debounceMs: 16
+      });
+      
+      // Update console stats periodically
+      setInterval(() => {
+        if (consoleOptimizer) {
+          const stats = consoleOptimizer.getStats();
+          const statsEl = $('console-stats');
+          if (statsEl) {
+            const wrapIndicator = stats.wordWrap ? '↩️' : '↔️';
+            statsEl.textContent = `${stats.totalLines} lines ${wrapIndicator}`;
+          }
+          // Update word wrap button opacity
+          const wordWrapBtn = $('console-word-wrap');
+          if (wordWrapBtn) {
+            wordWrapBtn.style.opacity = stats.wordWrap ? '1' : '0.5';
+          }
+        }
+      }, 1000);
+    }
+    
+    if (previewEl) {
+      previewOptimizer = new PreviewOptimizer(previewEl, {
+        maxPreviewSize: 1000000, // 1MB
+        chunkSize: 100000, // 100KB
+        maxInitialLines: 1000
+      });
+      
+      // Make previewOptimizer globally available for button callbacks
+      window.previewOptimizer = previewOptimizer;
+    }
+
+    // Add search functionality
+    const previewSearchBtn = $('preview-search');
+    if (previewSearchBtn) {
+      previewSearchBtn.addEventListener('click', () => {
+        const query = prompt('Search in file:');
+        if (query && previewOptimizer) {
+          const results = previewOptimizer.search(query);
+          if (results.length > 0) {
+            alert(`Found ${results.length} matches`);
+          } else {
+            alert('No matches found');
+          }
+        }
+      });
+    }
+
+    // Add console settings
+    const consoleSettingsBtn = $('console-settings');
+    if (consoleSettingsBtn) {
+      consoleSettingsBtn.addEventListener('click', () => {
+        if (consoleOptimizer) {
+          const currentMax = consoleOptimizer.options.maxLines;
+          const newMax = prompt('Max console lines:', currentMax);
+          if (newMax && !isNaN(newMax)) {
+            consoleOptimizer.setMaxLines(parseInt(newMax));
+          }
+        }
+      });
+    }
+
+    // Add word wrap toggle
+    const consoleWordWrapBtn = $('console-word-wrap');
+    if (consoleWordWrapBtn) {
+      consoleWordWrapBtn.addEventListener('click', () => {
+        if (consoleOptimizer) {
+          consoleOptimizer.toggleWordWrap();
+          // Update button appearance based on state
+          const stats = consoleOptimizer.getStats();
+          consoleWordWrapBtn.style.opacity = stats.wordWrap ? '1' : '0.5';
+        }
+      });
+    }
+
+    // Add load existing run functionality
+    const loadExistingRunBtn = $('load-existing-run');
+    const runSelectorEl = $('run-selector');
+    const existingRunsSelect = $('existing-runs');
+    
+    if (loadExistingRunBtn && runSelectorEl && existingRunsSelect) {
+      loadExistingRunBtn.addEventListener('click', async () => {
+        if (runSelectorEl.classList.contains('hidden')) {
+          // Show selector and load runs
+          await loadAvailableRuns();
+          runSelectorEl.classList.remove('hidden');
+        } else {
+          // Hide selector
+          runSelectorEl.classList.add('hidden');
+        }
+      });
+      
+      existingRunsSelect.addEventListener('change', async () => {
+        const selectedRunId = existingRunsSelect.value;
+        if (selectedRunId) {
+          await loadExistingRunResults(selectedRunId);
+        }
+      });
+    }
+  });
+
   // Escape HTML for safe insertion into <code> blocks
   function escapeHtml(str) {
     return str
@@ -58,6 +169,75 @@
     }
   };
 
+  async function loadAvailableRuns() {
+    try {
+      const res = await fetch('/runs');
+      const runs = await res.json();
+      const existingRunsSelect = $('existing-runs');
+      
+      if (existingRunsSelect) {
+        existingRunsSelect.innerHTML = '<option value="">Select a previous run...</option>';
+        
+        for (const run of runs) {
+          const opt = document.createElement('option');
+          opt.value = run.run_id;
+          
+          // Format the display text with timestamp
+          const date = new Date(run.mtime * 1000).toLocaleString();
+          opt.textContent = `${run.run_id} (${date})`;
+          
+          existingRunsSelect.appendChild(opt);
+        }
+      }
+    } catch (e) {
+      console.error('Error loading available runs:', e);
+    }
+  }
+
+  async function loadExistingRunResults(runId) {
+    try {
+      // Clear current state
+      selectedFilePath = null;
+      currentRunId = runId;
+      runIdEl.textContent = `Loaded Run: ${runId}`;
+      
+      // Update preview stats to show we're loading from existing run
+      const previewStatsEl = $('preview-stats');
+      if (previewStatsEl) {
+        previewStatsEl.textContent = `Loading ${runId}...`;
+      }
+      
+      // Load files from the existing run
+      await loadFiles(runId);
+      
+      // Update preview stats
+      if (previewStatsEl) {
+        previewStatsEl.textContent = `Loaded from ${runId}`;
+      }
+      
+      // Also load and display the run status/stats if available
+      try {
+        const statusRes = await fetch(`/runs/${runId}/status`);
+        if (statusRes.ok) {
+          const statusData = await statusRes.json();
+          if (statusData.stats) {
+            statsEl.textContent = JSON.stringify(statusData.stats, null, 2);
+          }
+        }
+      } catch (e) {
+        // Status endpoint might not be available for completed runs, that's OK
+        console.log('Run status not available (completed run)');
+      }
+      
+    } catch (e) {
+      console.error('Error loading existing run results:', e);
+      const previewStatsEl = $('preview-stats');
+      if (previewStatsEl) {
+        previewStatsEl.textContent = 'Error loading run';
+      }
+    }
+  }
+
   async function loadChoices() {
     try {
       const res = await fetch('/choices');
@@ -105,8 +285,13 @@
   }
 
   function appendConsole(line) {
-    consoleEl.textContent += line + "\n";
-    consoleEl.scrollTop = consoleEl.scrollHeight;
+    if (consoleOptimizer) {
+      consoleOptimizer.appendLine(line);
+    } else {
+      // Fallback for when optimizer isn't ready
+      consoleEl.textContent += line + "\n";
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
   }
 
   async function pollStatus(runId) {
@@ -125,6 +310,47 @@
     } catch (e) {
       console.error('status error', e);
       setTimeout(() => pollStatus(runId), 3000);
+    }
+  }
+
+  // Fallback function for loading files without optimizer
+  async function loadFileOriginal(runId, f) {
+    const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(f.path)}`);
+    const ct = resp.headers.get('content-type') || '';
+    if (ct.startsWith('text/') || ct.includes('application/json') || f.path.toLowerCase().endsWith('.md')) {
+      const text = await resp.text();
+      // Render Markdown
+      if (f.path.toLowerCase().endsWith('.md') || ct.includes('text/markdown')) {
+        try {
+          const rawHtml = marked.parse(text, { mangle: false, headerIds: true });
+          const safeHtml = DOMPurify.sanitize(rawHtml);
+          previewEl.innerHTML = safeHtml;
+          // highlight code blocks
+          document.querySelectorAll('#preview pre code').forEach((el) => {
+            try { hljs.highlightElement(el); } catch {}
+          });
+        } catch {
+          previewEl.textContent = text;
+        }
+      } else if (ct.includes('application/json') || f.path.toLowerCase().endsWith('.json')) {
+        // Pretty JSON
+        try {
+          const obj = JSON.parse(text);
+          const pretty = JSON.stringify(obj, null, 2);
+          previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code class="language-json">${escapeHtml(pretty)}</code></pre>`;
+          document.querySelectorAll('#preview pre code').forEach((el) => {
+            try { hljs.highlightElement(el); } catch {}
+          });
+        } catch {
+          previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
+        }
+      } else {
+        // Plain text
+        previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
+      }
+    } else {
+      previewEl.textContent = '[Binary file] Downloading...';
+      window.location.href = `/runs/${runId}/file?path=${encodeURIComponent(f.path)}`;
     }
   }
 
@@ -167,42 +393,13 @@
               }
             });
           }
-          const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(f.path)}`);
-          const ct = resp.headers.get('content-type') || '';
-          if (ct.startsWith('text/') || ct.includes('application/json') || f.path.toLowerCase().endsWith('.md')) {
-            const text = await resp.text();
-            // Render Markdown
-            if (f.path.toLowerCase().endsWith('.md') || ct.includes('text/markdown')) {
-              try {
-                const rawHtml = marked.parse(text, { mangle: false, headerIds: true });
-                const safeHtml = DOMPurify.sanitize(rawHtml);
-                previewEl.innerHTML = safeHtml;
-                // highlight code blocks
-                document.querySelectorAll('#preview pre code').forEach((el) => {
-                  try { hljs.highlightElement(el); } catch {}
-                });
-              } catch {
-                previewEl.textContent = text;
-              }
-            } else if (ct.includes('application/json') || f.path.toLowerCase().endsWith('.json')) {
-              // Pretty JSON
-              try {
-                const obj = JSON.parse(text);
-                const pretty = JSON.stringify(obj, null, 2);
-                previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code class="language-json">${escapeHtml(pretty)}</code></pre>`;
-                document.querySelectorAll('#preview pre code').forEach((el) => {
-                  try { hljs.highlightElement(el); } catch {}
-                });
-              } catch {
-                previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
-              }
-            } else {
-              // Plain text
-              previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
-            }
+          
+          // Use preview optimizer if available
+          if (previewOptimizer) {
+            await previewOptimizer.loadFile(runId, f.path, f.size);
           } else {
-            previewEl.textContent = '[Binary file] Downloading...';
-            window.location.href = `/runs/${runId}/file?path=${encodeURIComponent(f.path)}`;
+            // Fallback to original loading method
+            await loadFileOriginal(runId, f);
           }
         });
         // Initialize selection state
@@ -235,7 +432,14 @@
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     $("form-error").textContent = '';
-    consoleEl.textContent = '';
+    
+    // Clear console using optimizer if available
+    if (consoleOptimizer) {
+      consoleOptimizer.clear();
+    } else {
+      consoleEl.textContent = '';
+    }
+    
     statsEl.textContent = '';
   if (fileBadgesEl) fileBadgesEl.innerHTML = '';
     previewEl.textContent = '';

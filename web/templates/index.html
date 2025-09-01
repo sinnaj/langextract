@@ -80,7 +80,20 @@
           </form>
 
           <div>
-            <h2 class="text-lg font-semibold mb-2">Live Console</h2>
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-lg font-semibold">Live Console</h2>
+              <div class="flex items-center space-x-2 text-xs text-gray-500">
+                <button id="console-word-wrap" class="hover:text-gray-700 dark:hover:text-gray-300" title="Toggle word wrap">
+                  ↩️
+                </button>
+                <button id="console-settings" class="hover:text-gray-700 dark:hover:text-gray-300" title="Console settings">
+                  ⚙️
+                </button>
+                <span id="console-stats" class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                  0 lines
+                </span>
+              </div>
+            </div>
             <pre id="console" class="bg-black text-green-400 p-3 rounded h-64 overflow-auto"></pre>
           </div>
 
@@ -95,13 +108,31 @@
           <div class="w-full">
             <div class="flex items-center justify-between mb-2">
               <h2 class="text-lg font-semibold">Preview</h2>
+              <div class="flex items-center space-x-2 text-xs text-gray-500">
+                <button id="load-existing-run" class="hover:text-gray-700 dark:hover:text-gray-300" title="Load results from existing run">
+                  📁
+                </button>
+                <button id="preview-search" class="hover:text-gray-700 dark:hover:text-gray-300" title="Search in file">
+                  🔍
+                </button>
+                <span id="preview-stats" class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                  Ready
+                </span>
+              </div>
+            </div>
+            <div id="run-selector" class="mb-2 hidden">
+              <select id="existing-runs" class="w-full text-xs border rounded px-2 py-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700">
+                <option value="">Select a previous run...</option>
+              </select>
             </div>
             <div id="file-badges" class="flex flex-wrap gap-2 mb-2"></div>
-            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-9rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
+            <div id="preview" class="bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
           </div>
         </aside>
       </div>
     </div>
+    <script src="/static/console-optimizer.js"></script>
+    <script src="/static/preview-optimizer.js"></script>
     <script src="/static/app.js"></script>
   </body>
 </html>
