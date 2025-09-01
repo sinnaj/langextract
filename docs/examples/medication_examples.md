@@ -198,7 +198,11 @@ for med_name, extractions in medication_groups.items():
 # Save and visualize the results
 lx.io.save_annotated_documents(
     [result],
+<<<<<<< HEAD
     output_name="medical_ner_extraction.jsonl",
+=======
+    output_name="medical_relationship_extraction.jsonl",
+>>>>>>> upstream/main
     output_dir="."
 )
 

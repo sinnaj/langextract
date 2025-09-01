@@ -260,7 +260,10 @@ class Resolver(AbstractResolver):
       enable_fuzzy_alignment: bool = True,
       fuzzy_alignment_threshold: float = _FUZZY_ALIGNMENT_MIN_THRESHOLD,
       accept_match_lesser: bool = True,
+<<<<<<< HEAD
       align_only_classes: Sequence[str] | None = None,
+=======
+>>>>>>> upstream/main
       **kwargs,
   ) -> Iterator[data.Extraction]:
     """Aligns annotated extractions with source text.
