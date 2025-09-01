@@ -191,8 +191,6 @@ class InitTest(absltest.TestCase):
     _, kwargs = mock_model.infer.call_args
     self.assertEqual(kwargs.get("max_workers"), 5)
 
-<<<<<<< HEAD
-=======
   def test_data_module_exports_via_compatibility_shim(self):
     """Verify data module exports are accessible via lx.data."""
     expected_exports = [
@@ -234,8 +232,6 @@ class InitTest(absltest.TestCase):
             hasattr(lx.tokenizer, name),
             f"lx.tokenizer.{name} not accessible via compatibility shim",
         )
-
->>>>>>> upstream/main
 
 if __name__ == "__main__":
   absltest.main()

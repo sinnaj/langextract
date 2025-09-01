@@ -332,8 +332,20 @@ def makeRun(
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
+        
+        print(f"[DEBUG] About to call lx.extract for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
+        print(f"[DEBUG] Extract kwargs keys: {list(extract_kwargs.keys())}", file=sys.stderr)
+        
         try:
             annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
+            print(f"[DEBUG] lx.extract succeeded for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
+            print(f"[DEBUG] annotated type: {type(annotated)}", file=sys.stderr)
+            print(f"[DEBUG] annotated is None: {annotated is None}", file=sys.stderr)
+            
+            # Immediate safety check
+            if annotated is None:
+                raise ValueError("lx.extract returned None - this should not happen")
+                
         except Exception as e:
             safe_err = _sanitize_for_log(e)
             msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {safe_err}"
@@ -349,8 +361,73 @@ def makeRun(
                 pass
             return result
 
+        # Save RAW resolver output for debugging (before any processing)
+        print(f"[DEBUG] Starting to save raw resolver output for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
+        try:
+            raw_resolver_name = f"raw_resolver_output_{idx:03}.json" if idx is not None else "raw_resolver_output_single.json"
+            
+            # Check annotated object attributes safely
+            print(f"[DEBUG] Checking annotated object attributes...", file=sys.stderr)
+            document_id = getattr(annotated, "document_id", None)
+            print(f"[DEBUG] document_id: {document_id}", file=sys.stderr)
+            
+            extractions_attr = getattr(annotated, "extractions", None)
+            print(f"[DEBUG] extractions attribute type: {type(extractions_attr)}", file=sys.stderr)
+            print(f"[DEBUG] extractions attribute is None: {extractions_attr is None}", file=sys.stderr)
+            
+            # Convert the annotated object to a serializable format
+            raw_resolver_data = {
+                "document_id": document_id,
+                "extractions_raw": str(extractions_attr),  # Convert to string for safety
+                "extractions_is_none": extractions_attr is None,
+                "extractions_type": str(type(extractions_attr)),
+                "metadata": {
+                    "type": str(type(annotated)),
+                    "attributes": [attr for attr in dir(annotated) if not attr.startswith('_')],
+                },
+            }
+            # Try to get the actual extractions data more safely
+            try:
+                extractions = getattr(annotated, "extractions", None)
+                if extractions is not None:
+                    raw_resolver_data["extractions_count"] = len(extractions) if hasattr(extractions, '__len__') else "unknown"
+                    # Try to serialize first few extractions for debugging
+                    if hasattr(extractions, '__iter__'):
+                        sample_extractions = []
+                        for i, ext in enumerate(extractions):
+                            if i >= 3:  # Only save first 3 for debugging
+                                break
+                            try:
+                                sample_extractions.append({
+                                    "index": i,
+                                    "type": str(type(ext)),
+                                    "attributes": [attr for attr in dir(ext) if not attr.startswith('_')],
+                                    "extraction_class": getattr(ext, "extraction_class", "unknown"),
+                                    "extraction_text_preview": str(getattr(ext, "extraction_text", ""))[:200] + "..." if len(str(getattr(ext, "extraction_text", ""))) > 200 else str(getattr(ext, "extraction_text", "")),
+                                })
+                            except Exception as sample_err:
+                                sample_extractions.append({"index": i, "error": str(sample_err)})
+                        raw_resolver_data["sample_extractions"] = sample_extractions
+            except Exception as extract_err:
+                raw_resolver_data["extraction_error"] = str(extract_err)
+            
+            (lx_output_dir / raw_resolver_name).write_text(
+                json.dumps(raw_resolver_data, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        except Exception as raw_save_err:
+            print(f"[WARN] Failed to save raw resolver output: {raw_save_err}", file=sys.stderr)
+
         # Persist the annotated document outputs BEFORE any processing/enrichment
         try:
+            # Save debug info to file for analysis
+            debug_log_path = lx_output_dir / f"debug_log_{idx if idx is not None else 'single'}.txt"
+            debug_log = []
+            
+            def log_debug(msg):
+                debug_log.append(msg)
+                print(f"[DEBUG] {msg}", file=sys.stderr)
+            
             def _ci_dict(ci):
                 if not ci:
                     return None
@@ -369,20 +446,172 @@ def makeRun(
                     "end_index": getattr(ti, "end_index", None),
                 }
 
+            log_debug(f"Starting post-processing with annotated type: {type(annotated)}")
+            log_debug(f"Annotated is None: {annotated is None}")
+            log_debug(f"Annotated has extractions attr: {hasattr(annotated, 'extractions')}")
+            
             raw_items = []
-            for e in (getattr(annotated, "extractions", []) or []):
-                item = {
-                    "extraction_class": getattr(e, "extraction_class", None),
-                    "extraction_text": getattr(e, "extraction_text", None),
-                    "attributes": getattr(e, "attributes", None),
-                    "char_interval": _ci_dict(getattr(e, "char_interval", None)),
-                    "alignment_status": getattr(getattr(e, "alignment_status", None), "value", None),
-                    "extraction_index": getattr(e, "extraction_index", None),
-                    "group_index": getattr(e, "group_index", None),
-                    "description": getattr(e, "description", None),
-                    "token_interval": _ti_dict(getattr(e, "token_interval", None)),
-                }
-                raw_items.append(item)
+            
+            try:
+                extractions = getattr(annotated, "extractions", None)
+                log_debug(f"Raw extractions from getattr: {type(extractions)}")
+                log_debug(f"Raw extractions is None: {extractions is None}")
+                
+                if extractions is None:
+                    extractions = []
+                    log_debug("Set extractions to empty list")
+                else:
+                    # More detailed analysis of what we got
+                    if hasattr(extractions, '__len__'):
+                        log_debug(f"Extractions length: {len(extractions)}")
+                    else:
+                        log_debug("Extractions has no __len__ method")
+                    
+                    if hasattr(extractions, '__iter__'):
+                        log_debug("Extractions is iterable")
+                    else:
+                        log_debug("Extractions is NOT iterable - this might be the problem")
+                        extractions = []  # Force to empty list if not iterable
+                        
+            except Exception as extract_access_err:
+                log_debug(f"ERROR accessing extractions: {extract_access_err}")
+                extractions = []  # Safe fallback
+                
+            log_debug(f"Final extractions type: {type(extractions)}")
+            log_debug(f"Final extractions length: {len(extractions) if hasattr(extractions, '__len__') else 'no_len'}")
+            
+            # Defensive iteration with detailed tracking
+            extraction_count = 0
+            try:
+                log_debug(f"Starting iteration over extractions of type {type(extractions)}")
+                
+                # Additional safety check
+                if extractions is None:
+                    log_debug("Extractions is None, skipping iteration")
+                    extractions = []
+                elif not hasattr(extractions, '__iter__'):
+                    log_debug(f"Extractions of type {type(extractions)} is not iterable, converting to list")
+                    try:
+                        extractions = [extractions]  # Wrap single item in list
+                    except Exception:
+                        log_debug("Failed to wrap in list, using empty list")
+                        extractions = []
+                
+                # Test iteration capability before the main loop
+                try:
+                    test_iter = iter(extractions)
+                    log_debug("Successfully created iterator for extractions")
+                except Exception as iter_err:
+                    log_debug(f"CRITICAL: Cannot create iterator for extractions: {iter_err}")
+                    # This is likely our problem - force to empty list
+                    extractions = []
+                
+                for extraction_index, e in enumerate(extractions):
+                    extraction_count += 1
+                    log_debug(f"Processing extraction {extraction_index}: type={type(e)}, is_none={e is None}")
+                    
+                    # Skip null extractions
+                    if e is None:
+                        log_debug(f"Skipping null extraction at index {extraction_index}")
+                        continue
+                        
+                    # Handle both old object-based and new dictionary-based extraction formats
+                    item = None
+                    if isinstance(e, dict):
+                        log_debug(f"Processing dict extraction at index {extraction_index}")
+                        # New V5 format: {'SECTION': '...', 'SECTION_attributes': {...}}
+                        if e is None or not hasattr(e, 'keys'):
+                            log_debug(f"Dict extraction {extraction_index} has no keys, skipping")
+                            continue
+                        keys = e.keys()
+                        if keys is None:
+                            log_debug(f"Dict extraction {extraction_index} keys() returned None, skipping")
+                            continue
+                        extraction_keys = [k for k in keys if not k.endswith('_attributes')]
+                        if extraction_keys:
+                            extraction_class = extraction_keys[0]
+                            extraction_text = e.get(extraction_class, "")
+                            attributes_key = f"{extraction_class}_attributes"
+                            attributes = e.get(attributes_key, {})
+                            if attributes is None:
+                                attributes = {}
+                            item = {
+                                "extraction_class": extraction_class,
+                                "extraction_text": extraction_text,
+                                "attributes": attributes,
+                                "char_interval": None,
+                                "alignment_status": None,
+                                "extraction_index": None,
+                                "group_index": None,
+                                "description": None,
+                                "token_interval": None,
+                            }
+                            log_debug(f"Created dict item for {extraction_class}")
+                        else:
+                            log_debug(f"Dict extraction {extraction_index} has no valid extraction keys, skipping")
+                            continue  # Skip malformed extractions
+                    else:
+                        log_debug(f"Processing object extraction at index {extraction_index}")
+                        # Object format: handle both new extraction objects and legacy objects
+                        try:
+                            # Check if it's a new extraction object with direct properties
+                            if hasattr(e, "extraction_class") and hasattr(e, "extraction_text"):
+                                attributes = getattr(e, "attributes", None)
+                                if attributes is None:
+                                    attributes = {}
+                                item = {
+                                    "extraction_class": getattr(e, "extraction_class", None),
+                                    "extraction_text": getattr(e, "extraction_text", None),
+                                    "attributes": attributes,
+                                    "char_interval": _ci_dict(getattr(e, "char_interval", None)),
+                                    "alignment_status": getattr(getattr(e, "alignment_status", None), "value", None) if hasattr(getattr(e, "alignment_status", None), "value") else getattr(e, "alignment_status", None),
+                                    "extraction_index": getattr(e, "extraction_index", None),
+                                    "group_index": getattr(e, "group_index", None),
+                                    "description": getattr(e, "description", None),
+                                    "token_interval": _ti_dict(getattr(e, "token_interval", None)),
+                                }
+                                log_debug(f"Created object item for {getattr(e, 'extraction_class', 'Unknown')}")
+                            else:
+                                # Legacy format processing - skip since this format is deprecated
+                                log_debug(f"Object extraction {extraction_index} is legacy format, skipping")
+                                continue
+                        except Exception as attr_err:
+                            log_debug(f"ERROR processing object extraction {extraction_index}: {attr_err}")
+                            print(f"[WARN] Failed to process extraction attributes: {attr_err}", file=sys.stderr)
+                            # Create minimal item to continue processing
+                            item = {
+                                "extraction_class": str(getattr(e, "extraction_class", "Unknown")),
+                                "extraction_text": str(getattr(e, "extraction_text", "")),
+                                "attributes": {},
+                                "char_interval": None,
+                                "alignment_status": None,
+                                "extraction_index": None,
+                                "group_index": None,
+                                "description": None,
+                                "token_interval": None,
+                            }
+                            log_debug(f"Created minimal fallback item")
+                    
+                    if item is not None:
+                        raw_items.append(item)
+                        log_debug(f"Successfully processed extraction {extraction_index}, total raw_items: {len(raw_items)}")
+                    else:
+                        log_debug(f"No item created for extraction {extraction_index}")
+                
+            except Exception as main_iteration_err:
+                log_debug(f"ERROR during main extraction iteration: {main_iteration_err}")
+                import traceback
+                log_debug(f"Iteration traceback: {traceback.format_exc()}")
+                # Continue with whatever we have so far
+                
+            log_debug(f"Completed processing {extraction_count} extractions, collected {len(raw_items)} raw items")
+
+            # Write debug log to file
+            try:
+                debug_log_path.write_text('\n'.join(debug_log), encoding='utf-8')
+                log_debug(f"Debug log written to: {debug_log_path}")
+            except Exception as log_write_err:
+                print(f"[ERROR] Failed to write debug log: {log_write_err}", file=sys.stderr)
 
             # Derive Tags and Parameters from Norms and append to annotated outputs
             # Tag schema:
@@ -433,58 +662,223 @@ def makeRun(
                 # Non-numeric value (enum/string)
                 return (path, op, val_str.strip(), None)
 
-            # Scan norms
-            for item in raw_items:
-                if item.get("extraction_class") != "Norm":
-                    continue
-                attrs = item.get("attributes") or {}
-                norm_id = attrs.get("id")
-                if not norm_id:
-                    continue
-                topics = attrs.get("topics") or []
-
-                # Relevant tags
-                for tag_path in (attrs.get("relevant_tags") or []):
-                    if not isinstance(tag_path, str):
+            # Scan norms - handle both old individual Norm items and new format with norms in extraction_text
+            norms_to_process = []
+            
+            log_debug("Starting norms processing phase")
+            
+            # Ensure raw_items is valid before processing
+            if raw_items is None:
+                log_debug("raw_items is None, creating empty list")
+                raw_items = []
+            elif not isinstance(raw_items, list):
+                log_debug(f"raw_items is not a list (type: {type(raw_items)}), creating empty list")
+                raw_items = []
+            
+            log_debug(f"Processing {len(raw_items)} raw items for norms")
+            
+            try:
+                for item_index, item in enumerate(raw_items):
+                    # Skip None items
+                    if item is None or not isinstance(item, dict):
+                        log_debug(f"Skipping non-dict item at index {item_index}: type={type(item)}")
                         continue
-                    if tag_path not in tag_map:
-                        tag_map[tag_path] = {
-                            "extraction_class": "Tag",
-                            "extraction_text": tag_path,
-                            "attributes": {
-                                "id": _next_tid(),
-                                "tag": tag_path,
-                                "used_by_norm_ids": [norm_id],
-                                "related_topics": topics,
-                            },
-                        }
+                    extraction_class = item.get("extraction_class")
+                    
+                    log_debug(f"Processing extraction_class: {extraction_class} at index {item_index}")
+                    
+                    # Handle the new format where norms are in JSON arrays
+                    if extraction_class == "norms":
+                        log_debug("Processing norms format (new)")
+                        # New format - norms stored as JSON in extraction_text
+                        extraction_text = item.get("extraction_text", "")
+                        if isinstance(extraction_text, str) and extraction_text.strip():
+                            try:
+                                # Parse the JSON string containing the list of norms
+                                norms_list = json.loads(extraction_text)
+                                log_debug(f"Successfully parsed norms JSON, type: {type(norms_list)}")
+                            except (json.JSONDecodeError, TypeError) as json_err:
+                                # If parsing fails, skip this item
+                                log_debug(f"Failed to parse norms JSON: {json_err}")
+                                continue
+                            # Defensive: ensure norms_list is a list
+                            if isinstance(norms_list, list):
+                                norms_to_process.extend(norms_list)
+                                log_debug(f"Extended norms_to_process with {len(norms_list)} items")
+                            elif norms_list is not None:
+                                # Sometimes a single dict is returned, not a list
+                                if isinstance(norms_list, dict):
+                                    norms_to_process.append(norms_list)
+                                    log_debug("Added single norm dict to norms_to_process")
+                                # else: skip if not a list or dict
+                            else:
+                                log_debug("Parsed norms_list is None, skipping")
+                        else:
+                            log_debug(f"Extraction text is not a valid string: {type(extraction_text)}")
+                    elif extraction_class == "Norm":
+                        log_debug("Processing Norm format (legacy)")
+                        # Handle individual norm item (legacy format)
+                        attrs = item.get("attributes", {})
+                        if attrs is None:
+                            log_debug("Norm attributes is None, using empty dict")
+                            attrs = {}
+                        norms_to_process.append(attrs)
+                        log_debug("Added legacy Norm to norms_to_process")
                     else:
-                        u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
-                        if norm_id not in u:
-                            u.append(norm_id)
-
-                # Extracted parameters
-                for expr in (attrs.get("extracted_parameters") or []):
-                    parsed = _parse_param(expr)
-                    if not parsed:
+                        log_debug(f"Extraction class '{extraction_class}' is not a norm type, skipping")
+                        
+            except Exception as norms_scan_err:
+                log_debug(f"ERROR during norms scanning: {norms_scan_err}")
+                import traceback
+                log_debug(f"Norms scan traceback: {traceback.format_exc()}")
+                
+            log_debug(f"Completed norms scanning, found {len(norms_to_process)} norms to process")
+            
+            # Process all norms regardless of format
+            log_debug("Starting individual norms processing")
+            norms_processed_count = 0
+            try:
+                for norm_index, norm_data in enumerate(norms_to_process):
+                    if not isinstance(norm_data, dict):
+                        log_debug(f"Skipping non-dict norm at index {norm_index}: type={type(norm_data)}")
                         continue
-                    path, op, val, unit = parsed
-                    param_list.append({
-                        "extraction_class": "Parameter",
-                        "extraction_text": expr,
-                        "attributes": {
-                            "id": _next_pid(),
-                            "applies_for_tag": path,
-                            "operator": op,
-                            "value": val,
-                            "unit": unit,
-                            "norm_ids": [norm_id],
-                        },
-                    })
+                        
+                    norm_id = norm_data.get("id")
+                    if not norm_id:
+                        log_debug(f"Skipping norm at index {norm_index}: no ID")
+                        continue
+                    
+                    norms_processed_count += 1
+                    log_debug(f"Processing norm {norm_index} with ID: {norm_id}")
+                        
+                    topics = norm_data.get("topics")
+                    if topics is None:
+                        topics = []
+                    elif not isinstance(topics, list):
+                        topics = []
+
+                    # Relevant tags - ensure it's a list
+                    relevant_tags = norm_data.get("relevant_tags")
+                    if relevant_tags is None:
+                        relevant_tags = []
+                    elif not isinstance(relevant_tags, list):
+                        relevant_tags = []
+                    
+                    for tag_path in relevant_tags:
+                        if not isinstance(tag_path, str):
+                            log_debug(f"Skipping non-string tag_path: {type(tag_path)}")
+                            continue
+                        if tag_path not in tag_map:
+                            tag_map[tag_path] = {
+                                "extraction_class": "Tag",
+                                "extraction_text": tag_path,
+                                "attributes": {
+                                    "id": _next_tid(),
+                                    "tag": tag_path,
+                                    "used_by_norm_ids": [norm_id],
+                                    "related_topics": topics,
+                                },
+                            }
+                            log_debug(f"Added new tag to tag_map: {tag_path}")
+                        else:
+                            try:
+                                u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
+                                if u is None:
+                                    log_debug(f"WARNING: used_by_norm_ids is None for tag {tag_path}, creating new list")
+                                    u = []
+                                    tag_map[tag_path]["attributes"]["used_by_norm_ids"] = u
+                                if norm_id not in u:
+                                    u.append(norm_id)
+                                log_debug(f"Updated existing tag: {tag_path}, used_by_norm_ids now: {u}")
+                            except Exception as tag_update_err:
+                                log_debug(f"ERROR updating tag {tag_path}: {tag_update_err}")
+                                # Recreate the tag to be safe
+                                tag_map[tag_path] = {
+                                    "extraction_class": "Tag",
+                                    "extraction_text": tag_path,
+                                    "attributes": {
+                                        "id": _next_tid(),
+                                        "tag": tag_path,
+                                        "used_by_norm_ids": [norm_id],
+                                        "related_topics": topics,
+                                    },
+                                }
+
+                    # Extracted parameters - ensure it's a list
+                    extracted_parameters = norm_data.get("extracted_parameters")
+                    if extracted_parameters is None:
+                        extracted_parameters = []
+                    elif not isinstance(extracted_parameters, list):
+                        extracted_parameters = []
+                        
+                    for expr in extracted_parameters:
+                        parsed = _parse_param(expr)
+                        if not parsed:
+                            continue
+                        path, op, val, unit = parsed
+                        param_list.append({
+                            "extraction_class": "Parameter",
+                            "extraction_text": expr,
+                            "attributes": {
+                                "id": _next_pid(),
+                                "applies_for_tag": path,
+                                "operator": op,
+                                "value": val,
+                                "unit": unit,
+                                "norm_ids": [norm_id],
+                            },
+                        })
+                        
+            except Exception as norms_processing_err:
+                log_debug(f"ERROR during individual norms processing: {norms_processing_err}")
+                import traceback
+                log_debug(f"Norms processing traceback: {traceback.format_exc()}")
+                
+            log_debug(f"Completed processing {norms_processed_count} individual norms")
 
             # Append derived Tags and Parameters
-            raw_items.extend(tag_map.values())
-            raw_items.extend(param_list)
+            log_debug(f"Appending tags and parameters - tag_map type: {type(tag_map)}, param_list type: {type(param_list)}")
+            log_debug(f"tag_map is None: {tag_map is None}, param_list is None: {param_list is None}")
+            log_debug(f"tag_map length: {len(tag_map) if tag_map else 'N/A'}, param_list length: {len(param_list) if param_list else 'N/A'}")
+            
+            try:
+                if tag_map and isinstance(tag_map, dict):
+                    tag_values = tag_map.values()
+                    log_debug(f"tag_map.values() type: {type(tag_values)}")
+                    log_debug(f"tag_map.values() is None: {tag_values is None}")
+                    
+                    if tag_values is not None:
+                        tag_list = list(tag_values)
+                        log_debug(f"Converting to list successful, length: {len(tag_list)}")
+                        if tag_list:
+                            raw_items.extend(tag_list)
+                            log_debug(f"Successfully extended raw_items with {len(tag_list)} tags")
+                        else:
+                            log_debug("tag_list is empty, no tags to extend")
+                    else:
+                        log_debug("tag_map.values() returned None!")
+                else:
+                    log_debug(f"tag_map is not valid for processing: {tag_map}")
+                    
+            except Exception as tag_err:
+                log_debug(f"ERROR extending tag_map values: {tag_err}")
+                import traceback
+                log_debug(f"Tag extension traceback: {traceback.format_exc()}")
+                print(f"[WARN] Failed to extend tag_map values: {tag_err}", file=sys.stderr)
+                
+            try:
+                if param_list and isinstance(param_list, list):
+                    log_debug(f"Extending raw_items with {len(param_list)} parameters")
+                    raw_items.extend(param_list)
+                    log_debug("Successfully extended raw_items with parameters")
+                else:
+                    log_debug(f"param_list is not valid for extending: {param_list}")
+                    
+            except Exception as param_err:
+                log_debug(f"ERROR extending param_list: {param_err}")
+                import traceback
+                log_debug(f"Parameter extension traceback: {traceback.format_exc()}")
+                print(f"[WARN] Failed to extend param_list: {param_err}", file=sys.stderr)
 
             raw_legacy = {
                 "document_id": getattr(annotated, "document_id", None),
