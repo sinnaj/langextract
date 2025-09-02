@@ -1,0 +1,19 @@
+{
+  "comments": [
+    {
+      "id": "comment_example_001",
+      "lineId": "N::0001",
+      "author": "John Doe",
+      "text": "This norm needs clarification on minimum exit requirements.",
+      "timestamp": "2025-01-15T10:30:00.000Z",
+      "replies": [
+        {
+          "id": "reply_example_001",
+          "author": "Jane Smith",
+          "text": "Agreed. I suggest referencing building code section 4.2.1 for specific requirements.",
+          "timestamp": "2025-01-15T14:20:00.000Z"
+        }
+      ]
+    }
+  ]
+}
