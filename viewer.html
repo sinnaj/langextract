@@ -116,6 +116,13 @@
     .delete-btn:hover {
       background: rgba(239, 68, 68, 0.1) !important;
     }
+    .edit-btn {
+      color: var(--accent2) !important;
+      border-color: var(--accent2) !important;
+    }
+    .edit-btn:hover {
+      background: rgba(96, 165, 250, 0.1) !important;
+    }
     .add-comment-btn { 
       background: var(--panel); 
       border: 1px solid var(--border); 
@@ -613,6 +620,13 @@
       }
     }
 
+    // Auto-persist comments whenever they change
+    function autoPersistComments() {
+      if (!CURRENT_FILENAME) return;
+      // Trigger automatic save/download of comments
+      saveComments(CURRENT_FILENAME);
+    }
+
     function addComment(lineId, text, author) {
       if (!COMMENTS_DATA.comments) COMMENTS_DATA.comments = [];
       const comment = {
@@ -624,6 +638,7 @@
         replies: []
       };
       COMMENTS_DATA.comments.push(comment);
+      autoPersistComments(); // Auto-save after adding
       return comment;
     }
 
@@ -637,6 +652,7 @@
         timestamp: new Date().toISOString()
       };
       comment.replies.push(reply);
+      autoPersistComments(); // Auto-save after adding
       return reply;
     }
 
@@ -653,6 +669,7 @@
         if (confirm(message)) {
           COMMENTS_DATA.comments.splice(index, 1);
           renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+          autoPersistComments(); // Auto-save after deletion
         }
       }
     }
@@ -665,7 +682,36 @@
         if (confirm('Delete this reply?')) {
           comment.replies.splice(index, 1);
           renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+          autoPersistComments(); // Auto-save after deletion
         }
+      }
+    }
+
+    function editComment(commentId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment) return;
+      
+      const newText = prompt('Edit comment:', comment.text);
+      if (newText !== null && newText.trim()) {
+        comment.text = newText.trim();
+        comment.timestamp = new Date().toISOString(); // Update timestamp
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
+        autoPersistComments(); // Auto-save after edit
+      }
+    }
+
+    function editReply(commentId, replyId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment || !comment.replies) return;
+      const reply = comment.replies.find(r => r.id === replyId);
+      if (!reply) return;
+      
+      const newText = prompt('Edit reply:', reply.text);
+      if (newText !== null && newText.trim()) {
+        reply.text = newText.trim();
+        reply.timestamp = new Date().toISOString(); // Update timestamp
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
+        autoPersistComments(); // Auto-save after edit
       }
     }
 
@@ -690,6 +736,7 @@
           <div class="comment-text">${escapeHtml(comment.text)}</div>
           <div class="comment-actions">
             <button onclick="replyToComment('${comment.id}')">Reply</button>
+            <button class="edit-btn" onclick="editComment('${comment.id}')" title="Edit comment">✏️</button>
             <button class="delete-btn" onclick="deleteComment('${comment.id}')" title="Delete comment and all replies">🗑️</button>
           </div>`;
         
@@ -699,7 +746,8 @@
             <div class="comment-header">
               <strong>${escapeHtml(reply.author)}</strong>
               <span>${new Date(reply.timestamp).toLocaleDateString()}</span>
-              <button class="delete-btn" onclick="deleteReply('${comment.id}', '${reply.id}')" title="Delete reply" style="margin-left: auto; padding: 1px 4px; font-size: 9px;">🗑️</button>
+              <button class="edit-btn" onclick="editReply('${comment.id}', '${reply.id}')" title="Edit reply" style="margin-left: auto; padding: 1px 4px; font-size: 9px;">✏️</button>
+              <button class="delete-btn" onclick="deleteReply('${comment.id}', '${reply.id}')" title="Delete reply" style="padding: 1px 4px; font-size: 9px;">🗑️</button>
             </div>
             <div class="comment-text">${escapeHtml(reply.text)}</div>
           </div>`;
@@ -778,11 +826,6 @@
         if (!CURRENT_DATA) return alert('Load data first.');
         exportNormsCsvNormalized(CURRENT_DATA);
       });
-
-      byId('saveComments').addEventListener('click', () => {
-        if (!CURRENT_FILENAME) return alert('Load data first.');
-        saveComments(CURRENT_FILENAME);
-      });
     }
 
     window.addEventListener('DOMContentLoaded', init);
@@ -800,7 +843,6 @@
     <button id="reloadBtn" class="ghost">Reload output.json</button>
     <input id="fileInput" type="file" accept="application/json" />
     <button id="exportCsv" class="ghost">Export norms CSV</button>
-    <button id="saveComments" class="ghost">Save Comments</button>
   </header>
 
   <main>
