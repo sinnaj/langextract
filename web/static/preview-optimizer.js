@@ -16,7 +16,9 @@ class PreviewOptimizer {
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
-  this._lastSearchQuery = '';
+    this._lastSearchQuery = '';
+    this.uberMode = false; // UBERMODE state
+    this.currentJsonData = null; // Store parsed JSON for UBERMODE
     
     this.init();
   }
@@ -250,7 +252,14 @@ class PreviewOptimizer {
 
     try {
       const obj = JSON.parse(content);
+      this.currentJsonData = obj; // Store for UBERMODE
       const pretty = JSON.stringify(obj, null, 2);
+
+      // Check if UBERMODE is enabled
+      if (this.uberMode) {
+        this.renderUberMode(obj, meta);
+        return;
+      }
 
       // Prefer JSONFormatter for structured view if available and content size is reasonable
       if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
@@ -680,5 +689,273 @@ class PreviewOptimizer {
     let n;
     while ((n = walker.nextNode())) nodes.push(n);
     return nodes;
+  }
+
+  // UBERMODE Methods
+  toggleUberMode() {
+    this.uberMode = !this.uberMode;
+    
+    // Update stats visibility
+    this.updateStatsVisibility();
+    
+    // Re-render current content if available
+    if (this.currentJsonData) {
+      if (this.uberMode) {
+        this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
+      } else {
+        // Re-render with normal JSON view
+        const pretty = JSON.stringify(this.currentJsonData, null, 2);
+        if (typeof JSONFormatter !== 'undefined') {
+          this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+        } else {
+          this.renderEnhancedJson(pretty, { size: 0, truncated: false });
+        }
+      }
+    }
+    
+    return this.uberMode;
+  }
+
+  updateStatsVisibility() {
+    const statsSection = document.querySelector('.ubermode-stats');
+    if (statsSection) {
+      if (this.uberMode) {
+        statsSection.classList.remove('hidden');
+      } else {
+        statsSection.classList.add('hidden');
+      }
+    }
+  }
+
+  renderUberMode(jsonData, meta) {
+    // Update stats
+    this.updateUberModeStats(jsonData);
+    
+    // Create UBERMODE container
+    const container = document.createElement('div');
+    container.className = 'ubermode-container space-y-4';
+    
+    // Render tree visualization
+    const treeContainer = this.createTreeVisualization(jsonData);
+    container.appendChild(treeContainer);
+    
+    this.element.appendChild(container);
+  }
+
+  updateUberModeStats(jsonData) {
+    const stats = this.analyzeJsonData(jsonData);
+    
+    // Update stat values in the DOM
+    const updateStat = (className, value) => {
+      const el = document.querySelector(`.${className}`);
+      if (el) {
+        el.textContent = value;
+      }
+    };
+    
+    updateStat('stats-total-items', this.formatNumber(stats.totalItems));
+    updateStat('stats-norms', this.formatNumber(stats.norms));
+    updateStat('stats-tags', this.formatNumber(stats.tags));
+    updateStat('stats-parameters', this.formatNumber(stats.parameters));
+    updateStat('stats-questions', this.formatNumber(stats.questions));
+    updateStat('stats-locations', this.formatNumber(stats.locations));
+    updateStat('stats-quality', stats.quality || '—');
+  }
+
+  analyzeJsonData(data) {
+    const stats = {
+      totalItems: 0,
+      norms: 0,
+      tags: 0,
+      parameters: 0,
+      questions: 0,
+      locations: 0,
+      quality: '—'
+    };
+    
+    // Handle extraction format
+    if (data && data.extractions && Array.isArray(data.extractions)) {
+      data.extractions.forEach(extraction => {
+        if (extraction.norms) stats.norms += Array.isArray(extraction.norms) ? extraction.norms.length : 0;
+        if (extraction.tags) stats.tags += Array.isArray(extraction.tags) ? extraction.tags.length : 0;
+        if (extraction.parameters) stats.parameters += Array.isArray(extraction.parameters) ? extraction.parameters.length : 0;
+        if (extraction.questions) stats.questions += Array.isArray(extraction.questions) ? extraction.questions.length : 0;
+        if (extraction.locations) stats.locations += Array.isArray(extraction.locations) ? extraction.locations.length : 0;
+        
+        // Quality indicators
+        if (extraction.quality) {
+          const errors = extraction.quality.errors?.length || 0;
+          const warnings = extraction.quality.warnings?.length || 0;
+          if (errors > 0) {
+            stats.quality = `${errors} errors`;
+          } else if (warnings > 0) {
+            stats.quality = `${warnings} warnings`;
+          } else {
+            stats.quality = 'Good';
+          }
+        }
+      });
+      
+      stats.totalItems = stats.norms + stats.tags + stats.parameters + stats.questions + stats.locations;
+    }
+    
+    // Handle direct collections format
+    if (data && data.collections) {
+      const collections = data.collections;
+      Object.keys(collections).forEach(key => {
+        const collection = collections[key];
+        if (Array.isArray(collection)) {
+          switch (key) {
+            case 'norms': stats.norms = collection.length; break;
+            case 'tags': stats.tags = collection.length; break;
+            case 'parameters': stats.parameters = collection.length; break;
+            case 'questions': stats.questions = collection.length; break;
+            case 'locations': stats.locations = collection.length; break;
+          }
+        }
+      });
+      stats.totalItems = stats.norms + stats.tags + stats.parameters + stats.questions + stats.locations;
+    }
+    
+    return stats;
+  }
+
+  createTreeVisualization(data) {
+    const container = document.createElement('div');
+    container.className = 'tree-visualization bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4';
+    
+    const title = document.createElement('h3');
+    title.className = 'text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200';
+    title.textContent = '🌳 Document Structure';
+    container.appendChild(title);
+    
+    const tree = document.createElement('div');
+    tree.className = 'tree-content space-y-2';
+    
+    this.renderTreeNode(tree, data, '', 0);
+    
+    container.appendChild(tree);
+    return container;
+  }
+
+  renderTreeNode(container, data, key, level) {
+    if (level > 5) return; // Prevent excessive nesting
+    
+    const indent = level * 20;
+    const node = document.createElement('div');
+    node.className = `tree-node flex items-start space-x-2 py-1 px-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors`;
+    node.style.marginLeft = `${indent}px`;
+    
+    // Create expand/collapse indicator
+    const indicator = document.createElement('span');
+    indicator.className = 'tree-indicator text-gray-400 cursor-pointer select-none w-4 text-center';
+    
+    // Node content
+    const content = document.createElement('div');
+    content.className = 'tree-content flex-1';
+    
+    if (Array.isArray(data)) {
+      // Array node
+      indicator.textContent = level === 0 ? '' : '▼';
+      content.innerHTML = `
+        <span class="node-key font-medium text-blue-600 dark:text-blue-400">${key || 'Array'}</span>
+        <span class="node-type text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full ml-2">${data.length} items</span>
+      `;
+      
+      // Add sample items
+      if (level < 3) {
+        data.slice(0, 5).forEach((item, index) => {
+          this.renderTreeNode(container, item, `[${index}]`, level + 1);
+        });
+        
+        if (data.length > 5) {
+          const more = document.createElement('div');
+          more.className = 'text-gray-500 text-sm';
+          more.style.marginLeft = `${(level + 1) * 20 + 20}px`;
+          more.textContent = `... and ${data.length - 5} more items`;
+          container.appendChild(more);
+        }
+      }
+      
+    } else if (data && typeof data === 'object') {
+      // Object node
+      const keys = Object.keys(data);
+      indicator.textContent = level === 0 ? '' : '▼';
+      
+      // Determine object type and color
+      let objectType = 'Object';
+      let typeClass = 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
+      
+      if (data.statement_text) {
+        objectType = 'Norm';
+        typeClass = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+      } else if (data.tag_path) {
+        objectType = 'Tag';
+        typeClass = 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
+      } else if (data.parameter_name) {
+        objectType = 'Parameter';
+        typeClass = 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200';
+      } else if (data.question_text) {
+        objectType = 'Question';
+        typeClass = 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200';
+      }
+      
+      content.innerHTML = `
+        <span class="node-key font-medium text-gray-800 dark:text-gray-200">${key || objectType}</span>
+        <span class="node-type text-xs ${typeClass} px-2 py-1 rounded-full ml-2">${objectType}</span>
+        ${keys.length > 0 ? `<span class="node-count text-xs text-gray-500 ml-2">${keys.length} fields</span>` : ''}
+      `;
+      
+      // Add summary if available
+      if (data.statement_text) {
+        const summary = document.createElement('div');
+        summary.className = 'text-sm text-gray-600 dark:text-gray-400 mt-1 truncate';
+        summary.textContent = data.statement_text.substring(0, 100) + (data.statement_text.length > 100 ? '...' : '');
+        content.appendChild(summary);
+      }
+      
+      // Render important fields
+      if (level < 3) {
+        const importantFields = ['id', 'statement_text', 'tag_path', 'parameter_name', 'question_text', 'location_name'];
+        keys.forEach(k => {
+          if (importantFields.includes(k) || keys.length <= 5) {
+            this.renderTreeNode(container, data[k], k, level + 1);
+          }
+        });
+        
+        if (keys.length > 5) {
+          const more = document.createElement('div');
+          more.className = 'text-gray-500 text-sm';
+          more.style.marginLeft = `${(level + 1) * 20 + 20}px`;
+          more.textContent = `... and ${keys.length - 5} more fields`;
+          container.appendChild(more);
+        }
+      }
+      
+    } else {
+      // Primitive value
+      indicator.textContent = '';
+      const valueText = String(data).substring(0, 100);
+      const truncated = String(data).length > 100;
+      content.innerHTML = `
+        <span class="node-key font-medium text-gray-600 dark:text-gray-400">${key}:</span>
+        <span class="node-value text-gray-800 dark:text-gray-200 ml-2">${this.escapeHtml(valueText)}${truncated ? '...' : ''}</span>
+      `;
+    }
+    
+    node.appendChild(indicator);
+    node.appendChild(content);
+    container.appendChild(node);
+  }
+
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  formatNumber(num) {
+    if (num === 0 || num === undefined || num === null) return '0';
+    return num.toLocaleString();
   }
 }

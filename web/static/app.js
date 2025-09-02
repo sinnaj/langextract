@@ -118,6 +118,37 @@
     
     // Initialize existing functionality for each panel
     initializePanelButtons();
+    
+    // UBERMODE toggle buttons
+    document.querySelectorAll('.ubermode-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const panelIndex = Array.from(document.querySelectorAll('.preview-panel')).indexOf(e.target.closest('.preview-panel'));
+        const optimizer = previewOptimizers[panelIndex];
+        if (optimizer) {
+          const isEnabled = optimizer.toggleUberMode();
+          updateUberModeButton(btn, isEnabled);
+        }
+      });
+    });
+    
+    // Stats collapsible functionality
+    document.querySelectorAll('.stats-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const isExpanded = header.getAttribute('data-expanded') === 'true';
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector('.stats-toggle');
+        
+        if (isExpanded) {
+          content.style.display = 'none';
+          toggle.style.transform = 'rotate(-90deg)';
+          header.setAttribute('data-expanded', 'false');
+        } else {
+          content.style.display = 'block';
+          toggle.style.transform = 'rotate(0deg)';
+          header.setAttribute('data-expanded', 'true');
+        }
+      });
+    });
   }
   
   // Initialize buttons for each panel
@@ -795,5 +826,20 @@
         // ignore
       }
     });
+  }
+
+  // UBERMODE utility functions
+  function updateUberModeButton(button, isEnabled) {
+    if (isEnabled) {
+      button.classList.add('bg-blue-500', 'text-white');
+      button.classList.remove('text-gray-500');
+      button.setAttribute('data-enabled', 'true');
+      button.title = 'Disable UBERMODE';
+    } else {
+      button.classList.remove('bg-blue-500', 'text-white');
+      button.classList.add('text-gray-500');
+      button.setAttribute('data-enabled', 'false');
+      button.title = 'Enable UBERMODE';
+    }
   }
 })();
