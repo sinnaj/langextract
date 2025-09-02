@@ -446,45 +446,56 @@ class Resolver(AbstractResolver):
       # Make incomplete unicode escapes explicit (e.g., \u12 -> \\\\u12)
       protected = re.sub(r"\\u(?![0-9a-fA-F]{4})", r"\\\\u", protected)
 
-      # FIRST: Fix HTML attribute quotes BEFORE doing backslash processing
-      # This prevents interference between the two sanitization steps
-      def escape_html_attributes_only(match):
-        full_match = match.group(0)
-        # Extract the string content (remove surrounding quotes)
-        content = full_match[1:-1]
+      # COMPREHENSIVE HTML SANITIZATION
+      # First pass: Fix the most common HTML attribute patterns
+      def comprehensive_html_fix(text):
+        """Apply multiple HTML fixing strategies for HTML attributes in JSON strings"""
+        original_text = text
         
-        # Use a more targeted approach: only escape quotes that look like HTML attributes
-        # and are not already escaped
-        def replace_html_attr_quotes(attr_match):
-          attr_name = attr_match.group(1)
-          attr_value = attr_match.group(2)
-          return f'{attr_name}=\\"{attr_value}\\"'
+        # Strategy 1: Fix unescaped HTML attributes like colspan="4" -> colspan=\"4\"
+        # This pattern looks for attribute="value" and properly escapes both quotes
+        text = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', text)
         
-        # Pattern to find unescaped HTML attribute="value" pairs
-        # Look for: word="value" but not word=\"value\" 
-        attr_pattern = r'(\w+)=(?<!\\)"([^"]*)"(?!\\")'
-        content = re.sub(attr_pattern, replace_html_attr_quotes, content)
+        # Strategy 2: Fix attributes with hyphens and underscores like data-value="123"  
+        text = re.sub(r'([\w\-_]+)="([^"]*)"', r'\1=\"\2\"', text)
         
-        return f'"{content}"'
+        # Strategy 3: Fix multiple attributes in one tag like <td colspan="4" rowspan="2">
+        # This handles cases where multiple attributes are present
+        def fix_multiple_attributes(match):
+          tag_content = match.group(1)
+          # Replace all unescaped quotes in attributes within this tag
+          fixed_content = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', tag_content)
+          return f'<{fixed_content}>'
+        
+        text = re.sub(r'<([^>]*="[^"]*"[^>]*)>', fix_multiple_attributes, text)
+        
+        # Strategy 4: Fix any remaining quote issues in HTML contexts
+        # This targets patterns inside HTML tags that might still have unescaped quotes
+        def fix_html_tag_quotes(match):
+          tag_content = match.group(1)
+          # Escape any remaining unescaped quotes
+          fixed_content = tag_content.replace('"', '\\"')
+          return f'<{fixed_content}>'
+        
+        # Apply this more carefully to avoid over-escaping
+        # Only target tags that contain unescaped quotes after the previous fixes
+        remaining_unescaped = re.findall(r'<[^>]*[^\\]"[^>]*>', text)
+        if remaining_unescaped:
+          text = re.sub(r'<([^>]*[^\\]"[^>]*)>', fix_html_tag_quotes, text)
+        
+        # Strategy 5: Handle escaped quotes that got double-escaped
+        # Fix patterns like =\"value\" back to proper JSON escaping
+        text = re.sub(r'=\\"([^"]*)\\"', r'=\"\1\"', text)
+        
+        logging.debug(f"HTML fix applied. Changed: {original_text != text}")
+        if original_text != text:
+          logging.debug(f"HTML fix preview - before: {original_text[:200]}...")
+          logging.debug(f"HTML fix preview - after: {text[:200]}...")
+        
+        return text
       
-      # Pattern to match JSON string values containing HTML with unescaped attributes
-      html_attr_pattern = r'"[^"]*<\w+[^>]*\s+\w+="[^"]*"[^>]*>[^"]*"'
-      
-      # Apply HTML quote escaping first (before backslash processing)
-      max_iterations = 5
-      iteration = 0
-      
-      while iteration < max_iterations:
-        if not re.search(html_attr_pattern, protected):
-          break
-          
-        original_protected = protected
-        protected = re.sub(html_attr_pattern, escape_html_attributes_only, protected)
-        
-        if protected == original_protected:
-          break
-          
-        iteration += 1
+      # Apply HTML fixes to the entire content first
+      protected = comprehensive_html_fix(protected)
 
       # SECOND: String-aware pass for LaTeX backslashes (after HTML quotes are fixed)
       out_chars: list[str] = []
@@ -591,23 +602,102 @@ class Resolver(AbstractResolver):
         logging.debug("Sanitized JSON parse succeeded.")
       except Exception as e_san:
         logging.debug("Sanitized JSON parse failed: %s", e_san)
+        
+        # Try aggressive repair for common JSON issues
+        def aggressive_json_repair(json_str: str) -> str:
+          """Aggressive repair for severely malformed JSON."""
+          repaired = json_str
+          logging.debug(f"Starting aggressive JSON repair on {len(repaired)} chars")
+          
+          # Fix 1: Missing commas between JSON objects/arrays
+          # Look for patterns like: }" followed by whitespace and then {"
+          before_fix1 = repaired
+          repaired = re.sub(r'}\s*\n\s*{', r'},\n{', repaired)
+          if repaired != before_fix1:
+            logging.debug("Applied fix 1: Missing commas between objects")
+          
+          # Fix 2: Missing commas between array elements 
+          # Look for patterns like: "] followed by whitespace and then ["  
+          before_fix2 = repaired
+          repaired = re.sub(r']\s*\n\s*\[', r'],\n[', repaired)
+          if repaired != before_fix2:
+            logging.debug("Applied fix 2: Missing commas between arrays")
+          
+          # Fix 3: Missing commas after object properties
+          # Look for patterns like: "value" followed by newline and then "key":
+          before_fix3 = repaired
+          repaired = re.sub(r'"\s*\n\s*"([^"]+)":', r'",\n"\1":', repaired)
+          if repaired != before_fix3:
+            logging.debug("Applied fix 3: Missing commas after properties")
+          
+          # Fix 4: Trailing commas in objects/arrays (not valid JSON but common mistake)
+          before_fix4 = repaired
+          repaired = re.sub(r',\s*}', r'}', repaired)
+          repaired = re.sub(r',\s*]', r']', repaired)
+          if repaired != before_fix4:
+            logging.debug("Applied fix 4: Removed trailing commas")
+          
+          # Fix 5: Missing commas between key-value pairs on same line
+          # Pattern: "value" "nextkey": should be "value", "nextkey":
+          before_fix5 = repaired
+          repaired = re.sub(r'"\s+"([^"]+)":', r'", "\1":', repaired)
+          if repaired != before_fix5:
+            logging.debug("Applied fix 5: Missing commas between inline key-value pairs")
+          
+          # Fix 6: Handle unclosed strings that might be breaking structure
+          # This is a very aggressive fix - try to close obvious unclosed strings
+          before_fix6 = repaired
+          # Look for lines that start with quote but don't end with quote or comma
+          lines = repaired.split('\n')
+          fixed_lines = []
+          for line in lines:
+            stripped = line.strip()
+            # If line starts with quote but doesn't end properly, try to fix
+            if (stripped.startswith('"') and 
+                not stripped.endswith('"') and 
+                not stripped.endswith('",') and
+                not stripped.endswith('",')):
+              if ':' in stripped:
+                # This might be a key: try to close it properly
+                line = line.rstrip() + '",'
+                logging.debug(f"Fixed unclosed key line: {stripped[:50]}...")
+              else:
+                # This might be a value: try to close it
+                line = line.rstrip() + '",'
+                logging.debug(f"Fixed unclosed value line: {stripped[:50]}...")
+            fixed_lines.append(line)
+          repaired = '\n'.join(fixed_lines)
+          if repaired != before_fix6:
+            logging.debug("Applied fix 6: Closed unclosed strings")
+          
+          logging.debug(f"Aggressive repair completed. Length changed: {len(json_str)} -> {len(repaired)}")
+          return repaired
+        
         # Try tolerant parser if available
         try:
           import dirtyjson  # type: ignore
 
           try:
+            # Try dirtyjson on sanitized content first
             parsed_data = dirtyjson.loads(sanitized)
             logging.debug("dirtyjson parse succeeded on sanitized content.")
           except Exception:
-            parsed_data = dirtyjson.loads(content)
-            logging.debug("dirtyjson parse succeeded on original content.")
+            try:
+              # Try aggressive repair then dirtyjson
+              aggressively_repaired = aggressive_json_repair(sanitized)
+              parsed_data = dirtyjson.loads(aggressively_repaired)
+              logging.debug("dirtyjson parse succeeded on aggressively repaired content.")
+            except Exception:
+              # Try dirtyjson on original content as last JSON attempt
+              parsed_data = dirtyjson.loads(content)
+              logging.debug("dirtyjson parse succeeded on original content.")
         except Exception:
           # As a last resort try YAML load
           try:
             parsed_data = yaml.safe_load(content)
             logging.debug("YAML fallback succeeded after sanitization failure.")
           except Exception as e2:
-            logging.exception("Failed to parse content after sanitization, dirtyjson, and YAML fallback.")
+            logging.exception("Failed to parse content after all repair attempts (sanitization, aggressive repair, dirtyjson, and YAML fallback).")
             raise ResolverParsingError("Failed to parse content.") from e2
     except yaml.YAMLError as ye:
       logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
