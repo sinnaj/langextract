@@ -597,10 +597,21 @@
         const res = await fetch(commentsFile, { cache: 'no-store' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
         COMMENTS_DATA = await res.json();
+        console.log('Loaded comments from file:', commentsFile);
       } catch (e) {
-        console.log('No comments file found or error loading:', commentsFile);
-        COMMENTS_DATA = { comments: [] };
+        console.log('No comments file found, checking localStorage backup:', commentsFile);
+        // Try loading from localStorage backup
+        const localBackup = loadCommentsFromLocalStorage(filename);
+        if (localBackup) {
+          COMMENTS_DATA = localBackup;
+          console.log('Loaded comments from localStorage backup');
+        } else {
+          COMMENTS_DATA = { comments: [] };
+          console.log('No comments found, starting with empty comments');
+        }
       }
+      // Update save button state after loading
+      updateSaveButtonState();
     }
 
     async function saveComments(filename) {
@@ -614,17 +625,60 @@
         a.download = commentsFile.split('/').pop() || 'comments.json';
         a.click();
         URL.revokeObjectURL(url);
+        
+        // Update button state to show comments are saved
+        const saveBtn = byId('saveComments');
+        if (saveBtn) {
+          saveBtn.textContent = 'Save Comments ✓';
+          saveBtn.style.color = '#22c55e'; // green color to indicate saved
+          setTimeout(() => {
+            updateSaveButtonState(); // Reset after 2 seconds
+          }, 2000);
+        }
       } catch (e) {
         console.error('Error saving comments:', e);
         alert('Error saving comments: ' + e.message);
       }
     }
 
-    // Auto-persist comments whenever they change
-    function autoPersistComments() {
-      if (!CURRENT_FILENAME) return;
-      // Trigger automatic save/download of comments
-      saveComments(CURRENT_FILENAME);
+    // Save comments to localStorage as backup (to prevent loss)
+    function backupCommentsToLocalStorage() {
+      if (CURRENT_FILENAME && COMMENTS_DATA.comments?.length > 0) {
+        const backupKey = 'langextract_comments_' + CURRENT_FILENAME.replace(/[^a-zA-Z0-9]/g, '_');
+        localStorage.setItem(backupKey, JSON.stringify(COMMENTS_DATA));
+        // Update save button to indicate unsaved changes
+        updateSaveButtonState();
+      }
+    }
+
+    // Update the save button appearance based on whether there are unsaved changes
+    function updateSaveButtonState() {
+      const saveBtn = byId('saveComments');
+      if (!saveBtn) return;
+      
+      if (!CURRENT_FILENAME) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Save Comments';
+        saveBtn.style.color = '#6b7280'; // gray color for disabled
+        saveBtn.title = 'Load a JSON file first to enable comment saving';
+      } else if (COMMENTS_DATA.comments?.length > 0) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Comments*';
+        saveBtn.style.color = '#f59e0b'; // amber color to indicate unsaved changes
+        saveBtn.title = 'Save comments to file (you have unsaved comments)';
+      } else {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Comments';
+        saveBtn.style.color = '';
+        saveBtn.title = 'Save comments to file';
+      }
+    }
+
+    // Load comments from localStorage backup if available
+    function loadCommentsFromLocalStorage(filename) {
+      const backupKey = 'langextract_comments_' + filename.replace(/[^a-zA-Z0-9]/g, '_');
+      const backup = localStorage.getItem(backupKey);
+      return backup ? JSON.parse(backup) : null;
     }
 
     function addComment(lineId, text, author) {
@@ -638,7 +692,7 @@
         replies: []
       };
       COMMENTS_DATA.comments.push(comment);
-      autoPersistComments(); // Auto-save after adding
+      backupCommentsToLocalStorage(); // Backup to localStorage
       return comment;
     }
 
@@ -652,7 +706,7 @@
         timestamp: new Date().toISOString()
       };
       comment.replies.push(reply);
-      autoPersistComments(); // Auto-save after adding
+      backupCommentsToLocalStorage(); // Backup to localStorage
       return reply;
     }
 
@@ -669,7 +723,7 @@
         if (confirm(message)) {
           COMMENTS_DATA.comments.splice(index, 1);
           renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
-          autoPersistComments(); // Auto-save after deletion
+          backupCommentsToLocalStorage(); // Backup to localStorage
         }
       }
     }
@@ -682,7 +736,7 @@
         if (confirm('Delete this reply?')) {
           comment.replies.splice(index, 1);
           renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
-          autoPersistComments(); // Auto-save after deletion
+          backupCommentsToLocalStorage(); // Backup to localStorage
         }
       }
     }
@@ -696,7 +750,7 @@
         comment.text = newText.trim();
         comment.timestamp = new Date().toISOString(); // Update timestamp
         renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
-        autoPersistComments(); // Auto-save after edit
+        backupCommentsToLocalStorage(); // Backup to localStorage
       }
     }
 
@@ -711,7 +765,7 @@
         reply.text = newText.trim();
         reply.timestamp = new Date().toISOString(); // Update timestamp
         renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
-        autoPersistComments(); // Auto-save after edit
+        backupCommentsToLocalStorage(); // Backup to localStorage
       }
     }
 
@@ -784,6 +838,8 @@
     async function init() {
       // Initialize author name
       setAuthorName(getAuthorName());
+      // Initialize save button state
+      updateSaveButtonState();
       
       const autof = await loadDefaultJson();
       if (autof) {
@@ -842,6 +898,7 @@
     </div>
     <button id="reloadBtn" class="ghost">Reload output.json</button>
     <input id="fileInput" type="file" accept="application/json" />
+    <button id="saveComments" class="ghost" onclick="saveComments(CURRENT_FILENAME)" title="Save comments to file">Save Comments</button>
     <button id="exportCsv" class="ghost">Export norms CSV</button>
   </header>
 
