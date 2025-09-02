@@ -4,8 +4,6 @@ Create a comprehensive list of entities: Sections, Norms, Procedures, Classifica
 ## OUTPUT FORMAT
 Produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdown fences, NO extra prose. If data absent use empty lists, never null (except allowed nullable scalar fields noted).
 
-TOP LEVEL REQUIRED KEYS (1 extraction object min): sections[], norms[], procedures[], classifications[], legal_docs[], quality{errors[], warnings[], confidence}.
-
 ## Document Section
 The Structure of the provided document should be reflected in Sections. Sections can take the form of but are not limited to Document Title, Headlines, Articles, Apendix etc. Sections always carry a reference to their parent, so that the structural outline of the document can be understood from them. General statements like "All buildings need to be compartmentalized" section_application_guidannce
 
