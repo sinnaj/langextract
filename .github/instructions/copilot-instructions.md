@@ -60,39 +60,61 @@ The `lxRunnerExtraction.py` demonstrates the canonical pattern:
 
 ## Development Workflows
 
+### Python Environment Setup
+**CRITICAL**: Always use the `.venv` virtual environment - it contains all required dependencies:
+
+```powershell
+# Windows PowerShell - Use .venv Python for all operations
+.venv\Scripts\python.exe your_script.py
+.venv\Scripts\Activate.ps1  # Activate environment (optional)
+
+# Linux/Mac
+.venv/bin/python your_script.py
+source .venv/bin/activate   # Activate environment (optional)
+```
+
 ### Running Extractions
 ```powershell
-# Via web interface
-python web/app.py  # → http://127.0.0.1:5000
+# Via web interface (ALWAYS use .venv)
+.venv\Scripts\python.exe web/app.py  # → http://127.0.0.1:5000
 
-# Direct runner
+# Direct runner (ALWAYS use .venv)
 $env:LE_INPUT_FILE="path/to/input.txt"
-python -c "import lxRunnerExtraction; lxRunnerExtraction.makeRun(...)"
+.venv\Scripts\python.exe -c "import lxRunnerExtraction; lxRunnerExtraction.makeRun(...)"
+
+# Example from terminal history
+.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, '.'); import lxRunnerExtraction; lxRunnerExtraction.makeRun('1756231677','google/gemini-2.5-flash',0.15,15,5000,1,'input_promptfiles/extraction_prompt_V5.md','input_glossaryfiles/dsl_glossary.json','input_examplefiles/examples_V5.py','input_semanticsfiles/prompt_appendix_entity_semantics.md','input_teachfiles/prompt_appendix_teaching.md')"
 
 # Using tasks (configured in .vscode/tasks.json)
-# "Run Flask dev server", "Run makeRun", "Run runner_worker"
+# Tasks automatically use .venv: "Run Flask dev server", "Run makeRun", "Run runner_worker"
 ```
 
 ### Testing Strategy
 ```bash
-# Full test suite
+# Full test suite (uses .venv automatically via tox)
 tox                           # Python 3.10-3.12 + lint
-pytest tests/ -m "not live_api"
+pytest tests/ -m "not live_api"  # Direct pytest (ensure .venv activated)
 
 # Provider-specific tests
 tox -e ollama-integration     # Requires Ollama running
 tox -e live-api              # Requires API keys
 tox -e plugin-integration    # Provider plugin E2E tests
 
-# Code formatting
+# Code formatting (uses .venv)
 ./autoformat.sh             # isort + pyink (Google style)
 tox -e format               # Check formatting
+
+# Manual pytest (if not using tox)
+.venv\Scripts\python.exe -m pytest tests/ -m "not live_api"  # Windows
+.venv/bin/python -m pytest tests/ -m "not live_api"         # Linux/Mac
 ```
 
 ### Provider Development
 Use the generator script for new providers:
 ```bash
-python scripts/create_provider_plugin.py MyProvider --with-schema
+# Always use .venv for script execution
+.venv\Scripts\python.exe scripts/create_provider_plugin.py MyProvider --with-schema  # Windows
+.venv/bin/python scripts/create_provider_plugin.py MyProvider --with-schema         # Linux/Mac
 ```
 
 Creates complete plugin structure with entry points, tests, and documentation.
