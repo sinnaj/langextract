@@ -1,10 +1,10 @@
 {
   "resolver_debug": {
-    "source_text_preview": "# 2 Senalizacion de las instalaciones manuales de proteccion contra incendios\n\n1 La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n\n# Sección SI 5 Intervención de los bomberos\n\n# 1 Condiciones de aproximación y entorno(1)\n\n# 1.1 Aproximación a los edificios\n\n1 Los viales de aproximación de los vehículos de los bombe...",
-    "source_text_length": 991,
-    "token_offset": 0,
-    "char_offset": 0,
-    "num_extractions_input": 9,
+    "source_text_preview": "Como alternativa puede adaptarse el tiempo equivalente de exposición al fuego, determinado conforme a lo establecido en el apartado 2 del Anejo SI B. Cuando el techo separe de una planta superior debe tener al menos la misma resistencia al fuego que se exige a las paredes, pero con la característica REI en lugar de EI, al tratarse de un elemento portante y compartmentador de incendios. En cambio, cuando sea una cubierta no destinada a actividad alguna, ni prevista para ser utilizada en la evacua...",
+    "source_text_length": 1219,
+    "token_offset": 6306,
+    "char_offset": 31439,
+    "num_extractions_input": 5,
     "num_aligned_groups": 1,
     "alignment_settings": {
       "enable_fuzzy_alignment": true,
@@ -14,64 +14,39 @@
     "extractions": [
       {
         "group_index": 0,
-        "extraction_class": "SECTION",
-        "extraction_text": "# 2 Senalizacion de las instalaciones manuales de proteccion contra incendios",
+        "extraction_class": "NORM",
+        "extraction_text": "Cuando el techo separe de una planta superior debe tener al menos la misma resistencia al fuego que se exige a las paredes, pero con la característica REI en lugar de EI, al tratarse de un elemento portante y compartmentador de incendios.",
         "extraction_index": 1,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 0,
-          "end_index": 11
+          "start_index": 6334,
+          "end_index": 6381
         },
         "char_interval": {
-          "start_pos": 0,
-          "end_pos": 77
-        },
-        "attributes": {
-          "id": "SE::000007",
-          "sectioning_type": "HEADLINE",
-          "section_title": "Señalización de las instalaciones manuales de protección contra incendios",
-          "parent_type": "DOCUMENT",
-          "parent_id": "SE::000002",
-          "author": null,
-          "date": null,
-          "source": null,
-          "section_summary": "Signaling requirements for manual fire protection installations.",
-          "applies_if": "TRUE",
-          "exempt_if": "FALSE"
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
-        "extraction_index": 2,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 12,
-          "end_index": 49
-        },
-        "char_interval": {
-          "start_pos": 81,
-          "end_pos": 313
+          "start_pos": 31589,
+          "end_pos": 31827
         },
         "attributes": {
           "id": "N::000003",
-          "parent_section_id": "SE::000007",
-          "paragraph_number": 1,
+          "parent_section_id": null,
+          "paragraph_number": null,
           "obligation_type": "MANDATORY",
-          "norm_statement": "Signaling of manual fire protection installations must comply with the current Regulation on fire protection installations.",
-          "applies_if": "TRUE",
-          "satisfied_if": "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNALING.COMPLIES_WITH_RD_513_2017 == TRUE",
+          "norm_statement": "When the ceiling separates from an upper floor, it must have at least the same fire resistance required for walls, but with the REI characteristic instead of EI, as it is a load-bearing and fire-compartmenting element.",
+          "applies_if": "CEILING.SEPARATES.UPPER_FLOOR == TRUE",
+          "satisfied_if": "CEILING.FIRE_RESISTANCE.TYPE == 'REI' AND CEILING.FIRE_RESISTANCE.VALUE >= WALL.FIRE_RESISTANCE.VALUE",
           "exempt_if": "FALSE",
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.STRUCTURAL"
           ],
           "project_dimensions": {
             "PROJECT.TYPE": [
               "NEW",
               "REFORM"
             ],
-            "BUILDING.USAGE": []
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
           },
           "priority": 5,
           "priority_factors": {
@@ -80,8 +55,10 @@
             "impact": 0.8
           },
           "relevant_tags": [
-            "FIRE.PROTECTION.INSTALLATION.MANUAL",
-            "FIRE.PROTECTION.INSTALLATION.SIGNALING"
+            "CEILING.FIRE_RESISTANCE",
+            "WALL.FIRE_RESISTANCE",
+            "FIRE.COMPARTMENTATION",
+            "STRUCTURAL.ELEMENT"
           ],
           "relevant_roles": [],
           "lifecycle_phase": [],
@@ -107,8 +84,8 @@
           },
           "extracted_parameters": [],
           "consequence_ids": [],
-          "confidence": 0.9,
-          "uncertainty": 0.1,
+          "confidence": 0.8,
+          "uncertainty": 0.2,
           "notes": null,
           "quality": {
             "errors": [
@@ -120,146 +97,39 @@
       },
       {
         "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
-        "extraction_index": 3,
-        "alignment_status": "MATCH_FUZZY",
-        "token_interval": {
-          "start_index": 29,
-          "end_index": 49
-        },
-        "char_interval": {
-          "start_pos": 200,
-          "end_pos": 313
-        },
-        "attributes": {
-          "id": "LD::000001",
-          "document_type": "REAL_DECRETO",
-          "title": "Reglamento de instalaciones de proteccion contra incendios",
-          "code": "513/2017",
-          "year": 2017,
-          "date": "2017-05-22",
-          "article": null,
-          "source": null,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "SECTION",
-        "extraction_text": "# Sección SI 5 Intervención de los bomberos",
-        "extraction_index": 4,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 49,
-          "end_index": 61
-        },
-        "char_interval": {
-          "start_pos": 315,
-          "end_pos": 358
-        },
-        "attributes": {
-          "id": "SE::000008",
-          "sectioning_type": "CHAPTER",
-          "section_title": "Intervención de los bomberos",
-          "parent_type": "DOCUMENT",
-          "parent_id": "SE::000002",
-          "author": null,
-          "date": null,
-          "source": null,
-          "section_summary": "Requirements for fire brigade intervention.",
-          "applies_if": "TRUE",
-          "exempt_if": "FALSE"
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "SECTION",
-        "extraction_text": "# 1 Condiciones de aproximación y entorno(1)",
-        "extraction_index": 5,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 61,
-          "end_index": 73
-        },
-        "char_interval": {
-          "start_pos": 360,
-          "end_pos": 404
-        },
-        "attributes": {
-          "id": "SE::000009",
-          "sectioning_type": "HEADLINE",
-          "section_title": "Condiciones de aproximación y entorno",
-          "parent_type": "CHAPTER",
-          "parent_id": "SE::000008",
-          "author": null,
-          "date": null,
-          "source": null,
-          "section_summary": "Conditions for approach and surroundings for fire brigade access.",
-          "applies_if": "TRUE",
-          "exempt_if": "FALSE"
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "SECTION",
-        "extraction_text": "# 1.1 Aproximación a los edificios",
-        "extraction_index": 6,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 73,
-          "end_index": 83
-        },
-        "char_interval": {
-          "start_pos": 406,
-          "end_pos": 440
-        },
-        "attributes": {
-          "id": "SE::000010",
-          "sectioning_type": "SUB-HEADLINE",
-          "section_title": "Aproximación a los edificios",
-          "parent_type": "HEADLINE",
-          "parent_id": "SE::000009",
-          "author": null,
-          "date": null,
-          "source": null,
-          "section_summary": "Conditions for fire brigade vehicle approach to buildings.",
-          "applies_if": "TRUE",
-          "exempt_if": "FALSE"
-        }
-      },
-      {
-        "group_index": 0,
         "extraction_class": "NORM",
-        "extraction_text": "Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes: a) anchura mínima libre 3,5 m; b) altura mínima libre o gálibo 4,5 m; c)capacidad portante del vial 20 kN/m².",
-        "extraction_index": 7,
+        "extraction_text": "Cuando sea una cubierta no destinada a actividad alguna, ni prevista para ser utilizada en la evacuación, no precisa tener una función de compartmentación de incendios, por lo que sólo debe aporatar a resistencia al fuego R que le corresponda como elemento estructural, excepto en las franjas a las que hace referencia el capitulo 2 de la Sección SI 2, en las que dicha resistencia debe ser REI.",
+        "extraction_index": 2,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 84,
-          "end_index": 157
+          "start_index": 6384,
+          "end_index": 6468
         },
         "char_interval": {
-          "start_pos": 444,
-          "end_pos": 725
+          "start_pos": 31839,
+          "end_pos": 32234
         },
         "attributes": {
           "id": "N::000004",
-          "parent_section_id": "SE::000010",
-          "paragraph_number": 1,
+          "parent_section_id": null,
+          "paragraph_number": null,
           "obligation_type": "MANDATORY",
-          "norm_statement": "Approach roads for fire brigade vehicles to maneuvering spaces must meet specified conditions.",
-          "applies_if": "TRUE",
-          "satisfied_if": "ROAD.WIDTH >= 3.5 AND ROAD.HEIGHT >= 4.5 AND ROAD.BEARING_CAPACITY >= 20",
+          "norm_statement": "When a roof is not intended for any activity, nor for use in evacuation, it does not need to have a fire compartmentation function, so it only needs to provide the fire resistance R that corresponds to it as a structural element, except in the strips referred to in chapter 2 of Section SI 2, where said resistance must be REI.",
+          "applies_if": "ROOF.NOT_FOR_ACTIVITY == TRUE AND ROOF.NOT_FOR_EVACUATION == TRUE",
+          "satisfied_if": "ROOF.FIRE_RESISTANCE.TYPE == 'R' AND ROOF.FIRE_RESISTANCE.VALUE >= STRUCTURAL_ELEMENT.FIRE_RESISTANCE.VALUE ; OR (ROOF.IS_IN_SECTION_SI2_CHAPTER2_STRIP == TRUE AND ROOF.FIRE_RESISTANCE.TYPE == 'REI')",
           "exempt_if": "FALSE",
           "topics": [
-            "SAFETY.FIRE"
+            "SAFETY.FIRE",
+            "SAFETY.STRUCTURAL"
           ],
           "project_dimensions": {
             "PROJECT.TYPE": [
               "NEW",
               "REFORM"
             ],
-            "BUILDING.USAGE": []
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
           },
           "priority": 5,
           "priority_factors": {
@@ -268,10 +138,10 @@
             "impact": 0.8
           },
           "relevant_tags": [
-            "FIRE.BRIGADE.ACCESS",
-            "ROAD.WIDTH",
-            "ROAD.HEIGHT",
-            "ROAD.BEARING_CAPACITY"
+            "ROOF.FIRE_RESISTANCE",
+            "STRUCTURAL.ELEMENT",
+            "FIRE.COMPARTMENTATION",
+            "EVACUATION"
           ],
           "relevant_roles": [],
           "lifecycle_phase": [],
@@ -295,14 +165,10 @@
             "span_char_end": null,
             "visual_refs": []
           },
-          "extracted_parameters": [
-            "ROAD.WIDTH >= 3.5 m",
-            "ROAD.HEIGHT >= 4.5 m",
-            "ROAD.BEARING_CAPACITY >= 20 kN/m²"
-          ],
+          "extracted_parameters": [],
           "consequence_ids": [],
-          "confidence": 0.95,
-          "uncertainty": 0.05,
+          "confidence": 0.8,
+          "uncertainty": 0.2,
           "notes": null,
           "quality": {
             "errors": [
@@ -315,25 +181,25 @@
       {
         "group_index": 0,
         "extraction_class": "NORM",
-        "extraction_text": "En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
-        "extraction_index": 8,
+        "extraction_text": "La resistencia al fuego del suelo es función del uso al que esté destinada la zona existente en la planta inferior. Véase apar-tado 3 de la Sección SI 6 de este DB.",
+        "extraction_index": 3,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 158,
-          "end_index": 208
+          "start_index": 6468,
+          "end_index": 6511
         },
         "char_interval": {
-          "start_pos": 729,
-          "end_pos": 930
+          "start_pos": 32235,
+          "end_pos": 32399
         },
         "attributes": {
           "id": "N::000005",
-          "parent_section_id": "SE::000010",
-          "paragraph_number": 2,
+          "parent_section_id": null,
+          "paragraph_number": null,
           "obligation_type": "MANDATORY",
-          "norm_statement": "On curved sections, the carriageway must be delimited by a circular crown with minimum radii of 5.30 m and 12.50 m, and a clear width for circulation of 7.20 m.",
-          "applies_if": "ROAD.SECTION.IS_CURVED == TRUE",
-          "satisfied_if": "ROAD.CURVE.INNER_RADIUS >= 5.30 AND ROAD.CURVE.OUTER_RADIUS >= 12.50 AND ROAD.CLEAR_WIDTH >= 7.20",
+          "norm_statement": "The fire resistance of the floor depends on the intended use of the area on the lower floor. See section 3 of Section SI 6 of this DB.",
+          "applies_if": "TRUE",
+          "satisfied_if": "FLOOR.FIRE_RESISTANCE.VALUE == FIRE_RESISTANCE.VALUE_BASED_ON_LOWER_FLOOR_USAGE",
           "exempt_if": "FALSE",
           "topics": [
             "SAFETY.FIRE"
@@ -343,7 +209,9 @@
               "NEW",
               "REFORM"
             ],
-            "BUILDING.USAGE": []
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
           },
           "priority": 5,
           "priority_factors": {
@@ -352,10 +220,91 @@
             "impact": 0.8
           },
           "relevant_tags": [
-            "FIRE.BRIGADE.ACCESS",
-            "ROAD.CURVE.INNER_RADIUS",
-            "ROAD.CURVE.OUTER_RADIUS",
-            "ROAD.CLEAR_WIDTH"
+            "FLOOR.FIRE_RESISTANCE",
+            "AREA.USAGE"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": null,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "extracted_parameters": [],
+          "consequence_ids": [],
+          "confidence": 0.8,
+          "uncertainty": 0.2,
+          "notes": "Refers to Section SI 6, paragraph 3 for specific values.",
+          "quality": {
+            "errors": [
+              "PAGE_MISSING"
+            ],
+            "warnings": []
+          }
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "NORM",
+        "extraction_text": "El 180 si la altura de evacuación del edificio es mayor que 28m Resistencia al fuego exigible a las paredes que separan al aparcamiento de zonas de otro uso.",
+        "extraction_index": 4,
+        "alignment_status": "MATCH_LESSER",
+        "token_interval": {
+          "start_index": 6511,
+          "end_index": 6525
+        },
+        "char_interval": {
+          "start_pos": 32400,
+          "end_pos": 32459
+        },
+        "attributes": {
+          "id": "N::000006",
+          "parent_section_id": null,
+          "paragraph_number": null,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "Fire resistance required for walls separating the parking area from other use zones is 180 minutes if the building's evacuation height is greater than 28m.",
+          "applies_if": "BUILDING.EVACUATION.HEIGHT > 28 AND WALL.SEPARATES.PARKING_FROM_OTHER_USE_ZONE == TRUE",
+          "satisfied_if": "WALL.FIRE_RESISTANCE.VALUE >= 180",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.STRUCTURAL"
+          ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "WALL.FIRE_RESISTANCE",
+            "BUILDING.EVACUATION.HEIGHT",
+            "PARKING.ZONE",
+            "OTHER.USE.ZONE"
           ],
           "relevant_roles": [],
           "lifecycle_phase": [],
@@ -380,14 +329,13 @@
             "visual_refs": []
           },
           "extracted_parameters": [
-            "ROAD.CURVE.INNER_RADIUS >= 5.30 m",
-            "ROAD.CURVE.OUTER_RADIUS >= 12.50 m",
-            "ROAD.CLEAR_WIDTH >= 7.20 m"
+            "BUILDING.EVACUATION.HEIGHT > 28",
+            "FIRE_RESISTANCE.VALUE >= 180"
           ],
           "consequence_ids": [],
-          "confidence": 0.95,
-          "uncertainty": 0.05,
-          "notes": null,
+          "confidence": 0.8,
+          "uncertainty": 0.2,
+          "notes": "Refers to note (3) for separation slab.",
           "quality": {
             "errors": [
               "PAGE_MISSING"
@@ -398,27 +346,54 @@
       },
       {
         "group_index": 0,
-        "extraction_class": "PROCEDURE",
-        "extraction_text": "$\\mathsf{d}_{\\mathsf{ef}} = \\mathsf{d}_1 + 0,5\\mathsf{d}_2$",
-        "extraction_index": 9,
+        "extraction_class": "NORM",
+        "extraction_text": "El 180 si es un aparcamiento robotizado.",
+        "extraction_index": 5,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 208,
-          "end_index": 235
+          "start_index": 6563,
+          "end_index": 6571
         },
         "char_interval": {
-          "start_pos": 932,
-          "end_pos": 991
+          "start_pos": 32618,
+          "end_pos": 32658
         },
         "attributes": {
-          "id": "PD::000003",
-          "parent_section_id": "SE::000010",
-          "procedure_description": "Calculation of effective distance using the formula d_ef = d_1 + 0.5 * d_2.",
-          "target_reference": [],
-          "tags": [
-            "CALCULATION",
-            "DISTANCE"
+          "id": "N::000007",
+          "parent_section_id": null,
+          "paragraph_number": null,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "Fire resistance required for walls separating the parking area from other use zones is 180 minutes if it is a robotic parking.",
+          "applies_if": "PARKING.TYPE == 'ROBOTIC' AND WALL.SEPARATES.PARKING_FROM_OTHER_USE_ZONE == TRUE",
+          "satisfied_if": "WALL.FIRE_RESISTANCE.VALUE >= 180",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE",
+            "SAFETY.STRUCTURAL"
           ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": [
+              "GENERAL"
+            ]
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "WALL.FIRE_RESISTANCE",
+            "PARKING.TYPE.ROBOTIC",
+            "PARKING.ZONE",
+            "OTHER.USE.ZONE"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
           "location_scope": {
             "COUNTRY": "ES",
             "STATES": [],
@@ -431,7 +406,6 @@
           },
           "source": {
             "doc_id": "EXAMPLES_ENHANCED",
-            "Chapter": null,
             "article": null,
             "table": null,
             "illustration": null,
@@ -440,6 +414,13 @@
             "span_char_end": null,
             "visual_refs": []
           },
+          "extracted_parameters": [
+            "FIRE_RESISTANCE.VALUE >= 180"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.8,
+          "uncertainty": 0.2,
+          "notes": null,
           "quality": {
             "errors": [
               "PAGE_MISSING"
