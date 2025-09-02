@@ -109,6 +109,13 @@
     .comment-actions button:hover { 
       background: var(--chip); 
     }
+    .delete-btn {
+      color: var(--error) !important;
+      border-color: var(--error) !important;
+    }
+    .delete-btn:hover {
+      background: rgba(239, 68, 68, 0.1) !important;
+    }
     .add-comment-btn { 
       background: var(--panel); 
       border: 1px solid var(--border); 
@@ -633,6 +640,35 @@
       return reply;
     }
 
+    function deleteComment(commentId) {
+      if (!COMMENTS_DATA.comments) return;
+      const index = COMMENTS_DATA.comments.findIndex(c => c.id === commentId);
+      if (index !== -1) {
+        const comment = COMMENTS_DATA.comments[index];
+        const replyCount = comment.replies ? comment.replies.length : 0;
+        const message = replyCount > 0 
+          ? `Delete this comment and ${replyCount} ${replyCount === 1 ? 'reply' : 'replies'}?`
+          : 'Delete this comment?';
+        
+        if (confirm(message)) {
+          COMMENTS_DATA.comments.splice(index, 1);
+          renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+        }
+      }
+    }
+
+    function deleteReply(commentId, replyId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment || !comment.replies) return;
+      const index = comment.replies.findIndex(r => r.id === replyId);
+      if (index !== -1) {
+        if (confirm('Delete this reply?')) {
+          comment.replies.splice(index, 1);
+          renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+        }
+      }
+    }
+
     function getCommentsForLine(lineId) {
       return COMMENTS_DATA.comments?.filter(c => c.lineId === lineId) || [];
     }
@@ -654,6 +690,7 @@
           <div class="comment-text">${escapeHtml(comment.text)}</div>
           <div class="comment-actions">
             <button onclick="replyToComment('${comment.id}')">Reply</button>
+            <button class="delete-btn" onclick="deleteComment('${comment.id}')" title="Delete comment and all replies">🗑️</button>
           </div>`;
         
         // Render replies
@@ -662,6 +699,7 @@
             <div class="comment-header">
               <strong>${escapeHtml(reply.author)}</strong>
               <span>${new Date(reply.timestamp).toLocaleDateString()}</span>
+              <button class="delete-btn" onclick="deleteReply('${comment.id}', '${reply.id}')" title="Delete reply" style="margin-left: auto; padding: 1px 4px; font-size: 9px;">🗑️</button>
             </div>
             <div class="comment-text">${escapeHtml(reply.text)}</div>
           </div>`;
