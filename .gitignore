@@ -105,8 +105,12 @@ ipython_config.py
 *.sql
 *.sqlite
 *.sqlite3
+*.db
 db.sqlite3
 db.sqlite3-journal
+web/*.db
+web/*.sqlite
+web/*.sqlite3
 logs/
 *.pid
 
