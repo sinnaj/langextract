@@ -26,6 +26,10 @@ import langextract as lx
 from langextract import factory
 from langextract import providers
 
+# Import modularized extraction functions
+from postprocessing.extract_tags import extract_tags_from_norms
+from postprocessing.extract_params import extract_parameters_from_norms
+
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
 # ---------------------------------------------------------------------------
@@ -585,127 +589,21 @@ def makeRun(
             # extraction_class="Parameter"
             # attributes={"id": "P::000001", "applies_for_tag": <path>, "operator": op, "value": val, "unit": unit, "norm_ids": [norm_id]}
 
-            # Build maps to avoid duplicates and aggregate used_by_norm_ids
-            tag_map: dict[str, Dict[str, Any]] = {}
-            param_list: List[Dict[str, Any]] = []
-            tag_counter = 1
-            param_counter = 1
-
-            def _next_tid() -> str:
-                nonlocal tag_counter
-                tid = f"T::{tag_counter:06d}"
-                tag_counter += 1
-                return tid
-
-            def _next_pid() -> str:
-                nonlocal param_counter
-                pid = f"P::{param_counter:06d}"
-                param_counter += 1
-                return pid
-
-            def _parse_param(expr: str) -> Optional[Tuple[str, str, Any, Optional[str]]]:
-                if not isinstance(expr, str):
-                    return None
-                m = re.match(r"^\s*([A-Z0-9_.]+)\s*(==|>=|<=|>|<)\s*(.+?)\s*$", expr)
-                if not m:
-                    return None
-                path, op, val_str = m.group(1), m.group(2), m.group(3)
-                # Try numeric value with optional decimal comma/dot, keep unit remainder
-                m2 = re.match(r"^\s*([0-9]+(?:[\.,][0-9]+)?)\s*(.*)$", val_str)
-                if m2:
-                    num = m2.group(1).replace(',', '.')
-                    try:
-                        val: Any = float(num) if ('.' in num) else int(num)
-                    except Exception:
-                        try:
-                            val = float(num)
-                        except Exception:
-                            val = num
-                    unit = m2.group(2).strip() or None
-                    return (path, op, val, unit)
-                # Non-numeric value (enum/string)
-                return (path, op, val_str.strip(), None)
-
             # Scan items for norms to process
             norms_to_process = []
             for item in raw_items:
                 if item and isinstance(item, dict) and item.get("extraction_class") == "NORM":
                     norms_to_process.append(item.get("attributes", {}))
             
-            # Process norms for tags and parameters
-            for norm_data in norms_to_process:
-                if not isinstance(norm_data, dict):
-                    continue
-                    
-                norm_id = norm_data.get("id")
-                if not norm_id:
-                    continue
-                
-                topics = norm_data.get("topics")
-                if topics is None:
-                    topics = []
-                elif not isinstance(topics, list):
-                    topics = []
-
-                # Relevant tags - ensure it's a list
-                relevant_tags = norm_data.get("relevant_tags")
-                if relevant_tags is None:
-                    relevant_tags = []
-                elif not isinstance(relevant_tags, list):
-                    relevant_tags = []
-                
-                for tag_path in relevant_tags:
-                    if not isinstance(tag_path, str):
-                        continue
-                    if tag_path not in tag_map:
-                        tag_map[tag_path] = {
-                            "extraction_class": "Tag",
-                            "extraction_text": tag_path,
-                            "attributes": {
-                                "id": _next_tid(),
-                                "tag": tag_path,
-                                "used_by_norm_ids": [norm_id],
-                                "related_topics": topics,
-                            },
-                        }
-                    else:
-                        u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
-                        if u is None:
-                            u = []
-                            tag_map[tag_path]["attributes"]["used_by_norm_ids"] = u
-                        if norm_id not in u:
-                            u.append(norm_id)
-
-                # Extracted parameters - ensure it's a list
-                extracted_parameters = norm_data.get("extracted_parameters")
-                if extracted_parameters is None:
-                    extracted_parameters = []
-                elif not isinstance(extracted_parameters, list):
-                    extracted_parameters = []
-                    
-                for expr in extracted_parameters:
-                    parsed = _parse_param(expr)
-                    if not parsed:
-                        continue
-                    path, op, val, unit = parsed
-                    param_list.append({
-                        "extraction_class": "Parameter",
-                        "extraction_text": expr,
-                        "attributes": {
-                            "id": _next_pid(),
-                            "applies_for_tag": path,
-                            "operator": op,
-                            "value": val,
-                            "unit": unit,
-                            "norm_ids": [norm_id],
-                            },
-                        })
+            # Extract tags and parameters using modularized functions
+            derived_tags = extract_tags_from_norms(norms_to_process, tag_counter_start=1)
+            derived_params = extract_parameters_from_norms(norms_to_process, param_counter_start=1)
 
             # Append derived Tags and Parameters
-            if tag_map:
-                raw_items.extend(list(tag_map.values()))
-            if param_list:
-                raw_items.extend(param_list)
+            if derived_tags:
+                raw_items.extend(derived_tags)
+            if derived_params:
+                raw_items.extend(derived_params)
 
             raw_legacy = {
                 "document_id": getattr(annotated, "document_id", None),
