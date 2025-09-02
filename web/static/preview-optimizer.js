@@ -1170,9 +1170,17 @@ class PreviewOptimizer {
       nodeElement.appendChild(childrenContainer);
     }
     
-    // Enhanced click handler with better visual feedback - bind to entire node content
-    if (node.children.length > 0) {
-      const toggleNode = (e) => {
+    // Enhanced click handler with navigation support
+    const handleNodeClick = (e) => {
+      // Check if this was a double-click for navigation
+      if (e.detail === 2) {
+        console.log(`Double-click navigation for node: ${node.id}`);
+        this.navigateToNode(node);
+        return;
+      }
+      
+      // Single click - toggle expand/collapse for nodes with children
+      if (node.children.length > 0) {
         e.preventDefault();
         e.stopPropagation();
         console.log(`Toggling node: ${node.id}, has ${node.children.length} children, currently expanded: ${node.isExpanded}`);
@@ -1233,11 +1241,17 @@ class PreviewOptimizer {
             indicator.style.backgroundColor = 'transparent';
           }
         }, 200);
-      };
-      
-      // Bind click event to both the indicator and the entire node content for better UX
-      indicator.addEventListener('click', toggleNode);
-      nodeContent.addEventListener('click', toggleNode);
+      } else {
+        // Leaf node - navigate on single click
+        console.log(`Single-click navigation for leaf node: ${node.id}`);
+        this.navigateToNode(node);
+      }
+    };
+    
+    // Bind click event to both the indicator and the entire node content
+    if (node.children.length > 0) {
+      indicator.addEventListener('click', handleNodeClick);
+      nodeContent.addEventListener('click', handleNodeClick);
       
       // Add visual feedback on hover for clickable nodes
       nodeContent.style.cursor = 'pointer';
@@ -1255,16 +1269,312 @@ class PreviewOptimizer {
         nodeContent.style.borderLeftColor = 'transparent';
       });
     } else {
-      // Non-clickable nodes still get subtle hover effect
+      // Leaf nodes are clickable for navigation
+      nodeContent.addEventListener('click', handleNodeClick);
+      nodeContent.style.cursor = 'pointer';
+      
       nodeContent.addEventListener('mouseenter', () => {
-        nodeContent.style.backgroundColor = 'rgba(156, 163, 175, 0.03)';
+        nodeContent.style.backgroundColor = 'rgba(34, 197, 94, 0.05)';
+        nodeContent.style.borderLeftColor = 'rgba(34, 197, 94, 0.3)';
       });
       nodeContent.addEventListener('mouseleave', () => {
         nodeContent.style.backgroundColor = '';
+        nodeContent.style.borderLeftColor = 'transparent';
       });
     }
     
     container.appendChild(nodeElement);
+  }
+
+  // Navigation Methods for Tree Node Clicking
+  navigateToNode(node) {
+    console.log(`Navigating to node: ${node.id} (${node.type})`);
+    
+    // Check if we're in 3-column preview mode
+    const columnInfo = this.getColumnInfo();
+    if (!columnInfo.is3ColumnMode) {
+      console.log('Not in 3-column mode, skipping navigation');
+      this.highlightNodeSelection(node);
+      return;
+    }
+    
+    // Find MD and JSON panels
+    const mdPanelIndex = this.findPanelByFileType('md');
+    const jsonPanelIndex = this.findPanelByFileType('json');
+    
+    if (mdPanelIndex === -1 && jsonPanelIndex === -1) {
+      console.log('No MD or JSON panels found for navigation');
+      this.highlightNodeSelection(node);
+      return;
+    }
+    
+    console.log(`Found panels - MD: ${mdPanelIndex}, JSON: ${jsonPanelIndex}`);
+    
+    // Navigate to the node in both panels
+    if (mdPanelIndex !== -1) {
+      this.navigateToNodeInMdPanel(node, mdPanelIndex);
+    }
+    
+    if (jsonPanelIndex !== -1) {
+      this.navigateToNodeInJsonPanel(node, jsonPanelIndex);
+    }
+    
+    // Highlight the selected node
+    this.highlightNodeSelection(node);
+  }
+
+  getColumnInfo() {
+    // Access the global currentColumnCount from app.js
+    const currentColumnCount = window.currentColumnCount || 1;
+    return {
+      is3ColumnMode: currentColumnCount === 3,
+      columnCount: currentColumnCount
+    };
+  }
+
+  findPanelByFileType(fileExtension) {
+    // Access global selectedFilePaths from app.js
+    const selectedFilePaths = window.selectedFilePaths || [null, null, null];
+    
+    for (let i = 0; i < selectedFilePaths.length; i++) {
+      const filePath = selectedFilePaths[i];
+      if (filePath && filePath.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  navigateToNodeInMdPanel(node, panelIndex) {
+    console.log(`Navigating to node ${node.id} in MD panel ${panelIndex}`);
+    
+    // Get the extraction data from the node
+    const extraction = node.extraction;
+    if (!extraction || !extraction.char_interval) {
+      console.warn('No char_interval data available for MD navigation');
+      return;
+    }
+    
+    const startPos = extraction.char_interval.start_pos;
+    const endPos = extraction.char_interval.end_pos;
+    
+    console.log(`Navigating to character positions ${startPos}-${endPos} in MD panel`);
+    
+    // Get the preview element for the target panel
+    const panels = document.querySelectorAll('.preview-panel');
+    if (panelIndex >= panels.length) {
+      console.warn(`Panel index ${panelIndex} not found`);
+      return;
+    }
+    
+    const targetPanel = panels[panelIndex];
+    const previewElement = targetPanel.querySelector('.preview');
+    if (!previewElement) {
+      console.warn('Preview element not found in target panel');
+      return;
+    }
+    
+    // Scroll to the character position in the MD content
+    this.scrollToCharacterPosition(previewElement, startPos, endPos);
+  }
+
+  navigateToNodeInJsonPanel(node, panelIndex) {
+    console.log(`Navigating to node ${node.id} in JSON panel ${panelIndex}`);
+    
+    // Get the preview element for the target panel
+    const panels = document.querySelectorAll('.preview-panel');
+    if (panelIndex >= panels.length) {
+      console.warn(`Panel index ${panelIndex} not found`);
+      return;
+    }
+    
+    const targetPanel = panels[panelIndex];
+    const previewElement = targetPanel.querySelector('.preview');
+    if (!previewElement) {
+      console.warn('Preview element not found in target panel');
+      return;
+    }
+    
+    // Navigate by finding the extraction with matching ID in the JSON
+    this.scrollToJsonNode(previewElement, node.id);
+  }
+
+  scrollToCharacterPosition(previewElement, startPos, endPos) {
+    // For markdown content, we need to find the text node that contains the character position
+    const textContent = previewElement.textContent || '';
+    
+    if (startPos >= textContent.length) {
+      console.warn(`Start position ${startPos} is beyond text length ${textContent.length}`);
+      return;
+    }
+    
+    // Create a temporary range to find the position
+    const range = document.createRange();
+    const selection = window.getSelection();
+    
+    try {
+      // Walk through the DOM tree to find the character position
+      const walker = document.createTreeWalker(
+        previewElement,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+      
+      let currentPos = 0;
+      let targetNode = null;
+      let targetOffset = 0;
+      
+      while (walker.nextNode()) {
+        const textNode = walker.currentNode;
+        const nodeLength = textNode.textContent.length;
+        
+        if (currentPos + nodeLength >= startPos) {
+          targetNode = textNode;
+          targetOffset = startPos - currentPos;
+          break;
+        }
+        
+        currentPos += nodeLength;
+      }
+      
+      if (targetNode) {
+        // Set the range to highlight the text
+        range.setStart(targetNode, targetOffset);
+        
+        // Try to set end position too
+        let endNode = targetNode;
+        let endOffset = Math.min(targetOffset + (endPos - startPos), targetNode.textContent.length);
+        
+        // If the end position extends beyond this node, we need to find the correct end node
+        if (endPos > startPos + (targetNode.textContent.length - targetOffset)) {
+          let remainingChars = endPos - startPos - (targetNode.textContent.length - targetOffset);
+          
+          while (walker.nextNode() && remainingChars > 0) {
+            const nextTextNode = walker.currentNode;
+            if (remainingChars <= nextTextNode.textContent.length) {
+              endNode = nextTextNode;
+              endOffset = remainingChars;
+              break;
+            }
+            remainingChars -= nextTextNode.textContent.length;
+          }
+        }
+        
+        range.setEnd(endNode, endOffset);
+        
+        // Clear any existing selection and set the new one
+        selection.removeAllRanges();
+        selection.addRange(range);
+        
+        // Scroll the selection into view
+        const rect = range.getBoundingClientRect();
+        if (rect.height > 0) {
+          range.startContainer.parentElement?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          });
+        }
+        
+        console.log(`Scrolled to character position ${startPos}-${endPos} in MD content`);
+      } else {
+        console.warn('Could not find text node for character position', startPos);
+      }
+    } catch (error) {
+      console.error('Error scrolling to character position:', error);
+      // Fallback: just scroll to the top
+      previewElement.scrollTop = 0;
+    }
+  }
+
+  scrollToJsonNode(previewElement, nodeId) {
+    // Look for the node ID in the JSON content
+    const jsonText = previewElement.textContent || '';
+    
+    // Try to find the node ID in the JSON
+    const searchTerm = `"id": "${nodeId}"`;
+    const position = jsonText.indexOf(searchTerm);
+    
+    if (position === -1) {
+      console.warn(`Could not find node ID ${nodeId} in JSON content`);
+      return;
+    }
+    
+    console.log(`Found node ID ${nodeId} at position ${position} in JSON`);
+    
+    // Find the line number for the position
+    const lines = jsonText.substring(0, position).split('\n');
+    const lineNumber = lines.length;
+    
+    // Look for a specific line element if this is formatted JSON
+    const jsonLines = previewElement.querySelectorAll('.json-line');
+    if (jsonLines.length > 0) {
+      // This is formatted JSON with line elements
+      for (const line of jsonLines) {
+        if (line.textContent.includes(nodeId)) {
+          line.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          });
+          
+          // Highlight the line temporarily
+          const originalBg = line.style.backgroundColor;
+          line.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
+          line.style.transition = 'background-color 0.3s ease-in-out';
+          
+          setTimeout(() => {
+            line.style.backgroundColor = originalBg;
+          }, 2000);
+          
+          console.log(`Scrolled to JSON line containing ${nodeId}`);
+          return;
+        }
+      }
+    }
+    
+    // Fallback: calculate scroll position based on line number
+    const previewElementRect = previewElement.getBoundingClientRect();
+    const totalLines = jsonText.split('\n').length;
+    const scrollRatio = lineNumber / totalLines;
+    const scrollPosition = scrollRatio * (previewElement.scrollHeight - previewElementRect.height);
+    
+    previewElement.scrollTo({
+      top: Math.max(0, scrollPosition - previewElementRect.height / 2),
+      behavior: 'smooth'
+    });
+    
+    console.log(`Scrolled to approximate position for ${nodeId} (line ${lineNumber})`);
+  }
+
+  highlightNodeSelection(node) {
+    // Remove previous selection highlights
+    const previouslySelected = document.querySelectorAll('.tree-node-selected');
+    previouslySelected.forEach(el => el.classList.remove('tree-node-selected'));
+    
+    // Add selection highlight to the current node
+    const nodeElement = document.querySelector(`[data-node-id="${node.id}"]`);
+    if (nodeElement) {
+      nodeElement.classList.add('tree-node-selected');
+      
+      // Add some temporary visual feedback
+      const nodeContent = nodeElement.querySelector('.tree-node-content');
+      if (nodeContent) {
+        const originalBg = nodeContent.style.backgroundColor;
+        nodeContent.style.backgroundColor = 'rgba(34, 197, 94, 0.15)';
+        nodeContent.style.borderLeftColor = 'rgba(34, 197, 94, 0.6)';
+        
+        setTimeout(() => {
+          if (!nodeElement.classList.contains('tree-node-selected')) {
+            nodeContent.style.backgroundColor = originalBg;
+            nodeContent.style.borderLeftColor = 'transparent';
+          }
+        }, 3000);
+      }
+      
+      console.log(`Highlighted selected node: ${node.id}`);
+    }
   }
 
   getTypeClass(type) {
