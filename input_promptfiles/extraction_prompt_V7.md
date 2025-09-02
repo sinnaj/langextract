@@ -1,5 +1,5 @@
 ## TASK
-Extract a comprehensive set of **Sections, Norms, Procedures, Classifications, and Legal Documents** from the provided Building Regulation documents.
+Extract a comprehensive set of **Document Metadata, Sections, Norms, Procedures, Classifications, and Document References** from the provided Building Regulation documents.
 
 Only return data that is explicitly stated or **logically derivable without inventing values**.  
 If a datum is absent, leave it empty (not null, except where nullable scalars are allowed in your schema provided elsewhere).
@@ -13,13 +13,14 @@ Produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdo
 
 ### Sections (document structure)
 - Model the document’s outline as a strict hierarchy. Each section has **exactly one parent**.
-- Typical forms: Document, Chapter, Headline (Level 1 - Level n), Article, Appendix (non-exhaustive).
+- Typical forms: Chapter, Headline (Level 1 - Level n), Article, Appendix (non-exhaustive), Table, Image.
 - Valid hierarchies:
   - `Document > Chapter > Headline L1 > Headline L2> Headline L...> Article`
   - `Document > Appendix`
 - Always include a **parent reference** so the structure can be reconstructed.
 - Capture page numbers if confidently available; if not, set `page = -1` and add `quality.errors: ["PAGE_MISSING"]` (exceptional case).
-- Documents will often Start with an Index / a Table of Content. Ignore these for the Section extraction!
+- Documents will often Start with an Index / Table of Content. Ignore these for the Section extraction.
+- Tables and Images might occur at any step within the hierarchy.
 
 ### Norms
 Atomic, self-sufficient obligations that are applicable without extra context.

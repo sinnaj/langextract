@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Tree Visualization</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        
+        .tree {
+            font-family: monospace;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        
+        .node {
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-left: 3px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .node:hover {
+            background-color: #f0f8ff;
+            border-left-color: #4CAF50;
+        }
+        
+        .node-id {
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .node-title {
+            color: #333;
+            margin-left: 10px;
+        }
+        
+        .node-type {
+            background: #e7f3ff;
+            color: #1976d2;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        .node-summary {
+            color: #666;
+            font-style: italic;
+            margin-left: 20px;
+            font-size: 0.9em;
+        }
+        
+        .level-0 { padding-left: 0px; }
+        .level-1 { padding-left: 30px; }
+        .level-2 { padding-left: 60px; }
+        .level-3 { padding-left: 90px; }
+        .level-4 { padding-left: 120px; }
+        .level-5 { padding-left: 150px; }
+        
+        .level-0 { border-left-color: #ff6b6b; }
+        .level-1 { border-left-color: #4ecdc4; }
+        .level-2 { border-left-color: #45b7d1; }
+        .level-3 { border-left-color: #96ceb4; }
+        .level-4 { border-left-color: #ffeaa7; }
+        .level-5 { border-left-color: #dda0dd; }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .stats h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .toggle-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Section Tree Visualization</h1>
+        
+        <div class="stats">
+            <h3>Tree Statistics</h3>
+            <p><strong>Total Sections:</strong> <span id="total-sections">66</span></p>
+            <p><strong>Root Sections:</strong> <span id="root-sections">9</span></p>
+            <p><strong>Max Depth:</strong> <span id="max-depth">4</span></p>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <button class="toggle-btn" onclick="toggleSummaries()">Toggle Summaries</button>
+            <button class="toggle-btn" onclick="expandAll()">Expand All</button>
+            <button class="toggle-btn" onclick="collapseAll()">Collapse All</button>
+        </div>
+        
+        <div class="tree" id="tree-container">
+            <div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="CTE.DB.SI">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">CTE.DB.SI</span>
+                <span class="node-title">CTE DB-SI - Documento Básico de Seguridad en caso de Incendio</span>
+                <span class="node-type">Legal Document</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-1 type-Paragraph">
+    <div class="node" data-node-id="SE::000001">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000001</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Paragraph</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Defines how italicized terms in the document should be interpreted, either from Annex SI A (fire safety specific) or Annex III Part I of CTE (common terms).</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000001">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000001</span>
+                <span class="node-title">Alternatively, the equivalent fire exposure time, determined according to Annex SI B, section 2, can...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 1 - PERMITTED</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000002">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000002</span>
+                <span class="node-title">When the ceiling separates from an upper floor, it must have at least the same fire resistance requi...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 2 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000003">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000003</span>
+                <span class="node-title">When a roof is not intended for any activity or evacuation, it does not need to have a fire compartm...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 3 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000004">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000004</span>
+                <span class="node-title">The fire resistance of the floor depends on the intended use of the area on the lower floor. See sec...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 4 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000005">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000005</span>
+                <span class="node-title">The fire resistance required for walls separating the parking area from other use zones is 180 minut...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 5 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-NORM">
+    <div class="node" data-node-id="N::000006">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000006</span>
+                <span class="node-title">The fire resistance is 180 minutes if it is a robotic parking lot.</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 6 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000002">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000002</span>
+                <span class="node-title">Seccion Sl 1 Propagacion interior</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Addresses internal fire propagation within buildings.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000003">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000003</span>
+                <span class="node-title">Compartmentacion en sectores de incendio</span>
+                <span class="node-type">Headline</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Details the compartmentalization of buildings into fire sectors.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-3 type-Table">
+    <div class="node" data-node-id="SE::000004">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000004</span>
+                <span class="node-title">Table 1.1 Condiciones de compartmentacion en sectores de incendio</span>
+                <span class="node-type">Table</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Conditions for compartmentalization in fire sectors based on building or establishment use.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000012">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000012</span>
+                <span class="node-title">In commercial establishments or centers that entirely occupy a detached building fully protected wit...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 12 - PERMISSIVE</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000013">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000013</span>
+                <span class="node-title">In commercial centers, each establishment for Public Assembly use must constitute at least one diffe...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 13 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000014">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000014</span>
+                <span class="node-title">The built surface area of each fire sector must not exceed 2,500 m².</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 14 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-3 type-Table">
+    <div class="node" data-node-id="SE::000005">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000005</span>
+                <span class="node-title">Resistencia al fuego de las paredes, techos y puertas que delimitan sectores de incendio</span>
+                <span class="node-type">Table</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Fire resistance requirements for walls, ceilings, and doors delimiting fire sectors.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000007">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000007</span>
+                <span class="node-title">Walls and ceilings separating the sector from the rest of the building for Commercial, Public Assemb...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 1 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000008">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000008</span>
+                <span class="node-title">Walls and ceilings separating the sector from the rest of the building for Parking use must have a f...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 1 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000009">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000009</span>
+                <span class="node-title">Doors between fire sectors must have a fire resistance of EI2 t-C5, where 't' is half the fire resis...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 2 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-3 type-Headline">
+    <div class="node" data-node-id="SE::000006">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000006</span>
+                <span class="node-title">Aparcamiento</span>
+                <span class="node-type">Headline</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Specific fire safety requirements for parking areas.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000010">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000010</span>
+                <span class="node-title">A parking area must constitute a differentiated fire sector when integrated into a building with oth...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 1 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-4 type-NORM">
+    <div class="node" data-node-id="N::000011">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">N::000011</span>
+                <span class="node-title">Automated parking lots located below another use must be compartmentalized into fire sectors not exc...</span>
+                <span class="node-type">NORM</span>
+                
+            </div>
+            <div class="node-summary">Paragraph 2 - MANDATORY</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000007">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000007</span>
+                <span class="node-title">Seccion Sl 2 Propagacion exterior</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Addresses external fire propagation.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000008">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000008</span>
+                <span class="node-title">Medianerias y fachadas</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers regulations for party walls and facades.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000009">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000009</span>
+                <span class="node-title">Cubiertas</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses regulations for roofs.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000010">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000010</span>
+                <span class="node-title">Seccion Sl 3 Evacuacion de ocupantes</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Covers the evacuation of occupants in case of fire.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000011">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000011</span>
+                <span class="node-title">Compatibilidad de los elementos de evacuacion</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses the compatibility of evacuation elements.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000012">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000012</span>
+                <span class="node-title">Calculo de la ocupacion</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Details the calculation of occupancy.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000013">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000013</span>
+                <span class="node-title">Numero de salidas y longitud de los recorridos de evacuacion</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Specifies the number of exits and length of evacuation routes.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000014">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000014</span>
+                <span class="node-title">Dimensionado de los medios de evacuacion</span>
+                <span class="node-type">Headline</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Covers the sizing of evacuation means.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-3 type-Headline">
+    <div class="node" data-node-id="SE::000015">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000015</span>
+                <span class="node-title">Criterios para la asignacion de los ocupantes</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Details criteria for occupant assignment.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-3 type-Headline">
+    <div class="node" data-node-id="SE::000016">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000016</span>
+                <span class="node-title">Calculo</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers calculation methods.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000017">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000017</span>
+                <span class="node-title">Proteccion de las escaleras</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses the protection of staircases.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000018">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000018</span>
+                <span class="node-title">Puertas situadas en recorridos de evacuacion</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers doors located in evacuation routes.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000019">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000019</span>
+                <span class="node-title">Penalizacion de los medios de evacuacion</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses penalties for evacuation means.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000020">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000020</span>
+                <span class="node-title">Control del humo de incendio</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers fire smoke control.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000021">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000021</span>
+                <span class="node-title">Evacuacion de personas con discapacidad en caso de incendio</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses the evacuation of people with disabilities in case of fire.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000022">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000022</span>
+                <span class="node-title">Seccion Sl 4 Instalaciones de proteccion contra incendios</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Covers fire protection installations.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000023">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000023</span>
+                <span class="node-title">Dotacion de instalaciones de proteccion contra incendios</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Specifies the provision of fire protection installations.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000024">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000024</span>
+                <span class="node-title">Penalizacion de las instalaciones manuales de proteccion contra incendios</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses penalties for manual fire protection installations.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000025">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000025</span>
+                <span class="node-title">Seccion Sl 5 Intervencion de los bomberos</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Covers firefighter intervention.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000026">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000026</span>
+                <span class="node-title">Condiciones de aproximacion y entorno</span>
+                <span class="node-type">Headline</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Details approach and surrounding conditions for firefighters.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-3 type-Headline">
+    <div class="node" data-node-id="SE::000027">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000027</span>
+                <span class="node-title">Aproximacion a los edificios</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers approach to buildings for firefighters.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-3 type-Headline">
+    <div class="node" data-node-id="SE::000028">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000028</span>
+                <span class="node-title">Entorno de los edificios</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses the surroundings of buildings for firefighter access.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000029">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000029</span>
+                <span class="node-title">Accesibilidad por fachada</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers facade accessibility for firefighters.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Section">
+    <div class="node" data-node-id="SE::000030">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000030</span>
+                <span class="node-title">Sección SI 6 Resistencia al fuego de la estructura</span>
+                <span class="node-type">Section</span>
+                <div class="collapse-btn" title="Click to expand/collapse"></div>
+            </div>
+            <div class="node-summary">Addresses the fire resistance of the building structure.</div>
+        </div>
+    </div>
+    <div class="tree-branch">
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000031">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000031</span>
+                <span class="node-title">Generalidades</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">General provisions regarding structural fire resistance.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000032">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000032</span>
+                <span class="node-title">Resistencia al fuego de la estructura</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers the fire resistance of the structure.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000033">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000033</span>
+                <span class="node-title">Elementos estructurales principales</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Addresses main structural elements.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000034">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000034</span>
+                <span class="node-title">Elementos estructurales secundarios</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers secondary structural elements.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000035">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000035</span>
+                <span class="node-title">Determinacion de los efectos de las acciones durante el incendio</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Details the determination of effects of actions during a fire.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-2 type-Headline">
+    <div class="node" data-node-id="SE::000036">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000036</span>
+                <span class="node-title">Determinacion de la resistencia al fuego</span>
+                <span class="node-type">Headline</span>
+                
+            </div>
+            <div class="node-summary">Covers the determination of fire resistance.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000037">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000037</span>
+                <span class="node-title">Anejo Sl A Terminologia</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Provides terminology for the document.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000038">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000038</span>
+                <span class="node-title">Anejo Sl B Tiempo equivalente de exposicion al fuego</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Covers the equivalent fire exposure time.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000039">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000039</span>
+                <span class="node-title">Anejo Sl C Resistencia al fuego de las estructuras de hormigon armado</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Details the fire resistance of reinforced concrete structures.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000040">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000040</span>
+                <span class="node-title">Anejo Sl D Resistencia al fuego de las estructuras de acero</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Covers the fire resistance of steel structures.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000041">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000041</span>
+                <span class="node-title">Anejo Sl E Resistencia al fuego de las estructuras de madera</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Details the fire resistance of timber structures.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000042">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000042</span>
+                <span class="node-title">Anejo Sl F Resistencia al fuego de los elementos de fabrica</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Covers the fire resistance of masonry elements.</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-1 type-Appendix">
+    <div class="node" data-node-id="SE::000043">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">SE::000043</span>
+                <span class="node-title">Anejo Sl G Normas relacionadas con la aplicacion del DB- Sl</span>
+                <span class="node-type">Appendix</span>
+                
+            </div>
+            <div class="node-summary">Lists standards related to the application of DB-SI.</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000001">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000001</span>
+                <span class="node-title">Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - ES</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000002">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000002</span>
+                <span class="node-title">Directive 89/106/CEE del Consejo</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - EU</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000003">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000003</span>
+                <span class="node-title"></span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - ES</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000004">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000004</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - Unknown jurisdiction</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000005">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000005</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - Unknown jurisdiction</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000006">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000006</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - Unknown jurisdiction</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000007">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000007</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - Unknown jurisdiction</div>
+        </div>
+    </div>
+</div>
+<div class="tree-node level-0 type-Legal Document">
+    <div class="node" data-node-id="LD::000008">
+        <div class="node-content">
+            <div class="node-header">
+                <span class="node-id">LD::000008</span>
+                <span class="node-title">None</span>
+                <span class="node-type">Legal Document</span>
+                
+            </div>
+            <div class="node-summary">Document - Unknown jurisdiction</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSummaries() {
+            const summaries = document.querySelectorAll('.node-summary');
+            summaries.forEach(summary => {
+                summary.style.display = summary.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+        
+        function expandAll() {
+            // Future implementation for collapsible nodes
+            console.log('Expand all functionality to be implemented');
+        }
+        
+        function collapseAll() {
+            // Future implementation for collapsible nodes
+            console.log('Collapse all functionality to be implemented');
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Section tree visualization loaded');
+        });
+    </script>
+</body>
+</html>
