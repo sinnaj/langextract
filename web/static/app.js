@@ -17,6 +17,10 @@
   let currentColumnCount = 1;
   let previewOptimizers = []; // Array of optimizers for each panel
 
+  // Expose state variables globally for preview optimizer navigation
+  window.selectedFilePaths = selectedFilePaths;
+  window.currentColumnCount = currentColumnCount;
+
   // Initialize performance optimizers
   let consoleOptimizer = null;
 
@@ -231,6 +235,7 @@
   function setColumnCount(count) {
     if (count < 1 || count > 3) return;
     currentColumnCount = count;
+    window.currentColumnCount = currentColumnCount; // Update global reference
     updatePreviewPanels();
     updateColumnButtons();
   }
@@ -246,6 +251,7 @@
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-5');
       columnSwitch.classList.add('hidden');
       currentColumnCount = 1;
+      window.currentColumnCount = currentColumnCount; // Update global reference
       updatePreviewPanels();
       updateColumnButtons();
     }
@@ -687,6 +693,7 @@
         
         btn.addEventListener('click', async () => {
           selectedFilePaths[panelIndex] = f.path;
+          window.selectedFilePaths = selectedFilePaths; // Update global reference
           
           // Update all badges selection state for this panel
           if (fileBadgesEl) {
