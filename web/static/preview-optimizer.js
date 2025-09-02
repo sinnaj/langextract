@@ -257,9 +257,12 @@ class PreviewOptimizer {
       console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
       console.log('Current UBERMODE state:', this.uberMode);
 
-      // Check if UBERMODE is enabled and ensure proper activation
-      if (this.uberMode) {
-        console.log('UBERMODE is enabled, rendering enhanced view');
+      // Check if UBERMODE is enabled and if this panel should show tree visualization
+      const shouldShowTreeView = this.shouldShowTreeVisualization();
+      console.log('Should show tree view:', shouldShowTreeView);
+      
+      if (this.uberMode && shouldShowTreeView) {
+        console.log('UBERMODE is enabled and this panel should show tree view');
         this.renderUberMode(obj, meta);
         return;
       }
@@ -697,6 +700,60 @@ class PreviewOptimizer {
   }
 
   // UBERMODE Methods
+  shouldShowTreeVisualization() {
+    // If UBERMODE is not enabled, never show tree visualization
+    if (!this.uberMode) {
+      return false;
+    }
+
+    // Get current panel configuration
+    const selectedFilePaths = window.selectedFilePaths || [null, null, null];
+    const currentColumnCount = window.currentColumnCount || 1;
+    
+    // Find which panel this optimizer instance belongs to
+    const currentPanelIndex = this.findCurrentPanelIndex();
+    console.log(`Current panel index: ${currentPanelIndex}`);
+    
+    if (currentPanelIndex === -1) {
+      console.warn('Could not determine current panel index');
+      return true; // Default to showing tree view if we can't determine
+    }
+    
+    // Find all JSON panel indices
+    const jsonPanelIndices = [];
+    for (let i = 0; i < Math.min(selectedFilePaths.length, currentColumnCount); i++) {
+      const filePath = selectedFilePaths[i];
+      if (filePath && filePath.toLowerCase().endsWith('.json')) {
+        jsonPanelIndices.push(i);
+      }
+    }
+    
+    console.log(`JSON panels found: ${jsonPanelIndices.join(', ')}`);
+    console.log(`Current panel ${currentPanelIndex}, leftmost JSON panel: ${jsonPanelIndices[0]}`);
+    
+    // Show tree visualization only in the leftmost JSON panel
+    const shouldShow = jsonPanelIndices.length > 0 && currentPanelIndex === jsonPanelIndices[0];
+    console.log(`Should show tree visualization: ${shouldShow} (multiple JSON panels: ${jsonPanelIndices.length > 1})`);
+    
+    return shouldShow;
+  }
+  
+  findCurrentPanelIndex() {
+    // Try to find which panel this optimizer instance belongs to
+    // We can do this by comparing the preview element with the panel elements
+    const panels = document.querySelectorAll('.preview-panel');
+    
+    for (let i = 0; i < panels.length; i++) {
+      const panel = panels[i];
+      const previewElement = panel.querySelector('.preview');
+      if (previewElement === this.element) {
+        return i;
+      }
+    }
+    
+    return -1; // Not found
+  }
+
   toggleUberMode() {
     this.uberMode = !this.uberMode;
     
@@ -708,7 +765,9 @@ class PreviewOptimizer {
       // Clear the element first
       this.element.innerHTML = '';
       
-      if (this.uberMode) {
+      const shouldShowTreeView = this.shouldShowTreeVisualization();
+      
+      if (this.uberMode && shouldShowTreeView) {
         this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
       } else {
         // Re-render with normal JSON view
@@ -1360,33 +1419,38 @@ class PreviewOptimizer {
   navigateToNode(node) {
     console.log(`Navigating to node: ${node.id} (${node.type})`);
     
-    // Check if we're in 3-column preview mode
+    // Check if we're in multi-column preview mode (2 or 3 columns)
     const columnInfo = this.getColumnInfo();
-    if (!columnInfo.is3ColumnMode) {
-      console.log('Not in 3-column mode, skipping navigation');
+    if (columnInfo.columnCount < 2) {
+      console.log('Not in multi-column mode, skipping navigation');
       this.highlightNodeSelection(node);
       return;
     }
     
-    // Find MD and JSON panels
+    // Find MD and JSON panels (exclude the current tree panel)
     const mdPanelIndex = this.findPanelByFileType('md');
-    const jsonPanelIndex = this.findPanelByFileType('json');
+    const jsonPanelIndices = this.findAllPanelsByFileType('json');
+    const currentPanelIndex = this.findCurrentPanelIndex();
     
-    if (mdPanelIndex === -1 && jsonPanelIndex === -1) {
-      console.log('No MD or JSON panels found for navigation');
+    // Filter out the current panel from JSON panels to avoid navigating to self
+    const otherJsonPanelIndices = jsonPanelIndices.filter(index => index !== currentPanelIndex);
+    
+    if (mdPanelIndex === -1 && otherJsonPanelIndices.length === 0) {
+      console.log('No MD or other JSON panels found for navigation');
       this.highlightNodeSelection(node);
       return;
     }
     
-    console.log(`Found panels - MD: ${mdPanelIndex}, JSON: ${jsonPanelIndex}`);
+    console.log(`Found panels - MD: ${mdPanelIndex}, Other JSON: ${otherJsonPanelIndices.join(', ')}, Current: ${currentPanelIndex}`);
     
-    // Navigate to the node in both panels
+    // Navigate to the node in MD panel
     if (mdPanelIndex !== -1) {
       this.navigateToNodeInMdPanel(node, mdPanelIndex);
     }
     
-    if (jsonPanelIndex !== -1) {
-      this.navigateToNodeInJsonPanel(node, jsonPanelIndex);
+    // Navigate to the node in other JSON panels (use the first other JSON panel)
+    if (otherJsonPanelIndices.length > 0) {
+      this.navigateToNodeInJsonPanel(node, otherJsonPanelIndices[0]);
     }
     
     // Highlight the selected node
@@ -1413,6 +1477,21 @@ class PreviewOptimizer {
       }
     }
     return -1;
+  }
+
+  findAllPanelsByFileType(fileExtension) {
+    // Access global selectedFilePaths from app.js
+    const selectedFilePaths = window.selectedFilePaths || [null, null, null];
+    const currentColumnCount = window.currentColumnCount || 1;
+    const indices = [];
+    
+    for (let i = 0; i < Math.min(selectedFilePaths.length, currentColumnCount); i++) {
+      const filePath = selectedFilePaths[i];
+      if (filePath && filePath.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
+        indices.push(i);
+      }
+    }
+    return indices;
   }
 
   navigateToNodeInMdPanel(node, panelIndex) {
