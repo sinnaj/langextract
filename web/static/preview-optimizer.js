@@ -253,13 +253,18 @@ class PreviewOptimizer {
     try {
       const obj = JSON.parse(content);
       this.currentJsonData = obj; // Store for UBERMODE
-      const pretty = JSON.stringify(obj, null, 2);
+      
+      console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
+      console.log('Current UBERMODE state:', this.uberMode);
 
-      // Check if UBERMODE is enabled
+      // Check if UBERMODE is enabled and ensure proper activation
       if (this.uberMode) {
+        console.log('UBERMODE is enabled, rendering enhanced view');
         this.renderUberMode(obj, meta);
         return;
       }
+
+      const pretty = JSON.stringify(obj, null, 2);
 
       // Prefer JSONFormatter for structured view if available and content size is reasonable
       if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
@@ -698,16 +703,19 @@ class PreviewOptimizer {
     // Update stats visibility
     this.updateStatsVisibility();
     
-    // Re-render current content if available
+    // Re-render current content if available and it's JSON
     if (this.currentJsonData) {
+      // Clear the element first
+      this.element.innerHTML = '';
+      
       if (this.uberMode) {
         this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
       } else {
         // Re-render with normal JSON view
-        const pretty = JSON.stringify(this.currentJsonData, null, 2);
         if (typeof JSONFormatter !== 'undefined') {
           this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
         } else {
+          const pretty = JSON.stringify(this.currentJsonData, null, 2);
           this.renderEnhancedJson(pretty, { size: 0, truncated: false });
         }
       }
@@ -728,6 +736,9 @@ class PreviewOptimizer {
   }
 
   renderUberMode(jsonData, meta) {
+    // Clear previous content
+    this.element.innerHTML = '';
+    
     // Update stats
     this.updateUberModeStats(jsonData);
     
@@ -830,122 +841,440 @@ class PreviewOptimizer {
     container.appendChild(title);
     
     const tree = document.createElement('div');
-    tree.className = 'tree-content space-y-2';
+    tree.className = 'tree-content space-y-1';
     
-    this.renderTreeNode(tree, data, '', 0);
+    // Build document tree from extraction data
+    const documentTree = this.buildDocumentTree(data);
+    this.renderDocumentTree(tree, documentTree);
     
     container.appendChild(tree);
     return container;
   }
 
-  renderTreeNode(container, data, key, level) {
-    if (level > 5) return; // Prevent excessive nesting
+  buildDocumentTree(data) {
+    const nodes = new Map();
+    const rootNodes = [];
     
-    const indent = level * 20;
-    const node = document.createElement('div');
-    node.className = `tree-node flex items-start space-x-2 py-1 px-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors`;
-    node.style.marginLeft = `${indent}px`;
-    
-    // Create expand/collapse indicator
-    const indicator = document.createElement('span');
-    indicator.className = 'tree-indicator text-gray-400 cursor-pointer select-none w-4 text-center';
-    
-    // Node content
-    const content = document.createElement('div');
-    content.className = 'tree-content flex-1';
-    
-    if (Array.isArray(data)) {
-      // Array node
-      indicator.textContent = level === 0 ? '' : '▼';
-      content.innerHTML = `
-        <span class="node-key font-medium text-blue-600 dark:text-blue-400">${key || 'Array'}</span>
-        <span class="node-type text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full ml-2">${data.length} items</span>
-      `;
+    // Handle extraction format
+    if (data && data.extractions && Array.isArray(data.extractions)) {
+      // Filter relevant extraction types like section_tree_visualizer.py does
+      const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
+      const relevant = data.extractions.filter(ext => 
+        relevantTypes.includes(ext.extraction_class)
+      );
       
-      // Add sample items
-      if (level < 3) {
-        data.slice(0, 5).forEach((item, index) => {
-          this.renderTreeNode(container, item, `[${index}]`, level + 1);
-        });
-        
-        if (data.length > 5) {
-          const more = document.createElement('div');
-          more.className = 'text-gray-500 text-sm';
-          more.style.marginLeft = `${(level + 1) * 20 + 20}px`;
-          more.textContent = `... and ${data.length - 5} more items`;
-          container.appendChild(more);
+      console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
+      
+      // First pass: create all nodes (following section_tree_visualizer.py pattern)
+      relevant.forEach(extraction => {
+        const attrs = extraction.attributes || {};
+        const nodeId = attrs.id;
+        if (!nodeId) {
+          console.warn('Skipping extraction without ID:', extraction);
+          return;
         }
+        
+        const nodeData = {
+          id: nodeId,
+          title: this.getNodeTitle(extraction),
+          type: extraction.extraction_class,
+          parentId: this.getParentId(extraction),
+          parentType: attrs.parent_type,
+          summary: this.getNodeSummary(extraction),
+          extractionText: extraction.extraction_text || '',
+          children: [],
+          isExpanded: false, // Start collapsed for better UX
+          level: 0, // Will be set during tree building
+          attributes: attrs,
+          extraction: extraction // Store the full extraction for reference
+        };
+        
+        nodes.set(nodeId, nodeData);
+        console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
+      });
+      
+      // Check if we need to create synthetic root nodes (following section_tree_visualizer.py)
+      this.createSyntheticRoots(nodes);
+      
+      // Second pass: build parent-child relationships
+      let orphanCount = 0;
+      nodes.forEach(node => {
+        if (node.parentId && nodes.has(node.parentId)) {
+          const parent = nodes.get(node.parentId);
+          parent.children.push(node);
+          node.level = parent.level + 1;
+          console.log(`Linked ${node.id} as child of ${parent.id} (level ${node.level})`);
+        } else {
+          // Node has no valid parent, make it a root
+          rootNodes.push(node);
+          node.level = 0;
+          if (node.parentId) {
+            console.warn(`Node ${node.id} has parent ${node.parentId} but parent not found - making it root`);
+            orphanCount++;
+          } else {
+            console.log(`Node ${node.id} is a root node`);
+          }
+        }
+      });
+      
+      if (orphanCount > 0) {
+        console.warn(`Found ${orphanCount} orphaned nodes that were promoted to root level`);
       }
       
-    } else if (data && typeof data === 'object') {
-      // Object node
-      const keys = Object.keys(data);
-      indicator.textContent = level === 0 ? '' : '▼';
+      // Sort children by ID for consistent ordering (following section_tree_visualizer.py)
+      nodes.forEach(node => {
+        node.children.sort((a, b) => a.id.localeCompare(b.id));
+      });
+      rootNodes.sort((a, b) => a.id.localeCompare(b.id));
       
-      // Determine object type and color
-      let objectType = 'Object';
-      let typeClass = 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
-      
-      if (data.statement_text) {
-        objectType = 'Norm';
-        typeClass = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
-      } else if (data.tag_path) {
-        objectType = 'Tag';
-        typeClass = 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
-      } else if (data.parameter_name) {
-        objectType = 'Parameter';
-        typeClass = 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200';
-      } else if (data.question_text) {
-        objectType = 'Question';
-        typeClass = 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200';
-      }
-      
-      content.innerHTML = `
-        <span class="node-key font-medium text-gray-800 dark:text-gray-200">${key || objectType}</span>
-        <span class="node-type text-xs ${typeClass} px-2 py-1 rounded-full ml-2">${objectType}</span>
-        ${keys.length > 0 ? `<span class="node-count text-xs text-gray-500 ml-2">${keys.length} fields</span>` : ''}
-      `;
-      
-      // Add summary if available
-      if (data.statement_text) {
-        const summary = document.createElement('div');
-        summary.className = 'text-sm text-gray-600 dark:text-gray-400 mt-1 truncate';
-        summary.textContent = data.statement_text.substring(0, 100) + (data.statement_text.length > 100 ? '...' : '');
-        content.appendChild(summary);
-      }
-      
-      // Render important fields
-      if (level < 3) {
-        const importantFields = ['id', 'statement_text', 'tag_path', 'parameter_name', 'question_text', 'location_name'];
-        keys.forEach(k => {
-          if (importantFields.includes(k) || keys.length <= 5) {
-            this.renderTreeNode(container, data[k], k, level + 1);
+      // Auto-expand first level for better initial view
+      rootNodes.forEach(root => {
+        root.isExpanded = true;
+        // Also expand first level of children if they have children
+        root.children.forEach(child => {
+          if (child.children.length > 0) {
+            child.isExpanded = false; // Keep second level collapsed initially
           }
         });
-        
-        if (keys.length > 5) {
-          const more = document.createElement('div');
-          more.className = 'text-gray-500 text-sm';
-          more.style.marginLeft = `${(level + 1) * 20 + 20}px`;
-          more.textContent = `... and ${keys.length - 5} more fields`;
-          container.appendChild(more);
-        }
-      }
+      });
       
-    } else {
-      // Primitive value
-      indicator.textContent = '';
-      const valueText = String(data).substring(0, 100);
-      const truncated = String(data).length > 100;
-      content.innerHTML = `
-        <span class="node-key font-medium text-gray-600 dark:text-gray-400">${key}:</span>
-        <span class="node-value text-gray-800 dark:text-gray-200 ml-2">${this.escapeHtml(valueText)}${truncated ? '...' : ''}</span>
-      `;
+      console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
+      console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
     }
     
-    node.appendChild(indicator);
-    node.appendChild(content);
-    container.appendChild(node);
+    return rootNodes;
+  }
+
+  // Helper method to determine parent ID following section_tree_visualizer.py patterns
+  getParentId(extraction) {
+    const attrs = extraction.attributes || {};
+    const type = extraction.extraction_class;
+    
+    // Follow the same parent ID resolution logic as section_tree_visualizer.py
+    if (type === 'NORM') {
+      return attrs.parent_section_id || attrs.parent_id;
+    } else if (type === 'TABLE') {
+      return attrs.parent_section_id || attrs.parent_id;
+    } else {
+      return attrs.parent_id;
+    }
+  }
+
+  // Create synthetic root nodes following section_tree_visualizer.py patterns
+  createSyntheticRoots(nodes) {
+    const cteRootId = 'CTE.DB.SI';
+    
+    if (!nodes.has(cteRootId)) {
+      const hasChildren = Array.from(nodes.values()).some(node => node.parentId === cteRootId);
+      if (hasChildren) {
+        console.log(`Creating synthetic root node for ${cteRootId}`);
+        nodes.set(cteRootId, {
+          id: cteRootId,
+          title: 'CTE DB-SI - Documento Básico de Seguridad en caso de Incendio',
+          type: 'LEGAL_DOCUMENT',
+          parentId: null,
+          parentType: null,
+          summary: 'Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio',
+          extractionText: 'Root Document',
+          children: [],
+          isExpanded: true, // Root should be expanded
+          level: 0,
+          attributes: { id: cteRootId },
+          extraction: null // Synthetic node
+        });
+      }
+    }
+    
+    // Check for other common patterns that might need synthetic roots
+    const potentialRoots = new Set();
+    nodes.forEach(node => {
+      if (node.parentId && !nodes.has(node.parentId)) {
+        potentialRoots.add(node.parentId);
+      }
+    });
+    
+    potentialRoots.forEach(rootId => {
+      if (rootId !== cteRootId) {
+        console.log(`Creating synthetic root node for ${rootId}`);
+        nodes.set(rootId, {
+          id: rootId,
+          title: this.generateSyntheticRootTitle(rootId),
+          type: 'LEGAL_DOCUMENT',
+          parentId: null,
+          parentType: null,
+          summary: `Synthetic root document: ${rootId}`,
+          extractionText: 'Synthetic Root Document',
+          children: [],
+          isExpanded: true,
+          level: 0,
+          attributes: { id: rootId },
+          extraction: null
+        });
+      }
+    });
+  }
+
+  generateSyntheticRootTitle(rootId) {
+    // Generate more meaningful titles for synthetic roots based on ID patterns
+    if (rootId.includes('CTE')) {
+      return 'CTE - Código Técnico de la Edificación';
+    } else if (rootId.includes('DB')) {
+      return `Documento Básico - ${rootId}`;
+    } else if (rootId.includes('SI')) {
+      return `Seguridad en caso de Incendio - ${rootId}`;
+    } else {
+      return `Document Root - ${rootId}`;
+    }
+  }
+
+  getNodeTitle(extraction) {
+    const attrs = extraction.attributes || {};
+    const type = extraction.extraction_class;
+    
+    // Follow section_tree_visualizer.py patterns for title extraction
+    if (type === 'SECTION') {
+      return attrs.section_title || extraction.extraction_text || 'Untitled Section';
+    } else if (type === 'NORM') {
+      const statement = attrs.norm_statement || attrs.statement_text || extraction.extraction_text || '';
+      // Truncate long norm statements like section_tree_visualizer.py does
+      return statement.length > 100 ? statement.substring(0, 100) + '...' : statement;
+    } else if (type === 'TABLE') {
+      return attrs.table_title || extraction.extraction_text?.substring(0, 50) || 'Table';
+    } else if (type === 'LEGAL_DOCUMENT') {
+      return attrs.doc_title || attrs.title || 'Legal Document';
+    }
+    return extraction.extraction_text || 'Unknown';
+  }
+
+  getNodeSummary(extraction) {
+    const attrs = extraction.attributes || {};
+    const type = extraction.extraction_class;
+    
+    // Follow section_tree_visualizer.py patterns for summary extraction
+    if (type === 'SECTION') {
+      return attrs.section_summary || '';
+    } else if (type === 'NORM') {
+      // Match the format: "Paragraph {number} - {obligation_type}"
+      const paragraphNum = attrs.paragraph_number || 'N/A';
+      const obligationType = attrs.obligation_type || 'Unknown';
+      return `Paragraph ${paragraphNum} - ${obligationType}`;
+    } else if (type === 'TABLE') {
+      return attrs.table_description || '';
+    } else if (type === 'LEGAL_DOCUMENT') {
+      // Match the format: "{doc_type} - {jurisdiction}"
+      const docType = attrs.doc_type || 'Document';
+      const jurisdiction = attrs.jurisdiction || 'Unknown jurisdiction';
+      return `${docType} - ${jurisdiction}`;
+    }
+    return '';
+  }
+
+  renderDocumentTree(container, nodes) {
+    nodes.forEach(node => {
+      this.renderDocumentNode(container, node, 0);
+    });
+  }
+
+  renderDocumentNode(container, node, level) {
+    const indent = level * 20;
+    const nodeElement = document.createElement('div');
+    nodeElement.className = 'tree-node';
+    nodeElement.style.marginLeft = `${indent}px`;
+    nodeElement.setAttribute('data-node-id', node.id);
+    
+    // Create the node content
+    const nodeContent = document.createElement('div');
+    nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
+    
+    // Expand/collapse indicator - make it more prominent and clickable
+    const indicator = document.createElement('span');
+    indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
+    
+    if (node.children.length > 0) {
+      indicator.textContent = node.isExpanded ? '▼' : '▶';
+      indicator.style.cursor = 'pointer';
+      indicator.classList.add('clickable', 'hover:text-blue-600', 'dark:hover:text-blue-400', 'hover:bg-blue-50', 'dark:hover:bg-blue-900', 'rounded');
+      // Add subtle rotation effect and scaling
+      if (!node.isExpanded) {
+        indicator.style.transform = 'rotate(-90deg) scale(0.9)';
+      } else {
+        indicator.style.transform = 'rotate(0deg) scale(1)';
+      }
+    } else {
+      indicator.textContent = '•';
+      indicator.style.opacity = '0.3';
+      indicator.style.cursor = 'default';
+    }
+    
+    // Node info
+    const info = document.createElement('div');
+    info.className = 'tree-info flex-1 min-w-0';
+    
+    const header = document.createElement('div');
+    header.className = 'tree-header flex items-center space-x-2 flex-wrap';
+    
+    const idSpan = document.createElement('span');
+    idSpan.className = 'node-id font-semibold text-blue-600 dark:text-blue-400 text-sm';
+    idSpan.textContent = node.id;
+    
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm';
+    titleSpan.textContent = node.title;
+    titleSpan.title = node.title; // Show full title on hover
+    titleSpan.style.wordBreak = 'break-word'; // Allow text wrapping
+    
+    const typeSpan = document.createElement('span');
+    typeSpan.className = `node-type text-xs px-2 py-1 rounded-full flex-shrink-0 font-medium ${this.getTypeClass(node.type)}`;
+    typeSpan.textContent = node.type;
+    
+    header.appendChild(idSpan);
+    header.appendChild(titleSpan);
+    header.appendChild(typeSpan);
+    info.appendChild(header);
+    
+    // Summary
+    if (node.summary) {
+      const summary = document.createElement('div');
+      summary.className = 'node-summary text-xs text-gray-600 dark:text-gray-400 mt-1';
+      summary.textContent = node.summary;
+      summary.title = node.summary; // Show full summary on hover
+      summary.style.wordBreak = 'break-word';
+      info.appendChild(summary);
+    }
+    
+    nodeContent.appendChild(indicator);
+    nodeContent.appendChild(info);
+    nodeElement.appendChild(nodeContent);
+    
+    // Create children container
+    const childrenContainer = document.createElement('div');
+    childrenContainer.className = 'tree-children transition-all duration-300 ease-in-out overflow-hidden';
+    
+    // Render children
+    if (node.children.length > 0) {
+      node.children.forEach(child => {
+        this.renderDocumentNode(childrenContainer, child, level + 1);
+      });
+      
+      // Set initial visibility with smooth transition
+      if (node.isExpanded) {
+        childrenContainer.style.display = 'block';
+        childrenContainer.style.maxHeight = 'none';
+        childrenContainer.style.opacity = '1';
+      } else {
+        childrenContainer.style.display = 'none';
+        childrenContainer.style.maxHeight = '0px';
+        childrenContainer.style.opacity = '0';
+      }
+      
+      nodeElement.appendChild(childrenContainer);
+    }
+    
+    // Enhanced click handler with better visual feedback - bind to entire node content
+    if (node.children.length > 0) {
+      const toggleNode = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, currently expanded: ${node.isExpanded}`);
+        
+        // Toggle expanded state
+        node.isExpanded = !node.isExpanded;
+        
+        // Update indicator with smooth animation
+        indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
+        if (node.isExpanded) {
+          indicator.textContent = '▼';
+          indicator.style.transform = 'rotate(0deg) scale(1)';
+          indicator.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+        } else {
+          indicator.textContent = '▶';
+          indicator.style.transform = 'rotate(-90deg) scale(0.9)';
+          indicator.style.backgroundColor = 'transparent';
+        }
+        
+        // Toggle children visibility with smooth animation
+        if (node.isExpanded) {
+          // Expanding
+          childrenContainer.style.display = 'block';
+          childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+          // Force a reflow
+          childrenContainer.offsetHeight;
+          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+          childrenContainer.style.opacity = '1';
+          
+          // Remove max-height after animation for dynamic content
+          setTimeout(() => {
+            if (node.isExpanded) {
+              childrenContainer.style.maxHeight = 'none';
+            }
+          }, 300);
+        } else {
+          // Collapsing
+          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+          childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+          // Force a reflow
+          childrenContainer.offsetHeight;
+          childrenContainer.style.maxHeight = '0px';
+          childrenContainer.style.opacity = '0';
+          
+          // Hide after animation completes
+          setTimeout(() => {
+            if (!node.isExpanded) { // Check if still collapsed
+              childrenContainer.style.display = 'none';
+            }
+          }, 300);
+        }
+        
+        console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
+        
+        // Reset indicator background after a brief moment
+        setTimeout(() => {
+          if (node.isExpanded) {
+            indicator.style.backgroundColor = 'transparent';
+          }
+        }, 200);
+      };
+      
+      // Bind click event to both the indicator and the entire node content for better UX
+      indicator.addEventListener('click', toggleNode);
+      nodeContent.addEventListener('click', toggleNode);
+      
+      // Add visual feedback on hover for clickable nodes
+      nodeContent.style.cursor = 'pointer';
+      
+      const originalBg = nodeContent.style.backgroundColor;
+      nodeContent.addEventListener('mouseenter', () => {
+        if (!nodeContent.style.backgroundColor || nodeContent.style.backgroundColor === originalBg) {
+          nodeContent.style.backgroundColor = 'rgba(59, 130, 246, 0.05)';
+          nodeContent.style.borderLeftColor = 'rgba(59, 130, 246, 0.3)';
+        }
+      });
+      
+      nodeContent.addEventListener('mouseleave', () => {
+        nodeContent.style.backgroundColor = originalBg;
+        nodeContent.style.borderLeftColor = 'transparent';
+      });
+    } else {
+      // Non-clickable nodes still get subtle hover effect
+      nodeContent.addEventListener('mouseenter', () => {
+        nodeContent.style.backgroundColor = 'rgba(156, 163, 175, 0.03)';
+      });
+      nodeContent.addEventListener('mouseleave', () => {
+        nodeContent.style.backgroundColor = '';
+      });
+    }
+    
+    container.appendChild(nodeElement);
+  }
+
+  getTypeClass(type) {
+    const classes = {
+      'SECTION': 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200',
+      'NORM': 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200',
+      'TABLE': 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200',
+      'LEGAL_DOCUMENT': 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200'
+    };
+    return classes[type] || 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
   }
 
   escapeHtml(text) {

@@ -127,6 +127,16 @@
         if (optimizer) {
           const isEnabled = optimizer.toggleUberMode();
           updateUberModeButton(btn, isEnabled);
+          
+          // Show/hide stats section
+          const statsSection = document.querySelector('.ubermode-stats');
+          if (statsSection) {
+            if (isEnabled) {
+              statsSection.classList.remove('hidden');
+            } else {
+              statsSection.classList.add('hidden');
+            }
+          }
         }
       });
     });
@@ -696,6 +706,32 @@
           // Use preview optimizer if available
           if (previewOptimizers[panelIndex]) {
             await previewOptimizers[panelIndex].loadFile(runId, f.path, f.size);
+            
+            // After loading file, sync UBERMODE state properly
+            const panel = panels[panelIndex];
+            const uberToggle = panel?.querySelector('.ubermode-toggle');
+            if (uberToggle) {
+              const isButtonEnabled = uberToggle.getAttribute('data-enabled') === 'true';
+              const isOptimizerUberMode = previewOptimizers[panelIndex].uberMode;
+              
+              // Wait for JSON data to be parsed before checking UBERMODE activation
+              setTimeout(() => {
+                const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
+                console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
+                
+                // Only trigger UBERMODE if button is enabled and JSON data is available
+                if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
+                  console.log('Activating UBERMODE for newly loaded JSON file');
+                  previewOptimizers[panelIndex].toggleUberMode();
+                  updateUberModeButton(uberToggle, true);
+                } else if (!isButtonEnabled && isOptimizerUberMode) {
+                  // Button is disabled but optimizer is in UBERMODE - deactivate it
+                  console.log('Deactivating UBERMODE - button is disabled');
+                  previewOptimizers[panelIndex].toggleUberMode();
+                  updateUberModeButton(uberToggle, false);
+                }
+              }, 100); // Small delay to ensure JSON parsing is complete
+            }
           } else {
             // Fallback to original loading method
             await loadFileOriginal(runId, f, panelIndex);
