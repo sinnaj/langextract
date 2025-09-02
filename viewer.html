@@ -64,6 +64,78 @@
     .nowrap { white-space: nowrap; }
     .right { text-align: right; }
     .hidden { display: none; }
+    
+    /* Comment styles */
+    .comments-cell { max-width: 200px; }
+    .comment-item { 
+      background: rgba(55, 65, 81, 0.3); 
+      border: 1px solid var(--border); 
+      border-radius: 6px; 
+      padding: 8px; 
+      margin: 4px 0; 
+      font-size: 12px; 
+    }
+    .comment-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 4px; 
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .comment-text { 
+      margin-bottom: 6px; 
+      word-wrap: break-word; 
+    }
+    .comment-reply { 
+      margin-left: 16px; 
+      border-left: 2px solid var(--border); 
+      padding-left: 8px; 
+    }
+    .comment-actions { 
+      display: flex; 
+      gap: 8px; 
+      font-size: 10px; 
+    }
+    .comment-actions button { 
+      background: none; 
+      border: 1px solid var(--border); 
+      color: var(--muted); 
+      padding: 2px 6px; 
+      border-radius: 3px; 
+      cursor: pointer; 
+      font-size: 10px;
+    }
+    .comment-actions button:hover { 
+      background: var(--chip); 
+    }
+    .delete-btn {
+      color: var(--error) !important;
+      border-color: var(--error) !important;
+    }
+    .delete-btn:hover {
+      background: rgba(239, 68, 68, 0.1) !important;
+    }
+    .edit-btn {
+      color: var(--accent2) !important;
+      border-color: var(--accent2) !important;
+    }
+    .edit-btn:hover {
+      background: rgba(96, 165, 250, 0.1) !important;
+    }
+    .add-comment-btn { 
+      background: var(--panel); 
+      border: 1px solid var(--border); 
+      color: var(--text); 
+      padding: 4px 8px; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 11px; 
+      margin: 2px 0; 
+    }
+    .add-comment-btn:hover { 
+      background: var(--chip); 
+    }
   </style>
   <script>
     // Load JSON based on URL param ?file=..., fallback to output.json, then annotated_extractions_single.json
@@ -451,6 +523,9 @@
                 <div style="margin-top:6px;">${detailsHtml || '<em class="muted">No additional fields</em>'}</div>
               </details>
             </td>
+            <td class="comments-cell">
+              ${renderCommentsForLine(id)}
+            </td>
           `;
           tbody.appendChild(tr);
         }
@@ -486,11 +561,291 @@
     }
 
     let CURRENT_DATA = null; // normalized shape
+    let CURRENT_FILENAME = null; // currently loaded filename for comments
+    let COMMENTS_DATA = {}; // loaded comments for current file
+
+    // Author name management
+    function getAuthorName() {
+      return localStorage.getItem('viewer_author_name') || '';
+    }
+
+    function setAuthorName(name) {
+      localStorage.setItem('viewer_author_name', name);
+      setText('authorName', name || 'Set author name');
+    }
+
+    function promptForAuthorName() {
+      const name = prompt('Enter your name for comments:', getAuthorName());
+      if (name && name.trim()) {
+        setAuthorName(name.trim());
+        return name.trim();
+      }
+      return null;
+    }
+
+    function ensureAuthorName() {
+      const existing = getAuthorName();
+      if (existing) return existing;
+      return promptForAuthorName();
+    }
+
+    // Comments management
+    async function loadComments(filename) {
+      if (!filename) return;
+      const commentsFile = filename.replace(/\.json$/i, '') + '_comments.json';
+      try {
+        const res = await fetch(commentsFile, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        COMMENTS_DATA = await res.json();
+        console.log('Loaded comments from file:', commentsFile);
+      } catch (e) {
+        console.log('No comments file found, checking localStorage backup:', commentsFile);
+        // Try loading from localStorage backup
+        const localBackup = loadCommentsFromLocalStorage(filename);
+        if (localBackup) {
+          COMMENTS_DATA = localBackup;
+          console.log('Loaded comments from localStorage backup');
+        } else {
+          COMMENTS_DATA = { comments: [] };
+          console.log('No comments found, starting with empty comments');
+        }
+      }
+      // Update save button state after loading
+      updateSaveButtonState();
+    }
+
+    async function saveComments(filename) {
+      if (!filename) return;
+      const commentsFile = filename.replace(/\.json$/i, '') + '_comments.json';
+      try {
+        const blob = new Blob([JSON.stringify(COMMENTS_DATA, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = commentsFile.split('/').pop() || 'comments.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        
+        // Update button state to show comments are saved
+        const saveBtn = byId('saveComments');
+        if (saveBtn) {
+          saveBtn.textContent = 'Save Comments ✓';
+          saveBtn.style.color = '#22c55e'; // green color to indicate saved
+          setTimeout(() => {
+            updateSaveButtonState(); // Reset after 2 seconds
+          }, 2000);
+        }
+      } catch (e) {
+        console.error('Error saving comments:', e);
+        alert('Error saving comments: ' + e.message);
+      }
+    }
+
+    // Save comments to localStorage as backup (to prevent loss)
+    function backupCommentsToLocalStorage() {
+      if (CURRENT_FILENAME && COMMENTS_DATA.comments?.length > 0) {
+        const backupKey = 'langextract_comments_' + CURRENT_FILENAME.replace(/[^a-zA-Z0-9]/g, '_');
+        localStorage.setItem(backupKey, JSON.stringify(COMMENTS_DATA));
+        // Update save button to indicate unsaved changes
+        updateSaveButtonState();
+      }
+    }
+
+    // Update the save button appearance based on whether there are unsaved changes
+    function updateSaveButtonState() {
+      const saveBtn = byId('saveComments');
+      if (!saveBtn) return;
+      
+      if (!CURRENT_FILENAME) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Save Comments';
+        saveBtn.style.color = '#6b7280'; // gray color for disabled
+        saveBtn.title = 'Load a JSON file first to enable comment saving';
+      } else if (COMMENTS_DATA.comments?.length > 0) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Comments*';
+        saveBtn.style.color = '#f59e0b'; // amber color to indicate unsaved changes
+        saveBtn.title = 'Save comments to file (you have unsaved comments)';
+      } else {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Comments';
+        saveBtn.style.color = '';
+        saveBtn.title = 'Save comments to file';
+      }
+    }
+
+    // Load comments from localStorage backup if available
+    function loadCommentsFromLocalStorage(filename) {
+      const backupKey = 'langextract_comments_' + filename.replace(/[^a-zA-Z0-9]/g, '_');
+      const backup = localStorage.getItem(backupKey);
+      return backup ? JSON.parse(backup) : null;
+    }
+
+    function addComment(lineId, text, author) {
+      if (!COMMENTS_DATA.comments) COMMENTS_DATA.comments = [];
+      const comment = {
+        id: 'comment_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        lineId: lineId,
+        author: author,
+        text: text,
+        timestamp: new Date().toISOString(),
+        replies: []
+      };
+      COMMENTS_DATA.comments.push(comment);
+      backupCommentsToLocalStorage(); // Backup to localStorage
+      return comment;
+    }
+
+    function addReply(commentId, text, author) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment) return null;
+      const reply = {
+        id: 'reply_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        author: author,
+        text: text,
+        timestamp: new Date().toISOString()
+      };
+      comment.replies.push(reply);
+      backupCommentsToLocalStorage(); // Backup to localStorage
+      return reply;
+    }
+
+    function deleteComment(commentId) {
+      if (!COMMENTS_DATA.comments) return;
+      const index = COMMENTS_DATA.comments.findIndex(c => c.id === commentId);
+      if (index !== -1) {
+        const comment = COMMENTS_DATA.comments[index];
+        const replyCount = comment.replies ? comment.replies.length : 0;
+        const message = replyCount > 0 
+          ? `Delete this comment and ${replyCount} ${replyCount === 1 ? 'reply' : 'replies'}?`
+          : 'Delete this comment?';
+        
+        if (confirm(message)) {
+          COMMENTS_DATA.comments.splice(index, 1);
+          renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+          backupCommentsToLocalStorage(); // Backup to localStorage
+        }
+      }
+    }
+
+    function deleteReply(commentId, replyId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment || !comment.replies) return;
+      const index = comment.replies.findIndex(r => r.id === replyId);
+      if (index !== -1) {
+        if (confirm('Delete this reply?')) {
+          comment.replies.splice(index, 1);
+          renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
+          backupCommentsToLocalStorage(); // Backup to localStorage
+        }
+      }
+    }
+
+    function editComment(commentId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment) return;
+      
+      const newText = prompt('Edit comment:', comment.text);
+      if (newText !== null && newText.trim()) {
+        comment.text = newText.trim();
+        comment.timestamp = new Date().toISOString(); // Update timestamp
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
+        backupCommentsToLocalStorage(); // Backup to localStorage
+      }
+    }
+
+    function editReply(commentId, replyId) {
+      const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
+      if (!comment || !comment.replies) return;
+      const reply = comment.replies.find(r => r.id === replyId);
+      if (!reply) return;
+      
+      const newText = prompt('Edit reply:', reply.text);
+      if (newText !== null && newText.trim()) {
+        reply.text = newText.trim();
+        reply.timestamp = new Date().toISOString(); // Update timestamp
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show changes
+        backupCommentsToLocalStorage(); // Backup to localStorage
+      }
+    }
+
+    function getCommentsForLine(lineId) {
+      return COMMENTS_DATA.comments?.filter(c => c.lineId === lineId) || [];
+    }
+
+    function renderCommentsForLine(lineId) {
+      const comments = getCommentsForLine(lineId);
+      let html = '';
+      
+      // Add comment button
+      html += `<button class="add-comment-btn" onclick="addCommentToLine('${lineId}')">+ Add Comment</button>`;
+      
+      // Render existing comments
+      for (const comment of comments) {
+        html += `<div class="comment-item">
+          <div class="comment-header">
+            <strong>${escapeHtml(comment.author)}</strong>
+            <span>${new Date(comment.timestamp).toLocaleDateString()}</span>
+          </div>
+          <div class="comment-text">${escapeHtml(comment.text)}</div>
+          <div class="comment-actions">
+            <button onclick="replyToComment('${comment.id}')">Reply</button>
+            <button class="edit-btn" onclick="editComment('${comment.id}')" title="Edit comment">✏️</button>
+            <button class="delete-btn" onclick="deleteComment('${comment.id}')" title="Delete comment and all replies">🗑️</button>
+          </div>`;
+        
+        // Render replies
+        for (const reply of comment.replies || []) {
+          html += `<div class="comment-reply">
+            <div class="comment-header">
+              <strong>${escapeHtml(reply.author)}</strong>
+              <span>${new Date(reply.timestamp).toLocaleDateString()}</span>
+              <button class="edit-btn" onclick="editReply('${comment.id}', '${reply.id}')" title="Edit reply" style="margin-left: auto; padding: 1px 4px; font-size: 9px;">✏️</button>
+              <button class="delete-btn" onclick="deleteReply('${comment.id}', '${reply.id}')" title="Delete reply" style="padding: 1px 4px; font-size: 9px;">🗑️</button>
+            </div>
+            <div class="comment-text">${escapeHtml(reply.text)}</div>
+          </div>`;
+        }
+        
+        html += '</div>';
+      }
+      
+      return html;
+    }
+
+    function addCommentToLine(lineId) {
+      const author = ensureAuthorName();
+      if (!author) return;
+      
+      const text = prompt('Enter your comment:');
+      if (text && text.trim()) {
+        addComment(lineId, text.trim(), author);
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show new comment
+      }
+    }
+
+    function replyToComment(commentId) {
+      const author = ensureAuthorName();
+      if (!author) return;
+      
+      const text = prompt('Enter your reply:');
+      if (text && text.trim()) {
+        addReply(commentId, text.trim(), author);
+        renderEntitiesNormalized(CURRENT_DATA); // Re-render to show new reply
+      }
+    }
 
     async function init() {
+      // Initialize author name
+      setAuthorName(getAuthorName());
+      // Initialize save button state
+      updateSaveButtonState();
+      
       const autof = await loadDefaultJson();
       if (autof) {
         CURRENT_DATA = normalizeData(autof);
+        CURRENT_FILENAME = 'output.json'; // Default filename
+        await loadComments(CURRENT_FILENAME);
         renderSummaryNormalized(CURRENT_DATA);
         renderEntitiesNormalized(CURRENT_DATA);
       } else {
@@ -501,6 +856,8 @@
         const data = await loadDefaultJson();
         if (!data) return alert('Could not load output.json – use the file picker.');
         CURRENT_DATA = normalizeData(data);
+        CURRENT_FILENAME = 'output.json';
+        await loadComments(CURRENT_FILENAME);
         renderSummaryNormalized(CURRENT_DATA);
         renderEntitiesNormalized(CURRENT_DATA);
       });
@@ -512,6 +869,8 @@
         try {
           const data = JSON.parse(text);
           CURRENT_DATA = normalizeData(data);
+          CURRENT_FILENAME = file.name;
+          await loadComments(CURRENT_FILENAME);
           renderSummaryNormalized(CURRENT_DATA);
           renderEntitiesNormalized(CURRENT_DATA);
         } catch (err) {
@@ -533,8 +892,13 @@
     <h1>LangExtract Output Viewer</h1>
     <span class="muted">doc:</span> <span id="docId" class="mono"></span>
     <div class="spacer"></div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="muted">Author:</span>
+      <button id="authorName" class="ghost" onclick="promptForAuthorName()" title="Click to set/change author name">Set author name</button>
+    </div>
     <button id="reloadBtn" class="ghost">Reload output.json</button>
     <input id="fileInput" type="file" accept="application/json" />
+    <button id="saveComments" class="ghost" onclick="saveComments(CURRENT_FILENAME)" title="Save comments to file">Save Comments</button>
     <button id="exportCsv" class="ghost">Export norms CSV</button>
   </header>
 
@@ -599,7 +963,7 @@
         <span class="muted">shown:</span> <span id="normsShown" class="mono">0</span>
       </div>
       <div style="overflow:auto;">
-        <table class="table" style="min-width: 900px;">
+        <table class="table" style="min-width: 1100px;">
           <thead>
             <tr>
               <th style="width: 120px;">id</th>
@@ -607,6 +971,7 @@
               <th style="width: 130px;">type</th>
               <th style="width: 80px;" class="right">priority</th>
               <th>norm</th>
+              <th style="width: 200px;">comments</th>
             </tr>
           </thead>
           <tbody id="normsBody"></tbody>

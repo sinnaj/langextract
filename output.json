@@ -1,0 +1,33 @@
+{
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "The building must have fire exits",
+      "attributes": {
+        "id": "N::0001",
+        "norm_statement": "The building must have fire exits",
+        "obligation_type": "MANDATORY",
+        "priority": 5
+      }
+    },
+    {
+      "extraction_class": "NORM", 
+      "extraction_text": "Windows must be at least 1.2m wide",
+      "attributes": {
+        "id": "N::0002",
+        "norm_statement": "Windows must be at least 1.2m wide",
+        "obligation_type": "MANDATORY",
+        "priority": 3
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.SAFETY",
+      "attributes": {
+        "id": "T::0001",
+        "tag": "FIRE.SAFETY"
+      }
+    }
+  ],
+  "document_id": "test_doc"
+}
