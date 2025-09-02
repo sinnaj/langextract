@@ -629,7 +629,7 @@ def makeRun(
             # Scan items for norms to process
             norms_to_process = []
             for item in raw_items:
-                if item and isinstance(item, dict) and item.get("extraction_class") == "NormativeStatement":
+                if item and isinstance(item, dict) and item.get("extraction_class") == "NORM":
                     norms_to_process.append(item.get("attributes", {}))
             
             # Process norms for tags and parameters
@@ -640,82 +640,64 @@ def makeRun(
                 norm_id = norm_data.get("id")
                 if not norm_id:
                     continue
-                        
-                    topics = norm_data.get("topics")
-                    if topics is None:
-                        topics = []
-                    elif not isinstance(topics, list):
-                        topics = []
+                
+                topics = norm_data.get("topics")
+                if topics is None:
+                    topics = []
+                elif not isinstance(topics, list):
+                    topics = []
 
-                    # Relevant tags - ensure it's a list
-                    relevant_tags = norm_data.get("relevant_tags")
-                    if relevant_tags is None:
-                        relevant_tags = []
-                    elif not isinstance(relevant_tags, list):
-                        relevant_tags = []
-                    
-                    for tag_path in relevant_tags:
-                        if not isinstance(tag_path, str):
-                            log_debug(f"Skipping non-string tag_path: {type(tag_path)}")
-                            continue
-                        if tag_path not in tag_map:
-                            tag_map[tag_path] = {
-                                "extraction_class": "Tag",
-                                "extraction_text": tag_path,
-                                "attributes": {
-                                    "id": _next_tid(),
-                                    "tag": tag_path,
-                                    "used_by_norm_ids": [norm_id],
-                                    "related_topics": topics,
-                                },
-                            }
-                            log_debug(f"Added new tag to tag_map: {tag_path}")
-                        else:
-                            try:
-                                u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
-                                if u is None:
-                                    log_debug(f"WARNING: used_by_norm_ids is None for tag {tag_path}, creating new list")
-                                    u = []
-                                    tag_map[tag_path]["attributes"]["used_by_norm_ids"] = u
-                                if norm_id not in u:
-                                    u.append(norm_id)
-                                log_debug(f"Updated existing tag: {tag_path}, used_by_norm_ids now: {u}")
-                            except Exception as tag_update_err:
-                                log_debug(f"ERROR updating tag {tag_path}: {tag_update_err}")
-                                # Recreate the tag to be safe
-                                tag_map[tag_path] = {
-                                    "extraction_class": "Tag",
-                                    "extraction_text": tag_path,
-                                    "attributes": {
-                                        "id": _next_tid(),
-                                        "tag": tag_path,
-                                        "used_by_norm_ids": [norm_id],
-                                        "related_topics": topics,
-                                    },
-                                }
-
-                    # Extracted parameters - ensure it's a list
-                    extracted_parameters = norm_data.get("extracted_parameters")
-                    if extracted_parameters is None:
-                        extracted_parameters = []
-                    elif not isinstance(extracted_parameters, list):
-                        extracted_parameters = []
-                        
-                    for expr in extracted_parameters:
-                        parsed = _parse_param(expr)
-                        if not parsed:
-                            continue
-                        path, op, val, unit = parsed
-                        param_list.append({
-                            "extraction_class": "Parameter",
-                            "extraction_text": expr,
+                # Relevant tags - ensure it's a list
+                relevant_tags = norm_data.get("relevant_tags")
+                if relevant_tags is None:
+                    relevant_tags = []
+                elif not isinstance(relevant_tags, list):
+                    relevant_tags = []
+                
+                for tag_path in relevant_tags:
+                    if not isinstance(tag_path, str):
+                        continue
+                    if tag_path not in tag_map:
+                        tag_map[tag_path] = {
+                            "extraction_class": "Tag",
+                            "extraction_text": tag_path,
                             "attributes": {
-                                "id": _next_pid(),
-                                "applies_for_tag": path,
-                                "operator": op,
-                                "value": val,
-                                "unit": unit,
-                                "norm_ids": [norm_id],
+                                "id": _next_tid(),
+                                "tag": tag_path,
+                                "used_by_norm_ids": [norm_id],
+                                "related_topics": topics,
+                            },
+                        }
+                    else:
+                        u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
+                        if u is None:
+                            u = []
+                            tag_map[tag_path]["attributes"]["used_by_norm_ids"] = u
+                        if norm_id not in u:
+                            u.append(norm_id)
+
+                # Extracted parameters - ensure it's a list
+                extracted_parameters = norm_data.get("extracted_parameters")
+                if extracted_parameters is None:
+                    extracted_parameters = []
+                elif not isinstance(extracted_parameters, list):
+                    extracted_parameters = []
+                    
+                for expr in extracted_parameters:
+                    parsed = _parse_param(expr)
+                    if not parsed:
+                        continue
+                    path, op, val, unit = parsed
+                    param_list.append({
+                        "extraction_class": "Parameter",
+                        "extraction_text": expr,
+                        "attributes": {
+                            "id": _next_pid(),
+                            "applies_for_tag": path,
+                            "operator": op,
+                            "value": val,
+                            "unit": unit,
+                            "norm_ids": [norm_id],
                             },
                         })
 
