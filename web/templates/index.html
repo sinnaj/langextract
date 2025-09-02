@@ -195,6 +195,9 @@
               <div class="flex items-center justify-between mb-2">
                 <h2 class="text-lg font-semibold">Preview</h2>
                 <div class="flex items-center space-x-2 text-xs text-gray-500">
+                  <button class="ubermode-toggle hover:text-gray-700 dark:hover:text-gray-300 px-2 py-1 rounded transition-colors duration-200" title="Toggle UBERMODE" data-enabled="false">
+                    🚀
+                  </button>
                   <button class="collapse-toggle hover:text-gray-700 dark:hover:text-gray-300" title="Toggle input panel">
                     ◀
                   </button>
@@ -215,6 +218,51 @@
                 </select>
               </div>
               <div class="file-badges flex flex-wrap gap-2 mb-2"></div>
+              
+              <!-- UBERMODE Stats Section (hidden by default) -->
+              <div class="ubermode-stats hidden mb-4">
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-between p-3 cursor-pointer stats-header" data-expanded="true">
+                    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">📊 Document Statistics</h3>
+                    <span class="stats-toggle text-gray-400 transform transition-transform duration-200">▼</span>
+                  </div>
+                  <div class="stats-content p-3 pt-0 border-t border-gray-200 dark:border-gray-700">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Total Items</div>
+                        <div class="text-lg font-mono font-semibold text-gray-900 dark:text-gray-100 stats-total-items">—</div>
+                      </div>
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Norms</div>
+                        <div class="text-lg font-mono font-semibold text-blue-600 dark:text-blue-400 stats-norms">—</div>
+                      </div>
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Tags</div>
+                        <div class="text-lg font-mono font-semibold text-green-600 dark:text-green-400 stats-tags">—</div>
+                      </div>
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Parameters</div>
+                        <div class="text-lg font-mono font-semibold text-purple-600 dark:text-purple-400 stats-parameters">—</div>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Questions</div>
+                        <div class="text-lg font-mono font-semibold text-orange-600 dark:text-orange-400 stats-questions">—</div>
+                      </div>
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Locations</div>
+                        <div class="text-lg font-mono font-semibold text-teal-600 dark:text-teal-400 stats-locations">—</div>
+                      </div>
+                      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Quality</div>
+                        <div class="text-lg font-mono font-semibold text-red-600 dark:text-red-400 stats-quality">—</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div class="preview bg-white border rounded p-3 h-[calc(100vh-12rem)] min-h-[400px] overflow-auto dark:bg-gray-800 dark:border-gray-700"></div>
             </div>
           </div>
