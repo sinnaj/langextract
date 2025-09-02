@@ -1,0 +1,27 @@
+GET http://localhost:5000/api/comments
+    ?file_path=requirements.txt
+    
+
+### A new comment
+# @name createComment
+POST http://localhost:5000/api/comments HTTP/1.1
+Content-Type: application/json
+
+{
+  "file_path": "requirements.txt",
+  "author_name": "T-Diddy",
+  "line_number": 3,
+  "text_body": "Consider using a virtual environment for better dependency management."
+}
+
+### A Reply to that comment
+POST http://localhost:5000/api/comments HTTP/1.1
+Content-Type: application/json
+
+{
+  "file_path": "requirements.txt",
+  "author_name": "CodeReviewer",
+  "line_number": 3,
+  "text_body": "Great suggestion! Virtual environments help avoid conflicts between dependencies.",
+  "parent_comment_id": "{{createComment.response.body.$.comment.id}}"
+}
