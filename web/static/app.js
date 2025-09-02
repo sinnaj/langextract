@@ -132,6 +132,9 @@
           const isEnabled = optimizer.toggleUberMode();
           updateUberModeButton(btn, isEnabled);
           
+          // Refresh all other JSON panels to update their tree/JSON view based on new configuration
+          refreshAllJsonPanels(panelIndex);
+          
           // Show/hide stats section
           const statsSection = document.querySelector('.ubermode-stats');
           if (statsSection) {
@@ -872,6 +875,40 @@
   }
 
   // UBERMODE utility functions
+  function refreshAllJsonPanels(excludePanelIndex) {
+    // Refresh all JSON panels except the one that triggered the toggle
+    previewOptimizers.forEach((optimizer, index) => {
+      if (index !== excludePanelIndex && optimizer && optimizer.currentJsonData) {
+        const filePath = selectedFilePaths[index];
+        if (filePath && filePath.toLowerCase().endsWith('.json')) {
+          console.log(`Refreshing JSON panel ${index} after UBERMODE toggle`);
+          
+          // Sync UBERMODE state from the triggering panel
+          const triggeringOptimizer = previewOptimizers[excludePanelIndex];
+          if (triggeringOptimizer) {
+            optimizer.uberMode = triggeringOptimizer.uberMode;
+            
+            // Re-render with current JSON data
+            optimizer.element.innerHTML = '';
+            const shouldShowTreeView = optimizer.shouldShowTreeVisualization();
+            
+            if (optimizer.uberMode && shouldShowTreeView) {
+              optimizer.renderUberMode(optimizer.currentJsonData, { size: 0, truncated: false });
+            } else {
+              // Re-render with normal JSON view
+              if (typeof JSONFormatter !== 'undefined') {
+                optimizer.renderEnhancedJsonObject(optimizer.currentJsonData, { size: 0, truncated: false });
+              } else {
+                const pretty = JSON.stringify(optimizer.currentJsonData, null, 2);
+                optimizer.renderEnhancedJson(pretty, { size: 0, truncated: false });
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
   function updateUberModeButton(button, isEnabled) {
     if (isEnabled) {
       button.classList.add('bg-blue-500', 'text-white');
