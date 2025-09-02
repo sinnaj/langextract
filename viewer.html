@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LangExtract Output Viewer</title>
+  <style>
+    :root {
+      --bg: #0f172a; /* slate-900 */
+      --panel: #111827; /* gray-900 */
+      --muted: #9ca3af; /* gray-400 */
+      --text: #e5e7eb; /* gray-200 */
+      --accent: #22c55e; /* green-500 */
+      --accent2: #60a5fa; /* blue-400 */
+      --warn: #f59e0b; /* amber-500 */
+      --error: #ef4444; /* red-500 */
+      --chip: #374151; /* gray-700 */
+      --border: #334155; /* slate-700 */
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    header {
+      display: flex; gap: 12px; align-items: center; padding: 16px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: rgba(15,23,42,0.9); backdrop-filter: blur(8px); z-index: 10;
+    }
+    header h1 { font-size: 18px; margin: 0 8px 0 0; font-weight: 600; }
+    header .spacer { flex: 1; }
+    button, select, input[type="text"] {
+      background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 10px; font-size: 14px;
+    }
+    button { cursor: pointer; }
+    button.primary { background: linear-gradient(135deg, #059669, #16a34a, #22c55e); border-color: #065f46; }
+    button.ghost { background: transparent; }
+    main { padding: 16px; }
+    .grid { display: grid; gap: 12px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      background: linear-gradient(180deg, rgba(17,24,39,0.8), rgba(2,6,23,0.8));
+      border: 1px solid var(--border); border-radius: 12px; padding: 12px;
+    }
+    .kpi { display: flex; flex-direction: column; gap: 4px; }
+    .kpi .label { color: var(--muted); font-size: 12px; }
+    .kpi .value { font-size: 18px; font-weight: 600; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip { background: var(--chip); border: 1px solid var(--border); padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+    .table { width: 100%; border-collapse: collapse; }
+    .table th, .table td { border-bottom: 1px solid var(--border); padding: 10px; vertical-align: top; }
+    .table th { text-align: left; color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing: 0.03em; }
+    .muted { color: var(--muted); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    details > summary { cursor: pointer; }
+    .pill { padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; }
+    .pill.mandatory { background: rgba(34,197,94,0.1); border-color: #14532d; color: #86efac; }
+    .pill.permission { background: rgba(96,165,250,0.1); border-color: #1e3a8a; color: #bfdbfe; }
+    .pill.prohibition { background: rgba(239,68,68,0.1); border-color: #7f1d1d; color: #fecaca; }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+    .footer { color: var(--muted); font-size: 12px; padding: 16px; border-top: 1px solid var(--border); }
+    .nowrap { white-space: nowrap; }
+    .right { text-align: right; }
+    .hidden { display: none; }
+  </style>
+  <script>
+    // Load JSON based on URL param ?file=..., fallback to output.json, then annotated_extractions_single.json
+    async function loadDefaultJson() {
+      const params = new URLSearchParams(location.search);
+      const tryFiles = [];
+      const qFile = params.get('file');
+      if (qFile) tryFiles.push(qFile);
+      tryFiles.push('output.json');
+      tryFiles.push('annotated_extractions_single.json');
+      for (const f of tryFiles) {
+        try {
+          const res = await fetch(f, { cache: 'no-store' });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const data = await res.json();
+          return data;
+        } catch (e) {
+          console.warn('Fetch failed for', f, '→', e);
+        }
+      }
+      console.warn('Auto fetch failed for all candidates, use the file picker.');
+      return null;
+    }
+
+    function byId(id) { return document.getElementById(id); }
+
+    function setText(id, text) { const el = byId(id); if (el) el.textContent = text; }
+
+    function numberFormat(x) { try { return new Intl.NumberFormat().format(x); } catch { return String(x); } }
+
+    function obligationPill(type) {
+      const t = (type || '').toUpperCase();
+      const cls = t === 'MANDATORY' ? 'mandatory' : t === 'PROHIBITION' ? 'prohibition' : 'permission';
+      const label = t || 'UNKNOWN';
+      return `<span class="pill ${cls}">${label}</span>`;
+    }
+
+    // Basic HTML escaping for safe rendering of arbitrary text
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function isPrimitive(v) {
+      return v === null || ['string','number','boolean'].includes(typeof v);
+    }
+
+    function isArrayOfStrings(arr) {
+      return Array.isArray(arr) && arr.every(x => typeof x === 'string');
+    }
+
+    function formatValue(v) {
+      if (v == null) return '<em class="muted">—</em>';
+      if (typeof v === 'string') return escapeHtml(v);
+      if (typeof v === 'number' || typeof v === 'boolean') return escapeHtml(String(v));
+      if (Array.isArray(v)) {
+        if (isArrayOfStrings(v)) {
+          if (v.length === 0) return '<em class="muted">[]</em>';
+          return `<div class="chips">${v.map(t => `<span class="chip mono">${escapeHtml(t)}</span>`).join('')}</div>`;
+        }
+        // Mixed or object arrays: pretty JSON
+        return `<pre class="mono" style="white-space: pre-wrap;">${escapeHtml(JSON.stringify(v, null, 2))}</pre>`;
+      }
+      if (typeof v === 'object') {
+        // Pretty print objects
+        return `<pre class="mono" style="white-space: pre-wrap;">${escapeHtml(JSON.stringify(v, null, 2))}</pre>`;
+      }
+      try { return escapeHtml(String(v)); } catch { return '<em class="muted">[unrenderable]</em>'; }
+    }
+
+    function downloadCsv(filename, rows) {
+      const escape = (v) => {
+        if (v == null) return '';
+        const s = String(v).replace(/"/g, '""');
+        return '"' + s + '"';
+      };
+      const csv = rows.map(r => r.map(escape).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Normalize different possible output shapes into a common structure the UI can render
+    function normalizeData(root) {
+      const out = {
+        format: 'unknown',
+        docId: '',
+        summary: { input_chars: 0, cap_per_5k: '—', max_char_buffer: '—', passes: '—', extracted_norm_count: 0 },
+        collections: { norms: [], tags: [], parameters: [], questions: [], locations: [], procedures: [], sections: [], legal_docs: [] },
+        debugCounts: null,
+      };
+      if (!root || typeof root !== 'object') return out;
+
+      // Heuristic 1: rich format → root.extractions[0] with nested arrays
+      const ex0 = Array.isArray(root.extractions) ? root.extractions[0] : null;
+      if (ex0 && (Array.isArray(ex0.norms) || ex0.window_config || ex0.document_metadata)) {
+        out.format = 'rich';
+        out.docId = ex0?.document_metadata?.doc_id || '';
+        const wc = ex0.window_config || {};
+        out.summary = {
+          input_chars: wc.input_chars || 0,
+          cap_per_5k: wc.max_norms_per_5k_tokens ?? '—',
+          max_char_buffer: wc.max_char_buffer ?? '—',
+          passes: wc.extraction_passes ?? '—',
+          extracted_norm_count: wc.extracted_norm_count || (ex0.norms?.length ?? 0),
+        };
+        out.collections.norms = Array.isArray(ex0.norms) ? ex0.norms : [];
+        out.collections.tags = Array.isArray(ex0.tags) ? ex0.tags : [];
+        out.collections.parameters = Array.isArray(ex0.parameters) ? ex0.parameters : [];
+        out.collections.questions = Array.isArray(ex0.questions) ? ex0.questions : [];
+        out.collections.locations = Array.isArray(ex0.locations) ? ex0.locations : [];
+        out.collections.procedures = Array.isArray(ex0.procedures) ? ex0.procedures : [];
+        // Optional: sections in rich format if present
+        out.collections.sections = Array.isArray(ex0.sections) ? ex0.sections : [];
+        // Optional: legal docs in rich format if present
+        out.collections.legal_docs = Array.isArray(ex0.legal_docs) ? ex0.legal_docs : [];
+        out.debugCounts = wc.debug_counts || null;
+        return out;
+      }
+
+      // Heuristic 2: annotated-only → root.extractions = array of items with extraction_class
+      const items = Array.isArray(root.extractions) ? root.extractions : [];
+      const looksAnnotated = items.some(it => it && typeof it === 'object' && typeof it.extraction_class === 'string');
+      if (looksAnnotated) {
+        out.format = 'annotated';
+        out.docId = root.document_id || '';
+        // Build collections by mapping per-class entries
+        const norms = [];
+        const tags = [];
+        const params = [];
+        const questions = [];
+        const locations = [];
+  const procedures = [];
+  const sections = [];
+  const legalDocs = [];
+
+        for (const it of items) {
+          if (!it || typeof it !== 'object') continue;
+          const cls = (it.extraction_class || '').toString();
+          const clsKey = cls.replace(/[^a-z]/gi,'').toLowerCase();
+          const text = it.extraction_text;
+          const attrs = (it.attributes && typeof it.attributes === 'object') ? it.attributes : {};
+          if (cls === 'NORM') {
+            // Map attributes through with sane fallbacks
+            const n = Object.assign({}, attrs);
+            n.id = n.id || '';
+            n.statement_text = n.norm_statement || n.statement_text || text || n.text || '';
+            // Preserve original extraction text on the norm for details view
+            if (typeof n.extraction_text === 'undefined' && typeof text !== 'undefined') n.extraction_text = text;
+            if (typeof n.priority === 'undefined') n.priority = undefined;
+            norms.push(n);
+          } else if (cls === 'Tag') {
+            const t = {
+              id: attrs.id || '',
+              tag: attrs.tag || text || '',
+              used_by_norm_ids: Array.isArray(attrs.used_by_norm_ids) ? attrs.used_by_norm_ids : [],
+              related_topics: Array.isArray(attrs.related_topics) ? attrs.related_topics : [],
+              text: text || attrs.tag || '',
+              extraction_text: text
+            };
+            tags.push(t);
+          } else if (cls === 'Parameter') {
+            const p = {
+              id: attrs.id || '',
+              field_path: attrs.applies_for_tag || attrs.field_path || '',
+              applies_for_tag: attrs.applies_for_tag || '',
+              operator: attrs.operator || '',
+              value: (typeof attrs.value !== 'undefined') ? attrs.value : '',
+              unit: attrs.unit || '',
+              norm_ids: Array.isArray(attrs.norm_ids) ? attrs.norm_ids : [],
+              text: text || '',
+              extraction_text: text
+            };
+            params.push(p);
+          } else if (cls === 'Question') {
+            const q = Object.assign({ text }, attrs);
+            if (!q.question_text) q.question_text = text || '';
+            q.extraction_text = text;
+            questions.push(q);
+          } else if (cls === 'Location') {
+            const l = Object.assign({ text }, attrs);
+            l.extraction_text = text;
+            locations.push(l);
+          } else if (cls === 'Procedure') {
+            const pr = Object.assign({ text }, attrs);
+            if (!pr.procedure_text) pr.procedure_text = text || '';
+            pr.extraction_text = text;
+            procedures.push(pr);
+          } else if (cls === 'SECTION') {
+            const s = Object.assign({ text }, attrs);
+            s.id = s.id || '';
+            if (!s.section_title) s.section_title = text || '';
+            s.extraction_text = text;
+            sections.push(s);
+          } else if (clsKey === 'legaldocument' || cls === 'LEGAL_DOCUMENT') {
+            const d = Object.assign({ text }, attrs);
+            d.id = d.id || '';
+            if (!d.title) d.title = d.doc_title || text || '';
+            d.extraction_text = text;
+            legalDocs.push(d);
+          } else if (cls === 'PROCEDURE') {
+            const pr = Object.assign({ text }, attrs);
+            if (!pr.procedure_text) pr.procedure_text = pr.Procedure || text || '';
+            pr.extraction_text = text;
+            procedures.push(pr);
+          }
+        }
+        out.collections = { norms, tags, parameters: params, questions, locations, procedures, sections, legal_docs: legalDocs };
+        // Summary numbers (best-effort in annotated-only mode)
+        out.summary = {
+          input_chars: 0,
+          cap_per_5k: '—',
+          max_char_buffer: '—',
+          passes: '—',
+          extracted_norm_count: norms.length,
+        };
+        out.debugCounts = null;
+        return out;
+      }
+
+      return out;
+    }
+
+    function renderSummaryNormalized(norm) {
+      setText('docId', norm.docId || '');
+      setText('inputChars', numberFormat(norm.summary.input_chars || 0));
+      setText('capPer5k', norm.summary.cap_per_5k ?? '—');
+      setText('maxCharBuffer', norm.summary.max_char_buffer ?? '—');
+      setText('passes', norm.summary.passes ?? '—');
+      setText('normsCount', numberFormat(norm.collections.norms?.length ?? 0));
+      setText('tagsCount', numberFormat(norm.collections.tags?.length ?? 0));
+      setText('paramsCount', numberFormat(norm.collections.parameters?.length ?? 0));
+      setText('questionsCount', numberFormat(norm.collections.questions?.length ?? 0));
+      setText('locationsCount', numberFormat(norm.collections.locations?.length ?? 0));
+      setText('proceduresCount', numberFormat(norm.collections.procedures?.length ?? 0));
+      setText('sectionsCount', numberFormat(norm.collections.sections?.length ?? 0));
+      setText('legalDocsCount', numberFormat(norm.collections.legal_docs?.length ?? 0));
+
+      // Debug counts table
+      const dbg = norm.debugCounts || {};
+      const tbody = byId('debugBody');
+      tbody.innerHTML = '';
+      const rows = norm.debugCounts ? [
+        ['norms', dbg.norms_pre, dbg.norms_post_dedup, dbg.norms_post_cap],
+        ['tags', dbg.tags_pre, dbg.tags_post_dedup, dbg.tags_post_cap],
+        ['parameters', dbg.parameters_pre, dbg.parameters_post_dedup, dbg.parameters_post_cap],
+        ['questions', dbg.questions_pre, dbg.questions_post_dedup, dbg.questions_post_cap],
+        ['locations', dbg.locations_pre, dbg.locations_post_dedup, dbg.locations_post_cap],
+        ['consequences', dbg.consequences_pre, dbg.consequences_post_dedup, dbg.consequences_post_cap],
+      ] : [];
+      for (const [k, a, b, c] of rows) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td class="muted mono">${k}</td><td class="right">${numberFormat(a ?? 0)}</td><td class="right">${numberFormat(b ?? 0)}</td><td class="right">${numberFormat(c ?? 0)}</td>`;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function normalizeText(x) { return (x ?? '').toString().toLowerCase(); }
+
+    function renderEntitiesNormalized(norm) {
+      const collections = norm.collections || {};
+      const searchEl = byId('search');
+      const filtOblEl = byId('filterObl');
+      const filtEntityEl = byId('filterEntity');
+      const tbody = byId('normsBody');
+      const countEl = byId('normsShown');
+
+      function getCollection(kind) {
+        switch (kind) {
+          case 'norms': return Array.isArray(collections.norms) ? collections.norms : [];
+          case 'procedures': return Array.isArray(collections.procedures) ? collections.procedures : [];
+          case 'tags': return Array.isArray(collections.tags) ? collections.tags : [];
+          case 'questions': return Array.isArray(collections.questions) ? collections.questions : [];
+          case 'parameters': return Array.isArray(collections.parameters) ? collections.parameters : [];
+          case 'sections': return Array.isArray(collections.sections) ? collections.sections : [];
+          case 'legal_docs': return Array.isArray(collections.legal_docs) ? collections.legal_docs : [];
+          default: return [];
+        }
+      }
+
+      function primaryText(kind, item) {
+        if (!item) return '';
+        if (kind === 'norms') return item.norm_statement || item.statement_text || item.text || '';
+        if (kind === 'procedures') return item.procedure_text || item.Procedure || item.statement_text || item.text || '';
+        if (kind === 'tags') return item.tag || item.text || '';
+        if (kind === 'sections') return item.section_title || item.text || '';
+        if (kind === 'legal_docs') return item.title || item.doc_title || item.citation || item.code || item.text || '';
+        if (kind === 'parameters') {
+          const fp = item.field_path || item.applies_for_tag || '';
+          const op = item.operator || '';
+          const val = (item.value ?? '') === '' ? '' : String(item.value);
+          const unit = item.unit ? ` ${item.unit}` : '';
+          return [fp, op, val + unit].filter(Boolean).join(' ');
+        }
+        if (kind === 'questions') return item.question_text || item.text || '';
+        return item.text || '';
+      }
+
+  function searchableText(kind, item) {
+        const parts = [];
+        const add = v => { if (v != null && v !== '') parts.push(String(v)); };
+        if (!item) return '';
+        // Common fields
+        add(item.id); add(item.notes); add(item.text); add(item.name);
+        // Norm-specific
+        add(item.norm_statement); add(item.statement_text); add(item.extraction_text); add(item.applies_if); add(item.satisfied_if); add(item.exempt_if);
+        // Parameter-specific
+        add(item.field_path); add(item.applies_for_tag); add(item.operator); add(item.unit); add(item.value);
+        // Section-specific
+        add(item.section_title); add(item.sectioning_type); add(item.parent_type); add(item.parent_id); add(item.author); add(item.date); add(item.source); add(item.section_summary); add(item.section_application_guidance);
+        // Legal-doc-specific
+        add(item.title); add(item.doc_title); add(item.citation); add(item.code); add(item.jurisdiction); add(item.doc_type); add(item.date); add(item.source); add(item.url); add(item.article); add(item.section);
+        // Tag-specific
+        add(item.tag); add(item.definition); if (Array.isArray(item.synonyms)) add(item.synonyms.join(' '));
+        // Question-specific
+        add(item.question_text); add(item.question_type);
+        // Procedure-specific
+        add(item.procedure_text); add(item.Procedure);
+        return normalizeText(parts.join(' '));
+      }
+
+      function apply() {
+        const entity = filtEntityEl.value; // norms|procedures|tags|questions|parameters
+        const q = normalizeText(searchEl.value);
+  const coll = getCollection(entity);
+        const showOblFilter = entity === 'norms';
+        // Toggle obligation filter visibility
+        filtOblEl.style.display = showOblFilter ? '' : 'none';
+        const ft = filtOblEl.value; // 'ALL', 'MANDATORY', 'PERMISSION', 'PROHIBITION'
+
+        const filtered = coll.filter(item => {
+          const t = searchableText(entity, item);
+          const okQ = q.length < 2 || t.includes(q);
+          if (!okQ) return false;
+          if (entity === 'norms') {
+            const typ = (item.obligation_type || '').toUpperCase();
+            const okT = ft === 'ALL' || typ === ft;
+            return okT;
+          }
+          return true;
+        });
+
+        tbody.innerHTML = '';
+        for (const it of filtered) {
+          const id = it.id || '';
+          const entityLabel = filtEntityEl.options[filtEntityEl.selectedIndex]?.text || 'Entity';
+          const typ = (it.obligation_type || '').toUpperCase();
+          const pill = entity === 'norms' ? obligationPill(typ) : '';
+          const typeHtml = entity === 'norms'
+            ? pill
+            : (entity === 'sections'
+                ? (it.sectioning_type ? `<span class="pill">${escapeHtml(it.sectioning_type)}</span>` : '<span class="muted">—</span>')
+                : (entity === 'legal_docs'
+                    ? ((it.doc_type || it.jurisdiction) ? `<span class="pill">${escapeHtml(it.doc_type || it.jurisdiction)}</span>` : '<span class="muted">—</span>')
+                    : (pill || '<span class="muted">—</span>')));
+          const prio = entity === 'norms' ? ((it.priority ?? '') === '' ? '' : String(it.priority)) : '';
+          const main = primaryText(entity, it) || '';
+
+          const tr = document.createElement('tr');
+          // Build a generic key/value details view showing all fields except those already shown in columns
+          const omit = new Set(['id','obligation_type','priority','statement_text','norm_statement','procedure_text','text','Procedure','doc_title','section_title']);
+          const entries = Object.entries(it || {}).filter(([k]) => !omit.has(k));
+          const detailsHtml = entries.map(([k, v]) => {
+            return `<div style="margin:4px 0;">
+              <div class="muted"><span class="mono">${escapeHtml(k)}</span>:</div>
+              <div>${formatValue(v)}</div>
+            </div>`;
+          }).join('');
+
+          tr.innerHTML = `
+            <td class="nowrap mono">${escapeHtml(id)}</td>
+            <td class="mono">${escapeHtml(entityLabel)}</td>
+            <td>${typeHtml}</td>
+            <td class="right mono">${escapeHtml(prio)}</td>
+            <td>
+              <div style="font-weight:600; margin-bottom:4px;">${escapeHtml(main)}</div>
+              <details>
+                <summary class="muted">Details</summary>
+                <div style="margin-top:6px;">${detailsHtml || '<em class="muted">No additional fields</em>'}</div>
+              </details>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        }
+        setText('normsShown', numberFormat(filtered.length));
+      }
+
+      searchEl.addEventListener('input', apply);
+      filtOblEl.addEventListener('change', apply);
+      filtEntityEl.addEventListener('change', apply);
+      apply();
+    }
+
+    function exportNormsCsvNormalized(norm) {
+      const norms = Array.isArray(norm?.collections?.norms) ? norm.collections.norms : [];
+      const rows = [[
+        'id','obligation_type','priority','statement_text','applies_if','satisfied_if','exempt_if','relevant_tags','extracted_parameters','notes'
+      ]];
+      for (const n of norms) {
+        rows.push([
+          n.id ?? '',
+          n.obligation_type ?? '',
+          n.priority ?? '',
+          (n.norm_statement || n.statement_text) ?? '',
+          n.applies_if ?? '',
+          n.satisfied_if ?? '',
+          n.exempt_if ?? '',
+          Array.isArray(n.relevant_tags) ? n.relevant_tags.join('|') : '',
+          Array.isArray(n.extracted_parameters) ? n.extracted_parameters.join('|') : '',
+          n.notes ?? ''
+        ]);
+      }
+      downloadCsv('norms.csv', rows);
+    }
+
+    let CURRENT_DATA = null; // normalized shape
+
+    async function init() {
+      const autof = await loadDefaultJson();
+      if (autof) {
+        CURRENT_DATA = normalizeData(autof);
+        renderSummaryNormalized(CURRENT_DATA);
+        renderEntitiesNormalized(CURRENT_DATA);
+      } else {
+        byId('filePickerHint').classList.remove('hidden');
+      }
+
+      byId('reloadBtn').addEventListener('click', async () => {
+        const data = await loadDefaultJson();
+        if (!data) return alert('Could not load output.json – use the file picker.');
+        CURRENT_DATA = normalizeData(data);
+        renderSummaryNormalized(CURRENT_DATA);
+        renderEntitiesNormalized(CURRENT_DATA);
+      });
+
+      byId('fileInput').addEventListener('change', async (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const text = await file.text();
+        try {
+          const data = JSON.parse(text);
+          CURRENT_DATA = normalizeData(data);
+          renderSummaryNormalized(CURRENT_DATA);
+          renderEntitiesNormalized(CURRENT_DATA);
+        } catch (err) {
+          alert('Invalid JSON: ' + err);
+        }
+      });
+
+      byId('exportCsv').addEventListener('click', () => {
+        if (!CURRENT_DATA) return alert('Load data first.');
+        exportNormsCsvNormalized(CURRENT_DATA);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</head>
+<body>
+  <header>
+    <h1>LangExtract Output Viewer</h1>
+    <span class="muted">doc:</span> <span id="docId" class="mono"></span>
+    <div class="spacer"></div>
+    <button id="reloadBtn" class="ghost">Reload output.json</button>
+    <input id="fileInput" type="file" accept="application/json" />
+    <button id="exportCsv" class="ghost">Export norms CSV</button>
+  </header>
+
+  <main>
+    <div id="filePickerHint" class="card hidden" style="margin-bottom:12px;">
+      <div class="row">
+        <div>Unable to auto-load <span class="mono">output.json</span>. Use the file picker in the header to load a JSON file.</div>
+      </div>
+    </div>
+
+    <section class="grid cols-4" style="margin-bottom:12px;">
+      <div class="card kpi"><div class="label">Input characters</div><div id="inputChars" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Cap per 5k tokens</div><div id="capPer5k" class="value mono">—</div></div>
+      <div class="card kpi"><div class="label">Max char buffer</div><div id="maxCharBuffer" class="value mono">—</div></div>
+      <div class="card kpi"><div class="label">Extraction passes</div><div id="passes" class="value mono">—</div></div>
+    </section>
+
+    <section class="grid cols-4" style="margin-bottom:12px;">
+      <div class="card kpi"><div class="label">Norms</div><div id="normsCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Tags</div><div id="tagsCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Parameters</div><div id="paramsCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Sections</div><div id="sectionsCount" class="value mono">0</div></div>
+    </section>
+
+    <section class="grid cols-4" style="margin-bottom:12px;">
+      <div class="card kpi"><div class="label">Questions</div><div id="questionsCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Procedures</div><div id="proceduresCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Legal Docs</div><div id="legalDocsCount" class="value mono">0</div></div>
+      <div class="card kpi"><div class="label">Locations</div><div id="locationsCount" class="value mono">0</div></div>
+    </section>
+
+    <section class="grid cols-3" style="margin-bottom:12px;">
+      <div class="card">
+        <div class="label" style="margin-bottom:6px;">Debug counts</div>
+        <table class="table mono" style="font-size: 12px;">
+          <thead>
+            <tr><th>key</th><th class="right">pre</th><th class="right">post_dedup</th><th class="right">post_cap</th></tr>
+          </thead>
+          <tbody id="debugBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom:12px;">
+      <div class="toolbar">
+        <input id="search" type="text" placeholder="Search (id, text, fields)…" style="flex:1; min-width:280px;" />
+        <select id="filterEntity" title="Entity type">
+          <option value="norms">Norms</option>
+          <option value="procedures">Procedures</option>
+          <option value="tags">Tags</option>
+          <option value="questions">Questions</option>
+          <option value="parameters">Parameters</option>
+          <option value="sections">Sections</option>
+          <option value="legal_docs">Legal Docs</option>
+        </select>
+        <select id="filterObl" title="Obligation type">
+          <option value="ALL">All types</option>
+          <option value="MANDATORY">MANDATORY</option>
+          <option value="PERMISSION">PERMISSION</option>
+          <option value="PROHIBITION">PROHIBITION</option>
+        </select>
+        <span class="muted">shown:</span> <span id="normsShown" class="mono">0</span>
+      </div>
+      <div style="overflow:auto;">
+        <table class="table" style="min-width: 900px;">
+          <thead>
+            <tr>
+              <th style="width: 120px;">id</th>
+              <th style="width: 130px;">entity</th>
+              <th style="width: 130px;">type</th>
+              <th style="width: 80px;" class="right">priority</th>
+              <th>norm</th>
+            </tr>
+          </thead>
+          <tbody id="normsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="footer">
+      This is a local, static viewer. It attempts to fetch <span class="mono">output.json</span> next to this file. If that fails, use the file picker above.
+    </section>
+  </main>
+</body>
+</html>

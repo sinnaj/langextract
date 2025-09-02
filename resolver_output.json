@@ -1,10 +1,10 @@
 {
   "resolver_debug": {
-    "source_text_preview": "- Ioda habitación para alojamiento, así como todo oficio de planta cuya dimension y uso previsto no obliguen a su clasificación como local de riesgo especial conforme a SI 1-2, debe tener paredes El 60 y, en establecimientos cuya superficie construida exceda de 500 m², puertas de acceso El2 30-C5.</td></tr><tr><td>Docente</td><td>- Si el edificio tiene más de una planta, la superficie construida de cada sector de incendio no debe exceder de 4.000 m². Cuando tenga una única planta, no es preci-so...",
-    "source_text_length": 2934,
-    "token_offset": 4917,
-    "char_offset": 25519,
-    "num_extractions_input": 11,
+    "source_text_preview": "# 2 Senalizacion de las instalaciones manuales de proteccion contra incendios\n\n1 La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n\n# Sección SI 5 Intervención de los bomberos\n\n# 1 Condiciones de aproximación y entorno(1)\n\n# 1.1 Aproximación a los edificios\n\n1 Los viales de aproximación de los vehículos de los bombe...",
+    "source_text_length": 991,
+    "token_offset": 0,
+    "char_offset": 0,
+    "num_extractions_input": 9,
     "num_aligned_groups": 1,
     "alignment_settings": {
       "enable_fuzzy_alignment": true,
@@ -14,376 +14,54 @@
     "extractions": [
       {
         "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- Ioda habitación para alojamiento, así como todo oficio de planta cuya dimension y uso previsto no obligen a su clasificación como local de riesgo especial conforme a SI 1-2, debe tener paredes El 60 y, en establecimientos cuya superficie construida exceda de 500 m², puertas de acceso El2 30-C5.",
-        "extraction_index": 1,
-        "alignment_status": "MATCH_LESSER",
-        "token_interval": {
-          "start_index": 4917,
-          "end_index": 4938
-        },
-        "char_interval": {
-          "start_pos": 25519,
-          "end_pos": 25618
-        },
-        "attributes": {
-          "id": "N::000003",
-          "parent_section_id": "SE::000001",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "Every lodging room, as well as every floor office whose dimension and intended use do not require its classification as a special risk area according to SI 1-2, must have E 60 walls and, in establishments whose built area exceeds 500 m², E12 30-C5 access doors.",
-          "applies_if": "(ROOM.USAGE == 'LODGING' OR ROOM.USAGE == 'OFFICE') AND NOT (ROOM.CLASSIFICATION == 'SPECIAL_RISK_AREA' AND ROOM.CLASSIFICATION.SOURCE == 'SI 1-2')",
-          "satisfied_if": "WALL.FIRE_RESISTANCE == 'E 60'; OR (ESTABLISHMENT.AREA.SIZE > 500 sq_m AND DOOR.FIRE_RESISTANCE == 'E12 30-C5')",
-          "exempt_if": "FALSE",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "GENERAL"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "ROOM.USAGE.LODGING",
-            "ROOM.USAGE.OFFICE",
-            "ROOM.CLASSIFICATION.SPECIAL_RISK_AREA",
-            "WALL.FIRE_RESISTANCE",
-            "ESTABLISHMENT.AREA.SIZE",
-            "DOOR.FIRE_RESISTANCE"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "WALL.FIRE_RESISTANCE == 'E 60'",
-            "ESTABLISHMENT.AREA.SIZE > 500 sq_m",
-            "DOOR.FIRE_RESISTANCE == 'E12 30-C5'"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- Si el edificio tiene más de una planta, la superficie construida de cada sector de incendio no debe exceder de 4.000 m². Cuando tenga una única planta, no es preci-so que está compartimentada en sectores de incendio.",
-        "extraction_index": 2,
-        "alignment_status": "MATCH_FUZZY",
-        "token_interval": {
-          "start_index": 4979,
-          "end_index": 5134
-        },
-        "char_interval": {
-          "start_pos": 25813,
-          "end_pos": 26452
-        },
-        "attributes": {
-          "id": "N::000004",
-          "parent_section_id": "SE::000001",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "If the building has more than one floor, the built area of each fire sector must not exceed 4,000 m². When it has a single floor, it is not necessary for it to be compartmentalized into fire sectors.",
-          "applies_if": "BUILDING.FLOORS.COUNT > 1 AND BUILDING.USAGE == 'EDUCATION'",
-          "satisfied_if": "FIRE.SECTOR.AREA.SIZE <= 4000 sq_m",
-          "exempt_if": "BUILDING.FLOORS.COUNT == 1",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "EDUCATION"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "BUILDING.FLOORS.COUNT",
-            "FIRE.SECTOR.AREA.SIZE",
-            "BUILDING.USAGE.EDUCATION"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "FIRE.SECTOR.AREA.SIZE <= 4000 sq_m"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
         "extraction_class": "SECTION",
-        "extraction_text": "# Hospitalario",
-        "extraction_index": 3,
+        "extraction_text": "# 2 Senalizacion de las instalaciones manuales de proteccion contra incendios",
+        "extraction_index": 1,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 5052,
-          "end_index": 5054
+          "start_index": 0,
+          "end_index": 11
         },
         "char_interval": {
-          "start_pos": 26089,
-          "end_pos": 26103
+          "start_pos": 0,
+          "end_pos": 77
         },
         "attributes": {
           "id": "SE::000007",
           "sectioning_type": "HEADLINE",
-          "section_title": "Hospitalario",
+          "section_title": "Señalización de las instalaciones manuales de protección contra incendios",
           "parent_type": "DOCUMENT",
           "parent_id": "SE::000002",
           "author": null,
           "date": null,
           "source": null,
-          "section_summary": "Specific fire safety regulations for hospital buildings.",
-          "applies_if": "BUILDING.USAGE == 'HOSPITAL'",
+          "section_summary": "Signaling requirements for manual fire protection installations.",
+          "applies_if": "TRUE",
           "exempt_if": "FALSE"
         }
       },
       {
         "group_index": 0,
         "extraction_class": "NORM",
-        "extraction_text": "- Las plantas con zonas de hospitalización o con unidades especiales (quirófános, UVI, etc.) deben estar compartimentadas al menos en dos sectores de incendió, cada uno de ellos con una superficie construida que no exceda de 1,500 m² y con es-pacio suficiente para albergar a los pacientes de uno de los sectores contiguos. Se exceptúa de lo anterior aquellas plantas cuya superficie construida no exceda de 1,500 m², que tengan salidas directas al espacio exterior seguro y cuyos recorridos de evacuación hasta ellas no excedan de 25 m.",
-        "extraction_index": 4,
-        "alignment_status": "MATCH_FUZZY",
-        "token_interval": {
-          "start_index": 5035,
-          "end_index": 5177
-        },
-        "char_interval": {
-          "start_pos": 26016,
-          "end_pos": 26666
-        },
-        "attributes": {
-          "id": "N::000005",
-          "parent_section_id": "SE::000007",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "Floors with hospitalization areas or special units (operating rooms, ICU, etc.) must be compartmentalized into at least two fire sectors, each with a built area not exceeding 1,500 m² and with sufficient space to accommodate patients from one of the adjacent sectors.",
-          "applies_if": "FLOOR.HAS_HOSPITALIZATION_AREA == TRUE OR FLOOR.HAS_SPECIAL_UNIT == TRUE",
-          "satisfied_if": "FIRE.SECTOR.COUNT >= 2 AND FIRE.SECTOR.AREA.SIZE <= 1500 sq_m AND FIRE.SECTOR.HAS_SUFFICIENT_SPACE_FOR_ADJACENT_PATIENTS == TRUE",
-          "exempt_if": "FLOOR.AREA.SIZE <= 1500 sq_m AND FLOOR.HAS_DIRECT_EXTERNAL_EXITS == TRUE AND FLOOR.EVACUATION_ROUTE.LENGTH <= 25 m",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "PUBLIC.HOSPITAL"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "FLOOR.HAS_HOSPITALIZATION_AREA",
-            "FLOOR.HAS_SPECIAL_UNIT",
-            "FIRE.SECTOR.COUNT",
-            "FIRE.SECTOR.AREA.SIZE",
-            "FIRE.SECTOR.HAS_SUFFICIENT_SPACE_FOR_ADJACENT_PATIENTS",
-            "FLOOR.AREA.SIZE",
-            "FLOOR.HAS_DIRECT_EXTERNAL_EXITS",
-            "FLOOR.EVACUATION_ROUTE.LENGTH"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "FIRE.SECTOR.COUNT >= 2",
-            "FIRE.SECTOR.AREA.SIZE <= 1500 sq_m",
-            "FLOOR.AREA.SIZE <= 1500 sq_m",
-            "FLOOR.EVACUATION_ROUTE.LENGTH <= 25 m"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- En otras zonas del edificio, la superficie construida de cada sector de incendió no debe exceder de 2,500 m².",
-        "extraction_index": 5,
+        "extraction_text": "La senalizacion de las instalaciones manuales de proteccion contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+        "extraction_index": 2,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 5177,
-          "end_index": 5202
+          "start_index": 12,
+          "end_index": 49
         },
         "char_interval": {
-          "start_pos": 26667,
-          "end_pos": 26778
+          "start_pos": 81,
+          "end_pos": 313
         },
         "attributes": {
-          "id": "N::000006",
+          "id": "N::000003",
           "parent_section_id": "SE::000007",
           "paragraph_number": 1,
           "obligation_type": "MANDATORY",
-          "norm_statement": "In other areas of the building, the built area of each fire sector must not exceed 2,500 m².",
-          "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND NOT (FLOOR.HAS_HOSPITALIZATION_AREA == TRUE OR FLOOR.HAS_SPECIAL_UNIT == TRUE)",
-          "satisfied_if": "FIRE.SECTOR.AREA.SIZE <= 2500 sq_m",
-          "exempt_if": "FALSE",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "PUBLIC.HOSPITAL"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "FIRE.SECTOR.AREA.SIZE",
-            "BUILDING.USAGE.PUBLIC.HOSPITAL",
-            "FLOOR.HAS_HOSPITALIZATION_AREA",
-            "FLOOR.HAS_SPECIAL_UNIT"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "FIRE.SECTOR.AREA.SIZE <= 2500 sq_m"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- La superficie construida de cada sector de incendió no debe exceder de 2,500 m², excepto en los casos contemplados en los guiones siguientes.",
-        "extraction_index": 6,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 5202,
-          "end_index": 5231
-        },
-        "char_interval": {
-          "start_pos": 26779,
-          "end_pos": 26922
-        },
-        "attributes": {
-          "id": "N::000007",
-          "parent_section_id": "SE::000007",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "The built area of each fire sector must not exceed 2,500 m², except in the cases contemplated in the following bullet points.",
+          "norm_statement": "Signaling of manual fire protection installations must comply with the current Regulation on fire protection installations.",
           "applies_if": "TRUE",
-          "satisfied_if": "FIRE.SECTOR.AREA.SIZE <= 2500 sq_m",
+          "satisfied_if": "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNALING.COMPLIES_WITH_RD_513_2017 == TRUE",
           "exempt_if": "FALSE",
           "topics": [
             "SAFETY.FIRE"
@@ -393,9 +71,7 @@
               "NEW",
               "REFORM"
             ],
-            "BUILDING.USAGE": [
-              "GENERAL"
-            ]
+            "BUILDING.USAGE": []
           },
           "priority": 5,
           "priority_factors": {
@@ -404,7 +80,8 @@
             "impact": 0.8
           },
           "relevant_tags": [
-            "FIRE.SECTOR.AREA.SIZE"
+            "FIRE.PROTECTION.INSTALLATION.MANUAL",
+            "FIRE.PROTECTION.INSTALLATION.SIGNALING"
           ],
           "relevant_roles": [],
           "lifecycle_phase": [],
@@ -421,247 +98,158 @@
           "source": {
             "doc_id": "EXAMPLES_ENHANCED",
             "article": null,
-            "table": "1.1",
+            "table": null,
             "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "FIRE.SECTOR.AREA.SIZE <= 2500 sq_m"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- Los espacios destinados a público sentado en asientos fijos en cines, teatros, audito-rios, salas para congresos, etc., así como los museos, los espacios para culto reli-gioso y los recintos polideportivos, feriales y simileares pueden constituir un sector de incendió de superficie construida mayor de 2,500 m² siempre que:\na) estén compartimentados respecto de otras zonas mediante elementos El 120;\nb) tengan resuelta la evacuación mediante salidas de planta que comuniquen con un sector de riesgo minimo a través de vestibulos de independencia, o bien me-diante salidas de edificio;\nc) los materiales de revestimiento sean B-s1,d0 en paredes y techos y BFL-s1 en suelos;\nd) la densidad de la carga de fuego debida a los materiales de revestimiento y al mobiliario fijo no exceda de 200 MJ/m² y\ne) no exista sobre dichos espacios ninguna zona habitable.",
-        "extraction_index": 7,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 5231,
-          "end_index": 5415
-        },
-        "char_interval": {
-          "start_pos": 26923,
-          "end_pos": 27781
-        },
-        "attributes": {
-          "id": "N::000008",
-          "parent_section_id": "SE::000007",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "Spaces intended for public seating in fixed seats in cinemas, theaters, auditoriums, congress halls, etc., as well as museums, religious worship spaces, and sports, fair, and similar venues, may constitute a fire sector with a built area greater than 2,500 m² provided that they meet the specified conditions.",
-          "applies_if": "SPACE.USAGE IN ['CINEMA', 'THEATER', 'AUDITORIUM', 'CONGRESS_HALL', 'MUSEUM', 'RELIGIOUS_WORSHIP', 'SPORTS_VENUE', 'FAIR_VENUE']",
-          "satisfied_if": "FIRE.SECTOR.AREA.SIZE > 2500 sq_m AND FIRE.SECTOR.COMPARTMENTATION.FIRE_RESISTANCE == 'EI 120' AND (EVACUATION.ROUTE.TO_MINIMUM_RISK_SECTOR_VIA_VESTIBULE == TRUE OR EVACUATION.ROUTE.TO_BUILDING_EXIT == TRUE) AND WALL.LINING_MATERIAL.FIRE_CLASSIFICATION == 'B-s1,d0' AND CEILING.LINING_MATERIAL.FIRE_CLASSIFICATION == 'B-s1,d0' AND FLOOR.LINING_MATERIAL.FIRE_CLASSIFICATION == 'BFL-s1' AND FIRE_LOAD_DENSITY.LINING_MATERIALS_AND_FIXED_FURNITURE <= 200 MJ/sq_m AND NOT HAS(OVERLYING_HABITABLE_ZONE)",
-          "exempt_if": "FALSE",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "PUBLIC.ASSEMBLY",
-              "PUBLIC.COMMERCIAL",
-              "PUBLIC.EDUCATION",
-              "PUBLIC.GOV",
-              "PUBLIC.HOSPITAL",
-              "PUBLIC.PARK"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "SPACE.USAGE.CINEMA",
-            "SPACE.USAGE.THEATER",
-            "SPACE.USAGE.AUDITORIUM",
-            "SPACE.USAGE.CONGRESS_HALL",
-            "SPACE.USAGE.MUSEUM",
-            "SPACE.USAGE.RELIGIOUS_WORSHIP",
-            "SPACE.USAGE.SPORTS_VENUE",
-            "SPACE.USAGE.FAIR_VENUE",
-            "FIRE.SECTOR.AREA.SIZE",
-            "FIRE.SECTOR.COMPARTMENTATION.FIRE_RESISTANCE",
-            "EVACUATION.ROUTE.TO_MINIMUM_RISK_SECTOR_VIA_VESTIBULE",
-            "EVACUATION.ROUTE.TO_BUILDING_EXIT",
-            "WALL.LINING_MATERIAL.FIRE_CLASSIFICATION",
-            "CEILING.LINING_MATERIAL.FIRE_CLASSIFICATION",
-            "FLOOR.LINING_MATERIAL.FIRE_CLASSIFICATION",
-            "FIRE_LOAD_DENSITY.LINING_MATERIALS_AND_FIXED_FURNITURE",
-            "OVERLYING_HABITABLE_ZONE"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [
-            "FIRE.SECTOR.AREA.SIZE > 2500 sq_m",
-            "FIRE.SECTOR.COMPARTMENTATION.FIRE_RESISTANCE == 'EI 120'",
-            "WALL.LINING_MATERIAL.FIRE_CLASSIFICATION == 'B-s1,d0'",
-            "CEILING.LINING_MATERIAL.FIRE_CLASSIFICATION == 'B-s1,d0'",
-            "FLOOR.LINING_MATERIAL.FIRE_CLASSIFICATION == 'BFL-s1'",
-            "FIRE_LOAD_DENSITY.LINING_MATERIALS_AND_FIXED_FURNITURE <= 200 MJ/sq_m"
-          ],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "- Las cajas escénicas deben constituir un sector de incendió diferenciado.",
-        "extraction_index": 8,
-        "alignment_status": "MATCH_LESSER",
-        "token_interval": {
-          "start_index": 5415,
-          "end_index": 5429
-        },
-        "char_interval": {
-          "start_pos": 27782,
-          "end_pos": 27855
-        },
-        "attributes": {
-          "id": "N::000009",
-          "parent_section_id": "SE::000007",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "Stage boxes must constitute a differentiated fire sector.",
-          "applies_if": "HAS(STAGE_BOX)",
-          "satisfied_if": "STAGE_BOX.IS_DIFFERENTIATED_FIRE_SECTOR == TRUE",
-          "exempt_if": "FALSE",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "PUBLIC.ASSEMBLY"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "STAGE_BOX",
-            "STAGE_BOX.IS_DIFFERENTIATED_FIRE_SECTOR"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
+            "page": -1,
             "span_char_start": null,
             "span_char_end": null,
             "visual_refs": []
           },
           "extracted_parameters": [],
           "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
+          "confidence": 0.9,
+          "uncertainty": 0.1,
+          "notes": null,
+          "quality": {
+            "errors": [
+              "PAGE_MISSING"
+            ],
+            "warnings": []
+          }
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "LEGAL_DOCUMENT",
+        "extraction_text": "Reglamento de instalaciones de proteccion contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+        "extraction_index": 3,
+        "alignment_status": "MATCH_FUZZY",
+        "token_interval": {
+          "start_index": 29,
+          "end_index": 49
+        },
+        "char_interval": {
+          "start_pos": 200,
+          "end_pos": 313
+        },
+        "attributes": {
+          "id": "LD::000001",
+          "document_type": "REAL_DECRETO",
+          "title": "Reglamento de instalaciones de proteccion contra incendios",
+          "code": "513/2017",
+          "year": 2017,
+          "date": "2017-05-22",
+          "article": null,
+          "source": null,
           "notes": null
         }
       },
       {
         "group_index": 0,
         "extraction_class": "SECTION",
-        "extraction_text": "# Aparcamiento",
-        "extraction_index": 9,
-        "alignment_status": "MATCH_FUZZY",
+        "extraction_text": "# Sección SI 5 Intervención de los bomberos",
+        "extraction_index": 4,
+        "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 5514,
-          "end_index": 5516
+          "start_index": 49,
+          "end_index": 61
         },
         "char_interval": {
-          "start_pos": 28244,
-          "end_pos": 28258
+          "start_pos": 315,
+          "end_pos": 358
         },
         "attributes": {
           "id": "SE::000008",
-          "sectioning_type": "HEADLINE",
-          "section_title": "Aparcamiento",
+          "sectioning_type": "CHAPTER",
+          "section_title": "Intervención de los bomberos",
           "parent_type": "DOCUMENT",
           "parent_id": "SE::000002",
           "author": null,
           "date": null,
           "source": null,
-          "section_summary": "Specific fire safety regulations for parking areas.",
-          "applies_if": "BUILDING.USAGE == 'PARKING'",
+          "section_summary": "Requirements for fire brigade intervention.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "# 1 Condiciones de aproximación y entorno(1)",
+        "extraction_index": 5,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 61,
+          "end_index": 73
+        },
+        "char_interval": {
+          "start_pos": 360,
+          "end_pos": 404
+        },
+        "attributes": {
+          "id": "SE::000009",
+          "sectioning_type": "HEADLINE",
+          "section_title": "Condiciones de aproximación y entorno",
+          "parent_type": "CHAPTER",
+          "parent_id": "SE::000008",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Conditions for approach and surroundings for fire brigade access.",
+          "applies_if": "TRUE",
+          "exempt_if": "FALSE"
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "SECTION",
+        "extraction_text": "# 1.1 Aproximación a los edificios",
+        "extraction_index": 6,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 73,
+          "end_index": 83
+        },
+        "char_interval": {
+          "start_pos": 406,
+          "end_pos": 440
+        },
+        "attributes": {
+          "id": "SE::000010",
+          "sectioning_type": "SUB-HEADLINE",
+          "section_title": "Aproximación a los edificios",
+          "parent_type": "HEADLINE",
+          "parent_id": "SE::000009",
+          "author": null,
+          "date": null,
+          "source": null,
+          "section_summary": "Conditions for fire brigade vehicle approach to buildings.",
+          "applies_if": "TRUE",
           "exempt_if": "FALSE"
         }
       },
       {
         "group_index": 0,
         "extraction_class": "NORM",
-        "extraction_text": "Debe constituir un sector de incendió diferenciado cuando esté integrado en un edificio con otros usos. Cualquier comunicación con ellos se debe hacer a través de un vestibulo de independencia.",
-        "extraction_index": 10,
+        "extraction_text": "Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes: a) anchura mínima libre 3,5 m; b) altura mínima libre o gálibo 4,5 m; c)capacidad portante del vial 20 kN/m².",
+        "extraction_index": 7,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 5444,
-          "end_index": 5482
+          "start_index": 84,
+          "end_index": 157
         },
         "char_interval": {
-          "start_pos": 27895,
-          "end_pos": 28088
+          "start_pos": 444,
+          "end_pos": 725
         },
         "attributes": {
-          "id": "N::000010",
-          "parent_section_id": "SE::000008",
+          "id": "N::000004",
+          "parent_section_id": "SE::000010",
           "paragraph_number": 1,
           "obligation_type": "MANDATORY",
-          "norm_statement": "It must constitute a differentiated fire sector when integrated into a building with other uses. Any communication with them must be done through an independence vestibule.",
-          "applies_if": "AREA.USAGE == 'PARKING' AND BUILDING.HAS_OTHER_USES == TRUE",
-          "satisfied_if": "AREA.IS_DIFFERENTIATED_FIRE_SECTOR == TRUE AND COMMUNICATION.TO_OTHER_USES.VIA_INDEPENDENCE_VESTIBULE == TRUE",
+          "norm_statement": "Approach roads for fire brigade vehicles to maneuvering spaces must meet specified conditions.",
+          "applies_if": "TRUE",
+          "satisfied_if": "ROAD.WIDTH >= 3.5 AND ROAD.HEIGHT >= 4.5 AND ROAD.BEARING_CAPACITY >= 20",
           "exempt_if": "FALSE",
           "topics": [
             "SAFETY.FIRE"
@@ -671,9 +259,7 @@
               "NEW",
               "REFORM"
             ],
-            "BUILDING.USAGE": [
-              "PARKING"
-            ]
+            "BUILDING.USAGE": []
           },
           "priority": 5,
           "priority_factors": {
@@ -682,10 +268,10 @@
             "impact": 0.8
           },
           "relevant_tags": [
-            "AREA.USAGE.PARKING",
-            "BUILDING.HAS_OTHER_USES",
-            "AREA.IS_DIFFERENTIATED_FIRE_SECTOR",
-            "COMMUNICATION.TO_OTHER_USES.VIA_INDEPENDENCE_VESTIBULE"
+            "FIRE.BRIGADE.ACCESS",
+            "ROAD.WIDTH",
+            "ROAD.HEIGHT",
+            "ROAD.BEARING_CAPACITY"
           ],
           "relevant_roles": [],
           "lifecycle_phase": [],
@@ -702,95 +288,164 @@
           "source": {
             "doc_id": "EXAMPLES_ENHANCED",
             "article": null,
-            "table": "1.1",
+            "table": null,
             "illustration": null,
-            "page": 1,
-            "span_char_start": null,
-            "span_char_end": null,
-            "visual_refs": []
-          },
-          "extracted_parameters": [],
-          "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "NORM",
-        "extraction_text": "Los aparcamientos robotizados situados debajo de otro uso estarán compartimentados en sectores de incendió que no excedan de 10,000 m².",
-        "extraction_index": 11,
-        "alignment_status": "MATCH_LESSER",
-        "token_interval": {
-          "start_index": 5482,
-          "end_index": 5507
-        },
-        "char_interval": {
-          "start_pos": 28089,
-          "end_pos": 28222
-        },
-        "attributes": {
-          "id": "N::000011",
-          "parent_section_id": "SE::000008",
-          "paragraph_number": 1,
-          "obligation_type": "MANDATORY",
-          "norm_statement": "Robotic parking lots located below another use must be compartmentalized into fire sectors not exceeding 10,000 m².",
-          "applies_if": "PARKING.TYPE == 'ROBOTIC' AND PARKING.LOCATION == 'UNDER_OTHER_USE'",
-          "satisfied_if": "FIRE.SECTOR.AREA.SIZE <= 10000 sq_m",
-          "exempt_if": "FALSE",
-          "topics": [
-            "SAFETY.FIRE"
-          ],
-          "project_dimensions": {
-            "PROJECT.TYPE": [
-              "NEW",
-              "REFORM"
-            ],
-            "BUILDING.USAGE": [
-              "PARKING"
-            ]
-          },
-          "priority": 5,
-          "priority_factors": {
-            "severity": 0.9,
-            "likelihood": 0.9,
-            "impact": 0.8
-          },
-          "relevant_tags": [
-            "PARKING.TYPE.ROBOTIC",
-            "PARKING.LOCATION.UNDER_OTHER_USE",
-            "FIRE.SECTOR.AREA.SIZE"
-          ],
-          "relevant_roles": [],
-          "lifecycle_phase": [],
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": [],
-            "UNCERTAINTY": 0.05
-          },
-          "source": {
-            "doc_id": "EXAMPLES_ENHANCED",
-            "article": null,
-            "table": "1.1",
-            "illustration": null,
-            "page": 1,
+            "page": -1,
             "span_char_start": null,
             "span_char_end": null,
             "visual_refs": []
           },
           "extracted_parameters": [
-            "FIRE.SECTOR.AREA.SIZE <= 10000 sq_m"
+            "ROAD.WIDTH >= 3.5 m",
+            "ROAD.HEIGHT >= 4.5 m",
+            "ROAD.BEARING_CAPACITY >= 20 kN/m²"
           ],
           "consequence_ids": [],
-          "confidence": 0.92,
-          "uncertainty": 0.08,
-          "notes": null
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null,
+          "quality": {
+            "errors": [
+              "PAGE_MISSING"
+            ],
+            "warnings": []
+          }
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "NORM",
+        "extraction_text": "En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
+        "extraction_index": 8,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 158,
+          "end_index": 208
+        },
+        "char_interval": {
+          "start_pos": 729,
+          "end_pos": 930
+        },
+        "attributes": {
+          "id": "N::000005",
+          "parent_section_id": "SE::000010",
+          "paragraph_number": 2,
+          "obligation_type": "MANDATORY",
+          "norm_statement": "On curved sections, the carriageway must be delimited by a circular crown with minimum radii of 5.30 m and 12.50 m, and a clear width for circulation of 7.20 m.",
+          "applies_if": "ROAD.SECTION.IS_CURVED == TRUE",
+          "satisfied_if": "ROAD.CURVE.INNER_RADIUS >= 5.30 AND ROAD.CURVE.OUTER_RADIUS >= 12.50 AND ROAD.CLEAR_WIDTH >= 7.20",
+          "exempt_if": "FALSE",
+          "topics": [
+            "SAFETY.FIRE"
+          ],
+          "project_dimensions": {
+            "PROJECT.TYPE": [
+              "NEW",
+              "REFORM"
+            ],
+            "BUILDING.USAGE": []
+          },
+          "priority": 5,
+          "priority_factors": {
+            "severity": 0.9,
+            "likelihood": 0.9,
+            "impact": 0.8
+          },
+          "relevant_tags": [
+            "FIRE.BRIGADE.ACCESS",
+            "ROAD.CURVE.INNER_RADIUS",
+            "ROAD.CURVE.OUTER_RADIUS",
+            "ROAD.CLEAR_WIDTH"
+          ],
+          "relevant_roles": [],
+          "lifecycle_phase": [],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "article": null,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "extracted_parameters": [
+            "ROAD.CURVE.INNER_RADIUS >= 5.30 m",
+            "ROAD.CURVE.OUTER_RADIUS >= 12.50 m",
+            "ROAD.CLEAR_WIDTH >= 7.20 m"
+          ],
+          "consequence_ids": [],
+          "confidence": 0.95,
+          "uncertainty": 0.05,
+          "notes": null,
+          "quality": {
+            "errors": [
+              "PAGE_MISSING"
+            ],
+            "warnings": []
+          }
+        }
+      },
+      {
+        "group_index": 0,
+        "extraction_class": "PROCEDURE",
+        "extraction_text": "$\\mathsf{d}_{\\mathsf{ef}} = \\mathsf{d}_1 + 0,5\\mathsf{d}_2$",
+        "extraction_index": 9,
+        "alignment_status": "MATCH_EXACT",
+        "token_interval": {
+          "start_index": 208,
+          "end_index": 235
+        },
+        "char_interval": {
+          "start_pos": 932,
+          "end_pos": 991
+        },
+        "attributes": {
+          "id": "PD::000003",
+          "parent_section_id": "SE::000010",
+          "procedure_description": "Calculation of effective distance using the formula d_ef = d_1 + 0.5 * d_2.",
+          "target_reference": [],
+          "tags": [
+            "CALCULATION",
+            "DISTANCE"
+          ],
+          "location_scope": {
+            "COUNTRY": "ES",
+            "STATES": [],
+            "PROVINCES": [],
+            "REGIONS": [],
+            "COMMUNES": [],
+            "ZONES": [],
+            "GEO_CODES": [],
+            "UNCERTAINTY": 0.05
+          },
+          "source": {
+            "doc_id": "EXAMPLES_ENHANCED",
+            "Chapter": null,
+            "article": null,
+            "table": null,
+            "illustration": null,
+            "page": -1,
+            "span_char_start": null,
+            "span_char_end": null,
+            "visual_refs": []
+          },
+          "quality": {
+            "errors": [
+              "PAGE_MISSING"
+            ],
+            "warnings": []
+          }
         }
       }
     ]
