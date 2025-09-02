@@ -14,6 +14,7 @@ from urllib.request import urlopen  # stdlib, avoid extra deps
 from urllib.error import URLError, HTTPError
 
 from runner import Runner, build_worker_cmd
+from comments_db import CommentsDB, Comment
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
@@ -95,6 +96,10 @@ INPUT_DIRS = {
 }
 
 PAST_MODELS_FILE = REPO_ROOT / "web" / "pastmodels.json"
+
+# Initialize comments database
+COMMENTS_DB_PATH = REPO_ROOT / "web" / "comments.db"
+comments_db = CommentsDB(COMMENTS_DB_PATH)
 
 # Ensure input dirs exist
 for _k, _p in INPUT_DIRS.items():
@@ -442,6 +447,167 @@ def run_file(run_id: str):
         mimetype=mime or "application/octet-stream",
         as_attachment=as_attachment,
     )
+
+# Comments API endpoints
+
+@app.get("/api/comments")
+def get_comments():
+    """Get comments for a specific file."""
+    file_path = request.args.get("file_path", "")
+    if not file_path:
+        return jsonify({"error": "file_path parameter is required"}), 400
+    
+    try:
+        comments = comments_db.get_comments_for_file(file_path)
+        return jsonify({"comments": comments})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.post("/api/comments")
+def create_comment():
+    """Create a new comment."""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "JSON data is required"}), 400
+        
+        # Validate required fields
+        required_fields = ["file_path", "author_name", "text_body"]
+        for field in required_fields:
+            if not data.get(field):
+                return jsonify({"error": f"{field} is required"}), 400
+        
+        # Create comment object
+        comment = Comment(
+            file_path=data["file_path"],
+            position_data=data.get("position_data", {}),
+            author_name=data["author_name"],
+            text_body=data["text_body"],
+            parent_comment_id=data.get("parent_comment_id")
+        )
+        
+        # Validate parent comment exists if specified
+        if comment.parent_comment_id:
+            parent = comments_db.get_comment(comment.parent_comment_id)
+            if not parent:
+                return jsonify({"error": "Parent comment not found"}), 404
+            
+            # Ensure we're not creating nested replies (depth > 1)
+            if parent.parent_comment_id is not None:
+                return jsonify({"error": "Cannot reply to a reply (max depth is 1)"}), 400
+        
+        # Create the comment
+        created_comment = comments_db.create_comment(comment)
+        return jsonify({"comment": created_comment.to_dict()}), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.put("/api/comments/<int:comment_id>")
+def update_comment(comment_id: int):
+    """Update an existing comment."""
+    try:
+        data = request.get_json()
+        if not data or not data.get("text_body"):
+            return jsonify({"error": "text_body is required"}), 400
+        
+        # Check if comment exists
+        comment = comments_db.get_comment(comment_id)
+        if not comment:
+            return jsonify({"error": "Comment not found"}), 404
+        
+        # Update the comment
+        success = comments_db.update_comment(comment_id, data["text_body"])
+        if success:
+            updated_comment = comments_db.get_comment(comment_id)
+            return jsonify({"comment": updated_comment.to_dict()})
+        else:
+            return jsonify({"error": "Failed to update comment"}), 500
+            
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.delete("/api/comments/<int:comment_id>")
+def delete_comment(comment_id: int):
+    """Delete a comment and its replies."""
+    try:
+        # Check if comment exists
+        comment = comments_db.get_comment(comment_id)
+        if not comment:
+            return jsonify({"error": "Comment not found"}), 404
+        
+        # Delete the comment (cascades to replies)
+        success = comments_db.delete_comment(comment_id)
+        if success:
+            return jsonify({"message": "Comment deleted successfully"})
+        else:
+            return jsonify({"error": "Failed to delete comment"}), 500
+            
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.post("/api/comments/<int:comment_id>/reply")
+def reply_to_comment(comment_id: int):
+    """Create a reply to a comment."""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "JSON data is required"}), 400
+        
+        # Validate required fields
+        required_fields = ["author_name", "text_body"]
+        for field in required_fields:
+            if not data.get(field):
+                return jsonify({"error": f"{field} is required"}), 400
+        
+        # Check if parent comment exists
+        parent_comment = comments_db.get_comment(comment_id)
+        if not parent_comment:
+            return jsonify({"error": "Parent comment not found"}), 404
+        
+        # Ensure we're not replying to a reply (depth > 1)
+        if parent_comment.parent_comment_id is not None:
+            return jsonify({"error": "Cannot reply to a reply (max depth is 1)"}), 400
+        
+        # Create reply comment
+        reply_comment = Comment(
+            file_path=parent_comment.file_path,
+            position_data=parent_comment.position_data,  # Inherit position from parent
+            author_name=data["author_name"],
+            text_body=data["text_body"],
+            parent_comment_id=comment_id
+        )
+        
+        # Create the reply
+        created_reply = comments_db.create_comment(reply_comment)
+        return jsonify({"comment": created_reply.to_dict()}), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.get("/api/comments/<int:comment_id>")
+def get_comment_details(comment_id: int):
+    """Get details of a specific comment."""
+    try:
+        comment = comments_db.get_comment(comment_id)
+        if not comment:
+            return jsonify({"error": "Comment not found"}), 404
+        
+        # Get reply count
+        reply_count = comments_db.get_reply_count(comment_id)
+        
+        comment_dict = comment.to_dict()
+        comment_dict["reply_count"] = reply_count
+        
+        return jsonify({"comment": comment_dict})
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def _is_port_in_use(host: str, port: int) -> bool:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
