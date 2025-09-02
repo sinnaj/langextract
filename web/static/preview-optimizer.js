@@ -756,45 +756,31 @@ class PreviewOptimizer {
   updateUberModeStats(jsonData) {
     const stats = this.analyzeJsonData(jsonData);
     
-    // Update stat values in the DOM
-    const updateStat = (className, value) => {
-      const el = document.querySelector(`.${className}`);
-      if (el) {
-        el.textContent = value;
-      }
-    };
-    
-    updateStat('stats-total-items', this.formatNumber(stats.totalItems));
-    updateStat('stats-norms', this.formatNumber(stats.norms));
-    updateStat('stats-tags', this.formatNumber(stats.tags));
-    updateStat('stats-parameters', this.formatNumber(stats.parameters));
-    updateStat('stats-questions', this.formatNumber(stats.questions));
-    updateStat('stats-locations', this.formatNumber(stats.locations));
-    updateStat('stats-quality', stats.quality || '—');
+    // Dynamically update the statistics container based on actual data
+    this.updateStatsContainer(stats);
   }
 
   analyzeJsonData(data) {
     const stats = {
       totalItems: 0,
-      norms: 0,
-      tags: 0,
-      parameters: 0,
-      questions: 0,
-      locations: 0,
+      types: new Map(),
       quality: '—'
     };
     
-    // Handle extraction format
+    // Handle extraction format - count by extraction_class
     if (data && data.extractions && Array.isArray(data.extractions)) {
       data.extractions.forEach(extraction => {
-        if (extraction.norms) stats.norms += Array.isArray(extraction.norms) ? extraction.norms.length : 0;
-        if (extraction.tags) stats.tags += Array.isArray(extraction.tags) ? extraction.tags.length : 0;
-        if (extraction.parameters) stats.parameters += Array.isArray(extraction.parameters) ? extraction.parameters.length : 0;
-        if (extraction.questions) stats.questions += Array.isArray(extraction.questions) ? extraction.questions.length : 0;
-        if (extraction.locations) stats.locations += Array.isArray(extraction.locations) ? extraction.locations.length : 0;
+        stats.totalItems++;
         
-        // Quality indicators
-        if (extraction.quality) {
+        // Count extraction types dynamically
+        const extractionClass = extraction.extraction_class;
+        if (extractionClass) {
+          const currentCount = stats.types.get(extractionClass) || 0;
+          stats.types.set(extractionClass, currentCount + 1);
+        }
+        
+        // Quality indicators (check if any extraction has quality info)
+        if (extraction.quality && stats.quality === '—') {
           const errors = extraction.quality.errors?.length || 0;
           const warnings = extraction.quality.warnings?.length || 0;
           if (errors > 0) {
@@ -806,29 +792,113 @@ class PreviewOptimizer {
           }
         }
       });
-      
-      stats.totalItems = stats.norms + stats.tags + stats.parameters + stats.questions + stats.locations;
-    }
-    
-    // Handle direct collections format
-    if (data && data.collections) {
-      const collections = data.collections;
-      Object.keys(collections).forEach(key => {
-        const collection = collections[key];
-        if (Array.isArray(collection)) {
-          switch (key) {
-            case 'norms': stats.norms = collection.length; break;
-            case 'tags': stats.tags = collection.length; break;
-            case 'parameters': stats.parameters = collection.length; break;
-            case 'questions': stats.questions = collection.length; break;
-            case 'locations': stats.locations = collection.length; break;
-          }
-        }
-      });
-      stats.totalItems = stats.norms + stats.tags + stats.parameters + stats.questions + stats.locations;
     }
     
     return stats;
+  }
+
+  updateStatsContainer(stats) {
+    // Find the stats content container
+    const statsContent = document.querySelector('.stats-content');
+    if (!statsContent) return;
+
+    // Find the grid containers
+    const gridContainers = statsContent.querySelectorAll('.grid');
+    if (gridContainers.length < 2) return;
+
+    const firstGrid = gridContainers[0];
+    const secondGrid = gridContainers[1];
+
+    // Clear existing stats (keep only Total Items in first position)
+    firstGrid.innerHTML = `
+      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+        <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Total Items</div>
+        <div class="text-lg font-mono font-semibold text-gray-900 dark:text-gray-100">${this.formatNumber(stats.totalItems)}</div>
+      </div>
+    `;
+
+    // Sort types by count (descending) and create dynamic stats
+    const sortedTypes = Array.from(stats.types.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 7); // Limit to 7 types to fit the layout
+
+    // Define colors for different types
+    const colors = [
+      'text-blue-600 dark:text-blue-400',
+      'text-green-600 dark:text-green-400', 
+      'text-purple-600 dark:text-purple-400',
+      'text-orange-600 dark:text-orange-400',
+      'text-teal-600 dark:text-teal-400',
+      'text-pink-600 dark:text-pink-400',
+      'text-indigo-600 dark:text-indigo-400'
+    ];
+
+    // Add type stats to the first grid (up to 3 more items to make 4 total)
+    sortedTypes.slice(0, 3).forEach((type, index) => {
+      const [typeName, count] = type;
+      const colorClass = colors[index];
+      const displayName = this.formatTypeName(typeName);
+      
+      firstGrid.innerHTML += `
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
+          <div class="text-lg font-mono font-semibold ${colorClass}">${this.formatNumber(count)}</div>
+        </div>
+      `;
+    });
+
+    // Add remaining types to the second grid (up to 4 items)
+    secondGrid.innerHTML = '';
+    sortedTypes.slice(3, 7).forEach((type, index) => {
+      const [typeName, count] = type;
+      const colorClass = colors[index + 3];
+      const displayName = this.formatTypeName(typeName);
+      
+      secondGrid.innerHTML += `
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
+          <div class="text-lg font-mono font-semibold ${colorClass}">${this.formatNumber(count)}</div>
+        </div>
+      `;
+    });
+
+    // Add Quality indicator if we have room
+    if (sortedTypes.length <= 6 && stats.quality !== '—') {
+      secondGrid.innerHTML += `
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Quality</div>
+          <div class="text-lg font-mono font-semibold text-red-600 dark:text-red-400">${stats.quality}</div>
+        </div>
+      `;
+    }
+
+    // Update grid layout based on number of items
+    const firstGridItemCount = 1 + Math.min(3, sortedTypes.length);
+    const secondGridItemCount = Math.max(0, sortedTypes.length - 3) + (stats.quality !== '—' && sortedTypes.length <= 6 ? 1 : 0);
+    
+    // Adjust grid columns
+    firstGrid.className = `grid gap-3 mb-3 grid-cols-2 sm:grid-cols-${Math.min(4, firstGridItemCount)}`;
+    if (secondGridItemCount > 0) {
+      secondGrid.className = `grid gap-3 grid-cols-2 sm:grid-cols-${Math.min(4, secondGridItemCount)}`;
+    }
+  }
+
+  formatTypeName(typeName) {
+    // Convert extraction class names to more readable format
+    const formatMap = {
+      'LEGAL_DOCUMENT': 'Legal Docs',
+      'Legal_Document': 'Legal Docs',
+      'NORM': 'Norms',
+      'Parameter': 'Parameters',
+      'Procedure': 'Procedures',
+      'SECTION': 'Sections',
+      'Tag': 'Tags',
+      'TABLE': 'Tables',
+      'LOCATION': 'Locations',
+      'QUESTION': 'Questions'
+    };
+    
+    return formatMap[typeName] || typeName;
   }
 
   createTreeVisualization(data) {
