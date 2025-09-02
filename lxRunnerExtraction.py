@@ -26,10 +26,6 @@ import langextract as lx
 from langextract import factory
 from langextract import providers
 
-# Import modularized extraction functions
-from postprocessing.extract_tags import extract_tags_from_norms
-from postprocessing.extract_params import extract_parameters_from_norms
-
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
 # ---------------------------------------------------------------------------
@@ -336,17 +332,8 @@ def makeRun(
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
-        
-        print(f"[DEBUG] About to call lx.extract for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
-        print(f"[DEBUG] Extract kwargs keys: {list(extract_kwargs.keys())}", file=sys.stderr)
-        
         try:
             annotated = lx.extract(**extract_kwargs)  # returns AnnotatedDocument
-            
-            # Immediate safety check
-            if annotated is None:
-                raise ValueError("lx.extract returned None - this should not happen")
-                
         except Exception as e:
             safe_err = _sanitize_for_log(e)
             msg = f"[WARN] Extract failed for chunk {idx if idx is not None else 'single'}: {safe_err}"
@@ -361,171 +348,6 @@ def makeRun(
             except Exception:
                 pass
             return result
-
-        # Save RAW annotated document as-is for structure analysis (BEFORE any processing)
-        print(f"[DEBUG] Starting to save raw annotated document for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
-        try:
-            raw_annotated_name = f"raw_annotated_document_{idx:03}.json" if idx is not None else "raw_annotated_document_single.json"
-            
-            # First, try to serialize the entire annotated object using its built-in methods if available
-            raw_annotated_data = {}
-            
-            # Basic metadata about the annotated object
-            raw_annotated_data["object_type"] = str(type(annotated))
-            raw_annotated_data["object_is_none"] = annotated is None
-            raw_annotated_data["object_attributes"] = [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
-            
-            # Try to serialize using common serialization methods
-            serialization_attempts = {}
-            
-            # Attempt 1: Check for to_dict method
-            try:
-                if hasattr(annotated, 'to_dict'):
-                    raw_annotated_data["to_dict_result"] = annotated.to_dict()
-                    serialization_attempts["to_dict"] = "success"
-                else:
-                    serialization_attempts["to_dict"] = "method_not_available"
-            except Exception as dict_err:
-                serialization_attempts["to_dict"] = f"error: {str(dict_err)}"
-            
-            # Attempt 2: Check for __dict__ attribute
-            try:
-                if hasattr(annotated, '__dict__'):
-                    # Convert __dict__ to JSON-serializable format
-                    dict_data = {}
-                    for key, value in annotated.__dict__.items():
-                        try:
-                            # Test JSON serialization
-                            json.dumps(value)
-                            dict_data[key] = value
-                        except (TypeError, ValueError):
-                            # Not JSON serializable, store as string representation
-                            dict_data[key] = str(value)
-                    raw_annotated_data["__dict___result"] = dict_data
-                    serialization_attempts["__dict__"] = "success"
-                else:
-                    serialization_attempts["__dict__"] = "attribute_not_available"
-            except Exception as dict_err:
-                serialization_attempts["__dict__"] = f"error: {str(dict_err)}"
-            
-            # Attempt 3: Manual attribute extraction for key properties
-            try:
-                manual_extraction = {}
-                key_attributes = ["document_id", "extractions", "text", "metadata", "config", "results"]
-                
-                for attr_name in key_attributes:
-                    try:
-                        if hasattr(annotated, attr_name):
-                            attr_value = getattr(annotated, attr_name)
-                            # Try to serialize, fall back to string representation
-                            try:
-                                json.dumps(attr_value)
-                                manual_extraction[attr_name] = attr_value
-                            except (TypeError, ValueError):
-                                manual_extraction[attr_name] = {
-                                    "type": str(type(attr_value)),
-                                    "string_repr": str(attr_value),
-                                    "is_none": attr_value is None,
-                                    "has_len": hasattr(attr_value, '__len__'),
-                                    "length": len(attr_value) if hasattr(attr_value, '__len__') else None,
-                                    "is_iterable": hasattr(attr_value, '__iter__'),
-                                }
-                                # If it's extractions, try to get more details
-                                if attr_name == "extractions" and attr_value is not None:
-                                    try:
-                                        if hasattr(attr_value, '__iter__') and not isinstance(attr_value, str):
-                                            first_few = []
-                                            for i, item in enumerate(attr_value):
-                                                if i >= 3:  # Only first 3 items
-                                                    break
-                                                first_few.append({
-                                                    "index": i,
-                                                    "type": str(type(item)),
-                                                    "string_repr": str(item)[:300] + "..." if len(str(item)) > 300 else str(item),
-                                                    "attributes": [attr for attr in dir(item) if not attr.startswith('_')] if hasattr(item, '__dict__') else []
-                                                })
-                                            manual_extraction[attr_name]["sample_items"] = first_few
-                                    except Exception as sample_err:
-                                        manual_extraction[attr_name]["sample_error"] = str(sample_err)
-                        else:
-                            manual_extraction[attr_name] = "attribute_not_found"
-                    except Exception as attr_err:
-                        manual_extraction[attr_name] = f"error: {str(attr_err)}"
-                
-                raw_annotated_data["manual_extraction"] = manual_extraction
-                serialization_attempts["manual_extraction"] = "success"
-                
-            except Exception as manual_err:
-                serialization_attempts["manual_extraction"] = f"error: {str(manual_err)}"
-            
-            raw_annotated_data["serialization_attempts"] = serialization_attempts
-            
-            # Save the raw annotated document structure
-            (lx_output_dir / raw_annotated_name).write_text(
-                json.dumps(raw_annotated_data, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-            print(f"[DEBUG] Raw annotated document saved to: {raw_annotated_name}", file=sys.stderr)
-            
-        except Exception as raw_annotated_err:
-            print(f"[WARN] Failed to save raw annotated document: {raw_annotated_err}", file=sys.stderr)
-
-        # Save RAW resolver output for debugging (before any processing)
-        print(f"[DEBUG] Starting to save raw resolver output for chunk {idx if idx is not None else 'single'}", file=sys.stderr)
-        try:
-            raw_resolver_name = f"raw_resolver_output_{idx:03}.json" if idx is not None else "raw_resolver_output_single.json"
-            
-            # Check annotated object attributes safely
-            print(f"[DEBUG] Checking annotated object attributes...", file=sys.stderr)
-            document_id = getattr(annotated, "document_id", None)
-            print(f"[DEBUG] document_id: {document_id}", file=sys.stderr)
-            
-            extractions_attr = getattr(annotated, "extractions", None)
-            print(f"[DEBUG] extractions attribute type: {type(extractions_attr)}", file=sys.stderr)
-            print(f"[DEBUG] extractions attribute is None: {extractions_attr is None}", file=sys.stderr)
-            
-            # Convert the annotated object to a serializable format
-            raw_resolver_data = {
-                "document_id": document_id,
-                "extractions_raw": str(extractions_attr),  # Convert to string for safety
-                "extractions_is_none": extractions_attr is None,
-                "extractions_type": str(type(extractions_attr)),
-                "metadata": {
-                    "type": str(type(annotated)),
-                    "attributes": [attr for attr in dir(annotated) if not attr.startswith('_')],
-                },
-            }
-            # Try to get the actual extractions data more safely
-            try:
-                extractions = getattr(annotated, "extractions", None)
-                if extractions is not None:
-                    raw_resolver_data["extractions_count"] = len(extractions) if hasattr(extractions, '__len__') else "unknown"
-                    # Try to serialize first few extractions for debugging
-                    if hasattr(extractions, '__iter__'):
-                        sample_extractions = []
-                        for i, ext in enumerate(extractions):
-                            if i >= 3:  # Only save first 3 for debugging
-                                break
-                            try:
-                                sample_extractions.append({
-                                    "index": i,
-                                    "type": str(type(ext)),
-                                    "attributes": [attr for attr in dir(ext) if not attr.startswith('_')],
-                                    "extraction_class": getattr(ext, "extraction_class", "unknown"),
-                                    "extraction_text_preview": str(getattr(ext, "extraction_text", ""))[:200] + "..." if len(str(getattr(ext, "extraction_text", ""))) > 200 else str(getattr(ext, "extraction_text", "")),
-                                })
-                            except Exception as sample_err:
-                                sample_extractions.append({"index": i, "error": str(sample_err)})
-                        raw_resolver_data["sample_extractions"] = sample_extractions
-            except Exception as extract_err:
-                raw_resolver_data["extraction_error"] = str(extract_err)
-            
-            (lx_output_dir / raw_resolver_name).write_text(
-                json.dumps(raw_resolver_data, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-        except Exception as raw_save_err:
-            print(f"[WARN] Failed to save raw resolver output: {raw_save_err}", file=sys.stderr)
 
         # Persist the annotated document outputs BEFORE any processing/enrichment
         try:
@@ -546,39 +368,80 @@ def makeRun(
                     "start_index": getattr(ti, "start_index", None),
                     "end_index": getattr(ti, "end_index", None),
                 }
-            
-            def _get_alignment_status_value(alignment_status):
-                """Extract alignment status value from enum or string"""
-                if alignment_status is None:
-                    return None
-                # Handle enum objects with .value attribute
-                if hasattr(alignment_status, "value"):
-                    return alignment_status.value
-                # Handle string values directly
-                return alignment_status
 
             raw_items = []
-            
-            extractions = getattr(annotated, "extractions", [])
-            extraction_count = 0
-
-            for extraction_index, e in enumerate(extractions):
+            extractions = getattr(annotated, "extractions", None) or []
+            if extractions is None:
+                extractions = []
+            for e in extractions:
+                # Skip null extractions
                 if e is None:
                     continue
-                
-                extraction_count += 1
-                attributes = getattr(e, "attributes", {})
-                item = {
-                    "extraction_class": getattr(e, "extraction_class", None),
-                    "extraction_text": getattr(e, "extraction_text", None),
-                    "attributes": attributes,
-                    "char_interval": _ci_dict(getattr(e, "char_interval", None)),
-                    "alignment_status": _get_alignment_status_value(getattr(e, "alignment_status", None)),
-                    "extraction_index": getattr(e, "extraction_index", None),
-                    "group_index": getattr(e, "group_index", None),
-                    "description": getattr(e, "description", None),
-                    "token_interval": _ti_dict(getattr(e, "token_interval", None)),
-                }
+                # Handle both old object-based and new dictionary-based extraction formats
+                if isinstance(e, dict):
+                    # New V5 format: {'SECTION': '...', 'SECTION_attributes': {...}}
+                    if e is None or not hasattr(e, 'keys'):
+                        continue
+                    keys = e.keys()
+                    if keys is None:
+                        continue
+                    extraction_keys = [k for k in keys if not k.endswith('_attributes')]
+                    if extraction_keys:
+                        extraction_class = extraction_keys[0]
+                        extraction_text = e.get(extraction_class, "")
+                        attributes_key = f"{extraction_class}_attributes"
+                        attributes = e.get(attributes_key, {})
+                        if attributes is None:
+                            attributes = {}
+                        item = {
+                            "extraction_class": extraction_class,
+                            "extraction_text": extraction_text,
+                            "attributes": attributes,
+                            "char_interval": None,
+                            "alignment_status": None,
+                            "extraction_index": None,
+                            "group_index": None,
+                            "description": None,
+                            "token_interval": None,
+                        }
+                    else:
+                        continue  # Skip malformed extractions
+                else:
+                    # Object format: handle both new extraction objects and legacy objects
+                    try:
+                        # Check if it's a new extraction object with direct properties
+                        if hasattr(e, "extraction_class") and hasattr(e, "extraction_text"):
+                            attributes = getattr(e, "attributes", None)
+                            if attributes is None:
+                                attributes = {}
+                            item = {
+                                "extraction_class": getattr(e, "extraction_class", None),
+                                "extraction_text": getattr(e, "extraction_text", None),
+                                "attributes": attributes,
+                                "char_interval": _ci_dict(getattr(e, "char_interval", None)),
+                                "alignment_status": getattr(getattr(e, "alignment_status", None), "value", None) if hasattr(getattr(e, "alignment_status", None), "value") else getattr(e, "alignment_status", None),
+                                "extraction_index": getattr(e, "extraction_index", None),
+                                "group_index": getattr(e, "group_index", None),
+                                "description": getattr(e, "description", None),
+                                "token_interval": _ti_dict(getattr(e, "token_interval", None)),
+                            }
+                        else:
+                            # Legacy format processing - skip since this format is deprecated
+                            continue
+                    except Exception as attr_err:
+                        print(f"[WARN] Failed to process extraction attributes: {attr_err}", file=sys.stderr)
+                        # Create minimal item to continue processing
+                        item = {
+                            "extraction_class": str(getattr(e, "extraction_class", "Unknown")),
+                            "extraction_text": str(getattr(e, "extraction_text", "")),
+                            "attributes": {},
+                            "char_interval": None,
+                            "alignment_status": None,
+                            "extraction_index": None,
+                            "group_index": None,
+                            "description": None,
+                            "token_interval": None,
+                        }
                 raw_items.append(item)
 
             # Derive Tags and Parameters from Norms and append to annotated outputs
@@ -589,21 +452,152 @@ def makeRun(
             # extraction_class="Parameter"
             # attributes={"id": "P::000001", "applies_for_tag": <path>, "operator": op, "value": val, "unit": unit, "norm_ids": [norm_id]}
 
-            # Scan items for norms to process
+            # Build maps to avoid duplicates and aggregate used_by_norm_ids
+            tag_map: dict[str, Dict[str, Any]] = {}
+            param_list: List[Dict[str, Any]] = []
+            tag_counter = 1
+            param_counter = 1
+
+            def _next_tid() -> str:
+                nonlocal tag_counter
+                tid = f"T::{tag_counter:06d}"
+                tag_counter += 1
+                return tid
+
+            def _next_pid() -> str:
+                nonlocal param_counter
+                pid = f"P::{param_counter:06d}"
+                param_counter += 1
+                return pid
+
+            def _parse_param(expr: str) -> Optional[Tuple[str, str, Any, Optional[str]]]:
+                if not isinstance(expr, str):
+                    return None
+                m = re.match(r"^\s*([A-Z0-9_.]+)\s*(==|>=|<=|>|<)\s*(.+?)\s*$", expr)
+                if not m:
+                    return None
+                path, op, val_str = m.group(1), m.group(2), m.group(3)
+                # Try numeric value with optional decimal comma/dot, keep unit remainder
+                m2 = re.match(r"^\s*([0-9]+(?:[\.,][0-9]+)?)\s*(.*)$", val_str)
+                if m2:
+                    num = m2.group(1).replace(',', '.')
+                    try:
+                        val: Any = float(num) if ('.' in num) else int(num)
+                    except Exception:
+                        try:
+                            val = float(num)
+                        except Exception:
+                            val = num
+                    unit = m2.group(2).strip() or None
+                    return (path, op, val, unit)
+                # Non-numeric value (enum/string)
+                return (path, op, val_str.strip(), None)
+
+            # Scan norms - handle both old individual Norm items and new format with norms in extraction_text
             norms_to_process = []
-            for item in raw_items:
-                if item and isinstance(item, dict) and item.get("extraction_class") == "NORM":
-                    norms_to_process.append(item.get("attributes", {}))
             
-            # Extract tags and parameters using modularized functions
-            derived_tags = extract_tags_from_norms(norms_to_process, tag_counter_start=1)
-            derived_params = extract_parameters_from_norms(norms_to_process, param_counter_start=1)
+            # Ensure raw_items is valid before processing
+            if raw_items is None:
+                raw_items = []
+            elif not isinstance(raw_items, list):
+                raw_items = []
+            
+            for item in raw_items:
+                # Skip None items
+                if item is None:
+                    continue
+                if not isinstance(item, dict):
+                    continue
+                    
+                extraction_class = item.get("extraction_class")
+                if extraction_class == "Norm":
+                    # Old format - individual norm item
+                    attrs = item.get("attributes")
+                    if attrs is None:
+                        attrs = {}
+                    norms_to_process.append(attrs)
+                elif extraction_class == "norms":
+                    # New format - norms stored as JSON in extraction_text
+                    extraction_text = item.get("extraction_text", "")
+                    if isinstance(extraction_text, str) and extraction_text.strip():
+                        try:
+                            # Parse the JSON string containing the list of norms
+                            norms_list = json.loads(extraction_text)
+                            if isinstance(norms_list, list):
+                                norms_to_process.extend(norms_list)
+                        except (json.JSONDecodeError, TypeError):
+                            # If parsing fails, skip this item
+                            continue
+            
+            # Process all norms regardless of format
+            for norm_data in norms_to_process:
+                if not isinstance(norm_data, dict):
+                    continue
+                    
+                norm_id = norm_data.get("id")
+                if not norm_id:
+                    continue
+                    
+                topics = norm_data.get("topics")
+                if topics is None:
+                    topics = []
+                elif not isinstance(topics, list):
+                    topics = []
+
+                # Relevant tags - ensure it's a list
+                relevant_tags = norm_data.get("relevant_tags")
+                if relevant_tags is None:
+                    relevant_tags = []
+                elif not isinstance(relevant_tags, list):
+                    relevant_tags = []
+                
+                for tag_path in relevant_tags:
+                    if not isinstance(tag_path, str):
+                        continue
+                    if tag_path not in tag_map:
+                        tag_map[tag_path] = {
+                            "extraction_class": "Tag",
+                            "extraction_text": tag_path,
+                            "attributes": {
+                                "id": _next_tid(),
+                                "tag": tag_path,
+                                "used_by_norm_ids": [norm_id],
+                                "related_topics": topics,
+                            },
+                        }
+                    else:
+                        u = tag_map[tag_path]["attributes"].setdefault("used_by_norm_ids", [])
+                        if norm_id not in u:
+                            u.append(norm_id)
+
+                # Extracted parameters - ensure it's a list
+                extracted_parameters = norm_data.get("extracted_parameters")
+                if extracted_parameters is None:
+                    extracted_parameters = []
+                elif not isinstance(extracted_parameters, list):
+                    extracted_parameters = []
+                    
+                for expr in extracted_parameters:
+                    parsed = _parse_param(expr)
+                    if not parsed:
+                        continue
+                    path, op, val, unit = parsed
+                    param_list.append({
+                        "extraction_class": "Parameter",
+                        "extraction_text": expr,
+                        "attributes": {
+                            "id": _next_pid(),
+                            "applies_for_tag": path,
+                            "operator": op,
+                            "value": val,
+                            "unit": unit,
+                            "norm_ids": [norm_id],
+                        },
+                    })
 
             # Append derived Tags and Parameters
-            if derived_tags:
-                raw_items.extend(derived_tags)
-            if derived_params:
-                raw_items.extend(derived_params)
+            raw_items.extend(tag_map.values())
+            raw_items.extend(param_list)
 
             raw_legacy = {
                 "document_id": getattr(annotated, "document_id", None),

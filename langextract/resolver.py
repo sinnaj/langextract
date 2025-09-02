@@ -27,7 +27,6 @@ import itertools
 import json
 import operator
 import re
-from pathlib import Path
 
 from absl import logging
 import yaml
@@ -318,61 +317,58 @@ class Resolver(AbstractResolver):
         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
         accept_match_lesser=accept_match_lesser,
     )
-    
-    # Debug output: Save resolver output to root folder
-    try:
-      debug_output = {
-        "resolver_debug": {
-          "source_text_preview": source_text[:500] + ("..." if len(source_text) > 500 else ""),
-          "source_text_length": len(source_text),
-          "token_offset": token_offset,
-          "char_offset": char_offset or 0,
-          "num_extractions_input": len(extractions),
-          "num_aligned_groups": len(aligned_yaml_extractions),
-          "alignment_settings": {
-            "enable_fuzzy_alignment": enable_fuzzy_alignment,
-            "fuzzy_alignment_threshold": fuzzy_alignment_threshold,
-            "accept_match_lesser": accept_match_lesser,
-          },
-          "extractions": []
-        }
-      }
-      
-      # Add detailed extraction information
-      for group_idx, group in enumerate(aligned_yaml_extractions):
-        for extraction in group:
-          extraction_info = {
-            "group_index": group_idx,
-            "extraction_class": extraction.extraction_class,
-            "extraction_text": extraction.extraction_text,
-            "extraction_index": extraction.extraction_index,
-            "alignment_status": extraction.alignment_status.name if extraction.alignment_status else None,
-            "token_interval": {
-              "start_index": extraction.token_interval.start_index if extraction.token_interval else None,
-              "end_index": extraction.token_interval.end_index if extraction.token_interval else None,
-            } if extraction.token_interval else None,
-            "char_interval": {
-              "start_pos": extraction.char_interval.start_pos if extraction.char_interval else None,
-              "end_pos": extraction.char_interval.end_pos if extraction.char_interval else None,
-            } if extraction.char_interval else None,
-            "attributes": extraction.attributes,
-          }
-          debug_output["resolver_debug"]["extractions"].append(extraction_info)
-      
-      # Save to root folder
-      debug_file = Path("resolver_output.json")
-      with open(debug_file, 'w', encoding='utf-8') as f:
-        json.dump(debug_output, f, indent=2, ensure_ascii=False)
-      logging.info("Resolver debug output saved to: %s", debug_file.absolute())
-      
-    except Exception as debug_error:
-      logging.warning("Failed to save resolver debug output: %s", debug_error)
+    # else:
+    #   # Align only allowed classes; pass through the rest unchanged
+    #   def _looks_jsonish(text: str) -> bool:
+    #     t = (text or "").strip()
+    #     if not t:
+    #       return False
+    #     if t[0] in "[{":
+    #       return True
+    #     # Heuristic: JSON-ish if contains a colon and any brace/bracket
+    #     return (":" in t) and any(ch in t for ch in "{}[]")
 
-    for extraction in itertools.chain(*aligned_yaml_extractions):
-      logging.debug("Yielding aligned extraction: %s", extraction)
-      yield extraction
+    #   filtered_groups: list[list[data.Extraction]] = []
+    #   excluded_groups: list[list[data.Extraction]] = []
+    #   for group in extractions_group:
+    #     fg = [
+    #         e
+    #         for e in group
+    #         if e.extraction_class
+    #         and e.extraction_class.lower() in allowed_classes
+    #         and not _looks_jsonish(e.extraction_text)
+    #     ]
+    #     eg = [e for e in group if not e.extraction_class or e.extraction_class.lower() not in allowed_classes]
+    #     filtered_groups.append(fg)
+    #     excluded_groups.append(eg)
 
-    logging.info("Completed alignment process for the provided source_text.")
+    #   if all(len(g) == 0 for g in filtered_groups):
+    #     aligned_yaml_extractions = excluded_groups
+    #   else:
+    #     aligned_filtered = aligner.align_extractions(
+    #         filtered_groups,
+    #         source_text,
+    #         token_offset,
+    #         char_offset or 0,
+    #         enable_fuzzy_alignment=enable_fuzzy_alignment,
+    #         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
+    #         accept_match_lesser=accept_match_lesser,
+    #     )
+    #     # Merge aligned allowed + excluded (unaligned) per group
+    #     aligned_yaml_extractions = [
+    #         list(aligned_allowed) + list(excluded)
+    #         for aligned_allowed, excluded in zip(aligned_filtered, excluded_groups)
+    #     ]
+    # logging.debug(
+    #     "Aligned extractions count: %d",
+    #     sum(len(group) for group in aligned_yaml_extractions),
+    # )
+
+    # for extraction in itertools.chain(*aligned_yaml_extractions):
+    #   logging.debug("Yielding aligned extraction: %s", extraction)
+    #   yield extraction
+
+    # logging.info("Completed alignment process for the provided source_text.")
 
   def _extract_and_parse_content(
       self,
@@ -446,56 +442,45 @@ class Resolver(AbstractResolver):
       # Make incomplete unicode escapes explicit (e.g., \u12 -> \\\\u12)
       protected = re.sub(r"\\u(?![0-9a-fA-F]{4})", r"\\\\u", protected)
 
-      # COMPREHENSIVE HTML SANITIZATION
-      # First pass: Fix the most common HTML attribute patterns
-      def comprehensive_html_fix(text):
-        """Apply multiple HTML fixing strategies for HTML attributes in JSON strings"""
-        original_text = text
+      # FIRST: Fix HTML attribute quotes BEFORE doing backslash processing
+      # This prevents interference between the two sanitization steps
+      def escape_html_attributes_only(match):
+        full_match = match.group(0)
+        # Extract the string content (remove surrounding quotes)
+        content = full_match[1:-1]
         
-        # Strategy 1: Fix unescaped HTML attributes like colspan="4" -> colspan=\"4\"
-        # This pattern looks for attribute="value" and properly escapes both quotes
-        text = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', text)
+        # Use a more targeted approach: only escape quotes that look like HTML attributes
+        # and are not already escaped
+        def replace_html_attr_quotes(attr_match):
+          attr_name = attr_match.group(1)
+          attr_value = attr_match.group(2)
+          return f'{attr_name}=\\"{attr_value}\\"'
         
-        # Strategy 2: Fix attributes with hyphens and underscores like data-value="123"  
-        text = re.sub(r'([\w\-_]+)="([^"]*)"', r'\1=\"\2\"', text)
+        # Pattern to find unescaped HTML attribute="value" pairs
+        # Look for: word="value" but not word=\"value\" 
+        attr_pattern = r'(\w+)=(?<!\\)"([^"]*)"(?!\\")'
+        content = re.sub(attr_pattern, replace_html_attr_quotes, content)
         
-        # Strategy 3: Fix multiple attributes in one tag like <td colspan="4" rowspan="2">
-        # This handles cases where multiple attributes are present
-        def fix_multiple_attributes(match):
-          tag_content = match.group(1)
-          # Replace all unescaped quotes in attributes within this tag
-          fixed_content = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', tag_content)
-          return f'<{fixed_content}>'
-        
-        text = re.sub(r'<([^>]*="[^"]*"[^>]*)>', fix_multiple_attributes, text)
-        
-        # Strategy 4: Fix any remaining quote issues in HTML contexts
-        # This targets patterns inside HTML tags that might still have unescaped quotes
-        def fix_html_tag_quotes(match):
-          tag_content = match.group(1)
-          # Escape any remaining unescaped quotes
-          fixed_content = tag_content.replace('"', '\\"')
-          return f'<{fixed_content}>'
-        
-        # Apply this more carefully to avoid over-escaping
-        # Only target tags that contain unescaped quotes after the previous fixes
-        remaining_unescaped = re.findall(r'<[^>]*[^\\]"[^>]*>', text)
-        if remaining_unescaped:
-          text = re.sub(r'<([^>]*[^\\]"[^>]*)>', fix_html_tag_quotes, text)
-        
-        # Strategy 5: Handle escaped quotes that got double-escaped
-        # Fix patterns like =\"value\" back to proper JSON escaping
-        text = re.sub(r'=\\"([^"]*)\\"', r'=\"\1\"', text)
-        
-        logging.debug(f"HTML fix applied. Changed: {original_text != text}")
-        if original_text != text:
-          logging.debug(f"HTML fix preview - before: {original_text[:200]}...")
-          logging.debug(f"HTML fix preview - after: {text[:200]}...")
-        
-        return text
+        return f'"{content}"'
       
-      # Apply HTML fixes to the entire content first
-      protected = comprehensive_html_fix(protected)
+      # Pattern to match JSON string values containing HTML with unescaped attributes
+      html_attr_pattern = r'"[^"]*<\w+[^>]*\s+\w+="[^"]*"[^>]*>[^"]*"'
+      
+      # Apply HTML quote escaping first (before backslash processing)
+      max_iterations = 5
+      iteration = 0
+      
+      while iteration < max_iterations:
+        if not re.search(html_attr_pattern, protected):
+          break
+          
+        original_protected = protected
+        protected = re.sub(html_attr_pattern, escape_html_attributes_only, protected)
+        
+        if protected == original_protected:
+          break
+          
+        iteration += 1
 
       # SECOND: String-aware pass for LaTeX backslashes (after HTML quotes are fixed)
       out_chars: list[str] = []
@@ -602,102 +587,23 @@ class Resolver(AbstractResolver):
         logging.debug("Sanitized JSON parse succeeded.")
       except Exception as e_san:
         logging.debug("Sanitized JSON parse failed: %s", e_san)
-        
-        # Try aggressive repair for common JSON issues
-        def aggressive_json_repair(json_str: str) -> str:
-          """Aggressive repair for severely malformed JSON."""
-          repaired = json_str
-          logging.debug(f"Starting aggressive JSON repair on {len(repaired)} chars")
-          
-          # Fix 1: Missing commas between JSON objects/arrays
-          # Look for patterns like: }" followed by whitespace and then {"
-          before_fix1 = repaired
-          repaired = re.sub(r'}\s*\n\s*{', r'},\n{', repaired)
-          if repaired != before_fix1:
-            logging.debug("Applied fix 1: Missing commas between objects")
-          
-          # Fix 2: Missing commas between array elements 
-          # Look for patterns like: "] followed by whitespace and then ["  
-          before_fix2 = repaired
-          repaired = re.sub(r']\s*\n\s*\[', r'],\n[', repaired)
-          if repaired != before_fix2:
-            logging.debug("Applied fix 2: Missing commas between arrays")
-          
-          # Fix 3: Missing commas after object properties
-          # Look for patterns like: "value" followed by newline and then "key":
-          before_fix3 = repaired
-          repaired = re.sub(r'"\s*\n\s*"([^"]+)":', r'",\n"\1":', repaired)
-          if repaired != before_fix3:
-            logging.debug("Applied fix 3: Missing commas after properties")
-          
-          # Fix 4: Trailing commas in objects/arrays (not valid JSON but common mistake)
-          before_fix4 = repaired
-          repaired = re.sub(r',\s*}', r'}', repaired)
-          repaired = re.sub(r',\s*]', r']', repaired)
-          if repaired != before_fix4:
-            logging.debug("Applied fix 4: Removed trailing commas")
-          
-          # Fix 5: Missing commas between key-value pairs on same line
-          # Pattern: "value" "nextkey": should be "value", "nextkey":
-          before_fix5 = repaired
-          repaired = re.sub(r'"\s+"([^"]+)":', r'", "\1":', repaired)
-          if repaired != before_fix5:
-            logging.debug("Applied fix 5: Missing commas between inline key-value pairs")
-          
-          # Fix 6: Handle unclosed strings that might be breaking structure
-          # This is a very aggressive fix - try to close obvious unclosed strings
-          before_fix6 = repaired
-          # Look for lines that start with quote but don't end with quote or comma
-          lines = repaired.split('\n')
-          fixed_lines = []
-          for line in lines:
-            stripped = line.strip()
-            # If line starts with quote but doesn't end properly, try to fix
-            if (stripped.startswith('"') and 
-                not stripped.endswith('"') and 
-                not stripped.endswith('",') and
-                not stripped.endswith('",')):
-              if ':' in stripped:
-                # This might be a key: try to close it properly
-                line = line.rstrip() + '",'
-                logging.debug(f"Fixed unclosed key line: {stripped[:50]}...")
-              else:
-                # This might be a value: try to close it
-                line = line.rstrip() + '",'
-                logging.debug(f"Fixed unclosed value line: {stripped[:50]}...")
-            fixed_lines.append(line)
-          repaired = '\n'.join(fixed_lines)
-          if repaired != before_fix6:
-            logging.debug("Applied fix 6: Closed unclosed strings")
-          
-          logging.debug(f"Aggressive repair completed. Length changed: {len(json_str)} -> {len(repaired)}")
-          return repaired
-        
         # Try tolerant parser if available
         try:
           import dirtyjson  # type: ignore
 
           try:
-            # Try dirtyjson on sanitized content first
             parsed_data = dirtyjson.loads(sanitized)
             logging.debug("dirtyjson parse succeeded on sanitized content.")
           except Exception:
-            try:
-              # Try aggressive repair then dirtyjson
-              aggressively_repaired = aggressive_json_repair(sanitized)
-              parsed_data = dirtyjson.loads(aggressively_repaired)
-              logging.debug("dirtyjson parse succeeded on aggressively repaired content.")
-            except Exception:
-              # Try dirtyjson on original content as last JSON attempt
-              parsed_data = dirtyjson.loads(content)
-              logging.debug("dirtyjson parse succeeded on original content.")
+            parsed_data = dirtyjson.loads(content)
+            logging.debug("dirtyjson parse succeeded on original content.")
         except Exception:
           # As a last resort try YAML load
           try:
             parsed_data = yaml.safe_load(content)
             logging.debug("YAML fallback succeeded after sanitization failure.")
           except Exception as e2:
-            logging.exception("Failed to parse content after all repair attempts (sanitization, aggressive repair, dirtyjson, and YAML fallback).")
+            logging.exception("Failed to parse content after sanitization, dirtyjson, and YAML fallback.")
             raise ResolverParsingError("Failed to parse content.") from e2
     except yaml.YAMLError as ye:
       logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
@@ -733,6 +639,78 @@ class Resolver(AbstractResolver):
         ValueError: If the input is invalid or does not contain expected format.
     """
     parsed_data = self._extract_and_parse_content(input_string)
+
+    # If model misused 'extractions' to hold Norm objects, coerce into expected shape:
+    # {"extractions":[{ norms: [...], tags: [...], parameters: [...], ... }]}.
+    # Handle both cases:
+    #  a) dict with 'extractions' alongside other rich keys
+    #  b) dict with only 'extractions' that itself is a list of Norm-like objects
+    if isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY in parsed_data:
+      rich_side_keys = {"tags", "locations", "questions", "consequences", "parameters", "quality"}
+      exts_val = parsed_data.get(schema.EXTRACTIONS_KEY)
+
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        # Heuristics for a Norm object
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        # Or an id that resembles a Norm ID
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
+
+      if isinstance(exts_val, list) and exts_val and all(
+          _looks_like_norm_obj(item) for item in exts_val if isinstance(item, dict)
+      ):
+        # Case (a): also has other rich arrays/objects
+        if any(k in parsed_data for k in rich_side_keys):
+          logging.warning(
+              "Detected top-level 'extractions' list containing Norm-like objects with other rich keys; coercing to rich root with 'norms'."
+          )
+          coerced_root = dict(parsed_data)  # shallow copy
+          coerced_root["norms"] = exts_val
+          coerced_root.pop(schema.EXTRACTIONS_KEY, None)
+          parsed_data = {schema.EXTRACTIONS_KEY: [coerced_root]}
+        else:
+          # Case (b): only 'extractions' present containing Norms; wrap into single extraction with norms
+          logging.warning(
+              "Detected only 'extractions' with Norm-like objects; wrapping into single extraction root with 'norms'."
+          )
+          parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": exts_val}]}
+
+    # Tolerate common variants by gently coercing into expected shape
+    if isinstance(parsed_data, list):
+      # If it's a bare list of Norm-like objects, wrap as single extraction root
+      def _looks_like_norm_obj(obj: object) -> bool:
+        if not isinstance(obj, dict):
+          return False
+        normish_keys = {"statement_text", "obligation_type", "applies_if", "satisfied_if", "exempt_if"}
+        if any(k in obj for k in normish_keys):
+          return True
+        _id = obj.get("id") if isinstance(obj.get("id"), str) else None
+        return bool(_id and _id.startswith("N::"))
+
+      if parsed_data and all(_looks_like_norm_obj(item) for item in parsed_data if isinstance(item, dict)):
+        logging.warning("Top-level list of Norm-like objects detected; wrapping into single extraction root under 'norms'.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [{"norms": parsed_data}]}
+      else:
+        logging.warning("Top-level list detected; coercing to {'extractions': [...]} shape.")
+        parsed_data = {schema.EXTRACTIONS_KEY: parsed_data}
+    elif isinstance(parsed_data, dict) and schema.EXTRACTIONS_KEY not in parsed_data:
+      # If dict looks like a rich object (contains any known rich keys), wrap it
+      rich_keys = {
+          "norms",
+          "tags",
+          "locations",
+          "questions",
+          "consequences",
+          "parameters",
+          "quality",
+      }
+      if any(k in parsed_data for k in rich_keys):
+        logging.warning("Dict without 'extractions' detected; wrapping as single extraction object.")
+        parsed_data = {schema.EXTRACTIONS_KEY: [parsed_data]}
 
     if not isinstance(parsed_data, dict):
       logging.error("Expected content to be a mapping (dict). Got %s", type(parsed_data))
