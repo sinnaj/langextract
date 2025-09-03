@@ -1408,6 +1408,11 @@ class PreviewOptimizer {
       return false;
     }
 
+    // Must have JSON data to show tree visualization
+    if (!this.currentJsonData || !this.currentJsonData.extractions || !Array.isArray(this.currentJsonData.extractions)) {
+      return false;
+    }
+
     // Get current panel configuration
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
     const currentColumnCount = window.currentColumnCount || 1;
@@ -1417,7 +1422,7 @@ class PreviewOptimizer {
     console.log(`Current panel index: ${currentPanelIndex}`);
     
     if (currentPanelIndex === -1) {
-      console.warn('Could not determine current panel index');
+      console.warn('Could not determine current panel index - defaulting to show tree view');
       return true; // Default to showing tree view if we can't determine
     }
     
@@ -1432,6 +1437,12 @@ class PreviewOptimizer {
     
     console.log(`JSON panels found: ${jsonPanelIndices.join(', ')}`);
     console.log(`Current panel ${currentPanelIndex}, leftmost JSON panel: ${jsonPanelIndices[0]}`);
+    
+    // If no JSON panels are detected in selectedFilePaths, but we have JSON data and are in single panel mode, show tree view
+    if (jsonPanelIndices.length === 0 && currentColumnCount === 1 && currentPanelIndex === 0) {
+      console.log('Single panel mode with JSON data - showing tree view');
+      return true;
+    }
     
     // Show tree visualization only in the leftmost JSON panel
     const shouldShow = jsonPanelIndices.length > 0 && currentPanelIndex === jsonPanelIndices[0];
