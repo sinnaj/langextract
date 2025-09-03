@@ -24,6 +24,12 @@ class PreviewOptimizer {
     this.uberMode = false; // UBERMODE state
     this.currentJsonData = null; // Store parsed JSON for UBERMODE
     this.currentFilter = null; // Current statistics filter (null = show all, string = show only that type)
+    this.updateJsonDisplayTimeout = null; // For debouncing JSON updates
+    this.performanceStats = { // Track rendering performance
+      renderCount: 0,
+      totalRenderTime: 0,
+      lastRenderTime: 0
+    };
     
     this.init();
   }
@@ -281,19 +287,33 @@ class PreviewOptimizer {
         return;
       }
 
-      const pretty = JSON.stringify(obj, null, 2);
+      // Determine rendering strategy based on JSON size and complexity
+      const jsonString = JSON.stringify(obj);
+      const jsonSize = jsonString.length;
+      const jsonDepth = this.calculateJsonDepth(obj);
+      const itemCount = this.countJsonItems(obj);
 
-      // Prefer JSONFormatter for structured view if available and content size is reasonable
-      if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
+      console.log(`JSON analysis: size=${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
+
+      // Strategy 1: Very large JSON files - use specialized large JSON renderer
+      if (jsonSize > 2000000 || itemCount > 10000) {
+        console.log('Using large JSON renderer for performance');
+        this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+        return;
+      }
+
+      // Strategy 2: Medium to large JSON - use JSONFormatter with optimizations
+      if (typeof JSONFormatter !== 'undefined' && jsonSize <= 2000000) {
         this.renderEnhancedJsonObject(obj, meta);
         return;
       }
 
-      // Fallback to pretty-printed code if too large or formatter missing
-      if (pretty.length > 1000000) {
+      // Strategy 3: Fallback for very large files or when JSONFormatter unavailable
+      if (jsonSize > 500000) {
+        console.log('JSON too large, falling back to text rendering');
         this.renderTextContent(content, meta, 'json');
       } else {
-        this.renderEnhancedJson(pretty, meta);
+        this.renderEnhancedJson(jsonString, meta);
       }
     } catch (e) {
       // Invalid JSON, render as text
@@ -331,7 +351,14 @@ class PreviewOptimizer {
       try {
         const obj = JSON.parse(line);
         if (typeof JSONFormatter !== 'undefined') {
-          const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
+          // Limit depth for performance in JSONL rendering
+          const maxDepth = line.length > 10000 ? 1 : 2;
+          const formatter = new JSONFormatter(obj, maxDepth, { 
+            theme: 'dark',
+            hoverPreviewEnabled: line.length < 5000,
+            animateOpen: false,
+            animateClose: false
+          });
           block.appendChild(formatter.render());
         } else {
           const pretty = JSON.stringify(obj, null, 2);
@@ -364,13 +391,39 @@ class PreviewOptimizer {
     if (typeof JSONFormatter !== 'undefined') {
       try {
         const obj = JSON.parse(jsonString);
-        const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, {
-          theme: 'dark' // theme hint; CSS controls final look
+        
+        // Determine appropriate depth based on JSON size and complexity
+        const jsonSize = jsonString.length;
+        const jsonDepth = this.calculateJsonDepth(obj);
+        
+        let maxDepth;
+        if (jsonSize > 500000) { // >500KB
+          maxDepth = 1; // Very shallow for large files
+        } else if (jsonSize > 100000) { // >100KB
+          maxDepth = 2; // Moderate depth
+        } else if (jsonDepth > 5) {
+          maxDepth = 3; // Limit deep nesting
+        } else {
+          maxDepth = Math.min(jsonDepth, 4); // Reasonable default
+        }
+        
+        const formatter = new JSONFormatter(obj, maxDepth, {
+          theme: 'dark', // theme hint; CSS controls final look
+          hoverPreviewEnabled: true,
+          hoverPreviewArrayCount: 10,
+          hoverPreviewFieldCount: 5,
+          animateOpen: false, // Disable animations for performance
+          animateClose: false
         });
+        
         const container = document.createElement('div');
         container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
-        container.appendChild(formatter.render());
-        this.element.appendChild(container);
+        
+        // Use requestAnimationFrame for non-blocking DOM update
+        requestAnimationFrame(() => {
+          container.appendChild(formatter.render());
+          this.element.appendChild(container);
+        });
         return;
       } catch (e) {
         // Fallback to code block rendering below
@@ -394,8 +447,24 @@ class PreviewOptimizer {
   }
 
   renderEnhancedJsonObject(obj, meta, options = {}) {
+    const startTime = performance.now();
+    
     // Use JSONFormatter directly on parsed object with enhanced controls
     try {
+      // Determine JSON complexity and size for performance optimization
+      const jsonString = JSON.stringify(obj);
+      const jsonSize = jsonString.length;
+      const jsonDepth = this.calculateJsonDepth(obj);
+      const itemCount = this.countJsonItems(obj);
+      
+      console.log(`Rendering JSON: ${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
+      
+      // Performance-based rendering strategy
+      if (jsonSize > 2000000 || itemCount > 10000) { // >2MB or >10k items
+        this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+        return;
+      }
+      
       // Create main container with controls
       const mainContainer = document.createElement('div');
       mainContainer.className = 'enhanced-json-container';
@@ -417,7 +486,6 @@ class PreviewOptimizer {
       contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
       
       // Determine if we need horizontal scroll
-      const jsonDepth = this.calculateJsonDepth(obj);
       const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
       
       if (needsHorizontalScroll) {
@@ -428,9 +496,9 @@ class PreviewOptimizer {
         contentWrapper.style.whiteSpace = 'pre-wrap';
       }
       
-      // Create line numbers container if enabled
+      // Create line numbers container if enabled (only for smaller JSON)
       let lineNumbersContainer = null;
-      if (showLineNumbers) {
+      if (showLineNumbers && jsonSize < 500000) { // Skip line numbers for large JSON
         lineNumbersContainer = document.createElement('div');
         lineNumbersContainer.className = 'line-numbers-container bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none';
         lineNumbersContainer.style.cssText = `
@@ -449,41 +517,73 @@ class PreviewOptimizer {
         contentWrapper.style.paddingLeft = '68px';
       }
       
-      // Create JSONFormatter with custom styling
-      const formatter = new JSONFormatter(obj, options.maxDepth || 3, {
-        hoverPreviewEnabled: true,
-        hoverPreviewArrayCount: 100,
-        hoverPreviewFieldCount: 5,
-        animateOpen: true,
-        animateClose: true,
+      // Determine appropriate depth and options based on JSON complexity
+      let maxDepth = options.maxDepth;
+      if (!maxDepth) {
+        if (jsonSize > 500000) maxDepth = 1;
+        else if (jsonSize > 100000 || itemCount > 1000) maxDepth = 2;
+        else if (jsonDepth > 5) maxDepth = 3;
+        else maxDepth = Math.min(jsonDepth, 4);
+      }
+      
+      // Create JSONFormatter with performance-optimized settings
+      const formatter = new JSONFormatter(obj, maxDepth, {
+        hoverPreviewEnabled: jsonSize < 100000, // Disable hover for large JSON
+        hoverPreviewArrayCount: jsonSize < 100000 ? 50 : 5,
+        hoverPreviewFieldCount: jsonSize < 100000 ? 5 : 3,
+        animateOpen: jsonSize < 50000, // Disable animations for large JSON
+        animateClose: jsonSize < 50000,
         theme: 'default'
       });
       
-      const formatterElement = formatter.render();
-      formatterElement.style.padding = '12px';
-      formatterElement.style.minHeight = '100%';
-      
-      contentWrapper.appendChild(formatterElement);
-      container.appendChild(contentWrapper);
-      
-      // Generate line numbers if enabled
-      if (showLineNumbers && lineNumbersContainer) {
-        this.generateJsonLineNumbers(obj, lineNumbersContainer);
-      }
-      
-      mainContainer.appendChild(container);
-      this.element.appendChild(mainContainer);
-      
-      // Store references for control updates
-      this.jsonContainer = container;
-      this.jsonContentWrapper = contentWrapper;
-      this.jsonLineNumbersContainer = lineNumbersContainer;
+      // Use requestAnimationFrame for non-blocking rendering
+      requestAnimationFrame(() => {
+        const formatterElement = formatter.render();
+        formatterElement.style.padding = '12px';
+        formatterElement.style.minHeight = '100%';
+        
+        contentWrapper.appendChild(formatterElement);
+        container.appendChild(contentWrapper);
+        
+        // Generate line numbers if enabled and not too large
+        if (showLineNumbers && lineNumbersContainer && jsonSize < 100000) {
+          requestAnimationFrame(() => {
+            this.generateJsonLineNumbers(obj, lineNumbersContainer);
+          });
+        }
+        
+        mainContainer.appendChild(container);
+        this.element.appendChild(mainContainer);
+        
+        // Store references for control updates
+        this.jsonContainer = container;
+        this.jsonContentWrapper = contentWrapper;
+        this.jsonLineNumbersContainer = lineNumbersContainer;
+        
+        // Track performance
+        const endTime = performance.now();
+        const renderTime = endTime - startTime;
+        this.performanceStats.renderCount++;
+        this.performanceStats.totalRenderTime += renderTime;
+        this.performanceStats.lastRenderTime = renderTime;
+        
+        console.log(`JSON rendered in ${renderTime.toFixed(2)}ms (avg: ${(this.performanceStats.totalRenderTime / this.performanceStats.renderCount).toFixed(2)}ms)`);
+      });
       
     } catch (e) {
       console.error('JSONFormatter failed:', e);
       // Fallback: pretty print with enhanced controls
       const pretty = JSON.stringify(obj, null, 2);
       this.renderEnhancedJsonWithControls(pretty, meta);
+    } finally {
+      // Ensure performance tracking even on fallback
+      if (this.performanceStats.lastRenderTime === 0) {
+        const endTime = performance.now();
+        const renderTime = endTime - startTime;
+        this.performanceStats.renderCount++;
+        this.performanceStats.totalRenderTime += renderTime;
+        this.performanceStats.lastRenderTime = renderTime;
+      }
     }
   }
 
@@ -554,12 +654,18 @@ class PreviewOptimizer {
 
   // Calculate maximum depth of JSON object
   calculateJsonDepth(obj, currentDepth = 0) {
-    if (typeof obj !== 'object' || obj === null) {
+    if (typeof obj !== 'object' || obj === null || currentDepth > 10) { // Limit recursion depth
       return currentDepth;
     }
     
     let maxDepth = currentDepth;
-    for (const value of Object.values(obj)) {
+    const keys = Object.keys(obj);
+    
+    // Limit checking for performance on very large objects
+    const keysToCheck = keys.length > 100 ? keys.slice(0, 100) : keys;
+    
+    for (const key of keysToCheck) {
+      const value = obj[key];
       if (typeof value === 'object' && value !== null) {
         const depth = this.calculateJsonDepth(value, currentDepth + 1);
         maxDepth = Math.max(maxDepth, depth);
@@ -569,35 +675,266 @@ class PreviewOptimizer {
     return maxDepth;
   }
 
-  // Generate line numbers for JSON
-  generateJsonLineNumbers(obj, container) {
-    const pretty = JSON.stringify(obj, null, 2);
-    const lines = pretty.split('\n');
-    const maxLength = lines.length.toString().length;
+  // Count JSON items (keys + array elements) for performance estimation
+  countJsonItems(obj, maxCount = 20000) {
+    let count = 0;
     
-    container.innerHTML = '';
-    for (let i = 1; i <= lines.length; i++) {
-      const lineNumber = document.createElement('div');
-      lineNumber.className = 'line-number';
-      lineNumber.textContent = i.toString().padStart(maxLength, ' ');
-      lineNumber.style.height = '20px'; // Match typical line height
-      container.appendChild(lineNumber);
-    }
+    const countRecursive = (item) => {
+      if (count >= maxCount) return; // Stop counting if we hit the limit
+      
+      if (Array.isArray(item)) {
+        count += item.length;
+        for (const element of item.slice(0, 10)) { // Sample first 10 elements
+          if (typeof element === 'object' && element !== null) {
+            countRecursive(element);
+          }
+        }
+      } else if (typeof item === 'object' && item !== null) {
+        const keys = Object.keys(item);
+        count += keys.length;
+        for (const key of keys.slice(0, 50)) { // Sample first 50 keys
+          countRecursive(item[key]);
+        }
+      }
+    };
+    
+    countRecursive(obj);
+    return count;
   }
 
-  // Update JSON display when preferences change
+  // Render very large JSON with virtual scrolling and progressive loading
+  renderLargeJsonObject(obj, meta, stats = {}) {
+    this.element.innerHTML = '';
+    
+    // Create warning and info container
+    const infoContainer = document.createElement('div');
+    infoContainer.className = 'bg-orange-50 dark:bg-orange-900 border border-orange-200 dark:border-orange-700 rounded-lg p-4 mb-4';
+    
+    const { jsonSize, jsonDepth, itemCount } = stats;
+    infoContainer.innerHTML = `
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-sm font-medium text-orange-800 dark:text-orange-200">Large JSON File</h3>
+          <div class="mt-2 text-sm text-orange-700 dark:text-orange-300">
+            <p>This JSON file is very large (${this.formatBytes(jsonSize)}, ~${itemCount.toLocaleString()} items, depth ${jsonDepth})</p>
+            <p>Using optimized rendering with limited depth to maintain performance.</p>
+          </div>
+          <div class="mt-3 flex space-x-2">
+            <button id="render-shallow" class="text-xs bg-orange-600 hover:bg-orange-700 text-white px-3 py-1 rounded">
+              Render (Depth 1)
+            </button>
+            <button id="render-medium" class="text-xs bg-orange-600 hover:bg-orange-700 text-white px-3 py-1 rounded">
+              Render (Depth 2)
+            </button>
+            <button id="render-text" class="text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
+              View as Text
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    this.element.appendChild(infoContainer);
+    
+    // Add event listeners for rendering options
+    const shallowBtn = infoContainer.querySelector('#render-shallow');
+    const mediumBtn = infoContainer.querySelector('#render-medium');
+    const textBtn = infoContainer.querySelector('#render-text');
+    
+    shallowBtn?.addEventListener('click', () => {
+      this.renderJsonWithDepth(obj, 1, infoContainer);
+    });
+    
+    mediumBtn?.addEventListener('click', () => {
+      this.renderJsonWithDepth(obj, 2, infoContainer);
+    });
+    
+    textBtn?.addEventListener('click', () => {
+      this.renderJsonAsText(obj, infoContainer);
+    });
+    
+    // Auto-render with minimal depth by default
+    setTimeout(() => {
+      this.renderJsonWithDepth(obj, 1, infoContainer);
+    }, 100);
+  }
+
+  // Render JSON with specific depth limit
+  renderJsonWithDepth(obj, maxDepth, infoContainer) {
+    // Show loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'text-center py-8 text-gray-500';
+    loadingDiv.innerHTML = `
+      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
+      <div class="text-sm">Rendering JSON (depth ${maxDepth})...</div>
+    `;
+    
+    // Remove any existing JSON container
+    const existingJson = this.element.querySelector('.json-viewer');
+    if (existingJson) existingJson.remove();
+    
+    this.element.appendChild(loadingDiv);
+    
+    // Use timeout to allow UI to update
+    setTimeout(() => {
+      try {
+        const formatter = new JSONFormatter(obj, maxDepth, {
+          hoverPreviewEnabled: false, // Disable for performance
+          hoverPreviewArrayCount: 3,
+          hoverPreviewFieldCount: 3,
+          animateOpen: false,
+          animateClose: false,
+          theme: 'default'
+        });
+        
+        const container = document.createElement('div');
+        container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 overflow-auto max-h-96';
+        
+        const formatterElement = formatter.render();
+        container.appendChild(formatterElement);
+        
+        // Remove loading indicator and add JSON
+        loadingDiv.remove();
+        this.element.appendChild(container);
+        
+      } catch (e) {
+        console.error('Failed to render JSON:', e);
+        loadingDiv.innerHTML = `
+          <div class="text-red-600">Failed to render JSON: ${e.message}</div>
+          <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()" 
+                  class="mt-2 text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
+            View as Text Instead
+          </button>
+        `;
+      }
+    }, 10);
+  }
+
+  // Render JSON as plain text with syntax highlighting
+  renderJsonAsText(obj, infoContainer) {
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'text-center py-8 text-gray-500';
+    loadingDiv.innerHTML = `
+      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
+      <div class="text-sm">Rendering as text...</div>
+    `;
+    
+    // Remove any existing JSON container
+    const existingJson = this.element.querySelector('.json-viewer');
+    if (existingJson) existingJson.remove();
+    
+    this.element.appendChild(loadingDiv);
+    
+    // Use timeout for non-blocking rendering
+    setTimeout(() => {
+      try {
+        const pretty = JSON.stringify(obj, null, 2);
+        
+        const container = document.createElement('div');
+        container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 overflow-auto max-h-96';
+        
+        const pre = document.createElement('pre');
+        pre.className = 'font-mono text-sm leading-relaxed m-0 p-3';
+        pre.style.whiteSpace = 'pre-wrap'; // Allow word wrapping for long lines
+        
+        const code = document.createElement('code');
+        code.className = 'language-json';
+        code.textContent = pretty;
+        
+        pre.appendChild(code);
+        container.appendChild(pre);
+        
+        // Remove loading and add content
+        loadingDiv.remove();
+        this.element.appendChild(container);
+        
+        // Apply syntax highlighting after a short delay
+        if (typeof hljs !== 'undefined') {
+          setTimeout(() => {
+            try { 
+              hljs.highlightElement(code); 
+            } catch(e) {
+              console.warn('Syntax highlighting failed:', e);
+            }
+          }, 100);
+        }
+        
+      } catch (e) {
+        console.error('Failed to render JSON as text:', e);
+        loadingDiv.innerHTML = `<div class="text-red-600">Failed to render JSON: ${e.message}</div>`;
+      }
+    }, 10);
+  }
+
+  // Generate line numbers for JSON (optimized for performance)
+  generateJsonLineNumbers(obj, container) {
+    // Use requestAnimationFrame for non-blocking line number generation
+    requestAnimationFrame(() => {
+      try {
+        const pretty = JSON.stringify(obj, null, 2);
+        const lines = pretty.split('\n');
+        const maxLength = lines.length.toString().length;
+        
+        // Clear existing line numbers
+        container.innerHTML = '';
+        
+        // Create a document fragment for better performance
+        const fragment = document.createDocumentFragment();
+        
+        // Limit line numbers for very large JSON (performance)
+        const maxLinesToShow = Math.min(lines.length, 2000);
+        
+        for (let i = 1; i <= maxLinesToShow; i++) {
+          const lineNumber = document.createElement('div');
+          lineNumber.className = 'line-number';
+          lineNumber.textContent = i.toString().padStart(maxLength, ' ');
+          lineNumber.style.height = '20px';
+          fragment.appendChild(lineNumber);
+        }
+        
+        // If we truncated, show an indicator
+        if (lines.length > maxLinesToShow) {
+          const indicator = document.createElement('div');
+          indicator.className = 'line-number text-gray-400';
+          indicator.textContent = '...';
+          indicator.style.height = '20px';
+          fragment.appendChild(indicator);
+        }
+        
+        container.appendChild(fragment);
+      } catch (e) {
+        console.warn('Failed to generate line numbers:', e);
+      }
+    });
+  }
+
+  // Debounced update for JSON display changes
   updateJsonDisplay() {
     if (!this.currentJsonData) return;
     
-    // Find the JSON container and re-render
-    const container = this.element.querySelector('.enhanced-json-container');
-    if (container) {
-      // Remove existing JSON display
-      this.element.removeChild(container);
-      
-      // Re-render with updated preferences
-      this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+    // Cancel any pending update
+    if (this.updateJsonDisplayTimeout) {
+      clearTimeout(this.updateJsonDisplayTimeout);
     }
+    
+    // Debounce updates to prevent rapid re-rendering
+    this.updateJsonDisplayTimeout = setTimeout(() => {
+      const container = this.element.querySelector('.enhanced-json-container');
+      if (container) {
+        // Remove existing JSON display
+        this.element.removeChild(container);
+        
+        // Re-render with updated preferences
+        requestAnimationFrame(() => {
+          this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+        });
+      }
+    }, 100); // 100ms debounce
   }
 
   // JSON preference storage helpers
@@ -2951,18 +3288,26 @@ class PreviewOptimizer {
       this.generateJsonLineNumbers(filteredData, lineNumbersContainer);
     }
     
-    // Render JSON content
+    // Render JSON content with performance optimizations
     if (typeof JSONFormatter !== 'undefined') {
-      const formatter = new JSONFormatter(filteredData, 3, {
-        hoverPreviewEnabled: true,
-        hoverPreviewArrayCount: 100,
-        hoverPreviewFieldCount: 5,
-        animateOpen: true,
-        animateClose: true
+      // Determine appropriate settings based on data size
+      const dataSize = JSON.stringify(filteredData).length;
+      const maxDepth = dataSize > 100000 ? 2 : 3;
+      
+      const formatter = new JSONFormatter(filteredData, maxDepth, {
+        hoverPreviewEnabled: dataSize < 50000,
+        hoverPreviewArrayCount: dataSize < 50000 ? 50 : 10,
+        hoverPreviewFieldCount: dataSize < 50000 ? 5 : 3,
+        animateOpen: dataSize < 20000,
+        animateClose: dataSize < 20000
       });
-      const formatterElement = formatter.render();
-      formatterElement.style.padding = '12px';
-      contentWrapper.appendChild(formatterElement);
+      
+      // Use requestAnimationFrame for non-blocking rendering
+      requestAnimationFrame(() => {
+        const formatterElement = formatter.render();
+        formatterElement.style.padding = '12px';
+        contentWrapper.appendChild(formatterElement);
+      });
     } else {
       // Fallback to pretty-printed JSON
       const pretty = JSON.stringify(filteredData, null, 2);
