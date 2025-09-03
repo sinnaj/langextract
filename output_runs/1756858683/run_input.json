@@ -1,0 +1,13 @@
+{
+  "RUN_ID": "1756858683",
+  "MODEL_ID": "google/gemini-2.5-flash",
+  "MODEL_TEMPERATURE": "0.15",
+  "MAX_NORMS_PER_5K": "50",
+  "MAX_CHAR_BUFFER": "3000",
+  "EXTRACTION_PASSES": "1",
+  "INPUT_PROMPTFILE": "input_promptfiles/extraction_prompt_V7.md",
+  "INPUT_GLOSSARYFILE": "input_glossaryfiles/dsl_glossary.json",
+  "INPUT_EXAMPLESFILE": "input_examplefiles/examples_V7_shortened.py",
+  "INPUT_SEMANTCSFILE": "input_semanticsfiles/prompt_appendix_entity_semantics.md",
+  "INPUT_TEACHFILE": "input_teachfiles/prompt_appendix_teaching.md"
+}
