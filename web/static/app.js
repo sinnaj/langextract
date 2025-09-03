@@ -20,6 +20,7 @@
   // Expose state variables globally for preview optimizer navigation
   window.selectedFilePaths = selectedFilePaths;
   window.currentColumnCount = currentColumnCount;
+  window.previewOptimizers = previewOptimizers;
 
   // Initialize performance optimizers
   let consoleOptimizer = null;
