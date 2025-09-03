@@ -45,6 +45,48 @@
       background-color: rgba(34, 197, 94, 0.15) !important;
       border-left-color: rgba(34, 197, 94, 0.6) !important;
     }
+    
+    /* Comments UI styles */
+    .comments-toggle {
+      position: relative;
+    }
+    .comments-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      min-width: 16px;
+      height: 16px;
+      font-size: 9px;
+      line-height: 16px;
+      text-align: center;
+    }
+    .comment-item {
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      transition: all 0.2s ease;
+    }
+    .comment-item:hover {
+      border-color: rgba(156, 163, 175, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .dark .comment-item {
+      border-color: rgba(75, 85, 99, 0.5);
+    }
+    .dark .comment-item:hover {
+      border-color: rgba(107, 114, 128, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .comment-actions button {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    .comment-actions button:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    .dark .comment-actions button:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
   </style>
 
   <!-- Highlight.js core with fallback -->
@@ -280,6 +322,7 @@
     </div>
     <script src="/static/console-optimizer.js"></script>
     <script src="/static/preview-optimizer.js"></script>
+    <script src="/static/comments.js"></script>
     <script src="/static/app.js"></script>
   </body>
 </html>
