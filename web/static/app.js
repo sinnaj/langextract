@@ -657,11 +657,6 @@
         // Plain text
         previewEl.innerHTML = `<pre class="whitespace-pre-wrap"><code>${escapeHtml(text)}</code></pre>`;
       }
-      
-      // Notify comments system about file change
-      if (window.commentsUI) {
-        window.commentsUI.onFileChanged(panelIndex, f.path);
-      }
     } else {
       previewEl.textContent = '[Binary file] Downloading...';
       window.location.href = `/runs/${runId}/file?path=${encodeURIComponent(f.path)}`;
@@ -704,11 +699,6 @@
         btn.addEventListener('click', async () => {
           selectedFilePaths[panelIndex] = f.path;
           window.selectedFilePaths = selectedFilePaths; // Update global reference
-          
-          // Notify comments system about file change
-          if (window.commentsUI) {
-            window.commentsUI.onFileChanged(panelIndex, f.path);
-          }
           
           // Update all badges selection state for this panel
           if (fileBadgesEl) {
@@ -757,6 +747,11 @@
           } else {
             // Fallback to original loading method
             await loadFileOriginal(runId, f, panelIndex);
+          }
+          
+          // Notify comments system about file change
+          if (window.commentsUI) {
+            window.commentsUI.onFileChanged(panelIndex, f.path);
           }
         });
         

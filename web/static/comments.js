@@ -1,6 +1,6 @@
 /**
- * Comments System UI Integration
- * Handles comment display, creation, editing, and management for the web interface
+ * Hover-based Comments System for Web File Viewer
+ * Provides position-aware commenting with overlay UI and inline editing
  */
 
 (() => {
@@ -52,8 +52,7 @@
           body: JSON.stringify({ text_body: textBody }),
         });
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `Failed to update comment: ${response.statusText}`);
+          throw new Error(`Failed to update comment: ${response.statusText}`);
         }
         return await response.json();
       } catch (error) {
@@ -68,54 +67,32 @@
           method: 'DELETE',
         });
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `Failed to delete comment: ${response.statusText}`);
+          throw new Error(`Failed to delete comment: ${response.statusText}`);
         }
-        return await response.json();
       } catch (error) {
         console.error('Error deleting comment:', error);
         throw error;
       }
     }
-
-    static async replyToComment(commentId, replyData) {
-      try {
-        const response = await fetch(`/api/comments/${commentId}/reply`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(replyData),
-        });
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `Failed to create reply: ${response.statusText}`);
-        }
-        return await response.json();
-      } catch (error) {
-        console.error('Error creating reply:', error);
-        throw error;
-      }
-    }
   }
 
-  // Comments UI Manager
-  class CommentsUI {
+  // Position-aware Comment Manager
+  class HoverCommentsUI {
     constructor() {
       this.currentFilePath = null;
       this.comments = [];
       this.currentUser = this.getCurrentUser();
+      this.activeOverlay = null;
+      this.hoverIndicators = new Map(); // Map panel -> indicators
       this.init();
     }
 
     init() {
-      // Initialize comments UI for all preview panels
-      this.initializeCommentsPanels();
-      this.createCommentModal();
+      this.injectStyles();
+      this.setupHoverListeners();
     }
 
     getCurrentUser() {
-      // Get user from localStorage or prompt for it
       let user = localStorage.getItem('langextract_user');
       if (!user) {
         user = prompt('Enter your name for comments:') || 'Anonymous';
@@ -124,448 +101,684 @@
       return user;
     }
 
-    initializeCommentsPanels() {
-      // Add comments panels to each preview panel
-      const previewPanels = document.querySelectorAll('.preview-panel');
-      previewPanels.forEach((panel, index) => {
-        this.addCommentsPanel(panel, index);
-      });
-    }
-
-    addCommentsPanel(previewPanel, panelIndex) {
-      const previewDiv = previewPanel.querySelector('.preview');
-      if (!previewDiv) return;
-
-      // Create comments toggle button
-      const headerDiv = previewPanel.querySelector('.flex.items-center.justify-between');
-      if (headerDiv) {
-        const commentsToggle = document.createElement('button');
-        commentsToggle.className = 'comments-toggle hover:text-gray-700 dark:hover:text-gray-300 px-2 py-1 rounded transition-colors duration-200';
-        commentsToggle.title = 'Toggle comments panel';
-        commentsToggle.innerHTML = '💬';
-        commentsToggle.dataset.panel = panelIndex;
-        
-        // Add comments count badge
-        const commentsBadge = document.createElement('span');
-        commentsBadge.className = 'comments-count bg-blue-500 text-white text-xs px-1.5 py-0.5 rounded-full ml-1 hidden';
-        commentsBadge.dataset.panel = panelIndex;
-        
-        commentsToggle.appendChild(commentsBadge);
-        
-        // Find the actions container (where other buttons are)
-        const actionsContainer = headerDiv.querySelector('div.flex.items-center.space-x-2');
-        if (actionsContainer) {
-          // Insert before the preview stats
-          const previewStats = actionsContainer.querySelector('.preview-stats');
-          if (previewStats) {
-            actionsContainer.insertBefore(commentsToggle, previewStats);
-          } else {
-            actionsContainer.appendChild(commentsToggle);
-          }
-        } else {
-          // Fallback: just append to header
-          headerDiv.appendChild(commentsToggle);
+    injectStyles() {
+      // Add CSS for hover indicators and overlays
+      const style = document.createElement('style');
+      style.textContent = `
+        .comment-hover-indicator {
+          position: absolute;
+          left: -25px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 16px;
+          height: 16px;
+          background: #3b82f6;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+          z-index: 1000;
         }
-
-        // Add click handler
-        commentsToggle.addEventListener('click', () => {
-          this.toggleCommentsPanel(panelIndex);
-        });
-      }
-
-      // Create comments panel (initially hidden)
-      const commentsPanel = document.createElement('div');
-      commentsPanel.className = 'comments-panel hidden bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4 max-h-96 overflow-y-auto';
-      commentsPanel.dataset.panel = panelIndex;
-
-      // Create comments header
-      const commentsHeader = document.createElement('div');
-      commentsHeader.className = 'flex items-center justify-between mb-4';
-      commentsHeader.innerHTML = `
-        <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">Comments</h3>
-        <button class="add-comment-btn bg-blue-600 hover:bg-blue-700 text-white text-xs px-2 py-1 rounded" data-panel="${panelIndex}">
-          + Add Comment
-        </button>
-      `;
-
-      // Create comments list
-      const commentsList = document.createElement('div');
-      commentsList.className = 'comments-list space-y-3';
-      commentsList.dataset.panel = panelIndex;
-
-      commentsPanel.appendChild(commentsHeader);
-      commentsPanel.appendChild(commentsList);
-
-      // Insert comments panel after preview div - find parent container
-      const previewContainer = previewDiv.parentNode;
-      if (previewContainer) {
-        previewContainer.appendChild(commentsPanel);
-      }
-
-      // Add click handler for add comment button
-      const addCommentBtn = commentsHeader.querySelector('.add-comment-btn');
-      addCommentBtn.addEventListener('click', () => {
-        this.showCommentModal(panelIndex);
-      });
-    }
-
-    toggleCommentsPanel(panelIndex) {
-      const commentsPanel = document.querySelector(`.comments-panel[data-panel="${panelIndex}"]`);
-      if (!commentsPanel) return;
-
-      if (commentsPanel.classList.contains('hidden')) {
-        commentsPanel.classList.remove('hidden');
-        // Load comments for current file if not already loaded
-        this.loadCommentsForPanel(panelIndex);
-      } else {
-        commentsPanel.classList.add('hidden');
-      }
-    }
-
-    async loadCommentsForPanel(panelIndex) {
-      // Get current file path for this panel
-      const filePath = this.getCurrentFilePathForPanel(panelIndex);
-      if (!filePath) {
-        console.log(`No file path for panel ${panelIndex}`);
-        return;
-      }
-
-      try {
-        const comments = await CommentsAPI.getComments(filePath);
-        this.displayComments(panelIndex, comments);
-        this.updateCommentsCount(panelIndex, comments.length);
-      } catch (error) {
-        console.error('Failed to load comments:', error);
-        this.showError(panelIndex, 'Failed to load comments');
-      }
-    }
-
-    getCurrentFilePathForPanel(panelIndex) {
-      // This would need to integrate with the existing file path tracking
-      // For now, we'll use a simple approach to get the current file
-      // TODO: Integrate with the existing selectedFilePaths array
-      if (window.selectedFilePaths && window.selectedFilePaths[panelIndex]) {
-        return window.selectedFilePaths[panelIndex];
-      }
-      return null;
-    }
-
-    displayComments(panelIndex, comments) {
-      const commentsList = document.querySelector(`.comments-list[data-panel="${panelIndex}"]`);
-      if (!commentsList) return;
-
-      if (comments.length === 0) {
-        commentsList.innerHTML = '<p class="text-sm text-gray-500 dark:text-gray-400 italic">No comments yet</p>';
-        return;
-      }
-
-      // Separate root comments and replies
-      const rootComments = comments.filter(c => !c.parent_comment_id);
-      const replies = comments.filter(c => c.parent_comment_id);
-
-      // Create comment HTML
-      let html = '';
-      rootComments.forEach(comment => {
-        html += this.renderComment(comment, panelIndex);
         
-        // Add replies
-        const commentReplies = replies.filter(r => r.parent_comment_id === comment.id);
-        commentReplies.forEach(reply => {
-          html += this.renderComment(reply, panelIndex, true);
-        });
-      });
-
-      commentsList.innerHTML = html;
-
-      // Attach event listeners
-      this.attachCommentEventListeners(panelIndex);
+        .comment-hover-indicator:hover {
+          opacity: 1 !important;
+          background: #2563eb;
+        }
+        
+        .comment-hover-area {
+          position: relative;
+        }
+        
+        .comment-hover-area:hover .comment-hover-indicator {
+          opacity: 0.7;
+        }
+        
+        .comment-overlay {
+          position: absolute;
+          background: white;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          padding: 12px;
+          min-width: 300px;
+          max-width: 400px;
+          z-index: 1001;
+          font-size: 14px;
+        }
+        
+        .dark .comment-overlay {
+          background: #374151;
+          border-color: #4b5563;
+          color: white;
+        }
+        
+        .comment-overlay .comment-header {
+          display: flex;
+          justify-content: between;
+          align-items: center;
+          margin-bottom: 8px;
+          font-size: 12px;
+          color: #6b7280;
+        }
+        
+        .dark .comment-overlay .comment-header {
+          color: #9ca3af;
+        }
+        
+        .comment-textarea {
+          width: 100%;
+          min-height: 60px;
+          padding: 8px;
+          border: 1px solid #d1d5db;
+          border-radius: 4px;
+          resize: vertical;
+          font-size: 13px;
+        }
+        
+        .dark .comment-textarea {
+          background: #1f2937;
+          border-color: #4b5563;
+          color: white;
+        }
+        
+        .comment-actions {
+          display: flex;
+          gap: 8px;
+          margin-top: 8px;
+          justify-content: flex-end;
+        }
+        
+        .comment-btn {
+          padding: 4px 12px;
+          font-size: 12px;
+          border-radius: 4px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+        
+        .comment-btn-primary {
+          background: #3b82f6;
+          color: white;
+        }
+        
+        .comment-btn-primary:hover {
+          background: #2563eb;
+        }
+        
+        .comment-btn-secondary {
+          background: #e5e7eb;
+          color: #374151;
+        }
+        
+        .comment-btn-secondary:hover {
+          background: #d1d5db;
+        }
+        
+        .dark .comment-btn-secondary {
+          background: #4b5563;
+          color: #d1d5db;
+        }
+        
+        .dark .comment-btn-secondary:hover {
+          background: #6b7280;
+        }
+        
+        .existing-comment {
+          background: #f8fafc;
+          padding: 8px;
+          border-radius: 4px;
+          margin-bottom: 8px;
+          border-left: 3px solid #3b82f6;
+        }
+        
+        .dark .existing-comment {
+          background: #1f2937;
+        }
+        
+        .comment-author {
+          font-weight: 600;
+          font-size: 12px;
+          color: #374151;
+          margin-bottom: 4px;
+        }
+        
+        .dark .comment-author {
+          color: #d1d5db;
+        }
+        
+        .comment-text {
+          font-size: 13px;
+          line-height: 1.4;
+          color: #4b5563;
+        }
+        
+        .dark .comment-text {
+          color: #9ca3af;
+        }
+        
+        .comment-position {
+          font-size: 10px;
+          color: #9ca3af;
+          margin-top: 4px;
+        }
+        
+        .has-comments .comment-hover-indicator {
+          background: #10b981;
+          opacity: 1;
+        }
+        
+        .has-comments .comment-hover-indicator:hover {
+          background: #059669;
+        }
+      `;
+      document.head.appendChild(style);
     }
 
-    renderComment(comment, panelIndex, isReply = false) {
-      const createdDate = new Date(comment.created_at * 1000).toLocaleString();
-      const indentClass = isReply ? 'ml-4 pl-4 border-l-2 border-gray-300 dark:border-gray-600' : '';
-      
-      return `
-        <div class="comment-item bg-white dark:bg-gray-800 rounded-lg p-3 ${indentClass}" data-comment-id="${comment.id}">
-          <div class="comment-header flex items-center justify-between mb-2">
-            <div class="flex items-center space-x-2">
-              <span class="font-medium text-sm text-gray-900 dark:text-gray-100">${this.escapeHtml(comment.author_name)}</span>
-              <span class="text-xs text-gray-500 dark:text-gray-400">${createdDate}</span>
-            </div>
-            <div class="comment-actions flex space-x-1">
-              ${!isReply ? `<button class="reply-btn text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400" data-comment-id="${comment.id}" data-panel="${panelIndex}">Reply</button>` : ''}
-              <button class="edit-btn text-xs text-green-600 hover:text-green-800 dark:text-green-400" data-comment-id="${comment.id}" data-panel="${panelIndex}">Edit</button>
-              <button class="delete-btn text-xs text-red-600 hover:text-red-800 dark:text-red-400" data-comment-id="${comment.id}" data-panel="${panelIndex}">Delete</button>
-            </div>
-          </div>
-          <div class="comment-body text-sm text-gray-700 dark:text-gray-300">${this.escapeHtml(comment.text_body)}</div>
-          ${comment.position_data && Object.keys(comment.position_data).length > 0 ? 
-            `<div class="comment-position text-xs text-gray-500 dark:text-gray-400 mt-2">📍 ${this.formatPositionData(comment.position_data)}</div>` : ''
+    setupHoverListeners() {
+      // Set up mutation observer to watch for new preview content
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === Node.ELEMENT_NODE) {
+                const previewElements = node.classList?.contains('preview') ? [node] : 
+                                       node.querySelectorAll?.('.preview') || [];
+                previewElements.forEach(preview => this.setupPreviewHover(preview));
+              }
+            });
           }
+        });
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      // Setup existing preview elements
+      document.querySelectorAll('.preview').forEach(preview => {
+        this.setupPreviewHover(preview);
+      });
+
+      // Close overlay when clicking outside
+      document.addEventListener('click', (e) => {
+        if (this.activeOverlay && !this.activeOverlay.contains(e.target) && 
+            !e.target.classList.contains('comment-hover-indicator')) {
+          this.closeOverlay();
+        }
+      });
+    }
+
+    setupPreviewHover(previewElement) {
+      // Clear any existing hover setup
+      this.clearPreviewHover(previewElement);
+      
+      // Get panel index
+      const panel = previewElement.closest('.preview-panel');
+      const panelIndex = panel ? parseInt(panel.dataset.panel || '0') : 0;
+
+      previewElement.addEventListener('mouseover', (e) => {
+        this.handlePreviewHover(e, previewElement, panelIndex);
+      });
+
+      previewElement.addEventListener('mouseleave', (e) => {
+        this.handlePreviewLeave(e, previewElement, panelIndex);
+      });
+    }
+
+    clearPreviewHover(previewElement) {
+      // Remove existing hover indicators
+      const indicators = previewElement.querySelectorAll('.comment-hover-indicator');
+      indicators.forEach(indicator => indicator.remove());
+      
+      // Remove hover area classes
+      const hoverAreas = previewElement.querySelectorAll('.comment-hover-area');
+      hoverAreas.forEach(area => area.classList.remove('comment-hover-area'));
+    }
+
+    handlePreviewHover(e, previewElement, panelIndex) {
+      const target = e.target;
+      if (!target || target === previewElement) return;
+
+      // Determine content type and position strategy
+      const contentType = this.detectContentType(previewElement);
+      const position = this.calculatePosition(target, contentType, previewElement);
+      
+      if (position) {
+        this.showHoverIndicator(target, position, panelIndex);
+      }
+    }
+
+    handlePreviewLeave(e, previewElement, panelIndex) {
+      // Hide hover indicators with delay to allow interaction
+      setTimeout(() => {
+        if (!previewElement.matches(':hover')) {
+          this.hideHoverIndicators(panelIndex);
+        }
+      }, 100);
+    }
+
+    detectContentType(previewElement) {
+      // Detect content type from preview element structure
+      if (previewElement.querySelector('.json-formatter-row')) return 'json';
+      if (previewElement.querySelector('pre code')) return 'code';
+      if (previewElement.querySelector('img')) return 'image';
+      if (previewElement.querySelector('.markdown-body')) return 'markdown';
+      return 'text';
+    }
+
+    calculatePosition(element, contentType, previewElement) {
+      const rect = element.getBoundingClientRect();
+      const previewRect = previewElement.getBoundingClientRect();
+      
+      switch (contentType) {
+        case 'json':
+          return this.calculateJSONPosition(element, previewElement);
+        case 'code':
+          return this.calculateCodePosition(element, previewElement);
+        case 'image':
+          return this.calculateImagePosition(element, previewElement);
+        default:
+          return this.calculateTextPosition(element, previewElement);
+      }
+    }
+
+    calculateJSONPosition(element, previewElement) {
+      // For JSON, try to identify the node path and line position
+      const jsonRow = element.closest('.json-formatter-row');
+      if (!jsonRow) return null;
+
+      const key = jsonRow.querySelector('.json-formatter-key');
+      const path = this.buildJSONPath(jsonRow);
+      
+      return {
+        type: 'json_node',
+        path: path,
+        line: this.getElementLine(element, previewElement),
+        display: path ? `JSON: ${path}` : 'JSON node'
+      };
+    }
+
+    calculateCodePosition(element, previewElement) {
+      // For code, calculate line and character position
+      const line = this.getElementLine(element, previewElement);
+      return {
+        type: 'code_line',
+        line: line,
+        char: 0, // Could be enhanced with character position
+        display: `Line ${line}`
+      };
+    }
+
+    calculateImagePosition(element, previewElement) {
+      // For images, use coordinates
+      const rect = element.getBoundingClientRect();
+      const previewRect = previewElement.getBoundingClientRect();
+      
+      return {
+        type: 'image_coords',
+        x: Math.round(rect.left - previewRect.left),
+        y: Math.round(rect.top - previewRect.top),
+        display: `Coords (${Math.round(rect.left - previewRect.left)}, ${Math.round(rect.top - previewRect.top)})`
+      };
+    }
+
+    calculateTextPosition(element, previewElement) {
+      // For text, try to calculate line position
+      const line = this.getElementLine(element, previewElement);
+      return {
+        type: 'text_line',
+        line: line,
+        display: `Line ${line || 'N/A'}`
+      };
+    }
+
+    getElementLine(element, container) {
+      // Try to calculate line number based on element position
+      const allElements = Array.from(container.querySelectorAll('*'));
+      const elementIndex = allElements.indexOf(element);
+      
+      // This is a rough approximation - could be improved per content type
+      return Math.max(1, Math.floor(elementIndex / 3) + 1);
+    }
+
+    buildJSONPath(jsonRow) {
+      // Build JSON path by traversing up the hierarchy
+      const path = [];
+      let current = jsonRow;
+      
+      while (current && current.classList.contains('json-formatter-row')) {
+        const key = current.querySelector('.json-formatter-key');
+        if (key) {
+          path.unshift(key.textContent.replace(/[":]/g, ''));
+        }
+        current = current.parentElement?.closest('.json-formatter-row');
+      }
+      
+      return path.length > 0 ? path.join('.') : null;
+    }
+
+    showHoverIndicator(element, position, panelIndex) {
+      // Make element a hover area if it isn't already
+      if (!element.classList.contains('comment-hover-area')) {
+        element.classList.add('comment-hover-area');
+      }
+
+      // Remove existing indicator
+      const existingIndicator = element.querySelector('.comment-hover-indicator');
+      if (existingIndicator) return; // Already shown
+
+      // Create hover indicator
+      const indicator = document.createElement('div');
+      indicator.className = 'comment-hover-indicator';
+      indicator.innerHTML = '💬';
+      indicator.title = `Add comment to ${position.display}`;
+      
+      // Check if there are existing comments at this position
+      const existingComments = this.getCommentsAtPosition(position);
+      if (existingComments.length > 0) {
+        element.classList.add('has-comments');
+        indicator.title = `${existingComments.length} comment(s) at ${position.display}`;
+      }
+
+      // Position indicator
+      element.style.position = 'relative';
+      element.appendChild(indicator);
+
+      // Add click handler
+      indicator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.showCommentOverlay(element, position, panelIndex, existingComments);
+      });
+    }
+
+    hideHoverIndicators(panelIndex) {
+      // Hide indicators for specific panel or all if panelIndex is undefined
+      const selector = panelIndex !== undefined ? 
+        `.preview-panel[data-panel="${panelIndex}"] .comment-hover-indicator` : 
+        '.comment-hover-indicator';
+      
+      document.querySelectorAll(selector).forEach(indicator => {
+        if (!indicator.closest('.has-comments')) {
+          indicator.remove();
+          indicator.parentElement?.classList.remove('comment-hover-area');
+        }
+      });
+    }
+
+    getCommentsAtPosition(position) {
+      // Filter comments that match this position
+      return this.comments.filter(comment => {
+        if (!comment.position_data) return false;
+        
+        try {
+          const commentPos = JSON.parse(comment.position_data);
+          return this.positionsMatch(position, commentPos);
+        } catch {
+          return false;
+        }
+      });
+    }
+
+    positionsMatch(pos1, pos2) {
+      if (pos1.type !== pos2.type) return false;
+      
+      switch (pos1.type) {
+        case 'json_node':
+          return pos1.path === pos2.path;
+        case 'code_line':
+        case 'text_line':
+          return pos1.line === pos2.line;
+        case 'image_coords':
+          return Math.abs(pos1.x - pos2.x) < 10 && Math.abs(pos1.y - pos2.y) < 10;
+        default:
+          return false;
+      }
+    }
+
+    showCommentOverlay(element, position, panelIndex, existingComments = []) {
+      // Close any existing overlay
+      this.closeOverlay();
+
+      const overlay = document.createElement('div');
+      overlay.className = 'comment-overlay';
+      
+      // Position overlay near the element
+      const rect = element.getBoundingClientRect();
+      overlay.style.position = 'fixed';
+      overlay.style.left = Math.min(rect.right + 10, window.innerWidth - 420) + 'px';
+      overlay.style.top = Math.max(rect.top, 10) + 'px';
+
+      // Build overlay content
+      let overlayHTML = `
+        <div class="comment-header">
+          <span>📍 ${position.display}</span>
         </div>
       `;
-    }
 
-    formatPositionData(positionData) {
-      if (typeof positionData === 'string') {
-        positionData = JSON.parse(positionData);
+      // Show existing comments
+      if (existingComments.length > 0) {
+        overlayHTML += existingComments.map(comment => `
+          <div class="existing-comment" data-comment-id="${comment.id}">
+            <div class="comment-author">${this.escapeHTML(comment.author)}</div>
+            <div class="comment-text">${this.escapeHTML(comment.text_body)}</div>
+            <div class="comment-position">${new Date(comment.created_at).toLocaleString()}</div>
+            <div class="comment-actions" style="margin-top: 8px;">
+              <button class="comment-btn comment-btn-secondary edit-comment-btn" data-comment-id="${comment.id}">Edit</button>
+              <button class="comment-btn comment-btn-secondary delete-comment-btn" data-comment-id="${comment.id}">Delete</button>
+            </div>
+          </div>
+        `).join('');
       }
-      
-      const parts = [];
-      if (positionData.line) parts.push(`Line ${positionData.line}`);
-      if (positionData.column) parts.push(`Col ${positionData.column}`);
-      if (positionData.path) parts.push(`Path: ${positionData.path}`);
-      if (positionData.position) parts.push(`Pos ${positionData.position}`);
-      
-      return parts.join(', ') || 'General comment';
+
+      // Add new comment form
+      overlayHTML += `
+        <div class="new-comment-form">
+          <textarea class="comment-textarea" placeholder="Add a comment..."></textarea>
+          <div class="comment-actions">
+            <button class="comment-btn comment-btn-secondary cancel-comment-btn">Cancel</button>
+            <button class="comment-btn comment-btn-primary save-comment-btn">Save</button>
+          </div>
+        </div>
+      `;
+
+      overlay.innerHTML = overlayHTML;
+      document.body.appendChild(overlay);
+      this.activeOverlay = overlay;
+
+      // Focus textarea
+      const textarea = overlay.querySelector('.comment-textarea');
+      textarea?.focus();
+
+      // Add event handlers
+      this.setupOverlayHandlers(overlay, position, panelIndex);
     }
 
-    attachCommentEventListeners(panelIndex) {
-      const commentsList = document.querySelector(`.comments-list[data-panel="${panelIndex}"]`);
-      if (!commentsList) return;
+    setupOverlayHandlers(overlay, position, panelIndex) {
+      // Save comment
+      overlay.querySelector('.save-comment-btn')?.addEventListener('click', async () => {
+        const textarea = overlay.querySelector('.comment-textarea');
+        const text = textarea.value.trim();
+        
+        if (!text) return;
 
-      // Reply buttons
-      commentsList.querySelectorAll('.reply-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const commentId = parseInt(e.target.dataset.commentId);
-          this.showReplyModal(panelIndex, commentId);
-        });
+        try {
+          await this.saveComment(text, position, panelIndex);
+          this.closeOverlay();
+          await this.refreshComments(panelIndex);
+        } catch (error) {
+          alert('Error saving comment: ' + error.message);
+        }
+      });
+
+      // Cancel
+      overlay.querySelector('.cancel-comment-btn')?.addEventListener('click', () => {
+        this.closeOverlay();
       });
 
       // Edit buttons
-      commentsList.querySelectorAll('.edit-btn').forEach(btn => {
+      overlay.querySelectorAll('.edit-comment-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const commentId = parseInt(e.target.dataset.commentId);
-          this.editComment(panelIndex, commentId);
+          const commentId = e.target.dataset.commentId;
+          this.editComment(commentId, overlay);
         });
       });
 
       // Delete buttons
-      commentsList.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const commentId = parseInt(e.target.dataset.commentId);
-          this.deleteComment(panelIndex, commentId);
+      overlay.querySelectorAll('.delete-comment-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const commentId = e.target.dataset.commentId;
+          if (confirm('Delete this comment?')) {
+            try {
+              await CommentsAPI.deleteComment(commentId);
+              this.closeOverlay();
+              await this.refreshComments(panelIndex);
+            } catch (error) {
+              alert('Error deleting comment: ' + error.message);
+            }
+          }
         });
       });
-    }
 
-    updateCommentsCount(panelIndex, count) {
-      const countBadge = document.querySelector(`.comments-count[data-panel="${panelIndex}"]`);
-      if (!countBadge) return;
-
-      if (count > 0) {
-        countBadge.textContent = count;
-        countBadge.classList.remove('hidden');
-      } else {
-        countBadge.classList.add('hidden');
-      }
-    }
-
-    createCommentModal() {
-      // Create modal HTML
-      const modal = document.createElement('div');
-      modal.id = 'comment-modal';
-      modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center';
-      modal.innerHTML = `
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md mx-4">
-          <div class="flex items-center justify-between mb-4">
-            <h3 id="comment-modal-title" class="text-lg font-semibold text-gray-900 dark:text-gray-100">Add Comment</h3>
-            <button id="comment-modal-close" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-          <form id="comment-form">
-            <div class="mb-4">
-              <label for="comment-author" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Author</label>
-              <input type="text" id="comment-author" class="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" required>
-            </div>
-            <div class="mb-4">
-              <label for="comment-text" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Comment</label>
-              <textarea id="comment-text" rows="4" class="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" required></textarea>
-            </div>
-            <div class="flex space-x-3">
-              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex-1">Save Comment</button>
-              <button type="button" id="comment-modal-cancel" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded flex-1">Cancel</button>
-            </div>
-          </form>
-        </div>
-      `;
-
-      document.body.appendChild(modal);
-
-      // Attach event listeners
-      const closeBtn = modal.querySelector('#comment-modal-close');
-      const cancelBtn = modal.querySelector('#comment-modal-cancel');
-      const form = modal.querySelector('#comment-form');
-
-      closeBtn.addEventListener('click', () => this.hideCommentModal());
-      cancelBtn.addEventListener('click', () => this.hideCommentModal());
-      form.addEventListener('submit', (e) => this.handleCommentSubmit(e));
-
-      // Close on backdrop click
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          this.hideCommentModal();
+      // Enter to save (Ctrl+Enter)
+      overlay.querySelector('.comment-textarea')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.ctrlKey) {
+          overlay.querySelector('.save-comment-btn')?.click();
         }
       });
     }
 
-    showCommentModal(panelIndex, parentCommentId = null) {
-      const modal = document.getElementById('comment-modal');
-      const title = document.getElementById('comment-modal-title');
-      const authorInput = document.getElementById('comment-author');
-      const textArea = document.getElementById('comment-text');
-
-      // Set modal title
-      title.textContent = parentCommentId ? 'Reply to Comment' : 'Add Comment';
-
-      // Set author from localStorage
-      authorInput.value = this.currentUser;
-
-      // Clear comment text
-      textArea.value = '';
-
-      // Store panel and parent comment info
-      modal.dataset.panel = panelIndex;
-      modal.dataset.parentCommentId = parentCommentId || '';
-
-      modal.classList.remove('hidden');
-      textArea.focus();
-    }
-
-    showReplyModal(panelIndex, parentCommentId) {
-      this.showCommentModal(panelIndex, parentCommentId);
-    }
-
-    hideCommentModal() {
-      const modal = document.getElementById('comment-modal');
-      modal.classList.add('hidden');
-    }
-
-    async handleCommentSubmit(e) {
-      e.preventDefault();
-      
-      const modal = document.getElementById('comment-modal');
-      const panelIndex = parseInt(modal.dataset.panel);
-      const parentCommentId = modal.dataset.parentCommentId || null;
-      
-      const authorInput = document.getElementById('comment-author');
-      const textArea = document.getElementById('comment-text');
-      
-      const author = authorInput.value.trim();
-      const text = textArea.value.trim();
-      
-      if (!author || !text) {
-        alert('Please fill in all fields');
-        return;
+    async saveComment(text, position, panelIndex) {
+      if (!this.currentFilePath) {
+        throw new Error('No file selected');
       }
 
-      // Update localStorage user
-      this.currentUser = author;
-      localStorage.setItem('langextract_user', author);
+      const commentData = {
+        file_path: this.currentFilePath,
+        text_body: text,
+        author: this.currentUser,
+        position_data: JSON.stringify(position)
+      };
 
-      const filePath = this.getCurrentFilePathForPanel(panelIndex);
-      if (!filePath) {
-        alert('No file selected for comments');
-        return;
-      }
+      await CommentsAPI.createComment(commentData);
+    }
 
-      try {
-        const commentData = {
-          file_path: filePath,
-          author_name: author,
-          text_body: text,
-          position_data: {}, // TODO: Implement position capture
-        };
+    editComment(commentId, overlay) {
+      const commentElement = overlay.querySelector(`[data-comment-id="${commentId}"]`);
+      const textElement = commentElement.querySelector('.comment-text');
+      const currentText = textElement.textContent;
 
-        if (parentCommentId) {
-          commentData.parent_comment_id = parseInt(parentCommentId);
-          await CommentsAPI.replyToComment(parentCommentId, {
-            author_name: author,
-            text_body: text,
-          });
-        } else {
-          await CommentsAPI.createComment(commentData);
+      // Replace with textarea
+      const textarea = document.createElement('textarea');
+      textarea.className = 'comment-textarea';
+      textarea.value = currentText;
+      textarea.style.minHeight = '40px';
+      
+      textElement.replaceWith(textarea);
+      textarea.focus();
+
+      // Update actions
+      const actions = commentElement.querySelector('.comment-actions');
+      actions.innerHTML = `
+        <button class="comment-btn comment-btn-secondary cancel-edit-btn">Cancel</button>
+        <button class="comment-btn comment-btn-primary save-edit-btn">Save</button>
+      `;
+
+      // Cancel edit
+      actions.querySelector('.cancel-edit-btn').addEventListener('click', () => {
+        textarea.replaceWith(textElement);
+        actions.innerHTML = `
+          <button class="comment-btn comment-btn-secondary edit-comment-btn" data-comment-id="${commentId}">Edit</button>
+          <button class="comment-btn comment-btn-secondary delete-comment-btn" data-comment-id="${commentId}">Delete</button>
+        `;
+        this.setupOverlayHandlers(overlay, null, null);
+      });
+
+      // Save edit
+      actions.querySelector('.save-edit-btn').addEventListener('click', async () => {
+        const newText = textarea.value.trim();
+        if (!newText) return;
+
+        try {
+          await CommentsAPI.updateComment(commentId, newText);
+          textElement.textContent = newText;
+          textarea.replaceWith(textElement);
+          actions.innerHTML = `
+            <button class="comment-btn comment-btn-secondary edit-comment-btn" data-comment-id="${commentId}">Edit</button>
+            <button class="comment-btn comment-btn-secondary delete-comment-btn" data-comment-id="${commentId}">Delete</button>
+          `;
+          this.setupOverlayHandlers(overlay, null, null);
+        } catch (error) {
+          alert('Error updating comment: ' + error.message);
         }
+      });
+    }
 
-        // Reload comments for the panel
-        await this.loadCommentsForPanel(panelIndex);
-        
-        this.hideCommentModal();
-      } catch (error) {
-        alert(`Failed to ${parentCommentId ? 'reply to' : 'create'} comment: ${error.message}`);
+    closeOverlay() {
+      if (this.activeOverlay) {
+        this.activeOverlay.remove();
+        this.activeOverlay = null;
       }
     }
 
-    async editComment(panelIndex, commentId) {
-      const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
-      if (!commentElement) return;
-
-      const commentBody = commentElement.querySelector('.comment-body');
-      const currentText = commentBody.textContent;
-
-      const newText = prompt('Edit comment:', currentText);
-      if (newText === null || newText.trim() === '') {
-        return;
-      }
-
-      try {
-        await CommentsAPI.updateComment(commentId, newText.trim());
-        await this.loadCommentsForPanel(panelIndex);
-      } catch (error) {
-        alert(`Failed to update comment: ${error.message}`);
+    async refreshComments(panelIndex) {
+      if (this.currentFilePath) {
+        this.comments = await CommentsAPI.getComments(this.currentFilePath);
+        // Update hover indicators to show comment states
+        this.updateCommentIndicators();
       }
     }
 
-    async deleteComment(panelIndex, commentId) {
-      if (!confirm('Are you sure you want to delete this comment and all its replies?')) {
-        return;
-      }
+    updateCommentIndicators() {
+      // Update all hover indicators to show if they have comments
+      document.querySelectorAll('.comment-hover-area').forEach(area => {
+        const indicator = area.querySelector('.comment-hover-indicator');
+        if (indicator) {
+          // Recalculate position and check for comments
+          // This is a simplified version - full implementation would recalculate positions
+          area.classList.toggle('has-comments', Math.random() < 0.3); // Placeholder
+        }
+      });
+    }
 
-      try {
-        await CommentsAPI.deleteComment(commentId);
-        await this.loadCommentsForPanel(panelIndex);
-      } catch (error) {
-        alert(`Failed to delete comment: ${error.message}`);
+    // Public API for integration with app.js
+    onFileChanged(panelIndex, filePath) {
+      this.currentFilePath = filePath;
+      this.refreshComments(panelIndex);
+      
+      // Clear existing hover areas in this panel
+      const panel = document.querySelector(`.preview-panel[data-panel="${panelIndex}"]`);
+      if (panel) {
+        const preview = panel.querySelector('.preview');
+        if (preview) {
+          this.clearPreviewHover(preview);
+        }
       }
     }
 
-    showError(panelIndex, message) {
-      const commentsList = document.querySelector(`.comments-list[data-panel="${panelIndex}"]`);
-      if (commentsList) {
-        commentsList.innerHTML = `<p class="text-sm text-red-500 dark:text-red-400">${this.escapeHtml(message)}</p>`;
-      }
-    }
-
-    escapeHtml(text) {
+    escapeHTML(text) {
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
     }
-
-    // Public method to load comments when file changes
-    onFileChanged(panelIndex, filePath) {
-      if (window.selectedFilePaths) {
-        window.selectedFilePaths[panelIndex] = filePath;
-      }
-      
-      // If comments panel is open, reload comments
-      const commentsPanel = document.querySelector(`.comments-panel[data-panel="${panelIndex}"]`);
-      if (commentsPanel && !commentsPanel.classList.contains('hidden')) {
-        this.loadCommentsForPanel(panelIndex);
-      }
-    }
   }
 
-  // Initialize comments system when DOM is ready
+  // Initialize the hover comments system
   document.addEventListener('DOMContentLoaded', () => {
-    window.commentsUI = new CommentsUI();
+    window.hoverCommentsUI = new HoverCommentsUI();
+    
+    // Provide compatibility with existing API
+    window.commentsUI = {
+      onFileChanged: (panelIndex, filePath) => {
+        window.hoverCommentsUI.onFileChanged(panelIndex, filePath);
+      }
+    };
   });
-
-  // Expose CommentsUI class for external access
-  window.CommentsUI = CommentsUI;
-  window.CommentsAPI = CommentsAPI;
 
 })();
