@@ -2409,6 +2409,10 @@ class PreviewOptimizer {
     const nodeInfo = typeof nodeOrId === 'object' && nodeOrId ? nodeOrId : null;
     console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel: `, previewElement);
     
+    // IMPORTANT: Proactively expand all collapsed JSONFormatter nodes before searching
+    // This ensures that depth-limited rendering doesn't prevent finding the target node
+    this.expandAllJsonFormatterNodes(previewElement);
+    
     // First try to find elements containing the nodeId in JSONFormatter structure
     let targetElement = null;
 
@@ -2843,6 +2847,89 @@ class PreviewOptimizer {
     console.log(`Scrolled to approximate position for ${nodeId} (character position ${position})`);
   }
 
+  // Proactively expand all JSONFormatter collapsed nodes for better scrolling
+  expandAllJsonFormatterNodes(previewElement) {
+    console.log('Proactively expanding all collapsed JSONFormatter nodes...');
+    
+    const togglerSelectors = [
+      '.json-formatter-toggler',
+      '.json-formatter-toggle', 
+      '.json-formatter-opener',
+      '.json-formatter-arrow'
+    ].join(',');
+    
+    let expandedCount = 0;
+    const maxExpansions = 200; // Safety limit
+    
+    // Multiple passes to handle nested collapsed nodes
+    for (let pass = 0; pass < 5; pass++) {
+      // Open all <details> elements
+      const details = previewElement.querySelectorAll('details:not([open])');
+      details.forEach(detail => {
+        if (expandedCount < maxExpansions) {
+          detail.open = true;
+          expandedCount++;
+        }
+      });
+      
+      // Find and click all collapsed JSONFormatter containers
+      const closedContainers = previewElement.querySelectorAll(
+        '.json-formatter-closed, .json-formatter-collapsed, .collapsed'
+      );
+      
+      let expandedInThisPass = 0;
+      closedContainers.forEach(container => {
+        if (expandedCount >= maxExpansions) return;
+        
+        const toggler = container.querySelector(togglerSelectors);
+        if (toggler) {
+          try {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            expandedCount++;
+            expandedInThisPass++;
+          } catch (e) {
+            console.warn('Failed to click toggler:', e);
+          }
+        }
+      });
+      
+      // Also check for togglers that might be collapsed based on aria-expanded
+      const possibleTogglers = previewElement.querySelectorAll(togglerSelectors);
+      possibleTogglers.forEach(toggler => {
+        if (expandedCount >= maxExpansions) return;
+        
+        const expanded = (toggler.getAttribute('aria-expanded') || '').toLowerCase();
+        if (expanded === 'false' || expanded === '') {
+          try {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            expandedCount++;
+            expandedInThisPass++;
+          } catch (e) {
+            console.warn('Failed to click toggler with aria-expanded:', e);
+          }
+        }
+      });
+      
+      console.log(`Pass ${pass + 1}: Expanded ${expandedInThisPass} nodes (total: ${expandedCount})`);
+      
+      // If we didn't expand anything in this pass, we're done
+      if (expandedInThisPass === 0) {
+        break;
+      }
+      
+      // Small delay to allow DOM updates
+      if (expandedInThisPass > 0 && pass < 4) {
+        // Use synchronous delay to keep the function call simple
+        const start = Date.now();
+        while (Date.now() - start < 50) {
+          // Wait 50ms for DOM updates
+        }
+      }
+    }
+    
+    console.log(`Expansion complete: ${expandedCount} nodes expanded`);
+  }
+
   highlightNodeSelection(node) {
     // Remove previous selection highlights
     const previouslySelected = document.querySelectorAll('.tree-node-selected');
@@ -3247,8 +3334,8 @@ class PreviewOptimizer {
   renderCompleteJsonView(container, data) {
     console.log('Rendering complete JSON view with controls');
     
-    // Clear the container
-    container.innerHTML = '';
+    // Clear the entire element to prevent duplication
+    this.element.innerHTML = '';
     
     // Use enhanced JSON object renderer
     if (typeof JSONFormatter !== 'undefined') {
