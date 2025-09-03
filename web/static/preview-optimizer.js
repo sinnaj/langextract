@@ -384,19 +384,286 @@ class PreviewOptimizer {
     }
   }
 
-  renderEnhancedJsonObject(obj, meta) {
-    // Use JSONFormatter directly on parsed object
+  renderEnhancedJsonObject(obj, meta, options = {}) {
+    // Use JSONFormatter directly on parsed object with enhanced controls
     try {
-  const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
+      // Create main container with controls
+      const mainContainer = document.createElement('div');
+      mainContainer.className = 'enhanced-json-container';
+      
+      // Add JSON control toolbar
+      const toolbar = this.createJsonToolbar();
+      mainContainer.appendChild(toolbar);
+      
+      // Create JSON viewer container
       const container = document.createElement('div');
-      container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
-      container.appendChild(formatter.render());
-      this.element.appendChild(container);
+      container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 relative';
+      
+      // Add line numbers toggle state
+      const showLineNumbers = this.getJsonPreference('lineNumbers', true);
+      const wordWrap = this.getJsonPreference('wordWrap', false);
+      
+      // Create the content wrapper
+      const contentWrapper = document.createElement('div');
+      contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
+      
+      // Determine if we need horizontal scroll
+      const jsonDepth = this.calculateJsonDepth(obj);
+      const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
+      
+      if (needsHorizontalScroll) {
+        contentWrapper.style.overflowX = 'auto';
+        contentWrapper.style.whiteSpace = 'nowrap';
+      } else {
+        contentWrapper.style.overflowX = 'hidden';
+        contentWrapper.style.whiteSpace = 'pre-wrap';
+      }
+      
+      // Create line numbers container if enabled
+      let lineNumbersContainer = null;
+      if (showLineNumbers) {
+        lineNumbersContainer = document.createElement('div');
+        lineNumbersContainer.className = 'line-numbers-container bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none';
+        lineNumbersContainer.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 60px;
+          height: 100%;
+          overflow: hidden;
+          padding: 12px 8px;
+          z-index: 2;
+        `;
+        container.appendChild(lineNumbersContainer);
+        
+        // Adjust content padding for line numbers
+        contentWrapper.style.paddingLeft = '68px';
+      }
+      
+      // Create JSONFormatter with custom styling
+      const formatter = new JSONFormatter(obj, options.maxDepth || 3, {
+        hoverPreviewEnabled: true,
+        hoverPreviewArrayCount: 100,
+        hoverPreviewFieldCount: 5,
+        animateOpen: true,
+        animateClose: true,
+        theme: 'default'
+      });
+      
+      const formatterElement = formatter.render();
+      formatterElement.style.padding = '12px';
+      formatterElement.style.minHeight = '100%';
+      
+      contentWrapper.appendChild(formatterElement);
+      container.appendChild(contentWrapper);
+      
+      // Generate line numbers if enabled
+      if (showLineNumbers && lineNumbersContainer) {
+        this.generateJsonLineNumbers(obj, lineNumbersContainer);
+      }
+      
+      mainContainer.appendChild(container);
+      this.element.appendChild(mainContainer);
+      
+      // Store references for control updates
+      this.jsonContainer = container;
+      this.jsonContentWrapper = contentWrapper;
+      this.jsonLineNumbersContainer = lineNumbersContainer;
+      
     } catch (e) {
-      // Fallback: pretty print
+      console.error('JSONFormatter failed:', e);
+      // Fallback: pretty print with enhanced controls
       const pretty = JSON.stringify(obj, null, 2);
-      this.renderEnhancedJson(pretty, meta);
+      this.renderEnhancedJsonWithControls(pretty, meta);
     }
+  }
+
+  // Create JSON control toolbar
+  createJsonToolbar() {
+    const toolbar = document.createElement('div');
+    toolbar.className = 'json-toolbar flex items-center justify-between bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-t-lg px-4 py-2 text-sm';
+    
+    // Left side controls
+    const leftControls = document.createElement('div');
+    leftControls.className = 'flex items-center space-x-4';
+    
+    // Line numbers toggle
+    const lineNumbersToggle = this.createToggleButton('line-numbers', 'Line Numbers', this.getJsonPreference('lineNumbers', true));
+    lineNumbersToggle.addEventListener('change', (e) => {
+      this.setJsonPreference('lineNumbers', e.target.checked);
+      this.updateJsonDisplay();
+    });
+    leftControls.appendChild(lineNumbersToggle);
+    
+    // Word wrap toggle
+    const wordWrapToggle = this.createToggleButton('word-wrap', 'Word Wrap', this.getJsonPreference('wordWrap', false));
+    wordWrapToggle.addEventListener('change', (e) => {
+      this.setJsonPreference('wordWrap', e.target.checked);
+      this.updateJsonDisplay();
+    });
+    leftControls.appendChild(wordWrapToggle);
+    
+    // Right side info
+    const rightInfo = document.createElement('div');
+    rightInfo.className = 'flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400';
+    
+    const jsonInfo = document.createElement('span');
+    if (this.currentJsonData && this.currentJsonData.extractions) {
+      jsonInfo.textContent = `${this.currentJsonData.extractions.length} extractions`;
+    } else {
+      jsonInfo.textContent = 'JSON Preview';
+    }
+    rightInfo.appendChild(jsonInfo);
+    
+    toolbar.appendChild(leftControls);
+    toolbar.appendChild(rightInfo);
+    
+    return toolbar;
+  }
+
+  // Create toggle button component
+  createToggleButton(id, label, checked) {
+    const container = document.createElement('label');
+    container.className = 'flex items-center space-x-2 cursor-pointer';
+    container.setAttribute('for', `${id}-toggle`);
+    
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `${id}-toggle`;
+    checkbox.checked = checked;
+    checkbox.className = 'rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-2';
+    
+    const labelText = document.createElement('span');
+    labelText.textContent = label;
+    labelText.className = 'text-gray-700 dark:text-gray-300 select-none';
+    
+    container.appendChild(checkbox);
+    container.appendChild(labelText);
+    
+    return container;
+  }
+
+  // Calculate maximum depth of JSON object
+  calculateJsonDepth(obj, currentDepth = 0) {
+    if (typeof obj !== 'object' || obj === null) {
+      return currentDepth;
+    }
+    
+    let maxDepth = currentDepth;
+    for (const value of Object.values(obj)) {
+      if (typeof value === 'object' && value !== null) {
+        const depth = this.calculateJsonDepth(value, currentDepth + 1);
+        maxDepth = Math.max(maxDepth, depth);
+      }
+    }
+    
+    return maxDepth;
+  }
+
+  // Generate line numbers for JSON
+  generateJsonLineNumbers(obj, container) {
+    const pretty = JSON.stringify(obj, null, 2);
+    const lines = pretty.split('\n');
+    const maxLength = lines.length.toString().length;
+    
+    container.innerHTML = '';
+    for (let i = 1; i <= lines.length; i++) {
+      const lineNumber = document.createElement('div');
+      lineNumber.className = 'line-number';
+      lineNumber.textContent = i.toString().padStart(maxLength, ' ');
+      lineNumber.style.height = '20px'; // Match typical line height
+      container.appendChild(lineNumber);
+    }
+  }
+
+  // Update JSON display when preferences change
+  updateJsonDisplay() {
+    if (!this.currentJsonData) return;
+    
+    // Find the JSON container and re-render
+    const container = this.element.querySelector('.enhanced-json-container');
+    if (container) {
+      // Remove existing JSON display
+      this.element.removeChild(container);
+      
+      // Re-render with updated preferences
+      this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+    }
+  }
+
+  // JSON preference storage helpers
+  getJsonPreference(key, defaultValue) {
+    try {
+      const stored = localStorage.getItem(`langextract_json_${key}`);
+      return stored !== null ? JSON.parse(stored) : defaultValue;
+    } catch (e) {
+      return defaultValue;
+    }
+  }
+
+  setJsonPreference(key, value) {
+    try {
+      localStorage.setItem(`langextract_json_${key}`, JSON.stringify(value));
+    } catch (e) {
+      console.warn('Failed to save JSON preference:', e);
+    }
+  }
+
+  // Enhanced JSON fallback with controls (for when JSONFormatter is not available)
+  renderEnhancedJsonWithControls(pretty, meta) {
+    const mainContainer = document.createElement('div');
+    mainContainer.className = 'enhanced-json-container';
+    
+    // Add toolbar
+    const toolbar = this.createJsonToolbar();
+    mainContainer.appendChild(toolbar);
+    
+    // Create enhanced JSON viewer
+    const container = document.createElement('div');
+    container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 overflow-auto relative';
+    
+    const showLineNumbers = this.getJsonPreference('lineNumbers', true);
+    const wordWrap = this.getJsonPreference('wordWrap', false);
+    
+    if (showLineNumbers) {
+      container.style.paddingLeft = '60px';
+      this.addLineNumbers(container, pretty);
+    }
+    
+    const pre = document.createElement('pre');
+    pre.className = 'text-sm p-4 m-0';
+    pre.style.whiteSpace = wordWrap ? 'pre-wrap' : 'pre';
+    pre.style.overflowX = wordWrap ? 'hidden' : 'auto';
+    
+    const code = document.createElement('code');
+    code.className = 'text-gray-900 dark:text-gray-100';
+    code.textContent = pretty;
+    
+    pre.appendChild(code);
+    container.appendChild(pre);
+    mainContainer.appendChild(container);
+    
+    this.element.appendChild(mainContainer);
+  }
+
+  // Add line numbers to plain text JSON
+  addLineNumbers(container, content) {
+    const lines = content.split('\n');
+    const lineNumbersContainer = document.createElement('div');
+    lineNumbersContainer.className = 'line-numbers-container absolute left-0 top-0 bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none p-4';
+    lineNumbersContainer.style.width = '60px';
+    lineNumbersContainer.style.zIndex = '2';
+    
+    for (let i = 1; i <= lines.length; i++) {
+      const lineNumber = document.createElement('div');
+      lineNumber.textContent = i.toString();
+      lineNumber.style.height = '20px';
+      lineNumber.style.textAlign = 'right';
+      lineNumber.style.paddingRight = '8px';
+      lineNumbersContainer.appendChild(lineNumber);
+    }
+    
+    container.appendChild(lineNumbersContainer);
   }
   
   isExpandableLine(trimmedLine, lines, index) {
@@ -1846,10 +2113,27 @@ class PreviewOptimizer {
     // Update global filter state
     window.globalStatisticsFilter = filterType;
     
-    // Refresh all JSON panels to apply the filter
-    this.refreshAllPanelsWithFilter();
+    // Apply filters immediately to all panels with JSON data
+    this.applyFiltersToAllPanels();
     
     // Update visual state of all filter cards across all panels
+    this.updateFilterCardVisualStates(filterType);
+  }
+
+  // Apply filters to all panels immediately without re-rendering everything
+  applyFiltersToAllPanels() {
+    if (window.previewOptimizers) {
+      window.previewOptimizers.forEach((optimizer, index) => {
+        if (optimizer && optimizer.uberMode && optimizer.currentJsonData) {
+          console.log(`Applying filter to panel ${index}: ${window.globalStatisticsFilter}`);
+          optimizer.applyCurrentFilter();
+        }
+      });
+    }
+  }
+
+  // Update visual states of filter cards
+  updateFilterCardVisualStates(filterType) {
     document.querySelectorAll('.stats-filter-card').forEach(card => {
       const cardFilterType = card.dataset.filterType;
       const isActive = (filterType === null && cardFilterType === 'total') || (filterType === cardFilterType);
@@ -1862,26 +2146,469 @@ class PreviewOptimizer {
     });
   }
 
-  // Refresh all panels that have UBERMODE enabled
-  refreshAllPanelsWithFilter() {
-    // Find all preview optimizers and refresh their content if they have JSON data
-    if (window.previewOptimizers) {
-      window.previewOptimizers.forEach((optimizer, index) => {
-        if (optimizer && optimizer.uberMode && optimizer.currentJsonData) {
-          console.log(`Refreshing panel ${index} with filter: ${window.globalStatisticsFilter}`);
-          
-          // Re-render with current JSON data and filter
-          optimizer.element.innerHTML = '';
-          const shouldShowTreeView = optimizer.shouldShowTreeVisualization();
-          
-          if (shouldShowTreeView) {
-            optimizer.renderUberMode(optimizer.currentJsonData, { size: 0, truncated: false });
-          } else {
-            // Render JSON view but still need to handle filtering if applicable
-            optimizer.renderJsonContent(optimizer.currentJsonData);
-          }
-        }
-      });
+  // Apply the current filter to this panel specifically
+  applyCurrentFilter() {
+    const currentFilter = window.globalStatisticsFilter;
+    console.log(`Applying current filter to panel: ${currentFilter || 'none'}`);
+    
+    if (!this.currentJsonData || !this.uberMode) {
+      return;
     }
+
+    const shouldShowTreeView = this.shouldShowTreeVisualization();
+    
+    if (shouldShowTreeView) {
+      // Render tree view with current filter
+      this.renderFilteredTreeView(currentFilter);
+    } else {
+      // Render JSON view with current filter
+      this.renderFilteredJsonView(currentFilter);
+    }
+  }
+
+  // Render filtered tree view as flat list
+  renderFilteredTreeView(filterType) {
+    console.log(`Rendering filtered tree view with filter: ${filterType || 'none'}`);
+    
+    const data = this.currentJsonData;
+    if (!data || !data.extractions) {
+      console.log('No extraction data available for filtering');
+      return;
+    }
+
+    // Get the container where the tree is rendered
+    const treeContainer = this.element.querySelector('.document-tree-container, .tree-view-container, .ubermode-container');
+    if (!treeContainer) {
+      console.log('No tree container found, falling back to full re-render');
+      // Fallback to full re-render
+      this.element.innerHTML = '';
+      this.renderUberMode(data, { size: 0, truncated: false });
+      return;
+    }
+
+    // Find the actual tree element
+    const treeElement = treeContainer.querySelector('.tree-view');
+    if (!treeElement) {
+      console.log('No tree element found');
+      return;
+    }
+
+    if (!filterType) {
+      // No filter - show hierarchical tree
+      this.renderHierarchicalTree(treeElement, data);
+    } else {
+      // Filter active - show flat list of matching items
+      this.renderFlatFilteredTree(treeElement, data, filterType);
+    }
+  }
+
+  // Render hierarchical tree (original logic)
+  renderHierarchicalTree(treeElement, data) {
+    console.log('Rendering hierarchical tree view');
+    
+    // Build hierarchical tree
+    const documentTree = this.buildDocumentTree(data);
+    
+    // Clear and re-render
+    treeElement.innerHTML = '';
+    this.renderDocumentTree(treeElement, documentTree);
+  }
+
+  // Render flat list of filtered items
+  renderFlatFilteredTree(treeElement, data, filterType) {
+    console.log(`Rendering flat filtered tree for type: ${filterType}`);
+    
+    // Get all extractions that match the filter
+    const filteredExtractions = data.extractions.filter(ext => 
+      ext.extraction_class === filterType
+    );
+
+    console.log(`Found ${filteredExtractions.length} items matching filter: ${filterType}`);
+
+    // Group by parent-child relationships within the same type
+    const flatItems = this.buildFlatFilteredItems(filteredExtractions, data, filterType);
+    
+    // Clear and render flat list
+    treeElement.innerHTML = '';
+    this.renderFlatList(treeElement, flatItems, filterType);
+  }
+
+  // Build flat list items with same-type hierarchies preserved
+  buildFlatFilteredItems(filteredExtractions, data, filterType) {
+    const items = [];
+    const processedIds = new Set();
+
+    // Create lookup map for all extractions
+    const extractionMap = new Map();
+    data.extractions.forEach(ext => {
+      const id = ext.attributes?.id;
+      if (id) {
+        extractionMap.set(id, ext);
+      }
+    });
+
+    // Process each filtered extraction
+    filteredExtractions.forEach(extraction => {
+      const id = extraction.attributes?.id;
+      if (!id || processedIds.has(id)) {
+        return;
+      }
+
+      // Check if this item has a parent of the same type
+      const parentId = this.getParentId(extraction);
+      const parentExtraction = parentId ? extractionMap.get(parentId) : null;
+      const hasParentOfSameType = parentExtraction && parentExtraction.extraction_class === filterType;
+
+      const item = {
+        id: id,
+        extraction: extraction,
+        level: 0, // Will be calculated based on same-type hierarchy
+        children: []
+      };
+
+      // If no parent of same type, this is a root item
+      if (!hasParentOfSameType) {
+        // Find all children of same type recursively
+        this.findSameTypeChildren(item, extractionMap, filterType, processedIds);
+        items.push(item);
+      }
+      
+      processedIds.add(id);
+    });
+
+    // Calculate hierarchy levels for same-type relationships
+    this.calculateFlatItemLevels(items);
+
+    return items;
+  }
+
+  // Find children of the same type recursively
+  findSameTypeChildren(parentItem, extractionMap, filterType, processedIds) {
+    const parentId = parentItem.id;
+    
+    // Look for extractions that have this item as parent and are of the same type
+    extractionMap.forEach(extraction => {
+      const childParentId = this.getParentId(extraction);
+      if (childParentId === parentId && 
+          extraction.extraction_class === filterType && 
+          !processedIds.has(extraction.attributes?.id)) {
+        
+        const childItem = {
+          id: extraction.attributes.id,
+          extraction: extraction,
+          level: 0, // Will be calculated later
+          children: []
+        };
+        
+        processedIds.add(childItem.id);
+        parentItem.children.push(childItem);
+        
+        // Recursively find children of this child
+        this.findSameTypeChildren(childItem, extractionMap, filterType, processedIds);
+      }
+    });
+  }
+
+  // Calculate levels for flat items based on same-type hierarchy
+  calculateFlatItemLevels(items, currentLevel = 0) {
+    items.forEach(item => {
+      item.level = currentLevel;
+      if (item.children.length > 0) {
+        this.calculateFlatItemLevels(item.children, currentLevel + 1);
+      }
+    });
+  }
+
+  // Render the flat list in the tree element
+  renderFlatList(treeElement, flatItems, filterType) {
+    const container = document.createElement('div');
+    container.className = 'flat-filtered-tree';
+    
+    // Add header
+    const header = document.createElement('div');
+    header.className = 'flat-list-header px-4 py-2 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium border-b border-blue-200 dark:border-blue-700';
+    header.textContent = `Filtered view: ${this.formatTypeName(filterType)} (${this.countTotalItems(flatItems)} items)`;
+    container.appendChild(header);
+
+    // Render items
+    const listContainer = document.createElement('div');
+    listContainer.className = 'flat-list-items';
+    this.renderFlatItems(listContainer, flatItems);
+    container.appendChild(listContainer);
+
+    treeElement.appendChild(container);
+  }
+
+  // Render flat items recursively
+  renderFlatItems(container, items) {
+    items.forEach(item => {
+      this.renderFlatItem(container, item);
+      if (item.children.length > 0) {
+        this.renderFlatItems(container, item.children);
+      }
+    });
+  }
+
+  // Render individual flat item
+  renderFlatItem(container, item) {
+    const indent = item.level * 20;
+    const nodeElement = document.createElement('div');
+    nodeElement.className = 'flat-tree-node';
+    nodeElement.style.marginLeft = `${indent}px`;
+    nodeElement.setAttribute('data-node-id', item.id);
+
+    const nodeContent = document.createElement('div');
+    nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
+    
+    // Always highlight filtered items
+    nodeContent.classList.add('bg-yellow-50', 'dark:bg-yellow-900', 'border-yellow-300', 'dark:border-yellow-600');
+    nodeContent.classList.remove('border-transparent');
+
+    // Expand/collapse indicator for items with children
+    const indicator = document.createElement('span');
+    indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
+    
+    if (item.children.length > 0) {
+      indicator.textContent = '▼'; // Always expanded in flat view
+      indicator.style.cursor = 'pointer';
+    } else {
+      indicator.textContent = '•';
+      indicator.style.opacity = '0.5';
+    }
+
+    // Create node text with navigation capability
+    const nodeText = document.createElement('span');
+    nodeText.className = 'text-sm text-gray-900 dark:text-gray-100 cursor-pointer flex-grow select-none';
+    
+    const extraction = item.extraction;
+    const attrs = extraction.attributes || {};
+    let displayText = '';
+    
+    // Format display text based on extraction type
+    if (attrs.section_title) {
+      displayText = `${attrs.id || 'Unknown'} - ${attrs.section_title}`;
+    } else if (attrs.norm_statement) {
+      displayText = `${attrs.id || 'Unknown'} - ${attrs.norm_statement.substring(0, 100)}${attrs.norm_statement.length > 100 ? '...' : ''}`;
+    } else if (extraction.extraction_text) {
+      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_text.substring(0, 100)}${extraction.extraction_text.length > 100 ? '...' : ''}`;
+    } else {
+      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_class}`;
+    }
+    
+    nodeText.textContent = displayText;
+
+    // Add click handler for navigation
+    nodeContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+      console.log(`Flat list navigation clicked for node: ${item.id}`);
+      
+      // Add selection highlighting
+      container.querySelectorAll('.tree-node-content').forEach(node => {
+        node.classList.remove('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
+      });
+      nodeContent.classList.add('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
+
+      // Navigate to this node across panels
+      this.navigateToTreeNode(item.id, extraction);
+    });
+
+    nodeContent.appendChild(indicator);
+    nodeContent.appendChild(nodeText);
+    nodeElement.appendChild(nodeContent);
+    container.appendChild(nodeElement);
+  }
+
+  // Count total items in flat list (including children)
+  countTotalItems(items) {
+    let count = 0;
+    items.forEach(item => {
+      count++;
+      if (item.children.length > 0) {
+        count += this.countTotalItems(item.children);
+      }
+    });
+    return count;
+  }
+
+  // Render filtered JSON view
+  renderFilteredJsonView(filterType) {
+    console.log(`Rendering filtered JSON view with filter: ${filterType || 'none'}`);
+    
+    const data = this.currentJsonData;
+    if (!data || !data.extractions) {
+      console.log('No extraction data available for JSON filtering');
+      return;
+    }
+
+    // Get the JSON container
+    const jsonContainer = this.element.querySelector('.json-formatter, .json-viewer, .enhanced-json');
+    if (!jsonContainer) {
+      console.log('No JSON container found for filtering');
+      return;
+    }
+
+    if (!filterType) {
+      // No filter - show complete JSON
+      this.renderCompleteJsonView(jsonContainer, data);
+    } else {
+      // Filter active - show only matching extractions
+      this.renderFlatJsonFilter(jsonContainer, data, filterType);
+    }
+  }
+
+  // Render complete JSON view (original logic) with enhanced controls
+  renderCompleteJsonView(container, data) {
+    console.log('Rendering complete JSON view with controls');
+    
+    // Clear the container
+    container.innerHTML = '';
+    
+    // Use enhanced JSON object renderer
+    if (typeof JSONFormatter !== 'undefined') {
+      this.renderEnhancedJsonObject(data, { size: 0, truncated: false });
+    } else {
+      const pretty = JSON.stringify(data, null, 2);
+      this.renderEnhancedJsonWithControls(pretty, { size: 0, truncated: false });
+    }
+  }
+
+  // Render filtered JSON as flat list with enhanced controls
+  renderFlatJsonFilter(container, data, filterType) {
+    console.log(`Rendering flat JSON filter for type: ${filterType}`);
+    
+    // Get filtered extractions
+    const filteredExtractions = data.extractions.filter(ext => 
+      ext.extraction_class === filterType
+    );
+
+    console.log(`Found ${filteredExtractions.length} JSON items matching filter: ${filterType}`);
+
+    // Create filtered data object
+    const filteredData = {
+      document_id: data.document_id,
+      extractions: filteredExtractions,
+      filter_applied: filterType,
+      total_items: filteredExtractions.length,
+      original_total: data.extractions.length
+    };
+
+    // Clear the main container and render with enhanced controls
+    this.element.innerHTML = '';
+    
+    // Create main container
+    const mainContainer = document.createElement('div');
+    mainContainer.className = 'enhanced-json-container';
+    
+    // Create custom toolbar for filtered view
+    const toolbar = document.createElement('div');
+    toolbar.className = 'json-toolbar flex items-center justify-between bg-blue-100 dark:bg-blue-800 border border-blue-200 dark:border-blue-600 rounded-t-lg px-4 py-2 text-sm';
+    
+    // Left side - filter info
+    const filterInfo = document.createElement('div');
+    filterInfo.className = 'flex items-center space-x-4';
+    
+    const filterLabel = document.createElement('span');
+    filterLabel.className = 'font-medium text-blue-800 dark:text-blue-200';
+    filterLabel.textContent = `Filtered: ${this.formatTypeName(filterType)}`;
+    filterInfo.appendChild(filterLabel);
+    
+    // Add control toggles
+    const lineNumbersToggle = this.createToggleButton('line-numbers', 'Line Numbers', this.getJsonPreference('lineNumbers', true));
+    lineNumbersToggle.addEventListener('change', (e) => {
+      this.setJsonPreference('lineNumbers', e.target.checked);
+      this.applyCurrentFilter(); // Re-render filtered view
+    });
+    filterInfo.appendChild(lineNumbersToggle);
+    
+    const wordWrapToggle = this.createToggleButton('word-wrap', 'Word Wrap', this.getJsonPreference('wordWrap', false));
+    wordWrapToggle.addEventListener('change', (e) => {
+      this.setJsonPreference('wordWrap', e.target.checked);
+      this.applyCurrentFilter(); // Re-render filtered view
+    });
+    filterInfo.appendChild(wordWrapToggle);
+    
+    // Right side - item count
+    const itemCount = document.createElement('div');
+    itemCount.className = 'flex items-center space-x-2 text-xs bg-blue-200 dark:bg-blue-700 px-2 py-1 rounded';
+    itemCount.innerHTML = `
+      <span class="text-blue-800 dark:text-blue-200">
+        ${filteredExtractions.length} of ${data.extractions.length} items
+      </span>
+    `;
+    
+    toolbar.appendChild(filterInfo);
+    toolbar.appendChild(itemCount);
+    mainContainer.appendChild(toolbar);
+    
+    // Create JSON content container
+    const container = document.createElement('div');
+    container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-b-lg border-l border-r border-b border-gray-200 dark:border-gray-600 relative';
+    
+    // Apply preferences
+    const showLineNumbers = this.getJsonPreference('lineNumbers', true);
+    const wordWrap = this.getJsonPreference('wordWrap', false);
+    
+    // Create content wrapper
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
+    
+    // Determine scrolling behavior
+    const jsonDepth = this.calculateJsonDepth(filteredData);
+    const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
+    
+    if (needsHorizontalScroll) {
+      contentWrapper.style.overflowX = 'auto';
+      contentWrapper.style.whiteSpace = 'nowrap';
+    } else {
+      contentWrapper.style.overflowX = 'hidden';
+      contentWrapper.style.whiteSpace = 'pre-wrap';
+    }
+    
+    // Add line numbers if enabled
+    if (showLineNumbers) {
+      const lineNumbersContainer = document.createElement('div');
+      lineNumbersContainer.className = 'line-numbers-container bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none';
+      lineNumbersContainer.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 100%;
+        overflow: hidden;
+        padding: 12px 8px;
+        z-index: 2;
+      `;
+      container.appendChild(lineNumbersContainer);
+      contentWrapper.style.paddingLeft = '68px';
+      
+      // Generate line numbers for filtered data
+      this.generateJsonLineNumbers(filteredData, lineNumbersContainer);
+    }
+    
+    // Render JSON content
+    if (typeof JSONFormatter !== 'undefined') {
+      const formatter = new JSONFormatter(filteredData, 3, {
+        hoverPreviewEnabled: true,
+        hoverPreviewArrayCount: 100,
+        hoverPreviewFieldCount: 5,
+        animateOpen: true,
+        animateClose: true
+      });
+      const formatterElement = formatter.render();
+      formatterElement.style.padding = '12px';
+      contentWrapper.appendChild(formatterElement);
+    } else {
+      // Fallback to pretty-printed JSON
+      const pretty = JSON.stringify(filteredData, null, 2);
+      const pre = document.createElement('pre');
+      pre.className = 'text-sm text-gray-900 dark:text-gray-100 p-4 m-0';
+      pre.style.whiteSpace = wordWrap ? 'pre-wrap' : 'pre';
+      pre.textContent = pretty;
+      contentWrapper.appendChild(pre);
+    }
+    
+    container.appendChild(contentWrapper);
+    mainContainer.appendChild(container);
+    this.element.appendChild(mainContainer);
   }
 }
