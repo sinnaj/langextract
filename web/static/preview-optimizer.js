@@ -23,8 +23,8 @@ class PreviewOptimizer {
     this.cacheHits = 0;
     this.cacheRequests = 0;
     this._lastSearchQuery = '';
-    this.uberMode = false; // UBERMODE state
-    this.currentJsonData = null; // Store parsed JSON for UBERMODE
+    this.uberMode = false; // Node View state
+    this.currentJsonData = null; // Store parsed JSON for Node View
     this.currentFilter = null; // Current statistics filter (null = show all, string = show only that type)
     this.updateJsonDisplayTimeout = null; // For debouncing JSON updates
     this.currentRenderOperation = null; // Track ongoing render operations
@@ -273,18 +273,18 @@ class PreviewOptimizer {
 
     try {
       const obj = JSON.parse(content);
-      this.currentJsonData = obj; // Store for UBERMODE
+      this.currentJsonData = obj; // Store for Node View
       
-      console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
-      console.log('Current UBERMODE state:', this.uberMode);
+      console.log('JSON parsed successfully, data available for Node View:', !!obj);
+      console.log('Current Node View state:', this.uberMode);
 
-      // Check if UBERMODE is enabled and if this panel should show tree visualization
+      // Check if Node View is enabled and if this panel should show tree visualization
       const shouldShowTreeView = this.shouldShowTreeVisualization();
       console.log('Should show tree view:', shouldShowTreeView);
       
       if (this.uberMode && shouldShowTreeView) {
-        console.log('UBERMODE is enabled and this panel should show tree view');
-        this.renderUberMode(obj, meta);
+        console.log('Node View is enabled and this panel should show tree view');
+        this.renderNodeView(obj, meta);
         return;
       }
 
@@ -1401,9 +1401,9 @@ class PreviewOptimizer {
     return nodes;
   }
 
-  // UBERMODE Methods
+  // Node View Methods
   shouldShowTreeVisualization() {
-    // If UBERMODE is not enabled, never show tree visualization
+    // If Node View is not enabled, never show tree visualization
     if (!this.uberMode) {
       return false;
     }
@@ -1456,7 +1456,7 @@ class PreviewOptimizer {
     return -1; // Not found
   }
 
-  toggleUberMode() {
+  toggleNodeView() {
     this.uberMode = !this.uberMode;
     
     // Update stats visibility
@@ -1470,7 +1470,7 @@ class PreviewOptimizer {
       const shouldShowTreeView = this.shouldShowTreeVisualization();
       
       if (this.uberMode && shouldShowTreeView) {
-        this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
+        this.renderNodeView(this.currentJsonData, { size: 0, truncated: false });
       } else {
         // Re-render with normal JSON view
         if (typeof JSONFormatter !== 'undefined') {
@@ -1496,14 +1496,14 @@ class PreviewOptimizer {
     }
   }
 
-  renderUberMode(jsonData, meta) {
+  renderNodeView(jsonData, meta) {
     // Clear previous content
     this.element.innerHTML = '';
     
     // Update stats
-    this.updateUberModeStats(jsonData);
-    
-    // Create UBERMODE container
+    this.updateNodeViewStats(jsonData);
+
+    // Create Node View container
     const container = document.createElement('div');
     container.className = 'ubermode-container space-y-4';
     
@@ -1514,8 +1514,8 @@ class PreviewOptimizer {
     this.element.appendChild(container);
   }
 
-  updateUberModeStats(jsonData) {
-    console.log('Updating UBERMODE stats...');
+  updateNodeViewStats(jsonData) {
+    console.log('Updating Node View stats...');
     const stats = this.analyzeJsonData(jsonData);
     
     // Dynamically update the statistics container based on actual data
@@ -3158,7 +3158,7 @@ class PreviewOptimizer {
       console.log('No tree container found, falling back to full re-render');
       // Fallback to full re-render
       this.element.innerHTML = '';
-      this.renderUberMode(data, { size: 0, truncated: false });
+      this.renderNodeView(data, { size: 0, truncated: false });
       return;
     }
 

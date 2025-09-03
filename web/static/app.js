@@ -130,8 +130,8 @@
         const panelIndex = Array.from(document.querySelectorAll('.preview-panel')).indexOf(e.target.closest('.preview-panel'));
         const optimizer = previewOptimizers[panelIndex];
         if (optimizer) {
-          const isEnabled = optimizer.toggleUberMode();
-          updateUberModeButton(btn, isEnabled);
+          const isEnabled = optimizer.toggleNodeView();
+          updateNodeViewButton(btn, isEnabled);
           
           // Refresh all other JSON panels to update their tree/JSON view based on new configuration
           refreshAllJsonPanels(panelIndex);
@@ -729,18 +729,18 @@
               // Wait for JSON data to be parsed before checking UBERMODE activation
               setTimeout(() => {
                 const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
-                console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
+                console.log(`Node View sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
                 
-                // Only trigger UBERMODE if button is enabled and JSON data is available
+                // Only trigger Node View if button is enabled and JSON data is available
                 if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
-                  console.log('Activating UBERMODE for newly loaded JSON file');
-                  previewOptimizers[panelIndex].toggleUberMode();
-                  updateUberModeButton(uberToggle, true);
+                  console.log('Activating Node View for newly loaded JSON file');
+                  previewOptimizers[panelIndex].toggleNodeView();
+                  updateNodeViewButton(uberToggle, true);
                 } else if (!isButtonEnabled && isOptimizerUberMode) {
-                  // Button is disabled but optimizer is in UBERMODE - deactivate it
-                  console.log('Deactivating UBERMODE - button is disabled');
-                  previewOptimizers[panelIndex].toggleUberMode();
-                  updateUberModeButton(uberToggle, false);
+                  // Button is disabled but optimizer is in Node View - deactivate it
+                  console.log('Deactivating Node View - button is disabled');
+                  previewOptimizers[panelIndex].toggleNodeView();
+                  updateNodeViewButton(uberToggle, false);
                 }
               }, 100); // Small delay to ensure JSON parsing is complete
             }
@@ -911,17 +911,17 @@
     });
   }
 
-  function updateUberModeButton(button, isEnabled) {
+  function updateNodeViewButton(button, isEnabled) {
     if (isEnabled) {
       button.classList.add('bg-blue-500', 'text-white');
       button.classList.remove('text-gray-500');
       button.setAttribute('data-enabled', 'true');
-      button.title = 'Disable UBERMODE';
+      button.title = 'Disable Node View';
     } else {
       button.classList.remove('bg-blue-500', 'text-white');
       button.classList.add('text-gray-500');
       button.setAttribute('data-enabled', 'false');
-      button.title = 'Enable UBERMODE';
+      button.title = 'Enable Node View';
     }
   }
 })();
