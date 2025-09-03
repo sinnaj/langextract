@@ -1885,6 +1885,14 @@ class PreviewOptimizer {
       }
     }
     
+    // Check for circular references and fix them
+    nodes.forEach(node => {
+      if (node.id === node.parentId) {
+        console.warn(`Fixing circular reference: node ${node.id} has itself as parent`);
+        node.parentId = null; // Make it a root node
+      }
+    });
+    
     // Check for other common patterns that might need synthetic roots
     const potentialRoots = new Set();
     nodes.forEach(node => {
@@ -1893,9 +1901,10 @@ class PreviewOptimizer {
       }
     });
     
+    // Create synthetic roots for missing parents
     potentialRoots.forEach(rootId => {
       if (rootId !== cteRootId) {
-        console.log(`Creating synthetic root node for ${rootId}`);
+        console.log(`Creating synthetic root node for missing parent: ${rootId}`);
         nodes.set(rootId, {
           id: rootId,
           title: this.generateSyntheticRootTitle(rootId),
@@ -1912,6 +1921,50 @@ class PreviewOptimizer {
         });
       }
     });
+    
+    // If we have many orphaned nodes with null parent_id, try to create a document root
+    const orphanedNodes = Array.from(nodes.values()).filter(node => !node.parentId);
+    if (orphanedNodes.length > 5) {
+      console.log(`Found ${orphanedNodes.length} orphaned nodes - creating document root`);
+      
+      // Look for document_id to create a meaningful root
+      const sampleExtraction = orphanedNodes.find(node => node.extraction)?.extraction;
+      const documentId = sampleExtraction ? sampleExtraction.document_id : null;
+      const documentRootId = documentId ? `DOC_ROOT_${documentId}` : 'DOCUMENT_ROOT';
+      
+      if (!nodes.has(documentRootId)) {
+        console.log(`Creating document root: ${documentRootId}`);
+        nodes.set(documentRootId, {
+          id: documentRootId,
+          title: `Document Root: ${documentId || 'Unknown Document'}`,
+          type: 'LEGAL_DOCUMENT',
+          parentId: null,
+          parentType: null,
+          summary: `Root document container for ${documentId || 'unknown document'}`,
+          extractionText: 'Document Root',
+          children: [],
+          isExpanded: true,
+          level: 0,
+          attributes: { id: documentRootId },
+          extraction: null
+        });
+        
+        // Link high-level orphaned nodes to this document root
+        // Prioritize top-level sections, headlines, and other structural elements
+        orphanedNodes.forEach(node => {
+          const shouldLink = (
+            (node.type === 'SECTION' && (!node.level || node.level <= 2)) ||
+            (node.extraction && node.extraction.attributes && 
+             ['Headline', 'Chapter', 'Part', 'Section'].includes(node.extraction.attributes.sectioning_type))
+          );
+          
+          if (shouldLink) {
+            console.log(`Linking ${node.type} ${node.id} to document root ${documentRootId}`);
+            node.parentId = documentRootId;
+          }
+        });
+      }
+    }
   }
 
   generateSyntheticRootTitle(rootId) {
