@@ -20,10 +20,19 @@ class PreviewOptimizer {
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
+    this.cacheHits = 0;
+    this.cacheRequests = 0;
     this._lastSearchQuery = '';
     this.uberMode = false; // UBERMODE state
     this.currentJsonData = null; // Store parsed JSON for UBERMODE
     this.currentFilter = null; // Current statistics filter (null = show all, string = show only that type)
+    this.updateJsonDisplayTimeout = null; // For debouncing JSON updates
+    this.currentRenderOperation = null; // Track ongoing render operations
+    this.performanceStats = { // Track rendering performance
+      renderCount: 0,
+      totalRenderTime: 0,
+      lastRenderTime: 0
+    };
     
     this.init();
   }
@@ -32,14 +41,8 @@ class PreviewOptimizer {
     this.element.style.position = 'relative';
     this.element.style.overflow = 'auto';
     
-    // Set up event delegation for filter cards to ensure they always work
-    this.element.addEventListener('click', (e) => {
-      const filterCard = e.target.closest('.stats-filter-card');
-      if (filterCard) {
-        const filterType = filterCard.dataset.filterType;
-        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
-      }
-    });
+    // Use bound method for better memory management
+    this.element.addEventListener('click', this.handleClick);
   }
   
   async loadFile(runId, filePath, fileSize) {
@@ -54,9 +57,13 @@ class PreviewOptimizer {
       
       // Check cache first
       const cacheKey = `${runId}:${filePath}`;
+      this.cacheRequests++;
+      
       if (this.cache.has(cacheKey)) {
+        this.cacheHits++;
         const cached = this.cache.get(cacheKey);
         this.renderContent(cached.content, cached.contentType, cached.meta);
+        console.log(`Cache hit for ${filePath} (hit rate: ${(this.cacheHits/this.cacheRequests*100).toFixed(1)}%)`);
         return;
       }
       
@@ -281,19 +288,33 @@ class PreviewOptimizer {
         return;
       }
 
-      const pretty = JSON.stringify(obj, null, 2);
+      // Determine rendering strategy based on JSON size and complexity
+      const jsonString = JSON.stringify(obj);
+      const jsonSize = jsonString.length;
+      const jsonDepth = this.calculateJsonDepth(obj);
+      const itemCount = this.countJsonItems(obj);
 
-      // Prefer JSONFormatter for structured view if available and content size is reasonable
-      if (typeof JSONFormatter !== 'undefined' && pretty.length <= 1000000) { // 1MB
+      console.log(`JSON analysis: size=${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
+
+      // Strategy 1: Very large JSON files - use specialized large JSON renderer
+      if (jsonSize > 2000000 || itemCount > 10000) {
+        console.log('Using large JSON renderer for performance');
+        this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+        return;
+      }
+
+      // Strategy 2: Medium to large JSON - use JSONFormatter with optimizations
+      if (typeof JSONFormatter !== 'undefined' && jsonSize <= 2000000) {
         this.renderEnhancedJsonObject(obj, meta);
         return;
       }
 
-      // Fallback to pretty-printed code if too large or formatter missing
-      if (pretty.length > 1000000) {
+      // Strategy 3: Fallback for very large files or when JSONFormatter unavailable
+      if (jsonSize > 500000) {
+        console.log('JSON too large, falling back to text rendering');
         this.renderTextContent(content, meta, 'json');
       } else {
-        this.renderEnhancedJson(pretty, meta);
+        this.renderEnhancedJson(jsonString, meta);
       }
     } catch (e) {
       // Invalid JSON, render as text
@@ -331,7 +352,14 @@ class PreviewOptimizer {
       try {
         const obj = JSON.parse(line);
         if (typeof JSONFormatter !== 'undefined') {
-          const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, { theme: 'dark' });
+          // Limit depth for performance in JSONL rendering
+          const maxDepth = line.length > 10000 ? 1 : 2;
+          const formatter = new JSONFormatter(obj, maxDepth, { 
+            theme: 'dark',
+            hoverPreviewEnabled: line.length < 5000,
+            animateOpen: false,
+            animateClose: false
+          });
           block.appendChild(formatter.render());
         } else {
           const pretty = JSON.stringify(obj, null, 2);
@@ -364,13 +392,39 @@ class PreviewOptimizer {
     if (typeof JSONFormatter !== 'undefined') {
       try {
         const obj = JSON.parse(jsonString);
-        const formatter = new JSONFormatter(obj, Number.POSITIVE_INFINITY, {
-          theme: 'dark' // theme hint; CSS controls final look
+        
+        // Determine appropriate depth based on JSON size and complexity
+        const jsonSize = jsonString.length;
+        const jsonDepth = this.calculateJsonDepth(obj);
+        
+        let maxDepth;
+        if (jsonSize > 500000) { // >500KB
+          maxDepth = 1; // Very shallow for large files
+        } else if (jsonSize > 100000) { // >100KB
+          maxDepth = 2; // Moderate depth
+        } else if (jsonDepth > 5) {
+          maxDepth = 3; // Limit deep nesting
+        } else {
+          maxDepth = Math.min(jsonDepth, 4); // Reasonable default
+        }
+        
+        const formatter = new JSONFormatter(obj, maxDepth, {
+          theme: 'dark', // theme hint; CSS controls final look
+          hoverPreviewEnabled: true,
+          hoverPreviewArrayCount: 10,
+          hoverPreviewFieldCount: 5,
+          animateOpen: false, // Disable animations for performance
+          animateClose: false
         });
+        
         const container = document.createElement('div');
         container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
-        container.appendChild(formatter.render());
-        this.element.appendChild(container);
+        
+        // Use requestAnimationFrame for non-blocking DOM update
+        requestAnimationFrame(() => {
+          container.appendChild(formatter.render());
+          this.element.appendChild(container);
+        });
         return;
       } catch (e) {
         // Fallback to code block rendering below
@@ -394,8 +448,24 @@ class PreviewOptimizer {
   }
 
   renderEnhancedJsonObject(obj, meta, options = {}) {
+    const startTime = performance.now();
+    
     // Use JSONFormatter directly on parsed object with enhanced controls
     try {
+      // Determine JSON complexity and size for performance optimization
+      const jsonString = JSON.stringify(obj);
+      const jsonSize = jsonString.length;
+      const jsonDepth = this.calculateJsonDepth(obj);
+      const itemCount = this.countJsonItems(obj);
+      
+      console.log(`Rendering JSON: ${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
+      
+      // Performance-based rendering strategy
+      if (jsonSize > 2000000 || itemCount > 10000) { // >2MB or >10k items
+        this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+        return;
+      }
+      
       // Create main container with controls
       const mainContainer = document.createElement('div');
       mainContainer.className = 'enhanced-json-container';
@@ -417,7 +487,6 @@ class PreviewOptimizer {
       contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
       
       // Determine if we need horizontal scroll
-      const jsonDepth = this.calculateJsonDepth(obj);
       const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
       
       if (needsHorizontalScroll) {
@@ -428,9 +497,9 @@ class PreviewOptimizer {
         contentWrapper.style.whiteSpace = 'pre-wrap';
       }
       
-      // Create line numbers container if enabled
+      // Create line numbers container if enabled (only for smaller JSON)
       let lineNumbersContainer = null;
-      if (showLineNumbers) {
+      if (showLineNumbers && jsonSize < 500000) { // Skip line numbers for large JSON
         lineNumbersContainer = document.createElement('div');
         lineNumbersContainer.className = 'line-numbers-container bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none';
         lineNumbersContainer.style.cssText = `
@@ -449,41 +518,73 @@ class PreviewOptimizer {
         contentWrapper.style.paddingLeft = '68px';
       }
       
-      // Create JSONFormatter with custom styling
-      const formatter = new JSONFormatter(obj, options.maxDepth || 3, {
-        hoverPreviewEnabled: true,
-        hoverPreviewArrayCount: 100,
-        hoverPreviewFieldCount: 5,
-        animateOpen: true,
-        animateClose: true,
+      // Determine appropriate depth and options based on JSON complexity
+      let maxDepth = options.maxDepth;
+      if (!maxDepth) {
+        if (jsonSize > 500000) maxDepth = 1;
+        else if (jsonSize > 100000 || itemCount > 1000) maxDepth = 2;
+        else if (jsonDepth > 5) maxDepth = 3;
+        else maxDepth = Math.min(jsonDepth, 4);
+      }
+      
+      // Create JSONFormatter with performance-optimized settings
+      const formatter = new JSONFormatter(obj, maxDepth, {
+        hoverPreviewEnabled: jsonSize < 100000, // Disable hover for large JSON
+        hoverPreviewArrayCount: jsonSize < 100000 ? 50 : 5,
+        hoverPreviewFieldCount: jsonSize < 100000 ? 5 : 3,
+        animateOpen: jsonSize < 50000, // Disable animations for large JSON
+        animateClose: jsonSize < 50000,
         theme: 'default'
       });
       
-      const formatterElement = formatter.render();
-      formatterElement.style.padding = '12px';
-      formatterElement.style.minHeight = '100%';
-      
-      contentWrapper.appendChild(formatterElement);
-      container.appendChild(contentWrapper);
-      
-      // Generate line numbers if enabled
-      if (showLineNumbers && lineNumbersContainer) {
-        this.generateJsonLineNumbers(obj, lineNumbersContainer);
-      }
-      
-      mainContainer.appendChild(container);
-      this.element.appendChild(mainContainer);
-      
-      // Store references for control updates
-      this.jsonContainer = container;
-      this.jsonContentWrapper = contentWrapper;
-      this.jsonLineNumbersContainer = lineNumbersContainer;
+      // Use requestAnimationFrame for non-blocking rendering
+      requestAnimationFrame(() => {
+        const formatterElement = formatter.render();
+        formatterElement.style.padding = '12px';
+        formatterElement.style.minHeight = '100%';
+        
+        contentWrapper.appendChild(formatterElement);
+        container.appendChild(contentWrapper);
+        
+        // Generate line numbers if enabled and not too large
+        if (showLineNumbers && lineNumbersContainer && jsonSize < 100000) {
+          requestAnimationFrame(() => {
+            this.generateJsonLineNumbers(obj, lineNumbersContainer);
+          });
+        }
+        
+        mainContainer.appendChild(container);
+        this.element.appendChild(mainContainer);
+        
+        // Store references for control updates
+        this.jsonContainer = container;
+        this.jsonContentWrapper = contentWrapper;
+        this.jsonLineNumbersContainer = lineNumbersContainer;
+        
+        // Track performance
+        const endTime = performance.now();
+        const renderTime = endTime - startTime;
+        this.performanceStats.renderCount++;
+        this.performanceStats.totalRenderTime += renderTime;
+        this.performanceStats.lastRenderTime = renderTime;
+        
+        console.log(`JSON rendered in ${renderTime.toFixed(2)}ms (avg: ${(this.performanceStats.totalRenderTime / this.performanceStats.renderCount).toFixed(2)}ms)`);
+      });
       
     } catch (e) {
       console.error('JSONFormatter failed:', e);
       // Fallback: pretty print with enhanced controls
       const pretty = JSON.stringify(obj, null, 2);
       this.renderEnhancedJsonWithControls(pretty, meta);
+    } finally {
+      // Ensure performance tracking even on fallback
+      if (this.performanceStats.lastRenderTime === 0) {
+        const endTime = performance.now();
+        const renderTime = endTime - startTime;
+        this.performanceStats.renderCount++;
+        this.performanceStats.totalRenderTime += renderTime;
+        this.performanceStats.lastRenderTime = renderTime;
+      }
     }
   }
 
@@ -554,12 +655,18 @@ class PreviewOptimizer {
 
   // Calculate maximum depth of JSON object
   calculateJsonDepth(obj, currentDepth = 0) {
-    if (typeof obj !== 'object' || obj === null) {
+    if (typeof obj !== 'object' || obj === null || currentDepth > 10) { // Limit recursion depth
       return currentDepth;
     }
     
     let maxDepth = currentDepth;
-    for (const value of Object.values(obj)) {
+    const keys = Object.keys(obj);
+    
+    // Limit checking for performance on very large objects
+    const keysToCheck = keys.length > 100 ? keys.slice(0, 100) : keys;
+    
+    for (const key of keysToCheck) {
+      const value = obj[key];
       if (typeof value === 'object' && value !== null) {
         const depth = this.calculateJsonDepth(value, currentDepth + 1);
         maxDepth = Math.max(maxDepth, depth);
@@ -569,35 +676,294 @@ class PreviewOptimizer {
     return maxDepth;
   }
 
-  // Generate line numbers for JSON
-  generateJsonLineNumbers(obj, container) {
-    const pretty = JSON.stringify(obj, null, 2);
-    const lines = pretty.split('\n');
-    const maxLength = lines.length.toString().length;
+  // Count JSON items (keys + array elements) for performance estimation
+  countJsonItems(obj, maxCount = 20000) {
+    let count = 0;
     
-    container.innerHTML = '';
-    for (let i = 1; i <= lines.length; i++) {
-      const lineNumber = document.createElement('div');
-      lineNumber.className = 'line-number';
-      lineNumber.textContent = i.toString().padStart(maxLength, ' ');
-      lineNumber.style.height = '20px'; // Match typical line height
-      container.appendChild(lineNumber);
-    }
+    const countRecursive = (item) => {
+      if (count >= maxCount) return; // Stop counting if we hit the limit
+      
+      if (Array.isArray(item)) {
+        count += item.length;
+        for (const element of item.slice(0, 10)) { // Sample first 10 elements
+          if (typeof element === 'object' && element !== null) {
+            countRecursive(element);
+          }
+        }
+      } else if (typeof item === 'object' && item !== null) {
+        const keys = Object.keys(item);
+        count += keys.length;
+        for (const key of keys.slice(0, 50)) { // Sample first 50 keys
+          countRecursive(item[key]);
+        }
+      }
+    };
+    
+    countRecursive(obj);
+    return count;
   }
 
-  // Update JSON display when preferences change
+  // Render very large JSON with virtual scrolling and progressive loading
+  renderLargeJsonObject(obj, meta, stats = {}) {
+    this.element.innerHTML = '';
+    
+    // Create warning and info container
+    const infoContainer = document.createElement('div');
+    infoContainer.className = 'bg-orange-50 dark:bg-orange-900 border border-orange-200 dark:border-orange-700 rounded-lg p-4 mb-4';
+    
+    const { jsonSize, jsonDepth, itemCount } = stats;
+    infoContainer.innerHTML = `
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-sm font-medium text-orange-800 dark:text-orange-200">Large JSON File</h3>
+          <div class="mt-2 text-sm text-orange-700 dark:text-orange-300">
+            <p>This JSON file is very large (${this.formatBytes(jsonSize)}, ~${itemCount.toLocaleString()} items, depth ${jsonDepth})</p>
+            <p>Using optimized rendering with limited depth to maintain performance.</p>
+          </div>
+          <div class="mt-3 flex space-x-2">
+            <button id="render-shallow" class="text-xs bg-orange-600 hover:bg-orange-700 text-white px-3 py-1 rounded">
+              Render (Depth 1)
+            </button>
+            <button id="render-medium" class="text-xs bg-orange-600 hover:bg-orange-700 text-white px-3 py-1 rounded">
+              Render (Depth 2)
+            </button>
+            <button id="render-text" class="text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
+              View as Text
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    this.element.appendChild(infoContainer);
+    
+    // Add event listeners for rendering options
+    const shallowBtn = infoContainer.querySelector('#render-shallow');
+    const mediumBtn = infoContainer.querySelector('#render-medium');
+    const textBtn = infoContainer.querySelector('#render-text');
+    
+    shallowBtn?.addEventListener('click', () => {
+      this.renderJsonWithDepth(obj, 1, infoContainer);
+    });
+    
+    mediumBtn?.addEventListener('click', () => {
+      this.renderJsonWithDepth(obj, 2, infoContainer);
+    });
+    
+    textBtn?.addEventListener('click', () => {
+      this.renderJsonAsText(obj, infoContainer);
+    });
+    
+    // Auto-render with minimal depth by default
+    setTimeout(() => {
+      this.renderJsonWithDepth(obj, 1, infoContainer);
+    }, 100);
+  }
+
+  // Render JSON with specific depth limit and better error handling
+  renderJsonWithDepth(obj, maxDepth, infoContainer) {
+    // Cancel any ongoing render
+    if (this.currentRenderOperation) {
+      this.currentRenderOperation.cancelled = true;
+    }
+    
+    // Create operation tracker
+    const renderOperation = { cancelled: false };
+    this.currentRenderOperation = renderOperation;
+    
+    // Show loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'text-center py-8 text-gray-500';
+    loadingDiv.innerHTML = `
+      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
+      <div class="text-sm">Rendering JSON (depth ${maxDepth})...</div>
+    `;
+    
+    // Remove any existing JSON container
+    const existingJson = this.element.querySelector('.json-viewer');
+    if (existingJson) existingJson.remove();
+    
+    this.element.appendChild(loadingDiv);
+    
+    // Use timeout to allow UI to update
+    setTimeout(() => {
+      // Check if operation was cancelled
+      if (renderOperation.cancelled) {
+        loadingDiv.remove();
+        return;
+      }
+      
+      try {
+        const formatter = new JSONFormatter(obj, maxDepth, {
+          hoverPreviewEnabled: false, // Disable for performance
+          hoverPreviewArrayCount: 3,
+          hoverPreviewFieldCount: 3,
+          animateOpen: false,
+          animateClose: false,
+          theme: 'default'
+        });
+        
+        const container = document.createElement('div');
+        container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 overflow-auto max-h-96';
+        
+        // Check again if cancelled before expensive DOM operation
+        if (renderOperation.cancelled) {
+          loadingDiv.remove();
+          return;
+        }
+        
+        const formatterElement = formatter.render();
+        container.appendChild(formatterElement);
+        
+        // Remove loading indicator and add JSON
+        loadingDiv.remove();
+        this.element.appendChild(container);
+        
+        // Clear operation tracker
+        if (this.currentRenderOperation === renderOperation) {
+          this.currentRenderOperation = null;
+        }
+        
+      } catch (e) {
+        console.error('Failed to render JSON:', e);
+        if (!renderOperation.cancelled) {
+          loadingDiv.innerHTML = `
+            <div class="text-red-600">Failed to render JSON: ${e.message}</div>
+            <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()" 
+                    class="mt-2 text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
+              View as Text Instead
+            </button>
+          `;
+        }
+      }
+    }, 10);
+  }
+
+  // Render JSON as plain text with syntax highlighting
+  renderJsonAsText(obj, infoContainer) {
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'text-center py-8 text-gray-500';
+    loadingDiv.innerHTML = `
+      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
+      <div class="text-sm">Rendering as text...</div>
+    `;
+    
+    // Remove any existing JSON container
+    const existingJson = this.element.querySelector('.json-viewer');
+    if (existingJson) existingJson.remove();
+    
+    this.element.appendChild(loadingDiv);
+    
+    // Use timeout for non-blocking rendering
+    setTimeout(() => {
+      try {
+        const pretty = JSON.stringify(obj, null, 2);
+        
+        const container = document.createElement('div');
+        container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 overflow-auto max-h-96';
+        
+        const pre = document.createElement('pre');
+        pre.className = 'font-mono text-sm leading-relaxed m-0 p-3';
+        pre.style.whiteSpace = 'pre-wrap'; // Allow word wrapping for long lines
+        
+        const code = document.createElement('code');
+        code.className = 'language-json';
+        code.textContent = pretty;
+        
+        pre.appendChild(code);
+        container.appendChild(pre);
+        
+        // Remove loading and add content
+        loadingDiv.remove();
+        this.element.appendChild(container);
+        
+        // Apply syntax highlighting after a short delay
+        if (typeof hljs !== 'undefined') {
+          setTimeout(() => {
+            try { 
+              hljs.highlightElement(code); 
+            } catch(e) {
+              console.warn('Syntax highlighting failed:', e);
+            }
+          }, 100);
+        }
+        
+      } catch (e) {
+        console.error('Failed to render JSON as text:', e);
+        loadingDiv.innerHTML = `<div class="text-red-600">Failed to render JSON: ${e.message}</div>`;
+      }
+    }, 10);
+  }
+
+  // Generate line numbers for JSON (optimized for performance)
+  generateJsonLineNumbers(obj, container) {
+    // Use requestAnimationFrame for non-blocking line number generation
+    requestAnimationFrame(() => {
+      try {
+        const pretty = JSON.stringify(obj, null, 2);
+        const lines = pretty.split('\n');
+        const maxLength = lines.length.toString().length;
+        
+        // Clear existing line numbers
+        container.innerHTML = '';
+        
+        // Create a document fragment for better performance
+        const fragment = document.createDocumentFragment();
+        
+        // Limit line numbers for very large JSON (performance)
+        const maxLinesToShow = Math.min(lines.length, 2000);
+        
+        for (let i = 1; i <= maxLinesToShow; i++) {
+          const lineNumber = document.createElement('div');
+          lineNumber.className = 'line-number';
+          lineNumber.textContent = i.toString().padStart(maxLength, ' ');
+          lineNumber.style.height = '20px';
+          fragment.appendChild(lineNumber);
+        }
+        
+        // If we truncated, show an indicator
+        if (lines.length > maxLinesToShow) {
+          const indicator = document.createElement('div');
+          indicator.className = 'line-number text-gray-400';
+          indicator.textContent = '...';
+          indicator.style.height = '20px';
+          fragment.appendChild(indicator);
+        }
+        
+        container.appendChild(fragment);
+      } catch (e) {
+        console.warn('Failed to generate line numbers:', e);
+      }
+    });
+  }
+
+  // Debounced update for JSON display changes
   updateJsonDisplay() {
     if (!this.currentJsonData) return;
     
-    // Find the JSON container and re-render
-    const container = this.element.querySelector('.enhanced-json-container');
-    if (container) {
-      // Remove existing JSON display
-      this.element.removeChild(container);
-      
-      // Re-render with updated preferences
-      this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+    // Cancel any pending update
+    if (this.updateJsonDisplayTimeout) {
+      clearTimeout(this.updateJsonDisplayTimeout);
     }
+    
+    // Debounce updates to prevent rapid re-rendering
+    this.updateJsonDisplayTimeout = setTimeout(() => {
+      const container = this.element.querySelector('.enhanced-json-container');
+      if (container) {
+        // Remove existing JSON display
+        this.element.removeChild(container);
+        
+        // Re-render with updated preferences
+        requestAnimationFrame(() => {
+          this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
+        });
+      }
+    }, 100); // 100ms debounce
   }
 
   // JSON preference storage helpers
@@ -901,6 +1267,61 @@ class PreviewOptimizer {
            this.currentFile?.filePath?.toLowerCase().endsWith('.md');
   }
   
+  // Add memory management and cleanup
+  cleanup() {
+    // Cancel any pending timeouts
+    if (this.updateJsonDisplayTimeout) {
+      clearTimeout(this.updateJsonDisplayTimeout);
+      this.updateJsonDisplayTimeout = null;
+    }
+    
+    // Clear cache to free memory
+    this.cache.clear();
+    
+    // Remove event listeners
+    this.element.removeEventListener('click', this.handleClick);
+    
+    // Clear element content
+    this.element.innerHTML = '';
+    
+    console.log('PreviewOptimizer cleaned up');
+  }
+
+  // Add click handler for better event management
+  handleClick = (e) => {
+    const filterCard = e.target.closest('.stats-filter-card');
+    if (filterCard) {
+      const filterType = filterCard.dataset.filterType;
+      this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
+    }
+  };
+
+  // Get performance statistics
+  getPerformanceStats() {
+    const avgRenderTime = this.performanceStats.renderCount > 0 
+      ? this.performanceStats.totalRenderTime / this.performanceStats.renderCount 
+      : 0;
+    
+    return {
+      ...this.performanceStats,
+      averageRenderTime: avgRenderTime,
+      cacheSize: this.cache.size,
+      cacheHitRate: this.cacheHits / Math.max(this.cacheRequests, 1) || 0
+    };
+  }
+
+  // Clear performance stats
+  resetPerformanceStats() {
+    this.performanceStats = {
+      renderCount: 0,
+      totalRenderTime: 0,
+      lastRenderTime: 0
+    };
+    this.cacheHits = 0;
+    this.cacheRequests = 0;
+    console.log('Performance stats reset');
+  }
+
   formatBytes(bytes) {
     if (bytes === 0) return '0 B';
     const k = 1024;
@@ -1988,283 +2409,508 @@ class PreviewOptimizer {
     const nodeInfo = typeof nodeOrId === 'object' && nodeOrId ? nodeOrId : null;
     console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel: `, previewElement);
     
-    // First try to find elements containing the nodeId in JSONFormatter structure
-    let targetElement = null;
-
-    // Helper: expand all collapsed ancestors (details and JSONFormatter) for a given element
-    const expandAncestors = (el, maxOps = 50) => {
-      let ops = 0;
-      const togglerSelectors = [
-        '.json-formatter-toggler',
-        '.json-formatter-toggle',
-        '.json-formatter-opener',
-        '.json-formatter-arrow'
-      ].join(',');
-      let cur = el;
-      while (cur && cur !== previewElement && ops < maxOps) {
-        // Open <details>
-        if (cur.tagName && cur.tagName.toLowerCase() === 'details' && !cur.open) {
-          cur.open = true;
-          ops++;
-        }
-        // Expand JSONFormatter collapsed containers
-        if (cur.classList && (
-          cur.classList.contains('json-formatter-closed') ||
-          cur.classList.contains('json-formatter-collapsed') ||
-          cur.classList.contains('collapsed')
-        )) {
-          const toggler = cur.querySelector(togglerSelectors);
-          if (toggler) {
-            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-            ops++;
-          }
-        }
-        cur = cur.parentElement;
-      }
-      return ops;
-    };
-
-    // Helper: detect if any ancestor is collapsed
-    const hasCollapsedAncestor = (el) => {
-      let cur = el;
-      while (cur && cur !== previewElement) {
-        if (cur.tagName && cur.tagName.toLowerCase() === 'details' && !cur.open) return true;
-        if (cur.classList && (
-          cur.classList.contains('json-formatter-closed') ||
-          cur.classList.contains('json-formatter-collapsed') ||
-          cur.classList.contains('collapsed')
-        )) return true;
-        cur = cur.parentElement;
-      }
-      return false;
-    };
-
-    // Helper: click a toggler if present within a container (self expand)
-    const clickTogglerIfPresent = (container) => {
-      const togglerSelectors = [
-        '.json-formatter-toggler',
-        '.json-formatter-toggle',
-        '.json-formatter-opener',
-        '.json-formatter-arrow'
-      ].join(',');
-      const t = container && container.querySelector ? container.querySelector(togglerSelectors) : null;
-      if (t) {
-        t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-        return true;
-      }
-      return false;
-    };
-
-    // Helper: expand the node itself and one child level (depth = 1)
-    const expandNodeDepth = (nodeEl, depth = 1, maxOps = 100) => {
-      if (!nodeEl || depth <= 0) return 0;
-      let ops = 0;
-      // If the node element itself appears collapsed, expand it
-      if (
-        nodeEl.classList && (
-          nodeEl.classList.contains('json-formatter-closed') ||
-          nodeEl.classList.contains('json-formatter-collapsed') ||
-          nodeEl.classList.contains('collapsed')
-        )
-      ) {
-        if (clickTogglerIfPresent(nodeEl)) ops++;
-      }
-
-      // Find the immediate children container
-      let childrenRoot = null;
-      try {
-        childrenRoot = nodeEl.querySelector('.json-formatter-children');
-      } catch (_) {}
-
-      if (!childrenRoot) return ops;
-
-      // Get direct child rows of this node (':scope > .json-formatter-row' with fallback)
-      let childRows = [];
-      try {
-        childRows = childrenRoot.querySelectorAll(':scope > .json-formatter-row');
-      } catch (_) {
-        const allRows = childrenRoot.querySelectorAll('.json-formatter-row');
-        childRows = Array.from(allRows).filter(r => r.parentElement === childrenRoot);
-      }
-
-      // For each direct child row, if it has a collapsed nested object/array, expand once
-      for (const row of childRows) {
-        if (ops >= maxOps) break;
-        const collapsedChild = row.querySelector('.json-formatter-closed, .json-formatter-collapsed, .collapsed');
-        if (collapsedChild) {
-          if (clickTogglerIfPresent(row)) ops++;
-        }
-      }
-
-      return ops;
-    };
-
-    // Helper: ensure element remains expanded during and shortly after scrolling
-    const ensureExpanded = (el, expandChildrenDepth = 1) => {
-      // Immediate expansion of ancestors and node itself (+ one level of children)
-      expandAncestors(el, 100);
-      expandNodeDepth(el, expandChildrenDepth, 100);
-
-      // Timed re-checks to counter delayed re-collapses
-      const delays = [50, 200, 800, 1500];
-      delays.forEach((d) => {
-        setTimeout(() => {
-          if (!el.isConnected) return;
-          if (hasCollapsedAncestor(el)) {
-            expandAncestors(el, 100);
-          }
-          // Light-touch re-expand of node and its first-level children
-          expandNodeDepth(el, expandChildrenDepth, 50);
-        }, d);
-      });
-
-      // Short-lived MutationObserver to re-open if something collapses ancestors
-      const observer = new MutationObserver(() => {
-        if (!el.isConnected) return;
-        if (hasCollapsedAncestor(el)) {
-          expandAncestors(el, 100);
-        }
-      });
-      try {
-        observer.observe(previewElement, {
-          subtree: true,
-          attributes: true,
-          attributeFilter: ['class', 'open']
-        });
-        setTimeout(() => observer.disconnect(), 2000);
-      } catch (e) {
-        // Ignore observer errors in older environments
-      }
-    };
-    
-    // Directed, structure-aware search first (JSONFormatter DOM)
-    const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim();
-
-    const tryStructuredSearch = () => {
-      // Prefer rows with key "id" matching the target
-      const rows = previewElement.querySelectorAll('.json-formatter-row');
-      for (const row of rows) {
-        const keyEl = row.querySelector('.json-formatter-key');
-        if (!keyEl) continue;
-        const keyText = normalize(keyEl.textContent);
-        if (!/\b"?id"?\b/i.test(keyText)) continue;
-        const valueEl = row.querySelector('.json-formatter-string, .json-formatter-number, .json-formatter-value');
-        const valText = normalize(valueEl && valueEl.textContent);
-        // Value may include quotes; compare loosely
-        const unquoted = (valText || '').replace(/^"|"$/g, '');
-        if (unquoted !== nodeId) continue;
-
-        // Ascend to the smallest ancestor that represents the JSON object containing this row
-        let candidate = row;
-        // Heuristic: stop when sibling rows include extraction_class or parent markers
-        const isGoodContainer = (el) => {
-          const txt = normalize(el.textContent || '');
-          let ok = true;
-          if (nodeInfo && nodeInfo.type) ok = ok && txt.includes(`extraction_class`) && txt.includes(nodeInfo.type);
-          // If we have parent info, prefer containers that include it
-          const parentId = nodeInfo && nodeInfo.extraction && (nodeInfo.extraction.parent_id || nodeInfo.extraction.parent || (nodeInfo.extraction.attributes && (nodeInfo.extraction.attributes.parent_id || nodeInfo.extraction.attributes.parent)));
-          if (parentId) ok = ok && txt.includes(parentId);
-          return ok;
-        };
-        // Walk up a few levels to find a container representing the object
-        for (let i = 0; i < 6 && candidate && candidate !== previewElement; i++) {
-          // If current candidate already contains enough distinguishing info, use it
-          if (isGoodContainer(candidate)) return candidate;
-          const next = candidate.parentElement;
-          if (!next) break;
-          candidate = next;
-        }
-        // Fallback to the row itself if nothing else matched
-        return row;
-      }
-      return null;
-    };
-
-    const tryScoredElementSearch = () => {
-      const all = previewElement.querySelectorAll('*');
-      let best = null;
-      let bestScore = -1;
-      const parentId = nodeInfo && nodeInfo.extraction && (nodeInfo.extraction.parent_id || nodeInfo.extraction.parent || (nodeInfo.extraction.attributes && (nodeInfo.extraction.attributes.parent_id || nodeInfo.extraction.attributes.parent)));
-      for (const el of all) {
-        const txt = normalize(el.textContent || '');
-        if (!txt) continue;
-        let score = 0;
-        if (txt.includes(`"id": "${nodeId}"`) || txt.includes(`"id":"${nodeId}"`)) score += 4;
-        if (txt.includes(nodeId)) score += 2;
-        if (nodeInfo && nodeInfo.type && txt.includes(nodeInfo.type)) score += 1;
-        if (parentId && txt.includes(parentId)) score += 1;
-        if (score <= 0) continue;
-        // Prefer smaller containers and deeper matches
-        const tieBreak = 1 / Math.max(1, txt.length) + (1000 - (el.children ? el.children.length : 0)) * 1e-6;
-        const total = score + tieBreak;
-        if (total > bestScore) {
-          bestScore = total;
-          best = el;
-        }
-      }
-      return best;
-    };
-
-    // Attempt structured search first
-    targetElement = tryStructuredSearch();
-    if (!targetElement) {
-      // Try a scored search that looks for containers containing the id + type/parent
-      targetElement = tryScoredElementSearch();
-    }
-
-    // If still not found, as a last DOM-wide heuristic, look for any element that includes the id
-    if (!targetElement) {
-      const allElements = previewElement.querySelectorAll('*');
-      for (const element of allElements) {
-        const elementText = element.textContent || '';
-        if (
-          elementText.includes(`"id": "${nodeId}"`) ||
-          elementText.includes(`"id":"${nodeId}"`) ||
-          elementText.includes(nodeId)
-        ) {
-          if (!targetElement || element.children.length < targetElement.children.length) {
-            targetElement = element;
-          }
-        }
-      }
-    }
-    
+    // IMPORTANT: Use intelligent expansion strategy to find the target node
+    // First try to find the target with minimal expansion, then expand only necessary paths
+    const targetElement = this.findTargetNodeWithIntelligentExpansion(previewElement, nodeId, nodeInfo);
     if (targetElement) {
-      // Ensure all parents are expanded so the node is visible and remains expanded
-      ensureExpanded(targetElement);
-      console.log(`Found target element for node ${nodeId}, scrolling into view, targetElement:`, targetElement);
-      const isVisible = targetElement.offsetParent !== null && targetElement.offsetHeight > 0;
-      if (!isVisible && targetElement.parentElement) {
-        targetElement.parentElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-      }
-      // Scroll the target element into view (vertical only)
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-      // Add temporary highlighting to the element
-      const originalBg = targetElement.style.backgroundColor;
-      const originalBorder = targetElement.style.border;
-      const originalTransition = targetElement.style.transition;
-      
-      targetElement.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
-      targetElement.style.border = '2px solid rgba(59, 130, 246, 0.5)';
-      targetElement.style.transition = 'all 0.3s ease-in-out';
-      
-      setTimeout(() => {
-        targetElement.style.backgroundColor = originalBg;
-        targetElement.style.border = originalBorder;
-        targetElement.style.transition = originalTransition;
-      }, 2000);
-      
-      console.log(`Successfully scrolled to and highlighted node ${nodeId} in JSON panel`);
+      this.scrollToFoundElement(targetElement, nodeId);
       return;
     }
     
-    // Fallback: try text-based search and scroll
+    // Fallback: if intelligent expansion failed, try text-based search
+    this.fallbackTextSearch(previewElement, nodeId);
+  }
+
+  // Intelligent expansion strategy: find target with minimal expansion
+  findTargetNodeWithIntelligentExpansion(previewElement, nodeId, nodeInfo) {
+    console.log(`Using intelligent expansion to find node: ${nodeId}`);
+    
+    // Step 1: Try to find target without any expansion first
+    let targetElement = this.searchForTargetElement(previewElement, nodeId, nodeInfo);
+    if (targetElement) {
+      console.log(`Found target node ${nodeId} without expansion`);
+      return targetElement;
+    }
+
+    // Step 2: If not found, try progressive expansion with path analysis
+    return this.expandPathToTarget(previewElement, nodeId, nodeInfo);
+  }
+
+  // Progressive expansion that only expands the path to the target
+  expandPathToTarget(previewElement, nodeId, nodeInfo) {
+    console.log(`Starting path-based expansion for node: ${nodeId}`);
+    
+    const maxAttempts = 8;
+    let attempt = 0;
+    
+    while (attempt < maxAttempts) {
+      // Try to find potential parent containers that might contain our target
+      const candidateContainers = this.findCandidateContainers(previewElement, nodeId, nodeInfo);
+      
+      if (candidateContainers.length === 0) {
+        console.log(`No candidate containers found on attempt ${attempt + 1}`);
+        break;
+      }
+      
+      // Expand the most promising containers (upward chain + one level down)
+      let expandedAny = false;
+      for (const container of candidateContainers) {
+        if (this.expandContainerPath(container)) {
+          expandedAny = true;
+        }
+      }
+      
+      // If we expanded something, try to find the target again
+      if (expandedAny) {
+        const targetElement = this.searchForTargetElement(previewElement, nodeId, nodeInfo);
+        if (targetElement) {
+          console.log(`Found target node ${nodeId} after ${attempt + 1} expansion attempts`);
+          return targetElement;
+        }
+      }
+      
+      attempt++;
+    }
+    
+    console.warn(`Could not find node ${nodeId} after ${attempt} intelligent expansion attempts`);
+    return null;
+  }
+
+  // Find containers that might contain the target node
+  findCandidateContainers(previewElement, nodeId, nodeInfo) {
+    const candidates = [];
+    
+    // Look for containers that contain text related to our target
+    const searchTerms = [nodeId];
+    if (nodeInfo && nodeInfo.type) {
+      searchTerms.push(nodeInfo.type);
+    }
+    if (nodeInfo && nodeInfo.extraction) {
+      const parentId = nodeInfo.extraction.parent_id || nodeInfo.extraction.parent;
+      if (parentId) {
+        searchTerms.push(parentId);
+      }
+    }
+    
+    // Find collapsed containers that might contain relevant text
+    const collapsedSelectors = [
+      '.json-formatter-closed',
+      '.json-formatter-collapsed', 
+      '.collapsed',
+      'details:not([open])'
+    ].join(',');
+    
+    const collapsedContainers = previewElement.querySelectorAll(collapsedSelectors);
+    
+    collapsedContainers.forEach(container => {
+      // Check if this container might contain our target based on visible text
+      const visibleText = this.getVisibleText(container);
+      const hasRelevantText = searchTerms.some(term => visibleText.includes(term));
+      
+      if (hasRelevantText) {
+        candidates.push({
+          element: container,
+          relevanceScore: this.calculateRelevanceScore(visibleText, searchTerms),
+          depth: this.getElementDepth(container, previewElement)
+        });
+      }
+    });
+    
+    // Sort candidates by relevance score and depth (prioritize higher relevance and shallower depth)
+    candidates.sort((a, b) => {
+      if (a.relevanceScore !== b.relevanceScore) {
+        return b.relevanceScore - a.relevanceScore;
+      }
+      return a.depth - b.depth;
+    });
+    
+    // Return top candidates
+    return candidates.slice(0, 5).map(c => c.element);
+  }
+
+  // Get visible text from a container (text that's immediately visible, not in collapsed children)
+  getVisibleText(container) {
+    const walker = document.createTreeWalker(
+      container,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: (node) => {
+          // Only accept text nodes that are not inside collapsed containers
+          let current = node.parentElement;
+          while (current && current !== container) {
+            if (current.classList && (
+              current.classList.contains('json-formatter-closed') ||
+              current.classList.contains('json-formatter-collapsed') ||
+              current.classList.contains('collapsed')
+            )) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            if (current.tagName && current.tagName.toLowerCase() === 'details' && !current.open) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            current = current.parentElement;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+    
+    let text = '';
+    let node;
+    while ((node = walker.nextNode())) {
+      text += node.textContent + ' ';
+      // Limit text collection for performance
+      if (text.length > 1000) break;
+    }
+    
+    return text.trim();
+  }
+
+  // Calculate relevance score for a container
+  calculateRelevanceScore(text, searchTerms) {
+    let score = 0;
+    searchTerms.forEach(term => {
+      if (text.includes(term)) {
+        score += term.length; // Longer terms get higher scores
+      }
+    });
+    return score;
+  }
+
+  // Get depth of element relative to preview container
+  getElementDepth(element, root) {
+    let depth = 0;
+    let current = element;
+    while (current && current !== root) {
+      depth++;
+      current = current.parentElement;
+    }
+    return depth;
+  }
+
+  // Expand a container path (the container itself + one level down)
+  expandContainerPath(container) {
+    console.log(`Expanding container path:`, container);
+    
+    const togglerSelectors = [
+      '.json-formatter-toggler',
+      '.json-formatter-toggle',
+      '.json-formatter-opener',
+      '.json-formatter-arrow'
+    ].join(',');
+    
+    let expanded = false;
+    
+    // First, expand the container itself if it's collapsed
+    if (this.isCollapsed(container)) {
+      if (this.expandElement(container, togglerSelectors)) {
+        expanded = true;
+        console.log(`Expanded container itself`);
+      }
+    }
+    
+    // Then, expand immediate children one level down
+    const immediateChildren = this.getImmediateCollapsedChildren(container);
+    immediateChildren.forEach(child => {
+      if (this.expandElement(child, togglerSelectors)) {
+        expanded = true;
+        console.log(`Expanded immediate child`);
+      }
+    });
+    
+    return expanded;
+  }
+
+  // Check if an element is collapsed
+  isCollapsed(element) {
+    if (element.tagName && element.tagName.toLowerCase() === 'details') {
+      return !element.open;
+    }
+    
+    return element.classList && (
+      element.classList.contains('json-formatter-closed') ||
+      element.classList.contains('json-formatter-collapsed') ||
+      element.classList.contains('collapsed')
+    );
+  }
+
+  // Expand a single element
+  expandElement(element, togglerSelectors) {
+    if (element.tagName && element.tagName.toLowerCase() === 'details') {
+      if (!element.open) {
+        element.open = true;
+        return true;
+      }
+      return false;
+    }
+    
+    const toggler = element.querySelector(togglerSelectors);
+    if (toggler) {
+      try {
+        toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        return true;
+      } catch (e) {
+        console.warn('Failed to expand element:', e);
+        return false;
+      }
+    }
+    
+    return false;
+  }
+
+  // Get immediate collapsed children of a container
+  getImmediateCollapsedChildren(container) {
+    const children = [];
+    const childElements = container.children;
+    
+    for (let child of childElements) {
+      if (this.isCollapsed(child)) {
+        children.push(child);
+      }
+      
+      // Also check one more level down for JSONFormatter rows
+      const grandChildren = child.querySelectorAll('.json-formatter-row');
+      for (let grandChild of grandChildren) {
+        if (this.isCollapsed(grandChild) && grandChild.parentElement === child) {
+          children.push(grandChild);
+        }
+      }
+    }
+    
+    return children.slice(0, 10); // Limit to prevent excessive expansion
+  }
+
+  // Search for target element in the DOM
+  searchForTargetElement(previewElement, nodeId, nodeInfo) {
+    // Try structured search first (JSONFormatter DOM)
+    let targetElement = this.tryStructuredSearch(previewElement, nodeId, nodeInfo);
+    if (targetElement) {
+      return targetElement;
+    }
+    
+    // Try scored element search
+    targetElement = this.tryScoredElementSearch(previewElement, nodeId, nodeInfo);
+    if (targetElement) {
+      return targetElement;
+    }
+    
+    // Try simple text-based search as last resort
+    return this.trySimpleTextSearch(previewElement, nodeId);
+  }
+
+  // Try structured search for JSONFormatter elements
+  tryStructuredSearch(previewElement, nodeId, nodeInfo) {
+    const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim();
+    
+    // Prefer rows with key "id" matching the target
+    const rows = previewElement.querySelectorAll('.json-formatter-row');
+    for (const row of rows) {
+      const keyEl = row.querySelector('.json-formatter-key');
+      if (!keyEl) continue;
+      
+      const keyText = normalize(keyEl.textContent);
+      if (!/\b"?id"?\b/i.test(keyText)) continue;
+      
+      const valueEl = row.querySelector('.json-formatter-string, .json-formatter-number, .json-formatter-value');
+      const valText = normalize(valueEl && valueEl.textContent);
+      
+      // Value may include quotes; compare loosely
+      const unquoted = (valText || '').replace(/^"|"$/g, '');
+      if (unquoted !== nodeId) continue;
+      
+      // Found a matching id row - find the container that represents the full object
+      return this.findObjectContainer(row, nodeInfo);
+    }
+    
+    return null;
+  }
+
+  // Find the object container that holds a matching row
+  findObjectContainer(row, nodeInfo) {
+    let candidate = row;
+    
+    // Walk up to find a container representing the object
+    for (let i = 0; i < 6 && candidate && candidate !== document; i++) {
+      if (this.isGoodContainer(candidate, nodeInfo)) {
+        return candidate;
+      }
+      candidate = candidate.parentElement;
+    }
+    
+    // Fallback to the row itself
+    return row;
+  }
+
+  // Check if container contains expected object structure
+  isGoodContainer(element, nodeInfo) {
+    const txt = (element.textContent || '').replace(/\s+/g, ' ').trim();
+    let isGood = true;
+    
+    if (nodeInfo && nodeInfo.type) {
+      isGood = isGood && txt.includes('extraction_class') && txt.includes(nodeInfo.type);
+    }
+    
+    // If we have parent info, prefer containers that include it
+    const parentId = nodeInfo && nodeInfo.extraction && (
+      nodeInfo.extraction.parent_id || 
+      nodeInfo.extraction.parent || 
+      (nodeInfo.extraction.attributes && (
+        nodeInfo.extraction.attributes.parent_id || 
+        nodeInfo.extraction.attributes.parent
+      ))
+    );
+    
+    if (parentId) {
+      isGood = isGood && txt.includes(parentId);
+    }
+    
+    return isGood;
+  }
+
+  // Try scored element search
+  tryScoredElementSearch(previewElement, nodeId, nodeInfo) {
+    const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim();
+    const all = previewElement.querySelectorAll('*');
+    let best = null;
+    let bestScore = -1;
+    
+    const parentId = nodeInfo && nodeInfo.extraction && (
+      nodeInfo.extraction.parent_id || 
+      nodeInfo.extraction.parent || 
+      (nodeInfo.extraction.attributes && (
+        nodeInfo.extraction.attributes.parent_id || 
+        nodeInfo.extraction.attributes.parent
+      ))
+    );
+    
+    for (const el of all) {
+      const txt = normalize(el.textContent || '');
+      if (!txt) continue;
+      
+      let score = 0;
+      if (txt.includes(`"id": "${nodeId}"`) || txt.includes(`"id":"${nodeId}"`)) score += 4;
+      if (txt.includes(nodeId)) score += 2;
+      if (nodeInfo && nodeInfo.type && txt.includes(nodeInfo.type)) score += 1;
+      if (parentId && txt.includes(parentId)) score += 1;
+      
+      if (score <= 0) continue;
+      
+      // Prefer smaller containers and deeper matches
+      const tieBreak = 1 / Math.max(1, txt.length) + (1000 - (el.children ? el.children.length : 0)) * 1e-6;
+      const total = score + tieBreak;
+      
+      if (total > bestScore) {
+        bestScore = total;
+        best = el;
+      }
+    }
+    
+    return best;
+  }
+
+  // Try simple text search
+  trySimpleTextSearch(previewElement, nodeId) {
+    const allElements = previewElement.querySelectorAll('*');
+    let targetElement = null;
+    
+    for (const element of allElements) {
+      const elementText = element.textContent || '';
+      if (elementText.includes(`"id": "${nodeId}"`) ||
+          elementText.includes(`"id":"${nodeId}"`) ||
+          elementText.includes(nodeId)) {
+        if (!targetElement || element.children.length < targetElement.children.length) {
+          targetElement = element;
+        }
+      }
+    }
+    
+    return targetElement;
+  }
+
+  // Scroll to found element with proper expansion
+  scrollToFoundElement(targetElement, nodeId) {
+    console.log(`Found target element for node ${nodeId}, scrolling into view`);
+    
+    // Ensure ancestors are expanded so the element remains visible
+    this.ensureAncestorsExpanded(targetElement);
+    
+    // Scroll into view
+    const isVisible = targetElement.offsetParent !== null && targetElement.offsetHeight > 0;
+    if (!isVisible && targetElement.parentElement) {
+      targetElement.parentElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+    
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+    
+    // Add temporary highlighting
+    this.highlightElement(targetElement);
+    
+    console.log(`Successfully scrolled to and highlighted node ${nodeId} in JSON panel`);
+  }
+
+  // Ensure ancestors of an element are expanded
+  ensureAncestorsExpanded(element) {
+    const togglerSelectors = [
+      '.json-formatter-toggler',
+      '.json-formatter-toggle',
+      '.json-formatter-opener',
+      '.json-formatter-arrow'
+    ].join(',');
+    
+    let current = element;
+    while (current && current !== document) {
+      // Open <details>
+      if (current.tagName && current.tagName.toLowerCase() === 'details' && !current.open) {
+        current.open = true;
+      }
+      
+      // Expand JSONFormatter collapsed containers
+      if (current.classList && (
+        current.classList.contains('json-formatter-closed') ||
+        current.classList.contains('json-formatter-collapsed') ||
+        current.classList.contains('collapsed')
+      )) {
+        const toggler = current.querySelector(togglerSelectors);
+        if (toggler) {
+          try {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+          } catch (e) {
+            console.warn('Failed to expand ancestor:', e);
+          }
+        }
+      }
+      
+      current = current.parentElement;
+    }
+  }
+
+  // Highlight an element temporarily
+  highlightElement(element) {
+    const originalBg = element.style.backgroundColor;
+    const originalBorder = element.style.border;
+    const originalTransition = element.style.transition;
+    
+    element.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
+    element.style.border = '2px solid rgba(59, 130, 246, 0.5)';
+    element.style.transition = 'all 0.3s ease-in-out';
+    
+    setTimeout(() => {
+      element.style.backgroundColor = originalBg;
+      element.style.border = originalBorder;
+      element.style.transition = originalTransition;
+    }, 2000);
+  }
+
+  // Fallback text search method
+  fallbackTextSearch(previewElement, nodeId) {
+    console.log(`Falling back to text search for node: ${nodeId}`);
+    
     const jsonText = previewElement.textContent || '';
     const searchTerms = [
       `"id": "${nodeId}"`,
@@ -2284,131 +2930,11 @@ class PreviewOptimizer {
     }
     
     if (position === -1) {
-      // Try expanding collapsed parents (JSONFormatter or <details>) progressively and retry search
-      console.warn(`Could not find node ID ${nodeId} in JSON content using any search method; attempting to expand collapsed nodes and retry...`);
-
-      const tryFindElementForId = () => {
-        // Re-run the element-based search used earlier
-        const allElementsRetry = previewElement.querySelectorAll('*');
-        let best = null;
-        for (const el of allElementsRetry) {
-          const txt = el.textContent || '';
-          if (
-            txt.includes(`"id": "${nodeId}"`) ||
-            txt.includes(`"id":"${nodeId}"`) ||
-            txt.includes(nodeId)
-          ) {
-            if (!best || el.children.length < best.children.length) {
-              best = el;
-            }
-          }
-        }
-        return best;
-      };
-
-      const expandOneWave = (maxOps = 50) => {
-        let ops = 0;
-        // 1) Open any <details> elements
-        const details = previewElement.querySelectorAll('details:not([open])');
-        for (let i = 0; i < details.length && ops < maxOps; i++) {
-          details[i].open = true;
-          ops++;
-        }
-
-        if (ops >= maxOps) return ops;
-
-        // 2) Expand JSONFormatter collapsed containers by clicking their togglers
-        const togglerSelectors = [
-          '.json-formatter-toggler',
-          '.json-formatter-toggle',
-          '.json-formatter-opener',
-          '.json-formatter-arrow'
-        ].join(',');
-
-        const closedContainers = previewElement.querySelectorAll(
-          '.json-formatter-closed, .json-formatter-collapsed, .collapsed'
-        );
-        for (const container of closedContainers) {
-          if (ops >= maxOps) break;
-          const toggler = container.querySelector(togglerSelectors);
-          if (toggler) {
-            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-            ops++;
-          }
-        }
-
-        if (ops >= maxOps) return ops;
-
-        // 3) As a fallback, also click any togglers that appear closed by aria-expanded
-        const possibleTogglers = previewElement.querySelectorAll(togglerSelectors);
-        for (const t of possibleTogglers) {
-          if (ops >= maxOps) break;
-          const expanded = (t.getAttribute('aria-expanded') || '').toLowerCase();
-          const isClosed = expanded === 'false' || expanded === '';
-          if (isClosed) {
-            t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-            ops++;
-          }
-        }
-        return ops;
-      };
-
-      let foundElement = null;
-      const maxIterations = 10; // safety cap to avoid DOM explosion
-      for (let i = 0; i < maxIterations; i++) {
-        // After each expansion wave, try to find the element again
-        const ops = expandOneWave(100);
-        foundElement = tryFindElementForId();
-        if (foundElement) break;
-        if (ops === 0) break; // nothing more to expand
-      }
-
-      if (foundElement) {
-        // Make sure parent containers are expanded so the node is visible and remains expanded
-        ensureExpanded(foundElement);
-        console.log(`Node ${nodeId} became visible after expanding; scrolling into view.`);
-        const isVisible = foundElement.offsetParent !== null && foundElement.offsetHeight > 0;
-        if (!isVisible && foundElement.parentElement) {
-          foundElement.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Temporary highlight
-        const originalBg = foundElement.style.backgroundColor;
-        const originalBorder = foundElement.style.border;
-        const originalTransition = foundElement.style.transition;
-        foundElement.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
-        foundElement.style.border = '2px solid rgba(59, 130, 246, 0.5)';
-        foundElement.style.transition = 'all 0.3s ease-in-out';
-        setTimeout(() => {
-          foundElement.style.backgroundColor = originalBg;
-          foundElement.style.border = originalBorder;
-          foundElement.style.transition = originalTransition;
-        }, 2000);
-        return;
-      }
-
-      // Retry text search after expansion
-      const jsonTextRetry = previewElement.textContent || '';
-      let retryPos = -1;
-      for (const searchTerm of searchTerms) {
-        retryPos = jsonTextRetry.indexOf(searchTerm);
-        if (retryPos !== -1) {
-          console.log(`Found node ID ${nodeId} after expansion using search term: ${searchTerm} at position ${retryPos}`);
-          break;
-        }
-      }
-
-      if (retryPos === -1) {
-        console.warn(`Could not find node ID ${nodeId} in JSON content even after expanding nodes`);
-        return;
-      }
-
-      // Use the retryPos scroll if we got here
-      position = retryPos;
+      console.warn(`Could not find node ID ${nodeId} in JSON content using any method`);
+      return;
     }
     
-    // Calculate approximate scroll position based on character position
+    // Calculate approximate scroll position
     const previewElementRect = previewElement.getBoundingClientRect();
     const textLength = jsonText.length;
     const scrollRatio = position / textLength;
@@ -2420,6 +2946,90 @@ class PreviewOptimizer {
     });
     
     console.log(`Scrolled to approximate position for ${nodeId} (character position ${position})`);
+  }
+
+  // Legacy method: kept for backward compatibility but no longer used for scrolling
+  // The intelligent expansion approach is now used instead
+  expandAllJsonFormatterNodes(previewElement) {
+    console.log('Legacy expandAllJsonFormatterNodes called - consider using intelligent expansion instead');
+    
+    const togglerSelectors = [
+      '.json-formatter-toggler',
+      '.json-formatter-toggle', 
+      '.json-formatter-opener',
+      '.json-formatter-arrow'
+    ].join(',');
+    
+    let expandedCount = 0;
+    const maxExpansions = 200; // Safety limit
+    
+    // Multiple passes to handle nested collapsed nodes
+    for (let pass = 0; pass < 5; pass++) {
+      // Open all <details> elements
+      const details = previewElement.querySelectorAll('details:not([open])');
+      details.forEach(detail => {
+        if (expandedCount < maxExpansions) {
+          detail.open = true;
+          expandedCount++;
+        }
+      });
+      
+      // Find and click all collapsed JSONFormatter containers
+      const closedContainers = previewElement.querySelectorAll(
+        '.json-formatter-closed, .json-formatter-collapsed, .collapsed'
+      );
+      
+      let expandedInThisPass = 0;
+      closedContainers.forEach(container => {
+        if (expandedCount >= maxExpansions) return;
+        
+        const toggler = container.querySelector(togglerSelectors);
+        if (toggler) {
+          try {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            expandedCount++;
+            expandedInThisPass++;
+          } catch (e) {
+            console.warn('Failed to click toggler:', e);
+          }
+        }
+      });
+      
+      // Also check for togglers that might be collapsed based on aria-expanded
+      const possibleTogglers = previewElement.querySelectorAll(togglerSelectors);
+      possibleTogglers.forEach(toggler => {
+        if (expandedCount >= maxExpansions) return;
+        
+        const expanded = (toggler.getAttribute('aria-expanded') || '').toLowerCase();
+        if (expanded === 'false' || expanded === '') {
+          try {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            expandedCount++;
+            expandedInThisPass++;
+          } catch (e) {
+            console.warn('Failed to click toggler with aria-expanded:', e);
+          }
+        }
+      });
+      
+      console.log(`Pass ${pass + 1}: Expanded ${expandedInThisPass} nodes (total: ${expandedCount})`);
+      
+      // If we didn't expand anything in this pass, we're done
+      if (expandedInThisPass === 0) {
+        break;
+      }
+      
+      // Small delay to allow DOM updates
+      if (expandedInThisPass > 0 && pass < 4) {
+        // Use synchronous delay to keep the function call simple
+        const start = Date.now();
+        while (Date.now() - start < 50) {
+          // Wait 50ms for DOM updates
+        }
+      }
+    }
+    
+    console.log(`Legacy expansion complete: ${expandedCount} nodes expanded`);
   }
 
   highlightNodeSelection(node) {
@@ -2826,8 +3436,8 @@ class PreviewOptimizer {
   renderCompleteJsonView(container, data) {
     console.log('Rendering complete JSON view with controls');
     
-    // Clear the container
-    container.innerHTML = '';
+    // Clear the entire element to prevent duplication
+    this.element.innerHTML = '';
     
     // Use enhanced JSON object renderer
     if (typeof JSONFormatter !== 'undefined') {
@@ -2951,18 +3561,26 @@ class PreviewOptimizer {
       this.generateJsonLineNumbers(filteredData, lineNumbersContainer);
     }
     
-    // Render JSON content
+    // Render JSON content with performance optimizations
     if (typeof JSONFormatter !== 'undefined') {
-      const formatter = new JSONFormatter(filteredData, 3, {
-        hoverPreviewEnabled: true,
-        hoverPreviewArrayCount: 100,
-        hoverPreviewFieldCount: 5,
-        animateOpen: true,
-        animateClose: true
+      // Determine appropriate settings based on data size
+      const dataSize = JSON.stringify(filteredData).length;
+      const maxDepth = dataSize > 100000 ? 2 : 3;
+      
+      const formatter = new JSONFormatter(filteredData, maxDepth, {
+        hoverPreviewEnabled: dataSize < 50000,
+        hoverPreviewArrayCount: dataSize < 50000 ? 50 : 10,
+        hoverPreviewFieldCount: dataSize < 50000 ? 5 : 3,
+        animateOpen: dataSize < 20000,
+        animateClose: dataSize < 20000
       });
-      const formatterElement = formatter.render();
-      formatterElement.style.padding = '12px';
-      contentWrapper.appendChild(formatterElement);
+      
+      // Use requestAnimationFrame for non-blocking rendering
+      requestAnimationFrame(() => {
+        const formatterElement = formatter.render();
+        formatterElement.style.padding = '12px';
+        contentWrapper.appendChild(formatterElement);
+      });
     } else {
       // Fallback to pretty-printed JSON
       const pretty = JSON.stringify(filteredData, null, 2);
