@@ -1094,6 +1094,7 @@ class PreviewOptimizer {
   }
 
   updateUberModeStats(jsonData) {
+    console.log('Updating UBERMODE stats...');
     const stats = this.analyzeJsonData(jsonData);
     
     // Dynamically update the statistics container based on actual data
@@ -1138,14 +1139,18 @@ class PreviewOptimizer {
   }
 
   updateStatsContainer(stats) {
+    console.log('Updating stats container with stats:', stats);
     // Find the stats content container within this element's scope
-    const statsContent = this.element.querySelector('.stats-content');
+    const statsContent = document.querySelector('.stats-content');
+    // const statsContent = this.element.querySelector('.stats-content');
+    console.log('this.element:', this.element);
+    console.log('Stats content container:', statsContent);
     if (!statsContent) return;
 
     // Find the grid containers
     const gridContainers = statsContent.querySelectorAll('.grid');
     if (gridContainers.length < 2) return;
-
+    console.log('Grid containers found:', gridContainers.length);
     const firstGrid = gridContainers[0];
     const secondGrid = gridContainers[1];
 
@@ -1226,6 +1231,14 @@ class PreviewOptimizer {
     }
 
     // Event listeners are handled by event delegation in init() method
+    // Add click event listeners to filter cards
+    document.querySelectorAll('.stats-filter-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const filterType = card.dataset.filterType;
+        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
+      });
+    });
+
   }
 
   formatTypeName(typeName) {
@@ -1877,8 +1890,8 @@ class PreviewOptimizer {
       return;
     }
     
-    // Navigate by finding the extraction with matching ID in the JSON
-    this.scrollToJsonNode(previewElement, node.id);
+    // Navigate by finding the extraction with directed search using node context
+    this.scrollToJsonNode(previewElement, node);
   }
 
   scrollToCharacterPosition(previewElement, startPos, endPos) {
@@ -1970,38 +1983,268 @@ class PreviewOptimizer {
     }
   }
 
-  scrollToJsonNode(previewElement, nodeId) {
-    console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel`);
+  scrollToJsonNode(previewElement, nodeOrId) {
+    const nodeId = typeof nodeOrId === 'string' ? nodeOrId : (nodeOrId && nodeOrId.id) || '';
+    const nodeInfo = typeof nodeOrId === 'object' && nodeOrId ? nodeOrId : null;
+    console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel: `, previewElement);
     
     // First try to find elements containing the nodeId in JSONFormatter structure
     let targetElement = null;
+
+    // Helper: expand all collapsed ancestors (details and JSONFormatter) for a given element
+    const expandAncestors = (el, maxOps = 50) => {
+      let ops = 0;
+      const togglerSelectors = [
+        '.json-formatter-toggler',
+        '.json-formatter-toggle',
+        '.json-formatter-opener',
+        '.json-formatter-arrow'
+      ].join(',');
+      let cur = el;
+      while (cur && cur !== previewElement && ops < maxOps) {
+        // Open <details>
+        if (cur.tagName && cur.tagName.toLowerCase() === 'details' && !cur.open) {
+          cur.open = true;
+          ops++;
+        }
+        // Expand JSONFormatter collapsed containers
+        if (cur.classList && (
+          cur.classList.contains('json-formatter-closed') ||
+          cur.classList.contains('json-formatter-collapsed') ||
+          cur.classList.contains('collapsed')
+        )) {
+          const toggler = cur.querySelector(togglerSelectors);
+          if (toggler) {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            ops++;
+          }
+        }
+        cur = cur.parentElement;
+      }
+      return ops;
+    };
+
+    // Helper: detect if any ancestor is collapsed
+    const hasCollapsedAncestor = (el) => {
+      let cur = el;
+      while (cur && cur !== previewElement) {
+        if (cur.tagName && cur.tagName.toLowerCase() === 'details' && !cur.open) return true;
+        if (cur.classList && (
+          cur.classList.contains('json-formatter-closed') ||
+          cur.classList.contains('json-formatter-collapsed') ||
+          cur.classList.contains('collapsed')
+        )) return true;
+        cur = cur.parentElement;
+      }
+      return false;
+    };
+
+    // Helper: click a toggler if present within a container (self expand)
+    const clickTogglerIfPresent = (container) => {
+      const togglerSelectors = [
+        '.json-formatter-toggler',
+        '.json-formatter-toggle',
+        '.json-formatter-opener',
+        '.json-formatter-arrow'
+      ].join(',');
+      const t = container && container.querySelector ? container.querySelector(togglerSelectors) : null;
+      if (t) {
+        t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        return true;
+      }
+      return false;
+    };
+
+    // Helper: expand the node itself and one child level (depth = 1)
+    const expandNodeDepth = (nodeEl, depth = 1, maxOps = 100) => {
+      if (!nodeEl || depth <= 0) return 0;
+      let ops = 0;
+      // If the node element itself appears collapsed, expand it
+      if (
+        nodeEl.classList && (
+          nodeEl.classList.contains('json-formatter-closed') ||
+          nodeEl.classList.contains('json-formatter-collapsed') ||
+          nodeEl.classList.contains('collapsed')
+        )
+      ) {
+        if (clickTogglerIfPresent(nodeEl)) ops++;
+      }
+
+      // Find the immediate children container
+      let childrenRoot = null;
+      try {
+        childrenRoot = nodeEl.querySelector('.json-formatter-children');
+      } catch (_) {}
+
+      if (!childrenRoot) return ops;
+
+      // Get direct child rows of this node (':scope > .json-formatter-row' with fallback)
+      let childRows = [];
+      try {
+        childRows = childrenRoot.querySelectorAll(':scope > .json-formatter-row');
+      } catch (_) {
+        const allRows = childrenRoot.querySelectorAll('.json-formatter-row');
+        childRows = Array.from(allRows).filter(r => r.parentElement === childrenRoot);
+      }
+
+      // For each direct child row, if it has a collapsed nested object/array, expand once
+      for (const row of childRows) {
+        if (ops >= maxOps) break;
+        const collapsedChild = row.querySelector('.json-formatter-closed, .json-formatter-collapsed, .collapsed');
+        if (collapsedChild) {
+          if (clickTogglerIfPresent(row)) ops++;
+        }
+      }
+
+      return ops;
+    };
+
+    // Helper: ensure element remains expanded during and shortly after scrolling
+    const ensureExpanded = (el, expandChildrenDepth = 1) => {
+      // Immediate expansion of ancestors and node itself (+ one level of children)
+      expandAncestors(el, 100);
+      expandNodeDepth(el, expandChildrenDepth, 100);
+
+      // Timed re-checks to counter delayed re-collapses
+      const delays = [50, 200, 800, 1500];
+      delays.forEach((d) => {
+        setTimeout(() => {
+          if (!el.isConnected) return;
+          if (hasCollapsedAncestor(el)) {
+            expandAncestors(el, 100);
+          }
+          // Light-touch re-expand of node and its first-level children
+          expandNodeDepth(el, expandChildrenDepth, 50);
+        }, d);
+      });
+
+      // Short-lived MutationObserver to re-open if something collapses ancestors
+      const observer = new MutationObserver(() => {
+        if (!el.isConnected) return;
+        if (hasCollapsedAncestor(el)) {
+          expandAncestors(el, 100);
+        }
+      });
+      try {
+        observer.observe(previewElement, {
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['class', 'open']
+        });
+        setTimeout(() => observer.disconnect(), 2000);
+      } catch (e) {
+        // Ignore observer errors in older environments
+      }
+    };
     
-    // JSONFormatter creates elements with various classes like json-formatter-*
-    // Look for any element that contains the nodeId
-    const allElements = previewElement.querySelectorAll('*');
-    for (const element of allElements) {
-      const elementText = element.textContent || '';
-      if (elementText.includes(`"id": "${nodeId}"`) || 
+    // Directed, structure-aware search first (JSONFormatter DOM)
+    const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim();
+
+    const tryStructuredSearch = () => {
+      // Prefer rows with key "id" matching the target
+      const rows = previewElement.querySelectorAll('.json-formatter-row');
+      for (const row of rows) {
+        const keyEl = row.querySelector('.json-formatter-key');
+        if (!keyEl) continue;
+        const keyText = normalize(keyEl.textContent);
+        if (!/\b"?id"?\b/i.test(keyText)) continue;
+        const valueEl = row.querySelector('.json-formatter-string, .json-formatter-number, .json-formatter-value');
+        const valText = normalize(valueEl && valueEl.textContent);
+        // Value may include quotes; compare loosely
+        const unquoted = (valText || '').replace(/^"|"$/g, '');
+        if (unquoted !== nodeId) continue;
+
+        // Ascend to the smallest ancestor that represents the JSON object containing this row
+        let candidate = row;
+        // Heuristic: stop when sibling rows include extraction_class or parent markers
+        const isGoodContainer = (el) => {
+          const txt = normalize(el.textContent || '');
+          let ok = true;
+          if (nodeInfo && nodeInfo.type) ok = ok && txt.includes(`extraction_class`) && txt.includes(nodeInfo.type);
+          // If we have parent info, prefer containers that include it
+          const parentId = nodeInfo && nodeInfo.extraction && (nodeInfo.extraction.parent_id || nodeInfo.extraction.parent || (nodeInfo.extraction.attributes && (nodeInfo.extraction.attributes.parent_id || nodeInfo.extraction.attributes.parent)));
+          if (parentId) ok = ok && txt.includes(parentId);
+          return ok;
+        };
+        // Walk up a few levels to find a container representing the object
+        for (let i = 0; i < 6 && candidate && candidate !== previewElement; i++) {
+          // If current candidate already contains enough distinguishing info, use it
+          if (isGoodContainer(candidate)) return candidate;
+          const next = candidate.parentElement;
+          if (!next) break;
+          candidate = next;
+        }
+        // Fallback to the row itself if nothing else matched
+        return row;
+      }
+      return null;
+    };
+
+    const tryScoredElementSearch = () => {
+      const all = previewElement.querySelectorAll('*');
+      let best = null;
+      let bestScore = -1;
+      const parentId = nodeInfo && nodeInfo.extraction && (nodeInfo.extraction.parent_id || nodeInfo.extraction.parent || (nodeInfo.extraction.attributes && (nodeInfo.extraction.attributes.parent_id || nodeInfo.extraction.attributes.parent)));
+      for (const el of all) {
+        const txt = normalize(el.textContent || '');
+        if (!txt) continue;
+        let score = 0;
+        if (txt.includes(`"id": "${nodeId}"`) || txt.includes(`"id":"${nodeId}"`)) score += 4;
+        if (txt.includes(nodeId)) score += 2;
+        if (nodeInfo && nodeInfo.type && txt.includes(nodeInfo.type)) score += 1;
+        if (parentId && txt.includes(parentId)) score += 1;
+        if (score <= 0) continue;
+        // Prefer smaller containers and deeper matches
+        const tieBreak = 1 / Math.max(1, txt.length) + (1000 - (el.children ? el.children.length : 0)) * 1e-6;
+        const total = score + tieBreak;
+        if (total > bestScore) {
+          bestScore = total;
+          best = el;
+        }
+      }
+      return best;
+    };
+
+    // Attempt structured search first
+    targetElement = tryStructuredSearch();
+    if (!targetElement) {
+      // Try a scored search that looks for containers containing the id + type/parent
+      targetElement = tryScoredElementSearch();
+    }
+
+    // If still not found, as a last DOM-wide heuristic, look for any element that includes the id
+    if (!targetElement) {
+      const allElements = previewElement.querySelectorAll('*');
+      for (const element of allElements) {
+        const elementText = element.textContent || '';
+        if (
+          elementText.includes(`"id": "${nodeId}"`) ||
           elementText.includes(`"id":"${nodeId}"`) ||
-          elementText.includes(nodeId)) {
-        
-        // Find the most specific element that contains this text
-        if (!targetElement || element.children.length < targetElement.children.length) {
-          targetElement = element;
+          elementText.includes(nodeId)
+        ) {
+          if (!targetElement || element.children.length < targetElement.children.length) {
+            targetElement = element;
+          }
         }
       }
     }
     
     if (targetElement) {
-      console.log(`Found target element for node ${nodeId}, scrolling into view`);
-      
-      // Scroll the target element into view
+      // Ensure all parents are expanded so the node is visible and remains expanded
+      ensureExpanded(targetElement);
+      console.log(`Found target element for node ${nodeId}, scrolling into view, targetElement:`, targetElement);
+      const isVisible = targetElement.offsetParent !== null && targetElement.offsetHeight > 0;
+      if (!isVisible && targetElement.parentElement) {
+        targetElement.parentElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+      // Scroll the target element into view (vertical only)
       targetElement.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
+        block: 'center'
       });
-      
       // Add temporary highlighting to the element
       const originalBg = targetElement.style.backgroundColor;
       const originalBorder = targetElement.style.border;
@@ -2041,8 +2284,128 @@ class PreviewOptimizer {
     }
     
     if (position === -1) {
-      console.warn(`Could not find node ID ${nodeId} in JSON content using any search method`);
-      return;
+      // Try expanding collapsed parents (JSONFormatter or <details>) progressively and retry search
+      console.warn(`Could not find node ID ${nodeId} in JSON content using any search method; attempting to expand collapsed nodes and retry...`);
+
+      const tryFindElementForId = () => {
+        // Re-run the element-based search used earlier
+        const allElementsRetry = previewElement.querySelectorAll('*');
+        let best = null;
+        for (const el of allElementsRetry) {
+          const txt = el.textContent || '';
+          if (
+            txt.includes(`"id": "${nodeId}"`) ||
+            txt.includes(`"id":"${nodeId}"`) ||
+            txt.includes(nodeId)
+          ) {
+            if (!best || el.children.length < best.children.length) {
+              best = el;
+            }
+          }
+        }
+        return best;
+      };
+
+      const expandOneWave = (maxOps = 50) => {
+        let ops = 0;
+        // 1) Open any <details> elements
+        const details = previewElement.querySelectorAll('details:not([open])');
+        for (let i = 0; i < details.length && ops < maxOps; i++) {
+          details[i].open = true;
+          ops++;
+        }
+
+        if (ops >= maxOps) return ops;
+
+        // 2) Expand JSONFormatter collapsed containers by clicking their togglers
+        const togglerSelectors = [
+          '.json-formatter-toggler',
+          '.json-formatter-toggle',
+          '.json-formatter-opener',
+          '.json-formatter-arrow'
+        ].join(',');
+
+        const closedContainers = previewElement.querySelectorAll(
+          '.json-formatter-closed, .json-formatter-collapsed, .collapsed'
+        );
+        for (const container of closedContainers) {
+          if (ops >= maxOps) break;
+          const toggler = container.querySelector(togglerSelectors);
+          if (toggler) {
+            toggler.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            ops++;
+          }
+        }
+
+        if (ops >= maxOps) return ops;
+
+        // 3) As a fallback, also click any togglers that appear closed by aria-expanded
+        const possibleTogglers = previewElement.querySelectorAll(togglerSelectors);
+        for (const t of possibleTogglers) {
+          if (ops >= maxOps) break;
+          const expanded = (t.getAttribute('aria-expanded') || '').toLowerCase();
+          const isClosed = expanded === 'false' || expanded === '';
+          if (isClosed) {
+            t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            ops++;
+          }
+        }
+        return ops;
+      };
+
+      let foundElement = null;
+      const maxIterations = 10; // safety cap to avoid DOM explosion
+      for (let i = 0; i < maxIterations; i++) {
+        // After each expansion wave, try to find the element again
+        const ops = expandOneWave(100);
+        foundElement = tryFindElementForId();
+        if (foundElement) break;
+        if (ops === 0) break; // nothing more to expand
+      }
+
+      if (foundElement) {
+        // Make sure parent containers are expanded so the node is visible and remains expanded
+        ensureExpanded(foundElement);
+        console.log(`Node ${nodeId} became visible after expanding; scrolling into view.`);
+        const isVisible = foundElement.offsetParent !== null && foundElement.offsetHeight > 0;
+        if (!isVisible && foundElement.parentElement) {
+          foundElement.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Temporary highlight
+        const originalBg = foundElement.style.backgroundColor;
+        const originalBorder = foundElement.style.border;
+        const originalTransition = foundElement.style.transition;
+        foundElement.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
+        foundElement.style.border = '2px solid rgba(59, 130, 246, 0.5)';
+        foundElement.style.transition = 'all 0.3s ease-in-out';
+        setTimeout(() => {
+          foundElement.style.backgroundColor = originalBg;
+          foundElement.style.border = originalBorder;
+          foundElement.style.transition = originalTransition;
+        }, 2000);
+        return;
+      }
+
+      // Retry text search after expansion
+      const jsonTextRetry = previewElement.textContent || '';
+      let retryPos = -1;
+      for (const searchTerm of searchTerms) {
+        retryPos = jsonTextRetry.indexOf(searchTerm);
+        if (retryPos !== -1) {
+          console.log(`Found node ID ${nodeId} after expansion using search term: ${searchTerm} at position ${retryPos}`);
+          break;
+        }
+      }
+
+      if (retryPos === -1) {
+        console.warn(`Could not find node ID ${nodeId} in JSON content even after expanding nodes`);
+        return;
+      }
+
+      // Use the retryPos scroll if we got here
+      position = retryPos;
     }
     
     // Calculate approximate scroll position based on character position
@@ -2412,7 +2775,7 @@ class PreviewOptimizer {
       nodeContent.classList.add('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
 
       // Navigate to this node across panels
-      this.navigateToTreeNode(item.id, extraction);
+      this.navigateToNode(item.id, extraction);
     });
 
     nodeContent.appendChild(indicator);
