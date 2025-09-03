@@ -1711,12 +1711,112 @@ class PreviewOptimizer {
     return container;
   }
 
+  // Sanitize extraction IDs to ensure uniqueness across the entire document
+  // This handles cases where chunks started ID counting from 000001 again
+  sanitizeExtractionIds(extractions) {
+    console.log('Sanitizing extraction IDs for uniqueness...');
+    
+    // Simple approach: renumber all IDs sequentially within each class
+    const classCounters = new Map();
+    const oldToNewIdMap = new Map(); // Track old->new ID mappings
+    
+    // First pass: assign new sequential IDs to all extractions
+    extractions.forEach((extraction, index) => {
+      const attrs = extraction.attributes || {};
+      const oldId = attrs.id;
+      
+      if (!oldId) return; // Skip extractions without IDs
+      
+      // Extract class prefix (e.g., "SE", "N", "LD", etc.)
+      const match = oldId.match(/^([A-Z]+)::/);
+      if (!match) {
+        console.warn(`Invalid ID format: ${oldId}`);
+        return;
+      }
+      
+      const classPrefix = match[1];
+      
+      // Get or initialize counter for this class
+      if (!classCounters.has(classPrefix)) {
+        classCounters.set(classPrefix, 1);
+      }
+      
+      // Generate new unique ID
+      const counter = classCounters.get(classPrefix);
+      const newId = `${classPrefix}::${counter.toString().padStart(6, '0')}`;
+      
+      // Store the mapping - use extraction index to make it unique
+      const uniqueKey = `${oldId}__${index}`;
+      oldToNewIdMap.set(uniqueKey, newId);
+      
+      // Update the extraction's ID
+      attrs.id = newId;
+      
+      // Increment counter for next use
+      classCounters.set(classPrefix, counter + 1);
+      
+      console.log(`Renumbered ID: ${oldId} -> ${newId} (extraction ${index})`);
+    });
+    
+    // Second pass: update all parent_id and parent_section_id references
+    extractions.forEach((extraction, index) => {
+      const attrs = extraction.attributes || {};
+      
+      // Update parent_id
+      if (attrs.parent_id) {
+        const oldParentId = attrs.parent_id;
+        // Find the new ID for this parent - look through all extractions for the first match
+        let newParentId = null;
+        
+        for (let i = 0; i < extractions.length; i++) {
+          const uniqueKey = `${oldParentId}__${i}`;
+          if (oldToNewIdMap.has(uniqueKey)) {
+            newParentId = oldToNewIdMap.get(uniqueKey);
+            break; // Use the first occurrence
+          }
+        }
+        
+        if (newParentId) {
+          attrs.parent_id = newParentId;
+          console.log(`Updated parent_id: ${oldParentId} -> ${newParentId} (extraction ${index})`);
+        }
+      }
+      
+      // Update parent_section_id (used by NORM and TABLE types)  
+      if (attrs.parent_section_id) {
+        const oldParentSectionId = attrs.parent_section_id;
+        let newParentSectionId = null;
+        
+        for (let i = 0; i < extractions.length; i++) {
+          const uniqueKey = `${oldParentSectionId}__${i}`;
+          if (oldToNewIdMap.has(uniqueKey)) {
+            newParentSectionId = oldToNewIdMap.get(uniqueKey);
+            break; // Use the first occurrence
+          }
+        }
+        
+        if (newParentSectionId) {
+          attrs.parent_section_id = newParentSectionId;
+          console.log(`Updated parent_section_id: ${oldParentSectionId} -> ${newParentSectionId} (extraction ${index})`);
+        }
+      }
+    });
+    
+    console.log(`ID sanitization complete. Processed ${oldToNewIdMap.size} extractions across ${classCounters.size} classes:`);
+    classCounters.forEach((count, className) => {
+      console.log(`  ${className}:: ${count - 1} items (${className}::000001 to ${className}::${(count - 1).toString().padStart(6, '0')})`);
+    });
+  }
+
   buildDocumentTree(data) {
     const nodes = new Map();
     const rootNodes = [];
     
     // Handle extraction format
     if (data && data.extractions && Array.isArray(data.extractions)) {
+      // First, sanitize IDs to ensure uniqueness across all extractions
+      this.sanitizeExtractionIds(data.extractions);
+      
       // Filter relevant extraction types like section_tree_visualizer.py does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
       let relevant = data.extractions.filter(ext => 
