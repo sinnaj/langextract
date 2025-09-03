@@ -2,6 +2,10 @@
  * Preview Performance Optimizer  
  * Handles large file previews efficiently with progressive loading and virtualization
  */
+
+// Global filter state shared across all PreviewOptimizer instances
+window.globalStatisticsFilter = null;
+
 class PreviewOptimizer {
   constructor(element, options = {}) {
     this.element = element;
@@ -19,6 +23,7 @@ class PreviewOptimizer {
     this._lastSearchQuery = '';
     this.uberMode = false; // UBERMODE state
     this.currentJsonData = null; // Store parsed JSON for UBERMODE
+    this.currentFilter = null; // Current statistics filter (null = show all, string = show only that type)
     
     this.init();
   }
@@ -869,8 +874,9 @@ class PreviewOptimizer {
     const secondGrid = gridContainers[1];
 
     // Clear existing stats (keep only Total Items in first position)
+    const totalItemsActive = window.globalStatisticsFilter === null ? 'border-blue-500 ring-2 ring-blue-200' : '';
     firstGrid.innerHTML = `
-      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 stats-filter-card ${totalItemsActive}" data-filter-type="total">
         <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Total Items</div>
         <div class="text-lg font-mono font-semibold text-gray-900 dark:text-gray-100">${this.formatNumber(stats.totalItems)}</div>
       </div>
@@ -897,9 +903,10 @@ class PreviewOptimizer {
       const [typeName, count] = type;
       const colorClass = colors[index];
       const displayName = this.formatTypeName(typeName);
+      const isActive = window.globalStatisticsFilter === typeName ? 'border-blue-500 ring-2 ring-blue-200' : '';
       
       firstGrid.innerHTML += `
-        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 stats-filter-card ${isActive}" data-filter-type="${typeName}">
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
           <div class="text-lg font-mono font-semibold ${colorClass}">${this.formatNumber(count)}</div>
         </div>
@@ -912,9 +919,10 @@ class PreviewOptimizer {
       const [typeName, count] = type;
       const colorClass = colors[index + 3];
       const displayName = this.formatTypeName(typeName);
+      const isActive = window.globalStatisticsFilter === typeName ? 'border-blue-500 ring-2 ring-blue-200' : '';
       
       secondGrid.innerHTML += `
-        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3">
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 stats-filter-card ${isActive}" data-filter-type="${typeName}">
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
           <div class="text-lg font-mono font-semibold ${colorClass}">${this.formatNumber(count)}</div>
         </div>
@@ -940,6 +948,14 @@ class PreviewOptimizer {
     if (secondGridItemCount > 0) {
       secondGrid.className = `grid gap-3 grid-cols-2 sm:grid-cols-${Math.min(4, secondGridItemCount)}`;
     }
+
+    // Add click event listeners to filter cards
+    document.querySelectorAll('.stats-filter-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const filterType = card.dataset.filterType;
+        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
+      });
+    });
   }
 
   formatTypeName(typeName) {
@@ -988,9 +1004,49 @@ class PreviewOptimizer {
     if (data && data.extractions && Array.isArray(data.extractions)) {
       // Filter relevant extraction types like section_tree_visualizer.py does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      const relevant = data.extractions.filter(ext => 
+      let relevant = data.extractions.filter(ext => 
         relevantTypes.includes(ext.extraction_class)
       );
+      
+      // Apply statistics filter if one is active
+      const currentFilter = window.globalStatisticsFilter;
+      if (currentFilter) {
+        console.log(`Filtering extractions by type: ${currentFilter}`);
+        
+        // Get all extractions that match the filter
+        const filteredExtractions = data.extractions.filter(ext => 
+          ext.extraction_class === currentFilter
+        );
+        
+        // If we're filtering, we need to also include parent nodes to maintain hierarchy
+        const requiredNodeIds = new Set();
+        
+        // Add filtered nodes and collect their parent chain
+        filteredExtractions.forEach(ext => {
+          const attrs = ext.attributes || {};
+          const nodeId = attrs.id;
+          if (nodeId) {
+            requiredNodeIds.add(nodeId);
+            
+            // Add parent chain
+            let parentId = this.getParentId(ext);
+            while (parentId) {
+              requiredNodeIds.add(parentId);
+              // Find parent extraction to continue the chain
+              const parentExt = data.extractions.find(e => e.attributes?.id === parentId);
+              parentId = parentExt ? this.getParentId(parentExt) : null;
+            }
+          }
+        });
+        
+        // Filter relevant extractions to only include required nodes
+        relevant = relevant.filter(ext => {
+          const nodeId = ext.attributes?.id;
+          return nodeId && requiredNodeIds.has(nodeId);
+        });
+        
+        console.log(`Filtered from ${data.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
+      }
       
       console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
       
@@ -1214,6 +1270,13 @@ class PreviewOptimizer {
     // Create the node content
     const nodeContent = document.createElement('div');
     nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
+    
+    // Add highlighting if this node matches the current filter
+    const currentFilter = window.globalStatisticsFilter;
+    if (currentFilter && node.type === currentFilter) {
+      nodeContent.classList.add('bg-yellow-50', 'dark:bg-yellow-900', 'border-yellow-300', 'dark:border-yellow-600');
+      nodeContent.classList.remove('border-transparent');
+    }
     
     // Expand/collapse indicator - make it more prominent and clickable
     const indicator = document.createElement('span');
@@ -1774,5 +1837,51 @@ class PreviewOptimizer {
   formatNumber(num) {
     if (num === 0 || num === undefined || num === null) return '0';
     return num.toLocaleString();
+  }
+
+  // Apply statistics filter across all panels
+  applyStatisticsFilter(filterType) {
+    console.log(`Applying statistics filter: ${filterType || 'none'}`);
+    
+    // Update global filter state
+    window.globalStatisticsFilter = filterType;
+    
+    // Refresh all JSON panels to apply the filter
+    this.refreshAllPanelsWithFilter();
+    
+    // Update visual state of all filter cards across all panels
+    document.querySelectorAll('.stats-filter-card').forEach(card => {
+      const cardFilterType = card.dataset.filterType;
+      const isActive = (filterType === null && cardFilterType === 'total') || (filterType === cardFilterType);
+      
+      if (isActive) {
+        card.classList.add('border-blue-500', 'ring-2', 'ring-blue-200');
+      } else {
+        card.classList.remove('border-blue-500', 'ring-2', 'ring-blue-200');
+      }
+    });
+  }
+
+  // Refresh all panels that have UBERMODE enabled
+  refreshAllPanelsWithFilter() {
+    // Find all preview optimizers and refresh their content if they have JSON data
+    if (window.previewOptimizers) {
+      window.previewOptimizers.forEach((optimizer, index) => {
+        if (optimizer && optimizer.uberMode && optimizer.currentJsonData) {
+          console.log(`Refreshing panel ${index} with filter: ${window.globalStatisticsFilter}`);
+          
+          // Re-render with current JSON data and filter
+          optimizer.element.innerHTML = '';
+          const shouldShowTreeView = optimizer.shouldShowTreeVisualization();
+          
+          if (shouldShowTreeView) {
+            optimizer.renderUberMode(optimizer.currentJsonData, { size: 0, truncated: false });
+          } else {
+            // Render JSON view but still need to handle filtering if applicable
+            optimizer.renderJsonContent(optimizer.currentJsonData);
+          }
+        }
+      });
+    }
   }
 }
