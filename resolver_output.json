@@ -1,10 +1,10 @@
 {
   "resolver_debug": {
-    "source_text_preview": "*UNE 23035- 3:2003\n\nParte 3: Señalizaciones y balizamientos luminiscentes.\n\n*UNE 23035- 4:2003\n\nParte 4: Condiciones generales. Mediciones y clasificación.\n\n# 6 Otras materias\n\nUNE- EN ISO 13943:2018\n\nSeguridad contra incendio. Vocabulario.\n\nUNE- EN ISO 16730- 1:2017\n\nIngeniería de seguridad contra incendios - Procedimientos y requisitos para la verificación y la validación de métodos de calculo. Parte 1: Generalidades.\n\nUNE- EN ISO 16733- 1:2017\n\nIngeniería de seguridad contra incendios - Selec...",
-    "source_text_length": 699,
-    "token_offset": 57397,
-    "char_offset": 243210,
-    "num_extractions_input": 7,
+    "source_text_preview": "Patient has fever.",
+    "source_text_length": 18,
+    "token_offset": 0,
+    "char_offset": 0,
+    "num_extractions_input": 2,
     "num_aligned_groups": 1,
     "alignment_settings": {
       "enable_fuzzy_alignment": true,
@@ -14,290 +14,35 @@
     "extractions": [
       {
         "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "*UNE 23035- 3:2003\n\nParte 3: Señalizaciones y balizamientos luminiscentes.",
-        "extraction_index": 1,
+        "extraction_class": "patient",
+        "extraction_text": "Patient",
+        "extraction_index": 0,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 57397,
-          "end_index": 57414
+          "start_index": 0,
+          "end_index": 1
         },
         "char_interval": {
-          "start_pos": 243210,
-          "end_pos": 243284
+          "start_pos": 0,
+          "end_pos": 7
         },
-        "attributes": {
-          "id": "LD::000001",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE 23035-3",
-          "doc_title": "Señalizaciones y balizamientos luminiscentes.",
-          "doc_year": "2003",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": "3",
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE 23035- 3:2003 Parte 3: Señalizaciones y balizamientos luminiscentes.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
+        "attributes": null
       },
       {
         "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "*UNE 23035- 4:2003\n\nParte 4: Condiciones generales. Mediciones y clasificación.",
+        "extraction_class": "condition",
+        "extraction_text": "fever",
         "extraction_index": 2,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 57414,
-          "end_index": 57433
+          "start_index": 2,
+          "end_index": 3
         },
         "char_interval": {
-          "start_pos": 243286,
-          "end_pos": 243365
+          "start_pos": 12,
+          "end_pos": 17
         },
-        "attributes": {
-          "id": "LD::000002",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE 23035-4",
-          "doc_title": "Condiciones generales. Mediciones y clasificación.",
-          "doc_year": "2003",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": "4",
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE 23035- 4:2003 Parte 4: Condiciones generales. Mediciones y clasificación.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "SECTION",
-        "extraction_text": "# 6 Otras materias",
-        "extraction_index": 3,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 57433,
-          "end_index": 57437
-        },
-        "char_interval": {
-          "start_pos": 243367,
-          "end_pos": 243385
-        },
-        "attributes": {
-          "id": "SE::000001",
-          "sectioning_type": "Headline",
-          "section_level": 1,
-          "section_title": "Otras materias",
-          "parent_type": "Document",
-          "parent_id": null,
-          "author": null,
-          "date": null,
-          "source": null,
-          "section_summary": "Section listing other relevant standards and materials.",
-          "applies_if": "TRUE",
-          "exempt_if": "FALSE"
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "UNE- EN ISO 13943:2018\n\nSeguridad contra incendio. Vocabulario.",
-        "extraction_index": 4,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 57437,
-          "end_index": 57450
-        },
-        "char_interval": {
-          "start_pos": 243387,
-          "end_pos": 243450
-        },
-        "attributes": {
-          "id": "LD::000003",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE-EN ISO 13943",
-          "doc_title": "Seguridad contra incendio. Vocabulario.",
-          "doc_year": "2018",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": null,
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE- EN ISO 13943:2018 Seguridad contra incendio. Vocabulario.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "UNE- EN ISO 16730- 1:2017\n\nIngeniería de seguridad contra incendios - Procedimientos y requisitos para la verificación y la validación de métodos de calculo. Parte 1: Generalidades.",
-        "extraction_index": 5,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 57450,
-          "end_index": 57492
-        },
-        "char_interval": {
-          "start_pos": 243452,
-          "end_pos": 243633
-        },
-        "attributes": {
-          "id": "LD::000004",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE-EN ISO 16730-1",
-          "doc_title": "Ingeniería de seguridad contra incendios - Procedimientos y requisitos para la verificación y la validación de métodos de calculo. Parte 1: Generalidades.",
-          "doc_year": "2017",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": "1",
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE- EN ISO 16730- 1:2017 Ingeniería de seguridad contra incendios - Procedimientos y requisitos para la verificación y la validación de métodos de calculo. Parte 1: Generalidades.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "UNE- EN ISO 16733- 1:2017\n\nIngeniería de seguridad contra incendios - Selección de escenarios de fuego de diseño y fuegos de diseño. Parte 1: Selección de escenarios de fuego de diseño.",
-        "extraction_index": 6,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 57492,
-          "end_index": 57542
-        },
-        "char_interval": {
-          "start_pos": 243635,
-          "end_pos": 243820
-        },
-        "attributes": {
-          "id": "LD::000005",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE-EN ISO 16733-1",
-          "doc_title": "Ingeniería de seguridad contra incendios - Selección de escenarios de fuego de diseño y fuegos de diseño. Parte 1: Selección de escenarios de fuego de diseño.",
-          "doc_year": "2017",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": "1",
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE- EN ISO 16733- 1:2017 Ingeniería de seguridad contra incendios - Selección de escenarios de fuego de diseño y fuegos de diseño. Parte 1: Selección de escenarios de fuego de diseño.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "LEGAL_DOCUMENT",
-        "extraction_text": "UNE- EN ISO 23932:2017\n\nIngeniería de seguridad contra incendios. Principios generales.",
-        "extraction_index": 7,
-        "alignment_status": "MATCH_EXACT",
-        "token_interval": {
-          "start_index": 57542,
-          "end_index": 57560
-        },
-        "char_interval": {
-          "start_pos": 243822,
-          "end_pos": 243909
-        },
-        "attributes": {
-          "id": "LD::000006",
-          "doc_type": "STANDARD",
-          "doc_code": "UNE-EN ISO 23932",
-          "doc_title": "Ingeniería de seguridad contra incendios. Principios generales.",
-          "doc_year": "2017",
-          "doc_article": null,
-          "doc_section": null,
-          "doc_part": null,
-          "doc_chapter": null,
-          "doc_annex": null,
-          "doc_url": null,
-          "doc_source_text": "UNE- EN ISO 23932:2017 Ingeniería de seguridad contra incendios. Principios generales.",
-          "location_scope": {
-            "COUNTRY": "ES",
-            "STATES": [],
-            "PROVINCES": [],
-            "REGIONS": [],
-            "COMMUNES": [],
-            "ZONES": [],
-            "GEO_CODES": []
-          },
-          "quality": {
-            "confidence": 0.95,
-            "errors": [],
-            "warnings": []
-          }
-        }
+        "attributes": null
       }
     ]
   }

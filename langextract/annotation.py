@@ -30,6 +30,7 @@ import time
 from absl import logging
 
 from langextract import chunking
+from langextract import hierarchy_inference
 from langextract import progress
 from langextract import prompting
 from langextract import resolver as resolver_lib
@@ -336,6 +337,11 @@ class Annotator:
               "Completing annotation for document ID %s.",
               curr_document.document_id,
           )
+          # Apply hierarchy inference to improve parent-child relationships
+          annotated_extractions = hierarchy_inference.infer_hierarchical_relationships(
+              annotated_extractions
+          )
+          
           annotated_doc = data.AnnotatedDocument(
               document_id=curr_document.document_id,
               extractions=annotated_extractions,
@@ -379,6 +385,11 @@ class Annotator:
       logging.info(
           "Finalizing annotation for document ID %s.", curr_document.document_id
       )
+      # Apply hierarchy inference to improve parent-child relationships
+      annotated_extractions = hierarchy_inference.infer_hierarchical_relationships(
+          annotated_extractions
+      )
+      
       annotated_doc = data.AnnotatedDocument(
           document_id=curr_document.document_id,
           extractions=annotated_extractions,
@@ -438,6 +449,11 @@ class Annotator:
     for doc_id, all_pass_extractions in document_extractions_by_pass.items():
       merged_extractions = _merge_non_overlapping_extractions(
           all_pass_extractions
+      )
+      
+      # Apply hierarchy inference to improve parent-child relationships
+      merged_extractions = hierarchy_inference.infer_hierarchical_relationships(
+          merged_extractions
       )
 
       if debug:

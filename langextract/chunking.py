@@ -43,10 +43,14 @@ class TextChunk:
   Attributes:
     token_interval: The token interval of the chunk in the source document.
     document: The source document.
+    document_structure_context: Context about document structure for hierarchy inference.
   """
 
   token_interval: tokenizer.TokenInterval
   document: data.Document | None = None
+  document_structure_context: str | None = dataclasses.field(
+      default=None, init=False, repr=False, compare=False
+  )
   _chunk_text: str | None = dataclasses.field(
       default=None, init=False, repr=False
   )
@@ -118,7 +122,16 @@ class TextChunk:
   def additional_context(self) -> str | None:
     """Gets the additional context for prompting from the source document."""
     if self.document is not None:
-      return self.document.additional_context
+      base_context = self.document.additional_context or ""
+      
+      # Add document structure context for hierarchy preservation
+      if self.document_structure_context:
+        if base_context:
+          return f"{base_context}\n\n# Document Structure Context:\n{self.document_structure_context}"
+        else:
+          return f"# Document Structure Context:\n{self.document_structure_context}"
+      
+      return base_context if base_context else None
     return None
 
   @property
@@ -277,6 +290,51 @@ def make_batches_of_textchunk(
     yield list(batch)
 
 
+def _extract_document_structure_context(text: str, max_context_length: int = 500) -> str:
+  """Extracts hierarchical structure context from document text.
+  
+  This function identifies section headers and creates a hierarchical outline
+  that can be used as context for maintaining parent-child relationships
+  during extraction.
+  
+  Args:
+    text: The full document text.
+    max_context_length: Maximum length of context to return.
+    
+  Returns:
+    A structured context string showing document hierarchy.
+  """
+  lines = text.split('\n')
+  structure_lines = []
+  
+  # Pattern to match section headers (# Header, ## Header, etc.)
+  import re
+  header_pattern = re.compile(r'^(#{1,6})\s+(.+)$')
+  
+  # Extract headers with their levels
+  for line in lines:
+    line = line.strip()
+    match = header_pattern.match(line)
+    if match:
+      level = len(match.group(1))  # Number of # characters
+      title = match.group(2).strip()
+      
+      # Create indented structure
+      indent = "  " * (level - 1)
+      structure_lines.append(f"{indent}- {title}")
+      
+      # Limit total context length
+      current_context = "\n".join(structure_lines)
+      if len(current_context) > max_context_length:
+        structure_lines = structure_lines[:-1]  # Remove last line
+        break
+  
+  if structure_lines:
+    return "Document Structure:\n" + "\n".join(structure_lines)
+  else:
+    return ""
+
+
 class SentenceIterator:
   """Iterate through sentences of a tokenized text."""
 
@@ -405,6 +463,18 @@ class ChunkIterator:
       self.document = data.Document(text=text.text)
     else:
       self.document = document
+    
+    # Extract document structure context for hierarchy preservation
+    self._document_structure_context = _extract_document_structure_context(text.text)
+
+  def _create_chunk(self, token_interval: tokenizer.TokenInterval) -> TextChunk:
+    """Create a TextChunk with document structure context set."""
+    chunk = TextChunk(
+        token_interval=token_interval,
+        document=self.document,
+    )
+    chunk.document_structure_context = self._document_structure_context
+    return chunk
 
   def __iter__(self) -> Iterator[TextChunk]:
     return self
@@ -437,10 +507,7 @@ class ChunkIterator:
           self.tokenized_text, curr_token_pos=sentence.start_index + 1
       )
       self.broken_sentence = curr_chunk.end_index < sentence.end_index
-      return TextChunk(
-          token_interval=curr_chunk,
-          document=self.document,
-      )
+      return self._create_chunk(curr_chunk)
 
     # Append tokens to the chunk up to the max_char_buffer.
     start_of_new_line = -1
@@ -462,10 +529,7 @@ class ChunkIterator:
             self.tokenized_text, curr_token_pos=curr_chunk.end_index
         )
         self.broken_sentence = True
-        return TextChunk(
-            token_interval=curr_chunk,
-            document=self.document,
-        )
+        return self._create_chunk(curr_chunk)
       else:
         curr_chunk = test_chunk
 
@@ -480,14 +544,8 @@ class ChunkIterator:
           self.sentence_iter = SentenceIterator(
               self.tokenized_text, curr_token_pos=curr_chunk.end_index
           )
-          return TextChunk(
-              token_interval=curr_chunk,
-              document=self.document,
-          )
+          return self._create_chunk(curr_chunk)
         else:
           curr_chunk = test_chunk
 
-    return TextChunk(
-        token_interval=curr_chunk,
-        document=self.document,
-    )
+    return self._create_chunk(curr_chunk)
