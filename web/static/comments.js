@@ -84,6 +84,10 @@
       this.currentUser = this.getCurrentUser();
       this.activeOverlay = null;
       this.hoverIndicators = new Map(); // Map panel -> indicators
+      this.hoverTimeout = null; // Debounce hover events
+      this.activeIndicator = null; // Currently shown indicator
+      this.lastHoverTime = 0; // Cooldown tracking
+      this.hoverCooldown = 150; // Minimum time between indicator changes (ms)
       this.init();
     }
 
@@ -95,10 +99,27 @@
     getCurrentUser() {
       let user = localStorage.getItem('langextract_user');
       if (!user) {
-        user = prompt('Enter your name for comments:') || 'Anonymous';
-        localStorage.setItem('langextract_user', user);
+        user = this.promptForUserName();
       }
       return user;
+    }
+
+    promptForUserName() {
+      const user = prompt('Please enter your name for comments:');
+      if (!user || user.trim() === '') {
+        alert('A name is required to create comments.');
+        return this.promptForUserName(); // Recursively prompt until valid name is provided
+      }
+      const trimmedUser = user.trim();
+      localStorage.setItem('langextract_user', trimmedUser);
+      return trimmedUser;
+    }
+
+    ensureUserName() {
+      if (!this.currentUser || this.currentUser.trim() === '') {
+        this.currentUser = this.promptForUserName();
+      }
+      return this.currentUser;
     }
 
     injectStyles() {
@@ -121,13 +142,20 @@
           font-size: 10px;
           cursor: pointer;
           opacity: 0;
-          transition: opacity 0.2s ease;
+          transition: opacity 0.3s ease, transform 0.2s ease;
           z-index: 1000;
+          will-change: opacity, transform;
+        }
+        
+        .comment-hover-indicator.show {
+          opacity: 0.7;
+          transform: translateY(-50%) scale(1);
         }
         
         .comment-hover-indicator:hover {
           opacity: 1 !important;
           background: #2563eb;
+          transform: translateY(-50%) scale(1.1);
         }
         
         .comment-hover-area {
@@ -135,7 +163,7 @@
         }
         
         .comment-hover-area:hover .comment-hover-indicator {
-          opacity: 0.7;
+          /* Remove automatic opacity on hover - we'll control it manually */
         }
         
         .comment-overlay {
@@ -168,6 +196,19 @@
         
         .dark .comment-overlay .comment-header {
           color: #9ca3af;
+        }
+        
+        .comment-user-info {
+          font-size: 12px;
+          color: #6b7280;
+          border-bottom: 1px solid #e5e7eb;
+          padding-bottom: 8px;
+          margin-bottom: 8px;
+        }
+        
+        .dark .comment-user-info {
+          color: #9ca3af;
+          border-color: #4b5563;
         }
         
         .comment-textarea {
@@ -273,8 +314,13 @@
           opacity: 1;
         }
         
+        .has-comments .comment-hover-indicator.show {
+          opacity: 1;
+        }
+        
         .has-comments .comment-hover-indicator:hover {
           background: #059669;
+          transform: translateY(-50%) scale(1.1);
         }
       `;
       document.head.appendChild(style);
@@ -346,6 +392,28 @@
       const target = e.target;
       if (!target || target === previewElement) return;
 
+      // Implement cooldown to prevent too many rapid changes
+      const now = Date.now();
+      if (now - this.lastHoverTime < this.hoverCooldown) {
+        return;
+      }
+
+      // Clear any existing timeout
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+      }
+
+      // Debounce the hover to avoid creating indicators too rapidly
+      this.hoverTimeout = setTimeout(() => {
+        this.processHoverTarget(target, previewElement, panelIndex);
+        this.lastHoverTime = Date.now();
+      }, 50); // 50ms debounce
+    }
+
+    processHoverTarget(target, previewElement, panelIndex) {
+      // Hide any currently active indicator first
+      this.hideActiveIndicator();
+
       // Determine content type and position strategy
       const contentType = this.detectContentType(previewElement);
       const position = this.calculatePosition(target, contentType, previewElement);
@@ -356,12 +424,37 @@
     }
 
     handlePreviewLeave(e, previewElement, panelIndex) {
-      // Hide hover indicators with delay to allow interaction
+      // Clear any pending hover timeout
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+        this.hoverTimeout = null;
+      }
+
+      // Hide active indicator with delay to allow interaction
       setTimeout(() => {
-        if (!previewElement.matches(':hover')) {
-          this.hideHoverIndicators(panelIndex);
+        if (!previewElement.matches(':hover') && !this.isOverlayActive()) {
+          this.hideActiveIndicator();
         }
-      }, 100);
+      }, 200); // Longer delay for smoother experience
+    }
+
+    hideActiveIndicator() {
+      if (this.activeIndicator) {
+        this.activeIndicator.classList.remove('show');
+        // Remove the indicator after transition completes
+        setTimeout(() => {
+          if (this.activeIndicator && this.activeIndicator.parentElement && 
+              !this.activeIndicator.classList.contains('show')) {
+            this.activeIndicator.remove();
+            this.activeIndicator.parentElement?.classList.remove('comment-hover-area');
+            this.activeIndicator = null;
+          }
+        }, 300); // Match CSS transition duration
+      }
+    }
+
+    isOverlayActive() {
+      return this.activeOverlay && document.body.contains(this.activeOverlay);
     }
 
     detectContentType(previewElement) {
@@ -470,12 +563,17 @@
         element.classList.add('comment-hover-area');
       }
 
-      // Remove existing indicator
-      const existingIndicator = element.querySelector('.comment-hover-indicator');
-      if (existingIndicator) return; // Already shown
+      // Check if this element already has an indicator
+      let indicator = element.querySelector('.comment-hover-indicator');
+      if (indicator) {
+        // Just make sure it's visible and set as active
+        indicator.classList.add('show');
+        this.activeIndicator = indicator;
+        return;
+      }
 
-      // Create hover indicator
-      const indicator = document.createElement('div');
+      // Create new hover indicator
+      indicator = document.createElement('div');
       indicator.className = 'comment-hover-indicator';
       indicator.innerHTML = '💬';
       indicator.title = `Add comment to ${position.display}`;
@@ -495,6 +593,13 @@
       indicator.addEventListener('click', (e) => {
         e.stopPropagation();
         this.showCommentOverlay(element, position, panelIndex, existingComments);
+      });
+
+      // Set as active and show with animation
+      this.activeIndicator = indicator;
+      // Use requestAnimationFrame to ensure the element is in the DOM before adding the class
+      requestAnimationFrame(() => {
+        indicator.classList.add('show');
       });
     }
 
@@ -580,6 +685,10 @@
       // Add new comment form
       overlayHTML += `
         <div class="new-comment-form">
+          <div class="comment-user-info" style="display: flex; justify-content: between; align-items: center; margin-bottom: 8px; font-size: 12px; color: #6b7280;">
+            <span>Commenting as: <strong>${this.escapeHTML(this.currentUser || 'Unknown')}</strong></span>
+            <button class="comment-btn comment-btn-secondary change-user-btn" style="padding: 2px 6px; font-size: 11px; margin-left: 8px;">Change</button>
+          </div>
           <textarea class="comment-textarea" placeholder="Add a comment..."></textarea>
           <div class="comment-actions">
             <button class="comment-btn comment-btn-secondary cancel-comment-btn">Cancel</button>
@@ -622,6 +731,19 @@
         this.closeOverlay();
       });
 
+      // Change user
+      overlay.querySelector('.change-user-btn')?.addEventListener('click', () => {
+        const newUser = this.promptForUserName();
+        if (newUser) {
+          this.currentUser = newUser;
+          // Update the display
+          const userInfo = overlay.querySelector('.comment-user-info span');
+          if (userInfo) {
+            userInfo.innerHTML = `Commenting as: <strong>${this.escapeHTML(newUser)}</strong>`;
+          }
+        }
+      });
+
       // Edit buttons
       overlay.querySelectorAll('.edit-comment-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -659,10 +781,16 @@
         throw new Error('No file selected');
       }
 
+      // Ensure we have a valid user name before proceeding
+      const userName = this.ensureUserName();
+      if (!userName) {
+        throw new Error('User name is required to create comments');
+      }
+
       const commentData = {
         file_path: this.currentFilePath,
         text_body: text,
-        author: this.currentUser,
+        author: userName,
         position_data: JSON.stringify(position)
       };
 
