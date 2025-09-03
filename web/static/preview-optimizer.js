@@ -1638,55 +1638,84 @@ class PreviewOptimizer {
   }
 
   scrollToJsonNode(previewElement, nodeId) {
-    // Look for the node ID in the JSON content
-    const jsonText = previewElement.textContent || '';
+    console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel`);
     
-    // Try to find the node ID in the JSON
-    const searchTerm = `"id": "${nodeId}"`;
-    const position = jsonText.indexOf(searchTerm);
+    // First try to find elements containing the nodeId in JSONFormatter structure
+    let targetElement = null;
     
-    if (position === -1) {
-      console.warn(`Could not find node ID ${nodeId} in JSON content`);
-      return;
-    }
-    
-    console.log(`Found node ID ${nodeId} at position ${position} in JSON`);
-    
-    // Find the line number for the position
-    const lines = jsonText.substring(0, position).split('\n');
-    const lineNumber = lines.length;
-    
-    // Look for a specific line element if this is formatted JSON
-    const jsonLines = previewElement.querySelectorAll('.json-line');
-    if (jsonLines.length > 0) {
-      // This is formatted JSON with line elements
-      for (const line of jsonLines) {
-        if (line.textContent.includes(nodeId)) {
-          line.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline: 'nearest'
-          });
-          
-          // Highlight the line temporarily
-          const originalBg = line.style.backgroundColor;
-          line.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
-          line.style.transition = 'background-color 0.3s ease-in-out';
-          
-          setTimeout(() => {
-            line.style.backgroundColor = originalBg;
-          }, 2000);
-          
-          console.log(`Scrolled to JSON line containing ${nodeId}`);
-          return;
+    // JSONFormatter creates elements with various classes like json-formatter-*
+    // Look for any element that contains the nodeId
+    const allElements = previewElement.querySelectorAll('*');
+    for (const element of allElements) {
+      const elementText = element.textContent || '';
+      if (elementText.includes(`"id": "${nodeId}"`) || 
+          elementText.includes(`"id":"${nodeId}"`) ||
+          elementText.includes(nodeId)) {
+        
+        // Find the most specific element that contains this text
+        if (!targetElement || element.children.length < targetElement.children.length) {
+          targetElement = element;
         }
       }
     }
     
-    // Fallback: calculate scroll position based on line number
+    if (targetElement) {
+      console.log(`Found target element for node ${nodeId}, scrolling into view`);
+      
+      // Scroll the target element into view
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+      });
+      
+      // Add temporary highlighting to the element
+      const originalBg = targetElement.style.backgroundColor;
+      const originalBorder = targetElement.style.border;
+      const originalTransition = targetElement.style.transition;
+      
+      targetElement.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
+      targetElement.style.border = '2px solid rgba(59, 130, 246, 0.5)';
+      targetElement.style.transition = 'all 0.3s ease-in-out';
+      
+      setTimeout(() => {
+        targetElement.style.backgroundColor = originalBg;
+        targetElement.style.border = originalBorder;
+        targetElement.style.transition = originalTransition;
+      }, 2000);
+      
+      console.log(`Successfully scrolled to and highlighted node ${nodeId} in JSON panel`);
+      return;
+    }
+    
+    // Fallback: try text-based search and scroll
+    const jsonText = previewElement.textContent || '';
+    const searchTerms = [
+      `"id": "${nodeId}"`,
+      `"id":"${nodeId}"`,
+      `id": "${nodeId}"`,
+      `id":"${nodeId}"`,
+      nodeId
+    ];
+    
+    let position = -1;
+    for (const searchTerm of searchTerms) {
+      position = jsonText.indexOf(searchTerm);
+      if (position !== -1) {
+        console.log(`Found node ID ${nodeId} using search term: ${searchTerm} at position ${position}`);
+        break;
+      }
+    }
+    
+    if (position === -1) {
+      console.warn(`Could not find node ID ${nodeId} in JSON content using any search method`);
+      return;
+    }
+    
+    // Calculate approximate scroll position based on character position
     const previewElementRect = previewElement.getBoundingClientRect();
-    const totalLines = jsonText.split('\n').length;
-    const scrollRatio = lineNumber / totalLines;
+    const textLength = jsonText.length;
+    const scrollRatio = position / textLength;
     const scrollPosition = scrollRatio * (previewElement.scrollHeight - previewElementRect.height);
     
     previewElement.scrollTo({
@@ -1694,7 +1723,7 @@ class PreviewOptimizer {
       behavior: 'smooth'
     });
     
-    console.log(`Scrolled to approximate position for ${nodeId} (line ${lineNumber})`);
+    console.log(`Scrolled to approximate position for ${nodeId} (character position ${position})`);
   }
 
   highlightNodeSelection(node) {
