@@ -2541,8 +2541,8 @@ class PreviewOptimizer {
     mainContainer.appendChild(toolbar);
     
     // Create JSON content container
-    const container = document.createElement('div');
-    container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-b-lg border-l border-r border-b border-gray-200 dark:border-gray-600 relative';
+    const jsonContainer = document.createElement('div');
+    jsonContainer.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-b-lg border-l border-r border-b border-gray-200 dark:border-gray-600 relative';
     
     // Apply preferences
     const showLineNumbers = this.getJsonPreference('lineNumbers', true);
@@ -2578,7 +2578,7 @@ class PreviewOptimizer {
         padding: 12px 8px;
         z-index: 2;
       `;
-      container.appendChild(lineNumbersContainer);
+      jsonContainer.appendChild(lineNumbersContainer);
       contentWrapper.style.paddingLeft = '68px';
       
       // Generate line numbers for filtered data
@@ -2607,8 +2607,11 @@ class PreviewOptimizer {
       contentWrapper.appendChild(pre);
     }
     
-    container.appendChild(contentWrapper);
-    mainContainer.appendChild(container);
+    jsonContainer.appendChild(contentWrapper);
+    mainContainer.appendChild(jsonContainer);
     this.element.appendChild(mainContainer);
   }
 }
+
+// Export to global scope for use by app.js
+window.PreviewOptimizer = PreviewOptimizer;
