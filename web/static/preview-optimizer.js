@@ -20,11 +20,14 @@ class PreviewOptimizer {
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
+    this.cacheHits = 0;
+    this.cacheRequests = 0;
     this._lastSearchQuery = '';
     this.uberMode = false; // UBERMODE state
     this.currentJsonData = null; // Store parsed JSON for UBERMODE
     this.currentFilter = null; // Current statistics filter (null = show all, string = show only that type)
     this.updateJsonDisplayTimeout = null; // For debouncing JSON updates
+    this.currentRenderOperation = null; // Track ongoing render operations
     this.performanceStats = { // Track rendering performance
       renderCount: 0,
       totalRenderTime: 0,
@@ -38,14 +41,8 @@ class PreviewOptimizer {
     this.element.style.position = 'relative';
     this.element.style.overflow = 'auto';
     
-    // Set up event delegation for filter cards to ensure they always work
-    this.element.addEventListener('click', (e) => {
-      const filterCard = e.target.closest('.stats-filter-card');
-      if (filterCard) {
-        const filterType = filterCard.dataset.filterType;
-        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
-      }
-    });
+    // Use bound method for better memory management
+    this.element.addEventListener('click', this.handleClick);
   }
   
   async loadFile(runId, filePath, fileSize) {
@@ -60,9 +57,13 @@ class PreviewOptimizer {
       
       // Check cache first
       const cacheKey = `${runId}:${filePath}`;
+      this.cacheRequests++;
+      
       if (this.cache.has(cacheKey)) {
+        this.cacheHits++;
         const cached = this.cache.get(cacheKey);
         this.renderContent(cached.content, cached.contentType, cached.meta);
+        console.log(`Cache hit for ${filePath} (hit rate: ${(this.cacheHits/this.cacheRequests*100).toFixed(1)}%)`);
         return;
       }
       
@@ -764,8 +765,17 @@ class PreviewOptimizer {
     }, 100);
   }
 
-  // Render JSON with specific depth limit
+  // Render JSON with specific depth limit and better error handling
   renderJsonWithDepth(obj, maxDepth, infoContainer) {
+    // Cancel any ongoing render
+    if (this.currentRenderOperation) {
+      this.currentRenderOperation.cancelled = true;
+    }
+    
+    // Create operation tracker
+    const renderOperation = { cancelled: false };
+    this.currentRenderOperation = renderOperation;
+    
     // Show loading indicator
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'text-center py-8 text-gray-500';
@@ -782,6 +792,12 @@ class PreviewOptimizer {
     
     // Use timeout to allow UI to update
     setTimeout(() => {
+      // Check if operation was cancelled
+      if (renderOperation.cancelled) {
+        loadingDiv.remove();
+        return;
+      }
+      
       try {
         const formatter = new JSONFormatter(obj, maxDepth, {
           hoverPreviewEnabled: false, // Disable for performance
@@ -795,6 +811,12 @@ class PreviewOptimizer {
         const container = document.createElement('div');
         container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 overflow-auto max-h-96';
         
+        // Check again if cancelled before expensive DOM operation
+        if (renderOperation.cancelled) {
+          loadingDiv.remove();
+          return;
+        }
+        
         const formatterElement = formatter.render();
         container.appendChild(formatterElement);
         
@@ -802,15 +824,22 @@ class PreviewOptimizer {
         loadingDiv.remove();
         this.element.appendChild(container);
         
+        // Clear operation tracker
+        if (this.currentRenderOperation === renderOperation) {
+          this.currentRenderOperation = null;
+        }
+        
       } catch (e) {
         console.error('Failed to render JSON:', e);
-        loadingDiv.innerHTML = `
-          <div class="text-red-600">Failed to render JSON: ${e.message}</div>
-          <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()" 
-                  class="mt-2 text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
-            View as Text Instead
-          </button>
-        `;
+        if (!renderOperation.cancelled) {
+          loadingDiv.innerHTML = `
+            <div class="text-red-600">Failed to render JSON: ${e.message}</div>
+            <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()" 
+                    class="mt-2 text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
+              View as Text Instead
+            </button>
+          `;
+        }
       }
     }, 10);
   }
@@ -1238,6 +1267,61 @@ class PreviewOptimizer {
            this.currentFile?.filePath?.toLowerCase().endsWith('.md');
   }
   
+  // Add memory management and cleanup
+  cleanup() {
+    // Cancel any pending timeouts
+    if (this.updateJsonDisplayTimeout) {
+      clearTimeout(this.updateJsonDisplayTimeout);
+      this.updateJsonDisplayTimeout = null;
+    }
+    
+    // Clear cache to free memory
+    this.cache.clear();
+    
+    // Remove event listeners
+    this.element.removeEventListener('click', this.handleClick);
+    
+    // Clear element content
+    this.element.innerHTML = '';
+    
+    console.log('PreviewOptimizer cleaned up');
+  }
+
+  // Add click handler for better event management
+  handleClick = (e) => {
+    const filterCard = e.target.closest('.stats-filter-card');
+    if (filterCard) {
+      const filterType = filterCard.dataset.filterType;
+      this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
+    }
+  };
+
+  // Get performance statistics
+  getPerformanceStats() {
+    const avgRenderTime = this.performanceStats.renderCount > 0 
+      ? this.performanceStats.totalRenderTime / this.performanceStats.renderCount 
+      : 0;
+    
+    return {
+      ...this.performanceStats,
+      averageRenderTime: avgRenderTime,
+      cacheSize: this.cache.size,
+      cacheHitRate: this.cacheHits / Math.max(this.cacheRequests, 1) || 0
+    };
+  }
+
+  // Clear performance stats
+  resetPerformanceStats() {
+    this.performanceStats = {
+      renderCount: 0,
+      totalRenderTime: 0,
+      lastRenderTime: 0
+    };
+    this.cacheHits = 0;
+    this.cacheRequests = 0;
+    console.log('Performance stats reset');
+  }
+
   formatBytes(bytes) {
     if (bytes === 0) return '0 B';
     const k = 1024;
