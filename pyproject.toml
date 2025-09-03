@@ -71,6 +71,12 @@ notebook = [
     "ipython>=7.0.0",
     "notebook>=6.0.0"
 ]
+translate = [
+    "transformers>=4.41.0",
+    "sentencepiece>=0.1.99",
+    # CPU-only torch; users may choose a different build if needed
+    "torch>=2.1.0",
+]
 
 [tool.setuptools]
 packages = [

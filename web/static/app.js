@@ -17,6 +17,11 @@
   let currentColumnCount = 1;
   let previewOptimizers = []; // Array of optimizers for each panel
 
+  // Expose state variables globally for preview optimizer navigation
+  window.selectedFilePaths = selectedFilePaths;
+  window.currentColumnCount = currentColumnCount;
+  window.previewOptimizers = previewOptimizers;
+
   // Initialize performance optimizers
   let consoleOptimizer = null;
 
@@ -118,6 +123,51 @@
     
     // Initialize existing functionality for each panel
     initializePanelButtons();
+    
+    // UBERMODE toggle buttons
+    document.querySelectorAll('.ubermode-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const panelIndex = Array.from(document.querySelectorAll('.preview-panel')).indexOf(e.target.closest('.preview-panel'));
+        const optimizer = previewOptimizers[panelIndex];
+        if (optimizer) {
+          const isEnabled = optimizer.toggleUberMode();
+          updateUberModeButton(btn, isEnabled);
+          
+          // Refresh all other JSON panels to update their tree/JSON view based on new configuration
+          refreshAllJsonPanels(panelIndex);
+          
+          // Show/hide stats section
+          const statsSection = document.querySelector('.ubermode-stats');
+          if (statsSection) {
+            if (isEnabled) {
+              statsSection.classList.remove('hidden');
+            } else {
+              statsSection.classList.add('hidden');
+            }
+          }
+        }
+      });
+    });
+    
+    // Stats collapsible functionality - Updated to handle all panels using event delegation
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.stats-header')) {
+        const header = e.target.closest('.stats-header');
+        const isExpanded = header.getAttribute('data-expanded') === 'true';
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector('.stats-toggle');
+        
+        if (isExpanded) {
+          content.style.display = 'none';
+          toggle.style.transform = 'rotate(-90deg)';
+          header.setAttribute('data-expanded', 'false');
+        } else {
+          content.style.display = 'block';
+          toggle.style.transform = 'rotate(0deg)';
+          header.setAttribute('data-expanded', 'true');
+        }
+      }
+    });
   }
   
   // Initialize buttons for each panel
@@ -190,6 +240,7 @@
   function setColumnCount(count) {
     if (count < 1 || count > 3) return;
     currentColumnCount = count;
+    window.currentColumnCount = currentColumnCount; // Update global reference
     updatePreviewPanels();
     updateColumnButtons();
   }
@@ -205,6 +256,7 @@
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-5');
       columnSwitch.classList.add('hidden');
       currentColumnCount = 1;
+      window.currentColumnCount = currentColumnCount; // Update global reference
       updatePreviewPanels();
       updateColumnButtons();
     }
@@ -646,6 +698,7 @@
         
         btn.addEventListener('click', async () => {
           selectedFilePaths[panelIndex] = f.path;
+          window.selectedFilePaths = selectedFilePaths; // Update global reference
           
           // Update all badges selection state for this panel
           if (fileBadgesEl) {
@@ -665,6 +718,32 @@
           // Use preview optimizer if available
           if (previewOptimizers[panelIndex]) {
             await previewOptimizers[panelIndex].loadFile(runId, f.path, f.size);
+            
+            // After loading file, sync UBERMODE state properly
+            const panel = panels[panelIndex];
+            const uberToggle = panel?.querySelector('.ubermode-toggle');
+            if (uberToggle) {
+              const isButtonEnabled = uberToggle.getAttribute('data-enabled') === 'true';
+              const isOptimizerUberMode = previewOptimizers[panelIndex].uberMode;
+              
+              // Wait for JSON data to be parsed before checking UBERMODE activation
+              setTimeout(() => {
+                const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
+                console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
+                
+                // Only trigger UBERMODE if button is enabled and JSON data is available
+                if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
+                  console.log('Activating UBERMODE for newly loaded JSON file');
+                  previewOptimizers[panelIndex].toggleUberMode();
+                  updateUberModeButton(uberToggle, true);
+                } else if (!isButtonEnabled && isOptimizerUberMode) {
+                  // Button is disabled but optimizer is in UBERMODE - deactivate it
+                  console.log('Deactivating UBERMODE - button is disabled');
+                  previewOptimizers[panelIndex].toggleUberMode();
+                  updateUberModeButton(uberToggle, false);
+                }
+              }, 100); // Small delay to ensure JSON parsing is complete
+            }
           } else {
             // Fallback to original loading method
             await loadFileOriginal(runId, f, panelIndex);
@@ -795,5 +874,54 @@
         // ignore
       }
     });
+  }
+
+  // UBERMODE utility functions
+  function refreshAllJsonPanels(excludePanelIndex) {
+    // Refresh all JSON panels except the one that triggered the toggle
+    previewOptimizers.forEach((optimizer, index) => {
+      if (index !== excludePanelIndex && optimizer && optimizer.currentJsonData) {
+        const filePath = selectedFilePaths[index];
+        if (filePath && filePath.toLowerCase().endsWith('.json')) {
+          console.log(`Refreshing JSON panel ${index} after UBERMODE toggle`);
+          
+          // Sync UBERMODE state from the triggering panel
+          const triggeringOptimizer = previewOptimizers[excludePanelIndex];
+          if (triggeringOptimizer) {
+            optimizer.uberMode = triggeringOptimizer.uberMode;
+            
+            // Re-render with current JSON data
+            optimizer.element.innerHTML = '';
+            const shouldShowTreeView = optimizer.shouldShowTreeVisualization();
+            
+            if (optimizer.uberMode && shouldShowTreeView) {
+              optimizer.renderUberMode(optimizer.currentJsonData, { size: 0, truncated: false });
+            } else {
+              // Re-render with normal JSON view
+              if (typeof JSONFormatter !== 'undefined') {
+                optimizer.renderEnhancedJsonObject(optimizer.currentJsonData, { size: 0, truncated: false });
+              } else {
+                const pretty = JSON.stringify(optimizer.currentJsonData, null, 2);
+                optimizer.renderEnhancedJson(pretty, { size: 0, truncated: false });
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function updateUberModeButton(button, isEnabled) {
+    if (isEnabled) {
+      button.classList.add('bg-blue-500', 'text-white');
+      button.classList.remove('text-gray-500');
+      button.setAttribute('data-enabled', 'true');
+      button.title = 'Disable UBERMODE';
+    } else {
+      button.classList.remove('bg-blue-500', 'text-white');
+      button.classList.add('text-gray-500');
+      button.setAttribute('data-enabled', 'false');
+      button.title = 'Enable UBERMODE';
+    }
   }
 })();
