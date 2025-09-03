@@ -148,9 +148,10 @@
       });
     });
     
-    // Stats collapsible functionality
-    document.querySelectorAll('.stats-header').forEach(header => {
-      header.addEventListener('click', (e) => {
+    // Stats collapsible functionality - Updated to handle all panels using event delegation
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.stats-header')) {
+        const header = e.target.closest('.stats-header');
         const isExpanded = header.getAttribute('data-expanded') === 'true';
         const content = header.nextElementSibling;
         const toggle = header.querySelector('.stats-toggle');
@@ -164,7 +165,7 @@
           toggle.style.transform = 'rotate(0deg)';
           header.setAttribute('data-expanded', 'true');
         }
-      });
+      }
     });
   }
   
