@@ -31,6 +31,15 @@ class PreviewOptimizer {
   init() {
     this.element.style.position = 'relative';
     this.element.style.overflow = 'auto';
+    
+    // Set up event delegation for filter cards to ensure they always work
+    this.element.addEventListener('click', (e) => {
+      const filterCard = e.target.closest('.stats-filter-card');
+      if (filterCard) {
+        const filterType = filterCard.dataset.filterType;
+        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
+      }
+    });
   }
   
   async loadFile(runId, filePath, fileSize) {
@@ -1129,8 +1138,8 @@ class PreviewOptimizer {
   }
 
   updateStatsContainer(stats) {
-    // Find the stats content container
-    const statsContent = document.querySelector('.stats-content');
+    // Find the stats content container within this element's scope
+    const statsContent = this.element.querySelector('.stats-content');
     if (!statsContent) return;
 
     // Find the grid containers
@@ -1216,13 +1225,7 @@ class PreviewOptimizer {
       secondGrid.className = `grid gap-3 grid-cols-2 sm:grid-cols-${Math.min(4, secondGridItemCount)}`;
     }
 
-    // Add click event listeners to filter cards
-    document.querySelectorAll('.stats-filter-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        const filterType = card.dataset.filterType;
-        this.applyStatisticsFilter(filterType === 'total' ? null : filterType);
-      });
-    });
+    // Event listeners are handled by event delegation in init() method
   }
 
   formatTypeName(typeName) {
@@ -2187,7 +2190,7 @@ class PreviewOptimizer {
     }
 
     // Find the actual tree element
-    const treeElement = treeContainer.querySelector('.tree-view');
+    const treeElement = treeContainer.querySelector('.tree-content');
     if (!treeElement) {
       console.log('No tree element found');
       return;
