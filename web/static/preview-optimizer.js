@@ -1508,6 +1508,43 @@ class PreviewOptimizer {
   }
 
   renderNodeView(jsonData, meta) {
+    console.log('Starting Node View rendering...');
+    
+    try {
+      // Clear previous content
+      this.element.innerHTML = '';
+      
+      // Show loading message for large datasets
+      if (jsonData && jsonData.extractions && jsonData.extractions.length > 1000) {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'text-center p-8';
+        loadingDiv.innerHTML = `
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p class="text-gray-600">Processing large dataset (${jsonData.extractions.length} extractions)...</p>
+          <p class="text-sm text-gray-500 mt-2">This may take a few moments</p>
+        `;
+        this.element.appendChild(loadingDiv);
+      }
+      
+      // Use setTimeout to allow the loading message to show
+      setTimeout(() => {
+        try {
+          this.renderNodeViewContent(jsonData, meta);
+        } catch (error) {
+          console.error('Error rendering Node View content:', error);
+          this.renderNodeViewError(error, jsonData);
+        }
+      }, 100);
+      
+    } catch (error) {
+      console.error('Error in renderNodeView:', error);
+      this.renderNodeViewError(error, jsonData);
+    }
+  }
+  
+  renderNodeViewContent(jsonData, meta) {
+    console.log('Rendering Node View content...');
+    
     // Clear previous content
     this.element.innerHTML = '';
     
@@ -1523,6 +1560,25 @@ class PreviewOptimizer {
     container.appendChild(treeContainer);
     
     this.element.appendChild(container);
+    console.log('Node View rendered successfully');
+  }
+  
+  renderNodeViewError(error, jsonData) {
+    const errorContainer = document.createElement('div');
+    errorContainer.className = 'bg-red-50 border border-red-200 rounded-lg p-4';
+    errorContainer.innerHTML = `
+      <div class="text-red-800">
+        <h3 class="font-semibold mb-2">🚨 Node View Error</h3>
+        <p class="mb-2">Failed to render Node View for this dataset.</p>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm">Error Details</summary>
+          <pre class="mt-2 text-xs bg-red-100 p-2 rounded overflow-auto">${error.message}</pre>
+          <p class="text-xs mt-2">Dataset info: ${jsonData ? `${jsonData.extractions?.length || 0} extractions` : 'No data'}</p>
+        </details>
+        <p class="text-sm mt-2">Try refreshing the page or use normal JSON view instead.</p>
+      </div>
+    `;
+    this.element.appendChild(errorContainer);
   }
 
   updateNodeViewStats(jsonData) {
@@ -1714,11 +1770,25 @@ class PreviewOptimizer {
   // Sanitize extraction IDs to ensure uniqueness across the entire document
   // This handles cases where chunks started ID counting from 000001 again
   sanitizeExtractionIds(extractions) {
-    console.log('Sanitizing extraction IDs for uniqueness...');
+    console.log('Sanitizing extraction IDs and fixing structural issues...');
+    const startTime = Date.now();
+    
+    // Performance check for very large datasets
+    if (extractions.length > 5000) {
+      console.warn(`Very large dataset (${extractions.length} extractions) - ID sanitization may take time`);
+    }
+    
+    // Statistics tracking
+    let circularRefs = 0;
+    let orphanedNodes = 0;
+    let duplicateIds = 0;
     
     // Simple approach: renumber all IDs sequentially within each class
     const classCounters = new Map();
     const oldToNewIdMap = new Map(); // Track old->new ID mappings
+    
+    // Track original IDs to detect duplicates
+    const originalIds = new Map();
     
     // First pass: assign new sequential IDs to all extractions
     extractions.forEach((extraction, index) => {
@@ -1726,6 +1796,13 @@ class PreviewOptimizer {
       const oldId = attrs.id;
       
       if (!oldId) return; // Skip extractions without IDs
+      
+      // Track original IDs for duplicate detection
+      if (originalIds.has(oldId)) {
+        duplicateIds++;
+      } else {
+        originalIds.set(oldId, 1);
+      }
       
       // Extract class prefix (e.g., "SE", "N", "LD", etc.)
       const match = oldId.match(/^([A-Z]+)::/);
@@ -1755,7 +1832,46 @@ class PreviewOptimizer {
       // Increment counter for next use
       classCounters.set(classPrefix, counter + 1);
       
-      console.log(`Renumbered ID: ${oldId} -> ${newId} (extraction ${index})`);
+      if (index % 500 === 0 && index > 0) {
+        console.log(`ID sanitization progress: ${index}/${extractions.length} processed`);
+      }
+    });
+    
+    // Second pass: Fix circular references and structural issues
+    extractions.forEach((extraction, index) => {
+      const attrs = extraction.attributes || {};
+      
+      // Fix circular references where id equals parent_id
+      if (attrs.id && attrs.parent_id && attrs.id === attrs.parent_id) {
+        console.warn(`Fixing circular reference: ${attrs.id} references itself as parent`);
+        
+        // For top-level sections (level 1), clear the parent_id to make them roots
+        if (attrs.section_level === 1 || attrs.sectioning_type === 'Chapter') {
+          attrs.parent_id = null;
+          console.log(`Made top-level section root: ${attrs.id}`);
+        } else {
+          // For others, try to find a logical parent or clear it
+          attrs.parent_id = null;
+          console.log(`Cleared circular parent reference for: ${attrs.id}`);
+        }
+        circularRefs++;
+      }
+      
+      // Track orphaned nodes (null or empty parent_id)
+      if (!attrs.parent_id || attrs.parent_id === '') {
+        orphanedNodes++;
+        
+        // Create synthetic parent structure for orphaned nodes based on section hierarchy
+        if (attrs.section_level > 1 && attrs.sectioning_type !== 'Chapter') {
+          // Try to find a logical parent based on section level and type
+          const logicalParent = this.findLogicalParent(extraction, extractions, index);
+          if (logicalParent) {
+            attrs.parent_id = logicalParent;
+            console.log(`Assigned logical parent ${logicalParent} to orphaned node ${attrs.id}`);
+            orphanedNodes--; // No longer orphaned
+          }
+        }
+      }
     });
     
     // Helper function to find valid parent with enhanced validation
@@ -1773,6 +1889,12 @@ class PreviewOptimizer {
         const parentAttrs = potentialParent.attributes || {};
         const parentType = potentialParent.extraction_class;
         const parentSectionLevel = parentAttrs.section_level;
+        
+        // Skip if this would create a circular reference
+        if (childAttrs.id === parentAttrs.id) {
+          console.log(`Skipping circular reference: ${childAttrs.id}`);
+          continue;
+        }
         
         // Enhanced validation: Check parent_type matches extraction_class of parent
         let parentTypeMatches = false;
@@ -1824,7 +1946,7 @@ class PreviewOptimizer {
       return null;
     };
 
-    // Second pass: update all parent_id and parent_section_id references
+    // Third pass: update all parent_id and parent_section_id references
     extractions.forEach((extraction, index) => {
       const attrs = extraction.attributes || {};
       
@@ -1851,20 +1973,72 @@ class PreviewOptimizer {
       }
     });
     
-    console.log(`ID sanitization complete. Processed ${oldToNewIdMap.size} extractions across ${classCounters.size} classes:`);
-    classCounters.forEach((count, className) => {
-      console.log(`  ${className}:: ${count - 1} items (${className}::000001 to ${className}::${(count - 1).toString().padStart(6, '0')})`);
-    });
+    const duration = Date.now() - startTime;
+    console.log(`ID sanitization complete (${duration}ms):
+      - Fixed ${duplicateIds} duplicate IDs (${originalIds.size} unique original IDs)
+      - Fixed ${circularRefs} circular references  
+      - Remaining orphaned nodes: ${orphanedNodes}
+      - Total extractions processed: ${extractions.length}
+      - Class counters: ${JSON.stringify(Object.fromEntries(classCounters))}`);
+    
+    if (duration > 5000) {
+      console.warn(`ID sanitization took ${duration}ms - this is slow for ${extractions.length} items`);
+    }
+  }
+  
+  // Helper function to find logical parent for orphaned nodes
+  findLogicalParent(childExtraction, extractions, currentIndex) {
+    const childAttrs = childExtraction.attributes || {};
+    const childLevel = childAttrs.section_level;
+    const childType = childExtraction.extraction_class;
+    
+    // Look backwards for a suitable parent with lower section level
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      const potentialParent = extractions[i];
+      const parentAttrs = potentialParent.attributes || {};
+      const parentLevel = parentAttrs.section_level;
+      const parentType = potentialParent.extraction_class;
+      
+      // Skip if no valid parent attributes
+      if (!parentAttrs.id || !parentLevel) continue;
+      
+      // Parent must have lower section level
+      if (parentLevel >= childLevel) continue;
+      
+      // Parent must be a SECTION for most child types
+      if (parentType === 'SECTION') {
+        console.log(`Found logical parent ${parentAttrs.id} (level ${parentLevel}) for orphaned ${childAttrs.id} (level ${childLevel})`);
+        return parentAttrs.id;
+      }
+    }
+    
+    // If no logical parent found, return null to keep it orphaned
+    return null;
   }
 
   buildDocumentTree(data) {
+    console.log('Building document tree...');
     const nodes = new Map();
     const rootNodes = [];
     
     // Handle extraction format
     if (data && data.extractions && Array.isArray(data.extractions)) {
+      const totalExtractions = data.extractions.length;
+      console.log(`Processing ${totalExtractions} total extractions`);
+      
+      // Show progress for large datasets
+      if (totalExtractions > 1000) {
+        console.log('Large dataset detected - processing with safeguards');
+      }
+      
       // First, sanitize IDs to ensure uniqueness across all extractions
-      this.sanitizeExtractionIds(data.extractions);
+      try {
+        this.sanitizeExtractionIds(data.extractions);
+        console.log('ID sanitization completed successfully');
+      } catch (error) {
+        console.error('Error during ID sanitization:', error);
+        throw new Error(`ID sanitization failed: ${error.message}`);
+      }
       
       // Filter relevant extraction types like section_tree_visualizer.py does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
@@ -1895,6 +2069,7 @@ class PreviewOptimizer {
             // Add parent chain
             let parentId = this.getParentId(ext);
             while (parentId) {
+              if (requiredNodeIds.has(parentId)) break; // Avoid infinite loops
               requiredNodeIds.add(parentId);
               // Find parent extraction to continue the chain
               const parentExt = data.extractions.find(e => e.attributes?.id === parentId);
@@ -1910,6 +2085,13 @@ class PreviewOptimizer {
         });
         
         console.log(`Filtered from ${data.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
+      }
+      
+      // Limit processing for very large datasets to prevent browser hang
+      const maxProcessingItems = 2000;
+      if (relevant.length > maxProcessingItems) {
+        console.warn(`Dataset too large (${relevant.length} items). Limiting to ${maxProcessingItems} for performance.`);
+        relevant = relevant.slice(0, maxProcessingItems);
       }
       
       console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
