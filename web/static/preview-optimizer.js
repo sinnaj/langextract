@@ -1758,6 +1758,72 @@ class PreviewOptimizer {
       console.log(`Renumbered ID: ${oldId} -> ${newId} (extraction ${index})`);
     });
     
+    // Helper function to find valid parent with enhanced validation
+    const findValidParent = (childExtraction, oldParentId, extractions, oldToNewIdMap) => {
+      const childAttrs = childExtraction.attributes || {};
+      const childParentType = childAttrs.parent_type;
+      const childSectionLevel = childAttrs.section_level;
+      
+      // Look through all potential parent matches
+      for (let i = 0; i < extractions.length; i++) {
+        const uniqueKey = `${oldParentId}__${i}`;
+        if (!oldToNewIdMap.has(uniqueKey)) continue;
+        
+        const potentialParent = extractions[i];
+        const parentAttrs = potentialParent.attributes || {};
+        const parentType = potentialParent.extraction_class;
+        const parentSectionLevel = parentAttrs.section_level;
+        
+        // Enhanced validation: Check parent_type matches extraction_class of parent
+        let parentTypeMatches = false;
+        if (childParentType && parentType) {
+          // Map extraction classes to expected parent types they can satisfy
+          const classToTypeMap = {
+            'SECTION': ['Document', 'Chapter', 'Headline', 'Section', 'Subchapter', 'Subsection', 'Paragraph'],
+            'NORM': ['Section', 'Subsection', 'Paragraph', 'Headline'],
+            'LEGAL_DOCUMENT': ['Document', 'Chapter'],
+            'TABLE': ['Section', 'Subsection', 'Paragraph'],
+            'PARAMETER': ['Section', 'Subsection', 'Norm'],
+            'TAG': ['Section', 'Subsection', 'Norm']
+          };
+          
+          // Check if parent extraction class can satisfy the child's expected parent type
+          const expectedTypes = classToTypeMap[parentType] || [];
+          parentTypeMatches = expectedTypes.includes(childParentType) || 
+                             parentType.toLowerCase() === childParentType.toLowerCase() ||
+                             childParentType === 'Document' || // Document is always valid
+                             childParentType === parentType; // Exact class match
+        }
+        
+        // Enhanced validation: Check section_level hierarchy
+        let sectionLevelValid = true;
+        if (childSectionLevel !== undefined && parentSectionLevel !== undefined) {
+          sectionLevelValid = parentSectionLevel < childSectionLevel;
+        }
+        
+        // If both conditions are satisfied, use this parent
+        if (parentTypeMatches && sectionLevelValid) {
+          const newParentId = oldToNewIdMap.get(uniqueKey);
+          console.log(`Valid parent found: ${oldParentId} -> ${newParentId} (parent_type: ${childParentType}=>${parentType}, levels: ${parentSectionLevel}<${childSectionLevel})`);
+          return newParentId;
+        } else {
+          console.log(`Skipping invalid parent candidate: ${oldParentId}__${i} (type_match: ${parentTypeMatches}, level_valid: ${sectionLevelValid})`);
+        }
+      }
+      
+      // If no valid parent found, return the first occurrence as fallback
+      for (let i = 0; i < extractions.length; i++) {
+        const uniqueKey = `${oldParentId}__${i}`;
+        if (oldToNewIdMap.has(uniqueKey)) {
+          const newParentId = oldToNewIdMap.get(uniqueKey);
+          console.log(`Fallback parent used: ${oldParentId} -> ${newParentId} (no valid parent found with enhanced validation)`);
+          return newParentId;
+        }
+      }
+      
+      return null;
+    };
+
     // Second pass: update all parent_id and parent_section_id references
     extractions.forEach((extraction, index) => {
       const attrs = extraction.attributes || {};
@@ -1765,16 +1831,7 @@ class PreviewOptimizer {
       // Update parent_id
       if (attrs.parent_id) {
         const oldParentId = attrs.parent_id;
-        // Find the new ID for this parent - look through all extractions for the first match
-        let newParentId = null;
-        
-        for (let i = 0; i < extractions.length; i++) {
-          const uniqueKey = `${oldParentId}__${i}`;
-          if (oldToNewIdMap.has(uniqueKey)) {
-            newParentId = oldToNewIdMap.get(uniqueKey);
-            break; // Use the first occurrence
-          }
-        }
+        const newParentId = findValidParent(extraction, oldParentId, extractions, oldToNewIdMap);
         
         if (newParentId) {
           attrs.parent_id = newParentId;
@@ -1785,15 +1842,7 @@ class PreviewOptimizer {
       // Update parent_section_id (used by NORM and TABLE types)  
       if (attrs.parent_section_id) {
         const oldParentSectionId = attrs.parent_section_id;
-        let newParentSectionId = null;
-        
-        for (let i = 0; i < extractions.length; i++) {
-          const uniqueKey = `${oldParentSectionId}__${i}`;
-          if (oldToNewIdMap.has(uniqueKey)) {
-            newParentSectionId = oldToNewIdMap.get(uniqueKey);
-            break; // Use the first occurrence
-          }
-        }
+        const newParentSectionId = findValidParent(extraction, oldParentSectionId, extractions, oldToNewIdMap);
         
         if (newParentSectionId) {
           attrs.parent_section_id = newParentSectionId;
