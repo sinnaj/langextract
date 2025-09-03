@@ -252,7 +252,7 @@ def makeRun(
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
-                ## "suppress_parse_errors_default": True,
+                "suppress_parse_errors_default": True,  ## TODODisable this for proper runs!!!
                 # Disabled alignment allowlist: only align extraction_text for these classes
                 ##"align_only_classes_default": ["Norm", "Tag", "Parameter"],
         },

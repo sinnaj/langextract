@@ -19,11 +19,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "langextract"
-<<<<<<< HEAD
-version = "1.0.8"
-=======
 version = "1.0.9"
->>>>>>> upstream/main
 description = "LangExtract: A library for extracting structured data from language models"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -75,15 +71,6 @@ notebook = [
     "ipython>=7.0.0",
     "notebook>=6.0.0"
 ]
-<<<<<<< HEAD
-translate = [
-    "transformers>=4.41.0",
-    "sentencepiece>=0.1.99",
-    # CPU-only torch; users may choose a different build if needed
-    "torch>=2.1.0",
-]
-=======
->>>>>>> upstream/main
 
 [tool.setuptools]
 packages = [

@@ -497,6 +497,50 @@ class Resolver(AbstractResolver):
       # Apply HTML fixes to the entire content first
       protected = comprehensive_html_fix(protected)
 
+      # MATHEMATICAL EXPRESSION FIXES
+      # Handle common LaTeX/mathematical expressions that cause JSON parsing issues
+      def fix_mathematical_expressions(text):
+        """Fix common mathematical expressions that break JSON parsing"""
+        original_text = text
+        
+        # Fix percentage signs in mathematical expressions like $80\%$ -> $80\\%$
+        # Look for backslash followed by % within dollar signs or standalone
+        text = re.sub(r'\\%', r'\\\\%', text)
+        
+        # Fix dollar signs in mathematical expressions like \$ -> \\$
+        text = re.sub(r'\\(\$)', r'\\\\\\1', text)
+        
+        # Fix common LaTeX symbols that appear after backslashes
+        # Handle \{, \}, \#, \&, \^, \_, \~
+        math_symbols = ['\\{', '\\}', '\\#', '\\&', '\\^', '\\_', '\\~']
+        for symbol in math_symbols:
+          # Escape the backslash before these symbols (but avoid double-escaping)
+          pattern = symbol.replace('\\', '\\\\')  # Escape for regex
+          replacement = '\\\\' + symbol  # Add extra backslash
+          # Only replace if not already escaped
+          text = re.sub(f'(?<!\\\\){pattern}', replacement, text)
+        
+        # Fix mathematical expressions in dollar signs like $\mathsf{...}$ 
+        # Look for \word patterns within mathematical contexts
+        def fix_math_backslash_words(match):
+          math_content = match.group(1)
+          # Replace \word patterns with \\word patterns
+          fixed_content = re.sub(r'\\([a-zA-Z]+)', r'\\\\\\1', math_content)
+          return f'${fixed_content}$'
+        
+        # Apply to dollar-delimited mathematical expressions
+        text = re.sub(r'\$([^$]*\\[a-zA-Z%$#&{}^_~]+[^$]*)\$', fix_math_backslash_words, text)
+        
+        if original_text != text:
+          logging.debug("Mathematical expression fixes applied")
+          logging.debug(f"Math fix preview - before: {original_text[:300]}...")
+          logging.debug(f"Math fix preview - after: {text[:300]}...")
+        
+        return text
+      
+      # Apply mathematical expression fixes
+      protected = fix_mathematical_expressions(protected)
+
       # SECOND: String-aware pass for LaTeX backslashes (after HTML quotes are fixed)
       out_chars: list[str] = []
       in_string = False
@@ -549,10 +593,19 @@ class Resolver(AbstractResolver):
                   i += 1
                   continue
                 else:
-                  # This is a raw backslash that needs escaping (e.g., \mathsf -> \\mathsf)
-                  out_chars.append('\\\\')
-                  i += 1
-                  continue
+                  # Special handling for mathematical expressions
+                  # Mathematical symbols that commonly appear after backslashes in LaTeX/math expressions
+                  math_symbols = set('%$#&{}^_~')  # Common LaTeX mathematical symbols
+                  if nxt in math_symbols:
+                    # Handle mathematical expressions like \%, \$, \{, etc.
+                    out_chars.append('\\\\')  # Escape the backslash
+                    i += 1
+                    continue
+                  else:
+                    # This is a raw backslash that needs escaping (e.g., \mathsf -> \\mathsf)
+                    out_chars.append('\\\\')
+                    i += 1
+                    continue
             else:
               # Trailing backslash inside a string -> escape it
               out_chars.append('\\\\')
