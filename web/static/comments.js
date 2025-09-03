@@ -671,7 +671,7 @@
       if (existingComments.length > 0) {
         overlayHTML += existingComments.map(comment => `
           <div class="existing-comment" data-comment-id="${comment.id}">
-            <div class="comment-author">${this.escapeHTML(comment.author)}</div>
+            <div class="comment-author">${this.escapeHTML(comment.author_name)}</div>
             <div class="comment-text">${this.escapeHTML(comment.text_body)}</div>
             <div class="comment-position">${new Date(comment.created_at).toLocaleString()}</div>
             <div class="comment-actions" style="margin-top: 8px;">
@@ -790,7 +790,7 @@
       const commentData = {
         file_path: this.currentFilePath,
         text_body: text,
-        author: userName,
+        author_name: userName,
         position_data: JSON.stringify(position)
       };
 
