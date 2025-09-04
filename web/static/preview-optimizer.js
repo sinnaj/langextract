@@ -1877,12 +1877,12 @@ class PreviewOptimizer {
         console.log(`Creating synthetic root node for ${cteRootId}`);
         nodes.set(cteRootId, {
           id: cteRootId,
-          title: 'CTE DB-SI - Documento Básico de Seguridad en caso de Incendio',
+          title: 'Legal Document',
           type: 'LEGAL_DOCUMENT',
           parentId: null,
           parentType: null,
           summary: 'Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio',
-          extractionText: 'Root Document',
+          extractionText: 'Root Legal Document',
           children: [],
           isExpanded: true, // Root should be expanded
           level: 0,
@@ -1968,8 +1968,12 @@ class PreviewOptimizer {
     } else if (type === 'TABLE') {
       return attrs.table_description || '';
     } else if (type === 'LEGAL_DOCUMENT') {
+      // For root sections, just return the type name instead of formatted document info
+      if (!attrs.doc_type && !attrs.jurisdiction) {
+        return 'Legal Document';
+      }
       // Match the format: "{doc_type} - {jurisdiction}"
-      const docType = attrs.doc_type || 'Document';
+      const docType = attrs.doc_type || 'Legal Document';
       const jurisdiction = attrs.jurisdiction || 'Unknown jurisdiction';
       return `${docType} - ${jurisdiction}`;
     }
@@ -2004,7 +2008,11 @@ class PreviewOptimizer {
     const indicator = document.createElement('span');
     indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
     
-    if (node.children.length > 0) {
+    // Always make nodes expandable (for children or details)
+    const hasChildren = node.children.length > 0;
+    const hasDetails = this.hasNodeDetails(node);
+    
+    if (hasChildren || hasDetails) {
       indicator.textContent = node.isExpanded ? '▼' : '▶';
       indicator.style.cursor = 'pointer';
       indicator.classList.add('clickable', 'hover:text-blue-600', 'dark:hover:text-blue-400', 'hover:bg-blue-50', 'dark:hover:bg-blue-900', 'rounded');
@@ -2060,6 +2068,28 @@ class PreviewOptimizer {
     nodeContent.appendChild(info);
     nodeElement.appendChild(nodeContent);
     
+    // Create details container (for expandable details)
+    const detailsContainer = document.createElement('div');
+    detailsContainer.className = 'tree-details transition-all duration-300 ease-in-out overflow-hidden';
+    
+    // Render details if the node has them
+    if (this.hasNodeDetails(node)) {
+      this.renderNodeDetails(detailsContainer, node, level);
+      
+      // Set initial visibility
+      if (node.isExpanded) {
+        detailsContainer.style.display = 'block';
+        detailsContainer.style.maxHeight = 'none';
+        detailsContainer.style.opacity = '1';
+      } else {
+        detailsContainer.style.display = 'none';
+        detailsContainer.style.maxHeight = '0px';
+        detailsContainer.style.opacity = '0';
+      }
+      
+      nodeElement.appendChild(detailsContainer);
+    }
+    
     // Create children container
     const childrenContainer = document.createElement('div');
     childrenContainer.className = 'tree-children transition-all duration-300 ease-in-out overflow-hidden';
@@ -2093,11 +2123,14 @@ class PreviewOptimizer {
         return;
       }
       
-      // Single click - toggle expand/collapse for nodes with children
-      if (node.children.length > 0) {
+      // Single click - toggle expand/collapse for nodes with children or details
+      const hasChildren = node.children.length > 0;
+      const hasDetails = this.hasNodeDetails(node);
+      
+      if (hasChildren || hasDetails) {
         e.preventDefault();
         e.stopPropagation();
-        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, currently expanded: ${node.isExpanded}`);
+        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
         
         // Toggle expanded state
         node.isExpanded = !node.isExpanded;
@@ -2114,37 +2147,74 @@ class PreviewOptimizer {
           indicator.style.backgroundColor = 'transparent';
         }
         
-        // Toggle children visibility with smooth animation
-        if (node.isExpanded) {
-          // Expanding
-          childrenContainer.style.display = 'block';
-          childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-          // Force a reflow
-          childrenContainer.offsetHeight;
-          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-          childrenContainer.style.opacity = '1';
-          
-          // Remove max-height after animation for dynamic content
-          setTimeout(() => {
-            if (node.isExpanded) {
-              childrenContainer.style.maxHeight = 'none';
-            }
-          }, 300);
-        } else {
-          // Collapsing
-          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-          childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-          // Force a reflow
-          childrenContainer.offsetHeight;
-          childrenContainer.style.maxHeight = '0px';
-          childrenContainer.style.opacity = '0';
-          
-          // Hide after animation completes
-          setTimeout(() => {
-            if (!node.isExpanded) { // Check if still collapsed
-              childrenContainer.style.display = 'none';
-            }
-          }, 300);
+        // Toggle details visibility if they exist
+        if (hasDetails) {
+          if (node.isExpanded) {
+            // Expanding details
+            detailsContainer.style.display = 'block';
+            detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+            // Force a reflow
+            detailsContainer.offsetHeight;
+            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+            detailsContainer.style.opacity = '1';
+            
+            // Remove max-height after animation for dynamic content
+            setTimeout(() => {
+              if (node.isExpanded) {
+                detailsContainer.style.maxHeight = 'none';
+              }
+            }, 300);
+          } else {
+            // Collapsing details
+            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+            detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+            // Force a reflow
+            detailsContainer.offsetHeight;
+            detailsContainer.style.maxHeight = '0px';
+            detailsContainer.style.opacity = '0';
+            
+            // Hide after animation completes
+            setTimeout(() => {
+              if (!node.isExpanded) { // Check if still collapsed
+                detailsContainer.style.display = 'none';
+              }
+            }, 300);
+          }
+        }
+        
+        // Toggle children visibility if they exist
+        if (hasChildren) {
+          if (node.isExpanded) {
+            // Expanding
+            childrenContainer.style.display = 'block';
+            childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+            // Force a reflow
+            childrenContainer.offsetHeight;
+            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+            childrenContainer.style.opacity = '1';
+            
+            // Remove max-height after animation for dynamic content
+            setTimeout(() => {
+              if (node.isExpanded) {
+                childrenContainer.style.maxHeight = 'none';
+              }
+            }, 300);
+          } else {
+            // Collapsing
+            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+            childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+            // Force a reflow
+            childrenContainer.offsetHeight;
+            childrenContainer.style.maxHeight = '0px';
+            childrenContainer.style.opacity = '0';
+            
+            // Hide after animation completes
+            setTimeout(() => {
+              if (!node.isExpanded) { // Check if still collapsed
+                childrenContainer.style.display = 'none';
+              }
+            }, 300);
+          }
         }
         
         console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
@@ -3087,6 +3157,133 @@ class PreviewOptimizer {
       'LEGAL_DOCUMENT': 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200'
     };
     return classes[type] || 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
+  }
+
+  // Check if a node has details that can be expanded
+  hasNodeDetails(node) {
+    if (!node || !node.extraction) return false;
+    
+    const type = node.type;
+    const attrs = node.extraction.attributes || {};
+    
+    if (type === 'SECTION') {
+      return attrs.parent_section || attrs.section_level || attrs.section_summary;
+    } else if (type === 'NORM') {
+      return attrs.norm_statement || attrs.applies_if || attrs.exempt_if;
+    } else if (type === 'TABLE') {
+      return attrs.table_description || attrs.table_content;
+    } else if (type === 'LEGAL_DOCUMENT') {
+      return attrs.doc_type || attrs.jurisdiction || attrs.document_summary;
+    }
+    
+    // For other types, check if there are any meaningful attributes
+    return Object.keys(attrs).length > 1; // More than just 'id'
+  }
+
+  // Render detailed information for a node
+  renderNodeDetails(container, node, level) {
+    const detailsContent = document.createElement('div');
+    detailsContent.className = 'tree-node-details bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-3 ml-8 mt-2';
+    
+    const type = node.type;
+    const extraction = node.extraction;
+    const attrs = extraction ? extraction.attributes || {} : {};
+    
+    // Create details based on node type
+    if (type === 'SECTION') {
+      this.renderSectionDetails(detailsContent, attrs);
+    } else if (type === 'NORM') {
+      this.renderNormDetails(detailsContent, attrs, extraction);
+    } else if (type === 'TABLE') {
+      this.renderTableDetails(detailsContent, attrs);
+    } else if (type === 'LEGAL_DOCUMENT') {
+      this.renderLegalDocumentDetails(detailsContent, attrs);
+    } else {
+      this.renderGenericDetails(detailsContent, attrs);
+    }
+    
+    container.appendChild(detailsContent);
+  }
+
+  renderSectionDetails(container, attrs) {
+    const details = [
+      { label: 'Parent Section', value: attrs.parent_section || 'None' },
+      { label: 'Section Level', value: attrs.section_level || 'N/A' },
+      { label: 'Section Summary', value: attrs.section_summary || 'No summary available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderNormDetails(container, attrs, extraction) {
+    const details = [
+      { label: 'Norm Statement', value: attrs.norm_statement || extraction?.extraction_text || 'No statement available' },
+      { label: 'Applies If', value: attrs.applies_if || 'Not specified' },
+      { label: 'Exempt If', value: attrs.exempt_if || 'Not specified' },
+      { label: 'Obligation Type', value: attrs.obligation_type || 'Not specified' },
+      { label: 'Paragraph Number', value: attrs.paragraph_number || 'N/A' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderTableDetails(container, attrs) {
+    const details = [
+      { label: 'Table Description', value: attrs.table_description || 'No description available' },
+      { label: 'Table Content', value: attrs.table_content || 'No content available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderLegalDocumentDetails(container, attrs) {
+    const details = [
+      { label: 'Document Type', value: attrs.doc_type || 'Unknown' },
+      { label: 'Jurisdiction', value: attrs.jurisdiction || 'Unknown' },
+      { label: 'Document Summary', value: attrs.document_summary || 'No summary available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderGenericDetails(container, attrs) {
+    // For other types, show all available attributes except 'id'
+    const details = [];
+    Object.keys(attrs).forEach(key => {
+      if (key !== 'id' && attrs[key] !== null && attrs[key] !== undefined) {
+        const label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        const value = typeof attrs[key] === 'object' ? JSON.stringify(attrs[key]) : String(attrs[key]);
+        details.push({ label, value });
+      }
+    });
+    
+    if (details.length > 0) {
+      this.renderDetailsList(container, details);
+    } else {
+      container.innerHTML = '<div class="text-xs text-gray-500 dark:text-gray-400">No additional details available</div>';
+    }
+  }
+
+  renderDetailsList(container, details) {
+    details.forEach(detail => {
+      if (detail.value && detail.value !== 'N/A' && detail.value !== 'Not specified') {
+        const detailItem = document.createElement('div');
+        detailItem.className = 'detail-item mb-2 last:mb-0';
+        
+        const label = document.createElement('div');
+        label.className = 'detail-label text-xs font-medium text-gray-700 dark:text-gray-300 mb-1';
+        label.textContent = detail.label + ':';
+        
+        const value = document.createElement('div');
+        value.className = 'detail-value text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-words';
+        value.textContent = detail.value;
+        value.style.wordBreak = 'break-word';
+        
+        detailItem.appendChild(label);
+        detailItem.appendChild(value);
+        container.appendChild(detailItem);
+      }
+    });
   }
 
   escapeHtml(text) {
