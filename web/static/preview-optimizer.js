@@ -1724,8 +1724,8 @@ class PreviewOptimizer {
     
     // Handle extraction format
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
-      // Filter relevant extraction types like section_tree_visualizer.py does
-      const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
+      // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
+      const relevantTypes = ['SECTION', 'NORM', 'TABLE'];
       let relevant = normalizedData.extractions.filter(ext => 
         relevantTypes.includes(ext.extraction_class)
       );
@@ -1877,12 +1877,12 @@ class PreviewOptimizer {
         console.log(`Creating synthetic root node for ${cteRootId}`);
         nodes.set(cteRootId, {
           id: cteRootId,
-          title: 'Legal Document',
-          type: 'LEGAL_DOCUMENT',
+          title: 'CTE - Código Técnico de la Edificación',
+          type: 'SECTION', // Change from LEGAL_DOCUMENT to SECTION
           parentId: null,
           parentType: null,
           summary: 'Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio',
-          extractionText: 'Root Legal Document',
+          extractionText: cteRootId,
           children: [],
           isExpanded: true, // Root should be expanded
           level: 0,
@@ -1906,11 +1906,11 @@ class PreviewOptimizer {
         nodes.set(rootId, {
           id: rootId,
           title: this.generateSyntheticRootTitle(rootId),
-          type: 'LEGAL_DOCUMENT',
+          type: 'SECTION', // Change from LEGAL_DOCUMENT to SECTION to avoid confusion
           parentId: null,
           parentType: null,
-          summary: `Synthetic root document: ${rootId}`,
-          extractionText: 'Synthetic Root Document',
+          summary: `Root section: ${rootId}`,
+          extractionText: rootId,
           children: [],
           isExpanded: true,
           level: 0,
@@ -1923,6 +1923,7 @@ class PreviewOptimizer {
 
   generateSyntheticRootTitle(rootId) {
     // Generate more meaningful titles for synthetic roots based on ID patterns
+    // Remove "Document Root" as requested
     if (rootId.includes('CTE')) {
       return 'CTE - Código Técnico de la Edificación';
     } else if (rootId.includes('DB')) {
@@ -1930,7 +1931,7 @@ class PreviewOptimizer {
     } else if (rootId.includes('SI')) {
       return `Seguridad en caso de Incendio - ${rootId}`;
     } else {
-      return `Document Root - ${rootId}`;
+      return rootId; // Just use the ID itself instead of "Document Root"
     }
   }
 
@@ -1940,7 +1941,8 @@ class PreviewOptimizer {
     
     // Follow section_tree_visualizer.py patterns for title extraction
     if (type === 'SECTION') {
-      return attrs.section_title || extraction.extraction_text || 'Untitled Section';
+      // Use section_name if available, otherwise fall back to section_title or extraction text
+      return attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
     } else if (type === 'NORM') {
       const statement = attrs.norm_statement || attrs.statement_text || extraction.extraction_text || '';
       // Truncate long norm statements like section_tree_visualizer.py does
@@ -1948,7 +1950,8 @@ class PreviewOptimizer {
     } else if (type === 'TABLE') {
       return attrs.table_title || extraction.extraction_text?.substring(0, 50) || 'Table';
     } else if (type === 'LEGAL_DOCUMENT') {
-      return attrs.doc_title || attrs.title || 'Legal Document';
+      // Use extraction_text for LEGAL_DOCUMENT as requested
+      return extraction.extraction_text || attrs.doc_title || attrs.title || 'Legal Document';
     }
     return extraction.extraction_text || 'Unknown';
   }
@@ -2035,12 +2038,9 @@ class PreviewOptimizer {
     const header = document.createElement('div');
     header.className = 'tree-header flex items-center space-x-2 flex-wrap';
     
-    const idSpan = document.createElement('span');
-    idSpan.className = 'node-id font-semibold text-blue-600 dark:text-blue-400 text-sm';
-    idSpan.textContent = node.id;
-    
+    // Remove ID display - just show title and type
     const titleSpan = document.createElement('span');
-    titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm';
+    titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm flex-grow';
     titleSpan.textContent = node.title;
     titleSpan.title = node.title; // Show full title on hover
     titleSpan.style.wordBreak = 'break-word'; // Allow text wrapping
@@ -2049,7 +2049,6 @@ class PreviewOptimizer {
     typeSpan.className = `node-type text-xs px-2 py-1 rounded-full flex-shrink-0 font-medium ${this.getTypeClass(node.type)}`;
     typeSpan.textContent = node.type;
     
-    header.appendChild(idSpan);
     header.appendChild(titleSpan);
     header.appendChild(typeSpan);
     info.appendChild(header);
@@ -3579,15 +3578,27 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     let displayText = '';
     
-    // Format display text based on extraction type
-    if (attrs.section_title) {
-      displayText = `${attrs.id || 'Unknown'} - ${attrs.section_title}`;
-    } else if (attrs.norm_statement) {
-      displayText = `${attrs.id || 'Unknown'} - ${attrs.norm_statement.substring(0, 100)}${attrs.norm_statement.length > 100 ? '...' : ''}`;
-    } else if (extraction.extraction_text) {
-      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_text.substring(0, 100)}${extraction.extraction_text.length > 100 ? '...' : ''}`;
+    // Format display text based on extraction type - remove IDs
+    if (extraction.extraction_class === 'SECTION') {
+      // Use section_name if available, otherwise section_title
+      displayText = attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
+    } else if (extraction.extraction_class === 'NORM') {
+      displayText = attrs.norm_statement?.substring(0, 100) || extraction.extraction_text?.substring(0, 100) || 'Norm';
+      if ((attrs.norm_statement?.length || extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
+    } else if (extraction.extraction_class === 'TABLE') {
+      displayText = attrs.table_title || extraction.extraction_text?.substring(0, 100) || 'Table';
+      if ((extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
+    } else if (extraction.extraction_class === 'LEGAL_DOCUMENT') {
+      displayText = extraction.extraction_text || attrs.doc_title || attrs.title || 'Legal Document';
     } else {
-      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_class}`;
+      displayText = extraction.extraction_text?.substring(0, 100) || extraction.extraction_class || 'Unknown';
+      if ((extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
     }
     
     nodeText.textContent = displayText;
