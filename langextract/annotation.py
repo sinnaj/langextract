@@ -37,6 +37,13 @@ from langextract.core import base_model
 from langextract.core import data
 from langextract.core import exceptions
 
+# Import section chunking functionality
+try:
+  from langextract import section_chunking
+  SECTION_CHUNKING_AVAILABLE = True
+except ImportError:
+  SECTION_CHUNKING_AVAILABLE = False
+
 ATTRIBUTE_SUFFIX = "_attributes"
 
 
@@ -120,6 +127,7 @@ def _document_chunk_iterator(
     documents: Iterable[data.Document],
     max_char_buffer: int,
     restrict_repeats: bool = True,
+    use_section_chunking: bool = False,
 ) -> Iterator[chunking.TextChunk]:
   """Iterates over documents to yield text chunks along with the document ID.
 
@@ -128,6 +136,8 @@ def _document_chunk_iterator(
     max_char_buffer: The maximum character buffer size for the ChunkIterator.
     restrict_repeats: Whether to restrict the same document id from being
       visited more than once.
+    use_section_chunking: Whether to use section-based chunking instead of
+      character-based chunking.
 
   Yields:
     TextChunk containing document ID for a corresponding document.
@@ -145,11 +155,17 @@ def _document_chunk_iterator(
       raise DocumentRepeatError(
           f"Document id {document_id} is already visited."
       )
-    chunk_iter = chunking.ChunkIterator(
-        text=tokenized_text,
-        max_char_buffer=max_char_buffer,
-        document=document,
-    )
+    
+    if use_section_chunking and SECTION_CHUNKING_AVAILABLE:
+      # Use section-based chunking
+      chunk_iter = section_chunking.SectionChunkIterator(document)
+    else:
+      # Use character-based chunking
+      chunk_iter = chunking.ChunkIterator(
+          text=tokenized_text,
+          max_char_buffer=max_char_buffer,
+          document=document,
+      )
     visited_ids.add(document_id)
 
     yield from chunk_iter
@@ -201,6 +217,7 @@ class Annotator:
       batch_length: int = 1,
       debug: bool = True,
       extraction_passes: int = 1,
+      use_section_chunking: bool = False,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Annotates a sequence of documents with NLP extractions.
@@ -223,6 +240,8 @@ class Annotator:
         standard single extraction.
         Values > 1 reprocess tokens multiple times, potentially increasing
         costs with the potential for a more thorough extraction.
+      use_section_chunking: Whether to use section-based chunking instead of
+        character-based chunking for markdown documents.
       **kwargs: Additional arguments passed to LanguageModel.infer and Resolver.
 
     Yields:
@@ -234,7 +253,8 @@ class Annotator:
 
     if extraction_passes == 1:
       yield from self._annotate_documents_single_pass(
-          documents, resolver, max_char_buffer, batch_length, debug, **kwargs
+          documents, resolver, max_char_buffer, batch_length, debug, 
+          use_section_chunking, **kwargs
       )
     else:
       yield from self._annotate_documents_sequential_passes(
@@ -244,6 +264,7 @@ class Annotator:
           batch_length,
           debug,
           extraction_passes,
+          use_section_chunking,
           **kwargs,
       )
 
@@ -254,6 +275,7 @@ class Annotator:
       max_char_buffer: int,
       batch_length: int,
       debug: bool,
+      use_section_chunking: bool = False,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Single-pass annotation logic (original implementation)."""
@@ -266,7 +288,8 @@ class Annotator:
       return
 
     annotated_extractions: list[data.Extraction] = []
-    chunk_iter = _document_chunk_iterator(doc_iter_for_chunks, max_char_buffer)
+    chunk_iter = _document_chunk_iterator(doc_iter_for_chunks, max_char_buffer, 
+                                          use_section_chunking=use_section_chunking)
 
     batches = chunking.make_batches_of_textchunk(chunk_iter, batch_length)
 
@@ -397,6 +420,7 @@ class Annotator:
       batch_length: int,
       debug: bool,
       extraction_passes: int,
+      use_section_chunking: bool = False,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Sequential extraction passes logic for improved recall."""
@@ -423,6 +447,7 @@ class Annotator:
           max_char_buffer,
           batch_length,
           debug=(debug and pass_num == 0),
+          use_section_chunking=use_section_chunking,
           **kwargs,  # Only show progress on first pass
       ):
         doc_id = annotated_doc.document_id
@@ -472,6 +497,7 @@ class Annotator:
       additional_context: str | None = None,
       debug: bool = True,
       extraction_passes: int = 1,
+      use_section_chunking: bool = False,
       **kwargs,
   ) -> data.AnnotatedDocument:
     """Annotates text with NLP extractions for text input.
@@ -488,6 +514,8 @@ class Annotator:
         recall by finding additional entities. Defaults to 1, which performs
         standard single extraction. Values > 1 reprocess tokens multiple times,
         potentially increasing costs.
+      use_section_chunking: Whether to use section-based chunking instead of
+        character-based chunking for markdown documents.
       **kwargs: Additional arguments for inference and resolver_lib.
 
     Returns:
@@ -511,6 +539,7 @@ class Annotator:
             batch_length,
             debug,
             extraction_passes,
+            use_section_chunking,
             **kwargs,
         )
     )

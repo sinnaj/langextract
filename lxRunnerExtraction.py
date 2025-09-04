@@ -249,6 +249,7 @@ def makeRun(
         use_schema_constraints=False,
         max_char_buffer=MAX_CHAR_BUFFER,
         extraction_passes=EXTRACTION_PASSES,   # Improves recall through multiple passes
+        use_section_chunking=True,  # Enable section-based chunking
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
@@ -527,7 +528,7 @@ def makeRun(
         except Exception as raw_save_err:
             print(f"[WARN] Failed to save raw resolver output: {raw_save_err}", file=sys.stderr)
 
-        # Persist the annotated document outputs BEFORE any processing/enrichment
+            # Persist the annotated document outputs BEFORE any processing/enrichment
         try:
             def _ci_dict(ci):
                 if not ci:
@@ -558,6 +559,7 @@ def makeRun(
                 return alignment_status
 
             raw_items = []
+            section_metadata_list = []  # Collect section metadata
             
             extractions = getattr(annotated, "extractions", [])
             extraction_count = 0
@@ -568,6 +570,23 @@ def makeRun(
                 
                 extraction_count += 1
                 attributes = getattr(e, "attributes", {})
+                
+                # Check if this extraction comes from a section chunk
+                chunk_source = getattr(e, "_chunk_source", None)  # Custom attribute to track source chunk
+                section_metadata = None
+                if hasattr(chunk_source, "section_metadata") and chunk_source.section_metadata:
+                    section_metadata = {
+                        "section_id": chunk_source.section_metadata.section_id,
+                        "section_name": chunk_source.section_metadata.section_name,
+                        "section_level": chunk_source.section_metadata.section_level,
+                        "parent_section": chunk_source.section_metadata.parent_section_id,
+                        "sub_sections": chunk_source.section_metadata.sub_sections,
+                        "section_summary": chunk_source.section_metadata.section_summary,
+                    }
+                    # Add to section metadata list if not already present
+                    if section_metadata not in section_metadata_list:
+                        section_metadata_list.append(section_metadata)
+                
                 item = {
                     "extraction_class": getattr(e, "extraction_class", None),
                     "extraction_text": getattr(e, "extraction_text", None),
@@ -578,6 +597,7 @@ def makeRun(
                     "group_index": getattr(e, "group_index", None),
                     "description": getattr(e, "description", None),
                     "token_interval": _ti_dict(getattr(e, "token_interval", None)),
+                    "section_metadata": section_metadata,  # Add section metadata to each extraction
                 }
                 raw_items.append(item)
 
@@ -608,12 +628,26 @@ def makeRun(
             raw_legacy = {
                 "document_id": getattr(annotated, "document_id", None),
                 "extractions": raw_items,
+                "section_metadata": section_metadata_list,  # Include section metadata
+                "processing_info": {
+                    "chunking_method": "section_based",
+                    "total_sections": len(section_metadata_list),
+                    "total_extractions": len(raw_items)
+                }
             }
             raw_name = f"annotated_extractions_{idx:03}.json" if idx is not None else "annotated_extractions_single.json"
             (lx_output_dir / raw_name).write_text(
                 json.dumps(raw_legacy, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
+            
+            # Save as raw_extraction.json as requested
+            raw_extraction_name = "raw_extraction.json"
+            (lx_output_dir / raw_extraction_name).write_text(
+                json.dumps(raw_legacy, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            print(f"[INFO] Raw extraction data saved to: {raw_extraction_name}", file=sys.stderr)
         except Exception as pe:
             print(f"[WARN] Failed to persist raw annotated outputs: {pe}", file=sys.stderr)
 
