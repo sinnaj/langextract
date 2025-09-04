@@ -27,6 +27,7 @@ class SectionMetadata:
         parent_section_id: ID of the parent section (None for top-level).
         sub_sections: List of child section IDs.
         section_summary: Summary of the section content (to be filled by LangExtract).
+        section_type: Type of section (Table for tables, Headline for regular headers).
     """
     section_id: str
     section_name: str
@@ -35,6 +36,7 @@ class SectionMetadata:
     parent_section_id: Optional[str] = None
     sub_sections: List[str] = dataclasses.field(default_factory=list)
     section_summary: str = ""
+    section_type: str = "Headline"
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
@@ -46,6 +48,7 @@ class SectionMetadata:
             "parent_section": self.parent_section_id,
             "sub_sections": self.sub_sections,
             "section_summary": self.section_summary,
+            "section_type": self.section_type,
         }
 
 
@@ -70,8 +73,76 @@ class SectionChunk:
         }
 
 
+def detect_table_in_lines(lines: List[str], start_index: int) -> Optional[Tuple[int, int]]:
+    """Detect markdown table starting from the given line index.
+    
+    Args:
+        lines: List of text lines.
+        start_index: Index to start looking for table.
+        
+    Returns:
+        Tuple of (start_line_index, end_line_index) if table found, None otherwise.
+    """
+    table_start = None
+    table_end = None
+    
+    # Look for table patterns starting from start_index
+    for i in range(start_index, len(lines)):
+        line = lines[i].strip()
+        
+        # Check if line looks like a table row (contains | and isn't empty)
+        if line and '|' in line and not line.startswith('#'):
+            if table_start is None:
+                table_start = i
+            table_end = i
+        elif table_start is not None:
+            # We've found the end of the table
+            break
+        elif line == '':
+            # Empty line - continue looking
+            continue
+        else:
+            # Non-table content - if we haven't found a table yet, this isn't one
+            if table_start is None:
+                break
+    
+    # Validate that we found a substantial table (at least 2 rows)
+    if table_start is not None and table_end is not None and (table_end - table_start) >= 1:
+        return (table_start, table_end)
+    
+    return None
+
+
+def is_markdown_table_line(line: str) -> bool:
+    """Check if a line appears to be part of a markdown table.
+    
+    Args:
+        line: Text line to check.
+        
+    Returns:
+        True if line appears to be part of a markdown table.
+    """
+    line = line.strip()
+    if not line or line.startswith('#'):
+        return False
+    
+    # Basic check for table delimiter
+    if '|' in line:
+        # Could be a table row or separator
+        return True
+    
+    # Check for table separator line (e.g., |---|---|)
+    if re.match(r'^[\|\s\-:]+$', line):
+        return True
+    
+    return False
+
+
 def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, int]]:
     """Parse markdown text to identify sections and their boundaries.
+    
+    Handles both regular sections (headers) and tables as special section types.
+    When inside a table, header lines are not treated as section boundaries.
     
     Args:
         text: The markdown text to parse.
@@ -86,12 +157,64 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
     current_start_pos = 0
     section_stack = []  # Stack to track parent sections
     section_counter = 1
+    i = 0
     
-    for i, line in enumerate(lines):
-        # Check if line is a header
+    while i < len(lines):
+        line = lines[i]
+        
+        # Check if we're starting a table
+        table_range = detect_table_in_lines(lines, i)
+        if table_range:
+            table_start, table_end = table_range
+            
+            # Save previous section if exists
+            if current_metadata is not None and current_section_lines:
+                section_text = '\n'.join(current_section_lines)
+                end_pos = current_start_pos + len(section_text)
+                sections.append((section_text, current_metadata, current_start_pos, end_pos))
+                current_start_pos = end_pos + 1  # +1 for newline
+            
+            # Create table section
+            table_lines = lines[table_start:table_end + 1]
+            table_text = '\n'.join(table_lines)
+            table_name = f"Table {section_counter}"
+            section_id = f"section_{section_counter:03d}"
+            
+            # Determine parent based on current section stack
+            parent_id = section_stack[-1][0] if section_stack else None
+            
+            table_metadata = SectionMetadata(
+                section_id=section_id,
+                section_name=table_name,
+                section_level=section_stack[-1][1] + 1 if section_stack else 1,  # One level deeper than current
+                section_index=section_counter - 1,
+                parent_section_id=parent_id,
+                section_type="Table"
+            )
+            
+            # Add to parent's sub_sections if applicable
+            if parent_id:
+                for section_tuple in sections:
+                    _, meta, _, _ = section_tuple
+                    if meta.section_id == parent_id:
+                        meta.sub_sections.append(section_id)
+                        break
+            
+            # Create section for the table
+            sections.append((table_text, table_metadata, current_start_pos, current_start_pos + len(table_text)))
+            current_start_pos += len(table_text) + 1
+            section_counter += 1
+            
+            # Skip to after the table
+            i = table_end + 1
+            current_section_lines = []
+            current_metadata = None
+            continue
+        
+        # Check if line is a header (only if not inside a table)
         header_match = re.match(r'^(#{1,6})\s+(.+)$', line.strip())
         
-        if header_match:
+        if header_match and not is_markdown_table_line(line):
             # Save previous section if exists
             if current_metadata is not None and current_section_lines:
                 section_text = '\n'.join(current_section_lines)
@@ -118,7 +241,8 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
                 section_name=section_title,
                 section_level=header_level,
                 section_index=section_counter - 1,  # 0-based index
-                parent_section_id=parent_id
+                parent_section_id=parent_id,
+                section_type="Headline"
             )
             
             section_counter += 1
@@ -148,11 +272,14 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
                         section_id="section_000",
                         section_name="Introduction",
                         section_level=1,
-                        section_index=0
+                        section_index=0,
+                        section_type="Headline"
                     )
                     current_section_lines = [line]
                 elif current_section_lines:
                     current_section_lines.append(line)
+        
+        i += 1
     
     # Add final section
     if current_metadata is not None and current_section_lines:

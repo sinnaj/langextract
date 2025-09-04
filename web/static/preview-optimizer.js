@@ -1732,7 +1732,7 @@ class PreviewOptimizer {
               id: section.section_id,
               title: section.section_name || section.section_title || section.extraction_text || section.section_id,
               type: 'SECTION',
-              parentId: section.parent_section_id || null,
+              parentId: section.parent_section || null,
               parentType: 'SECTION',
               summary: section.section_summary || '',
               extractionText: section.extraction_text || '',
@@ -3248,6 +3248,7 @@ class PreviewOptimizer {
     const details = [
       { label: 'Norm Statement', value: attrs.norm_statement || extraction?.extraction_text || 'No statement available' },
       { label: 'Applies If', value: attrs.applies_if || 'Not specified' },
+      { label: 'Satisfied If', value: attrs.satisfied_if || 'Not specified' },
       { label: 'Exempt If', value: attrs.exempt_if || 'Not specified' },
       { label: 'Obligation Type', value: attrs.obligation_type || 'Not specified' },
       { label: 'Paragraph Number', value: attrs.paragraph_number || 'N/A' }
