@@ -1724,8 +1724,32 @@ class PreviewOptimizer {
     
     // Handle extraction format
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      // First, add actual section nodes from the sections array if available
+      if (normalizedData.sections && Array.isArray(normalizedData.sections)) {
+        normalizedData.sections.forEach(section => {
+          if (section.section_id) {
+            const nodeData = {
+              id: section.section_id,
+              title: section.section_name || section.section_title || section.extraction_text || section.section_id,
+              type: 'SECTION',
+              parentId: section.parent_section_id || null,
+              parentType: 'SECTION',
+              summary: section.section_summary || '',
+              extractionText: section.extraction_text || '',
+              children: [],
+              isExpanded: true, // Sections start expanded
+              level: 0,
+              attributes: section,
+              extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
+            };
+            nodes.set(section.section_id, nodeData);
+            console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
+          }
+        });
+      }
+      
       // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
-      const relevantTypes = ['SECTION', 'NORM', 'TABLE'];
+      const relevantTypes = ['NORM', 'TABLE']; // Removed SECTION since we get those from sections array
       let relevant = normalizedData.extractions.filter(ext => 
         relevantTypes.includes(ext.extraction_class)
       );
@@ -1800,8 +1824,10 @@ class PreviewOptimizer {
         console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
       });
       
-      // Check if we need to create synthetic root nodes (following section_tree_visualizer.py)
-      this.createSyntheticRoots(nodes);
+      // Create synthetic root nodes only if needed and sections array is not available
+      if (!normalizedData.sections || normalizedData.sections.length === 0) {
+        this.createSyntheticRoots(nodes);
+      }
       
       // Second pass: build parent-child relationships
       let orphanCount = 0;
@@ -1930,6 +1956,10 @@ class PreviewOptimizer {
       return `Documento Básico - ${rootId}`;
     } else if (rootId.includes('SI')) {
       return `Seguridad en caso de Incendio - ${rootId}`;
+    } else if (rootId.startsWith('section_')) {
+      // Extract section number and create a more meaningful title
+      const sectionNum = rootId.replace('section_', '');
+      return `Section ${sectionNum}`;
     } else {
       return rootId; // Just use the ID itself instead of "Document Root"
     }
@@ -1945,8 +1975,8 @@ class PreviewOptimizer {
       return attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
     } else if (type === 'NORM') {
       const statement = attrs.norm_statement || attrs.statement_text || extraction.extraction_text || '';
-      // Truncate long norm statements like section_tree_visualizer.py does
-      return statement.length > 100 ? statement.substring(0, 100) + '...' : statement;
+      // Truncate long norm statements for better display
+      return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
     } else if (type === 'TABLE') {
       return attrs.table_title || extraction.extraction_text?.substring(0, 50) || 'Table';
     } else if (type === 'LEGAL_DOCUMENT') {
