@@ -614,6 +614,7 @@ def makeRun(
                 
                 extraction_count += 1
                 attributes = getattr(e, "attributes", {})
+                extraction_class = getattr(e, "extraction_class", None)
                 
                 # Use section metadata from parameter if provided
                 extraction_section_metadata = None
@@ -629,9 +630,14 @@ def makeRun(
                     # Add to section metadata list if not already present
                     if extraction_section_metadata not in section_metadata_list:
                         section_metadata_list.append(extraction_section_metadata)
+                    
+                    # For NORM extractions, ensure parent_section_id is set in attributes
+                    if extraction_class == "NORM" and "parent_section_id" not in attributes:
+                        attributes = dict(attributes)  # Make a copy to avoid modifying original
+                        attributes["parent_section_id"] = section_metadata.section_id
                 
                 item = {
-                    "extraction_class": getattr(e, "extraction_class", None),
+                    "extraction_class": extraction_class,
                     "extraction_text": getattr(e, "extraction_text", None),
                     "attributes": attributes,
                     "char_interval": _ci_dict(getattr(e, "char_interval", None)),
