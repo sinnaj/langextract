@@ -1,0 +1,405 @@
+{
+  "document_id": "doc_ac8e708c",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En las zonas de hospitalización y de tratamiento intensivo cuya altura de evacuación es mayor que 15 m.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "section_014",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An emergency elevator must be provided.",
+        "applies_if": "BUILDING.USAGE IN ['PUBLIC.HOSPITAL'] AND EVACUATION.HEIGHT > 15",
+        "satisfied_if": "HAS(ELEVATOR.EMERGENCY)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "EVACUATION.HEIGHT",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.HEIGHT > 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 84,
+        "end_pos": 147
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 16,
+        "end_index": 28
+      },
+      "section_metadata": {
+        "section_id": "section_014",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "parent_section": "section_013",
+        "sub_sections": [
+          "section_015",
+          "section_016",
+          "section_017",
+          "section_018"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Uno si la superficie total construida está comprendida entre 2.000 y 10.000 m².",
+      "attributes": {
+        "id": "f1e2d3c4-b5a6-9876-5432-10fedcba9876",
+        "parent_section_id": "section_014",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One exterior hydrant must be provided.",
+        "applies_if": "BUILDING.AREA.TOTAL_CONSTRUCTED >= 2000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "HYDRANT.EXTERIOR",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 2000 sq_m",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 218,
+        "end_pos": 297
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 64
+      },
+      "section_metadata": {
+        "section_id": "section_014",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "parent_section": "section_013",
+        "sub_sections": [
+          "section_015",
+          "section_016",
+          "section_017",
+          "section_018"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Uno más por cada 10.000 m² adicionales o fracción.(3)",
+      "attributes": {
+        "id": "g1h2i3j4-k5l6-7890-1234-567890mnopqr",
+        "parent_section_id": "section_014",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One additional exterior hydrant must be provided for every 10,000 m² or fraction thereof.",
+        "applies_if": "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1 + CEILING((BUILDING.AREA.TOTAL_CONSTRUCTED - 10000) / 10000)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "HYDRANT.EXTERIOR",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000 sq_m",
+          "10000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "CEILING function is an interpretation of 'or fraction'"
+      },
+      "char_interval": {
+        "start_pos": 300,
+        "end_pos": 353
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 64,
+        "end_index": 83
+      },
+      "section_metadata": {
+        "section_id": "section_014",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "parent_section": "section_013",
+        "sub_sections": [
+          "section_015",
+          "section_016",
+          "section_017",
+          "section_018"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ELEVATOR.EMERGENCY",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "ELEVATOR.EMERGENCY",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "EVACUATION.HEIGHT",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "EVACUATION.HEIGHT",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.USAGE.PUBLIC.HOSPITAL",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "BUILDING.USAGE.PUBLIC.HOSPITAL",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "HYDRANT.EXTERIOR",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "HYDRANT.EXTERIOR",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876",
+          "g1h2i3j4-k5l6-7890-1234-567890mnopqr"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.AREA.TOTAL_CONSTRUCTED",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "BUILDING.AREA.TOTAL_CONSTRUCTED",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876",
+          "g1h2i3j4-k5l6-7890-1234-567890mnopqr"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "EVACUATION.HEIGHT > 15 m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 15,
+        "unit": "m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_CONSTRUCTED >= 2000 sq_m",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_CONSTRUCTED",
+        "operator": ">=",
+        "value": 2000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 sq_m",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_CONSTRUCTED",
+        "operator": "<=",
+        "value": 10000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000 sq_m",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_CONSTRUCTED",
+        "operator": ">",
+        "value": 10000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "g1h2i3j4-k5l6-7890-1234-567890mnopqr"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_014",
+      "section_name": "SI 4. Instalaciones de protección contra incendios",
+      "section_level": 2,
+      "parent_section": "section_013",
+      "sub_sections": [
+        "section_015",
+        "section_016",
+        "section_017",
+        "section_018"
+      ],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 12
+  }
+}

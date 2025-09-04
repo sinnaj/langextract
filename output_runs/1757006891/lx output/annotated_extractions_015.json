@@ -1,0 +1,888 @@
+{
+  "document_id": "doc_90b2dba3",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En toda agrupación de locales de riesgo especial medio y alto cuya superficie construida total excede de 1.000 m², extintores móviles de 50 kg de polvo, distribuidos a razón de un extintor por cada 1.000 m² de superficie que supere dicho límite o fracción.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "section_016",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Mobile 50 kg powder fire extinguishers must be provided in all groupings of medium and high special risk premises whose total built area exceeds 1,000 m².",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND PREMISES.RISK_LEVEL IN ['MEDIUM', 'HIGH'] AND PREMISES.AREA.TOTAL_BUILT > 1000",
+        "satisfied_if": "FIRE_EXTINGUISHER.TYPE == 'MOBILE' AND FIRE_EXTINGUISHER.CAPACITY == '50_KG_POWDER' AND FIRE_EXTINGUISHER.COUNT >= CEILING((PREMISES.AREA.TOTAL_BUILT - 1000) / 1000)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_EXTINGUISHER",
+          "PREMISES.RISK_LEVEL",
+          "PREMISES.AREA.TOTAL_BUILT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_EXTINGUISHER.CAPACITY: 50 kg",
+          "PREMISES.AREA.TOTAL_BUILT > 1000 m²",
+          "FIRE_EXTINGUISHER.DENSITY: 1 per 1000 m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 43,
+        "end_pos": 64
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 8,
+        "end_index": 14
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la superficie construida excede de 500 m².(7)",
+      "attributes": {
+        "id": "b2c3d4e5-f678-9012-3456-7890abcdef12",
+        "parent_section_id": "section_016",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_BUILT > 500",
+        "satisfied_if": "FIRE_HYDRANT.TYPE == 'EQUIPPED'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_HYDRANT",
+          "BUILDING.AREA.TOTAL_BUILT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_BUILT > 500 m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 339,
+        "end_pos": 387
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 80,
+        "end_index": 91
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la altura de evacuación excede de 24 m.",
+      "attributes": {
+        "id": "c3d4e5f6-7890-1234-5678-90abcdef1234",
+        "parent_section_id": "section_016",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A dry column system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.EVACUATION_HEIGHT > 24",
+        "satisfied_if": "FIRE_SUPPRESSION.SYSTEM.TYPE == 'DRY_COLUMN'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_SUPPRESSION.SYSTEM",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION_HEIGHT > 24 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 411,
+        "end_pos": 453
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 97,
+        "end_index": 109
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la superficie construida excede de 1.000 m².",
+      "attributes": {
+        "id": "d4e5f678-9012-3456-7890abcdef123456",
+        "parent_section_id": "section_016",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An alarm system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_BUILT > 1000",
+        "satisfied_if": "FIRE_ALARM.SYSTEM.EXISTS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_ALARM.SYSTEM",
+          "BUILDING.AREA.TOTAL_BUILT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_BUILT > 1000 m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 482,
+        "end_pos": 529
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 116,
+        "end_index": 127
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la superficie construida excede de 2.000 m².(8)",
+      "attributes": {
+        "id": "e5f67890-1234-5678-90abcdef12345678",
+        "parent_section_id": "section_016",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire detection system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_BUILT > 2000",
+        "satisfied_if": "FIRE_DETECTION.SYSTEM.EXISTS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_DETECTION.SYSTEM",
+          "BUILDING.AREA.TOTAL_BUILT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_BUILT > 2000 m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 572,
+        "end_pos": 622
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 139,
+        "end_index": 152
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la superficie total construida del área pública de ventas excede de 1.500 m² y en ella la densidad de carga de fuego ponderada y corregida aportada por los productos comercializados es mayor que 500 MJ/m², contará con la instalación, tanto el área pública de ventas, como los locales y zonas de riesgo especial medio y alto conforme al capítulo 2 de la Sección 1 de este DB.",
+      "attributes": {
+        "id": "f67890ab-cdef-1234-5678-90abcdef1234567890",
+        "parent_section_id": "section_016",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An automatic extinguishing system must be installed in the public sales area, as well as in medium and high special risk premises and areas.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND SALES_AREA.AREA.TOTAL_BUILT > 1500 AND SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED > 500",
+        "satisfied_if": "FIRE_EXTINGUISHING.SYSTEM.TYPE == 'AUTOMATIC' AND (SALES_AREA.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE OR PREMISES.RISK_LEVEL IN ['MEDIUM', 'HIGH'] AND PREMISES.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_EXTINGUISHING.SYSTEM",
+          "SALES_AREA.AREA.TOTAL_BUILT",
+          "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED",
+          "PREMISES.RISK_LEVEL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SALES_AREA.AREA.TOTAL_BUILT > 1500 m²",
+          "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED > 500 MJ/m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Compliance also refers to Chapter 2, Section 1 of this DB."
+      },
+      "char_interval": {
+        "start_pos": 666,
+        "end_pos": 758
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 164,
+        "end_index": 188
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Uno si la superficie total construida está comprendida entre 1.000 y 10.000 m². Uno más por cada 10.000 m² adicionales o fracción.(3)",
+      "attributes": {
+        "id": "g7h8i9j0-klmn-opqr-stuv-wxyzabcdef12",
+        "parent_section_id": "section_016",
+        "paragraph_number": 7,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "External hydrants must be provided based on the total built area.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_BUILT >= 1000",
+        "satisfied_if": "FIRE_HYDRANT.TYPE == 'EXTERNAL' AND (\n                        (BUILDING.AREA.TOTAL_BUILT >= 1000 AND BUILDING.AREA.TOTAL_BUILT <= 10000 AND FIRE_HYDRANT.COUNT >= 1); OR\n                        (BUILDING.AREA.TOTAL_BUILT > 10000 AND FIRE_HYDRANT.COUNT >= (1 + CEILING((BUILDING.AREA.TOTAL_BUILT - 10000) / 10000)))\n                    )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_HYDRANT",
+          "BUILDING.AREA.TOTAL_BUILT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_BUILT >= 1000 m²",
+          "BUILDING.AREA.TOTAL_BUILT <= 10000 m²",
+          "FIRE_HYDRANT.COUNT: 1",
+          "FIRE_HYDRANT.COUNT: 1 per 10000 m² additional"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1074,
+        "end_pos": 1209
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 258,
+        "end_index": 296
+      },
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_EXTINGUISHER",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "FIRE_EXTINGUISHER",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "PREMISES.RISK_LEVEL",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "PREMISES.RISK_LEVEL",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "PREMISES.AREA.TOTAL_BUILT",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "PREMISES.AREA.TOTAL_BUILT",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_HYDRANT",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "FIRE_HYDRANT",
+        "used_by_norm_ids": [
+          "b2c3d4e5-f678-9012-3456-7890abcdef12",
+          "g7h8i9j0-klmn-opqr-stuv-wxyzabcdef12"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "BUILDING.AREA.TOTAL_BUILT",
+        "used_by_norm_ids": [
+          "b2c3d4e5-f678-9012-3456-7890abcdef12",
+          "d4e5f678-9012-3456-7890abcdef123456",
+          "e5f67890-1234-5678-90abcdef12345678",
+          "g7h8i9j0-klmn-opqr-stuv-wxyzabcdef12"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_SUPPRESSION.SYSTEM",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "FIRE_SUPPRESSION.SYSTEM",
+        "used_by_norm_ids": [
+          "c3d4e5f6-7890-1234-5678-90abcdef1234"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.EVACUATION_HEIGHT",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "BUILDING.EVACUATION_HEIGHT",
+        "used_by_norm_ids": [
+          "c3d4e5f6-7890-1234-5678-90abcdef1234"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_ALARM.SYSTEM",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "FIRE_ALARM.SYSTEM",
+        "used_by_norm_ids": [
+          "d4e5f678-9012-3456-7890abcdef123456"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_DETECTION.SYSTEM",
+      "attributes": {
+        "id": "T::000009",
+        "tag": "FIRE_DETECTION.SYSTEM",
+        "used_by_norm_ids": [
+          "e5f67890-1234-5678-90abcdef12345678"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_EXTINGUISHING.SYSTEM",
+      "attributes": {
+        "id": "T::000010",
+        "tag": "FIRE_EXTINGUISHING.SYSTEM",
+        "used_by_norm_ids": [
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "SALES_AREA.AREA.TOTAL_BUILT",
+      "attributes": {
+        "id": "T::000011",
+        "tag": "SALES_AREA.AREA.TOTAL_BUILT",
+        "used_by_norm_ids": [
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED",
+      "attributes": {
+        "id": "T::000012",
+        "tag": "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED",
+        "used_by_norm_ids": [
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "PREMISES.AREA.TOTAL_BUILT > 1000 m²",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "PREMISES.AREA.TOTAL_BUILT",
+        "operator": ">",
+        "value": 1000,
+        "unit": "m²",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT > 500 m²",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_BUILT",
+        "operator": ">",
+        "value": 500,
+        "unit": "m²",
+        "norm_ids": [
+          "b2c3d4e5-f678-9012-3456-7890abcdef12"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION_HEIGHT > 24 m",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "BUILDING.EVACUATION_HEIGHT",
+        "operator": ">",
+        "value": 24,
+        "unit": "m",
+        "norm_ids": [
+          "c3d4e5f6-7890-1234-5678-90abcdef1234"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT > 1000 m²",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_BUILT",
+        "operator": ">",
+        "value": 1000,
+        "unit": "m²",
+        "norm_ids": [
+          "d4e5f678-9012-3456-7890abcdef123456"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT > 2000 m²",
+      "attributes": {
+        "id": "P::000005",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_BUILT",
+        "operator": ">",
+        "value": 2000,
+        "unit": "m²",
+        "norm_ids": [
+          "e5f67890-1234-5678-90abcdef12345678"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "SALES_AREA.AREA.TOTAL_BUILT > 1500 m²",
+      "attributes": {
+        "id": "P::000006",
+        "applies_for_tag": "SALES_AREA.AREA.TOTAL_BUILT",
+        "operator": ">",
+        "value": 1500,
+        "unit": "m²",
+        "norm_ids": [
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED > 500 MJ/m²",
+      "attributes": {
+        "id": "P::000007",
+        "applies_for_tag": "SALES_AREA.FIRE_LOAD_DENSITY_CORRECTED",
+        "operator": ">",
+        "value": 500,
+        "unit": "MJ/m²",
+        "norm_ids": [
+          "f67890ab-cdef-1234-5678-90abcdef1234567890"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT >= 1000 m²",
+      "attributes": {
+        "id": "P::000008",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_BUILT",
+        "operator": ">=",
+        "value": 1000,
+        "unit": "m²",
+        "norm_ids": [
+          "g7h8i9j0-klmn-opqr-stuv-wxyzabcdef12"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.TOTAL_BUILT <= 10000 m²",
+      "attributes": {
+        "id": "P::000009",
+        "applies_for_tag": "BUILDING.AREA.TOTAL_BUILT",
+        "operator": "<=",
+        "value": 10000,
+        "unit": "m²",
+        "norm_ids": [
+          "g7h8i9j0-klmn-opqr-stuv-wxyzabcdef12"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_016",
+      "section_name": "Comercial",
+      "section_level": 3,
+      "parent_section": "section_014",
+      "sub_sections": [],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 28
+  }
+}

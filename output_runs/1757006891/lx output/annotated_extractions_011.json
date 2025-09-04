@@ -1,0 +1,628 @@
+{
+  "document_id": "doc_b2126e19",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En las zonas de riesgo especial alto, conforme al capítulo 2 de la Sección 1 de este DB, cuya superficie construida exceda de 500 m², un extintor móvil de 25 kg de polvo o de CO₂ por cada 2.500 m² de superficie o fracción.",
+      "attributes": {
+        "id": "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e",
+        "parent_section_id": "section_012",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A 25 kg powder or CO2 mobile extinguisher must be provided for every 2,500 m² of surface area or fraction thereof in high special risk areas, as per Chapter 2 of Section 1 of this DB, where the constructed surface area exceeds 500 m².",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.RISK_LEVEL == 'HIGH' AND AREA.SIZE > 500",
+        "satisfied_if": "FIRE_EXTINGUISHER.TYPE IN ['POWDER', 'CO2'] AND FIRE_EXTINGUISHER.WEIGHT == 25 AND FIRE_EXTINGUISHER.COUNT >= (AREA.SIZE / 2500)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EXTINGUISHER",
+          "AREA.RISK_LEVEL.HIGH",
+          "AREA.SIZE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.SIZE > 500 sq_m",
+          "FIRE_EXTINGUISHER.WEIGHT == 25 kg",
+          "FIRE_EXTINGUISHER.DENSITY == 1 per 2500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 313,
+        "end_pos": 535
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 20,
+        "end_index": 80
+      },
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la altura de evacuación excede de 15 m.",
+      "attributes": {
+        "id": "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c",
+        "parent_section_id": "section_012",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A dry column must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND BUILDING.EVACUATION.HEIGHT > 15",
+        "satisfied_if": "FIRE_SUPPRESSION.DRY_COLUMN.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT",
+          "FIRE_SUPPRESSION.DRY_COLUMN"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 575,
+        "end_pos": 617
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 90,
+        "end_index": 102
+      },
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En todo caso.",
+      "attributes": {
+        "id": "g3h4i5j6-k7l8-9m0n-1o2p-3q4r5s6t7u8v",
+        "parent_section_id": "section_012",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "satisfied_if": "FIRE_HYDRANT.EQUIPPED.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_HYDRANT.EQUIPPED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 703,
+        "end_pos": 715
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 111,
+        "end_index": 114
+      },
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En todo caso. El sistema dispondrá de detectores y de pulsadores manuales y debe permitir la transmisión de alarmas locales, de alarma general y de instrucciones verbales.",
+      "attributes": {
+        "id": "h4i5j6k7-l8m9-0n1o-2p3q-4r5s6t7u8v9w",
+        "parent_section_id": "section_012",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire detection and alarm system must be installed. The system must have detectors and manual call points and allow the transmission of local alarms, general alarms, and verbal instructions.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "satisfied_if": "FIRE_DETECTION_SYSTEM.INSTALLED == TRUE AND FIRE_DETECTION_SYSTEM.HAS_DETECTORS == TRUE AND FIRE_DETECTION_SYSTEM.HAS_MANUAL_CALL_POINTS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_LOCAL_ALARMS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_GENERAL_ALARMS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_VERBAL_INSTRUCTIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTION_SYSTEM",
+          "FIRE.ALARM_SYSTEM"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 851,
+        "end_pos": 1022
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 135,
+        "end_index": 168
+      },
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si el edificio dispone de más de 100 camas debe contar con comunicación telefónica directa con el servicio de bomberos.",
+      "attributes": {
+        "id": "i5j6k7l8-m9n0-1o2p-3q4r-5s6t7u8v9w0x",
+        "parent_section_id": "section_012",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the building has more than 100 beds, it must have direct telephone communication with the fire department.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND BUILDING.BED_COUNT > 100",
+        "satisfied_if": "COMMUNICATION.FIRE_DEPARTMENT.DIRECT_TELEPHONE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.BED_COUNT",
+          "COMMUNICATION.FIRE_DEPARTMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.BED_COUNT > 100"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1061,
+        "end_pos": 1180
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 171,
+        "end_index": 198
+      },
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.EXTINGUISHER",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "FIRE.EXTINGUISHER",
+        "used_by_norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "AREA.RISK_LEVEL.HIGH",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "AREA.RISK_LEVEL.HIGH",
+        "used_by_norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "AREA.SIZE",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "AREA.SIZE",
+        "used_by_norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "BUILDING.EVACUATION.HEIGHT",
+        "used_by_norm_ids": [
+          "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_SUPPRESSION.DRY_COLUMN",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "FIRE_SUPPRESSION.DRY_COLUMN",
+        "used_by_norm_ids": [
+          "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_HYDRANT.EQUIPPED",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "FIRE_HYDRANT.EQUIPPED",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-9m0n-1o2p-3q4r5s6t7u8v"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.DETECTION_SYSTEM",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "FIRE.DETECTION_SYSTEM",
+        "used_by_norm_ids": [
+          "h4i5j6k7-l8m9-0n1o-2p3q-4r5s6t7u8v9w"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.ALARM_SYSTEM",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "FIRE.ALARM_SYSTEM",
+        "used_by_norm_ids": [
+          "h4i5j6k7-l8m9-0n1o-2p3q-4r5s6t7u8v9w"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.BED_COUNT",
+      "attributes": {
+        "id": "T::000009",
+        "tag": "BUILDING.BED_COUNT",
+        "used_by_norm_ids": [
+          "i5j6k7l8-m9n0-1o2p-3q4r-5s6t7u8v9w0x"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "COMMUNICATION.FIRE_DEPARTMENT",
+      "attributes": {
+        "id": "T::000010",
+        "tag": "COMMUNICATION.FIRE_DEPARTMENT",
+        "used_by_norm_ids": [
+          "i5j6k7l8-m9n0-1o2p-3q4r-5s6t7u8v9w0x"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "AREA.SIZE > 500 sq_m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "AREA.SIZE",
+        "operator": ">",
+        "value": 500,
+        "unit": "sq_m",
+        "norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "FIRE_EXTINGUISHER.WEIGHT == 25 kg",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "FIRE_EXTINGUISHER.WEIGHT",
+        "operator": "==",
+        "value": 25,
+        "unit": "kg",
+        "norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "FIRE_EXTINGUISHER.DENSITY == 1 per 2500 sq_m",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "FIRE_EXTINGUISHER.DENSITY",
+        "operator": "==",
+        "value": 1,
+        "unit": "per 2500 sq_m",
+        "norm_ids": [
+          "e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT > 15 m",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "BUILDING.EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 15,
+        "unit": "m",
+        "norm_ids": [
+          "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.BED_COUNT > 100",
+      "attributes": {
+        "id": "P::000005",
+        "applies_for_tag": "BUILDING.BED_COUNT",
+        "operator": ">",
+        "value": 100,
+        "unit": null,
+        "norm_ids": [
+          "i5j6k7l8-m9n0-1o2p-3q4r-5s6t7u8v9w0x"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_012",
+      "section_name": "Hospitalario",
+      "section_level": 2,
+      "parent_section": "section_008",
+      "sub_sections": [],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 20
+  }
+}

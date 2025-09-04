@@ -1,0 +1,545 @@
+{
+  "document_id": "doc_68fb5398",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Salvo otra indicación en relación con el uso, en todo edificio cuya *altura de evacuación* exceda de 80 m.",
+      "attributes": {
+        "id": "e1b2c3d4-a5b6-7c8d-9e0f-1234567890ab",
+        "parent_section_id": "section_008",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An automatic extinguishing system must be installed.",
+        "applies_if": "BUILDING.EVACUATION.HEIGHT > 80",
+        "satisfied_if": "BUILDING.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT",
+          "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 80 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 39,
+        "end_pos": 145
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 11,
+        "end_index": 40
+      },
+      "section_metadata": {
+        "section_id": "section_008",
+        "section_name": "Instalación automática de extinción",
+        "section_level": 1,
+        "parent_section": null,
+        "sub_sections": [
+          "section_009",
+          "section_010",
+          "section_011",
+          "section_012"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En cocinas en las que la potencia instalada exceda de 20 kW en *uso Hospitalario* o *Residencial Público* o de 50 kW en cualquier otro uso.(4)",
+      "attributes": {
+        "id": "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs",
+        "parent_section_id": "section_008",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An automatic extinguishing system must be installed.",
+        "applies_if": "(KITCHEN.INSTALLED_POWER > 20 AND KITCHEN.USAGE IN ['PUBLIC.HOSPITAL', 'PUBLIC.RESIDENTIAL']) OR (KITCHEN.INSTALLED_POWER > 50 AND KITCHEN.USAGE NOT IN ['PUBLIC.HOSPITAL', 'PUBLIC.RESIDENTIAL'])",
+        "satisfied_if": "KITCHEN.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "KITCHEN.INSTALLED_POWER",
+          "KITCHEN.USAGE.PUBLIC.HOSPITAL",
+          "KITCHEN.USAGE.PUBLIC.RESIDENTIAL",
+          "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "KITCHEN.INSTALLED_POWER > 20 kW",
+          "KITCHEN.INSTALLED_POWER > 50 kW"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 149,
+        "end_pos": 291
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 76
+      },
+      "section_metadata": {
+        "section_id": "section_008",
+        "section_name": "Instalación automática de extinción",
+        "section_level": 1,
+        "parent_section": null,
+        "sub_sections": [
+          "section_009",
+          "section_010",
+          "section_011",
+          "section_012"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En centros de transformación cuyos aparatos tengan aislamiento dieléctrico con punto de inflamación menor que 300 ºC y potencia instalada mayor que 1 000 kVA en cada aparato o mayor que 4 000 kVA en el conjunto de los aparatos. Si el centro está integrado en un edificio de uso Pública concurrencia y tiene acceso desde el interior del edificio, dichas potencias son 630 kVA y 2 520 kVA respectivamente.",
+      "attributes": {
+        "id": "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst",
+        "parent_section_id": "section_008",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An automatic extinguishing system must be installed.",
+        "applies_if": "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT < 300 AND (\n                        (TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 1000 OR TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 4000) AND NOT (BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS == TRUE)\n                    ) OR (\n                        (TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 630 OR TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 2520) AND BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS == TRUE\n                    )",
+        "satisfied_if": "TRANSFORMATION_CENTER.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL",
+          "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+          "TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS",
+          "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT < 300 C",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 1000 kVA",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 4000 kVA",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 630 kVA",
+          "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 2520 kVA"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 294,
+        "end_pos": 697
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 77,
+        "end_index": 160
+      },
+      "section_metadata": {
+        "section_id": "section_008",
+        "section_name": "Instalación automática de extinción",
+        "section_level": 1,
+        "parent_section": null,
+        "sub_sections": [
+          "section_009",
+          "section_010",
+          "section_011",
+          "section_012"
+        ],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "BUILDING.EVACUATION.HEIGHT",
+        "used_by_norm_ids": [
+          "e1b2c3d4-a5b6-7c8d-9e0f-1234567890ab"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC",
+        "used_by_norm_ids": [
+          "e1b2c3d4-a5b6-7c8d-9e0f-1234567890ab",
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs",
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "KITCHEN.INSTALLED_POWER",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "KITCHEN.INSTALLED_POWER",
+        "used_by_norm_ids": [
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "KITCHEN.USAGE.PUBLIC.HOSPITAL",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "KITCHEN.USAGE.PUBLIC.HOSPITAL",
+        "used_by_norm_ids": [
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "KITCHEN.USAGE.PUBLIC.RESIDENTIAL",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "KITCHEN.USAGE.PUBLIC.RESIDENTIAL",
+        "used_by_norm_ids": [
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+      "attributes": {
+        "id": "T::000009",
+        "tag": "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS",
+      "attributes": {
+        "id": "T::000010",
+        "tag": "TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS",
+        "used_by_norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT > 80 m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "BUILDING.EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 80,
+        "unit": "m",
+        "norm_ids": [
+          "e1b2c3d4-a5b6-7c8d-9e0f-1234567890ab"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "KITCHEN.INSTALLED_POWER > 20 kW",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "KITCHEN.INSTALLED_POWER",
+        "operator": ">",
+        "value": 20,
+        "unit": "kW",
+        "norm_ids": [
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "KITCHEN.INSTALLED_POWER > 50 kW",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "KITCHEN.INSTALLED_POWER",
+        "operator": ">",
+        "value": 50,
+        "unit": "kW",
+        "norm_ids": [
+          "f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT < 300 C",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT",
+        "operator": "<",
+        "value": 300,
+        "unit": "C",
+        "norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 1000 kVA",
+      "attributes": {
+        "id": "P::000005",
+        "applies_for_tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS",
+        "operator": ">",
+        "value": 1000,
+        "unit": "kVA",
+        "norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 4000 kVA",
+      "attributes": {
+        "id": "P::000006",
+        "applies_for_tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL",
+        "operator": ">",
+        "value": 4000,
+        "unit": "kVA",
+        "norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 630 kVA",
+      "attributes": {
+        "id": "P::000007",
+        "applies_for_tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS",
+        "operator": ">",
+        "value": 630,
+        "unit": "kVA",
+        "norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 2520 kVA",
+      "attributes": {
+        "id": "P::000008",
+        "applies_for_tag": "TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL",
+        "operator": ">",
+        "value": 2520,
+        "unit": "kVA",
+        "norm_ids": [
+          "g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_008",
+      "section_name": "Instalación automática de extinción",
+      "section_level": 1,
+      "parent_section": null,
+      "sub_sections": [
+        "section_009",
+        "section_010",
+        "section_011",
+        "section_012"
+      ],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 21
+  }
+}

@@ -1,0 +1,801 @@
+{
+  "document_id": "doc_ed0089b8",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público, Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m², toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación: - una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2; - excepto en uso Residencial Vivienda, una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "section_004",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every floor that is not a null occupancy zone and does not have an accessible building exit must provide the possibility of passage to an alternative fire sector via an accessible floor exit or a refuge area suitable for the specified number of spaces.",
+        "applies_if": "(BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND BUILDING.EVACUATION.HEIGHT > 28) OR (BUILDING.USAGE IN ['PUBLIC.RESIDENTIAL', 'ADMINISTRATIVE', 'EDUCATION'] AND BUILDING.EVACUATION.HEIGHT > 14) OR (BUILDING.USAGE IN ['COMMERCIAL', 'PUBLIC.ASSEMBLY'] AND BUILDING.EVACUATION.HEIGHT > 10) OR (FLOOR.USAGE == 'PARKING' AND FLOOR.AREA > 1500)",
+        "satisfied_if": "(FLOOR.OCCUPANCY.ZONE == 'NOT_NULL' AND FLOOR.HAS_ACCESSIBLE_BUILDING_EXIT == FALSE) AND (FLOOR.HAS_ACCESSIBLE_FLOOR_EXIT_TO_ALTERNATIVE_FIRE_SECTOR == TRUE OR FLOOR.HAS_REFUGE_AREA == TRUE); OR (FLOOR.REFUGE_AREA.CAPACITY.WHEELCHAIR >= (FLOOR.OCCUPANCY / 100)) AND (BUILDING.USAGE == 'RESIDENTIAL.HOUSING' OR FLOOR.REFUGE_AREA.CAPACITY.REDUCED_MOBILITY >= (FLOOR.OCCUPANCY / 33))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "ADMINISTRATIVE",
+            "EDUCATION",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT",
+          "FLOOR.USAGE",
+          "FLOOR.AREA",
+          "FLOOR.OCCUPANCY.ZONE",
+          "FLOOR.HAS_ACCESSIBLE_BUILDING_EXIT",
+          "FLOOR.HAS_ACCESSIBLE_FLOOR_EXIT_TO_ALTERNATIVE_FIRE_SECTOR",
+          "FLOOR.HAS_REFUGE_AREA",
+          "FLOOR.REFUGE_AREA.CAPACITY.WHEELCHAIR",
+          "FLOOR.REFUGE_AREA.CAPACITY.REDUCED_MOBILITY",
+          "FLOOR.OCCUPANCY",
+          "FIRE.SECTOR",
+          "ACCESSIBILITY.ROUTE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 28 m",
+          "BUILDING.EVACUATION.HEIGHT > 14 m",
+          "BUILDING.EVACUATION.HEIGHT > 10 m",
+          "FLOOR.AREA > 1500 sq_m",
+          "WHEELCHAIR_SPACES_PER_OCCUPANT = 1/100",
+          "REDUCED_MOBILITY_SPACES_PER_OCCUPANT = 1/33"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Reference to SI3-2 is external and not inlined."
+      },
+      "char_interval": {
+        "start_pos": 69,
+        "end_pos": 92
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 15,
+        "end_index": 20
+      },
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad.",
+      "attributes": {
+        "id": "f1e2d3c4-b5a6-9876-5432-10fedcba9876",
+        "parent_section_id": "section_004",
+        "paragraph_number": 1,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "In transport terminals, own statistical bases may be used to estimate the number of spaces reserved for people with disabilities.",
+        "applies_if": "BUILDING.USAGE == 'TRANSPORT.TERMINAL'",
+        "satisfied_if": "TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "TRANSPORT.TERMINAL"
+          ]
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.5,
+          "likelihood": 0.5,
+          "impact": 0.5
+        },
+        "relevant_tags": [
+          "ACCESSIBILITY.SPACES",
+          "STATISTICAL.BASES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 974,
+        "end_pos": 1119
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 224,
+        "end_index": 251
+      },
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Toda planta que disponga de zonas de refugio o de una salida de planta accesible de paso a un sector alternativo contará con algún itinerario accesible entre todo origen de evacuación situado en una zona accesible y aquéllas.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
+        "parent_section_id": "section_004",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every floor that has refuge areas or an accessible floor exit leading to an alternative sector must have an accessible route between every evacuation origin located in an accessible area and those refuge areas/exits.",
+        "applies_if": "FLOOR.HAS_REFUGE_AREA == TRUE OR FLOOR.HAS_ACCESSIBLE_FLOOR_EXIT_TO_ALTERNATIVE_FIRE_SECTOR == TRUE",
+        "satisfied_if": "FLOOR.HAS_ACCESSIBLE_ROUTE_FROM_EVACUATION_ORIGIN_TO_REFUGE_OR_ALTERNATIVE_EXIT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.REFUGE_AREA",
+          "FLOOR.ACCESSIBLE_FLOOR_EXIT",
+          "FIRE.SECTOR",
+          "ACCESSIBILITY.ROUTE",
+          "EVACUATION.ORIGIN"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1124,
+        "end_pos": 1151
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 253,
+        "end_index": 258
+      },
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Toda planta de salida del edificio dispondrá de algún itinerario accesible desde todo origen de evacuación situado en una zona accesible hasta alguna salida del edificio accesible.",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-d0e1-f234567890ab",
+        "parent_section_id": "section_004",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every building exit floor must have an accessible route from every evacuation origin located in an accessible area to an accessible building exit.",
+        "applies_if": "FLOOR.IS_BUILDING_EXIT_FLOOR == TRUE",
+        "satisfied_if": "FLOOR.HAS_ACCESSIBLE_ROUTE_FROM_EVACUATION_ORIGIN_TO_ACCESSIBLE_BUILDING_EXIT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.BUILDING_EXIT",
+          "ACCESSIBILITY.ROUTE",
+          "EVACUATION.ORIGIN"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1362,
+        "end_pos": 1415
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 309,
+        "end_index": 321
+      },
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En plantas de salida del edificio podrán habilitarse salidas de emergencia accesibles para personas con discapacidad diferentes de los accesos principales del edificio.",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-e1f2-34567890abcd",
+        "parent_section_id": "section_004",
+        "paragraph_number": 4,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "On building exit floors, accessible emergency exits for people with disabilities may be enabled, separate from the main building accesses.",
+        "applies_if": "FLOOR.IS_BUILDING_EXIT_FLOOR == TRUE",
+        "satisfied_if": "TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.5,
+          "likelihood": 0.5,
+          "impact": 0.5
+        },
+        "relevant_tags": [
+          "FLOOR.BUILDING_EXIT",
+          "EMERGENCY.EXIT",
+          "ACCESSIBILITY.EXIT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1551,
+        "end_pos": 1719
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 348,
+        "end_index": 374
+      },
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "BUILDING.EVACUATION.HEIGHT",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.USAGE",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "FLOOR.USAGE",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.AREA",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "FLOOR.AREA",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.OCCUPANCY.ZONE",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "FLOOR.OCCUPANCY.ZONE",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.HAS_ACCESSIBLE_BUILDING_EXIT",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "FLOOR.HAS_ACCESSIBLE_BUILDING_EXIT",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.HAS_ACCESSIBLE_FLOOR_EXIT_TO_ALTERNATIVE_FIRE_SECTOR",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "FLOOR.HAS_ACCESSIBLE_FLOOR_EXIT_TO_ALTERNATIVE_FIRE_SECTOR",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.HAS_REFUGE_AREA",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "FLOOR.HAS_REFUGE_AREA",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.REFUGE_AREA.CAPACITY.WHEELCHAIR",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "FLOOR.REFUGE_AREA.CAPACITY.WHEELCHAIR",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.REFUGE_AREA.CAPACITY.REDUCED_MOBILITY",
+      "attributes": {
+        "id": "T::000009",
+        "tag": "FLOOR.REFUGE_AREA.CAPACITY.REDUCED_MOBILITY",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.OCCUPANCY",
+      "attributes": {
+        "id": "T::000010",
+        "tag": "FLOOR.OCCUPANCY",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.SECTOR",
+      "attributes": {
+        "id": "T::000011",
+        "tag": "FIRE.SECTOR",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "1a2b3c4d-5e6f-7890-abcd-ef1234567890"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ACCESSIBILITY.ROUTE",
+      "attributes": {
+        "id": "T::000012",
+        "tag": "ACCESSIBILITY.ROUTE",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
+          "2b3c4d5e-6f7a-8b9c-d0e1-f234567890ab"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ACCESSIBILITY.SPACES",
+      "attributes": {
+        "id": "T::000013",
+        "tag": "ACCESSIBILITY.SPACES",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "STATISTICAL.BASES",
+      "attributes": {
+        "id": "T::000014",
+        "tag": "STATISTICAL.BASES",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-9876-5432-10fedcba9876"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.REFUGE_AREA",
+      "attributes": {
+        "id": "T::000015",
+        "tag": "FLOOR.REFUGE_AREA",
+        "used_by_norm_ids": [
+          "1a2b3c4d-5e6f-7890-abcd-ef1234567890"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.ACCESSIBLE_FLOOR_EXIT",
+      "attributes": {
+        "id": "T::000016",
+        "tag": "FLOOR.ACCESSIBLE_FLOOR_EXIT",
+        "used_by_norm_ids": [
+          "1a2b3c4d-5e6f-7890-abcd-ef1234567890"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "EVACUATION.ORIGIN",
+      "attributes": {
+        "id": "T::000017",
+        "tag": "EVACUATION.ORIGIN",
+        "used_by_norm_ids": [
+          "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
+          "2b3c4d5e-6f7a-8b9c-d0e1-f234567890ab"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FLOOR.BUILDING_EXIT",
+      "attributes": {
+        "id": "T::000018",
+        "tag": "FLOOR.BUILDING_EXIT",
+        "used_by_norm_ids": [
+          "2b3c4d5e-6f7a-8b9c-d0e1-f234567890ab",
+          "3c4d5e6f-7a8b-9c0d-e1f2-34567890abcd"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "EMERGENCY.EXIT",
+      "attributes": {
+        "id": "T::000019",
+        "tag": "EMERGENCY.EXIT",
+        "used_by_norm_ids": [
+          "3c4d5e6f-7a8b-9c0d-e1f2-34567890abcd"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ACCESSIBILITY.EXIT",
+      "attributes": {
+        "id": "T::000020",
+        "tag": "ACCESSIBILITY.EXIT",
+        "used_by_norm_ids": [
+          "3c4d5e6f-7a8b-9c0d-e1f2-34567890abcd"
+        ],
+        "related_topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT > 28 m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "BUILDING.EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 28,
+        "unit": "m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT > 14 m",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "BUILDING.EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 14,
+        "unit": "m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.EVACUATION.HEIGHT > 10 m",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "BUILDING.EVACUATION.HEIGHT",
+        "operator": ">",
+        "value": 10,
+        "unit": "m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "FLOOR.AREA > 1500 sq_m",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "FLOOR.AREA",
+        "operator": ">",
+        "value": 1500,
+        "unit": "sq_m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_004",
+      "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+      "section_level": 2,
+      "parent_section": "section_003",
+      "sub_sections": [],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 29
+  }
+}
