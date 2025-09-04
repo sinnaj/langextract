@@ -58,6 +58,19 @@ class SectionChunk(chunking.TextChunk):
   while maintaining compatibility with existing extraction pipeline.
   """
   section_metadata: Optional[SectionMetadata] = None
+  _section_text: Optional[str] = dataclasses.field(default=None, init=False, repr=False)
+  
+  @property
+  def chunk_text(self) -> str:
+    """Gets the section text directly for section chunks."""
+    if self._section_text is not None:
+      return self._section_text
+    # Fall back to parent implementation if section text not set
+    return super().chunk_text
+  
+  def set_section_text(self, section_text: str) -> None:
+    """Sets the section text for this chunk."""
+    self._section_text = section_text
 
 
 def parse_markdown_sections(text: str) -> list[tuple[str, SectionMetadata, int, int]]:
@@ -175,24 +188,41 @@ class SectionChunkIterator:
     section_text, metadata, start_pos, end_pos = self.sections[self.current_index]
     self.current_index += 1
     
-    # Create a new document for this section with the section text
-    section_document = data.Document(
-        text=section_text,
-        document_id=f"{self.document.document_id}_{metadata.section_id}"
-    )
+    # Calculate approximate token positions for the section in the original document
+    # This is used for metadata and alignment purposes
+    original_text = self.document.text
+    total_chars = len(original_text)
+    total_tokens = len(self.document.tokenized_text.tokens)
     
-    # Create token interval for the entire section
+    # Estimate token positions based on character positions
+    # This is an approximation but sufficient for section boundaries
+    if total_chars > 0:
+      start_token = int((start_pos / total_chars) * total_tokens)
+      end_token = int((end_pos / total_chars) * total_tokens)
+    else:
+      start_token = 0
+      end_token = total_tokens
+    
+    # Ensure token positions are within bounds
+    start_token = max(0, min(start_token, total_tokens))
+    end_token = max(start_token, min(end_token, total_tokens))
+    
     token_interval = tokenizer.TokenInterval(
-        start_index=0, 
-        end_index=len(section_document.tokenized_text.tokens)
+        start_index=start_token,
+        end_index=end_token
     )
     
-    # Create and return SectionChunk
-    return SectionChunk(
+    # Create SectionChunk with original document reference for ID consistency
+    section_chunk = SectionChunk(
         token_interval=token_interval,
-        document=section_document,  # Use the section-specific document
+        document=self.document,  # Use original document to maintain ID consistency
         section_metadata=metadata
     )
+    
+    # Set the section-specific text
+    section_chunk.set_section_text(section_text)
+    
+    return section_chunk
 
 
 def section_document_chunk_iterator(
