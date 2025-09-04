@@ -52,7 +52,6 @@ def extract(
     extraction_passes: int = 1,
     config: typing.Any = None,
     model: typing.Any = None,
-    use_section_chunking: bool = False,
     *,
     fetch_urls: bool = True,
     prompt_validation_level: pv.PromptValidationLevel = pv.PromptValidationLevel.WARNING,
@@ -302,7 +301,6 @@ def extract(
         additional_context=additional_context,
         debug=debug,
         extraction_passes=extraction_passes,
-        use_section_chunking=use_section_chunking,
         max_workers=max_workers,
     )
   else:
@@ -314,6 +312,5 @@ def extract(
         batch_length=batch_length,
         debug=debug,
         extraction_passes=extraction_passes,
-        use_section_chunking=use_section_chunking,
         max_workers=max_workers,
     )

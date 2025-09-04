@@ -30,6 +30,9 @@ from langextract import providers
 from postprocessing.extract_tags import extract_tags_from_norms
 from postprocessing.extract_params import extract_parameters_from_norms
 
+# Import section chunker
+from section_chunker import create_section_chunks, get_section_statistics
+
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
 # ---------------------------------------------------------------------------
@@ -215,8 +218,15 @@ def makeRun(
     if not INPUT_FILE or not INPUT_FILE.exists():
         print(f"[WARN] Input file not found at {INPUT_FILE}. Using empty input.", file=sys.stderr)
         INPUT_TEXT = ""
+        SECTION_CHUNKS = []
     else:
         INPUT_TEXT = INPUT_FILE.read_text(encoding="utf-8")
+        
+        # Create section chunks from the input text
+        print("[INFO] Creating section-based chunks from input text...")
+        SECTION_CHUNKS = create_section_chunks(INPUT_TEXT)
+        SECTION_STATS = get_section_statistics(SECTION_CHUNKS)
+        print(f"[INFO] Created {SECTION_STATS['total_sections']} sections: {SECTION_STATS['levels']}")
 
 
 
@@ -249,7 +259,6 @@ def makeRun(
         use_schema_constraints=False,
         max_char_buffer=MAX_CHAR_BUFFER,
         extraction_passes=EXTRACTION_PASSES,   # Improves recall through multiple passes
-        use_section_chunking=True,  # Enable section-based chunking
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
@@ -311,7 +320,7 @@ def makeRun(
             "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
         }
 
-    def _call_and_capture(text: str, idx: int | None = None) -> Optional[Dict[str, Any]]:
+    def _call_and_capture(text: str, idx: int | None = None, section_metadata=None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
         
         def _sanitize_for_log(raw: str, limit: int = 2000) -> str:
@@ -571,21 +580,20 @@ def makeRun(
                 extraction_count += 1
                 attributes = getattr(e, "attributes", {})
                 
-                # Check if this extraction comes from a section chunk
-                chunk_source = getattr(e, "_chunk_source", None)  # Custom attribute to track source chunk
-                section_metadata = None
-                if hasattr(chunk_source, "section_metadata") and chunk_source.section_metadata:
-                    section_metadata = {
-                        "section_id": chunk_source.section_metadata.section_id,
-                        "section_name": chunk_source.section_metadata.section_name,
-                        "section_level": chunk_source.section_metadata.section_level,
-                        "parent_section": chunk_source.section_metadata.parent_section_id,
-                        "sub_sections": chunk_source.section_metadata.sub_sections,
-                        "section_summary": chunk_source.section_metadata.section_summary,
+                # Use section metadata from parameter if provided
+                extraction_section_metadata = None
+                if section_metadata:
+                    extraction_section_metadata = {
+                        "section_id": section_metadata.section_id,
+                        "section_name": section_metadata.section_name,
+                        "section_level": section_metadata.section_level,
+                        "parent_section": section_metadata.parent_section_id,
+                        "sub_sections": section_metadata.sub_sections,
+                        "section_summary": section_metadata.section_summary,
                     }
                     # Add to section metadata list if not already present
-                    if section_metadata not in section_metadata_list:
-                        section_metadata_list.append(section_metadata)
+                    if extraction_section_metadata not in section_metadata_list:
+                        section_metadata_list.append(extraction_section_metadata)
                 
                 item = {
                     "extraction_class": getattr(e, "extraction_class", None),
@@ -597,7 +605,7 @@ def makeRun(
                     "group_index": getattr(e, "group_index", None),
                     "description": getattr(e, "description", None),
                     "token_interval": _ti_dict(getattr(e, "token_interval", None)),
-                    "section_metadata": section_metadata,  # Add section metadata to each extraction
+                    "section_metadata": extraction_section_metadata,  # Add section metadata to each extraction
                 }
                 raw_items.append(item)
 
@@ -657,8 +665,39 @@ def makeRun(
  
     
 
-    print("[INFO] Library-managed chunking enabled (max_char_buffer governs internal splits)")
-    _call_and_capture(INPUT_TEXT, None)
-    print(f"[INFO] Raw annotated outputs saved to: {lx_output_dir}. Annotated-only mode complete.")
+    print("[INFO] Processing document using section-based chunking")
+    
+    if SECTION_CHUNKS:
+        # Process each section chunk separately
+        all_section_metadata = []
+        for i, section_chunk in enumerate(SECTION_CHUNKS):
+            print(f"[INFO] Processing section {i+1}/{len(SECTION_CHUNKS)}: {section_chunk.section_metadata.section_name}")
+            result = _call_and_capture(section_chunk.chunk_text, i, section_chunk.section_metadata)
+            if result and section_chunk.section_metadata:
+                all_section_metadata.append(section_chunk.section_metadata.to_dict())
+        
+        # Save consolidated section metadata
+        try:
+            section_metadata_file = lx_output_dir / "section_metadata.json"
+            section_metadata_file.write_text(
+                json.dumps({
+                    "sections": all_section_metadata,
+                    "statistics": SECTION_STATS,
+                    "processing_info": {
+                        "chunking_method": "section_based",
+                        "total_sections": len(SECTION_CHUNKS),
+                        "source_file": str(INPUT_FILE)
+                    }
+                }, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            print(f"[INFO] Section metadata saved to: section_metadata.json")
+        except Exception as e:
+            print(f"[WARN] Failed to save section metadata: {e}")
+    else:
+        # Fallback to original approach for empty input
+        _call_and_capture(INPUT_TEXT, None, None)
+    
+    print(f"[INFO] Raw annotated outputs saved to: {lx_output_dir}. Section-based processing complete.")
     return
     
