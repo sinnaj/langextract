@@ -1,7 +1,7 @@
 ## TASK
 Extract a comprehensive set of **Document Metadata, Sections, Norms, Procedures, Classifications, and Document References** from the provided Building Regulation documents.
 
-Only return data that is explicitly stated or **logically derivable without inventing values**.  
+Only return data that is explicitly stated or **logically derivable without inventing values**.
 If a datum is absent, leave it empty (not null, except where nullable scalars are allowed in your schema provided elsewhere).
 
 ## OUTPUT FORMAT
@@ -27,8 +27,8 @@ Produce a single JSON object: {"extractions":[{...required keys...}]}. NO markdo
 Atomic, self-sufficient obligations that are applicable without extra context.
 - **Must include**: `applies_if` (conditions for applicability) and `satisfied_if` (minimum compliance).
 - **Atomicity**: Split norms when:
-  1. Thresholds differ  
-  2. Applicability triggers differ  
+  1. Thresholds differ
+  2. Applicability triggers differ
   3. Obligation types differ
 - **Merge** norms when `satisfied_if` is identical **AND** location scope is the same.
 - **Numbers/enums**: never fabricate; copy only explicit or strictly derivable facts. (E.g., don’t infer counts from plurals.)
@@ -40,24 +40,24 @@ Atomic, self-sufficient obligations that are applicable without extra context.
 
 ### Procedures
 Operational “how-to” descriptions, including but not limited to:
-1. How a calculation is performed  
-2. How specific works must be executed  
-3. How an application/administrative process is carried out  
+1. How a calculation is performed
+2. How specific works must be executed
+3. How an application/administrative process is carried out
 
 ### Classifications
-Taxonomic labels that **scope or modulate** norms (e.g., applicability by building type, usage, ownership).  
+Taxonomic labels that **scope or modulate** norms (e.g., applicability by building type, usage, ownership).
 Use them to **extend/restrict** where norms apply.
 
 ### Legal Documents
-Direct references to legislation (acts, decrees, directives, standards).  
+Direct references to legislation (acts, decrees, directives, standards).
 Capture citation details as present (title, code, year, article, etc.).
 
 ---
 
 ## DSL REQUIREMENTS
 
-**Paths**  
-- Format: `UPPERCASE.DOTCASE` (A–Z, 0–9, underscore allowed).  
+**Paths**
+- Format: `UPPERCASE.DOTCASE` (A–Z, 0–9, underscore allowed).
 - Examples: `DOOR.TYPE`, `ROUTE.ACCESSIBLE`, `PROJECT.TYPE`, `CONSTRUCTION.ELECTRO.RADIOCOMMUNICATION`.
 
 **Literals**
@@ -67,26 +67,26 @@ Capture citation details as present (title, code, year, article, etc.).
 - Booleans: `TRUE` / `FALSE`
 
 **Operators**
-- Comparison: `== != < <= > >=`  
-- Logical: `AND OR NOT` (use parentheses to group)  
-- Membership: `VAR IN['VAL1','VAL2','VAL3']` (no space after `IN`).  
-  - For singletons you may use equality instead.  
-- Ranges: no shorthand; write both bounds (e.g., `X >= 0 AND X <= 20`)  
-- Existence: `HAS(DOOR.AUTOMATIC)` = tag/path recognized in ontology  
-- Geo scoping (use literally inside `applies_if`/`exempt_if`):  
-  - `WITHIN('ES.CT.BCN')`  
-  - `OVERLAPS('ZONE:R6.2')`  
-  - `ADJACENT_TO('ZONE:PEM2')`  
+- Comparison: `== != < <= > >=`
+- Logical: `AND OR NOT` (use parentheses to group)
+- Membership: `VAR IN['VAL1','VAL2','VAL3']` (no space after `IN`).
+  - For singletons you may use equality instead.
+- Ranges: no shorthand; write both bounds (e.g., `X >= 0 AND X <= 20`)
+- Existence: `HAS(DOOR.AUTOMATIC)` = tag/path recognized in ontology
+- Geo scoping (use literally inside `applies_if`/`exempt_if`):
+  - `WITHIN('ES.CT.BCN')`
+  - `OVERLAPS('ZONE:R6.2')`
+  - `ADJACENT_TO('ZONE:PEM2')`
   Example: `(LOCATION.WITHIN('ES.CT.BCN') AND ZONE.CODE IN['R6.2'])`
 
 **Syntax discipline**
-- No free prose outside DSL tokens in `applies_if/satisfied_if/exempt_if`.  
-- In `satisfied_if`, separate alternative compliance clauses with **exactly** `"; OR "`.  
-- When structural alternatives **and** numeric thresholds are present, order from simplest structure → more complex thresholds.  
+- No free prose outside DSL tokens in `applies_if/satisfied_if/exempt_if`.
+- In `satisfied_if`, separate alternative compliance clauses with **exactly** `"; OR "`.
+- When structural alternatives **and** numeric thresholds are present, order from simplest structure → more complex thresholds.
 
 ---
 
-## ENUM BLOCKS  
+## ENUM BLOCKS
 *(use exactly; no invention; you may omit unused enums in DSL, but keep tag paths where needed)*
 ENUM.PROJECT.TYPE=[NEW,REFORM,AMPLIACION_ESTRUCTURA,LEGALISATION]
 ENUM.OWNERSHIP=[PRIVATE,COMMERCIAL,EDUCATION,PUBLIC]
@@ -101,30 +101,30 @@ ENUM.MATERIALSANDEFFECTS=[LOADS,SNOW,WIND,EARTHQUAKES,RAIN,FOUNDATIONS,STEEL,MAS
 ---
 
 ## GUARDRAILS (strict)
-1. **No hallucinations**: numbers, units, page numbers, codes, zone classes.  
-2. **Do not merge** semantically distinct obligations.  
-3. **No invented parent tags** unless the text implies a true semantic grouping.  
-4. **No free prose** outside specified fields.  
-5. If you need a function/operator outside the grammar, **omit it** and add `quality.warnings += ['UNSUPPORTED_OPERATOR:<token>']`.  
-6. **No duplicate tag objects with different definitions**; update instead.  
+1. **No hallucinations**: numbers, units, page numbers, codes, zone classes.
+2. **Do not merge** semantically distinct obligations.
+3. **No invented parent tags** unless the text implies a true semantic grouping.
+4. **No free prose** outside specified fields.
+5. If you need a function/operator outside the grammar, **omit it** and add `quality.warnings += ['UNSUPPORTED_OPERATOR:<token>']`.
+6. **No duplicate tag objects with different definitions**; update instead.
 
 ---
 
 ## QUALITY & ERROR REPORTING
-- Populate `quality.errors` and `quality.warnings` precisely (e.g., `PAGE_MISSING`, `UNSUPPORTED_OPERATOR:FOO`, `MISSING_LOCATION_DEFAULTED_TO_ES`, `AMBIGUOUS_THRESHOLD`, `MERGE_CANDIDATE`).  
-- Set `quality.confidence` ∈ [0,1]. Penalize confidence for ambiguous norms, missing pages, or uncertain thresholds.  
-- Prefer fewer, precise norms over broad, conflated ones; add warnings when you **split or merge**.  
+- Populate `quality.errors` and `quality.warnings` precisely (e.g., `PAGE_MISSING`, `UNSUPPORTED_OPERATOR:FOO`, `MISSING_LOCATION_DEFAULTED_TO_ES`, `AMBIGUOUS_THRESHOLD`, `MERGE_CANDIDATE`).
+- Set `quality.confidence` ∈ [0,1]. Penalize confidence for ambiguous norms, missing pages, or uncertain thresholds.
+- Prefer fewer, precise norms over broad, conflated ones; add warnings when you **split or merge**.
 
 ---
 
 ## EXTRACTION WORKFLOW
-1. **Parse structure**: enumerate all Sections with hierarchy + parent refs (and pages if certain).  
-2. **Pass 1 (candidates)**: scan text for obligation sentences; draft candidate Norms (no merging yet).  
-3. **Normalize DSL**: fill `applies_if`, `satisfied_if`, `exempt_if`; enforce enums; add location default if needed.  
-4. **Atomicity check**: split where triggers/thresholds/obligation type differ.  
-5. **Merge pass**: merge only when `satisfied_if` **and** location scope are identical; log `MERGE_CANDIDATE` when in doubt.  
-6. **Classify**: attach Classifications that gate norms (usage, ownership, project/work type, topics, materials/effects, etc.).  
-7. **Procedures**: extract any methods, calculations, or process steps.  
-8. **Legal references**: collect explicit legislative citations.  
-9. **Validate syntax**: membership spacing (`IN[...]`), alt clauses `"; OR "`, explicit ranges, parentheses, booleans uppercase.  
-10. **Finalize**: ensure required top-level keys are present per your external schema; fill empties appropriately; set confidence.  
+1. **Parse structure**: enumerate all Sections with hierarchy + parent refs (and pages if certain).
+2. **Pass 1 (candidates)**: scan text for obligation sentences; draft candidate Norms (no merging yet).
+3. **Normalize DSL**: fill `applies_if`, `satisfied_if`, `exempt_if`; enforce enums; add location default if needed.
+4. **Atomicity check**: split where triggers/thresholds/obligation type differ.
+5. **Merge pass**: merge only when `satisfied_if` **and** location scope are identical; log `MERGE_CANDIDATE` when in doubt.
+6. **Classify**: attach Classifications that gate norms (usage, ownership, project/work type, topics, materials/effects, etc.).
+7. **Procedures**: extract any methods, calculations, or process steps.
+8. **Legal references**: collect explicit legislative citations.
+9. **Validate syntax**: membership spacing (`IN[...]`), alt clauses `"; OR "`, explicit ranges, parentheses, booleans uppercase.
+10. **Finalize**: ensure required top-level keys are present per your external schema; fill empties appropriately; set confidence.

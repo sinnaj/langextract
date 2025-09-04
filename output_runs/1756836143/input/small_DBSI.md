@@ -164,7 +164,7 @@ Anejo Sl A Terminologia Anejo Sl B Tiempo equivalente de exposición al fuego An
 
 4 Las escaleras y los ascensores que comuniquen sectores de incendio diferentes o bien zonas de riesgo especial con el resto del edificio estaran compartmentados conforme a lo que se establece en el punto 3 anterior. Los ascensores dispondran en cada acceso, o bien de puertas E  $30^{\circ}$  o bien de un vestibulo de independencia con una puerta  $\mathsf{E}1_{2}$  30- C5, excepto en zonas de riesgo especial o de uso Aparcamiento, en las que se debe disponer siempre el citado vestibulo. Cuando, considerando dos sectores, el mas bago sea un sector de riesgo minimo, o bien si no lo es se opte por disponer en el tanto una puerta  $\mathsf{E}1_{2}$  30- C5 de acceso al vestibulo de independencia del ascensor, como una puerta E 30 de acceso al asensor, en el sector mas alto no se precisa ninguna de dichas medidas.
 
-Table 1.1 Condiciones de compartmentacion en sectores de incendio  
+Table 1.1 Condiciones de compartmentacion en sectores de incendio
 
 <table><tr><td>Uso previsto del edifi-cio o establecimiento</td><td>Condiciones</td></tr><tr><td>En general</td><td>- Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta-blecimientos cuya superficie construida no exceda de 500 m² y cuyo uso sea Docente, Administrativo o Residencial Público.
 - Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diffe-rente cuando supere los siguientes límites:</td></tr></table>
@@ -209,13 +209,13 @@ Debe constituir un sector de incendió diferenciado cuando esté integrado en un
 
 Los aparcamientos robotizados situados debajo de otro uso estarán compartimentados en sectores de incendió que no excedan de 10,000 m².
 
-(1) Por ejemplo, las zonas de dominirios en establecimientos docentes o, en hospitales, para personal médico, enfermeras, etc. 
-(2) Cualquier superficie, cuando se trate de aparcamientos robotizados. Los aparcamientos convencionales que no excedan de  $100m^2$  se consideran locales de riesgo especial bajo. 
-(3) Se recuerda que las zonas de uso industrial o de almacenamiento a las que se refiere el ambito de aplicacion del apartado Generalidades de este DB deben constituir uno o varios sectores de incendió diferenciados de las zonas de uso Comercial, en las condiciones que establece la reglamentación específica aplicable al uso industrial. 
-(4) Los elementos que separan entre si diferentes establecimientos deben ser El 60. Esta condicion no es aplicable a los elementos que separan a los establecimientos de las zonas comunes de circulación del centro. 
+(1) Por ejemplo, las zonas de dominirios en establecimientos docentes o, en hospitales, para personal médico, enfermeras, etc.
+(2) Cualquier superficie, cuando se trate de aparcamientos robotizados. Los aparcamientos convencionales que no excedan de  $100m^2$  se consideran locales de riesgo especial bajo.
+(3) Se recuerda que las zonas de uso industrial o de almacenamiento a las que se refiere el ambito de aplicacion del apartado Generalidades de este DB deben constituir uno o varios sectores de incendió diferenciados de las zonas de uso Comercial, en las condiciones que establece la reglamentación específica aplicable al uso industrial.
+(4) Los elementos que separan entre si diferentes establecimientos deben ser El 60. Esta condicion no es aplicable a los elementos que separan a los establecimientos de las zonas comunes de circulación del centro.
 (5) Dichos establecimientos deberan cumplir además las condiciones de compartimentación que se establecen para el uso Pública Concurencia.
 
-Table 1.2 Resistencia al fuego de las paredes, techos y puertas que delimitan sectores de incendio(1) (2)  
+Table 1.2 Resistencia al fuego de las paredes, techos y puertas que delimitan sectores de incendio(1) (2)
 
 <table><tr><td rowspan="3">Elemento</td><td colspan="4">Resistencia al fuego</td></tr><tr><td rowspan="2">Plantas bajo rasante</td><td colspan="3">Plantas sobre rasante en edificio con altura de eva-cuación:</td></tr><tr><td>h ≤ 15 m</td><td>15 ≤ h ≤ 28 m</td><td>h &amp;gt; 28 m</td></tr><tr><td>Paredes y techos(3) que separan al sector considerado del resto del edificio, sides to use provide(4)</td><td></td><td></td><td></td><td></td></tr><tr><td>- Sector de riesgo mínimo en edificio de cualquier uso</td><td>(no se admitte)</td><td>EI 120</td><td>EI 120</td><td>EI 120</td></tr><tr><td>- Residencial Vivienda, Residen-cial Público, Docente, Adminis-trativo</td><td>EI 120</td><td>EI 60</td><td>EI 90</td><td>EI 120</td></tr><tr><td>- Comercial, Pública concurren-cia, Hospitalario</td><td>EI 120(5)</td><td>EI 90</td><td>EI 120</td><td>EI 180</td></tr><tr><td>- Aparcamiento(6)</td><td>EI 120(7)</td><td>EI 120</td><td>EI 120</td><td>EI 120</td></tr><tr><td>Puertas de paso entre sectores de incendio</td><td colspan="4">EI2 t-C5 siendo t la mitad del tiempo de resistencia al fuego requerido a la pared en la que se encuentre, o bien la cuarta parte cuando el paso se reali-ce a través de un vestibulo de independencia y de dos puertas.</td></tr></table>
 

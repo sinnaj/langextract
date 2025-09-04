@@ -17,26 +17,44 @@ Notes:
 """
 
 import json
+from pathlib import Path
 import re
 import sys
-from pathlib import Path
 from typing import Any, Dict, List, Tuple
-
 
 # Ordered phrase replacements (match on lowercase text; longest first)
 PHRASES: List[Tuple[str, str]] = [
     # Domain-specific long forms first
     (
-        "este documento básico (db) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio",
-        "This Basic Document (DB) aims to establish rules and procedures that make it possible to meet the basic fire safety requirements",
+        (
+            "este documento básico (db) tiene por objeto establecer reglas y"
+            " procedimientos que permiten cumplir las exigencias básicas de"
+            " seguridad en caso de incendio"
+        ),
+        (
+            "This Basic Document (DB) aims to establish rules and procedures"
+            " that make it possible to meet the basic fire safety requirements"
+        ),
     ),
     (
-        "las secciones de este db se corresponden con las exigencias básicas si 1 a si 6",
-        "The sections of this DB correspond to the basic requirements SI 1 to SI 6",
+        (
+            "las secciones de este db se corresponden con las exigencias"
+            " básicas si 1 a si 6"
+        ),
+        (
+            "The sections of this DB correspond to the basic requirements SI 1"
+            " to SI 6"
+        ),
     ),
     (
-        "la correcta aplicación de cada sección supone el cumplimiento de la exigencia básica correspondiente",
-        "Proper application of each section implies compliance with the corresponding basic requirement",
+        (
+            "la correcta aplicación de cada sección supone el cumplimiento de"
+            " la exigencia básica correspondiente"
+        ),
+        (
+            "Proper application of each section implies compliance with the"
+            " corresponding basic requirement"
+        ),
     ),
     # Common legal/technical connectors
     ("tiene por objeto", "aims to"),
@@ -82,7 +100,6 @@ WORDS: Dict[str, str] = {
     "cuando": "when",
     "donde": "where",
     "que": "that",
-
     # common verbs/nouns
     "debe": "must",
     "deben": "must",
@@ -136,115 +153,123 @@ WORDS: Dict[str, str] = {
 TOKEN_RE = re.compile(r"(\w+|\s+|[^\w\s])", re.UNICODE)
 
 # Optional OCR/typo fixes before translation
-OCR_FIXES: Tuple[Tuple[str, str], ...] = (
-    ("secaciones", "secciones"),
-)
+OCR_FIXES: Tuple[Tuple[str, str], ...] = (("secaciones", "secciones"),)
 
 
 def _apply_ocr_fixes(s: str) -> str:
-    out = s
-    for a, b in OCR_FIXES:
-        out = out.replace(a, b)
-    return out
+  out = s
+  for a, b in OCR_FIXES:
+    out = out.replace(a, b)
+  return out
 
 
 def _post_cleanup(result: str) -> str:
-    # Grammar/phrasing polish (very light)
-    fixes: Tuple[Tuple[str, str], ...] = (
-        ("document basic", "Basic Document"),
-        ("allow comply with", "allow compliance with"),
-        ("allow to comply with", "allow compliance with"),
-        (
-            "aims to establish rules and procedures that allow compliance with",
-            "aims to establish rules and procedures that make it possible to meet",
-        ),
-        ("requirements basic", "basic requirements"),
-        ("requirement basic", "basic requirement"),
-        ("correct application", "proper application"),
-    )
-    out = result
-    for a, b in fixes:
-        out = out.replace(a, b)
-    # Keep DB and SI capitalization
-    out = re.sub(r"\bdb\b", "DB", out)
-    out = re.sub(r"\bsi\b", "SI", out)
-    return out
+  # Grammar/phrasing polish (very light)
+  fixes: Tuple[Tuple[str, str], ...] = (
+      ("document basic", "Basic Document"),
+      ("allow comply with", "allow compliance with"),
+      ("allow to comply with", "allow compliance with"),
+      (
+          "aims to establish rules and procedures that allow compliance with",
+          (
+              "aims to establish rules and procedures that make it possible to"
+              " meet"
+          ),
+      ),
+      ("requirements basic", "basic requirements"),
+      ("requirement basic", "basic requirement"),
+      ("correct application", "proper application"),
+  )
+  out = result
+  for a, b in fixes:
+    out = out.replace(a, b)
+  # Keep DB and SI capitalization
+  out = re.sub(r"\bdb\b", "DB", out)
+  out = re.sub(r"\bsi\b", "SI", out)
+  return out
 
 
 def translate_text(text: str) -> str:
-    # Lowercase working copy for phrase/word matching
-    lower = _apply_ocr_fixes(text).lower()
-    # phrase replacements (longest first)
-    for es, en in sorted(PHRASES, key=lambda p: len(p[0]), reverse=True):
-        lower = lower.replace(es, en)
-    # token-wise replacements to preserve punctuation/spacing
-    tokens = TOKEN_RE.findall(lower)
-    out_tokens: List[str] = []
-    for t in tokens:
-        if not t.strip():
-            out_tokens.append(t)
-            continue
-        if t.isalpha():
-            out_tokens.append(WORDS.get(t, t))
-        else:
-            out_tokens.append(t)
-    result = "".join(out_tokens)
-    result = _post_cleanup(result)
-    # Capitalize sentence start if original started with uppercase
-    if text[:1].isupper() and result:
-        result = result[:1].upper() + result[1:]
-    return result
+  # Lowercase working copy for phrase/word matching
+  lower = _apply_ocr_fixes(text).lower()
+  # phrase replacements (longest first)
+  for es, en in sorted(PHRASES, key=lambda p: len(p[0]), reverse=True):
+    lower = lower.replace(es, en)
+  # token-wise replacements to preserve punctuation/spacing
+  tokens = TOKEN_RE.findall(lower)
+  out_tokens: List[str] = []
+  for t in tokens:
+    if not t.strip():
+      out_tokens.append(t)
+      continue
+    if t.isalpha():
+      out_tokens.append(WORDS.get(t, t))
+    else:
+      out_tokens.append(t)
+  result = "".join(out_tokens)
+  result = _post_cleanup(result)
+  # Capitalize sentence start if original started with uppercase
+  if text[:1].isupper() and result:
+    result = result[:1].upper() + result[1:]
+  return result
 
 
 def transform(obj: Any, keys: Tuple[str, ...], counts: Dict[str, int]) -> Any:
-    if isinstance(obj, dict):
-        new_obj = {}
-        for k, v in obj.items():
-            if k in keys and isinstance(v, str):
-                new_obj[k] = translate_text(v)
-                counts[k] = counts.get(k, 0) + 1
-            else:
-                new_obj[k] = transform(v, keys, counts)
-        return new_obj
-    if isinstance(obj, list):
-        return [transform(v, keys, counts) for v in obj]
-    return obj
+  if isinstance(obj, dict):
+    new_obj = {}
+    for k, v in obj.items():
+      if k in keys and isinstance(v, str):
+        new_obj[k] = translate_text(v)
+        counts[k] = counts.get(k, 0) + 1
+      else:
+        new_obj[k] = transform(v, keys, counts)
+    return new_obj
+  if isinstance(obj, list):
+    return [transform(v, keys, counts) for v in obj]
+  return obj
 
 
 def main(argv: List[str]) -> int:
-    if len(argv) < 2:
-        print("Usage: translate_statement_text.py <input.json> [<output.json>] [--also-notes]")
-        return 2
-    inp = Path(argv[1])
-    if not inp.exists():
-        print(f"Input not found: {inp}")
-        return 2
-    # parse optional args
-    outp_arg = None
-    also_notes = False
-    # permit either: script.py in out [--also-notes]  OR script.py in [--also-notes]
-    for a in argv[2:]:
-        if a == "--also-notes":
-            also_notes = True
-        elif outp_arg is None and not a.startswith("--"):
-            outp_arg = a
+  if len(argv) < 2:
+    print(
+        "Usage: translate_statement_text.py <input.json> [<output.json>]"
+        " [--also-notes]"
+    )
+    return 2
+  inp = Path(argv[1])
+  if not inp.exists():
+    print(f"Input not found: {inp}")
+    return 2
+  # parse optional args
+  outp_arg = None
+  also_notes = False
+  # permit either: script.py in out [--also-notes]  OR script.py in [--also-notes]
+  for a in argv[2:]:
+    if a == "--also-notes":
+      also_notes = True
+    elif outp_arg is None and not a.startswith("--"):
+      outp_arg = a
 
-    outp = Path(outp_arg) if outp_arg else inp.with_name("output_en.json")
-    try:
-        data = json.loads(inp.read_text(encoding="utf-8"))
-    except Exception as e:
-        print(f"Failed to parse JSON: {e}")
-        return 1
-    keys: Tuple[str, ...] = ("statement_text",) + (("notes",) if also_notes else tuple())
-    counts: Dict[str, int] = {}
-    new_data = transform(data, keys, counts)
-    outp.write_text(json.dumps(new_data, ensure_ascii=False, indent=2), encoding="utf-8")
-    total = sum(counts.values())
-    keys_str = ", ".join([f"{k}={counts.get(k,0)}" for k in keys])
-    print(f"Updated JSON written to: {outp}")
-    print(f"Translated fields: {total} ({keys_str})")
-    return 0
+  outp = Path(outp_arg) if outp_arg else inp.with_name("output_en.json")
+  try:
+    data = json.loads(inp.read_text(encoding="utf-8"))
+  except Exception as e:
+    print(f"Failed to parse JSON: {e}")
+    return 1
+  keys: Tuple[str, ...] = ("statement_text",) + (
+      ("notes",) if also_notes else tuple()
+  )
+  counts: Dict[str, int] = {}
+  new_data = transform(data, keys, counts)
+  outp.write_text(
+      json.dumps(new_data, ensure_ascii=False, indent=2), encoding="utf-8"
+  )
+  total = sum(counts.values())
+  keys_str = ", ".join([f"{k}={counts.get(k,0)}" for k in keys])
+  print(f"Updated JSON written to: {outp}")
+  print(f"Translated fields: {total} ({keys_str})")
+  return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
+  raise SystemExit(main(sys.argv))

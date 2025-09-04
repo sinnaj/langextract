@@ -19,7 +19,7 @@ A Norm is an atomic statement about regulation that needs to be followed. A norm
 5. If an explicit exemption sentence exists, integrate as exempt_if not separate Norm.
 6. If page cannot be confidently determined, set page = -1 and add quality.errors entry PAGE_MISSING (but per spec this should be exceptional).
 7. If no location information is present set "COUNTRY": "ES"
-8. If a Norm references a section within the same document in a way that makes it a satisfied_if statement, the satisfied_if should be directly made out of the content of that section rather than simply stating satisfied_if complying with that section. 
+8. If a Norm references a section within the same document in a way that makes it a satisfied_if statement, the satisfied_if should be directly made out of the content of that section rather than simply stating satisfied_if complying with that section.
 
 ## PROCEDURES
 A Procedure is a description of how a specific task is carried out. I can include but is not limited to:
@@ -61,7 +61,7 @@ LITERALS:
 OPERATORS:
 - Comparison: == != < <= > >=
 - Logical: AND OR NOT (uppercase) with parentheses for grouping
-- Membership: VAR IN['VAL1','VAL2','VAL3'] (no spaces after IN)  
+- Membership: VAR IN['VAL1','VAL2','VAL3'] (no spaces after IN)
   (If only one value, you MAY use equality instead.)
 - No range shorthand; express ranges explicitly: X >= 0 AND X <= 20
 - Existence: HAS(DOOR.AUTOMATIC) means tag/path recognized in ontology for this context.

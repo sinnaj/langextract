@@ -49,7 +49,7 @@ TRUNCATION & LIMITS
 - If not all norms fit, set has_more=true. If text was truncated internally, set truncated=true and add QUALITY_TRUNCATED to quality.errors.
 
 SELF-CHECK BEFORE EMITTING
-- JSON parses; root is exactly {"extractions":[...]}. 
+- JSON parses; root is exactly {"extractions":[...]}.
 - All required keys present; arrays exist (tags/locations/questions/consequences/parameters remain empty).
 - Each norm has required fields; IDs are unique.
 - DSL uses only allowed tokens/operators; alternatives formatted with "; OR ".

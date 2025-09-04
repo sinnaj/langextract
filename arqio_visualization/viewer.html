@@ -64,50 +64,50 @@
     .nowrap { white-space: nowrap; }
     .right { text-align: right; }
     .hidden { display: none; }
-    
+
     /* Comment styles */
     .comments-cell { max-width: 200px; }
-    .comment-item { 
-      background: rgba(55, 65, 81, 0.3); 
-      border: 1px solid var(--border); 
-      border-radius: 6px; 
-      padding: 8px; 
-      margin: 4px 0; 
-      font-size: 12px; 
+    .comment-item {
+      background: rgba(55, 65, 81, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px;
+      margin: 4px 0;
+      font-size: 12px;
     }
-    .comment-header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      margin-bottom: 4px; 
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
       font-size: 11px;
       color: var(--muted);
     }
-    .comment-text { 
-      margin-bottom: 6px; 
-      word-wrap: break-word; 
+    .comment-text {
+      margin-bottom: 6px;
+      word-wrap: break-word;
     }
-    .comment-reply { 
-      margin-left: 16px; 
-      border-left: 2px solid var(--border); 
-      padding-left: 8px; 
+    .comment-reply {
+      margin-left: 16px;
+      border-left: 2px solid var(--border);
+      padding-left: 8px;
     }
-    .comment-actions { 
-      display: flex; 
-      gap: 8px; 
-      font-size: 10px; 
-    }
-    .comment-actions button { 
-      background: none; 
-      border: 1px solid var(--border); 
-      color: var(--muted); 
-      padding: 2px 6px; 
-      border-radius: 3px; 
-      cursor: pointer; 
+    .comment-actions {
+      display: flex;
+      gap: 8px;
       font-size: 10px;
     }
-    .comment-actions button:hover { 
-      background: var(--chip); 
+    .comment-actions button {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 2px 6px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 10px;
+    }
+    .comment-actions button:hover {
+      background: var(--chip);
     }
     .delete-btn {
       color: var(--error) !important;
@@ -123,18 +123,18 @@
     .edit-btn:hover {
       background: rgba(96, 165, 250, 0.1) !important;
     }
-    .add-comment-btn { 
-      background: var(--panel); 
-      border: 1px solid var(--border); 
-      color: var(--text); 
-      padding: 4px 8px; 
-      border-radius: 4px; 
-      cursor: pointer; 
-      font-size: 11px; 
-      margin: 2px 0; 
+    .add-comment-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 11px;
+      margin: 2px 0;
     }
-    .add-comment-btn:hover { 
-      background: var(--chip); 
+    .add-comment-btn:hover {
+      background: var(--chip);
     }
   </style>
   <script>
@@ -625,7 +625,7 @@
         a.download = commentsFile.split('/').pop() || 'comments.json';
         a.click();
         URL.revokeObjectURL(url);
-        
+
         // Update button state to show comments are saved
         const saveBtn = byId('saveComments');
         if (saveBtn) {
@@ -655,7 +655,7 @@
     function updateSaveButtonState() {
       const saveBtn = byId('saveComments');
       if (!saveBtn) return;
-      
+
       if (!CURRENT_FILENAME) {
         saveBtn.disabled = true;
         saveBtn.textContent = 'Save Comments';
@@ -716,10 +716,10 @@
       if (index !== -1) {
         const comment = COMMENTS_DATA.comments[index];
         const replyCount = comment.replies ? comment.replies.length : 0;
-        const message = replyCount > 0 
+        const message = replyCount > 0
           ? `Delete this comment and ${replyCount} ${replyCount === 1 ? 'reply' : 'replies'}?`
           : 'Delete this comment?';
-        
+
         if (confirm(message)) {
           COMMENTS_DATA.comments.splice(index, 1);
           renderEntitiesNormalized(CURRENT_DATA); // Re-render to show deletion
@@ -744,7 +744,7 @@
     function editComment(commentId) {
       const comment = COMMENTS_DATA.comments?.find(c => c.id === commentId);
       if (!comment) return;
-      
+
       const newText = prompt('Edit comment:', comment.text);
       if (newText !== null && newText.trim()) {
         comment.text = newText.trim();
@@ -759,7 +759,7 @@
       if (!comment || !comment.replies) return;
       const reply = comment.replies.find(r => r.id === replyId);
       if (!reply) return;
-      
+
       const newText = prompt('Edit reply:', reply.text);
       if (newText !== null && newText.trim()) {
         reply.text = newText.trim();
@@ -776,10 +776,10 @@
     function renderCommentsForLine(lineId) {
       const comments = getCommentsForLine(lineId);
       let html = '';
-      
+
       // Add comment button
       html += `<button class="add-comment-btn" onclick="addCommentToLine('${lineId}')">+ Add Comment</button>`;
-      
+
       // Render existing comments
       for (const comment of comments) {
         html += `<div class="comment-item">
@@ -793,7 +793,7 @@
             <button class="edit-btn" onclick="editComment('${comment.id}')" title="Edit comment">✏️</button>
             <button class="delete-btn" onclick="deleteComment('${comment.id}')" title="Delete comment and all replies">🗑️</button>
           </div>`;
-        
+
         // Render replies
         for (const reply of comment.replies || []) {
           html += `<div class="comment-reply">
@@ -806,17 +806,17 @@
             <div class="comment-text">${escapeHtml(reply.text)}</div>
           </div>`;
         }
-        
+
         html += '</div>';
       }
-      
+
       return html;
     }
 
     function addCommentToLine(lineId) {
       const author = ensureAuthorName();
       if (!author) return;
-      
+
       const text = prompt('Enter your comment:');
       if (text && text.trim()) {
         addComment(lineId, text.trim(), author);
@@ -827,7 +827,7 @@
     function replyToComment(commentId) {
       const author = ensureAuthorName();
       if (!author) return;
-      
+
       const text = prompt('Enter your reply:');
       if (text && text.trim()) {
         addReply(commentId, text.trim(), author);
@@ -840,7 +840,7 @@
       setAuthorName(getAuthorName());
       // Initialize save button state
       updateSaveButtonState();
-      
+
       const autof = await loadDefaultJson();
       if (autof) {
         CURRENT_DATA = normalizeData(autof);

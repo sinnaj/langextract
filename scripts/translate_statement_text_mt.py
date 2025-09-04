@@ -16,13 +16,15 @@ Install (example):
 """
 
 import argparse
-import json
 from dataclasses import dataclass
+import json
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
 
-def _collect_translation_targets(obj: Any, keys: Tuple[str, ...]) -> List[Tuple[List[str], str]]:
+def _collect_translation_targets(
+    obj: Any, keys: Tuple[str, ...]
+) -> List[Tuple[List[str], str]]:
   """Return a list of (path, text) to translate.
 
   path is a list of keys/indexes from root to the value.
@@ -67,7 +69,9 @@ def _chunks(seq: Sequence[str], n: int) -> Iterable[Sequence[str]]:
     yield seq[i : i + n]
 
 
-def translate_spanish_to_english(texts: List[str], config: TranslatorConfig) -> List[str]:
+def translate_spanish_to_english(
+    texts: List[str], config: TranslatorConfig
+) -> List[str]:
   from transformers import pipeline  # Imported lazily to improve UX
 
   pipe = pipeline(
@@ -79,7 +83,10 @@ def translate_spanish_to_english(texts: List[str], config: TranslatorConfig) -> 
   total = len(texts)
   processed = 0
   if config.show_progress:
-    print(f"Translating {total} field(s) in batches of {config.batch_size} using '{config.model_name}' (CPU)")
+    print(
+        f"Translating {total} field(s) in batches of {config.batch_size} using"
+        f" '{config.model_name}' (CPU)"
+    )
   for batch in _chunks(texts, config.batch_size):
     # pipeline returns list of dicts: [{"translation_text": "..."}, ...]
     preds = pipe(list(batch))
@@ -92,12 +99,36 @@ def translate_spanish_to_english(texts: List[str], config: TranslatorConfig) -> 
 
 
 def main() -> int:
-  ap = argparse.ArgumentParser(description="Translate JSON 'statement_text' fields from Spanish to English using HF Transformers.")
+  ap = argparse.ArgumentParser(
+      description=(
+          "Translate JSON 'statement_text' fields from Spanish to English using"
+          " HF Transformers."
+      )
+  )
   ap.add_argument("input", type=Path, help="Input JSON file")
-  ap.add_argument("output", type=Path, nargs="?", help="Output JSON path (default: output_en.json next to input)")
-  ap.add_argument("--also-notes", action="store_true", dest="also_notes", help="Also translate 'notes' fields")
-  ap.add_argument("--batch-size", type=int, default=64, help="Batch size for translation requests (default: 64)")
-  ap.add_argument("--model", default="Helsinki-NLP/opus-mt-es-en", help="Hugging Face model id (default: Helsinki-NLP/opus-mt-es-en)")
+  ap.add_argument(
+      "output",
+      type=Path,
+      nargs="?",
+      help="Output JSON path (default: output_en.json next to input)",
+  )
+  ap.add_argument(
+      "--also-notes",
+      action="store_true",
+      dest="also_notes",
+      help="Also translate 'notes' fields",
+  )
+  ap.add_argument(
+      "--batch-size",
+      type=int,
+      default=64,
+      help="Batch size for translation requests (default: 64)",
+  )
+  ap.add_argument(
+      "--model",
+      default="Helsinki-NLP/opus-mt-es-en",
+      help="Hugging Face model id (default: Helsinki-NLP/opus-mt-es-en)",
+  )
   args = ap.parse_args()
 
   if not args.input.exists():
@@ -110,27 +141,34 @@ def main() -> int:
     print(f"Failed to parse JSON: {e}")
     return 1
 
-  keys: Tuple[str, ...] = ("statement_text",) + (("notes",) if args.also_notes else tuple())
+  keys: Tuple[str, ...] = ("statement_text",) + (
+      ("notes",) if args.also_notes else tuple()
+  )
   targets = _collect_translation_targets(data, keys)
   texts = [t[1] for t in targets]
   if not texts:
     outp = args.output or args.input.with_name("output_en.json")
-    outp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    outp.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     print(f"No fields to translate. Wrote: {outp}")
     return 0
 
   try:
     print(f"Found {len(texts)} field(s) to translate: {', '.join(keys)}")
     translated = translate_spanish_to_english(
-      texts,
-      TranslatorConfig(
-        model_name=args.model,
-        batch_size=args.batch_size,
-        show_progress=True,
-      ),
+        texts,
+        TranslatorConfig(
+            model_name=args.model,
+            batch_size=args.batch_size,
+            show_progress=True,
+        ),
     )
   except Exception as e:
-    print("Error during translation. Ensure 'transformers', 'sentencepiece', and 'torch' are installed.")
+    print(
+        "Error during translation. Ensure 'transformers', 'sentencepiece', and"
+        " 'torch' are installed."
+    )
     print(f"Exact error: {e}")
     return 1
 
@@ -139,7 +177,9 @@ def main() -> int:
     _set_by_path(data, path, new_val)
 
   outp = args.output or args.input.with_name("output_en.json")
-  outp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+  outp.write_text(
+      json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+  )
   count_str = ", ".join(keys)
   print(f"Translated {len(translated)} field(s) ({count_str}). Wrote: {outp}")
   return 0

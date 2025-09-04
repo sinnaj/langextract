@@ -43,7 +43,7 @@ LITERALS:
 OPERATORS:
 - Comparison: == != < <= > >=
 - Logical: AND OR NOT (uppercase) with parentheses for grouping
-- Membership: VAR IN['VAL1','VAL2','VAL3'] (no spaces after IN)  
+- Membership: VAR IN['VAL1','VAL2','VAL3'] (no spaces after IN)
   (If only one value, you MAY use equality instead.)
 - No range shorthand; express ranges explicitly: X >= 0 AND X <= 20
 - Existence: HAS(DOOR.AUTOMATIC) means tag/path recognized in ontology for this context.

@@ -1,5 +1,5 @@
 /**
- * Preview Performance Optimizer  
+ * Preview Performance Optimizer
  * Handles large file previews efficiently with progressive loading and virtualization
  */
 
@@ -16,7 +16,7 @@ class PreviewOptimizer {
       lineHeight: options.lineHeight || 20,
       ...options
     };
-    
+
     this.currentFile = null;
     this.isLoading = false;
     this.cache = new Map();
@@ -33,32 +33,32 @@ class PreviewOptimizer {
       totalRenderTime: 0,
       lastRenderTime: 0
     };
-    
+
     this.init();
   }
-  
+
   init() {
     this.element.style.position = 'relative';
     this.element.style.overflow = 'auto';
-    
+
     // Use bound method for better memory management
     this.element.addEventListener('click', this.handleClick);
   }
-  
+
   async loadFile(runId, filePath, fileSize) {
     if (this.isLoading) return;
-    
+
     this.currentFile = { runId, filePath, fileSize };
     this.isLoading = true;
-    
+
     try {
       // Show loading indicator
       this.showLoadingIndicator(filePath, fileSize);
-      
+
       // Check cache first
       const cacheKey = `${runId}:${filePath}`;
       this.cacheRequests++;
-      
+
       if (this.cache.has(cacheKey)) {
         this.cacheHits++;
         const cached = this.cache.get(cacheKey);
@@ -66,58 +66,58 @@ class PreviewOptimizer {
         console.log(`Cache hit for ${filePath} (hit rate: ${(this.cacheHits/this.cacheRequests*100).toFixed(1)}%)`);
         return;
       }
-      
+
       // Determine loading strategy based on file size
       if (fileSize > this.options.maxPreviewSize) {
         await this.loadLargeFile(runId, filePath, fileSize);
       } else {
         await this.loadRegularFile(runId, filePath, fileSize);
       }
-      
+
     } catch (error) {
       this.showError(`Error loading file: ${error.message}`);
     } finally {
       this.isLoading = false;
     }
   }
-  
+
   async loadRegularFile(runId, filePath, fileSize) {
     const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(filePath)}`);
     const contentType = resp.headers.get('content-type') || '';
-    
+
     if (!resp.ok) {
       throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
     }
-    
+
     const content = await resp.text();
     const meta = {
       size: fileSize,
       truncated: false,
       loadedSize: content.length
     };
-    
+
     // Cache the result
     const cacheKey = `${this.currentFile.runId}:${this.currentFile.filePath}`;
     this.cache.set(cacheKey, { content, contentType, meta });
-    
+
     this.renderContent(content, contentType, meta);
   }
-  
+
   async loadLargeFile(runId, filePath, fileSize) {
     // Use server-side preview truncation for large files
     const maxBytes = Math.min(this.options.maxPreviewSize, fileSize);
     const resp = await fetch(
       `/runs/${runId}/file?path=${encodeURIComponent(filePath)}&preview=1&maxBytes=${maxBytes}`
     );
-    
+
     const contentType = resp.headers.get('content-type') || '';
     const truncated = resp.headers.get('X-Preview-Truncated') === '1';
     const previewSize = parseInt(resp.headers.get('X-Preview-Max-Bytes') || '0');
-    
+
     if (!resp.ok) {
       throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
     }
-    
+
     const content = await resp.text();
     const meta = {
       size: fileSize,
@@ -125,24 +125,24 @@ class PreviewOptimizer {
       loadedSize: content.length,
       previewSize: previewSize
     };
-    
+
     this.renderContent(content, contentType, meta);
   }
-  
+
   renderContent(content, contentType, meta) {
     // Clear previous content
     this.element.innerHTML = '';
-    
+
     // Add file info header for large/truncated files
     if (meta.truncated || meta.size > this.options.maxPreviewSize) {
       this.addFileInfoHeader(meta);
     }
-    
+
     // Determine content type and render accordingly
     if (this.isJsonContent(contentType)) {
       this.renderJson(content, meta);
     } else if (this.isMarkdownContent(contentType)) {
-      this.renderMarkdown(content, meta);  
+      this.renderMarkdown(content, meta);
     } else {
       this.renderText(content, meta);
     }
@@ -152,53 +152,53 @@ class PreviewOptimizer {
       this.applySearchHighlight(this._lastSearchQuery);
     }
   }
-  
+
   addFileInfoHeader(meta) {
     const header = document.createElement('div');
     header.className = 'bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded p-2 mb-3 text-sm';
-    
+
     let message = `File size: ${this.formatBytes(meta.size)}`;
     if (meta.truncated) {
       message += ` (showing first ${this.formatBytes(meta.loadedSize)})`;
     }
-    
+
     header.innerHTML = `
       <div class="flex items-center justify-between">
         <span class="text-yellow-800 dark:text-yellow-200">${message}</span>
         ${meta.truncated ? this.createLoadMoreButton() : ''}
       </div>
     `;
-    
+
     this.element.appendChild(header);
   }
-  
+
   createLoadMoreButton() {
     return `
-      <button onclick="previewOptimizer.loadFullFile()" 
+      <button onclick="previewOptimizer.loadFullFile()"
               class="text-xs bg-yellow-600 hover:bg-yellow-700 text-white px-2 py-1 rounded">
         Load Full File
       </button>
     `;
   }
-  
+
   async loadFullFile() {
     if (!this.currentFile) return;
-    
+
     try {
       this.showLoadingIndicator(this.currentFile.filePath, this.currentFile.fileSize, 'Loading full file...');
-      
+
       // Load without preview flag to get full content
       const resp = await fetch(
         `/runs/${this.currentFile.runId}/file?path=${encodeURIComponent(this.currentFile.filePath)}`
       );
-      
+
       if (!resp.ok) {
         throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
       }
-      
+
       const contentType = resp.headers.get('content-type') || '';
       const content = await resp.text();
-      
+
       // Check if content is too large for efficient rendering
       const lines = content.split('\n');
       if (lines.length > 10000) {
@@ -211,44 +211,44 @@ class PreviewOptimizer {
         };
         this.renderContent(content, contentType, meta);
       }
-      
+
     } catch (error) {
       this.showError(`Error loading full file: ${error.message}`);
     }
   }
-  
+
   renderLargeContent(content, contentType, lineCount) {
     // For very large content, implement virtual scrolling
     this.element.innerHTML = '';
-    
+
     // Add warning
     const warning = document.createElement('div');
     warning.className = 'bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded p-2 mb-3 text-sm';
     warning.innerHTML = `
       <div class="text-red-800 dark:text-red-200">
         Large file (${lineCount.toLocaleString()} lines). Showing first 1000 lines for performance.
-        <button onclick="previewOptimizer.enableVirtualScrolling()" 
+        <button onclick="previewOptimizer.enableVirtualScrolling()"
                 class="ml-2 text-xs bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded">
           Enable Full View
         </button>
       </div>
     `;
     this.element.appendChild(warning);
-    
+
     // Show first 1000 lines
     const lines = content.split('\n');
     const preview = lines.slice(0, 1000).join('\n');
-    
+
     const meta = {
       size: this.currentFile.fileSize,
       truncated: true,
       loadedSize: content.length,
       lineCount: lineCount
     };
-    
+
     this.renderTextContent(preview, meta);
   }
-  
+
   enableVirtualScrolling() {
     // This would implement a virtual scrolling view for very large files
     // For now, show a message about enabling this feature
@@ -256,13 +256,13 @@ class PreviewOptimizer {
     if (warning) {
       warning.innerHTML = `
         <div class="text-red-800 dark:text-red-200">
-          Virtual scrolling for large files is being implemented. 
+          Virtual scrolling for large files is being implemented.
           Consider downloading the file for better performance.
         </div>
       `;
     }
   }
-  
+
   renderJson(content, meta) {
     // Handle JSON Lines formats gracefully
     const lowerPath = (this.currentFile?.filePath || '').toLowerCase();
@@ -274,14 +274,14 @@ class PreviewOptimizer {
     try {
       const obj = JSON.parse(content);
       this.currentJsonData = obj; // Store for UBERMODE
-      
+
       console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
       console.log('Current UBERMODE state:', this.uberMode);
 
       // Check if UBERMODE is enabled and if this panel should show tree visualization
       const shouldShowTreeView = this.shouldShowTreeVisualization();
       console.log('Should show tree view:', shouldShowTreeView);
-      
+
       if (this.uberMode && shouldShowTreeView) {
         console.log('UBERMODE is enabled and this panel should show tree view');
         this.renderUberMode(obj, meta);
@@ -321,7 +321,7 @@ class PreviewOptimizer {
       this.renderTextContent(content, meta);
     }
   }
-  
+
   renderJsonl(content, meta) {
     const lines = content.split('\n');
     const total = lines.length;
@@ -354,7 +354,7 @@ class PreviewOptimizer {
         if (typeof JSONFormatter !== 'undefined') {
           // Limit depth for performance in JSONL rendering
           const maxDepth = line.length > 10000 ? 1 : 2;
-          const formatter = new JSONFormatter(obj, maxDepth, { 
+          const formatter = new JSONFormatter(obj, maxDepth, {
             theme: 'dark',
             hoverPreviewEnabled: line.length < 5000,
             animateOpen: false,
@@ -392,11 +392,11 @@ class PreviewOptimizer {
     if (typeof JSONFormatter !== 'undefined') {
       try {
         const obj = JSON.parse(jsonString);
-        
+
         // Determine appropriate depth based on JSON size and complexity
         const jsonSize = jsonString.length;
         const jsonDepth = this.calculateJsonDepth(obj);
-        
+
         let maxDepth;
         if (jsonSize > 500000) { // >500KB
           maxDepth = 1; // Very shallow for large files
@@ -407,7 +407,7 @@ class PreviewOptimizer {
         } else {
           maxDepth = Math.min(jsonDepth, 4); // Reasonable default
         }
-        
+
         const formatter = new JSONFormatter(obj, maxDepth, {
           theme: 'dark', // theme hint; CSS controls final look
           hoverPreviewEnabled: true,
@@ -416,10 +416,10 @@ class PreviewOptimizer {
           animateOpen: false, // Disable animations for performance
           animateClose: false
         });
-        
+
         const container = document.createElement('div');
         container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg p-2 overflow-auto';
-        
+
         // Use requestAnimationFrame for non-blocking DOM update
         requestAnimationFrame(() => {
           container.appendChild(formatter.render());
@@ -449,7 +449,7 @@ class PreviewOptimizer {
 
   renderEnhancedJsonObject(obj, meta, options = {}) {
     const startTime = performance.now();
-    
+
     // Use JSONFormatter directly on parsed object with enhanced controls
     try {
       // Determine JSON complexity and size for performance optimization
@@ -457,38 +457,38 @@ class PreviewOptimizer {
       const jsonSize = jsonString.length;
       const jsonDepth = this.calculateJsonDepth(obj);
       const itemCount = this.countJsonItems(obj);
-      
+
       console.log(`Rendering JSON: ${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
-      
+
       // Performance-based rendering strategy
       if (jsonSize > 2000000 || itemCount > 10000) { // >2MB or >10k items
         this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
         return;
       }
-      
+
       // Create main container with controls
       const mainContainer = document.createElement('div');
       mainContainer.className = 'enhanced-json-container';
-      
+
       // Add JSON control toolbar
       const toolbar = this.createJsonToolbar();
       mainContainer.appendChild(toolbar);
-      
+
       // Create JSON viewer container
       const container = document.createElement('div');
       container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 relative';
-      
+
       // Add line numbers toggle state
       const showLineNumbers = this.getJsonPreference('lineNumbers', true);
       const wordWrap = this.getJsonPreference('wordWrap', false);
-      
+
       // Create the content wrapper
       const contentWrapper = document.createElement('div');
       contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
-      
+
       // Determine if we need horizontal scroll
       const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
-      
+
       if (needsHorizontalScroll) {
         contentWrapper.style.overflowX = 'auto';
         contentWrapper.style.whiteSpace = 'nowrap';
@@ -496,7 +496,7 @@ class PreviewOptimizer {
         contentWrapper.style.overflowX = 'hidden';
         contentWrapper.style.whiteSpace = 'pre-wrap';
       }
-      
+
       // Create line numbers container if enabled (only for smaller JSON)
       let lineNumbersContainer = null;
       if (showLineNumbers && jsonSize < 500000) { // Skip line numbers for large JSON
@@ -513,11 +513,11 @@ class PreviewOptimizer {
           z-index: 2;
         `;
         container.appendChild(lineNumbersContainer);
-        
+
         // Adjust content padding for line numbers
         contentWrapper.style.paddingLeft = '68px';
       }
-      
+
       // Determine appropriate depth and options based on JSON complexity
       let maxDepth = options.maxDepth;
       if (!maxDepth) {
@@ -526,7 +526,7 @@ class PreviewOptimizer {
         else if (jsonDepth > 5) maxDepth = 3;
         else maxDepth = Math.min(jsonDepth, 4);
       }
-      
+
       // Create JSONFormatter with performance-optimized settings
       const formatter = new JSONFormatter(obj, maxDepth, {
         hoverPreviewEnabled: jsonSize < 100000, // Disable hover for large JSON
@@ -536,41 +536,41 @@ class PreviewOptimizer {
         animateClose: jsonSize < 50000,
         theme: 'default'
       });
-      
+
       // Use requestAnimationFrame for non-blocking rendering
       requestAnimationFrame(() => {
         const formatterElement = formatter.render();
         formatterElement.style.padding = '12px';
         formatterElement.style.minHeight = '100%';
-        
+
         contentWrapper.appendChild(formatterElement);
         container.appendChild(contentWrapper);
-        
+
         // Generate line numbers if enabled and not too large
         if (showLineNumbers && lineNumbersContainer && jsonSize < 100000) {
           requestAnimationFrame(() => {
             this.generateJsonLineNumbers(obj, lineNumbersContainer);
           });
         }
-        
+
         mainContainer.appendChild(container);
         this.element.appendChild(mainContainer);
-        
+
         // Store references for control updates
         this.jsonContainer = container;
         this.jsonContentWrapper = contentWrapper;
         this.jsonLineNumbersContainer = lineNumbersContainer;
-        
+
         // Track performance
         const endTime = performance.now();
         const renderTime = endTime - startTime;
         this.performanceStats.renderCount++;
         this.performanceStats.totalRenderTime += renderTime;
         this.performanceStats.lastRenderTime = renderTime;
-        
+
         console.log(`JSON rendered in ${renderTime.toFixed(2)}ms (avg: ${(this.performanceStats.totalRenderTime / this.performanceStats.renderCount).toFixed(2)}ms)`);
       });
-      
+
     } catch (e) {
       console.error('JSONFormatter failed:', e);
       // Fallback: pretty print with enhanced controls
@@ -592,11 +592,11 @@ class PreviewOptimizer {
   createJsonToolbar() {
     const toolbar = document.createElement('div');
     toolbar.className = 'json-toolbar flex items-center justify-between bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-t-lg px-4 py-2 text-sm';
-    
+
     // Left side controls
     const leftControls = document.createElement('div');
     leftControls.className = 'flex items-center space-x-4';
-    
+
     // Line numbers toggle
     const lineNumbersToggle = this.createToggleButton('line-numbers', 'Line Numbers', this.getJsonPreference('lineNumbers', true));
     lineNumbersToggle.addEventListener('change', (e) => {
@@ -604,7 +604,7 @@ class PreviewOptimizer {
       this.updateJsonDisplay();
     });
     leftControls.appendChild(lineNumbersToggle);
-    
+
     // Word wrap toggle
     const wordWrapToggle = this.createToggleButton('word-wrap', 'Word Wrap', this.getJsonPreference('wordWrap', false));
     wordWrapToggle.addEventListener('change', (e) => {
@@ -612,11 +612,11 @@ class PreviewOptimizer {
       this.updateJsonDisplay();
     });
     leftControls.appendChild(wordWrapToggle);
-    
+
     // Right side info
     const rightInfo = document.createElement('div');
     rightInfo.className = 'flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400';
-    
+
     const jsonInfo = document.createElement('span');
     if (this.currentJsonData && this.currentJsonData.extractions) {
       jsonInfo.textContent = `${this.currentJsonData.extractions.length} extractions`;
@@ -624,10 +624,10 @@ class PreviewOptimizer {
       jsonInfo.textContent = 'JSON Preview';
     }
     rightInfo.appendChild(jsonInfo);
-    
+
     toolbar.appendChild(leftControls);
     toolbar.appendChild(rightInfo);
-    
+
     return toolbar;
   }
 
@@ -636,20 +636,20 @@ class PreviewOptimizer {
     const container = document.createElement('label');
     container.className = 'flex items-center space-x-2 cursor-pointer';
     container.setAttribute('for', `${id}-toggle`);
-    
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `${id}-toggle`;
     checkbox.checked = checked;
     checkbox.className = 'rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-2';
-    
+
     const labelText = document.createElement('span');
     labelText.textContent = label;
     labelText.className = 'text-gray-700 dark:text-gray-300 select-none';
-    
+
     container.appendChild(checkbox);
     container.appendChild(labelText);
-    
+
     return container;
   }
 
@@ -658,13 +658,13 @@ class PreviewOptimizer {
     if (typeof obj !== 'object' || obj === null || currentDepth > 10) { // Limit recursion depth
       return currentDepth;
     }
-    
+
     let maxDepth = currentDepth;
     const keys = Object.keys(obj);
-    
+
     // Limit checking for performance on very large objects
     const keysToCheck = keys.length > 100 ? keys.slice(0, 100) : keys;
-    
+
     for (const key of keysToCheck) {
       const value = obj[key];
       if (typeof value === 'object' && value !== null) {
@@ -672,17 +672,17 @@ class PreviewOptimizer {
         maxDepth = Math.max(maxDepth, depth);
       }
     }
-    
+
     return maxDepth;
   }
 
   // Count JSON items (keys + array elements) for performance estimation
   countJsonItems(obj, maxCount = 20000) {
     let count = 0;
-    
+
     const countRecursive = (item) => {
       if (count >= maxCount) return; // Stop counting if we hit the limit
-      
+
       if (Array.isArray(item)) {
         count += item.length;
         for (const element of item.slice(0, 10)) { // Sample first 10 elements
@@ -698,7 +698,7 @@ class PreviewOptimizer {
         }
       }
     };
-    
+
     countRecursive(obj);
     return count;
   }
@@ -706,11 +706,11 @@ class PreviewOptimizer {
   // Render very large JSON with virtual scrolling and progressive loading
   renderLargeJsonObject(obj, meta, stats = {}) {
     this.element.innerHTML = '';
-    
+
     // Create warning and info container
     const infoContainer = document.createElement('div');
     infoContainer.className = 'bg-orange-50 dark:bg-orange-900 border border-orange-200 dark:border-orange-700 rounded-lg p-4 mb-4';
-    
+
     const { jsonSize, jsonDepth, itemCount } = stats;
     infoContainer.innerHTML = `
       <div class="flex items-start space-x-3">
@@ -739,26 +739,26 @@ class PreviewOptimizer {
         </div>
       </div>
     `;
-    
+
     this.element.appendChild(infoContainer);
-    
+
     // Add event listeners for rendering options
     const shallowBtn = infoContainer.querySelector('#render-shallow');
     const mediumBtn = infoContainer.querySelector('#render-medium');
     const textBtn = infoContainer.querySelector('#render-text');
-    
+
     shallowBtn?.addEventListener('click', () => {
       this.renderJsonWithDepth(obj, 1, infoContainer);
     });
-    
+
     mediumBtn?.addEventListener('click', () => {
       this.renderJsonWithDepth(obj, 2, infoContainer);
     });
-    
+
     textBtn?.addEventListener('click', () => {
       this.renderJsonAsText(obj, infoContainer);
     });
-    
+
     // Auto-render with minimal depth by default
     setTimeout(() => {
       this.renderJsonWithDepth(obj, 1, infoContainer);
@@ -771,11 +771,11 @@ class PreviewOptimizer {
     if (this.currentRenderOperation) {
       this.currentRenderOperation.cancelled = true;
     }
-    
+
     // Create operation tracker
     const renderOperation = { cancelled: false };
     this.currentRenderOperation = renderOperation;
-    
+
     // Show loading indicator
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'text-center py-8 text-gray-500';
@@ -783,13 +783,13 @@ class PreviewOptimizer {
       <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
       <div class="text-sm">Rendering JSON (depth ${maxDepth})...</div>
     `;
-    
+
     // Remove any existing JSON container
     const existingJson = this.element.querySelector('.json-viewer');
     if (existingJson) existingJson.remove();
-    
+
     this.element.appendChild(loadingDiv);
-    
+
     // Use timeout to allow UI to update
     setTimeout(() => {
       // Check if operation was cancelled
@@ -797,7 +797,7 @@ class PreviewOptimizer {
         loadingDiv.remove();
         return;
       }
-      
+
       try {
         const formatter = new JSONFormatter(obj, maxDepth, {
           hoverPreviewEnabled: false, // Disable for performance
@@ -807,34 +807,34 @@ class PreviewOptimizer {
           animateClose: false,
           theme: 'default'
         });
-        
+
         const container = document.createElement('div');
         container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 overflow-auto max-h-96';
-        
+
         // Check again if cancelled before expensive DOM operation
         if (renderOperation.cancelled) {
           loadingDiv.remove();
           return;
         }
-        
+
         const formatterElement = formatter.render();
         container.appendChild(formatterElement);
-        
+
         // Remove loading indicator and add JSON
         loadingDiv.remove();
         this.element.appendChild(container);
-        
+
         // Clear operation tracker
         if (this.currentRenderOperation === renderOperation) {
           this.currentRenderOperation = null;
         }
-        
+
       } catch (e) {
         console.error('Failed to render JSON:', e);
         if (!renderOperation.cancelled) {
           loadingDiv.innerHTML = `
             <div class="text-red-600">Failed to render JSON: ${e.message}</div>
-            <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()" 
+            <button onclick="this.parentElement.parentElement.querySelector('#render-text').click()"
                     class="mt-2 text-xs bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded">
               View as Text Instead
             </button>
@@ -852,47 +852,47 @@ class PreviewOptimizer {
       <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white mx-auto mb-2"></div>
       <div class="text-sm">Rendering as text...</div>
     `;
-    
+
     // Remove any existing JSON container
     const existingJson = this.element.querySelector('.json-viewer');
     if (existingJson) existingJson.remove();
-    
+
     this.element.appendChild(loadingDiv);
-    
+
     // Use timeout for non-blocking rendering
     setTimeout(() => {
       try {
         const pretty = JSON.stringify(obj, null, 2);
-        
+
         const container = document.createElement('div');
         container.className = 'json-viewer relative bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 overflow-auto max-h-96';
-        
+
         const pre = document.createElement('pre');
         pre.className = 'font-mono text-sm leading-relaxed m-0 p-3';
         pre.style.whiteSpace = 'pre-wrap'; // Allow word wrapping for long lines
-        
+
         const code = document.createElement('code');
         code.className = 'language-json';
         code.textContent = pretty;
-        
+
         pre.appendChild(code);
         container.appendChild(pre);
-        
+
         // Remove loading and add content
         loadingDiv.remove();
         this.element.appendChild(container);
-        
+
         // Apply syntax highlighting after a short delay
         if (typeof hljs !== 'undefined') {
           setTimeout(() => {
-            try { 
-              hljs.highlightElement(code); 
+            try {
+              hljs.highlightElement(code);
             } catch(e) {
               console.warn('Syntax highlighting failed:', e);
             }
           }, 100);
         }
-        
+
       } catch (e) {
         console.error('Failed to render JSON as text:', e);
         loadingDiv.innerHTML = `<div class="text-red-600">Failed to render JSON: ${e.message}</div>`;
@@ -908,16 +908,16 @@ class PreviewOptimizer {
         const pretty = JSON.stringify(obj, null, 2);
         const lines = pretty.split('\n');
         const maxLength = lines.length.toString().length;
-        
+
         // Clear existing line numbers
         container.innerHTML = '';
-        
+
         // Create a document fragment for better performance
         const fragment = document.createDocumentFragment();
-        
+
         // Limit line numbers for very large JSON (performance)
         const maxLinesToShow = Math.min(lines.length, 2000);
-        
+
         for (let i = 1; i <= maxLinesToShow; i++) {
           const lineNumber = document.createElement('div');
           lineNumber.className = 'line-number';
@@ -925,7 +925,7 @@ class PreviewOptimizer {
           lineNumber.style.height = '20px';
           fragment.appendChild(lineNumber);
         }
-        
+
         // If we truncated, show an indicator
         if (lines.length > maxLinesToShow) {
           const indicator = document.createElement('div');
@@ -934,7 +934,7 @@ class PreviewOptimizer {
           indicator.style.height = '20px';
           fragment.appendChild(indicator);
         }
-        
+
         container.appendChild(fragment);
       } catch (e) {
         console.warn('Failed to generate line numbers:', e);
@@ -945,19 +945,19 @@ class PreviewOptimizer {
   // Debounced update for JSON display changes
   updateJsonDisplay() {
     if (!this.currentJsonData) return;
-    
+
     // Cancel any pending update
     if (this.updateJsonDisplayTimeout) {
       clearTimeout(this.updateJsonDisplayTimeout);
     }
-    
+
     // Debounce updates to prevent rapid re-rendering
     this.updateJsonDisplayTimeout = setTimeout(() => {
       const container = this.element.querySelector('.enhanced-json-container');
       if (container) {
         // Remove existing JSON display
         this.element.removeChild(container);
-        
+
         // Re-render with updated preferences
         requestAnimationFrame(() => {
           this.renderEnhancedJsonObject(this.currentJsonData, { size: 0, truncated: false });
@@ -988,36 +988,36 @@ class PreviewOptimizer {
   renderEnhancedJsonWithControls(pretty, meta) {
     const mainContainer = document.createElement('div');
     mainContainer.className = 'enhanced-json-container';
-    
+
     // Add toolbar
     const toolbar = this.createJsonToolbar();
     mainContainer.appendChild(toolbar);
-    
+
     // Create enhanced JSON viewer
     const container = document.createElement('div');
     container.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 overflow-auto relative';
-    
+
     const showLineNumbers = this.getJsonPreference('lineNumbers', true);
     const wordWrap = this.getJsonPreference('wordWrap', false);
-    
+
     if (showLineNumbers) {
       container.style.paddingLeft = '60px';
       this.addLineNumbers(container, pretty);
     }
-    
+
     const pre = document.createElement('pre');
     pre.className = 'text-sm p-4 m-0';
     pre.style.whiteSpace = wordWrap ? 'pre-wrap' : 'pre';
     pre.style.overflowX = wordWrap ? 'hidden' : 'auto';
-    
+
     const code = document.createElement('code');
     code.className = 'text-gray-900 dark:text-gray-100';
     code.textContent = pretty;
-    
+
     pre.appendChild(code);
     container.appendChild(pre);
     mainContainer.appendChild(container);
-    
+
     this.element.appendChild(mainContainer);
   }
 
@@ -1028,7 +1028,7 @@ class PreviewOptimizer {
     lineNumbersContainer.className = 'line-numbers-container absolute left-0 top-0 bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-600 text-xs text-gray-500 dark:text-gray-400 font-mono select-none p-4';
     lineNumbersContainer.style.width = '60px';
     lineNumbersContainer.style.zIndex = '2';
-    
+
     for (let i = 1; i <= lines.length; i++) {
       const lineNumber = document.createElement('div');
       lineNumber.textContent = i.toString();
@@ -1037,10 +1037,10 @@ class PreviewOptimizer {
       lineNumber.style.paddingRight = '8px';
       lineNumbersContainer.appendChild(lineNumber);
     }
-    
+
     container.appendChild(lineNumbersContainer);
   }
-  
+
   isExpandableLine(trimmedLine, lines, index) {
     // Check if this line starts an object or array
     if (trimmedLine.endsWith('{') || trimmedLine.endsWith('[')) {
@@ -1049,13 +1049,13 @@ class PreviewOptimizer {
       const isArray = trimmedLine.endsWith('[');
       const openBracket = isArray ? '[' : '{';
       const closeBracket = isArray ? ']' : '}';
-      
+
       for (let i = index; i < lines.length; i++) {
         const line = lines[i];
         for (const char of line) {
           if (char === openBracket) bracketCount++;
           if (char === closeBracket) bracketCount--;
-          
+
           if (bracketCount === 0 && i > index) {
             // Found the closing bracket, this is expandable
             return true;
@@ -1065,12 +1065,12 @@ class PreviewOptimizer {
     }
     return false;
   }
-  
+
   toggleJsonSection(toggleBtn) {
     const isCollapsed = toggleBtn.getAttribute('data-collapsed') === 'true';
     const contentLine = toggleBtn.closest('.json-line');
     const lineNumber = parseInt(contentLine.getAttribute('data-line'));
-    
+
     if (isCollapsed) {
       // Expand
       toggleBtn.innerHTML = '▼';
@@ -1083,19 +1083,19 @@ class PreviewOptimizer {
       this.hideJsonSection(contentLine, lineNumber);
     }
   }
-  
+
   showJsonSection(startLine, startLineNumber) {
     const container = startLine.closest('.json-viewer');
     const allLines = container.querySelectorAll('.json-line');
-    
+
     // Find the matching closing bracket
     const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
-    
+
     // Show all lines in between
     for (let i = 0; i < allLines.length; i++) {
       const line = allLines[i];
       const currentLineNum = parseInt(line.getAttribute('data-line'));
-      
+
       if (currentLineNum > startLineNumber && currentLineNum <= endLineNumber) {
         line.style.display = '';
         // Also show corresponding gutter line
@@ -1106,19 +1106,19 @@ class PreviewOptimizer {
       }
     }
   }
-  
+
   hideJsonSection(startLine, startLineNumber) {
     const container = startLine.closest('.json-viewer');
     const allLines = container.querySelectorAll('.json-line');
-    
+
     // Find the matching closing bracket
     const endLineNumber = this.findMatchingClosingLine(startLine, startLineNumber, allLines);
-    
+
     // Hide all lines in between (but not the closing line)
     for (let i = 0; i < allLines.length; i++) {
       const line = allLines[i];
       const currentLineNum = parseInt(line.getAttribute('data-line'));
-      
+
       if (currentLineNum > startLineNumber && currentLineNum < endLineNumber) {
         line.style.display = 'none';
         // Also hide corresponding gutter line
@@ -1129,33 +1129,33 @@ class PreviewOptimizer {
       }
     }
   }
-  
+
   findMatchingClosingLine(startLine, startLineNumber, allLines) {
     const startText = startLine.textContent.trim();
     const isArray = startText.endsWith('[');
     const openBracket = isArray ? '[' : '{';
     const closeBracket = isArray ? ']' : '}';
-    
+
     let bracketCount = 0;
-    
+
     for (let i = 0; i < allLines.length; i++) {
       const line = allLines[i];
       const currentLineNum = parseInt(line.getAttribute('data-line'));
-      
+
       if (currentLineNum >= startLineNumber) {
         const lineText = line.textContent;
-        
+
         for (const char of lineText) {
           if (char === openBracket) bracketCount++;
           if (char === closeBracket) bracketCount--;
-          
+
           if (bracketCount === 0 && currentLineNum > startLineNumber) {
             return currentLineNum;
           }
         }
       }
     }
-    
+
     return startLineNumber; // Fallback if no matching bracket found
   }
 
@@ -1163,7 +1163,7 @@ class PreviewOptimizer {
     const match = line.match(/^(\s*)/);
     return match ? Math.floor(match[1].length / 2) : 0; // Assuming 2 spaces per indent
   }
-  
+
   renderMarkdown(content, meta) {
     try {
       if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
@@ -1174,7 +1174,7 @@ class PreviewOptimizer {
         container.className = 'markdown-body prose dark:prose-invert max-w-none';
         container.innerHTML = safeHtml;
         this.element.appendChild(container);
-        
+
         // Apply syntax highlighting to code blocks
         this.applySyntaxHighlighting();
       } else {
@@ -1185,24 +1185,24 @@ class PreviewOptimizer {
       this.renderTextContent(content, meta);
     }
   }
-  
+
   renderText(content, meta) {
     this.renderTextContent(content, meta);
   }
-  
+
   renderTextContent(content, meta, language = null) {
     const pre = document.createElement('pre');
     pre.className = 'whitespace-pre-wrap font-mono text-sm';
-    
+
     const code = document.createElement('code');
     if (language) {
       code.className = `language-${language}`;
     }
     code.textContent = content;
-    
+
     pre.appendChild(code);
     this.element.appendChild(pre);
-    
+
     // Apply syntax highlighting if available (debounced for performance)
     if (typeof hljs !== 'undefined') {
       setTimeout(() => {
@@ -1214,10 +1214,10 @@ class PreviewOptimizer {
       }, 100);
     }
   }
-  
+
   applySyntaxHighlighting() {
     if (typeof hljs === 'undefined') return;
-    
+
     const codeBlocks = this.element.querySelectorAll('pre code');
     codeBlocks.forEach((block, index) => {
       // Stagger highlighting to avoid blocking the UI
@@ -1230,7 +1230,7 @@ class PreviewOptimizer {
       }, index * 10);
     });
   }
-  
+
   showLoadingIndicator(filePath, fileSize, message = 'Loading...') {
     this.element.innerHTML = `
       <div class="flex items-center justify-center h-64 text-gray-500">
@@ -1244,7 +1244,7 @@ class PreviewOptimizer {
       </div>
     `;
   }
-  
+
   showError(message) {
     this.element.innerHTML = `
       <div class="flex items-center justify-center h-64 text-red-600">
@@ -1255,18 +1255,18 @@ class PreviewOptimizer {
       </div>
     `;
   }
-  
+
   isJsonContent(contentType) {
-    return contentType.includes('application/json') || 
+    return contentType.includes('application/json') ||
            this.currentFile?.filePath?.toLowerCase().endsWith('.json') ||
            this.currentFile?.filePath?.toLowerCase().endsWith('.jsonl');
   }
-  
+
   isMarkdownContent(contentType) {
     return contentType.includes('text/markdown') ||
            this.currentFile?.filePath?.toLowerCase().endsWith('.md');
   }
-  
+
   // Add memory management and cleanup
   cleanup() {
     // Cancel any pending timeouts
@@ -1274,16 +1274,16 @@ class PreviewOptimizer {
       clearTimeout(this.updateJsonDisplayTimeout);
       this.updateJsonDisplayTimeout = null;
     }
-    
+
     // Clear cache to free memory
     this.cache.clear();
-    
+
     // Remove event listeners
     this.element.removeEventListener('click', this.handleClick);
-    
+
     // Clear element content
     this.element.innerHTML = '';
-    
+
     console.log('PreviewOptimizer cleaned up');
   }
 
@@ -1298,10 +1298,10 @@ class PreviewOptimizer {
 
   // Get performance statistics
   getPerformanceStats() {
-    const avgRenderTime = this.performanceStats.renderCount > 0 
-      ? this.performanceStats.totalRenderTime / this.performanceStats.renderCount 
+    const avgRenderTime = this.performanceStats.renderCount > 0
+      ? this.performanceStats.totalRenderTime / this.performanceStats.renderCount
       : 0;
-    
+
     return {
       ...this.performanceStats,
       averageRenderTime: avgRenderTime,
@@ -1329,11 +1329,11 @@ class PreviewOptimizer {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
   }
-  
+
   clearCache() {
     this.cache.clear();
   }
-  
+
   search(query) {
     if (!query || !this.element.textContent) return [];
     // Clear previous highlights, then apply new
@@ -1411,16 +1411,16 @@ class PreviewOptimizer {
     // Get current panel configuration
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
     const currentColumnCount = window.currentColumnCount || 1;
-    
+
     // Find which panel this optimizer instance belongs to
     const currentPanelIndex = this.findCurrentPanelIndex();
     console.log(`Current panel index: ${currentPanelIndex}`);
-    
+
     if (currentPanelIndex === -1) {
       console.warn('Could not determine current panel index');
       return true; // Default to showing tree view if we can't determine
     }
-    
+
     // Find all JSON panel indices
     const jsonPanelIndices = [];
     for (let i = 0; i < Math.min(selectedFilePaths.length, currentColumnCount); i++) {
@@ -1429,22 +1429,22 @@ class PreviewOptimizer {
         jsonPanelIndices.push(i);
       }
     }
-    
+
     console.log(`JSON panels found: ${jsonPanelIndices.join(', ')}`);
     console.log(`Current panel ${currentPanelIndex}, leftmost JSON panel: ${jsonPanelIndices[0]}`);
-    
+
     // Show tree visualization only in the leftmost JSON panel
     const shouldShow = jsonPanelIndices.length > 0 && currentPanelIndex === jsonPanelIndices[0];
     console.log(`Should show tree visualization: ${shouldShow} (multiple JSON panels: ${jsonPanelIndices.length > 1})`);
-    
+
     return shouldShow;
   }
-  
+
   findCurrentPanelIndex() {
     // Try to find which panel this optimizer instance belongs to
     // We can do this by comparing the preview element with the panel elements
     const panels = document.querySelectorAll('.preview-panel');
-    
+
     for (let i = 0; i < panels.length; i++) {
       const panel = panels[i];
       const previewElement = panel.querySelector('.preview');
@@ -1452,23 +1452,23 @@ class PreviewOptimizer {
         return i;
       }
     }
-    
+
     return -1; // Not found
   }
 
   toggleUberMode() {
     this.uberMode = !this.uberMode;
-    
+
     // Update stats visibility
     this.updateStatsVisibility();
-    
+
     // Re-render current content if available and it's JSON
     if (this.currentJsonData) {
       // Clear the element first
       this.element.innerHTML = '';
-      
+
       const shouldShowTreeView = this.shouldShowTreeVisualization();
-      
+
       if (this.uberMode && shouldShowTreeView) {
         this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
       } else {
@@ -1481,7 +1481,7 @@ class PreviewOptimizer {
         }
       }
     }
-    
+
     return this.uberMode;
   }
 
@@ -1499,25 +1499,25 @@ class PreviewOptimizer {
   renderUberMode(jsonData, meta) {
     // Clear previous content
     this.element.innerHTML = '';
-    
+
     // Update stats
     this.updateUberModeStats(jsonData);
-    
+
     // Create UBERMODE container
     const container = document.createElement('div');
     container.className = 'ubermode-container space-y-4';
-    
+
     // Render tree visualization
     const treeContainer = this.createTreeVisualization(jsonData);
     container.appendChild(treeContainer);
-    
+
     this.element.appendChild(container);
   }
 
   updateUberModeStats(jsonData) {
     console.log('Updating UBERMODE stats...');
     const stats = this.analyzeJsonData(jsonData);
-    
+
     // Dynamically update the statistics container based on actual data
     this.updateStatsContainer(stats);
   }
@@ -1528,19 +1528,19 @@ class PreviewOptimizer {
       types: new Map(),
       quality: '—'
     };
-    
+
     // Handle extraction format - count by extraction_class
     if (data && data.extractions && Array.isArray(data.extractions)) {
       data.extractions.forEach(extraction => {
         stats.totalItems++;
-        
+
         // Count extraction types dynamically
         const extractionClass = extraction.extraction_class;
         if (extractionClass) {
           const currentCount = stats.types.get(extractionClass) || 0;
           stats.types.set(extractionClass, currentCount + 1);
         }
-        
+
         // Quality indicators (check if any extraction has quality info)
         if (extraction.quality && stats.quality === '—') {
           const errors = extraction.quality.errors?.length || 0;
@@ -1555,7 +1555,7 @@ class PreviewOptimizer {
         }
       });
     }
-    
+
     return stats;
   }
 
@@ -1592,7 +1592,7 @@ class PreviewOptimizer {
     // Define colors for different types
     const colors = [
       'text-blue-600 dark:text-blue-400',
-      'text-green-600 dark:text-green-400', 
+      'text-green-600 dark:text-green-400',
       'text-purple-600 dark:text-purple-400',
       'text-orange-600 dark:text-orange-400',
       'text-teal-600 dark:text-teal-400',
@@ -1606,7 +1606,7 @@ class PreviewOptimizer {
       const colorClass = colors[index];
       const displayName = this.formatTypeName(typeName);
       const isActive = window.globalStatisticsFilter === typeName ? 'border-blue-500 ring-2 ring-blue-200' : '';
-      
+
       firstGrid.innerHTML += `
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 stats-filter-card ${isActive}" data-filter-type="${typeName}">
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
@@ -1622,7 +1622,7 @@ class PreviewOptimizer {
       const colorClass = colors[index + 3];
       const displayName = this.formatTypeName(typeName);
       const isActive = window.globalStatisticsFilter === typeName ? 'border-blue-500 ring-2 ring-blue-200' : '';
-      
+
       secondGrid.innerHTML += `
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-600 p-3 cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 stats-filter-card ${isActive}" data-filter-type="${typeName}">
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">${displayName}</div>
@@ -1644,7 +1644,7 @@ class PreviewOptimizer {
     // Update grid layout based on number of items
     const firstGridItemCount = 1 + Math.min(3, sortedTypes.length);
     const secondGridItemCount = Math.max(0, sortedTypes.length - 3) + (stats.quality !== '—' && sortedTypes.length <= 6 ? 1 : 0);
-    
+
     // Adjust grid columns
     firstGrid.className = `grid gap-3 mb-3 grid-cols-2 sm:grid-cols-${Math.min(4, firstGridItemCount)}`;
     if (secondGridItemCount > 0) {
@@ -1676,26 +1676,26 @@ class PreviewOptimizer {
       'LOCATION': 'Locations',
       'QUESTION': 'Questions'
     };
-    
+
     return formatMap[typeName] || typeName;
   }
 
   createTreeVisualization(data) {
     const container = document.createElement('div');
     container.className = 'tree-visualization bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4';
-    
+
     const title = document.createElement('h3');
     title.className = 'text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200';
     title.textContent = '🌳 Document Structure';
     container.appendChild(title);
-    
+
     const tree = document.createElement('div');
     tree.className = 'tree-content space-y-1';
-    
+
     // Build document tree from extraction data
     const documentTree = this.buildDocumentTree(data);
     this.renderDocumentTree(tree, documentTree);
-    
+
     container.appendChild(tree);
     return container;
   }
@@ -1703,35 +1703,35 @@ class PreviewOptimizer {
   buildDocumentTree(data) {
     const nodes = new Map();
     const rootNodes = [];
-    
+
     // Handle extraction format
     if (data && data.extractions && Array.isArray(data.extractions)) {
       // Filter relevant extraction types like section_tree_visualizer.py does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      let relevant = data.extractions.filter(ext => 
+      let relevant = data.extractions.filter(ext =>
         relevantTypes.includes(ext.extraction_class)
       );
-      
+
       // Apply statistics filter if one is active
       const currentFilter = window.globalStatisticsFilter;
       if (currentFilter) {
         console.log(`Filtering extractions by type: ${currentFilter}`);
-        
+
         // Get all extractions that match the filter
-        const filteredExtractions = data.extractions.filter(ext => 
+        const filteredExtractions = data.extractions.filter(ext =>
           ext.extraction_class === currentFilter
         );
-        
+
         // If we're filtering, we need to also include parent nodes to maintain hierarchy
         const requiredNodeIds = new Set();
-        
+
         // Add filtered nodes and collect their parent chain
         filteredExtractions.forEach(ext => {
           const attrs = ext.attributes || {};
           const nodeId = attrs.id;
           if (nodeId) {
             requiredNodeIds.add(nodeId);
-            
+
             // Add parent chain
             let parentId = this.getParentId(ext);
             while (parentId) {
@@ -1742,18 +1742,18 @@ class PreviewOptimizer {
             }
           }
         });
-        
+
         // Filter relevant extractions to only include required nodes
         relevant = relevant.filter(ext => {
           const nodeId = ext.attributes?.id;
           return nodeId && requiredNodeIds.has(nodeId);
         });
-        
+
         console.log(`Filtered from ${data.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
       }
-      
+
       console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
-      
+
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
       relevant.forEach(extraction => {
         const attrs = extraction.attributes || {};
@@ -1762,7 +1762,7 @@ class PreviewOptimizer {
           console.warn('Skipping extraction without ID:', extraction);
           return;
         }
-        
+
         const nodeData = {
           id: nodeId,
           title: this.getNodeTitle(extraction),
@@ -1777,14 +1777,14 @@ class PreviewOptimizer {
           attributes: attrs,
           extraction: extraction // Store the full extraction for reference
         };
-        
+
         nodes.set(nodeId, nodeData);
         console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
       });
-      
+
       // Check if we need to create synthetic root nodes (following section_tree_visualizer.py)
       this.createSyntheticRoots(nodes);
-      
+
       // Second pass: build parent-child relationships
       let orphanCount = 0;
       nodes.forEach(node => {
@@ -1805,17 +1805,17 @@ class PreviewOptimizer {
           }
         }
       });
-      
+
       if (orphanCount > 0) {
         console.warn(`Found ${orphanCount} orphaned nodes that were promoted to root level`);
       }
-      
+
       // Sort children by ID for consistent ordering (following section_tree_visualizer.py)
       nodes.forEach(node => {
         node.children.sort((a, b) => a.id.localeCompare(b.id));
       });
       rootNodes.sort((a, b) => a.id.localeCompare(b.id));
-      
+
       // Auto-expand first level for better initial view
       rootNodes.forEach(root => {
         root.isExpanded = true;
@@ -1826,11 +1826,11 @@ class PreviewOptimizer {
           }
         });
       });
-      
+
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
     }
-    
+
     return rootNodes;
   }
 
@@ -1838,7 +1838,7 @@ class PreviewOptimizer {
   getParentId(extraction) {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
-    
+
     // Follow the same parent ID resolution logic as section_tree_visualizer.py
     if (type === 'NORM') {
       return attrs.parent_section_id || attrs.parent_id;
@@ -1852,7 +1852,7 @@ class PreviewOptimizer {
   // Create synthetic root nodes following section_tree_visualizer.py patterns
   createSyntheticRoots(nodes) {
     const cteRootId = 'CTE.DB.SI';
-    
+
     if (!nodes.has(cteRootId)) {
       const hasChildren = Array.from(nodes.values()).some(node => node.parentId === cteRootId);
       if (hasChildren) {
@@ -1873,7 +1873,7 @@ class PreviewOptimizer {
         });
       }
     }
-    
+
     // Check for other common patterns that might need synthetic roots
     const potentialRoots = new Set();
     nodes.forEach(node => {
@@ -1881,7 +1881,7 @@ class PreviewOptimizer {
         potentialRoots.add(node.parentId);
       }
     });
-    
+
     potentialRoots.forEach(rootId => {
       if (rootId !== cteRootId) {
         console.log(`Creating synthetic root node for ${rootId}`);
@@ -1919,7 +1919,7 @@ class PreviewOptimizer {
   getNodeTitle(extraction) {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
-    
+
     // Follow section_tree_visualizer.py patterns for title extraction
     if (type === 'SECTION') {
       return attrs.section_title || extraction.extraction_text || 'Untitled Section';
@@ -1938,7 +1938,7 @@ class PreviewOptimizer {
   getNodeSummary(extraction) {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
-    
+
     // Follow section_tree_visualizer.py patterns for summary extraction
     if (type === 'SECTION') {
       return attrs.section_summary || '';
@@ -1970,22 +1970,22 @@ class PreviewOptimizer {
     nodeElement.className = 'tree-node';
     nodeElement.style.marginLeft = `${indent}px`;
     nodeElement.setAttribute('data-node-id', node.id);
-    
+
     // Create the node content
     const nodeContent = document.createElement('div');
     nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
-    
+
     // Add highlighting if this node matches the current filter
     const currentFilter = window.globalStatisticsFilter;
     if (currentFilter && node.type === currentFilter) {
       nodeContent.classList.add('bg-yellow-50', 'dark:bg-yellow-900', 'border-yellow-300', 'dark:border-yellow-600');
       nodeContent.classList.remove('border-transparent');
     }
-    
+
     // Expand/collapse indicator - make it more prominent and clickable
     const indicator = document.createElement('span');
     indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
-    
+
     if (node.children.length > 0) {
       indicator.textContent = node.isExpanded ? '▼' : '▶';
       indicator.style.cursor = 'pointer';
@@ -2001,33 +2001,33 @@ class PreviewOptimizer {
       indicator.style.opacity = '0.3';
       indicator.style.cursor = 'default';
     }
-    
+
     // Node info
     const info = document.createElement('div');
     info.className = 'tree-info flex-1 min-w-0';
-    
+
     const header = document.createElement('div');
     header.className = 'tree-header flex items-center space-x-2 flex-wrap';
-    
+
     const idSpan = document.createElement('span');
     idSpan.className = 'node-id font-semibold text-blue-600 dark:text-blue-400 text-sm';
     idSpan.textContent = node.id;
-    
+
     const titleSpan = document.createElement('span');
     titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm';
     titleSpan.textContent = node.title;
     titleSpan.title = node.title; // Show full title on hover
     titleSpan.style.wordBreak = 'break-word'; // Allow text wrapping
-    
+
     const typeSpan = document.createElement('span');
     typeSpan.className = `node-type text-xs px-2 py-1 rounded-full flex-shrink-0 font-medium ${this.getTypeClass(node.type)}`;
     typeSpan.textContent = node.type;
-    
+
     header.appendChild(idSpan);
     header.appendChild(titleSpan);
     header.appendChild(typeSpan);
     info.appendChild(header);
-    
+
     // Summary
     if (node.summary) {
       const summary = document.createElement('div');
@@ -2037,21 +2037,21 @@ class PreviewOptimizer {
       summary.style.wordBreak = 'break-word';
       info.appendChild(summary);
     }
-    
+
     nodeContent.appendChild(indicator);
     nodeContent.appendChild(info);
     nodeElement.appendChild(nodeContent);
-    
+
     // Create children container
     const childrenContainer = document.createElement('div');
     childrenContainer.className = 'tree-children transition-all duration-300 ease-in-out overflow-hidden';
-    
+
     // Render children
     if (node.children.length > 0) {
       node.children.forEach(child => {
         this.renderDocumentNode(childrenContainer, child, level + 1);
       });
-      
+
       // Set initial visibility with smooth transition
       if (node.isExpanded) {
         childrenContainer.style.display = 'block';
@@ -2062,10 +2062,10 @@ class PreviewOptimizer {
         childrenContainer.style.maxHeight = '0px';
         childrenContainer.style.opacity = '0';
       }
-      
+
       nodeElement.appendChild(childrenContainer);
     }
-    
+
     // Enhanced click handler with navigation support
     const handleNodeClick = (e) => {
       // Check if this was a double-click for navigation
@@ -2074,16 +2074,16 @@ class PreviewOptimizer {
         this.navigateToNode(node);
         return;
       }
-      
+
       // Single click - toggle expand/collapse for nodes with children
       if (node.children.length > 0) {
         e.preventDefault();
         e.stopPropagation();
         console.log(`Toggling node: ${node.id}, has ${node.children.length} children, currently expanded: ${node.isExpanded}`);
-        
+
         // Toggle expanded state
         node.isExpanded = !node.isExpanded;
-        
+
         // Update indicator with smooth animation
         indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
         if (node.isExpanded) {
@@ -2095,7 +2095,7 @@ class PreviewOptimizer {
           indicator.style.transform = 'rotate(-90deg) scale(0.9)';
           indicator.style.backgroundColor = 'transparent';
         }
-        
+
         // Toggle children visibility with smooth animation
         if (node.isExpanded) {
           // Expanding
@@ -2105,7 +2105,7 @@ class PreviewOptimizer {
           childrenContainer.offsetHeight;
           childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
           childrenContainer.style.opacity = '1';
-          
+
           // Remove max-height after animation for dynamic content
           setTimeout(() => {
             if (node.isExpanded) {
@@ -2120,7 +2120,7 @@ class PreviewOptimizer {
           childrenContainer.offsetHeight;
           childrenContainer.style.maxHeight = '0px';
           childrenContainer.style.opacity = '0';
-          
+
           // Hide after animation completes
           setTimeout(() => {
             if (!node.isExpanded) { // Check if still collapsed
@@ -2128,9 +2128,9 @@ class PreviewOptimizer {
             }
           }, 300);
         }
-        
+
         console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
-        
+
         // Reset indicator background after a brief moment
         setTimeout(() => {
           if (node.isExpanded) {
@@ -2143,15 +2143,15 @@ class PreviewOptimizer {
         this.navigateToNode(node);
       }
     };
-    
+
     // Bind click event to both the indicator and the entire node content
     if (node.children.length > 0) {
       indicator.addEventListener('click', handleNodeClick);
       nodeContent.addEventListener('click', handleNodeClick);
-      
+
       // Add visual feedback on hover for clickable nodes
       nodeContent.style.cursor = 'pointer';
-      
+
       const originalBg = nodeContent.style.backgroundColor;
       nodeContent.addEventListener('mouseenter', () => {
         if (!nodeContent.style.backgroundColor || nodeContent.style.backgroundColor === originalBg) {
@@ -2159,7 +2159,7 @@ class PreviewOptimizer {
           nodeContent.style.borderLeftColor = 'rgba(59, 130, 246, 0.3)';
         }
       });
-      
+
       nodeContent.addEventListener('mouseleave', () => {
         nodeContent.style.backgroundColor = originalBg;
         nodeContent.style.borderLeftColor = 'transparent';
@@ -2168,7 +2168,7 @@ class PreviewOptimizer {
       // Leaf nodes are clickable for navigation
       nodeContent.addEventListener('click', handleNodeClick);
       nodeContent.style.cursor = 'pointer';
-      
+
       nodeContent.addEventListener('mouseenter', () => {
         nodeContent.style.backgroundColor = 'rgba(34, 197, 94, 0.05)';
         nodeContent.style.borderLeftColor = 'rgba(34, 197, 94, 0.3)';
@@ -2178,14 +2178,14 @@ class PreviewOptimizer {
         nodeContent.style.borderLeftColor = 'transparent';
       });
     }
-    
+
     container.appendChild(nodeElement);
   }
 
   // Navigation Methods for Tree Node Clicking
   navigateToNode(node) {
     console.log(`Navigating to node: ${node.id} (${node.type})`);
-    
+
     // Check if we're in multi-column preview mode (2 or 3 columns)
     const columnInfo = this.getColumnInfo();
     if (columnInfo.columnCount < 2) {
@@ -2193,33 +2193,33 @@ class PreviewOptimizer {
       this.highlightNodeSelection(node);
       return;
     }
-    
+
     // Find MD and JSON panels (exclude the current tree panel)
     const mdPanelIndex = this.findPanelByFileType('md');
     const jsonPanelIndices = this.findAllPanelsByFileType('json');
     const currentPanelIndex = this.findCurrentPanelIndex();
-    
+
     // Filter out the current panel from JSON panels to avoid navigating to self
     const otherJsonPanelIndices = jsonPanelIndices.filter(index => index !== currentPanelIndex);
-    
+
     if (mdPanelIndex === -1 && otherJsonPanelIndices.length === 0) {
       console.log('No MD or other JSON panels found for navigation');
       this.highlightNodeSelection(node);
       return;
     }
-    
+
     console.log(`Found panels - MD: ${mdPanelIndex}, Other JSON: ${otherJsonPanelIndices.join(', ')}, Current: ${currentPanelIndex}`);
-    
+
     // Navigate to the node in MD panel
     if (mdPanelIndex !== -1) {
       this.navigateToNodeInMdPanel(node, mdPanelIndex);
     }
-    
+
     // Navigate to the node in other JSON panels (use the first other JSON panel)
     if (otherJsonPanelIndices.length > 0) {
       this.navigateToNodeInJsonPanel(node, otherJsonPanelIndices[0]);
     }
-    
+
     // Highlight the selected node
     this.highlightNodeSelection(node);
   }
@@ -2236,7 +2236,7 @@ class PreviewOptimizer {
   findPanelByFileType(fileExtension) {
     // Access global selectedFilePaths from app.js
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
-    
+
     for (let i = 0; i < selectedFilePaths.length; i++) {
       const filePath = selectedFilePaths[i];
       if (filePath && filePath.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
@@ -2251,7 +2251,7 @@ class PreviewOptimizer {
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
     const currentColumnCount = window.currentColumnCount || 1;
     const indices = [];
-    
+
     for (let i = 0; i < Math.min(selectedFilePaths.length, currentColumnCount); i++) {
       const filePath = selectedFilePaths[i];
       if (filePath && filePath.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
@@ -2263,54 +2263,54 @@ class PreviewOptimizer {
 
   navigateToNodeInMdPanel(node, panelIndex) {
     console.log(`Navigating to node ${node.id} in MD panel ${panelIndex}`);
-    
+
     // Get the extraction data from the node
     const extraction = node.extraction;
     if (!extraction || !extraction.char_interval) {
       console.warn('No char_interval data available for MD navigation');
       return;
     }
-    
+
     const startPos = extraction.char_interval.start_pos;
     const endPos = extraction.char_interval.end_pos;
-    
+
     console.log(`Navigating to character positions ${startPos}-${endPos} in MD panel`);
-    
+
     // Get the preview element for the target panel
     const panels = document.querySelectorAll('.preview-panel');
     if (panelIndex >= panels.length) {
       console.warn(`Panel index ${panelIndex} not found`);
       return;
     }
-    
+
     const targetPanel = panels[panelIndex];
     const previewElement = targetPanel.querySelector('.preview');
     if (!previewElement) {
       console.warn('Preview element not found in target panel');
       return;
     }
-    
+
     // Scroll to the character position in the MD content
     this.scrollToCharacterPosition(previewElement, startPos, endPos);
   }
 
   navigateToNodeInJsonPanel(node, panelIndex) {
     console.log(`Navigating to node ${node.id} in JSON panel ${panelIndex}`);
-    
+
     // Get the preview element for the target panel
     const panels = document.querySelectorAll('.preview-panel');
     if (panelIndex >= panels.length) {
       console.warn(`Panel index ${panelIndex} not found`);
       return;
     }
-    
+
     const targetPanel = panels[panelIndex];
     const previewElement = targetPanel.querySelector('.preview');
     if (!previewElement) {
       console.warn('Preview element not found in target panel');
       return;
     }
-    
+
     // Navigate by finding the extraction with directed search using node context
     this.scrollToJsonNode(previewElement, node);
   }
@@ -2318,16 +2318,16 @@ class PreviewOptimizer {
   scrollToCharacterPosition(previewElement, startPos, endPos) {
     // For markdown content, we need to find the text node that contains the character position
     const textContent = previewElement.textContent || '';
-    
+
     if (startPos >= textContent.length) {
       console.warn(`Start position ${startPos} is beyond text length ${textContent.length}`);
       return;
     }
-    
+
     // Create a temporary range to find the position
     const range = document.createRange();
     const selection = window.getSelection();
-    
+
     try {
       // Walk through the DOM tree to find the character position
       const walker = document.createTreeWalker(
@@ -2336,36 +2336,36 @@ class PreviewOptimizer {
         null,
         false
       );
-      
+
       let currentPos = 0;
       let targetNode = null;
       let targetOffset = 0;
-      
+
       while (walker.nextNode()) {
         const textNode = walker.currentNode;
         const nodeLength = textNode.textContent.length;
-        
+
         if (currentPos + nodeLength >= startPos) {
           targetNode = textNode;
           targetOffset = startPos - currentPos;
           break;
         }
-        
+
         currentPos += nodeLength;
       }
-      
+
       if (targetNode) {
         // Set the range to highlight the text
         range.setStart(targetNode, targetOffset);
-        
+
         // Try to set end position too
         let endNode = targetNode;
         let endOffset = Math.min(targetOffset + (endPos - startPos), targetNode.textContent.length);
-        
+
         // If the end position extends beyond this node, we need to find the correct end node
         if (endPos > startPos + (targetNode.textContent.length - targetOffset)) {
           let remainingChars = endPos - startPos - (targetNode.textContent.length - targetOffset);
-          
+
           while (walker.nextNode() && remainingChars > 0) {
             const nextTextNode = walker.currentNode;
             if (remainingChars <= nextTextNode.textContent.length) {
@@ -2376,13 +2376,13 @@ class PreviewOptimizer {
             remainingChars -= nextTextNode.textContent.length;
           }
         }
-        
+
         range.setEnd(endNode, endOffset);
-        
+
         // Clear any existing selection and set the new one
         selection.removeAllRanges();
         selection.addRange(range);
-        
+
         // Scroll the selection into view
         const rect = range.getBoundingClientRect();
         if (rect.height > 0) {
@@ -2392,7 +2392,7 @@ class PreviewOptimizer {
             inline: 'nearest'
           });
         }
-        
+
         console.log(`Scrolled to character position ${startPos}-${endPos} in MD content`);
       } else {
         console.warn('Could not find text node for character position', startPos);
@@ -2408,7 +2408,7 @@ class PreviewOptimizer {
     const nodeId = typeof nodeOrId === 'string' ? nodeOrId : (nodeOrId && nodeOrId.id) || '';
     const nodeInfo = typeof nodeOrId === 'object' && nodeOrId ? nodeOrId : null;
     console.log(`Attempting to scroll to node ID: ${nodeId} in JSON panel: `, previewElement);
-    
+
     // IMPORTANT: Use intelligent expansion strategy to find the target node
     // First try to find the target with minimal expansion, then expand only necessary paths
     const targetElement = this.findTargetNodeWithIntelligentExpansion(previewElement, nodeId, nodeInfo);
@@ -2416,7 +2416,7 @@ class PreviewOptimizer {
       this.scrollToFoundElement(targetElement, nodeId);
       return;
     }
-    
+
     // Fallback: if intelligent expansion failed, try text-based search
     this.fallbackTextSearch(previewElement, nodeId);
   }
@@ -2424,7 +2424,7 @@ class PreviewOptimizer {
   // Intelligent expansion strategy: find target with minimal expansion
   findTargetNodeWithIntelligentExpansion(previewElement, nodeId, nodeInfo) {
     console.log(`Using intelligent expansion to find node: ${nodeId}`);
-    
+
     // Step 1: Try to find target without any expansion first
     let targetElement = this.searchForTargetElement(previewElement, nodeId, nodeInfo);
     if (targetElement) {
@@ -2439,19 +2439,19 @@ class PreviewOptimizer {
   // Progressive expansion that only expands the path to the target
   expandPathToTarget(previewElement, nodeId, nodeInfo) {
     console.log(`Starting path-based expansion for node: ${nodeId}`);
-    
+
     const maxAttempts = 8;
     let attempt = 0;
-    
+
     while (attempt < maxAttempts) {
       // Try to find potential parent containers that might contain our target
       const candidateContainers = this.findCandidateContainers(previewElement, nodeId, nodeInfo);
-      
+
       if (candidateContainers.length === 0) {
         console.log(`No candidate containers found on attempt ${attempt + 1}`);
         break;
       }
-      
+
       // Expand the most promising containers (upward chain + one level down)
       let expandedAny = false;
       for (const container of candidateContainers) {
@@ -2459,7 +2459,7 @@ class PreviewOptimizer {
           expandedAny = true;
         }
       }
-      
+
       // If we expanded something, try to find the target again
       if (expandedAny) {
         const targetElement = this.searchForTargetElement(previewElement, nodeId, nodeInfo);
@@ -2468,10 +2468,10 @@ class PreviewOptimizer {
           return targetElement;
         }
       }
-      
+
       attempt++;
     }
-    
+
     console.warn(`Could not find node ${nodeId} after ${attempt} intelligent expansion attempts`);
     return null;
   }
@@ -2479,7 +2479,7 @@ class PreviewOptimizer {
   // Find containers that might contain the target node
   findCandidateContainers(previewElement, nodeId, nodeInfo) {
     const candidates = [];
-    
+
     // Look for containers that contain text related to our target
     const searchTerms = [nodeId];
     if (nodeInfo && nodeInfo.type) {
@@ -2491,22 +2491,22 @@ class PreviewOptimizer {
         searchTerms.push(parentId);
       }
     }
-    
+
     // Find collapsed containers that might contain relevant text
     const collapsedSelectors = [
       '.json-formatter-closed',
-      '.json-formatter-collapsed', 
+      '.json-formatter-collapsed',
       '.collapsed',
       'details:not([open])'
     ].join(',');
-    
+
     const collapsedContainers = previewElement.querySelectorAll(collapsedSelectors);
-    
+
     collapsedContainers.forEach(container => {
       // Check if this container might contain our target based on visible text
       const visibleText = this.getVisibleText(container);
       const hasRelevantText = searchTerms.some(term => visibleText.includes(term));
-      
+
       if (hasRelevantText) {
         candidates.push({
           element: container,
@@ -2515,7 +2515,7 @@ class PreviewOptimizer {
         });
       }
     });
-    
+
     // Sort candidates by relevance score and depth (prioritize higher relevance and shallower depth)
     candidates.sort((a, b) => {
       if (a.relevanceScore !== b.relevanceScore) {
@@ -2523,7 +2523,7 @@ class PreviewOptimizer {
       }
       return a.depth - b.depth;
     });
-    
+
     // Return top candidates
     return candidates.slice(0, 5).map(c => c.element);
   }
@@ -2554,7 +2554,7 @@ class PreviewOptimizer {
         }
       }
     );
-    
+
     let text = '';
     let node;
     while ((node = walker.nextNode())) {
@@ -2562,7 +2562,7 @@ class PreviewOptimizer {
       // Limit text collection for performance
       if (text.length > 1000) break;
     }
-    
+
     return text.trim();
   }
 
@@ -2591,16 +2591,16 @@ class PreviewOptimizer {
   // Expand a container path (the container itself + one level down)
   expandContainerPath(container) {
     console.log(`Expanding container path:`, container);
-    
+
     const togglerSelectors = [
       '.json-formatter-toggler',
       '.json-formatter-toggle',
       '.json-formatter-opener',
       '.json-formatter-arrow'
     ].join(',');
-    
+
     let expanded = false;
-    
+
     // First, expand the container itself if it's collapsed
     if (this.isCollapsed(container)) {
       if (this.expandElement(container, togglerSelectors)) {
@@ -2608,7 +2608,7 @@ class PreviewOptimizer {
         console.log(`Expanded container itself`);
       }
     }
-    
+
     // Then, expand immediate children one level down
     const immediateChildren = this.getImmediateCollapsedChildren(container);
     immediateChildren.forEach(child => {
@@ -2617,7 +2617,7 @@ class PreviewOptimizer {
         console.log(`Expanded immediate child`);
       }
     });
-    
+
     return expanded;
   }
 
@@ -2626,7 +2626,7 @@ class PreviewOptimizer {
     if (element.tagName && element.tagName.toLowerCase() === 'details') {
       return !element.open;
     }
-    
+
     return element.classList && (
       element.classList.contains('json-formatter-closed') ||
       element.classList.contains('json-formatter-collapsed') ||
@@ -2643,7 +2643,7 @@ class PreviewOptimizer {
       }
       return false;
     }
-    
+
     const toggler = element.querySelector(togglerSelectors);
     if (toggler) {
       try {
@@ -2654,7 +2654,7 @@ class PreviewOptimizer {
         return false;
       }
     }
-    
+
     return false;
   }
 
@@ -2662,12 +2662,12 @@ class PreviewOptimizer {
   getImmediateCollapsedChildren(container) {
     const children = [];
     const childElements = container.children;
-    
+
     for (let child of childElements) {
       if (this.isCollapsed(child)) {
         children.push(child);
       }
-      
+
       // Also check one more level down for JSONFormatter rows
       const grandChildren = child.querySelectorAll('.json-formatter-row');
       for (let grandChild of grandChildren) {
@@ -2676,7 +2676,7 @@ class PreviewOptimizer {
         }
       }
     }
-    
+
     return children.slice(0, 10); // Limit to prevent excessive expansion
   }
 
@@ -2687,13 +2687,13 @@ class PreviewOptimizer {
     if (targetElement) {
       return targetElement;
     }
-    
+
     // Try scored element search
     targetElement = this.tryScoredElementSearch(previewElement, nodeId, nodeInfo);
     if (targetElement) {
       return targetElement;
     }
-    
+
     // Try simple text-based search as last resort
     return this.trySimpleTextSearch(previewElement, nodeId);
   }
@@ -2701,34 +2701,34 @@ class PreviewOptimizer {
   // Try structured search for JSONFormatter elements
   tryStructuredSearch(previewElement, nodeId, nodeInfo) {
     const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim();
-    
+
     // Prefer rows with key "id" matching the target
     const rows = previewElement.querySelectorAll('.json-formatter-row');
     for (const row of rows) {
       const keyEl = row.querySelector('.json-formatter-key');
       if (!keyEl) continue;
-      
+
       const keyText = normalize(keyEl.textContent);
       if (!/\b"?id"?\b/i.test(keyText)) continue;
-      
+
       const valueEl = row.querySelector('.json-formatter-string, .json-formatter-number, .json-formatter-value');
       const valText = normalize(valueEl && valueEl.textContent);
-      
+
       // Value may include quotes; compare loosely
       const unquoted = (valText || '').replace(/^"|"$/g, '');
       if (unquoted !== nodeId) continue;
-      
+
       // Found a matching id row - find the container that represents the full object
       return this.findObjectContainer(row, nodeInfo);
     }
-    
+
     return null;
   }
 
   // Find the object container that holds a matching row
   findObjectContainer(row, nodeInfo) {
     let candidate = row;
-    
+
     // Walk up to find a container representing the object
     for (let i = 0; i < 6 && candidate && candidate !== document; i++) {
       if (this.isGoodContainer(candidate, nodeInfo)) {
@@ -2736,7 +2736,7 @@ class PreviewOptimizer {
       }
       candidate = candidate.parentElement;
     }
-    
+
     // Fallback to the row itself
     return row;
   }
@@ -2745,25 +2745,25 @@ class PreviewOptimizer {
   isGoodContainer(element, nodeInfo) {
     const txt = (element.textContent || '').replace(/\s+/g, ' ').trim();
     let isGood = true;
-    
+
     if (nodeInfo && nodeInfo.type) {
       isGood = isGood && txt.includes('extraction_class') && txt.includes(nodeInfo.type);
     }
-    
+
     // If we have parent info, prefer containers that include it
     const parentId = nodeInfo && nodeInfo.extraction && (
-      nodeInfo.extraction.parent_id || 
-      nodeInfo.extraction.parent || 
+      nodeInfo.extraction.parent_id ||
+      nodeInfo.extraction.parent ||
       (nodeInfo.extraction.attributes && (
-        nodeInfo.extraction.attributes.parent_id || 
+        nodeInfo.extraction.attributes.parent_id ||
         nodeInfo.extraction.attributes.parent
       ))
     );
-    
+
     if (parentId) {
       isGood = isGood && txt.includes(parentId);
     }
-    
+
     return isGood;
   }
 
@@ -2773,38 +2773,38 @@ class PreviewOptimizer {
     const all = previewElement.querySelectorAll('*');
     let best = null;
     let bestScore = -1;
-    
+
     const parentId = nodeInfo && nodeInfo.extraction && (
-      nodeInfo.extraction.parent_id || 
-      nodeInfo.extraction.parent || 
+      nodeInfo.extraction.parent_id ||
+      nodeInfo.extraction.parent ||
       (nodeInfo.extraction.attributes && (
-        nodeInfo.extraction.attributes.parent_id || 
+        nodeInfo.extraction.attributes.parent_id ||
         nodeInfo.extraction.attributes.parent
       ))
     );
-    
+
     for (const el of all) {
       const txt = normalize(el.textContent || '');
       if (!txt) continue;
-      
+
       let score = 0;
       if (txt.includes(`"id": "${nodeId}"`) || txt.includes(`"id":"${nodeId}"`)) score += 4;
       if (txt.includes(nodeId)) score += 2;
       if (nodeInfo && nodeInfo.type && txt.includes(nodeInfo.type)) score += 1;
       if (parentId && txt.includes(parentId)) score += 1;
-      
+
       if (score <= 0) continue;
-      
+
       // Prefer smaller containers and deeper matches
       const tieBreak = 1 / Math.max(1, txt.length) + (1000 - (el.children ? el.children.length : 0)) * 1e-6;
       const total = score + tieBreak;
-      
+
       if (total > bestScore) {
         bestScore = total;
         best = el;
       }
     }
-    
+
     return best;
   }
 
@@ -2812,7 +2812,7 @@ class PreviewOptimizer {
   trySimpleTextSearch(previewElement, nodeId) {
     const allElements = previewElement.querySelectorAll('*');
     let targetElement = null;
-    
+
     for (const element of allElements) {
       const elementText = element.textContent || '';
       if (elementText.includes(`"id": "${nodeId}"`) ||
@@ -2823,17 +2823,17 @@ class PreviewOptimizer {
         }
       }
     }
-    
+
     return targetElement;
   }
 
   // Scroll to found element with proper expansion
   scrollToFoundElement(targetElement, nodeId) {
     console.log(`Found target element for node ${nodeId}, scrolling into view`);
-    
+
     // Ensure ancestors are expanded so the element remains visible
     this.ensureAncestorsExpanded(targetElement);
-    
+
     // Scroll into view
     const isVisible = targetElement.offsetParent !== null && targetElement.offsetHeight > 0;
     if (!isVisible && targetElement.parentElement) {
@@ -2842,15 +2842,15 @@ class PreviewOptimizer {
         block: 'center'
       });
     }
-    
+
     targetElement.scrollIntoView({
       behavior: 'smooth',
       block: 'center'
     });
-    
+
     // Add temporary highlighting
     this.highlightElement(targetElement);
-    
+
     console.log(`Successfully scrolled to and highlighted node ${nodeId} in JSON panel`);
   }
 
@@ -2862,14 +2862,14 @@ class PreviewOptimizer {
       '.json-formatter-opener',
       '.json-formatter-arrow'
     ].join(',');
-    
+
     let current = element;
     while (current && current !== document) {
       // Open <details>
       if (current.tagName && current.tagName.toLowerCase() === 'details' && !current.open) {
         current.open = true;
       }
-      
+
       // Expand JSONFormatter collapsed containers
       if (current.classList && (
         current.classList.contains('json-formatter-closed') ||
@@ -2885,7 +2885,7 @@ class PreviewOptimizer {
           }
         }
       }
-      
+
       current = current.parentElement;
     }
   }
@@ -2895,11 +2895,11 @@ class PreviewOptimizer {
     const originalBg = element.style.backgroundColor;
     const originalBorder = element.style.border;
     const originalTransition = element.style.transition;
-    
+
     element.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
     element.style.border = '2px solid rgba(59, 130, 246, 0.5)';
     element.style.transition = 'all 0.3s ease-in-out';
-    
+
     setTimeout(() => {
       element.style.backgroundColor = originalBg;
       element.style.border = originalBorder;
@@ -2910,7 +2910,7 @@ class PreviewOptimizer {
   // Fallback text search method
   fallbackTextSearch(previewElement, nodeId) {
     console.log(`Falling back to text search for node: ${nodeId}`);
-    
+
     const jsonText = previewElement.textContent || '';
     const searchTerms = [
       `"id": "${nodeId}"`,
@@ -2919,7 +2919,7 @@ class PreviewOptimizer {
       `id":"${nodeId}"`,
       nodeId
     ];
-    
+
     let position = -1;
     for (const searchTerm of searchTerms) {
       position = jsonText.indexOf(searchTerm);
@@ -2928,23 +2928,23 @@ class PreviewOptimizer {
         break;
       }
     }
-    
+
     if (position === -1) {
       console.warn(`Could not find node ID ${nodeId} in JSON content using any method`);
       return;
     }
-    
+
     // Calculate approximate scroll position
     const previewElementRect = previewElement.getBoundingClientRect();
     const textLength = jsonText.length;
     const scrollRatio = position / textLength;
     const scrollPosition = scrollRatio * (previewElement.scrollHeight - previewElementRect.height);
-    
+
     previewElement.scrollTo({
       top: Math.max(0, scrollPosition - previewElementRect.height / 2),
       behavior: 'smooth'
     });
-    
+
     console.log(`Scrolled to approximate position for ${nodeId} (character position ${position})`);
   }
 
@@ -2952,17 +2952,17 @@ class PreviewOptimizer {
   // The intelligent expansion approach is now used instead
   expandAllJsonFormatterNodes(previewElement) {
     console.log('Legacy expandAllJsonFormatterNodes called - consider using intelligent expansion instead');
-    
+
     const togglerSelectors = [
       '.json-formatter-toggler',
-      '.json-formatter-toggle', 
+      '.json-formatter-toggle',
       '.json-formatter-opener',
       '.json-formatter-arrow'
     ].join(',');
-    
+
     let expandedCount = 0;
     const maxExpansions = 200; // Safety limit
-    
+
     // Multiple passes to handle nested collapsed nodes
     for (let pass = 0; pass < 5; pass++) {
       // Open all <details> elements
@@ -2973,16 +2973,16 @@ class PreviewOptimizer {
           expandedCount++;
         }
       });
-      
+
       // Find and click all collapsed JSONFormatter containers
       const closedContainers = previewElement.querySelectorAll(
         '.json-formatter-closed, .json-formatter-collapsed, .collapsed'
       );
-      
+
       let expandedInThisPass = 0;
       closedContainers.forEach(container => {
         if (expandedCount >= maxExpansions) return;
-        
+
         const toggler = container.querySelector(togglerSelectors);
         if (toggler) {
           try {
@@ -2994,12 +2994,12 @@ class PreviewOptimizer {
           }
         }
       });
-      
+
       // Also check for togglers that might be collapsed based on aria-expanded
       const possibleTogglers = previewElement.querySelectorAll(togglerSelectors);
       possibleTogglers.forEach(toggler => {
         if (expandedCount >= maxExpansions) return;
-        
+
         const expanded = (toggler.getAttribute('aria-expanded') || '').toLowerCase();
         if (expanded === 'false' || expanded === '') {
           try {
@@ -3011,14 +3011,14 @@ class PreviewOptimizer {
           }
         }
       });
-      
+
       console.log(`Pass ${pass + 1}: Expanded ${expandedInThisPass} nodes (total: ${expandedCount})`);
-      
+
       // If we didn't expand anything in this pass, we're done
       if (expandedInThisPass === 0) {
         break;
       }
-      
+
       // Small delay to allow DOM updates
       if (expandedInThisPass > 0 && pass < 4) {
         // Use synchronous delay to keep the function call simple
@@ -3028,7 +3028,7 @@ class PreviewOptimizer {
         }
       }
     }
-    
+
     console.log(`Legacy expansion complete: ${expandedCount} nodes expanded`);
   }
 
@@ -3036,19 +3036,19 @@ class PreviewOptimizer {
     // Remove previous selection highlights
     const previouslySelected = document.querySelectorAll('.tree-node-selected');
     previouslySelected.forEach(el => el.classList.remove('tree-node-selected'));
-    
+
     // Add selection highlight to the current node
     const nodeElement = document.querySelector(`[data-node-id="${node.id}"]`);
     if (nodeElement) {
       nodeElement.classList.add('tree-node-selected');
-      
+
       // Add some temporary visual feedback
       const nodeContent = nodeElement.querySelector('.tree-node-content');
       if (nodeContent) {
         const originalBg = nodeContent.style.backgroundColor;
         nodeContent.style.backgroundColor = 'rgba(34, 197, 94, 0.15)';
         nodeContent.style.borderLeftColor = 'rgba(34, 197, 94, 0.6)';
-        
+
         setTimeout(() => {
           if (!nodeElement.classList.contains('tree-node-selected')) {
             nodeContent.style.backgroundColor = originalBg;
@@ -3056,7 +3056,7 @@ class PreviewOptimizer {
           }
         }, 3000);
       }
-      
+
       console.log(`Highlighted selected node: ${node.id}`);
     }
   }
@@ -3085,13 +3085,13 @@ class PreviewOptimizer {
   // Apply statistics filter across all panels
   applyStatisticsFilter(filterType) {
     console.log(`Applying statistics filter: ${filterType || 'none'}`);
-    
+
     // Update global filter state
     window.globalStatisticsFilter = filterType;
-    
+
     // Apply filters immediately to all panels with JSON data
     this.applyFiltersToAllPanels();
-    
+
     // Update visual state of all filter cards across all panels
     this.updateFilterCardVisualStates(filterType);
   }
@@ -3113,7 +3113,7 @@ class PreviewOptimizer {
     document.querySelectorAll('.stats-filter-card').forEach(card => {
       const cardFilterType = card.dataset.filterType;
       const isActive = (filterType === null && cardFilterType === 'total') || (filterType === cardFilterType);
-      
+
       if (isActive) {
         card.classList.add('border-blue-500', 'ring-2', 'ring-blue-200');
       } else {
@@ -3126,13 +3126,13 @@ class PreviewOptimizer {
   applyCurrentFilter() {
     const currentFilter = window.globalStatisticsFilter;
     console.log(`Applying current filter to panel: ${currentFilter || 'none'}`);
-    
+
     if (!this.currentJsonData || !this.uberMode) {
       return;
     }
 
     const shouldShowTreeView = this.shouldShowTreeVisualization();
-    
+
     if (shouldShowTreeView) {
       // Render tree view with current filter
       this.renderFilteredTreeView(currentFilter);
@@ -3145,7 +3145,7 @@ class PreviewOptimizer {
   // Render filtered tree view as flat list
   renderFilteredTreeView(filterType) {
     console.log(`Rendering filtered tree view with filter: ${filterType || 'none'}`);
-    
+
     const data = this.currentJsonData;
     if (!data || !data.extractions) {
       console.log('No extraction data available for filtering');
@@ -3181,10 +3181,10 @@ class PreviewOptimizer {
   // Render hierarchical tree (original logic)
   renderHierarchicalTree(treeElement, data) {
     console.log('Rendering hierarchical tree view');
-    
+
     // Build hierarchical tree
     const documentTree = this.buildDocumentTree(data);
-    
+
     // Clear and re-render
     treeElement.innerHTML = '';
     this.renderDocumentTree(treeElement, documentTree);
@@ -3193,9 +3193,9 @@ class PreviewOptimizer {
   // Render flat list of filtered items
   renderFlatFilteredTree(treeElement, data, filterType) {
     console.log(`Rendering flat filtered tree for type: ${filterType}`);
-    
+
     // Get all extractions that match the filter
-    const filteredExtractions = data.extractions.filter(ext => 
+    const filteredExtractions = data.extractions.filter(ext =>
       ext.extraction_class === filterType
     );
 
@@ -3203,7 +3203,7 @@ class PreviewOptimizer {
 
     // Group by parent-child relationships within the same type
     const flatItems = this.buildFlatFilteredItems(filteredExtractions, data, filterType);
-    
+
     // Clear and render flat list
     treeElement.innerHTML = '';
     this.renderFlatList(treeElement, flatItems, filterType);
@@ -3248,7 +3248,7 @@ class PreviewOptimizer {
         this.findSameTypeChildren(item, extractionMap, filterType, processedIds);
         items.push(item);
       }
-      
+
       processedIds.add(id);
     });
 
@@ -3261,24 +3261,24 @@ class PreviewOptimizer {
   // Find children of the same type recursively
   findSameTypeChildren(parentItem, extractionMap, filterType, processedIds) {
     const parentId = parentItem.id;
-    
+
     // Look for extractions that have this item as parent and are of the same type
     extractionMap.forEach(extraction => {
       const childParentId = this.getParentId(extraction);
-      if (childParentId === parentId && 
-          extraction.extraction_class === filterType && 
+      if (childParentId === parentId &&
+          extraction.extraction_class === filterType &&
           !processedIds.has(extraction.attributes?.id)) {
-        
+
         const childItem = {
           id: extraction.attributes.id,
           extraction: extraction,
           level: 0, // Will be calculated later
           children: []
         };
-        
+
         processedIds.add(childItem.id);
         parentItem.children.push(childItem);
-        
+
         // Recursively find children of this child
         this.findSameTypeChildren(childItem, extractionMap, filterType, processedIds);
       }
@@ -3299,7 +3299,7 @@ class PreviewOptimizer {
   renderFlatList(treeElement, flatItems, filterType) {
     const container = document.createElement('div');
     container.className = 'flat-filtered-tree';
-    
+
     // Add header
     const header = document.createElement('div');
     header.className = 'flat-list-header px-4 py-2 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium border-b border-blue-200 dark:border-blue-700';
@@ -3335,7 +3335,7 @@ class PreviewOptimizer {
 
     const nodeContent = document.createElement('div');
     nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
-    
+
     // Always highlight filtered items
     nodeContent.classList.add('bg-yellow-50', 'dark:bg-yellow-900', 'border-yellow-300', 'dark:border-yellow-600');
     nodeContent.classList.remove('border-transparent');
@@ -3343,7 +3343,7 @@ class PreviewOptimizer {
     // Expand/collapse indicator for items with children
     const indicator = document.createElement('span');
     indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
-    
+
     if (item.children.length > 0) {
       indicator.textContent = '▼'; // Always expanded in flat view
       indicator.style.cursor = 'pointer';
@@ -3355,11 +3355,11 @@ class PreviewOptimizer {
     // Create node text with navigation capability
     const nodeText = document.createElement('span');
     nodeText.className = 'text-sm text-gray-900 dark:text-gray-100 cursor-pointer flex-grow select-none';
-    
+
     const extraction = item.extraction;
     const attrs = extraction.attributes || {};
     let displayText = '';
-    
+
     // Format display text based on extraction type
     if (attrs.section_title) {
       displayText = `${attrs.id || 'Unknown'} - ${attrs.section_title}`;
@@ -3370,14 +3370,14 @@ class PreviewOptimizer {
     } else {
       displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_class}`;
     }
-    
+
     nodeText.textContent = displayText;
 
     // Add click handler for navigation
     nodeContent.addEventListener('click', (e) => {
       e.stopPropagation();
       console.log(`Flat list navigation clicked for node: ${item.id}`);
-      
+
       // Add selection highlighting
       container.querySelectorAll('.tree-node-content').forEach(node => {
         node.classList.remove('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
@@ -3409,7 +3409,7 @@ class PreviewOptimizer {
   // Render filtered JSON view
   renderFilteredJsonView(filterType) {
     console.log(`Rendering filtered JSON view with filter: ${filterType || 'none'}`);
-    
+
     const data = this.currentJsonData;
     if (!data || !data.extractions) {
       console.log('No extraction data available for JSON filtering');
@@ -3435,10 +3435,10 @@ class PreviewOptimizer {
   // Render complete JSON view (original logic) with enhanced controls
   renderCompleteJsonView(container, data) {
     console.log('Rendering complete JSON view with controls');
-    
+
     // Clear the entire element to prevent duplication
     this.element.innerHTML = '';
-    
+
     // Use enhanced JSON object renderer
     if (typeof JSONFormatter !== 'undefined') {
       this.renderEnhancedJsonObject(data, { size: 0, truncated: false });
@@ -3451,9 +3451,9 @@ class PreviewOptimizer {
   // Render filtered JSON as flat list with enhanced controls
   renderFlatJsonFilter(container, data, filterType) {
     console.log(`Rendering flat JSON filter for type: ${filterType}`);
-    
+
     // Get filtered extractions
-    const filteredExtractions = data.extractions.filter(ext => 
+    const filteredExtractions = data.extractions.filter(ext =>
       ext.extraction_class === filterType
     );
 
@@ -3470,24 +3470,24 @@ class PreviewOptimizer {
 
     // Clear the main container and render with enhanced controls
     this.element.innerHTML = '';
-    
+
     // Create main container
     const mainContainer = document.createElement('div');
     mainContainer.className = 'enhanced-json-container';
-    
+
     // Create custom toolbar for filtered view
     const toolbar = document.createElement('div');
     toolbar.className = 'json-toolbar flex items-center justify-between bg-blue-100 dark:bg-blue-800 border border-blue-200 dark:border-blue-600 rounded-t-lg px-4 py-2 text-sm';
-    
+
     // Left side - filter info
     const filterInfo = document.createElement('div');
     filterInfo.className = 'flex items-center space-x-4';
-    
+
     const filterLabel = document.createElement('span');
     filterLabel.className = 'font-medium text-blue-800 dark:text-blue-200';
     filterLabel.textContent = `Filtered: ${this.formatTypeName(filterType)}`;
     filterInfo.appendChild(filterLabel);
-    
+
     // Add control toggles
     const lineNumbersToggle = this.createToggleButton('line-numbers', 'Line Numbers', this.getJsonPreference('lineNumbers', true));
     lineNumbersToggle.addEventListener('change', (e) => {
@@ -3495,14 +3495,14 @@ class PreviewOptimizer {
       this.applyCurrentFilter(); // Re-render filtered view
     });
     filterInfo.appendChild(lineNumbersToggle);
-    
+
     const wordWrapToggle = this.createToggleButton('word-wrap', 'Word Wrap', this.getJsonPreference('wordWrap', false));
     wordWrapToggle.addEventListener('change', (e) => {
       this.setJsonPreference('wordWrap', e.target.checked);
       this.applyCurrentFilter(); // Re-render filtered view
     });
     filterInfo.appendChild(wordWrapToggle);
-    
+
     // Right side - item count
     const itemCount = document.createElement('div');
     itemCount.className = 'flex items-center space-x-2 text-xs bg-blue-200 dark:bg-blue-700 px-2 py-1 rounded';
@@ -3511,27 +3511,27 @@ class PreviewOptimizer {
         ${filteredExtractions.length} of ${data.extractions.length} items
       </span>
     `;
-    
+
     toolbar.appendChild(filterInfo);
     toolbar.appendChild(itemCount);
     mainContainer.appendChild(toolbar);
-    
+
     // Create JSON content container
     const jsonContainer = document.createElement('div');
     jsonContainer.className = 'json-viewer bg-gray-50 dark:bg-gray-900 rounded-b-lg border-l border-r border-b border-gray-200 dark:border-gray-600 relative';
-    
+
     // Apply preferences
     const showLineNumbers = this.getJsonPreference('lineNumbers', true);
     const wordWrap = this.getJsonPreference('wordWrap', false);
-    
+
     // Create content wrapper
     const contentWrapper = document.createElement('div');
     contentWrapper.className = `json-content-wrapper ${wordWrap ? 'word-wrap' : 'no-wrap'}`;
-    
+
     // Determine scrolling behavior
     const jsonDepth = this.calculateJsonDepth(filteredData);
     const needsHorizontalScroll = !wordWrap || jsonDepth > 2;
-    
+
     if (needsHorizontalScroll) {
       contentWrapper.style.overflowX = 'auto';
       contentWrapper.style.whiteSpace = 'nowrap';
@@ -3539,7 +3539,7 @@ class PreviewOptimizer {
       contentWrapper.style.overflowX = 'hidden';
       contentWrapper.style.whiteSpace = 'pre-wrap';
     }
-    
+
     // Add line numbers if enabled
     if (showLineNumbers) {
       const lineNumbersContainer = document.createElement('div');
@@ -3556,17 +3556,17 @@ class PreviewOptimizer {
       `;
       jsonContainer.appendChild(lineNumbersContainer);
       contentWrapper.style.paddingLeft = '68px';
-      
+
       // Generate line numbers for filtered data
       this.generateJsonLineNumbers(filteredData, lineNumbersContainer);
     }
-    
+
     // Render JSON content with performance optimizations
     if (typeof JSONFormatter !== 'undefined') {
       // Determine appropriate settings based on data size
       const dataSize = JSON.stringify(filteredData).length;
       const maxDepth = dataSize > 100000 ? 2 : 3;
-      
+
       const formatter = new JSONFormatter(filteredData, maxDepth, {
         hoverPreviewEnabled: dataSize < 50000,
         hoverPreviewArrayCount: dataSize < 50000 ? 50 : 10,
@@ -3574,7 +3574,7 @@ class PreviewOptimizer {
         animateOpen: dataSize < 20000,
         animateClose: dataSize < 20000
       });
-      
+
       // Use requestAnimationFrame for non-blocking rendering
       requestAnimationFrame(() => {
         const formatterElement = formatter.render();
@@ -3590,7 +3590,7 @@ class PreviewOptimizer {
       pre.textContent = pretty;
       contentWrapper.appendChild(pre);
     }
-    
+
     jsonContainer.appendChild(contentWrapper);
     mainContainer.appendChild(jsonContainer);
     this.element.appendChild(mainContainer);

@@ -39,31 +39,31 @@
     button.primary:hover { background: linear-gradient(135deg, #047857, #15803d, #16a34a); }
     input[type="file"] { cursor: pointer; }
     main { padding: 16px; }
-    
+
     .file-selector {
-      background: var(--panel); border: 1px solid var(--border); border-radius: 12px; 
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
       padding: 16px; margin-bottom: 16px; text-align: center;
     }
-    
+
     .controls {
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; padding: 16px;
       background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
     }
-    
+
     .tree-container {
       background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
       padding: 20px; min-height: 600px; overflow: auto;
     }
-    
+
     .tree-node {
       margin: 4px 0;
       position: relative;
     }
-    
+
     .tree-node.collapsed > .tree-children {
       display: none;
     }
-    
+
     .tree-item {
       display: flex;
       align-items: flex-start;
@@ -76,13 +76,13 @@
       transition: all 0.3s ease;
       position: relative;
     }
-    
+
     .tree-item:hover {
       background: linear-gradient(180deg, rgba(55,65,81,0.8), rgba(17,24,39,0.8));
       border-color: var(--accent);
       transform: translateX(2px);
     }
-    
+
     .tree-item.has-children::before {
       content: '▼';
       margin-right: 8px;
@@ -92,25 +92,25 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-    
+
     .tree-node.collapsed .tree-item.has-children::before {
       transform: rotate(-90deg);
     }
-    
+
     .node-content {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    
+
     .node-header {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
     }
-    
+
     .node-id {
       font-family: ui-monospace, monospace;
       font-size: 12px;
@@ -120,7 +120,7 @@
       border-radius: 4px;
       flex-shrink: 0;
     }
-    
+
     .node-type {
       display: inline-block;
       padding: 4px 8px;
@@ -131,28 +131,28 @@
       letter-spacing: 0.5px;
       flex-shrink: 0;
     }
-    
+
     .node-title {
       font-weight: 600;
       color: var(--text);
       flex: 1;
       word-break: break-word;
     }
-    
+
     .node-details {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 12px;
       margin-top: 8px;
     }
-    
+
     .detail-group {
       background: rgba(55,65,81,0.3);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 12px;
     }
-    
+
     .detail-group h4 {
       margin: 0 0 8px 0;
       font-size: 12px;
@@ -160,23 +160,23 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    
+
     .detail-item {
       margin: 6px 0;
       font-size: 14px;
     }
-    
+
     .detail-label {
       color: var(--muted);
       font-size: 12px;
       margin-bottom: 2px;
     }
-    
+
     .detail-value {
       color: var(--text);
       word-break: break-word;
     }
-    
+
     .pill {
       padding: 2px 8px;
       border-radius: 999px;
@@ -185,47 +185,47 @@
       display: inline-block;
       margin: 2px 4px 2px 0;
     }
-    
+
     .pill.mandatory { background: rgba(34,197,94,0.1); border-color: #14532d; color: #86efac; }
     .pill.permission { background: rgba(96,165,250,0.1); border-color: #1e3a8a; color: #bfdbfe; }
     .pill.prohibition { background: rgba(239,68,68,0.1); border-color: #7f1d1d; color: #fecaca; }
-    
+
     .tree-children {
       margin-left: 20px;
       border-left: 2px solid var(--border);
       padding-left: 15px;
       margin-top: 8px;
     }
-    
+
     /* Type-specific colors */
     .type-SECTION { border-left: 4px solid #667eea; }
     .type-SECTION .node-type { background: #667eea; color: white; }
-    
+
     .type-NORM { border-left: 4px solid #ff9800; }
     .type-NORM .node-type { background: #ff9800; color: white; }
-    
+
     .type-TABLE { border-left: 4px solid #e91e63; }
     .type-TABLE .node-type { background: #e91e63; color: white; }
-    
+
     .type-LEGAL_DOCUMENT { border-left: 4px solid #795548; }
     .type-LEGAL_DOCUMENT .node-type { background: #795548; color: white; }
-    
+
     .type-PROCEDURE { border-left: 4px solid #9c27b0; }
     .type-PROCEDURE .node-type { background: #9c27b0; color: white; }
-    
+
     .type-PARAMETER { border-left: 4px solid #00bcd4; }
     .type-PARAMETER .node-type { background: #00bcd4; color: white; }
-    
+
     .type-TAG { border-left: 4px solid #4caf50; }
     .type-TAG .node-type { background: #4caf50; color: white; }
-    
+
     .type-QUESTION { border-left: 4px solid #ffc107; }
     .type-QUESTION .node-type { background: #ffc107; color: black; }
-    
+
     .hidden { display: none; }
     .muted { color: var(--muted); }
     .mono { font-family: ui-monospace, monospace; }
-    
+
     .stats-summary {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -234,33 +234,33 @@
       margin-bottom: 16px;
       text-align: center;
     }
-    
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 16px;
       margin-top: 12px;
     }
-    
+
     .stat-item {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
-    
+
     .stat-number {
       font-size: 24px;
       font-weight: bold;
       color: var(--accent);
     }
-    
+
     .stat-label {
       color: var(--muted);
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    
+
     /* Responsive design */
     @media (max-width: 768px) {
       .controls { flex-direction: column; }
@@ -340,7 +340,7 @@
 
     function byId(id) { return document.getElementById(id); }
     function setText(id, text) { const el = byId(id); if (el) el.textContent = text; }
-    
+
     function escapeHtml(text) {
       const div = document.createElement('div');
       div.textContent = text;
@@ -370,17 +370,17 @@
 
     function buildTree(items) {
       if (!Array.isArray(items)) return [];
-      
+
       console.log('Building tree from', items.length, 'items');
-      
+
       // Filter relevant extraction types like the Python script does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      const relevantItems = items.filter(item => 
+      const relevantItems = items.filter(item =>
         item && relevantTypes.includes(item.extraction_class)
       );
-      
+
       console.log('Filtered to', relevantItems.length, 'relevant items');
-      
+
       // Count types for verification
       const typeCounts = {};
       relevantItems.forEach(item => {
@@ -388,30 +388,30 @@
         typeCounts[type] = (typeCounts[type] || 0) + 1;
       });
       console.log('Type counts:', typeCounts);
-      
+
       // Create a map for quick lookup - use a new Map each time to prevent contamination
       const itemMap = new Map();
       const rootItems = [];
-      
+
       // First pass: normalize and create all items (matching Python logic)
       const createdItems = new Set(); // Track which items we've already created
-      
+
       relevantItems.forEach((item, index) => {
         if (!item || !item.attributes) return;
-        
+
         const attributes = item.attributes;
         const extraction_class = item.extraction_class;
         const id = attributes.id;
-        
+
         // Skip if we've already processed this ID
         if (!id || createdItems.has(id)) {
           if (!id) console.warn('Item without ID at index', index);
           else console.warn('Duplicate item ID found:', id);
           return;
         }
-        
+
         createdItems.add(id);
-        
+
         // Build normalized item following Python _create_node logic
         // Create a fresh object to avoid reference issues
         let normalizedItem = {
@@ -422,14 +422,14 @@
           extraction_text: item.extraction_text || '',
           extraction_index: item.extraction_index
         };
-        
+
         // Handle different extraction types like Python script
         if (extraction_class === 'SECTION') {
           normalizedItem.section_title = attributes.section_title || '';
           normalizedItem.sectioning_type = attributes.sectioning_type || 'Section';
           normalizedItem.parent_id = attributes.parent_id;
           normalizedItem.section_summary = attributes.section_summary || '';
-        } 
+        }
         else if (extraction_class === 'NORM') {
           const statement = attributes.norm_statement || '';
           normalizedItem.norm_statement = statement;
@@ -444,7 +444,7 @@
         else if (extraction_class === 'TABLE') {
           normalizedItem.section_title = attributes.table_title || item.extraction_text?.substring(0, 50) || '';
           normalizedItem.sectioning_type = 'Table';
-          // Use parent_section_id for TABLE objects  
+          // Use parent_section_id for TABLE objects
           normalizedItem.parent_id = attributes.parent_section_id || attributes.parent_id;
           normalizedItem.section_summary = attributes.table_description || '';
         }
@@ -457,34 +457,34 @@
           normalizedItem.citation = attributes.citation;
           normalizedItem.jurisdiction = attributes.jurisdiction;
         }
-        
+
         // Flatten additional attributes - create new properties to avoid reference issues
         Object.keys(attributes).forEach(key => {
           if (!normalizedItem.hasOwnProperty(key)) {
             normalizedItem[key] = attributes[key];
           }
         });
-        
+
         itemMap.set(id, normalizedItem);
       });
-      
+
       console.log('Created item map with', itemMap.size, 'items');
       console.log('Processed', createdItems.size, 'unique items in first pass');
-      
+
       // Second pass: build hierarchy (matching Python _build_tree logic)
       const processedItems = new Set(); // Track which items we've already processed
-      
+
       relevantItems.forEach((item, index) => {
         if (!item || !item.attributes) return;
-        
+
         const id = item.attributes.id;
         if (!id || processedItems.has(id)) return; // Skip if already processed
-        
+
         processedItems.add(id);
-        
+
         const treeItem = itemMap.get(id);
         if (!treeItem) return;
-        
+
         if (!treeItem.parent_id || !itemMap.has(treeItem.parent_id)) {
           // Root node - check if it's already in rootItems
           if (!rootItems.find(root => root.id === id)) {
@@ -506,19 +506,19 @@
           }
         }
       });
-      
+
       console.log('Built tree with', rootItems.length, 'root items');
       console.log('Processed', processedItems.size, 'unique items');
-      
+
       // Check if we need to create a synthetic CTE.DB.SI root node
       const cteDbSiId = 'CTE.DB.SI';
       if (!itemMap.has(cteDbSiId)) {
         // Check if any items have CTE.DB.SI as parent_id
-        const hasCteChildren = rootItems.some(item => 
-          item.parent_id === cteDbSiId || 
+        const hasCteChildren = rootItems.some(item =>
+          item.parent_id === cteDbSiId ||
           [...itemMap.values()].some(node => node.parent_id === cteDbSiId)
         );
-        
+
         if (hasCteChildren) {
           console.log('Creating synthetic root node for', cteDbSiId);
           // Create synthetic root node
@@ -532,14 +532,14 @@
             sectioning_type: 'Legal Document',
             extraction_index: -1
           };
-          
+
           itemMap.set(cteDbSiId, syntheticRoot);
-          
+
           // Move items that have CTE.DB.SI as parent to this synthetic root
-          const itemsToMove = [...itemMap.values()].filter(item => 
+          const itemsToMove = [...itemMap.values()].filter(item =>
             item.parent_id === cteDbSiId && item.id !== cteDbSiId
           );
-          
+
           itemsToMove.forEach(item => {
             // Remove from rootItems if it's there
             const rootIndex = rootItems.findIndex(root => root.id === item.id);
@@ -551,12 +551,12 @@
               syntheticRoot.children.push(item);
             }
           });
-          
+
           rootItems.unshift(syntheticRoot); // Add at the beginning
           console.log('Added synthetic root with', syntheticRoot.children.length, 'children');
         }
       }
-      
+
       // Verify no duplicate IDs in root items
       const rootIds = new Set();
       const duplicateRoots = [];
@@ -569,7 +569,7 @@
       if (duplicateRoots.length > 0) {
         console.warn('Duplicate root items found:', duplicateRoots);
       }
-      
+
       // Sort items by extraction_index for consistent ordering
       const sortItems = (items) => {
         items.sort((a, b) => {
@@ -583,9 +583,9 @@
           }
         });
       };
-      
+
       sortItems(rootItems);
-      
+
       return rootItems;
     }
 
@@ -595,33 +595,33 @@
         console.warn('Maximum tree depth exceeded, stopping recursion at level', level);
         return '<div class="tree-node"><div class="tree-item"><span class="muted">Maximum depth exceeded...</span></div></div>';
       }
-      
+
       if (!item || !item.id) {
         console.warn('Invalid item at level', level, item);
         return '';
       }
-      
+
       const hasChildren = item.children && item.children.length > 0;
       const nodeClass = hasChildren ? 'has-children' : '';
       const typeClass = `type-${item.extraction_class || 'UNKNOWN'}`;
-      
+
       let html = `<div class="tree-node" data-level="${level}" data-type="${item.extraction_class || 'UNKNOWN'}">`;
       html += `<div class="tree-item ${nodeClass} ${typeClass}" onclick="toggleNode(this)">`;
-      
+
       html += `<div class="node-content">`;
       html += `<div class="node-header">`;
       html += `<span class="node-id">${escapeHtml(item.id || '')}</span>`;
       html += `<span class="node-type">${item.extraction_class || 'UNKNOWN'}</span>`;
       html += `<span class="node-title">${getTitle(item)}</span>`;
       html += `</div>`;
-      
+
       if (showDetails) {
         html += renderNodeDetails(item);
       }
-      
+
       html += `</div>`;
       html += `</div>`;
-      
+
       if (hasChildren && level < maxDepth) {
         html += `<div class="tree-children">`;
         item.children.forEach((child, index) => {
@@ -633,7 +633,7 @@
         });
         html += `</div>`;
       }
-      
+
       html += `</div>`;
       return html;
     }
@@ -643,11 +643,11 @@
       if (item.section_title && item.section_title.trim()) {
         return escapeHtml(item.section_title);
       }
-      
+
       // Fallback to other title fields
       if (item.doc_title) return escapeHtml(item.doc_title);
       if (item.title) return escapeHtml(item.title);
-      
+
       // For extraction_text, clean up markdown headers
       if (item.extraction_text) {
         let text = item.extraction_text.trim();
@@ -657,22 +657,22 @@
           return escapeHtml(text.length > 100 ? text.substring(0, 100) + '...' : text);
         }
       }
-      
+
       // Fallback to other text fields
       if (item.norm_statement) {
         const statement = item.norm_statement.trim();
         return escapeHtml(statement.length > 80 ? statement.substring(0, 80) + '...' : statement);
       }
-      
+
       if (item.statement_text) return escapeHtml(item.statement_text.substring(0, 80) + (item.statement_text.length > 80 ? '...' : ''));
       if (item.text) return escapeHtml(item.text.substring(0, 80) + (item.text.length > 80 ? '...' : ''));
-      
+
       return `<em class="muted">${item.extraction_class || 'Unknown'} - No title available</em>`;
     }
 
     function renderNodeDetails(item) {
       let html = `<div class="node-details">`;
-      
+
       // Basic info
       const basicInfo = [];
       if (item.extraction_text) basicInfo.push(['Extraction Text', item.extraction_text]);
@@ -680,7 +680,7 @@
       if (item.section_summary) basicInfo.push(['Summary', item.section_summary]);
       if (item.notes) basicInfo.push(['Notes', item.notes]);
       if (item.description) basicInfo.push(['Description', item.description]);
-      
+
       if (basicInfo.length > 0) {
         html += `<div class="detail-group">`;
         html += `<h4>Basic Information</h4>`;
@@ -692,7 +692,7 @@
         });
         html += `</div>`;
       }
-      
+
       // Type-specific details
       if (item.extraction_class === 'NORM') {
         const normInfo = [];
@@ -701,7 +701,7 @@
         if (item.applies_if) normInfo.push(['Applies If', item.applies_if]);
         if (item.satisfied_if) normInfo.push(['Satisfied If', item.satisfied_if]);
         if (item.exempt_if) normInfo.push(['Exempt If', item.exempt_if]);
-        
+
         if (normInfo.length > 0) {
           html += `<div class="detail-group">`;
           html += `<h4>Norm Details</h4>`;
@@ -714,7 +714,7 @@
           html += `</div>`;
         }
       }
-      
+
       if (item.extraction_class === 'SECTION') {
         const sectionInfo = [];
         if (item.sectioning_type) sectionInfo.push(['Section Type', item.sectioning_type]);
@@ -723,7 +723,7 @@
         if (item.author) sectionInfo.push(['Author', item.author]);
         if (item.date) sectionInfo.push(['Date', item.date]);
         if (item.source) sectionInfo.push(['Source', item.source]);
-        
+
         if (sectionInfo.length > 0) {
           html += `<div class="detail-group">`;
           html += `<h4>Section Details</h4>`;
@@ -736,7 +736,7 @@
           html += `</div>`;
         }
       }
-      
+
       if (item.extraction_class === 'LEGAL_DOCUMENT') {
         const legalInfo = [];
         if (item.citation) legalInfo.push(['Citation', item.citation]);
@@ -745,7 +745,7 @@
         if (item.url) legalInfo.push(['URL', item.url]);
         if (item.article) legalInfo.push(['Article', item.article]);
         if (item.section) legalInfo.push(['Section', item.section]);
-        
+
         if (legalInfo.length > 0) {
           html += `<div class="detail-group">`;
           html += `<h4>Legal Document Details</h4>`;
@@ -758,7 +758,7 @@
           html += `</div>`;
         }
       }
-      
+
       // Position and indexing info
       const positionInfo = [];
       if (item.extraction_index) positionInfo.push(['Extraction Index', item.extraction_index]);
@@ -767,7 +767,7 @@
         positionInfo.push(['Character Range', `${item.char_interval.start_pos}-${item.char_interval.end_pos}`]);
       }
       if (item.alignment_status) positionInfo.push(['Alignment Status', item.alignment_status]);
-      
+
       if (positionInfo.length > 0) {
         html += `<div class="detail-group">`;
         html += `<h4>Position Information</h4>`;
@@ -779,7 +779,7 @@
         });
         html += `</div>`;
       }
-      
+
       // Original attributes (if any additional ones exist)
       if (item.attributes && Object.keys(item.attributes).length > 0) {
         // Only show attributes that weren't already flattened
@@ -789,7 +789,7 @@
             remainingAttrs[key] = value;
           }
         });
-        
+
         if (Object.keys(remainingAttrs).length > 0) {
           html += `<div class="detail-group">`;
           html += `<h4>Additional Attributes</h4>`;
@@ -802,62 +802,62 @@
           html += `</div>`;
         }
       }
-      
+
       html += `</div>`;
       return html;
     }
 
     function updateStats(tree) {
       const stats = { total: 0, sections: 0, norms: 0, tables: 0, docs: 0, maxDepth: 0 };
-      
+
       // Use a single Set to track all visited items across the entire tree
       const globalVisited = new Set();
-      
+
       function countItems(items, depth = 0) {
         if (depth > 50) { // Safety limit
           console.warn('Maximum depth reached in stats calculation');
           return;
         }
-        
+
         stats.maxDepth = Math.max(stats.maxDepth, depth);
-        
+
         items.forEach(item => {
           if (!item || !item.id) return;
-          
+
           // Prevent counting the same item multiple times
           if (globalVisited.has(item.id)) {
             console.warn('Item already counted, skipping:', item.id);
             return;
           }
           globalVisited.add(item.id);
-          
+
           stats.total++;
           const type = item.extraction_class;
           if (type === 'SECTION') stats.sections++;
           else if (type === 'NORM') stats.norms++;
           else if (type === 'TABLE') stats.tables++;
           else if (type === 'LEGAL_DOCUMENT') stats.docs++;
-          
+
           if (item.children && item.children.length > 0) {
             countItems(item.children, depth + 1);
           }
         });
       }
-      
+
       try {
         countItems(tree);
-        
+
         // Log stats for verification
         console.log('Statistics calculated:', stats);
         console.log('Total unique items processed:', globalVisited.size);
-        
+
       } catch (error) {
         console.error('Error calculating stats:', error);
         // Set safe defaults
         stats.total = tree.length;
         stats.maxDepth = 1;
       }
-      
+
       setText('totalItems', stats.total);
       setText('sectionsCount', stats.sections);
       setText('normsCount', stats.norms);
@@ -928,7 +928,7 @@
 
     function renderTree() {
       const container = byId('tree-container');
-      
+
       if (!treeData) {
         container.innerHTML = '<div class="muted" style="text-align: center; padding: 40px;">No tree data available - please select a JSON file</div>';
         // Hide controls and stats when no data
@@ -936,7 +936,7 @@
         byId('controls').classList.add('hidden');
         return;
       }
-      
+
       if (!Array.isArray(treeData) || treeData.length === 0) {
         container.innerHTML = '<div class="muted" style="text-align: center; padding: 40px;">No root items found in the data structure</div>';
         console.log('Tree data issue:', treeData);
@@ -945,52 +945,52 @@
         byId('controls').classList.add('hidden');
         return;
       }
-      
+
       console.log('Rendering tree with', treeData.length, 'root items');
-      
+
       // Clear container before rendering to prevent duplication
       container.innerHTML = '';
-      
+
       let html = '';
       treeData.forEach((item, index) => {
         console.log(`Rendering root item ${index}:`, item);
         html += renderTreeNode(item);
       });
-      
+
       if (!html.trim()) {
         container.innerHTML = '<div class="muted" style="text-align: center; padding: 40px;">Failed to render tree nodes</div>';
         return;
       }
-      
+
       container.innerHTML = html;
       updateStats(treeData);
-      
+
       // Show controls and stats
       byId('stats').classList.remove('hidden');
       byId('controls').classList.remove('hidden');
-      
+
       console.log('Tree rendering complete');
     }
 
     function processJSONData(jsonData) {
       console.log('Processing JSON data:', jsonData);
-      
+
       if (!jsonData) {
         alert('No JSON data provided.');
         return;
       }
-      
+
       if (!jsonData.extractions) {
         alert('Invalid JSON format. Expected "extractions" array.');
         return;
       }
-      
+
       console.log('Found extractions:', jsonData.extractions.length);
-      
+
       // Clear any existing data to prevent duplication
       treeData = null;
       currentFilter = null;
-      
+
       // Log a sample of different extraction types for debugging
       const samplesByType = {};
       jsonData.extractions.forEach(ext => {
@@ -1000,21 +1000,21 @@
         }
       });
       console.log('Sample extractions by type:', samplesByType);
-      
+
       treeData = buildTree(jsonData.extractions);
       console.log('Built tree data:', treeData);
       console.log('Root items count:', treeData.length);
-      
+
       if (treeData.length === 0) {
         console.warn('No root items found - check parent-child relationships');
       }
-      
+
       renderTree();
     }
 
     function exportCsv() {
       if (!treeData) return;
-      
+
       const flattenTree = (items, result = []) => {
         items.forEach(item => {
           result.push(item);
@@ -1024,10 +1024,10 @@
         });
         return result;
       };
-      
+
       const allItems = flattenTree(treeData);
       const csvRows = [['ID', 'Type', 'Title', 'Parent ID', 'Text', 'Section Level', 'Extraction Index']];
-      
+
       allItems.forEach(item => {
         csvRows.push([
           item.id || '',
@@ -1039,11 +1039,11 @@
           item.extraction_index || ''
         ]);
       });
-      
-      const csvContent = csvRows.map(row => 
+
+      const csvContent = csvRows.map(row =>
         row.map(cell => `"${cell}"`).join(',')
       ).join('\n');
-      
+
       const blob = new Blob([csvContent], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1058,12 +1058,12 @@
       byId('fileInput').addEventListener('change', async function(event) {
         const file = event.target.files[0];
         if (!file) return;
-        
+
         try {
           console.log('Loading file:', file.name, 'Size:', file.size);
           const text = await file.text();
           console.log('File loaded, parsing JSON...');
-          
+
           // Parse JSON with error handling
           let jsonData;
           try {
@@ -1073,10 +1073,10 @@
             alert('Error parsing JSON file: ' + parseError.message + '\n\nPlease check that the file contains valid JSON.');
             return;
           }
-          
+
           console.log('JSON parsed successfully');
           processJSONData(jsonData);
-          
+
         } catch (error) {
           console.error('File loading error:', error);
           if (error.message.includes('Maximum call stack size exceeded')) {
@@ -1086,9 +1086,9 @@
           }
         }
       });
-      
+
       byId('exportCsv').addEventListener('click', exportCsv);
-      
+
       byId('reloadBtn').addEventListener('click', function() {
         if (treeData) {
           console.log('Reloading tree data...');
@@ -1102,7 +1102,7 @@
           console.log('No tree data to reload');
         }
       });
-      
+
       // Try to load default file
       fetch('annotated_extractions_single.json')
         .then(response => response.json())

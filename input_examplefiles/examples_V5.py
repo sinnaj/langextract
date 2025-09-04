@@ -5,15 +5,16 @@ locations, tag merges, consequences, parameters (num & string), and branching Qs
 """
 
 from __future__ import annotations
-from typing import List
-import langextract as lx
 
+from typing import List
+
+import langextract as lx
 
 EXAMPLES: List[lx.data.ExampleData] = [
     # 1) Comprehensive example with many features
-        lx.data.ExampleData(
-                text=(
-                        """# 1 Compartimentación en sectores de incendio
+    lx.data.ExampleData(
+        text=(
+            """# 1 Compartimentación en sectores de incendio
 
 1 Los edificios se deben compartmentar en sectores de incendio según las condiciones que se esta. becen en la tabla 1.1 de esta Seccion. Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegidos con una instalacion automatica de extincion.
 
@@ -23,7 +24,7 @@ EXAMPLES: List[lx.data.ExampleData] = [
 
 4 Las escaleras y los ascensores que comuniquen sectores de incendio diferentes o bien zonas de riesgo especial con el resto del edificio estaran compartmentados conforme a lo que se establece en el punto 3 anterior. Los ascensores dispondran en cada acceso, o bien de puertas E  $30^{\circ}$  o bien de un vestibulo de independencia con una puerta  $\mathsf{E}1_{2}$  30- C5, excepto en zonas de riesgo especial o de uso Aparcamiento, en las que se debe disponer siempre el citado vestibulo. Cuando, considerando dos sectores, el mas bago sea un sector de riesgo minimo, o bien si no lo es se opte por disponer en el tanto una puerta  $\mathsf{E}1_{2}$  30- C5 de acceso al vestibulo de independencia del ascensor, como una puerta E 30 de acceso al asensor, en el sector mas alto no se precisa ninguna de dichas medidas.
 
-Table 1.1 Condiciones de compartmentacion en sectores de incendio  
+Table 1.1 Condiciones de compartmentacion en sectores de incendio
 
 <table><tr><td>Uso previsto del edifi-cio o establecimiento</td><td>Condiciones</td></tr><tr><td>En general</td><td>- Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta-blecimientos cuya superficie construida no exceda de 500 m² y cuyo uso sea Docente, Administrativo o Residencial Público.
 - Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diffe-rente cuando supere los siguientes límites:</td></tr></table>
@@ -45,7 +46,8 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
 - En centros comerciales, cada establecimiento de uso Pública Concurrencia:
     1) En el que se prevea la existencia de espectaculars (includidos cines, teatros, dis-cotecas, salas de baile, etc.), cualquier que sea su superficie;
     1) destinado a otro tipo de actividad, cuando su superficie construida exceda de 500 m²;
-    debe constituir al menos un sector de incendio diferenciado, incluido el posible vesti-bulo común a diferentes salas.(5)"""),
+    debe constituir al menos un sector de incendio diferenciado, incluido el posible vesti-bulo común a diferentes salas.(5)"""
+        ),
         extractions=[
             lx.data.Extraction(
                 extraction_class="SECTION",
@@ -53,25 +55,45 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                 attributes={
                     "id": "SE::000001",
                     "sectioning_type": "CHAPTER",
-                    "section_title": "Compartimentación en sectores de incendio",
+                    "section_title": (
+                        "Compartimentación en sectores de incendio"
+                    ),
                     "parent_type": "DOCUMENT",
                     "parent_id": "SE:000002",
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Establish rules for compartmentalization in fire sectors",
+                    "section_summary": (
+                        "Establish rules for compartmentalization in fire"
+                        " sectors"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "FALSE",
-                }
+                },
             ),
             lx.data.Extraction(
                 extraction_class="Procedure",
-                extraction_text=('2 A efectos del computo de la superficie de un sector de incendio, se considera que los locales de riesgo especial, las escaleras y pasillos protegidos, los vestibulos de independencia y las escaleras compartmentadas como sector de incendios, que esten contenidos en dicho sector no forman parte del mismo.'),
+                extraction_text=(
+                    "2 A efectos del computo de la superficie de un sector de"
+                    " incendio, se considera que los locales de riesgo"
+                    " especial, las escaleras y pasillos protegidos, los"
+                    " vestibulos de independencia y las escaleras"
+                    " compartmentadas como sector de incendios, que esten"
+                    " contenidos en dicho sector no forman parte del mismo."
+                ),
                 attributes={
                     "id": "PD::000001",
                     "parent_section_id": "SE::000001",
-                    "Procedure": "Computation of fire sector area excludes special risk rooms, protected stairs and corridors, independence vestibules, and stairs compartmentalized as fire sectors contained within the sector.",
-                    "target_reference": ["Table 1.1 Condiciones de compartmentacion en sectores de incendio"],
+                    "Procedure": (
+                        "Computation of fire sector area excludes special risk"
+                        " rooms, protected stairs and corridors, independence"
+                        " vestibules, and stairs compartmentalized as fire"
+                        " sectors contained within the sector."
+                    ),
+                    "target_reference": [
+                        "Table 1.1 Condiciones de compartmentacion en sectores"
+                        " de incendio"
+                    ],
                     "Tags": ["FIRE.SECTOR", "FIRE.SECTOR.COMPUTATION"],
                     "location_scope": {
                         "COUNTRY": "ES",
@@ -87,24 +109,34 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                         "doc_id": "EXAMPLES_ENHANCED",
                         "Chapter": 1,
                         "article": 2,
-                        "table": None  ,
+                        "table": None,
                         "illustration": None,
                         "page": 1,
                         "span_char_start": None,
                         "span_char_end": None,
                         "visual_refs": [],
                     },
-                }
+                },
             ),
-
             lx.data.Extraction(
                 extraction_class="Procedure",
-                extraction_text=('Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegidos con una instalacion automatica de extincion.'),
+                extraction_text=(
+                    "Las superficies maximas indicadas en dicha tabla para los"
+                    " sectores de incendio pueden duplicarse cuando esten"
+                    " protegidos con una instalacion automatica de extincion."
+                ),
                 attributes={
                     "id": "PD::000002",
                     "parent_section_id": "SE::000001",
-                    "Procedure": "Maximum surface areas indicated in this table for fire sectors may be doubled when protected by an automatic extinguishing system.",
-                    "target_reference": ["Table 1.1 Condiciones de compartmentacion en sectores de incendio"],
+                    "Procedure": (
+                        "Maximum surface areas indicated in this table for fire"
+                        " sectors may be doubled when protected by an automatic"
+                        " extinguishing system."
+                    ),
+                    "target_reference": [
+                        "Table 1.1 Condiciones de compartmentacion en sectores"
+                        " de incendio"
+                    ],
                     "Tags": ["FIRE.SECTOR", "FIRE.SECTOR.AREA.COMPUTATION"],
                     "location_scope": {
                         "COUNTRY": "ES",
@@ -127,13 +159,12 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                         "span_char_end": None,
                         "visual_refs": [],
                     },
-                }
+                },
             ),
-
             lx.data.Extraction(
                 extraction_class="NORM",
                 extraction_text=(
-                    """Table 1.1 Condiciones de compartmentacion en sectores de incendio  
+                    """Table 1.1 Condiciones de compartmentacion en sectores de incendio
                     <table><tr><td>Uso previsto del edifi-cio o establecimiento</td><td>Condiciones</td></tr><tr><td>En general</td><td>- Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta-blecimientos cuya superficie construida no exceda de 500 m² y cuyo uso sea Docente, Administrativo o Residencial Público."""
                 ),
                 attributes={
@@ -141,19 +172,30 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                     "parent_section_id": "SE::000001",
                     "paragraph_number": 1,
                     "obligation_type": "MANDATORY",
-                    "norm_statement": "Every establishment must constitute a fire sector differentiated from the rest of the building",
-                    "applies_if": "TRUE",
-                    "satisfied_if": (
-                        "ESTABLISHMENT.AREA.IS_FIRE_SECTOR == TRUE"
+                    "norm_statement": (
+                        "Every establishment must constitute a fire sector"
+                        " differentiated from the rest of the building"
                     ),
-                    "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND ESTABLISHMENT.AREA.SIZE <= 500 sq_m AND (ESTABLISHMENT.USAGE == 'EDUCATION' OR ESTABLISHMENT.USAGE == 'ADMINISTRATIVE' OR ESTABLISHMENT.USAGE == 'PUBLIC.RESIDENTIAL')",
+                    "applies_if": "TRUE",
+                    "satisfied_if": "ESTABLISHMENT.AREA.IS_FIRE_SECTOR == TRUE",
+                    "exempt_if": (
+                        "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND"
+                        " ESTABLISHMENT.AREA.SIZE <= 500 sq_m AND"
+                        " (ESTABLISHMENT.USAGE == 'EDUCATION' OR"
+                        " ESTABLISHMENT.USAGE == 'ADMINISTRATIVE' OR"
+                        " ESTABLISHMENT.USAGE == 'PUBLIC.RESIDENTIAL')"
+                    ),
                     "topics": ["SAFETY.FIRE"],
                     "project_dimensions": {
-                        "PROJECT.TYPE": ["NEW","REFORM"],
-                        "BUILDING.USAGE":["GENERAL"]
+                        "PROJECT.TYPE": ["NEW", "REFORM"],
+                        "BUILDING.USAGE": ["GENERAL"],
                     },
                     "priority": 5,
-                    "priority_factors": {"severity": 0.9, "likelihood": 0.9, "impact": 0.8},
+                    "priority_factors": {
+                        "severity": 0.9,
+                        "likelihood": 0.9,
+                        "impact": 0.8,
+                    },
                     "relevant_tags": [
                         "FIRE.SECTOR",
                         "BUILDING.USAGE.RESIDENTIAL.HOUSING",
@@ -161,7 +203,7 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                         "ESTABLISHMENT.USAGE.EDUCATION",
                         "ESTABLISHMENT.USAGE.ADMINISTRATIVE",
                         "ESTABLISHMENT.USAGE.PUBLIC.RESIDENTIAL",
-                        "FIRE.EXTINGUISH_SYSTEM.TYPE.AUTOMATIC"
+                        "FIRE.EXTINGUISH_SYSTEM.TYPE.AUTOMATIC",
                     ],
                     "relevant_roles": [],
                     "lifecycle_phase": [],
@@ -189,10 +231,14 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                     "consequence_ids": [],
                     "confidence": 0.92,
                     "uncertainty": 0.08,
-                    "notes": "sq_m can be doubled if automatic extinguish system is present",
+                    "notes": (
+                        "sq_m can be doubled if automatic extinguish system is"
+                        " present"
+                    ),
                 },
             ),
-            lx.data.Extraction(  extraction_class="NORM",
+            lx.data.Extraction(
+                extraction_class="NORM",
                 extraction_text=(
                     """- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diffe-rente cuando supere los siguientes límites: Zona de uso Residencial Vivienda en todo caso.
                     Zona de alojamiento (1) o de uso Administrativo, Comercial, Docente cuya superficie construida exceda de 500 m² o cuya superficie construida exceda de 250 m² en caso de uso principal Almacén.
@@ -206,19 +252,48 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                     "parent_section_id": "SE::000001",
                     "paragraph_number": 1,
                     "obligation_type": "MANDATORY",
-                    "norm_statement": "Any area with a different and subsidiary use from the main use of the building or establishment in which it is integrated must constitute a different fire sector when it exceeds the mentioned limits",
-                    "applies_if": "AREA.USAGE != BUILDING.USAGE AND (AREA.USAGE == RESIDENTIAL.HOUSING) OR (AREA.USAGE == LODGING OR AREA.USAGE == ADMINISTRATIVE OR AREA.USAGE == COMMERCIAL) AND AREA.SIZE > 500 sq_m OR (AREA.USAGE == LODGING OR AREA.USAGE == ADMINISTRATIVE OR AREA.USAGE == COMMERCIAL) AND BUILDING.USAGE == STORAGE AND AREA.SIZE > 250 sq_m OR (AREA.USAGE == PUBLIC.RESIDENTIAL OR AREA.USAGE == PUBLIC.ASSEMBLY OR AREA.USAGE == PUBLIC.GOV OR AREA.USAGE == PUBLIC.HOSPITAL OR AREA.USAGE == PUBLIC.PARK OR AREA.USAGE == PUBLIC.COMMERCIAL) AND AREA.OCCUPANCY > 500 persons OR (AREA.USAGE == PUBLIC.RESIDENTIAL OR AREA.USAGE == PUBLIC.ASSEMBLY OR AREA.USAGE == PUBLIC.GOV OR AREA.USAGE == PUBLIC.HOSPITAL OR AREA.USAGE == PUBLIC.PARK OR AREA.USAGE == PUBLIC.COMMERCIAL) AND BUILDING.USAGE == STORAGE AND AREA.SIZE > 250 sq_m OR (AREA.USAGE == PARKING) AND AREA.SIZE > 100 sq_m OR AREA.USAGE > 1 AND AREA.SIZE > 250 sq_m AND BUILDING.USAGE == STORAGE OR (AREA.USAGE == STORAGE) AND AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ",
-                    "satisfied_if": (
-                        "AREA.IS_FIRE_SECTOR == TRUE"
+                    "norm_statement": (
+                        "Any area with a different and subsidiary use from the"
+                        " main use of the building or establishment in which it"
+                        " is integrated must constitute a different fire sector"
+                        " when it exceeds the mentioned limits"
                     ),
+                    "applies_if": (
+                        "AREA.USAGE != BUILDING.USAGE AND (AREA.USAGE =="
+                        " RESIDENTIAL.HOUSING) OR (AREA.USAGE == LODGING OR"
+                        " AREA.USAGE == ADMINISTRATIVE OR AREA.USAGE =="
+                        " COMMERCIAL) AND AREA.SIZE > 500 sq_m OR (AREA.USAGE"
+                        " == LODGING OR AREA.USAGE == ADMINISTRATIVE OR"
+                        " AREA.USAGE == COMMERCIAL) AND BUILDING.USAGE =="
+                        " STORAGE AND AREA.SIZE > 250 sq_m OR (AREA.USAGE =="
+                        " PUBLIC.RESIDENTIAL OR AREA.USAGE == PUBLIC.ASSEMBLY"
+                        " OR AREA.USAGE == PUBLIC.GOV OR AREA.USAGE =="
+                        " PUBLIC.HOSPITAL OR AREA.USAGE == PUBLIC.PARK OR"
+                        " AREA.USAGE == PUBLIC.COMMERCIAL) AND AREA.OCCUPANCY >"
+                        " 500 persons OR (AREA.USAGE == PUBLIC.RESIDENTIAL OR"
+                        " AREA.USAGE == PUBLIC.ASSEMBLY OR AREA.USAGE =="
+                        " PUBLIC.GOV OR AREA.USAGE == PUBLIC.HOSPITAL OR"
+                        " AREA.USAGE == PUBLIC.PARK OR AREA.USAGE =="
+                        " PUBLIC.COMMERCIAL) AND BUILDING.USAGE == STORAGE AND"
+                        " AREA.SIZE > 250 sq_m OR (AREA.USAGE == PARKING) AND"
+                        " AREA.SIZE > 100 sq_m OR AREA.USAGE > 1 AND AREA.SIZE"
+                        " > 250 sq_m AND BUILDING.USAGE == STORAGE OR"
+                        " (AREA.USAGE == STORAGE) AND"
+                        " AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ"
+                    ),
+                    "satisfied_if": "AREA.IS_FIRE_SECTOR == TRUE",
                     "exempt_if": "FALSE",
                     "topics": ["SAFETY.FIRE"],
                     "project_dimensions": {
-                        "PROJECT.TYPE": ["NEW","REFORM"],
-                        "BUILDING.USAGE":["GENERAL"]
+                        "PROJECT.TYPE": ["NEW", "REFORM"],
+                        "BUILDING.USAGE": ["GENERAL"],
                     },
                     "priority": 5,
-                    "priority_factors": {"severity": 0.9, "likelihood": 0.9, "impact": 0.8},
+                    "priority_factors": {
+                        "severity": 0.9,
+                        "likelihood": 0.9,
+                        "impact": 0.8,
+                    },
                     "relevant_tags": [
                         "AREA.USAGE.RESIDENTIAL.HOUSING",
                         "AREA.USAGE.LODGING",
@@ -261,39 +336,56 @@ Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-c
                         "span_char_end": None,
                         "visual_refs": [],
                     },
-                    "extracted_parameters": ["AREA.SIZE > 500 sq_m","AREA.SIZE > 250 sq_m","AREA.OCCUPANCY > 500 persons","AREA.SIZE > 100 sq_m","AREA.SIZE > 250 sq_m","AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ"],
+                    "extracted_parameters": [
+                        "AREA.SIZE > 500 sq_m",
+                        "AREA.SIZE > 250 sq_m",
+                        "AREA.OCCUPANCY > 500 persons",
+                        "AREA.SIZE > 100 sq_m",
+                        "AREA.SIZE > 250 sq_m",
+                        "AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ",
+                    ],
                     "consequence_ids": [],
                     "confidence": 0.92,
                     "uncertainty": 0.08,
-                    "notes": "sq_m can be doubled if automatic extinguish system is present",
+                    "notes": (
+                        "sq_m can be doubled if automatic extinguish system is"
+                        " present"
+                    ),
                 },
             ),
-        ],    ),
-
-### 2) Section hierarchy example
+        ],
+    ),
+    ### 2) Section hierarchy example
     lx.data.ExampleData(
-        text=("""# Introducción
+        text=(
+            """# Introducción
 
 # I Objeto
 
-Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secaciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico "Seguridad en caso de incendio"."""),
-    extractions=[
-              lx.data.Extraction(
+Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secaciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico "Seguridad en caso de incendio"."""
+        ),
+        extractions=[
+            lx.data.Extraction(
                 extraction_class="SECTION",
                 extraction_text="""# Introducción # I Objeto Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secaciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico "Seguridad en caso de incendio".""",
                 attributes={
                     "id": "SE::000002",
                     "sectioning_type": "DOCUMENT",
-                    "section_title": "Documento Básico Seguridad en caso de incendio",
+                    "section_title": (
+                        "Documento Básico Seguridad en caso de incendio"
+                    ),
                     "parent_type": None,
                     "parent_id": None,
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Introduction to the basic document establishing rules and procedures for fire safety",
+                    "section_summary": (
+                        "Introduction to the basic document establishing rules"
+                        " and procedures for fire safety"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "FALSE",
-                }
+                },
             ),
             lx.data.Extraction(
                 extraction_class="SECTION",
@@ -307,14 +399,27 @@ Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos 
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Introduction to the basic document establishing rules and procedures for fire safety",
+                    "section_summary": (
+                        "Introduction to the basic document establishing rules"
+                        " and procedures for fire safety"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "FALSE",
-                }
+                },
             ),
             lx.data.Extraction(
                 extraction_class="SECTION",
-                extraction_text="# I Objeto Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secaciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico 'Seguridad en caso de incendio'.",
+                extraction_text=(
+                    "# I Objeto Este Documento Básico (DB) tiene por objeto"
+                    " establecer reglas y procedimientos que permiten cumplir"
+                    " las exigencias básicas de seguridad en caso de incendio."
+                    " Las secaciones de este DB se corresponden con las"
+                    " exigencias básicas SI 1 a SI 6. La correcta aplicación de"
+                    " cada Sección supone el cumplimiento de la exigencia"
+                    " básica correspondiente. La correcta aplicación del"
+                    " conjunto del DB supone que se satisface el requisito"
+                    " básico 'Seguridad en caso de incendio'."
+                ),
                 attributes={
                     "id": "SE::000004",
                     "sectioning_type": "HEADLINE",
@@ -324,16 +429,20 @@ Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos 
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Objective of the basic document establishing rules and procedures for fire safety",
+                    "section_summary": (
+                        "Objective of the basic document establishing rules and"
+                        " procedures for fire safety"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "FALSE",
-                }
+                },
             ),
-    ],   ),
-
+        ],
+    ),
     lx.data.ExampleData(
-### 3) Section with applies_if and exempt_if
-        text=("""# I Amito de aplicacion
+        ### 3) Section with applies_if and exempt_if
+        text=(
+            """# I Amito de aplicacion
 
 El ambito de aplicacion de este DB es el que se establece con caracter general para el conjunto del CTE en su articulo 2 (Parte I) exacyendo los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicacion el "Reglamento de seguridad contra incendios en los establecimientos industriales".
 
@@ -341,7 +450,8 @@ El contenido de este DB se refiere unicamente a las exigencias basicas relaciona
 
 Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con las ins. talaciones o los almacenamentos regulados por reglamentacion especifica, debido a que corresponde a dicha reglamentacion establecer dichas exigencias.
 
-Como en el conjunto del CTE, el ambito de aplicacion de este DB son las obras de edificacion. Por ello, los elementos del entorno del edificio a los que les son de obligada aplicacion sus condiciones son unicamente aquellos que formen parte del proyecto de edificacion. Conforme al articulo 2, punto 3 de la ley 38/1999, de 5 de noviembre, de Ordenacion de la Edificacion (LOE), se consideran comprendidas en la edificacion sus instalaciones fias y el equipamiento propio, asi como los elementos de urbanizacion que permanezcan adscritos al edificio."""),
+Como en el conjunto del CTE, el ambito de aplicacion de este DB son las obras de edificacion. Por ello, los elementos del entorno del edificio a los que les son de obligada aplicacion sus condiciones son unicamente aquellos que formen parte del proyecto de edificacion. Conforme al articulo 2, punto 3 de la ley 38/1999, de 5 de noviembre, de Ordenacion de la Edificacion (LOE), se consideran comprendidas en la edificacion sus instalaciones fias y el equipamiento propio, asi como los elementos de urbanizacion que permanezcan adscritos al edificio."""
+        ),
         extractions=[
             lx.data.Extraction(
                 extraction_class="SECTION",
@@ -355,10 +465,13 @@ Como en el conjunto del CTE, el ambito de aplicacion de este DB son las obras de
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Scope of application of the basic document for fire safety",
+                    "section_summary": (
+                        "Scope of application of the basic document for fire"
+                        " safety"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "FALSE",
-                }
+                },
             ),
             lx.data.Extraction(
                 extraction_class="SECTION",
@@ -366,20 +479,23 @@ Como en el conjunto del CTE, el ambito de aplicacion de este DB son las obras de
                 attributes={
                     "id": "SE::000006",
                     "sectioning_type": "DOCUMENT",
-                    "section_title": "Documento Básico Seguridad en caso de incendio",
+                    "section_title": (
+                        "Documento Básico Seguridad en caso de incendio"
+                    ),
                     "parent_type": None,
                     "parent_id": None,
                     "author": None,
                     "date": None,
                     "source": None,
-                    "section_summary": "Establish rules and procedures for fire safety",
+                    "section_summary": (
+                        "Establish rules and procedures for fire safety"
+                    ),
                     "applies_if": "TRUE",
                     "exempt_if": "BUILDING.USAGE == 'INDUSTRIAL'",
-                }
+                },
             ),
-        ]
-    )
-
+        ],
+    ),
 ]
 
 __all__ = ["EXAMPLES"]

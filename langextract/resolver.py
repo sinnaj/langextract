@@ -26,8 +26,8 @@ import functools
 import itertools
 import json
 import operator
-import re
 from pathlib import Path
+import re
 
 from absl import logging
 import yaml
@@ -203,7 +203,9 @@ class Resolver(AbstractResolver):
     # When True, resolve() will return [] instead of raising on parse errors unless overridden per-call.
     self._suppress_parse_errors_default = suppress_parse_errors_default
     # Optional default allowlist of extraction_class names to align; others are passed through unchanged.
-    self._align_only_classes_default = list(align_only_classes_default) if align_only_classes_default else None
+    self._align_only_classes_default = (
+        list(align_only_classes_default) if align_only_classes_default else None
+    )
 
   def resolve(
       self,
@@ -308,7 +310,7 @@ class Resolver(AbstractResolver):
     aligner = WordAligner()
 
     # if allowed_classes is None:
-      # Align all extractions (existing behavior)
+    # Align all extractions (existing behavior)
     aligned_yaml_extractions = aligner.align_extractions(
         extractions_group,
         source_text,
@@ -318,53 +320,83 @@ class Resolver(AbstractResolver):
         fuzzy_alignment_threshold=fuzzy_alignment_threshold,
         accept_match_lesser=accept_match_lesser,
     )
-    
+
     # Debug output: Save resolver output to root folder
     try:
       debug_output = {
-        "resolver_debug": {
-          "source_text_preview": source_text[:500] + ("..." if len(source_text) > 500 else ""),
-          "source_text_length": len(source_text),
-          "token_offset": token_offset,
-          "char_offset": char_offset or 0,
-          "num_extractions_input": len(extractions),
-          "num_aligned_groups": len(aligned_yaml_extractions),
-          "alignment_settings": {
-            "enable_fuzzy_alignment": enable_fuzzy_alignment,
-            "fuzzy_alignment_threshold": fuzzy_alignment_threshold,
-            "accept_match_lesser": accept_match_lesser,
-          },
-          "extractions": []
-        }
+          "resolver_debug": {
+              "source_text_preview": source_text[:500] + (
+                  "..." if len(source_text) > 500 else ""
+              ),
+              "source_text_length": len(source_text),
+              "token_offset": token_offset,
+              "char_offset": char_offset or 0,
+              "num_extractions_input": len(extractions),
+              "num_aligned_groups": len(aligned_yaml_extractions),
+              "alignment_settings": {
+                  "enable_fuzzy_alignment": enable_fuzzy_alignment,
+                  "fuzzy_alignment_threshold": fuzzy_alignment_threshold,
+                  "accept_match_lesser": accept_match_lesser,
+              },
+              "extractions": [],
+          }
       }
-      
+
       # Add detailed extraction information
       for group_idx, group in enumerate(aligned_yaml_extractions):
         for extraction in group:
           extraction_info = {
-            "group_index": group_idx,
-            "extraction_class": extraction.extraction_class,
-            "extraction_text": extraction.extraction_text,
-            "extraction_index": extraction.extraction_index,
-            "alignment_status": extraction.alignment_status.name if extraction.alignment_status else None,
-            "token_interval": {
-              "start_index": extraction.token_interval.start_index if extraction.token_interval else None,
-              "end_index": extraction.token_interval.end_index if extraction.token_interval else None,
-            } if extraction.token_interval else None,
-            "char_interval": {
-              "start_pos": extraction.char_interval.start_pos if extraction.char_interval else None,
-              "end_pos": extraction.char_interval.end_pos if extraction.char_interval else None,
-            } if extraction.char_interval else None,
-            "attributes": extraction.attributes,
+              "group_index": group_idx,
+              "extraction_class": extraction.extraction_class,
+              "extraction_text": extraction.extraction_text,
+              "extraction_index": extraction.extraction_index,
+              "alignment_status": (
+                  extraction.alignment_status.name
+                  if extraction.alignment_status
+                  else None
+              ),
+              "token_interval": (
+                  {
+                      "start_index": (
+                          extraction.token_interval.start_index
+                          if extraction.token_interval
+                          else None
+                      ),
+                      "end_index": (
+                          extraction.token_interval.end_index
+                          if extraction.token_interval
+                          else None
+                      ),
+                  }
+                  if extraction.token_interval
+                  else None
+              ),
+              "char_interval": (
+                  {
+                      "start_pos": (
+                          extraction.char_interval.start_pos
+                          if extraction.char_interval
+                          else None
+                      ),
+                      "end_pos": (
+                          extraction.char_interval.end_pos
+                          if extraction.char_interval
+                          else None
+                      ),
+                  }
+                  if extraction.char_interval
+                  else None
+              ),
+              "attributes": extraction.attributes,
           }
           debug_output["resolver_debug"]["extractions"].append(extraction_info)
-      
+
       # Save to root folder
       debug_file = Path("resolver_output.json")
-      with open(debug_file, 'w', encoding='utf-8') as f:
+      with open(debug_file, "w", encoding="utf-8") as f:
         json.dump(debug_output, f, indent=2, ensure_ascii=False)
       logging.info("Resolver debug output saved to: %s", debug_file.absolute())
-      
+
     except Exception as debug_error:
       logging.warning("Failed to save resolver debug output: %s", debug_error)
 
@@ -383,21 +415,23 @@ class Resolver(AbstractResolver):
   ):
     """Helper function to extract and parse content based on the delimiter.
 
-    delimiter, and parse it as YAML or JSON.
+      delimiter, and parse it as YAML or JSON.
 
-    Args:
-        input_string: The input string to be processed.
+      Args:
+          input_string: The input string to be processed.
 
-    Raises:
-        ValueError: If the input is invalid or does not contain expected format.
-        ResolverParsingError: If parsing fails.
+      Raises:
+          ValueError: If the input is invalid or does not contain expected format.
+          ResolverParsingError: If parsing fails.
 
-  Returns:
-    The parsed Python object (dict or list).
-  """
+    Returns:
+      The parsed Python object (dict or list).
+    """
     logging.info("Starting string parsing.")
     # Truncate potentially huge content in debug logs
-    _dbg_preview = input_string[:1000] + (" …[truncated]" if len(input_string) > 1000 else "")
+    _dbg_preview = input_string[:1000] + (
+        " …[truncated]" if len(input_string) > 1000 else ""
+    )
     logging.debug("input_string (preview): %s", _dbg_preview)
 
     if not input_string or not isinstance(input_string, str):
@@ -414,7 +448,9 @@ class Resolver(AbstractResolver):
         raise ValueError("Input string does not contain valid markers.")
 
       content = input_string[left + prefix_length : right].strip()
-      _cnt_preview = content[:1000] + (" …[truncated]" if len(content) > 1000 else "")
+      _cnt_preview = content[:1000] + (
+          " …[truncated]" if len(content) > 1000 else ""
+      )
       logging.debug("Content (preview): %s", _cnt_preview)
     else:
       content = input_string
@@ -451,49 +487,49 @@ class Resolver(AbstractResolver):
       def comprehensive_html_fix(text):
         """Apply multiple HTML fixing strategies for HTML attributes in JSON strings"""
         original_text = text
-        
+
         # Strategy 1: Fix unescaped HTML attributes like colspan="4" -> colspan=\"4\"
         # This pattern looks for attribute="value" and properly escapes both quotes
-        text = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', text)
-        
-        # Strategy 2: Fix attributes with hyphens and underscores like data-value="123"  
-        text = re.sub(r'([\w\-_]+)="([^"]*)"', r'\1=\"\2\"', text)
-        
+        text = re.sub(r'(\w+)="([^"]*)"', r"\1=\"\2\"", text)
+
+        # Strategy 2: Fix attributes with hyphens and underscores like data-value="123"
+        text = re.sub(r'([\w\-_]+)="([^"]*)"', r"\1=\"\2\"", text)
+
         # Strategy 3: Fix multiple attributes in one tag like <td colspan="4" rowspan="2">
         # This handles cases where multiple attributes are present
         def fix_multiple_attributes(match):
           tag_content = match.group(1)
           # Replace all unescaped quotes in attributes within this tag
-          fixed_content = re.sub(r'(\w+)="([^"]*)"', r'\1=\"\2\"', tag_content)
-          return f'<{fixed_content}>'
-        
+          fixed_content = re.sub(r'(\w+)="([^"]*)"', r"\1=\"\2\"", tag_content)
+          return f"<{fixed_content}>"
+
         text = re.sub(r'<([^>]*="[^"]*"[^>]*)>', fix_multiple_attributes, text)
-        
+
         # Strategy 4: Fix any remaining quote issues in HTML contexts
         # This targets patterns inside HTML tags that might still have unescaped quotes
         def fix_html_tag_quotes(match):
           tag_content = match.group(1)
           # Escape any remaining unescaped quotes
           fixed_content = tag_content.replace('"', '\\"')
-          return f'<{fixed_content}>'
-        
+          return f"<{fixed_content}>"
+
         # Apply this more carefully to avoid over-escaping
         # Only target tags that contain unescaped quotes after the previous fixes
         remaining_unescaped = re.findall(r'<[^>]*[^\\]"[^>]*>', text)
         if remaining_unescaped:
           text = re.sub(r'<([^>]*[^\\]"[^>]*)>', fix_html_tag_quotes, text)
-        
+
         # Strategy 5: Handle escaped quotes that got double-escaped
         # Fix patterns like =\"value\" back to proper JSON escaping
-        text = re.sub(r'=\\"([^"]*)\\"', r'=\"\1\"', text)
-        
+        text = re.sub(r'=\\"([^"]*)\\"', r"=\"\1\"", text)
+
         logging.debug(f"HTML fix applied. Changed: {original_text != text}")
         if original_text != text:
           logging.debug(f"HTML fix preview - before: {original_text[:200]}...")
           logging.debug(f"HTML fix preview - after: {text[:200]}...")
-        
+
         return text
-      
+
       # Apply HTML fixes to the entire content first
       protected = comprehensive_html_fix(protected)
 
@@ -502,42 +538,46 @@ class Resolver(AbstractResolver):
       def fix_mathematical_expressions(text):
         """Fix common mathematical expressions that break JSON parsing"""
         original_text = text
-        
+
         # Fix percentage signs in mathematical expressions like $80\%$ -> $80\\%$
         # Look for backslash followed by % within dollar signs or standalone
-        text = re.sub(r'\\%', r'\\\\%', text)
-        
+        text = re.sub(r"\\%", r"\\\\%", text)
+
         # Fix dollar signs in mathematical expressions like \$ -> \\$
-        text = re.sub(r'\\(\$)', r'\\\\\\1', text)
-        
+        text = re.sub(r"\\(\$)", r"\\\\\\1", text)
+
         # Fix common LaTeX symbols that appear after backslashes
         # Handle \{, \}, \#, \&, \^, \_, \~
-        math_symbols = ['\\{', '\\}', '\\#', '\\&', '\\^', '\\_', '\\~']
+        math_symbols = ["\\{", "\\}", "\\#", "\\&", "\\^", "\\_", "\\~"]
         for symbol in math_symbols:
           # Escape the backslash before these symbols (but avoid double-escaping)
-          pattern = symbol.replace('\\', '\\\\')  # Escape for regex
-          replacement = '\\\\' + symbol  # Add extra backslash
+          pattern = symbol.replace("\\", "\\\\")  # Escape for regex
+          replacement = "\\\\" + symbol  # Add extra backslash
           # Only replace if not already escaped
-          text = re.sub(f'(?<!\\\\){pattern}', replacement, text)
-        
-        # Fix mathematical expressions in dollar signs like $\mathsf{...}$ 
+          text = re.sub(f"(?<!\\\\){pattern}", replacement, text)
+
+        # Fix mathematical expressions in dollar signs like $\mathsf{...}$
         # Look for \word patterns within mathematical contexts
         def fix_math_backslash_words(match):
           math_content = match.group(1)
           # Replace \word patterns with \\word patterns
-          fixed_content = re.sub(r'\\([a-zA-Z]+)', r'\\\\\\1', math_content)
-          return f'${fixed_content}$'
-        
+          fixed_content = re.sub(r"\\([a-zA-Z]+)", r"\\\\\\1", math_content)
+          return f"${fixed_content}$"
+
         # Apply to dollar-delimited mathematical expressions
-        text = re.sub(r'\$([^$]*\\[a-zA-Z%$#&{}^_~]+[^$]*)\$', fix_math_backslash_words, text)
-        
+        text = re.sub(
+            r"\$([^$]*\\[a-zA-Z%$#&{}^_~]+[^$]*)\$",
+            fix_math_backslash_words,
+            text,
+        )
+
         if original_text != text:
           logging.debug("Mathematical expression fixes applied")
           logging.debug(f"Math fix preview - before: {original_text[:300]}...")
           logging.debug(f"Math fix preview - after: {text[:300]}...")
-        
+
         return text
-      
+
       # Apply mathematical expression fixes
       protected = fix_mathematical_expressions(protected)
 
@@ -548,7 +588,7 @@ class Resolver(AbstractResolver):
       i = 0
       L = len(protected)
       valid_escapes = set('"\\/bfnrtu')
-      
+
       while i < L:
         ch = protected[i]
         if ch == '"' and not escaped:
@@ -558,63 +598,71 @@ class Resolver(AbstractResolver):
           continue
 
         if in_string:
-          if ch == '\\' and not escaped:
+          if ch == "\\" and not escaped:
             # Look ahead to decide whether to keep or double the backslash
             if i + 1 < L:
               nxt = protected[i + 1]
               if nxt in valid_escapes:
                 # Valid JSON escape, but also ensure \u has 4 hex digits
-                if nxt == 'u':
+                if nxt == "u":
                   hex_ok = (
                       i + 6 <= L
-                      and re.match(r"^[0-9a-fA-F]{4}$", protected[i + 2 : i + 6] or "") is not None
+                      and re.match(
+                          r"^[0-9a-fA-F]{4}$", protected[i + 2 : i + 6] or ""
+                      )
+                      is not None
                   )
                   if not hex_ok:
                     # Make incomplete unicode explicit: \\u...
-                    out_chars.append('\\\\u')
+                    out_chars.append("\\\\u")
                     i += 2
                     continue
                 # Keep valid JSON escape as-is
-                out_chars.append('\\')
+                out_chars.append("\\")
                 i += 1
                 continue
               else:
                 # Check if this is already a double-escaped sequence
                 # Look back to see if there's already a backslash before this one
                 already_escaped = (
-                  len(out_chars) > 0 and out_chars[-1] == '\\' and 
-                  not (len(out_chars) > 1 and out_chars[-2] == '\\')  # But not triple-escaped
+                    len(out_chars) > 0
+                    and out_chars[-1] == "\\"
+                    and not (
+                        len(out_chars) > 1 and out_chars[-2] == "\\"
+                    )  # But not triple-escaped
                 )
-                
+
                 if already_escaped:
                   # This backslash is already escaped (e.g., we're seeing the second \ in \\mathsf)
                   # Don't double it again
-                  out_chars.append('\\')
+                  out_chars.append("\\")
                   i += 1
                   continue
                 else:
                   # Special handling for mathematical expressions
                   # Mathematical symbols that commonly appear after backslashes in LaTeX/math expressions
-                  math_symbols = set('%$#&{}^_~')  # Common LaTeX mathematical symbols
+                  math_symbols = set(
+                      "%$#&{}^_~"
+                  )  # Common LaTeX mathematical symbols
                   if nxt in math_symbols:
                     # Handle mathematical expressions like \%, \$, \{, etc.
-                    out_chars.append('\\\\')  # Escape the backslash
+                    out_chars.append("\\\\")  # Escape the backslash
                     i += 1
                     continue
                   else:
                     # This is a raw backslash that needs escaping (e.g., \mathsf -> \\mathsf)
-                    out_chars.append('\\\\')
+                    out_chars.append("\\\\")
                     i += 1
                     continue
             else:
               # Trailing backslash inside a string -> escape it
-              out_chars.append('\\\\')
+              out_chars.append("\\\\")
               i += 1
               continue
 
           # Normal char inside string
           out_chars.append(ch)
-          escaped = (ch == '\\') and not escaped
+          escaped = (ch == "\\") and not escaped
           i += 1
           continue
 
@@ -624,7 +672,7 @@ class Resolver(AbstractResolver):
         i += 1
 
       protected = "".join(out_chars)
-      
+
       # Remove control chars except TAB, LF, CR
       protected = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", protected)
 
@@ -632,7 +680,9 @@ class Resolver(AbstractResolver):
       def _restore_valid_unicode(m: re.Match[str]) -> str:
         return f"\\u{m.group(1)}"
 
-      restored = re.sub(r"§§UNICODE§§([0-9a-fA-F]{4})", _restore_valid_unicode, protected)
+      restored = re.sub(
+          r"§§UNICODE§§([0-9a-fA-F]{4})", _restore_valid_unicode, protected
+      )
       return restored
 
     try:
@@ -644,73 +694,83 @@ class Resolver(AbstractResolver):
       logging.debug("Successfully parsed content.")
     except json.JSONDecodeError as je:
       logging.warning(
-          "JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: %s",
+          "JSON parse failed, trying sanitization (string-aware) then dirtyjson"
+          " then YAML: %s",
           je,
       )
       # First try sanitized JSON (handles stray backslashes like \mathsf)
       try:
         sanitized = _sanitize_json_string(content)
-        logging.debug("Sanitized content: %s", sanitized[:200] + "..." if len(sanitized) > 200 else sanitized)
+        logging.debug(
+            "Sanitized content: %s",
+            sanitized[:200] + "..." if len(sanitized) > 200 else sanitized,
+        )
         parsed_data = json.loads(sanitized)
         logging.debug("Sanitized JSON parse succeeded.")
       except Exception as e_san:
         logging.debug("Sanitized JSON parse failed: %s", e_san)
-        
+
         # Try aggressive repair for common JSON issues
         def aggressive_json_repair(json_str: str) -> str:
           """Aggressive repair for severely malformed JSON."""
           repaired = json_str
-          logging.debug(f"Starting aggressive JSON repair on {len(repaired)} chars")
-          
+          logging.debug(
+              f"Starting aggressive JSON repair on {len(repaired)} chars"
+          )
+
           # Fix 1: Missing commas between JSON objects/arrays
           # Look for patterns like: }" followed by whitespace and then {"
           before_fix1 = repaired
-          repaired = re.sub(r'}\s*\n\s*{', r'},\n{', repaired)
+          repaired = re.sub(r"}\s*\n\s*{", r"},\n{", repaired)
           if repaired != before_fix1:
             logging.debug("Applied fix 1: Missing commas between objects")
-          
-          # Fix 2: Missing commas between array elements 
-          # Look for patterns like: "] followed by whitespace and then ["  
+
+          # Fix 2: Missing commas between array elements
+          # Look for patterns like: "] followed by whitespace and then ["
           before_fix2 = repaired
-          repaired = re.sub(r']\s*\n\s*\[', r'],\n[', repaired)
+          repaired = re.sub(r"]\s*\n\s*\[", r"],\n[", repaired)
           if repaired != before_fix2:
             logging.debug("Applied fix 2: Missing commas between arrays")
-          
+
           # Fix 3: Missing commas after object properties
           # Look for patterns like: "value" followed by newline and then "key":
           before_fix3 = repaired
           repaired = re.sub(r'"\s*\n\s*"([^"]+)":', r'",\n"\1":', repaired)
           if repaired != before_fix3:
             logging.debug("Applied fix 3: Missing commas after properties")
-          
+
           # Fix 4: Trailing commas in objects/arrays (not valid JSON but common mistake)
           before_fix4 = repaired
-          repaired = re.sub(r',\s*}', r'}', repaired)
-          repaired = re.sub(r',\s*]', r']', repaired)
+          repaired = re.sub(r",\s*}", r"}", repaired)
+          repaired = re.sub(r",\s*]", r"]", repaired)
           if repaired != before_fix4:
             logging.debug("Applied fix 4: Removed trailing commas")
-          
+
           # Fix 5: Missing commas between key-value pairs on same line
           # Pattern: "value" "nextkey": should be "value", "nextkey":
           before_fix5 = repaired
           repaired = re.sub(r'"\s+"([^"]+)":', r'", "\1":', repaired)
           if repaired != before_fix5:
-            logging.debug("Applied fix 5: Missing commas between inline key-value pairs")
-          
+            logging.debug(
+                "Applied fix 5: Missing commas between inline key-value pairs"
+            )
+
           # Fix 6: Handle unclosed strings that might be breaking structure
           # This is a very aggressive fix - try to close obvious unclosed strings
           before_fix6 = repaired
           # Look for lines that start with quote but don't end with quote or comma
-          lines = repaired.split('\n')
+          lines = repaired.split("\n")
           fixed_lines = []
           for line in lines:
             stripped = line.strip()
             # If line starts with quote but doesn't end properly, try to fix
-            if (stripped.startswith('"') and 
-                not stripped.endswith('"') and 
-                not stripped.endswith('",') and
-                not stripped.endswith('",')):
-              if ':' in stripped:
+            if (
+                stripped.startswith('"')
+                and not stripped.endswith('"')
+                and not stripped.endswith('",')
+                and not stripped.endswith('",')
+            ):
+              if ":" in stripped:
                 # This might be a key: try to close it properly
                 line = line.rstrip() + '",'
                 logging.debug(f"Fixed unclosed key line: {stripped[:50]}...")
@@ -719,13 +779,16 @@ class Resolver(AbstractResolver):
                 line = line.rstrip() + '",'
                 logging.debug(f"Fixed unclosed value line: {stripped[:50]}...")
             fixed_lines.append(line)
-          repaired = '\n'.join(fixed_lines)
+          repaired = "\n".join(fixed_lines)
           if repaired != before_fix6:
             logging.debug("Applied fix 6: Closed unclosed strings")
-          
-          logging.debug(f"Aggressive repair completed. Length changed: {len(json_str)} -> {len(repaired)}")
+
+          logging.debug(
+              f"Aggressive repair completed. Length changed: {len(json_str)} ->"
+              f" {len(repaired)}"
+          )
           return repaired
-        
+
         # Try tolerant parser if available
         try:
           import dirtyjson  # type: ignore
@@ -739,7 +802,9 @@ class Resolver(AbstractResolver):
               # Try aggressive repair then dirtyjson
               aggressively_repaired = aggressive_json_repair(sanitized)
               parsed_data = dirtyjson.loads(aggressively_repaired)
-              logging.debug("dirtyjson parse succeeded on aggressively repaired content.")
+              logging.debug(
+                  "dirtyjson parse succeeded on aggressively repaired content."
+              )
             except Exception:
               # Try dirtyjson on original content as last JSON attempt
               parsed_data = dirtyjson.loads(content)
@@ -750,10 +815,16 @@ class Resolver(AbstractResolver):
             parsed_data = yaml.safe_load(content)
             logging.debug("YAML fallback succeeded after sanitization failure.")
           except Exception as e2:
-            logging.exception("Failed to parse content after all repair attempts (sanitization, aggressive repair, dirtyjson, and YAML fallback).")
+            logging.exception(
+                "Failed to parse content after all repair attempts"
+                " (sanitization, aggressive repair, dirtyjson, and YAML"
+                " fallback)."
+            )
             raise ResolverParsingError("Failed to parse content.") from e2
     except yaml.YAMLError as ye:
-      logging.warning("YAML parse failed, attempting JSON parse as fallback: %s", ye)
+      logging.warning(
+          "YAML parse failed, attempting JSON parse as fallback: %s", ye
+      )
       try:
         parsed_data = json.loads(content)
         logging.debug("JSON fallback succeeded.")
@@ -788,12 +859,16 @@ class Resolver(AbstractResolver):
     parsed_data = self._extract_and_parse_content(input_string)
 
     if not isinstance(parsed_data, dict):
-      logging.error("Expected content to be a mapping (dict). Got %s", type(parsed_data))
+      logging.error(
+          "Expected content to be a mapping (dict). Got %s", type(parsed_data)
+      )
       raise ResolverParsingError(
           f"Content must be a mapping with an '{schema.EXTRACTIONS_KEY}' key."
       )
     if schema.EXTRACTIONS_KEY not in parsed_data:
-      logging.error("Content does not contain 'extractions' key after coercion.")
+      logging.error(
+          "Content does not contain 'extractions' key after coercion."
+      )
       raise ResolverParsingError("Content must contain an 'extractions' key.")
     extractions = parsed_data[schema.EXTRACTIONS_KEY]
 

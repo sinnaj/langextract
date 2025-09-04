@@ -9,7 +9,7 @@
   const previewPanels = $("preview-panels");
   const form = $("run-form");
   const cancelBtn = $("cancel-run");
-  
+
   // State management
   let selectedFilePaths = [null, null, null]; // Track selected files for each panel
   let currentRunId = null;
@@ -33,7 +33,7 @@
         autoScroll: true,
         debounceMs: 16
       });
-      
+
       // Update console stats periodically
       setInterval(() => {
         if (consoleOptimizer) {
@@ -51,10 +51,10 @@
         }
       }, 1000);
     }
-    
+
     // Initialize preview optimizers for each panel
     initializePreviewPanels();
-    
+
     // Initialize panel controls
     initializePanelControls();
   });
@@ -71,7 +71,7 @@
           maxInitialLines: 1000
         });
         previewOptimizers[index] = optimizer;
-        
+
         // Make the first optimizer globally available for backward compatibility
         if (index === 0) {
           window.previewOptimizer = optimizer;
@@ -86,7 +86,7 @@
     document.querySelectorAll('.collapse-toggle').forEach(btn => {
       btn.addEventListener('click', toggleInputPanel);
     });
-    
+
     // Column switch buttons
     document.querySelectorAll('#column-switch button').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -94,7 +94,7 @@
         setColumnCount(colCount);
       });
     });
-    
+
     // Console settings
     const consoleSettingsBtn = $('console-settings');
     if (consoleSettingsBtn) {
@@ -120,10 +120,10 @@
         }
       });
     }
-    
+
     // Initialize existing functionality for each panel
     initializePanelButtons();
-    
+
     // UBERMODE toggle buttons
     document.querySelectorAll('.ubermode-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -132,10 +132,10 @@
         if (optimizer) {
           const isEnabled = optimizer.toggleUberMode();
           updateUberModeButton(btn, isEnabled);
-          
+
           // Refresh all other JSON panels to update their tree/JSON view based on new configuration
           refreshAllJsonPanels(panelIndex);
-          
+
           // Show/hide stats section
           const statsSection = document.querySelector('.ubermode-stats');
           if (statsSection) {
@@ -148,7 +148,7 @@
         }
       });
     });
-    
+
     // Stats collapsible functionality - Updated to handle all panels using event delegation
     document.addEventListener('click', (e) => {
       if (e.target.closest('.stats-header')) {
@@ -156,7 +156,7 @@
         const isExpanded = header.getAttribute('data-expanded') === 'true';
         const content = header.nextElementSibling;
         const toggle = header.querySelector('.stats-toggle');
-        
+
         if (isExpanded) {
           content.style.display = 'none';
           toggle.style.transform = 'rotate(-90deg)';
@@ -169,7 +169,7 @@
       }
     });
   }
-  
+
   // Initialize buttons for each panel
   function initializePanelButtons() {
     document.querySelectorAll('.preview-panel').forEach((panel, index) => {
@@ -182,7 +182,7 @@
         const runSelectorWrap = panel.querySelector('.run-selector');
         if (runSelectorWrap) runSelectorWrap.classList.add('hidden');
       }
-      
+
       // Search functionality
       const searchBtn = panel.querySelector('.preview-search');
       if (searchBtn && !searchBtn.hasAttribute('data-initialized')) {
@@ -196,12 +196,12 @@
           }
         });
       }
-      
+
       // Load existing run functionality
       const loadExistingRunBtn = panel.querySelector('.load-existing-run');
       const runSelectorEl = panel.querySelector('.run-selector');
       const existingRunsSelect = panel.querySelector('.existing-runs');
-      
+
       if (loadExistingRunBtn && runSelectorEl && existingRunsSelect && !loadExistingRunBtn.hasAttribute('data-initialized')) {
         loadExistingRunBtn.setAttribute('data-initialized', 'true');
         loadExistingRunBtn.addEventListener('click', async () => {
@@ -212,7 +212,7 @@
             runSelectorEl.classList.add('hidden');
           }
         });
-        
+
         existingRunsSelect.addEventListener('change', async () => {
           const selectedRunId = existingRunsSelect.value;
           if (selectedRunId) {
@@ -229,13 +229,13 @@
       }
     });
   }
-  
+
   // Toggle input panel visibility
   function toggleInputPanel() {
     isInputPanelCollapsed = !isInputPanelCollapsed;
     updateLayout();
   }
-  
+
   // Set column count for preview panels
   function setColumnCount(count) {
     if (count < 1 || count > 3) return;
@@ -244,7 +244,7 @@
     updatePreviewPanels();
     updateColumnButtons();
   }
-  
+
   // Update layout based on panel state
   function updateLayout() {
     if (isInputPanelCollapsed) {
@@ -260,29 +260,29 @@
       updatePreviewPanels();
       updateColumnButtons();
     }
-    
+
     // Update collapse toggle icons
     document.querySelectorAll('.collapse-toggle').forEach(btn => {
       btn.textContent = isInputPanelCollapsed ? '▶' : '◀';
       btn.title = isInputPanelCollapsed ? 'Show input panel' : 'Hide input panel';
     });
   }
-  
+
   // Update preview panels based on column count
   function updatePreviewPanels() {
     const panels = document.querySelectorAll('.preview-panel');
-    const gridClass = currentColumnCount === 1 ? '' : 
-                     currentColumnCount === 2 ? 'grid grid-cols-2 gap-4' : 
+    const gridClass = currentColumnCount === 1 ? '' :
+                     currentColumnCount === 2 ? 'grid grid-cols-2 gap-4' :
                      'grid grid-cols-3 gap-2';
-    
+
     previewPanels.className = `space-y-4 ${gridClass}`;
-    
+
     // Track which panels were previously hidden that are now being shown
     const newlyVisiblePanels = [];
-    
+
     panels.forEach((panel, index) => {
       const wasHidden = panel.classList.contains('hidden');
-      
+
       if (index < currentColumnCount) {
         panel.classList.remove('hidden');
         // Adjust height for multiple columns
@@ -294,7 +294,7 @@
             previewEl.className = previewEl.className.replace(/h-\[calc\(100vh-16rem\)\]/, 'h-[calc(100vh-12rem)]');
           }
         }
-        
+
         // Track newly visible panels for run syncing
         if (wasHidden && index > 0) {
           newlyVisiblePanels.push(index);
@@ -303,24 +303,24 @@
         panel.classList.add('hidden');
       }
     });
-    
+
     // Initialize additional panels if needed
     while (previewOptimizers.length < currentColumnCount) {
       createAdditionalPanel();
       // The newly created panel is at the end, track it for run syncing
       newlyVisiblePanels.push(previewOptimizers.length - 1);
     }
-    
+
     // Sync current run to newly visible panels
     if (currentRunId && newlyVisiblePanels.length > 0) {
       syncRunToNewPanels(newlyVisiblePanels);
     }
   }
-  
+
   // Sync current run to newly visible panels
   async function syncRunToNewPanels(panelIndices) {
     if (!currentRunId) return;
-    
+
     for (const panelIndex of panelIndices) {
       try {
         await loadExistingRunResults(currentRunId, panelIndex);
@@ -329,25 +329,25 @@
       }
     }
   }
-  
+
   // Create additional preview panels
   function createAdditionalPanel() {
     const existingPanel = document.querySelector('.preview-panel');
     const newPanel = existingPanel.cloneNode(true);
     const panelIndex = previewOptimizers.length;
-    
+
     newPanel.setAttribute('data-panel', panelIndex + 1);
     newPanel.querySelector('h2').textContent = `Preview ${panelIndex + 1}`;
-    
+
     // Clear content
     newPanel.querySelector('.preview').innerHTML = '';
     newPanel.querySelector('.file-badges').innerHTML = '';
     newPanel.querySelector('.existing-runs').value = '';
     newPanel.querySelector('.run-selector').classList.add('hidden');
     newPanel.querySelector('.preview-stats').textContent = 'Ready';
-    
+
     previewPanels.appendChild(newPanel);
-    
+
     // Initialize optimizer for new panel
     const previewEl = newPanel.querySelector('.preview');
     const optimizer = new PreviewOptimizer(previewEl, {
@@ -356,7 +356,7 @@
       maxInitialLines: 1000
     });
     previewOptimizers[panelIndex] = optimizer;
-    
+
     // Hide folder select and collapse controls on secondary panels
     const collapseBtn = newPanel.querySelector('.collapse-toggle');
     if (collapseBtn) collapseBtn.classList.add('hidden');
@@ -372,7 +372,7 @@
     // Initialize buttons for the new panel
     initializePanelButtons();
   }
-  
+
   // Update column button states
   function updateColumnButtons() {
     document.querySelectorAll('#column-switch button').forEach(btn => {
@@ -386,7 +386,7 @@
       }
     });
   }
-  
+
   // Auto-collapse when run loads
   function autoCollapseOnRunLoad() {
     if (!isInputPanelCollapsed) {
@@ -447,22 +447,22 @@
     try {
       const res = await fetch('/runs');
       const runs = await res.json();
-      
+
       // If a specific select element is provided, use it; otherwise update all
       const selects = selectElement ? [selectElement] : document.querySelectorAll('.existing-runs');
-      
+
       selects.forEach(existingRunsSelect => {
         if (existingRunsSelect) {
           existingRunsSelect.innerHTML = '<option value="">Select a previous run...</option>';
-          
+
           for (const run of runs) {
             const opt = document.createElement('option');
             opt.value = run.run_id;
-            
+
             // Format the display text with timestamp
             const date = new Date(run.mtime * 1000).toLocaleString();
             opt.textContent = `${run.run_id} (${date})`;
-            
+
             existingRunsSelect.appendChild(opt);
           }
         }
@@ -476,37 +476,37 @@
     try {
       // Clear current state for this panel
       selectedFilePaths[panelIndex] = null;
-      
+
       // Only update global state if loading into the first panel
       if (panelIndex === 0) {
         currentRunId = runId;
         runIdEl.textContent = `Loaded Run: ${runId}`;
       }
-      
+
       // Get the correct panel elements
       const panels = document.querySelectorAll('.preview-panel');
       const panel = panels[panelIndex];
       if (!panel) return;
-      
+
       // Update preview stats to show we're loading from existing run
       const previewStatsEl = panel.querySelector('.preview-stats');
       if (previewStatsEl) {
         previewStatsEl.textContent = `Loading ${runId}...`;
       }
-      
+
       // Load files from the existing run
       await loadFiles(runId, panelIndex);
-      
+
       // Update preview stats
       if (previewStatsEl) {
         previewStatsEl.textContent = `Loaded from ${runId}`;
       }
-      
+
       // Auto-collapse left panel when loading existing run (only for main panel)
       if (panelIndex === 0) {
         autoCollapseOnRunLoad();
       }
-      
+
       // Also load and display the run status/stats if available (only for first panel)
       if (panelIndex === 0) {
         try {
@@ -528,7 +528,7 @@
           try { await loadExistingRunResults(runId, i); } catch (e) { console.error(e); }
         }
       }
-      
+
     } catch (e) {
       console.error('Error loading existing run results:', e);
       const previewStatsEl = $('preview-stats');
@@ -620,10 +620,10 @@
     const panels = document.querySelectorAll('.preview-panel');
     const panel = panels[panelIndex];
     if (!panel) return;
-    
+
     const previewEl = panel.querySelector('.preview');
     if (!previewEl) return;
-    
+
     const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(f.path)}`);
     const ct = resp.headers.get('content-type') || '';
     if (ct.startsWith('text/') || ct.includes('application/json') || f.path.toLowerCase().endsWith('.md')) {
@@ -667,15 +667,15 @@
     try {
       const res = await fetch(`/runs/${runId}/files`);
       const files = await res.json();
-      
+
       // Get the correct panel elements
       const panels = document.querySelectorAll('.preview-panel');
       const panel = panels[panelIndex];
       if (!panel) return;
-      
+
       const fileBadgesEl = panel.querySelector('.file-badges');
       if (fileBadgesEl) fileBadgesEl.innerHTML = '';
-      
+
       const createdBadges = [];
       const makeBadge = (f) => {
         const btn = document.createElement('button');
@@ -684,7 +684,7 @@
         btn.className = 'text-xs px-2 py-1 rounded-full border bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-600';
         const baseName = f.path.split('/').pop();
         btn.textContent = baseName || f.path;
-        
+
         const applySelected = () => {
           const isSel = selectedFilePaths[panelIndex] === f.path;
           if (isSel) {
@@ -695,11 +695,11 @@
             btn.classList.remove('bg-blue-600','text-white','border-blue-600');
           }
         };
-        
+
         btn.addEventListener('click', async () => {
           selectedFilePaths[panelIndex] = f.path;
           window.selectedFilePaths = selectedFilePaths; // Update global reference
-          
+
           // Update all badges selection state for this panel
           if (fileBadgesEl) {
             Array.from(fileBadgesEl.children).forEach((el) => {
@@ -714,23 +714,23 @@
               }
             });
           }
-          
+
           // Use preview optimizer if available
           if (previewOptimizers[panelIndex]) {
             await previewOptimizers[panelIndex].loadFile(runId, f.path, f.size);
-            
+
             // After loading file, sync UBERMODE state properly
             const panel = panels[panelIndex];
             const uberToggle = panel?.querySelector('.ubermode-toggle');
             if (uberToggle) {
               const isButtonEnabled = uberToggle.getAttribute('data-enabled') === 'true';
               const isOptimizerUberMode = previewOptimizers[panelIndex].uberMode;
-              
+
               // Wait for JSON data to be parsed before checking UBERMODE activation
               setTimeout(() => {
                 const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
                 console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
-                
+
                 // Only trigger UBERMODE if button is enabled and JSON data is available
                 if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
                   console.log('Activating UBERMODE for newly loaded JSON file');
@@ -749,18 +749,18 @@
             await loadFileOriginal(runId, f, panelIndex);
           }
         });
-        
+
         // Initialize selection state
         applySelected();
         createdBadges.push({ btn, file: f });
         return btn;
       };
-      
+
       for (const f of files) {
         const badge = makeBadge(f);
         if (fileBadgesEl) fileBadgesEl.appendChild(badge);
       }
-      
+
       // If nothing selected yet, auto-open the first readable file (preferring json/log/txt)
       if (!selectedFilePaths[panelIndex] && createdBadges.length) {
         const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
@@ -782,16 +782,16 @@
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     $("form-error").textContent = '';
-    
+
     // Clear console using optimizer if available
     if (consoleOptimizer) {
       consoleOptimizer.clear();
     } else {
       consoleEl.textContent = '';
     }
-    
+
     statsEl.textContent = '';
-    
+
     // Clear all preview panels and their badges
     document.querySelectorAll('.preview-panel').forEach(panel => {
       const fileBadgesEl = panel.querySelector('.file-badges');
@@ -884,16 +884,16 @@
         const filePath = selectedFilePaths[index];
         if (filePath && filePath.toLowerCase().endsWith('.json')) {
           console.log(`Refreshing JSON panel ${index} after UBERMODE toggle`);
-          
+
           // Sync UBERMODE state from the triggering panel
           const triggeringOptimizer = previewOptimizers[excludePanelIndex];
           if (triggeringOptimizer) {
             optimizer.uberMode = triggeringOptimizer.uberMode;
-            
+
             // Re-render with current JSON data
             optimizer.element.innerHTML = '';
             const shouldShowTreeView = optimizer.shouldShowTreeVisualization();
-            
+
             if (optimizer.uberMode && shouldShowTreeView) {
               optimizer.renderUberMode(optimizer.currentJsonData, { size: 0, truncated: false });
             } else {

@@ -23,7 +23,7 @@ This codebase builds on the LangExtract library (Google's structured text extrac
 ```python
 # Provider auto-selection by model_id pattern
 lx.extract(model_id="gemini-2.5-flash")  # → GeminiLanguageModel
-lx.extract(model_id="gpt-4o")            # → OpenAILanguageModel  
+lx.extract(model_id="gpt-4o")            # → OpenAILanguageModel
 lx.extract(model_id="llama3:8b")         # → OllamaLanguageModel
 
 # Explicit provider control
@@ -44,7 +44,7 @@ GOOGLE_API_KEY=<key>         # Direct Gemini access
 # Input discovery
 LE_INPUT_FILE=path/to/input.txt  # Override input file location
 
-# Feature flags  
+# Feature flags
 LX_TEACH_MODE=1              # Enable relationship inference
 LX_WRITE_VIS=1              # Generate HTML visualization
 ```
@@ -131,7 +131,7 @@ from pathlib import Path
 import langextract as lx
 from absl.testing import absltest
 
-# Local modules  
+# Local modules
 from langextract.core import data
 from langextract.providers import registry
 ```
@@ -148,7 +148,7 @@ from langextract.providers import registry
   "extractions": [{
     "schema_version": "1.0.0",
     "norms": [...],           # Regulatory requirements
-    "tags": [...],           # Hierarchical categorization  
+    "tags": [...],           # Hierarchical categorization
     "parameters": [...],     # Extracted thresholds/values
     "locations": [...],      # Geographic scope
     "questions": [...],      # Clarification needs
@@ -162,14 +162,14 @@ from langextract.providers import registry
 
 ### Web Runner
 - **SSE streaming**: Live logs via `GET /runs/<id>/logs`
-- **File management**: Preview/download via `GET /runs/<id>/file`  
+- **File management**: Preview/download via `GET /runs/<id>/file`
 - **Multipart uploads**: Input documents to `output_runs/<id>/input/`
 
 ### DSL Grammar
 Regulatory extraction uses UPPERCASE.DOTCASE paths:
 ```
 DOOR.TYPE == 'AUTOMATIC'
-PROJECT.HEIGHT >= 50 AND PROJECT.HEIGHT <= 100  
+PROJECT.HEIGHT >= 50 AND PROJECT.HEIGHT <= 100
 LOCATION IN ['MADRID','BARCELONA']
 HAS(SAFETY.FIRE)  # Ontology existence check
 ```
@@ -184,7 +184,7 @@ html = lx.visualize("extraction_results.jsonl")
 ## Debugging Approaches
 
 - **Per-chunk traces**: Check `output_runs/<id>/chunks/` for raw resolver output
-- **Emergency saves**: `lx output/` contains pre-processing document snapshots  
+- **Emergency saves**: `lx output/` contains pre-processing document snapshots
 - **Quality metrics**: `quality.errors` and `quality.warnings` in final output
 - **Verbose logging**: LangExtract uses absl logging with alignment details
 

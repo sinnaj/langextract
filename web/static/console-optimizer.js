@@ -13,7 +13,7 @@ class ConsoleOptimizer {
       wordWrap: options.wordWrap !== false, // default to true for wrapping
       ...options
     };
-    
+
     this.lines = [];
     this.displayStartIndex = 0;
     this.displayEndIndex = 0;
@@ -21,16 +21,16 @@ class ConsoleOptimizer {
     this.scrollTimeout = null;
     this.updateTimeout = null;
     this.lineHeight = null;
-    
+
     this.init();
   }
-  
+
   init() {
     // Set up the container structure
     this.element.innerHTML = '';
     this.element.style.position = 'relative';
     this.element.style.overflow = 'auto';
-    
+
     // Create virtual container
     this.virtualContainer = document.createElement('div');
     this.virtualContainer.style.position = 'absolute';
@@ -38,7 +38,7 @@ class ConsoleOptimizer {
     this.virtualContainer.style.left = '0';
     this.virtualContainer.style.right = '0';
     this.element.appendChild(this.virtualContainer);
-    
+
     // Create viewport
     this.viewport = document.createElement('div');
     this.viewport.style.position = 'relative';
@@ -47,17 +47,17 @@ class ConsoleOptimizer {
     this.viewport.style.lineHeight = '1.4';
     this.applyWordWrapSetting();
     this.virtualContainer.appendChild(this.viewport);
-    
+
     // Measure line height
     this.measureLineHeight();
-    
+
     // Set up event listeners
     this.element.addEventListener('scroll', this.handleScroll.bind(this));
-    
+
     // Initial render
     this.updateDisplay();
   }
-  
+
   applyWordWrapSetting() {
     if (this.options.wordWrap) {
       this.viewport.style.whiteSpace = 'pre-wrap';
@@ -67,7 +67,7 @@ class ConsoleOptimizer {
       this.viewport.style.overflowX = 'auto';
     }
   }
-  
+
   measureLineHeight() {
     const testLine = document.createElement('div');
     testLine.textContent = 'Test line';
@@ -77,23 +77,23 @@ class ConsoleOptimizer {
     testLine.style.position = 'absolute';
     testLine.style.visibility = 'hidden';
     document.body.appendChild(testLine);
-    
+
     this.lineHeight = testLine.offsetHeight;
     document.body.removeChild(testLine);
-    
+
     if (this.lineHeight <= 0) {
       this.lineHeight = 20; // fallback
     }
   }
-  
+
   handleScroll() {
     // Check if user has scrolled away from bottom
     const scrollTop = this.element.scrollTop;
     const scrollHeight = this.element.scrollHeight;
     const clientHeight = this.element.clientHeight;
-    
+
     this.isAutoScrolling = (scrollTop + clientHeight >= scrollHeight - 10);
-    
+
     // Debounced display update
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
@@ -102,32 +102,32 @@ class ConsoleOptimizer {
       this.updateDisplay();
     }, this.options.debounceMs);
   }
-  
+
   appendLine(line) {
     this.lines.push(line);
-    
+
     // Trim buffer if needed
     if (this.lines.length > this.options.maxLines) {
       const excess = this.lines.length - this.options.maxLines;
       this.lines.splice(0, excess);
     }
-    
+
     // Schedule display update
     this.scheduleUpdate();
   }
-  
+
   appendLines(lines) {
     this.lines.push(...lines);
-    
+
     // Trim buffer if needed
     if (this.lines.length > this.options.maxLines) {
       const excess = this.lines.length - this.options.maxLines;
       this.lines.splice(0, excess);
     }
-    
+
     this.scheduleUpdate();
   }
-  
+
   scheduleUpdate() {
     if (this.updateTimeout) {
       clearTimeout(this.updateTimeout);
@@ -139,14 +139,14 @@ class ConsoleOptimizer {
       }
     }, this.options.debounceMs);
   }
-  
+
   updateDisplay() {
     if (this.lines.length === 0) {
       this.viewport.innerHTML = '';
       this.virtualContainer.style.height = '0px';
       return;
     }
-    
+
     if (this.options.wordWrap) {
       // When word wrap is enabled, use simpler rendering without virtual scrolling
       this.renderAllLines();
@@ -155,60 +155,60 @@ class ConsoleOptimizer {
       this.renderVirtualLines();
     }
   }
-  
+
   renderAllLines() {
     // Clear viewport
     this.viewport.innerHTML = '';
     this.viewport.style.transform = '';
-    
+
     // Render all lines without virtual scrolling
     const fragment = document.createDocumentFragment();
-    
+
     // Calculate which lines should be visible based on buffer limit
     const startIdx = Math.max(0, this.lines.length - this.options.maxLines);
-    
+
     for (let i = startIdx; i < this.lines.length; i++) {
       const lineDiv = document.createElement('div');
       lineDiv.textContent = this.lines[i];
       // Remove fixed height to allow natural wrapping
       fragment.appendChild(lineDiv);
     }
-    
+
     this.viewport.appendChild(fragment);
     this.virtualContainer.style.height = 'auto';
   }
-  
+
   renderVirtualLines() {
     const containerHeight = this.element.clientHeight;
     const scrollTop = this.element.scrollTop;
-    
+
     // Calculate visible range with buffer
     const visibleLines = Math.ceil(containerHeight / this.lineHeight);
     const bufferLines = Math.ceil(visibleLines * 0.5); // 50% buffer
-    
-    this.displayStartIndex = Math.max(0, 
+
+    this.displayStartIndex = Math.max(0,
       Math.floor(scrollTop / this.lineHeight) - bufferLines
     );
     this.displayEndIndex = Math.min(this.lines.length,
       this.displayStartIndex + visibleLines + (bufferLines * 2)
     );
-    
+
     // Update virtual container height
     this.virtualContainer.style.height = `${this.lines.length * this.lineHeight}px`;
-    
+
     // Render visible lines
     this.renderLines();
   }
-  
+
   renderLines() {
     const fragment = document.createDocumentFragment();
-    
+
     // Clear viewport
     this.viewport.innerHTML = '';
-    
+
     // Position viewport
     this.viewport.style.transform = `translateY(${this.displayStartIndex * this.lineHeight}px)`;
-    
+
     // Render visible lines
     for (let i = this.displayStartIndex; i < this.displayEndIndex; i++) {
       const lineDiv = document.createElement('div');
@@ -216,22 +216,22 @@ class ConsoleOptimizer {
       lineDiv.style.height = `${this.lineHeight}px`;
       fragment.appendChild(lineDiv);
     }
-    
+
     this.viewport.appendChild(fragment);
   }
-  
+
   scrollToBottom() {
     this.element.scrollTop = this.element.scrollHeight;
   }
-  
+
   clear() {
     this.lines = [];
     this.updateDisplay();
   }
-  
+
   setMaxLines(maxLines) {
     this.options.maxLines = maxLines;
-    
+
     // Trim if needed
     if (this.lines.length > maxLines) {
       const excess = this.lines.length - maxLines;
@@ -239,33 +239,33 @@ class ConsoleOptimizer {
       this.updateDisplay();
     }
   }
-  
+
   toggleWordWrap() {
     this.options.wordWrap = !this.options.wordWrap;
     this.applyWordWrapSetting();
     this.updateDisplay();
-    
+
     // Auto-scroll to bottom if we were auto-scrolling
     if (this.isAutoScrolling) {
       this.scrollToBottom();
     }
   }
-  
+
   setWordWrap(enabled) {
     this.options.wordWrap = enabled;
     this.applyWordWrapSetting();
     this.updateDisplay();
-    
+
     // Auto-scroll to bottom if we were auto-scrolling
     if (this.isAutoScrolling) {
       this.scrollToBottom();
     }
   }
-  
+
   getStats() {
     return {
       totalLines: this.lines.length,
-      displayedLines: this.options.wordWrap ? 
+      displayedLines: this.options.wordWrap ?
         Math.max(0, this.lines.length - Math.max(0, this.lines.length - this.options.maxLines)) :
         this.displayEndIndex - this.displayStartIndex,
       maxLines: this.options.maxLines,
@@ -274,13 +274,13 @@ class ConsoleOptimizer {
       wordWrap: this.options.wordWrap
     };
   }
-  
+
   search(query) {
     if (!query) return [];
-    
+
     const results = [];
     const lowerQuery = query.toLowerCase();
-    
+
     this.lines.forEach((line, index) => {
       if (line.toLowerCase().includes(lowerQuery)) {
         results.push({
@@ -290,13 +290,13 @@ class ConsoleOptimizer {
         });
       }
     });
-    
+
     return results;
   }
-  
+
   scrollToLine(lineIndex) {
     if (lineIndex < 0 || lineIndex >= this.lines.length) return;
-    
+
     const targetScrollTop = lineIndex * this.lineHeight;
     this.element.scrollTop = targetScrollTop;
     this.isAutoScrolling = false;

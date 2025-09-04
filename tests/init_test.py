@@ -233,5 +233,6 @@ class InitTest(absltest.TestCase):
             f"lx.tokenizer.{name} not accessible via compatibility shim",
         )
 
+
 if __name__ == "__main__":
   absltest.main()

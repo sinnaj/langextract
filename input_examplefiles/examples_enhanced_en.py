@@ -5,9 +5,10 @@ locations, tag merges, consequences, parameters (num & string), and branching Qs
 """
 
 from __future__ import annotations
-from typing import List
-import langextract as lx
 
+from typing import List
+
+import langextract as lx
 
 EXAMPLES: List[lx.data.ExampleData] = [
     # 1) RICH: alternatives + exemption + parameters + enumerations
