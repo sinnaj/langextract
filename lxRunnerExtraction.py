@@ -358,6 +358,8 @@ def makeRun(
                         if "norms" in extraction and isinstance(extraction["norms"], list):
                             for norm in extraction["norms"]:
                                 if isinstance(norm, dict):
+                                    norm["parent_section_id"] = section_id
+                                    # Also set section_parent_id for backward compatibility
                                     norm["section_parent_id"] = section_id
                         
                         # Add section parent to other extraction types
@@ -365,6 +367,8 @@ def makeRun(
                             if extraction_type in extraction and isinstance(extraction[extraction_type], list):
                                 for item in extraction[extraction_type]:
                                     if isinstance(item, dict):
+                                        item["parent_section_id"] = section_id
+                                        # Also set section_parent_id for backward compatibility
                                         item["section_parent_id"] = section_id
                         
                         # Also add section metadata to the extraction itself
@@ -631,10 +635,14 @@ def makeRun(
                     if extraction_section_metadata not in section_metadata_list:
                         section_metadata_list.append(extraction_section_metadata)
                     
-                    # For NORM extractions, ensure parent_section_id is set in attributes
-                    if extraction_class == "NORM" and "parent_section_id" not in attributes:
-                        attributes = dict(attributes)  # Make a copy to avoid modifying original
-                        attributes["parent_section_id"] = section_metadata.section_id
+                    # For ALL extraction classes, ensure parent_section_id is set in attributes
+                    if attributes is None:
+                        attributes = {}
+                    if not isinstance(attributes, dict):
+                        attributes = {}
+                    # Make a copy to avoid modifying original and ensure parent_section_id is set
+                    attributes = dict(attributes)
+                    attributes["parent_section_id"] = section_metadata.section_id
                 
                 item = {
                     "extraction_class": extraction_class,
