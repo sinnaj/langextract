@@ -1529,9 +1529,12 @@ class PreviewOptimizer {
       quality: '—'
     };
     
+    // Normalize the data format to handle both old and new structures
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    
     // Handle extraction format - count by extraction_class
-    if (data && data.extractions && Array.isArray(data.extractions)) {
-      data.extractions.forEach(extraction => {
+    if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      normalizedData.extractions.forEach(extraction => {
         stats.totalItems++;
         
         // Count extraction types dynamically
@@ -1700,15 +1703,30 @@ class PreviewOptimizer {
     return container;
   }
 
+  // Helper method to normalize JSON data format for UBERMODE
+  normalizeJsonDataForUberMode(data) {
+    // Handle the new combined_extractions.json format with nested structure
+    if (data && data.extractions && Array.isArray(data.extractions)) {
+      // Already in the expected format { extractions: [...] }
+      return data;
+    }
+    
+    // Handle legacy format or other structures - return as-is if no extractions found
+    return data;
+  }
+
   buildDocumentTree(data) {
     const nodes = new Map();
     const rootNodes = [];
     
+    // Normalize the data format to handle both old and new structures
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    
     // Handle extraction format
-    if (data && data.extractions && Array.isArray(data.extractions)) {
+    if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
       // Filter relevant extraction types like section_tree_visualizer.py does
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      let relevant = data.extractions.filter(ext => 
+      let relevant = normalizedData.extractions.filter(ext => 
         relevantTypes.includes(ext.extraction_class)
       );
       
@@ -1718,7 +1736,7 @@ class PreviewOptimizer {
         console.log(`Filtering extractions by type: ${currentFilter}`);
         
         // Get all extractions that match the filter
-        const filteredExtractions = data.extractions.filter(ext => 
+        const filteredExtractions = normalizedData.extractions.filter(ext => 
           ext.extraction_class === currentFilter
         );
         
@@ -1737,7 +1755,7 @@ class PreviewOptimizer {
             while (parentId) {
               requiredNodeIds.add(parentId);
               // Find parent extraction to continue the chain
-              const parentExt = data.extractions.find(e => e.attributes?.id === parentId);
+              const parentExt = normalizedData.extractions.find(e => e.attributes?.id === parentId);
               parentId = parentExt ? this.getParentId(parentExt) : null;
             }
           }
@@ -1749,10 +1767,10 @@ class PreviewOptimizer {
           return nodeId && requiredNodeIds.has(nodeId);
         });
         
-        console.log(`Filtered from ${data.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
+        console.log(`Filtered from ${normalizedData.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
       }
       
-      console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
+      console.log(`Building tree from ${relevant.length} relevant extractions out of ${normalizedData.extractions.length} total`);
       
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
       relevant.forEach(extraction => {
@@ -3147,7 +3165,8 @@ class PreviewOptimizer {
     console.log(`Rendering filtered tree view with filter: ${filterType || 'none'}`);
     
     const data = this.currentJsonData;
-    if (!data || !data.extractions) {
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    if (!normalizedData || !normalizedData.extractions) {
       console.log('No extraction data available for filtering');
       return;
     }
@@ -3158,7 +3177,7 @@ class PreviewOptimizer {
       console.log('No tree container found, falling back to full re-render');
       // Fallback to full re-render
       this.element.innerHTML = '';
-      this.renderUberMode(data, { size: 0, truncated: false });
+      this.renderUberMode(normalizedData, { size: 0, truncated: false });
       return;
     }
 
@@ -3171,10 +3190,10 @@ class PreviewOptimizer {
 
     if (!filterType) {
       // No filter - show hierarchical tree
-      this.renderHierarchicalTree(treeElement, data);
+      this.renderHierarchicalTree(treeElement, normalizedData);
     } else {
       // Filter active - show flat list of matching items
-      this.renderFlatFilteredTree(treeElement, data, filterType);
+      this.renderFlatFilteredTree(treeElement, normalizedData, filterType);
     }
   }
 
@@ -3194,15 +3213,18 @@ class PreviewOptimizer {
   renderFlatFilteredTree(treeElement, data, filterType) {
     console.log(`Rendering flat filtered tree for type: ${filterType}`);
     
+    // Normalize data format first
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    
     // Get all extractions that match the filter
-    const filteredExtractions = data.extractions.filter(ext => 
+    const filteredExtractions = normalizedData.extractions.filter(ext => 
       ext.extraction_class === filterType
     );
 
     console.log(`Found ${filteredExtractions.length} items matching filter: ${filterType}`);
 
     // Group by parent-child relationships within the same type
-    const flatItems = this.buildFlatFilteredItems(filteredExtractions, data, filterType);
+    const flatItems = this.buildFlatFilteredItems(filteredExtractions, normalizedData, filterType);
     
     // Clear and render flat list
     treeElement.innerHTML = '';
@@ -3411,7 +3433,8 @@ class PreviewOptimizer {
     console.log(`Rendering filtered JSON view with filter: ${filterType || 'none'}`);
     
     const data = this.currentJsonData;
-    if (!data || !data.extractions) {
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    if (!normalizedData || !normalizedData.extractions) {
       console.log('No extraction data available for JSON filtering');
       return;
     }
@@ -3425,10 +3448,10 @@ class PreviewOptimizer {
 
     if (!filterType) {
       // No filter - show complete JSON
-      this.renderCompleteJsonView(jsonContainer, data);
+      this.renderCompleteJsonView(jsonContainer, normalizedData);
     } else {
       // Filter active - show only matching extractions
-      this.renderFlatJsonFilter(jsonContainer, data, filterType);
+      this.renderFlatJsonFilter(jsonContainer, normalizedData, filterType);
     }
   }
 
