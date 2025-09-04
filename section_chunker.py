@@ -23,6 +23,7 @@ class SectionMetadata:
         section_id: Unique identifier for the section.
         section_name: Name/title of the section.
         section_level: Header level (1 for #, 2 for ##, etc.).
+        section_index: Sequential index of the section (0-based).
         parent_section_id: ID of the parent section (None for top-level).
         sub_sections: List of child section IDs.
         section_summary: Summary of the section content (to be filled by LangExtract).
@@ -30,6 +31,7 @@ class SectionMetadata:
     section_id: str
     section_name: str
     section_level: int
+    section_index: int
     parent_section_id: Optional[str] = None
     sub_sections: List[str] = dataclasses.field(default_factory=list)
     section_summary: str = ""
@@ -40,6 +42,7 @@ class SectionMetadata:
             "section_id": self.section_id,
             "section_name": self.section_name,
             "section_level": self.section_level,
+            "section_index": self.section_index,
             "parent_section": self.parent_section_id,
             "sub_sections": self.sub_sections,
             "section_summary": self.section_summary,
@@ -100,7 +103,6 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
             header_level = len(header_match.group(1))
             section_title = header_match.group(2).strip()
             section_id = f"section_{section_counter:03d}"
-            section_counter += 1
             
             # Update section stack for parent tracking
             # Remove sections at same or deeper level
@@ -110,13 +112,16 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
             # Determine parent
             parent_id = section_stack[-1][0] if section_stack else None
             
-            # Create metadata
+            # Create metadata with proper 0-based indexing
             current_metadata = SectionMetadata(
                 section_id=section_id,
                 section_name=section_title,
                 section_level=header_level,
+                section_index=section_counter - 1,  # 0-based index
                 parent_section_id=parent_id
             )
+            
+            section_counter += 1
             
             # Add to parent's sub_sections if applicable
             if parent_id:
@@ -142,7 +147,8 @@ def parse_markdown_sections(text: str) -> List[Tuple[str, SectionMetadata, int, 
                     current_metadata = SectionMetadata(
                         section_id="section_000",
                         section_name="Introduction",
-                        section_level=1
+                        section_level=1,
+                        section_index=0
                     )
                     current_section_lines = [line]
                 elif current_section_lines:

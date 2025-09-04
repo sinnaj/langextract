@@ -30,8 +30,9 @@ from langextract import providers
 from postprocessing.extract_tags import extract_tags_from_norms
 from postprocessing.extract_params import extract_parameters_from_norms
 
-# Import section chunker
+# Import section chunker and evaluator
 from section_chunker import create_section_chunks, get_section_statistics
+from chunk_evaluator import evaluate_chunks, get_evaluation_statistics
 
 # ---------------------------------------------------------------------------
 # 0. Environment / Config
@@ -343,6 +344,35 @@ def makeRun(
             if len(s) > limit:
                 s = s[:limit] + " ... [truncated]"
             return s
+            
+        def _add_section_parent_to_extractions(result_data: Dict[str, Any], section_id: str) -> Dict[str, Any]:
+            """Add section ID as parent to all extracted objects."""
+            if not result_data or not section_id:
+                return result_data
+                
+            # Navigate through the result structure to find extractions
+            if "extractions" in result_data and isinstance(result_data["extractions"], list):
+                for extraction in result_data["extractions"]:
+                    if isinstance(extraction, dict):
+                        # Add section parent to norms
+                        if "norms" in extraction and isinstance(extraction["norms"], list):
+                            for norm in extraction["norms"]:
+                                if isinstance(norm, dict):
+                                    norm["section_parent_id"] = section_id
+                        
+                        # Add section parent to other extraction types
+                        for extraction_type in ["tags", "parameters", "locations", "questions", "consequences"]:
+                            if extraction_type in extraction and isinstance(extraction[extraction_type], list):
+                                for item in extraction[extraction_type]:
+                                    if isinstance(item, dict):
+                                        item["section_parent_id"] = section_id
+                        
+                        # Also add section metadata to the extraction itself
+                        if section_metadata:
+                            extraction["section_metadata"] = section_metadata.to_dict()
+            
+            return result_data
+        
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
@@ -365,6 +395,11 @@ def makeRun(
             # Synthesize a minimal valid rich object so the run completes
             synthesized = _synthesize_extraction(text, norms=[], errors=[safe_err], warnings=run_warnings)
             result = {"extractions": [synthesized]}
+            
+            # Add section parent information if available
+            if section_metadata:
+                result = _add_section_parent_to_extractions(result, section_metadata.section_id)
+            
             raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
             try:
                 (chunks_dir / raw_name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -656,48 +691,177 @@ def makeRun(
                 encoding="utf-8",
             )
             print(f"[INFO] Raw extraction data saved to: {raw_extraction_name}", file=sys.stderr)
+            
+            # Return the extraction data for combination
+            return raw_legacy
         except Exception as pe:
             print(f"[WARN] Failed to persist raw annotated outputs: {pe}", file=sys.stderr)
-
-        # Annotated outputs saved; no legacy pipeline to run.
-        return None
+            # Return empty result on failure
+            return {
+                "document_id": getattr(annotated, "document_id", None),
+                "extractions": [],
+                "section_metadata": [],
+                "processing_info": {
+                    "chunking_method": "section_based",
+                    "total_sections": 0,
+                    "total_extractions": 0,
+                    "error": str(pe)
+                }
+            }
 
  
     
 
-    print("[INFO] Processing document using section-based chunking")
+    print("[INFO] Processing document using section-based chunking with evaluation")
     
     if SECTION_CHUNKS:
-        # Process each section chunk separately
-        all_section_metadata = []
-        for i, section_chunk in enumerate(SECTION_CHUNKS):
-            print(f"[INFO] Processing section {i+1}/{len(SECTION_CHUNKS)}: {section_chunk.section_metadata.section_name}")
-            result = _call_and_capture(section_chunk.chunk_text, i, section_chunk.section_metadata)
-            if result and section_chunk.section_metadata:
-                all_section_metadata.append(section_chunk.section_metadata.to_dict())
+        # Evaluate chunks to determine processing approach
+        print("[INFO] Evaluating section chunks...")
+        chunk_evaluations = evaluate_chunks(SECTION_CHUNKS)
+        eval_stats = get_evaluation_statistics(chunk_evaluations)
         
-        # Save consolidated section metadata
+        print(f"[INFO] Chunk evaluation complete:")
+        print(f"  - Total chunks: {eval_stats['total_chunks']}")
+        print(f"  - Extract: {eval_stats['extract_count']} ({eval_stats['extract_percentage']}%)")
+        print(f"  - Drop: {eval_stats['drop_count']} ({eval_stats['drop_percentage']}%)")
+        print(f"  - Manual: {eval_stats['manual_count']} ({eval_stats['manual_percentage']}%)")
+        
+        # Collect all results for final combination
+        all_extractions = []
+        all_sections = []
+        processing_log = []
+        
+        for i, (section_chunk, evaluation) in enumerate(chunk_evaluations):
+            section_metadata = section_chunk.section_metadata
+            section_info = {
+                "section_id": section_metadata.section_id,
+                "section_name": section_metadata.section_name,
+                "section_level": section_metadata.section_level,
+                "section_index": section_metadata.section_index,
+                "parent_section": section_metadata.parent_section_id,
+                "sub_sections": section_metadata.sub_sections,
+                "section_summary": section_metadata.section_summary,
+                "processing_type": evaluation.processing_type,
+                "evaluation_reason": evaluation.reason,
+                "content_type": evaluation.metadata.get("content_type", "unknown")
+            }
+            
+            if evaluation.processing_type == "extract":
+                # Process with langextract
+                print(f"[INFO] Extracting section {i+1}/{len(chunk_evaluations)}: {section_metadata.section_name}")
+                result = _call_and_capture(section_chunk.chunk_text, i, section_metadata)
+                
+                if result and "extractions" in result:
+                    # Add extractions to the collection
+                    for extraction in result["extractions"]:
+                        extraction["section_parent_id"] = section_metadata.section_id
+                        all_extractions.append(extraction)
+                
+                section_info["has_extractions"] = True
+                section_info["extraction_count"] = len(result.get("extractions", [])) if result else 0
+                processing_log.append(f"Extracted {section_info['extraction_count']} items from section: {section_metadata.section_name}")
+                
+            elif evaluation.processing_type == "manual":
+                # Add as section without extraction
+                print(f"[INFO] Adding manual section {i+1}/{len(chunk_evaluations)}: {section_metadata.section_name}")
+                section_info["has_extractions"] = False
+                section_info["extraction_count"] = 0
+                processing_log.append(f"Added as section without extraction: {section_metadata.section_name}")
+                
+            elif evaluation.processing_type == "drop":
+                # Skip this section entirely
+                print(f"[INFO] Dropping section {i+1}/{len(chunk_evaluations)}: {section_metadata.section_name}")
+                section_info["dropped"] = True
+                processing_log.append(f"Dropped section: {section_metadata.section_name}")
+                continue  # Don't add to all_sections
+            
+            all_sections.append(section_info)
+        
+        # Create final combined JSON
+        combined_result = {
+            "document_metadata": {
+                "source_file": str(INPUT_FILE) if INPUT_FILE else "unknown",
+                "processing_method": "section_based_with_evaluation",
+                "total_original_sections": len(SECTION_CHUNKS),
+                "total_processed_sections": len(all_sections),
+                "total_extractions": len(all_extractions),
+                "processing_timestamp": __import__("datetime").datetime.now().isoformat()
+            },
+            "evaluation_statistics": eval_stats,
+            "sections": all_sections,
+            "extractions": all_extractions,
+            "processing_log": processing_log,
+            "section_statistics": SECTION_STATS
+        }
+        
+        # Save the final combined JSON
         try:
-            section_metadata_file = lx_output_dir / "section_metadata.json"
-            section_metadata_file.write_text(
-                json.dumps({
-                    "sections": all_section_metadata,
-                    "statistics": SECTION_STATS,
-                    "processing_info": {
-                        "chunking_method": "section_based",
-                        "total_sections": len(SECTION_CHUNKS),
-                        "source_file": str(INPUT_FILE)
-                    }
-                }, ensure_ascii=False, indent=2),
+            combined_output_file = lx_output_dir / "combined_extractions.json"
+            combined_output_file.write_text(
+                json.dumps(combined_result, ensure_ascii=False, indent=2),
                 encoding="utf-8"
             )
-            print(f"[INFO] Section metadata saved to: section_metadata.json")
+            print(f"[INFO] Combined extractions saved to: combined_extractions.json")
+            
+            # Also save evaluation details
+            evaluation_details_file = lx_output_dir / "chunk_evaluations.json"
+            evaluation_details = {
+                "source_file": str(INPUT_FILE) if INPUT_FILE else "unknown",
+                "evaluation_statistics": eval_stats,
+                "chunk_evaluations": [
+                    {
+                        "section_metadata": chunk.section_metadata.to_dict(),
+                        "chunk_length": len(chunk.chunk_text),
+                        "evaluation": {
+                            "should_extract": evaluation.should_extract,
+                            "reason": evaluation.reason,
+                            "processing_type": evaluation.processing_type,
+                            "metadata": evaluation.metadata
+                        }
+                    }
+                    for chunk, evaluation in chunk_evaluations
+                ]
+            }
+            evaluation_details_file.write_text(
+                json.dumps(evaluation_details, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            print(f"[INFO] Chunk evaluation details saved to: chunk_evaluations.json")
+            
         except Exception as e:
-            print(f"[WARN] Failed to save section metadata: {e}")
+            print(f"[WARN] Failed to save combined results: {e}")
+        
     else:
         # Fallback to original approach for empty input
-        _call_and_capture(INPUT_TEXT, None, None)
+        print("[INFO] No section chunks found, processing as single document")
+        result = _call_and_capture(INPUT_TEXT, None, None)
+        
+        # Save as combined result for consistency
+        combined_result = {
+            "document_metadata": {
+                "source_file": str(INPUT_FILE) if INPUT_FILE else "unknown",
+                "processing_method": "single_document",
+                "total_original_sections": 0,
+                "total_processed_sections": 0,
+                "total_extractions": len(result.get("extractions", [])) if result else 0,
+                "processing_timestamp": __import__("datetime").datetime.now().isoformat()
+            },
+            "sections": [],
+            "extractions": result.get("extractions", []) if result else [],
+            "processing_log": ["Processed as single document (no sections found)"],
+            "section_statistics": {"total_sections": 0, "levels": {}}
+        }
+        
+        try:
+            combined_output_file = lx_output_dir / "combined_extractions.json"
+            combined_output_file.write_text(
+                json.dumps(combined_result, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            print(f"[INFO] Combined extractions saved to: combined_extractions.json")
+        except Exception as e:
+            print(f"[WARN] Failed to save combined results: {e}")
     
-    print(f"[INFO] Raw annotated outputs saved to: {lx_output_dir}. Section-based processing complete.")
+    print(f"[INFO] Section-based processing with evaluation complete. Results saved to: {lx_output_dir}")
     return
     
