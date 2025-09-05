@@ -703,6 +703,8 @@
       // Close any existing overlay
       this.closeOverlay();
 
+      console.log('Showing comment overlay with', existingComments.length, 'existing comments:', existingComments);
+
       const overlay = document.createElement('div');
       overlay.className = 'comment-overlay';
       
@@ -773,8 +775,14 @@
           await this.saveComment(text, position, panelIndex);
           this.closeOverlay();
           
-          // Clear any hover indicators before refreshing to prevent duplication
-          this.hideActiveHoverIndicator();
+          // Clear ALL indicators for this panel before refreshing to prevent duplication
+          const panel = document.querySelector(`.preview-panel[data-panel="${panelIndex}"]`);
+          if (panel) {
+            const preview = panel.querySelector('.preview');
+            if (preview) {
+              this.clearAllIndicators(preview, panelIndex);
+            }
+          }
           
           // Refresh comments and update indicators
           await this.refreshComments(panelIndex);
@@ -854,6 +862,15 @@
       console.log('Saving comment:', commentData);
       const result = await CommentsAPI.createComment(commentData);
       console.log('Comment saved successfully:', result);
+      
+      // Immediately add the new comment to our local array to prevent timing issues
+      this.comments.push({
+        id: result.id,
+        text_body: text,
+        author_name: userName,
+        position_data: JSON.stringify(position),
+        created_at: result.created_at || new Date().toISOString()
+      });
       
       return result;
     }
@@ -963,6 +980,7 @@
 
         // Create persistent indicators for positions with comments
         commentsByPosition.forEach((comments, posKey) => {
+          console.log('Creating persistent indicator for position:', posKey, 'with', comments.length, 'comments:', comments);
           this.createPersistentIndicator(preview, comments[0], comments, panel, currentPanelIndex);
         });
       });
@@ -1035,6 +1053,7 @@
         // Add click handler to show existing comments
         indicator.addEventListener('click', (e) => {
           e.stopPropagation();
+          console.log('Persistent indicator clicked for position:', position, 'with comments:', allComments);
           this.showCommentOverlay(targetElement, position, panelIndex, allComments);
         });
 
