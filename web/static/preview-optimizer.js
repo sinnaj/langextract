@@ -111,6 +111,7 @@ class PreviewOptimizer {
     }
     
     const content = await resp.text();
+    console.log(`Content loaded successfully for ${filePath}, length: ${content.length}`);
     
     // Quick data structure check for debugging
     if (filePath.includes('.json')) {
@@ -172,6 +173,11 @@ class PreviewOptimizer {
     // Clear previous content
     this.element.innerHTML = '';
     
+    console.log('renderContent called for file:', this.currentFile?.filePath);
+    console.log('Content type:', contentType);
+    console.log('Content length:', content.length);
+    console.log('Meta:', meta);
+    
     // Add file info header for large/truncated files
     if (meta.truncated || meta.size > this.options.maxPreviewSize) {
       this.addFileInfoHeader(meta);
@@ -179,10 +185,13 @@ class PreviewOptimizer {
     
     // Determine content type and render accordingly
     if (this.isJsonContent(contentType)) {
+      console.log('Detected JSON content, calling renderJson');
       this.renderJson(content, meta);
     } else if (this.isMarkdownContent(contentType)) {
+      console.log('Detected Markdown content, calling renderMarkdown');
       this.renderMarkdown(content, meta);  
     } else {
+      console.log('Detected text content, calling renderText');
       this.renderText(content, meta);
     }
 
@@ -310,9 +319,18 @@ class PreviewOptimizer {
       return this.renderJsonl(content, meta);
     }
 
+    // Enhanced debugging for UBERMODE file loading issues
+    console.log('renderJson called for file:', this.currentFile?.filePath);
+    console.log('Content preview (first 200 chars):', content.substring(0, 200));
+    console.log('Content length:', content.length);
+
     try {
       const obj = JSON.parse(content);
       this.currentJsonData = obj; // Store for UBERMODE
+      
+      console.log('JSON parsing successful!');
+      console.log('currentJsonData set to:', !!this.currentJsonData);
+      console.log('Object keys:', Object.keys(obj || {}));
       
       // Detect file type for better UBERMODE feedback
       const filePath = this.currentFile?.filePath || 'unknown';
@@ -390,6 +408,10 @@ class PreviewOptimizer {
         this.renderEnhancedJson(jsonString, meta);
       }
     } catch (e) {
+      console.error('JSON parsing failed for file:', this.currentFile?.filePath);
+      console.error('Parsing error:', e);
+      console.error('Content that failed to parse (first 500 chars):', content.substring(0, 500));
+      console.error('Content length:', content.length);
       // Invalid JSON, render as text
       this.renderTextContent(content, meta);
     }
