@@ -324,15 +324,46 @@ def run_files(run_id: str):
     run_dir = OUTPUT_ROOT / run_id
     if not run_dir.exists():
         return abort(404)
+    
+    # Only show files from the 'lx output' folder for processed results
+    # This prevents showing intermediate processing files from chunks folder
+    lx_output_dir = run_dir / "lx output"
     files: list[dict[str, Any]] = []
-    for p in run_dir.rglob("*"):
-        if p.is_file():
-            rel = p.relative_to(run_dir)
-            try:
-                sz = p.stat().st_size
-            except OSError:
-                sz = 0
-            files.append({"path": str(rel).replace("\\", "/"), "size": sz})
+    
+    if lx_output_dir.exists():
+        for p in lx_output_dir.rglob("*"):
+            if p.is_file():
+                filename = p.name
+                
+                # Filter out intermediate processing files that should be in chunks folder
+                # These are legacy files from older runs before the file reorganization
+                skip_patterns = [
+                    "raw_annotated_document_",
+                    "raw_resolver_output_", 
+                    "annotated_extractions_",
+                    "raw_extraction.json"
+                ]
+                
+                if any(filename.startswith(pattern) for pattern in skip_patterns):
+                    continue  # Skip intermediate files that should be in chunks folder
+                
+                # Make path relative to run directory for consistency
+                rel = p.relative_to(run_dir)
+                try:
+                    sz = p.stat().st_size
+                except OSError:
+                    sz = 0
+                files.append({"path": str(rel).replace("\\", "/"), "size": sz})
+    
+    # Also include run_input.json if it exists at the root level
+    run_input_file = run_dir / "run_input.json"
+    if run_input_file.exists():
+        try:
+            sz = run_input_file.stat().st_size
+        except OSError:
+            sz = 0
+        files.append({"path": "run_input.json", "size": sz})
+    
     files.sort(key=lambda x: str(x["path"]))  # type: ignore[call-overload]
     return jsonify(files)
 
