@@ -1829,6 +1829,35 @@ class PreviewOptimizer {
         this.createSyntheticRoots(nodes);
       }
       
+      // Create synthetic parent nodes for missing parents before building relationships
+      const missingParents = new Set();
+      nodes.forEach(node => {
+        if (node.parentId && !nodes.has(node.parentId)) {
+          missingParents.add(node.parentId);
+        }
+      });
+      
+      // Create synthetic nodes for missing parents
+      missingParents.forEach(parentId => {
+        const syntheticNode = {
+          id: parentId,
+          title: `[Dropped Section] ${parentId}`,
+          type: 'SECTION',
+          parentId: null, // Make synthetic nodes root-level
+          parentType: 'SECTION',
+          summary: 'This section was dropped during processing but is referenced by child sections.',
+          extractionText: '',
+          children: [],
+          isExpanded: true,
+          level: 0,
+          attributes: { section_id: parentId, section_name: `[Dropped Section] ${parentId}`, synthetic: true },
+          extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
+        };
+        nodes.set(parentId, syntheticNode);
+        rootNodes.push(syntheticNode); // Add synthetic parents to root nodes
+        console.log(`Created synthetic parent node: ${parentId}`);
+      });
+
       // Second pass: build parent-child relationships
       let orphanCount = 0;
       nodes.forEach(node => {
@@ -1837,7 +1866,7 @@ class PreviewOptimizer {
           parent.children.push(node);
           node.level = parent.level + 1;
           console.log(`Linked ${node.id} as child of ${parent.id} (level ${node.level})`);
-        } else {
+        } else if (!node.attributes?.synthetic) { // Don't double-add synthetic nodes
           // Node has no valid parent, make it a root
           rootNodes.push(node);
           node.level = 0;
