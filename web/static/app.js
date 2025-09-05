@@ -729,14 +729,26 @@
               // Wait for JSON data to be parsed before checking UBERMODE activation
               setTimeout(() => {
                 const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
-                console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
+                const filePath = f.path || 'unknown';
+                const isCombinedExtractions = filePath.toLowerCase().includes('combined_extractions.json');
+                
+                console.log(`UBERMODE sync for file ${filePath}: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}, is combined_extractions=${isCombinedExtractions}`);
+                
+                // Auto-enable UBERMODE button for combined_extractions.json files
+                if (isCombinedExtractions && hasJsonData && !isButtonEnabled) {
+                  console.log('Auto-enabling UBERMODE button for combined_extractions.json');
+                  updateUberModeButton(uberToggle, true);
+                }
+                
+                // Refresh the button state check after potential auto-enable
+                const isButtonEnabledAfter = uberToggle.getAttribute('data-enabled') === 'true';
                 
                 // Only trigger UBERMODE if button is enabled and JSON data is available
-                if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
+                if (isButtonEnabledAfter && !isOptimizerUberMode && hasJsonData) {
                   console.log('Activating UBERMODE for newly loaded JSON file');
                   previewOptimizers[panelIndex].toggleUberMode();
                   updateUberModeButton(uberToggle, true);
-                } else if (!isButtonEnabled && isOptimizerUberMode) {
+                } else if (!isButtonEnabledAfter && isOptimizerUberMode) {
                   // Button is disabled but optimizer is in UBERMODE - deactivate it
                   console.log('Deactivating UBERMODE - button is disabled');
                   previewOptimizers[panelIndex].toggleUberMode();
@@ -763,22 +775,34 @@
       
       // If nothing selected yet, auto-open the first readable file (preferring combined_extractions.json for UBERMODE)
       if (!selectedFilePaths[panelIndex] && createdBadges.length) {
+        console.log(`Auto-selecting file for panel ${panelIndex}. Available files:`, createdBadges.map(b => b.file.path));
+        
         const findPreferred = () => {
           // First priority: combined_extractions.json for UBERMODE functionality
           const combinedExtractions = createdBadges.find(({ file }) => 
             file.path.toLowerCase().includes('combined_extractions.json'));
-          if (combinedExtractions) return combinedExtractions;
+          if (combinedExtractions) {
+            console.log('Auto-selecting combined_extractions.json for UBERMODE functionality');
+            return combinedExtractions;
+          }
           
           // Second priority: other JSON files
           const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
           for (const ext of preferExt) {
-            const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext));
-            if (found) return found;
+            const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext.toLowerCase()));
+            if (found) {
+              console.log(`Auto-selecting first file with extension ${ext}:`, found.file.path);
+              return found;
+            }
           }
+          console.log('Auto-selecting first available file:', createdBadges[0].file.path);
           return createdBadges[0];
         };
         const target = findPreferred();
-        if (target) target.btn.click();
+        if (target) {
+          console.log('Clicking auto-selected file:', target.file.path);
+          target.btn.click();
+        }
       }
     } catch (e) {
       console.error('files error', e);
