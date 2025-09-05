@@ -1997,10 +1997,10 @@ class PreviewOptimizer {
       const button = document.createElement('button');
       button.className = `px-3 py-1 text-xs rounded transition-colors ${
         isFiltered 
-          ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700 hover:bg-red-200 dark:hover:bg-red-800' 
-          : 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700 hover:bg-green-200 dark:hover:bg-green-800'
+          ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+          : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
       }`;
-      button.textContent = `${isFiltered ? 'Show' : 'Hide'} ${this.formatTypeName(entityType)}`;
+      button.textContent = this.formatTypeName(entityType);
       button.title = `${isFiltered ? 'Show' : 'Hide'} ${this.formatTypeName(entityType)} entities in the tree`;
       button.onclick = () => this.toggleEntityTypeFilter(entityType, data, container);
       controls.appendChild(button);
@@ -2021,13 +2021,18 @@ class PreviewOptimizer {
     normLeafsButton.onclick = () => this.filterRootsWithNormLeafs(data, container);
     controls.appendChild(normLeafsButton);
 
-    // Add show all button
-    const showAllButton = document.createElement('button');
-    showAllButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
-    showAllButton.textContent = 'Show All';
-    showAllButton.title = 'Show all sections and extractions';
-    showAllButton.onclick = () => this.showAllNodes(data, container);
-    controls.appendChild(showAllButton);
+    // Add "Disable all filters" button
+    const disableFiltersButton = document.createElement('button');
+    const hasActiveFilters = this.treeFilterState.activeFilters.size > 0;
+    disableFiltersButton.className = `px-3 py-1 text-xs rounded transition-colors ${
+      hasActiveFilters 
+        ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+        : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+    }`;
+    disableFiltersButton.textContent = 'Disable all filters';
+    disableFiltersButton.title = 'Show all sections and extractions';
+    disableFiltersButton.onclick = () => this.showAllNodes(data, container);
+    controls.appendChild(disableFiltersButton);
 
     container.appendChild(controls);
     
@@ -2122,16 +2127,13 @@ class PreviewOptimizer {
     const buttons = container.querySelectorAll('.tree-controls button');
     buttons.forEach(button => {
       const buttonText = button.textContent;
-      // Find entity type buttons (those starting with "Show" or "Hide")
-      if (buttonText.startsWith('Show ') || buttonText.startsWith('Hide ')) {
-        // Extract entity type from button text
-        const entityType = buttonText.replace(/^(Show|Hide) /, '');
-        const displayName = this.formatTypeName(entityType);
-        
-        // Try to find the actual entity type by reversing the format
+      
+      // Update entity type filter buttons
+      if (buttonText !== 'Only show Roots with Norm Leafs' && buttonText !== 'Disable all filters') {
+        // This is an entity type button, find the corresponding entity type
         let actualEntityType = null;
         this.treeFilterState.availableTypes.forEach(type => {
-          if (this.formatTypeName(type) === displayName) {
+          if (this.formatTypeName(type) === buttonText) {
             actualEntityType = type;
           }
         });
@@ -2140,12 +2142,21 @@ class PreviewOptimizer {
           const isFiltered = this.treeFilterState.activeFilters.has(actualEntityType);
           button.className = `px-3 py-1 text-xs rounded transition-colors ${
             isFiltered 
-              ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700 hover:bg-red-200 dark:hover:bg-red-800' 
-              : 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700 hover:bg-green-200 dark:hover:bg-green-800'
+              ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+              : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
           }`;
-          button.textContent = `${isFiltered ? 'Show' : 'Hide'} ${displayName}`;
-          button.title = `${isFiltered ? 'Show' : 'Hide'} ${displayName} entities in the tree`;
+          button.title = `${isFiltered ? 'Show' : 'Hide'} ${buttonText} entities in the tree`;
         }
+      }
+      
+      // Update "Disable all filters" button state
+      if (buttonText === 'Disable all filters') {
+        const hasActiveFilters = this.treeFilterState.activeFilters.size > 0;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          hasActiveFilters 
+            ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+            : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+        }`;
       }
     });
     
