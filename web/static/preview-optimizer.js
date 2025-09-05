@@ -1661,12 +1661,12 @@ class PreviewOptimizer {
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
             </svg>
-            Wrong File for UBERMODE
+            Wrong File for Tree View
           </h3>
           <p class="text-amber-700 mt-2">You have loaded <strong>chunk_evaluations.json</strong> which contains evaluation data, not extraction data.</p>
-          <p class="text-amber-600 mt-1">For UBERMODE tree view, please select <strong>combined_extractions.json</strong> instead.</p>
+          <p class="text-amber-600 mt-1">For Tree View, please select <strong>combined_extractions.json</strong> instead.</p>
           <div class="mt-3 p-2 bg-white border border-amber-200 rounded text-sm">
-            <strong>What you need:</strong> combined_extractions.json contains the hierarchical extraction data with sections and entities that UBERMODE can display as a tree.
+            <strong>What you need:</strong> combined_extractions.json contains the hierarchical extraction data with sections and entities that Tree View can display as a tree.
           </div>
         </div>
       `;
@@ -1747,7 +1747,7 @@ class PreviewOptimizer {
       // Show error message to user
       this.element.innerHTML = `
         <div class="bg-red-50 border border-red-200 rounded p-4">
-          <h3 class="text-red-800 font-semibold">UBERMODE Error</h3>
+          <h3 class="text-red-800 font-semibold">Tree View Error</h3>
           <p class="text-red-600 mt-2">Failed to render tree view: ${error.message}</p>
           <p class="text-sm text-red-500 mt-1">Check browser console for details.</p>
           <div class="mt-3 text-xs text-red-400 bg-red-100 p-2 rounded">
@@ -1965,6 +1965,28 @@ class PreviewOptimizer {
     title.className = 'text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200';
     title.textContent = '🌳 Document Structure';
     container.appendChild(title);
+
+    // Add tree view controls
+    const controls = document.createElement('div');
+    controls.className = 'tree-controls flex flex-wrap gap-2 mb-4';
+    
+    // Add filter button for "Only show Roots with Norm Leafs"
+    const filterButton = document.createElement('button');
+    filterButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
+    filterButton.textContent = 'Only show Roots with Norm Leafs';
+    filterButton.title = 'Show only Section root nodes that contain Norm descendants';
+    filterButton.onclick = () => this.filterRootsWithNormLeafs(data, container);
+    controls.appendChild(filterButton);
+
+    // Add show all button
+    const showAllButton = document.createElement('button');
+    showAllButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
+    showAllButton.textContent = 'Show All';
+    showAllButton.title = 'Show all sections and extractions';
+    showAllButton.onclick = () => this.showAllNodes(data, container);
+    controls.appendChild(showAllButton);
+
+    container.appendChild(controls);
     
     const tree = document.createElement('div');
     tree.className = 'tree-content space-y-1';
@@ -2006,6 +2028,48 @@ class PreviewOptimizer {
     
     // Handle legacy format or other structures - return as-is if no extractions found
     return data;
+  }
+
+  // Filter to show only Section roots that have Norm leafs
+  filterRootsWithNormLeafs(data, container) {
+    console.log('Applying "Only show Roots with Norm Leafs" filter');
+    
+    // Build the complete tree first
+    const documentTree = this.buildDocumentTree(data);
+    
+    // Helper function to check if a node has NORM descendants
+    const hasNormDescendants = (node) => {
+      // If this node is a NORM, it counts
+      if (node.type === 'NORM') {
+        return true;
+      }
+      
+      // Check all children recursively
+      return node.children.some(child => hasNormDescendants(child));
+    };
+    
+    // Filter to only include Section root nodes that have Norm descendants
+    const filteredTree = documentTree.filter(rootNode => {
+      return rootNode.type === 'SECTION' && hasNormDescendants(rootNode);
+    });
+    
+    console.log(`Filtered from ${documentTree.length} root nodes to ${filteredTree.length} Section roots with Norm leafs`);
+    
+    // Re-render the tree with filtered data
+    const treeElement = container.querySelector('.tree-content');
+    treeElement.innerHTML = '';
+    this.renderDocumentTree(treeElement, filteredTree);
+  }
+
+  // Show all nodes (reset filter)
+  showAllNodes(data, container) {
+    console.log('Showing all nodes - resetting filter');
+    
+    // Build and render the complete tree
+    const documentTree = this.buildDocumentTree(data);
+    const treeElement = container.querySelector('.tree-content');
+    treeElement.innerHTML = '';
+    this.renderDocumentTree(treeElement, documentTree);
   }
 
   buildDocumentTree(data) {
