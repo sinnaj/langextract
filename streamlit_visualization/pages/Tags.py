@@ -194,7 +194,7 @@ def display_usage_analysis(df):
                 x='usage_count',
                 title="Distribution of Tag Usage Counts",
                 labels={'x': 'Number of Norms Using Tag', 'y': 'Number of Tags'},
-                nbins=min(20, df['usage_count'].max())
+                nbins=int(min(20, df['usage_count'].max()))
             )
             st.plotly_chart(fig_usage, use_container_width=True)
         
