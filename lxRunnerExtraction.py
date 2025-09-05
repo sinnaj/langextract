@@ -263,7 +263,9 @@ def makeRun(
         resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
-                "suppress_parse_errors_default": True,  ## TODODisable this for proper runs!!!
+                # Make suppress_parse_errors_default configurable via environment variable
+                # Default to False for proper runs, True for development/testing
+                "suppress_parse_errors_default": os.getenv("LX_SUPPRESS_PARSE_ERRORS", "false").lower() in {"1", "true", "yes"},
                 # Disabled alignment allowlist: only align extraction_text for these classes
                 ##"align_only_classes_default": ["Norm", "Tag", "Parameter"],
         },
@@ -288,7 +290,9 @@ def makeRun(
 
     run_warnings: List[str] = []
 
-    ##TODO: Understand if this is still used
+    ##NOTE: _synthesize_extraction is used as a fallback when extraction fails
+    # It creates a minimal valid extraction object to ensure the run always completes
+    # Used in _call_and_capture exception handling (line ~408)
 
     def _synthesize_extraction(text: str, norms: List[Dict[str, Any]] | None = None, errors: List[str] | None = None, warnings: List[str] | None = None) -> Dict[str, Any]:
         nn = norms or []
@@ -323,9 +327,8 @@ def makeRun(
             "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
         }
 
-    ##TODO: 
-    # 1.fetch extraction classes dynamically and add section_id to them
-    # 2.normalize section_id addition across all classes
+    ##NOTE: Dynamic extraction class handling and section_id normalization 
+    # implemented in _add_section_parent_to_extractions function below
 
     def _call_and_capture(text: str, idx: int | None = None, section_metadata=None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
@@ -351,8 +354,11 @@ def makeRun(
                 s = s[:limit] + " ... [truncated]"
             return s
             
+        ##NOTE: Improved dynamic extraction class handling and normalized section_id addition
+        # This replaces the hardcoded list approach with dynamic detection of extraction types
+        
         def _add_section_parent_to_extractions(result_data: Dict[str, Any], section_id: str) -> Dict[str, Any]:
-            """Add section ID as parent to all extracted objects."""
+            """Add section ID as parent to all extracted objects dynamically."""
             if not result_data or not section_id:
                 return result_data
                 
@@ -360,21 +366,13 @@ def makeRun(
             if "extractions" in result_data and isinstance(result_data["extractions"], list):
                 for extraction in result_data["extractions"]:
                     if isinstance(extraction, dict):
-                        # Add section parent to norms
-                        if "norms" in extraction and isinstance(extraction["norms"], list):
-                            for norm in extraction["norms"]:
-                                if isinstance(norm, dict):
-                                    norm["parent_section_id"] = section_id
-                                    # Also set section_parent_id for backward compatibility
-                                    norm["section_parent_id"] = section_id
-                        
-                        # Add section parent to other extraction types
-                        for extraction_type in ["tags", "parameters", "locations", "questions", "consequences"]:
-                            if extraction_type in extraction and isinstance(extraction[extraction_type], list):
-                                for item in extraction[extraction_type]:
+                        # Dynamically find all extraction types instead of hardcoding
+                        for key, value in extraction.items():
+                            if isinstance(value, list):
+                                # This is likely an extraction type (norms, tags, parameters, etc.)
+                                for item in value:
                                     if isinstance(item, dict):
-                                        item["parent_section_id"] = section_id
-                                        # Also set section_parent_id for backward compatibility
+                                        # Normalize section ID addition - use consistent field name
                                         item["section_parent_id"] = section_id
                         
                         # Also add section metadata to the extraction itself
@@ -383,7 +381,11 @@ def makeRun(
             
             return result_data
         
-        ##TODO: Add warning when internal chunking i used because a section is too large
+        ##NOTE: Add warning when internal chunking is used because a section is too large
+        if len(text) > MAX_CHAR_BUFFER:
+            warning_msg = f"[WARN] Section text ({len(text)} chars) exceeds max_char_buffer ({MAX_CHAR_BUFFER}). Internal chunking will be used."
+            print(warning_msg, file=sys.stderr)
+            run_warnings.append(warning_msg)
 
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
@@ -433,92 +435,34 @@ def makeRun(
             raw_annotated_data["object_attributes"] = [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
             
 
-            ##TODO: Understand if this trial and error approach for serialization is still used, simplify to reflect current output structure instead of trial/error approach at runtime.
-
-            # Try to serialize using common serialization methods
-            serialization_attempts = {}
+            ##NOTE: Simplified serialization approach based on known AnnotatedDocument structure
+            # Focus on the essential debugging information instead of trial-and-error
             
-            # Attempt 1: Check for to_dict method
+            raw_annotated_data = {
+                "object_type": str(type(annotated)),
+                "object_is_none": annotated is None,
+                "document_id": getattr(annotated, "document_id", None),
+                "has_extractions": hasattr(annotated, "extractions"),
+                "extractions_count": len(getattr(annotated, "extractions", [])) if hasattr(annotated, "extractions") else 0,
+                "available_attributes": [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
+            }
+            
+            # Try to capture extractions metadata for debugging
             try:
-                if hasattr(annotated, 'to_dict'):
-                    raw_annotated_data["to_dict_result"] = annotated.to_dict()
-                    serialization_attempts["to_dict"] = "success"
-                else:
-                    serialization_attempts["to_dict"] = "method_not_available"
-            except Exception as dict_err:
-                serialization_attempts["to_dict"] = f"error: {str(dict_err)}"
-            
-            # Attempt 2: Check for __dict__ attribute
-            try:
-                if hasattr(annotated, '__dict__'):
-                    # Convert __dict__ to JSON-serializable format
-                    dict_data = {}
-                    for key, value in annotated.__dict__.items():
-                        try:
-                            # Test JSON serialization
-                            json.dumps(value)
-                            dict_data[key] = value
-                        except (TypeError, ValueError):
-                            # Not JSON serializable, store as string representation
-                            dict_data[key] = str(value)
-                    raw_annotated_data["__dict___result"] = dict_data
-                    serialization_attempts["__dict__"] = "success"
-                else:
-                    serialization_attempts["__dict__"] = "attribute_not_available"
-            except Exception as dict_err:
-                serialization_attempts["__dict__"] = f"error: {str(dict_err)}"
-            
-            # Attempt 3: Manual attribute extraction for key properties
-            try:
-                manual_extraction = {}
-                key_attributes = ["document_id", "extractions", "text", "metadata", "config", "results"]
-                
-                for attr_name in key_attributes:
-                    try:
-                        if hasattr(annotated, attr_name):
-                            attr_value = getattr(annotated, attr_name)
-                            # Try to serialize, fall back to string representation
-                            try:
-                                json.dumps(attr_value)
-                                manual_extraction[attr_name] = attr_value
-                            except (TypeError, ValueError):
-                                manual_extraction[attr_name] = {
-                                    "type": str(type(attr_value)),
-                                    "string_repr": str(attr_value),
-                                    "is_none": attr_value is None,
-                                    "has_len": hasattr(attr_value, '__len__'),
-                                    "length": len(attr_value) if hasattr(attr_value, '__len__') else None,
-                                    "is_iterable": hasattr(attr_value, '__iter__'),
-                                }
-                                # If it's extractions, try to get more details
-                                if attr_name == "extractions" and attr_value is not None:
-                                    try:
-                                        if hasattr(attr_value, '__iter__') and not isinstance(attr_value, str):
-                                            first_few = []
-                                            for i, item in enumerate(attr_value):
-                                                if i >= 3:  # Only first 3 items
-                                                    break
-                                                first_few.append({
-                                                    "index": i,
-                                                    "type": str(type(item)),
-                                                    "string_repr": str(item)[:300] + "..." if len(str(item)) > 300 else str(item),
-                                                    "attributes": [attr for attr in dir(item) if not attr.startswith('_')] if hasattr(item, '__dict__') else []
-                                                })
-                                            manual_extraction[attr_name]["sample_items"] = first_few
-                                    except Exception as sample_err:
-                                        manual_extraction[attr_name]["sample_error"] = str(sample_err)
-                        else:
-                            manual_extraction[attr_name] = "attribute_not_found"
-                    except Exception as attr_err:
-                        manual_extraction[attr_name] = f"error: {str(attr_err)}"
-                
-                raw_annotated_data["manual_extraction"] = manual_extraction
-                serialization_attempts["manual_extraction"] = "success"
-                
-            except Exception as manual_err:
-                serialization_attempts["manual_extraction"] = f"error: {str(manual_err)}"
-            
-            raw_annotated_data["serialization_attempts"] = serialization_attempts
+                extractions = getattr(annotated, "extractions", [])
+                if extractions:
+                    sample_extractions = []
+                    for i, ext in enumerate(extractions[:3]):  # Only first 3 for debugging
+                        sample_extractions.append({
+                            "index": i,
+                            "type": str(type(ext)),
+                            "extraction_class": getattr(ext, "extraction_class", "unknown"),
+                            "has_attributes": hasattr(ext, "attributes"),
+                            "attributes_keys": list(getattr(ext, "attributes", {}).keys()) if hasattr(ext, "attributes") else []
+                        })
+                    raw_annotated_data["sample_extractions"] = sample_extractions
+            except Exception as e:
+                raw_annotated_data["extraction_error"] = str(e)
             
             # Save the raw annotated document structure to chunks folder
             (chunks_dir / raw_annotated_name).write_text(
