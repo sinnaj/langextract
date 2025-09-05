@@ -1749,9 +1749,9 @@ class PreviewOptimizer {
       }
       
       // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
-      const relevantTypes = ['NORM', 'TABLE']; // Removed SECTION since we get those from sections array
+      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA']; // Exclude as requested
       let relevant = normalizedData.extractions.filter(ext => 
-        relevantTypes.includes(ext.extraction_class)
+        !excludedTypes.includes(ext.extraction_class)
       );
       
       // Apply statistics filter if one is active
@@ -1769,8 +1769,7 @@ class PreviewOptimizer {
         
         // Add filtered nodes and collect their parent chain
         filteredExtractions.forEach(ext => {
-          const attrs = ext.attributes || {};
-          const nodeId = attrs.id;
+          const nodeId = this.getNodeId(ext);
           if (nodeId) {
             requiredNodeIds.add(nodeId);
             
@@ -1779,7 +1778,7 @@ class PreviewOptimizer {
             while (parentId) {
               requiredNodeIds.add(parentId);
               // Find parent extraction to continue the chain
-              const parentExt = normalizedData.extractions.find(e => e.attributes?.id === parentId);
+              const parentExt = normalizedData.extractions.find(e => this.getNodeId(e) === parentId);
               parentId = parentExt ? this.getParentId(parentExt) : null;
             }
           }
@@ -1787,7 +1786,7 @@ class PreviewOptimizer {
         
         // Filter relevant extractions to only include required nodes
         relevant = relevant.filter(ext => {
-          const nodeId = ext.attributes?.id;
+          const nodeId = this.getNodeId(ext);
           return nodeId && requiredNodeIds.has(nodeId);
         });
         
@@ -1798,8 +1797,7 @@ class PreviewOptimizer {
       
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
       relevant.forEach(extraction => {
-        const attrs = extraction.attributes || {};
-        const nodeId = attrs.id;
+        const nodeId = this.getNodeId(extraction);
         if (!nodeId) {
           console.warn('Skipping extraction without ID:', extraction);
           return;
@@ -1907,19 +1905,68 @@ class PreviewOptimizer {
     return rootNodes;
   }
 
+  // Helper method to extract ID from extraction data
+  getNodeId(extraction) {
+    const attrs = extraction.attributes || {};
+    
+    // First try to get ID from attributes
+    if (attrs.id) {
+      return attrs.id;
+    }
+    
+    // Try to parse ID from extraction_text (Python dict format)
+    if (extraction.extraction_text) {
+      try {
+        // Handle Python dictionary format with single quotes
+        const pythonDictStr = extraction.extraction_text;
+        
+        // Look for 'id': 'value' pattern in the string
+        const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
+        if (idMatch) {
+          return idMatch[1];
+        }
+        
+        // Alternative patterns
+        const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
+        if (idMatch2) {
+          return idMatch2[1];
+        }
+      } catch (error) {
+        console.warn('Error parsing extraction_text for ID:', error);
+      }
+    }
+    
+    // Fall back to section_parent_id or extraction_index for unique ID
+    return attrs.section_parent_id || extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
+  }
+
   // Helper method to determine parent ID following section_tree_visualizer.py patterns
   getParentId(extraction) {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
     
-    // Follow the same parent ID resolution logic as section_tree_visualizer.py
-    if (type === 'NORM') {
-      return attrs.parent_section_id || attrs.parent_id;
-    } else if (type === 'TABLE') {
-      return attrs.parent_section_id || attrs.parent_id;
-    } else {
-      return attrs.parent_id;
+    // First try to get parent from attributes
+    let parentId = attrs.parent_section_id || attrs.parent_id;
+    
+    // If not found, try to parse from extraction_text
+    if (!parentId && extraction.extraction_text) {
+      try {
+        const pythonDictStr = extraction.extraction_text;
+        const parentMatch = pythonDictStr.match(/'parent_section_id':\s*'([^']+)'/);
+        if (parentMatch) {
+          parentId = parentMatch[1];
+        }
+      } catch (error) {
+        console.warn('Error parsing extraction_text for parent ID:', error);
+      }
     }
+    
+    // Fall back to section_parent_id
+    if (!parentId) {
+      parentId = extraction.section_parent_id;
+    }
+    
+    return parentId;
   }
 
   // Create synthetic root nodes following section_tree_visualizer.py patterns
@@ -1998,20 +2045,53 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
     
-    // Follow section_tree_visualizer.py patterns for title extraction
+    // For sections, try to get from section metadata first
     if (type === 'SECTION') {
+      // Check if we have section metadata
+      if (extraction.section_metadata) {
+        return extraction.section_metadata.section_name || extraction.section_metadata.section_title || 'Untitled Section';
+      }
       // Use section_name if available, otherwise fall back to section_title or extraction text
       return attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
-    } else if (type === 'NORM') {
+    } 
+    
+    // For NORM extractions, try to parse the norm statement from extraction_text
+    else if (type === 'NORM') {
+      // Try to parse norm statement from extraction_text Python dict format
+      if (extraction.extraction_text) {
+        try {
+          const pythonDictStr = extraction.extraction_text;
+          
+          // Look for norm_statement in the extraction_text
+          const normMatch = pythonDictStr.match(/'norm_statement':\s*'([^']+)'/);
+          if (normMatch) {
+            const statement = normMatch[1];
+            return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
+          }
+          
+          // Alternative patterns
+          const normMatch2 = pythonDictStr.match(/"norm_statement":\s*"([^"]+)"/);
+          if (normMatch2) {
+            const statement = normMatch2[1];
+            return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
+          }
+        } catch (error) {
+          console.warn('Error parsing extraction_text for norm statement:', error);
+        }
+      }
+      
+      // Fall back to attributes or raw extraction text
       const statement = attrs.norm_statement || attrs.statement_text || extraction.extraction_text || '';
-      // Truncate long norm statements for better display
       return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
-    } else if (type === 'TABLE') {
-      return attrs.table_title || extraction.extraction_text?.substring(0, 50) || 'Table';
-    } else if (type === 'LEGAL_DOCUMENT') {
-      // Use extraction_text for LEGAL_DOCUMENT as requested
-      return extraction.extraction_text || attrs.doc_title || attrs.title || 'Legal Document';
+    } 
+    
+    // For other types, use extraction class as title with extraction text truncated
+    else {
+      const text = extraction.extraction_text || '';
+      const displayText = text.length > 50 ? text.substring(0, 50) + '...' : text;
+      return `${type}: ${displayText}` || type;
     }
+  }
     return extraction.extraction_text || 'Unknown';
   }
 
@@ -2029,6 +2109,10 @@ class PreviewOptimizer {
       return `Paragraph ${paragraphNum} - ${obligationType}`;
     } else if (type === 'TABLE') {
       return attrs.table_description || '';
+    } else if (type === 'PROCEDURE' || type === 'Procedure') {
+      const stepNum = attrs.step_number || attrs.paragraph_number || 'N/A';
+      const procType = attrs.procedure_type || 'Procedure';
+      return `Step ${stepNum} - ${procType}`;
     } else if (type === 'LEGAL_DOCUMENT') {
       // For root sections, just return the type name instead of formatted document info
       if (!attrs.doc_type && !attrs.jurisdiction) {
