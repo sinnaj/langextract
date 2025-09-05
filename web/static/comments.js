@@ -437,7 +437,10 @@
 
       // Determine content type and position strategy
       const contentType = this.detectContentType(previewElement);
+      console.log('Detected content type:', contentType, 'for element:', target);
+      
       const position = this.calculatePosition(target, contentType, previewElement);
+      console.log('Calculated position:', position);
       
       if (position) {
         this.showHoverIndicator(target, position, panelIndex);
