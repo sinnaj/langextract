@@ -2060,7 +2060,7 @@ class PreviewOptimizer {
               summary: section.section_summary || '',
               extractionText: section.extraction_text || '',
               children: [],
-              isExpanded: true, // Sections start expanded
+              isExpanded: false, // Sections start collapsed
               level: 0,
               attributes: section,
               extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
@@ -2188,7 +2188,7 @@ class PreviewOptimizer {
           summary: 'This section was dropped during processing but is referenced by child sections.',
           extractionText: '',
           children: [],
-          isExpanded: true,
+          isExpanded: false, // Synthetic parent nodes start collapsed
           level: 0,
           attributes: { section_id: parentId, section_name: `[Dropped Section] ${parentId}`, synthetic: true },
           extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
@@ -2229,10 +2229,10 @@ class PreviewOptimizer {
       });
       rootNodes.sort((a, b) => a.id.localeCompare(b.id));
       
-      // Auto-expand first level for better initial view
+      // Start with all nodes collapsed by default
       rootNodes.forEach(root => {
-        root.isExpanded = true;
-        // Also expand first level of children if they have children
+        root.isExpanded = false;
+        // Keep all child levels collapsed initially
         root.children.forEach(child => {
           if (child.children.length > 0) {
             child.isExpanded = false; // Keep second level collapsed initially
@@ -2340,7 +2340,7 @@ class PreviewOptimizer {
           summary: 'Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio',
           extractionText: cteRootId,
           children: [],
-          isExpanded: true, // Root should be expanded
+          isExpanded: false, // Root nodes start collapsed by default
           level: 0,
           attributes: { id: cteRootId },
           extraction: null // Synthetic node
@@ -2368,7 +2368,7 @@ class PreviewOptimizer {
           summary: `Root section: ${rootId}`,
           extractionText: rootId,
           children: [],
-          isExpanded: true,
+          isExpanded: false, // Generic root nodes start collapsed by default
           level: 0,
           attributes: { id: rootId },
           extraction: null
