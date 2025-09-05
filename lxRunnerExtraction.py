@@ -509,12 +509,12 @@ def makeRun(
             
             raw_annotated_data["serialization_attempts"] = serialization_attempts
             
-            # Save the raw annotated document structure
-            (lx_output_dir / raw_annotated_name).write_text(
+            # Save the raw annotated document structure to chunks folder
+            (chunks_dir / raw_annotated_name).write_text(
                 json.dumps(raw_annotated_data, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
-            print(f"[DEBUG] Raw annotated document saved to: {raw_annotated_name}", file=sys.stderr)
+            print(f"[DEBUG] Raw annotated document saved to chunks folder: {raw_annotated_name}", file=sys.stderr)
             
         except Exception as raw_annotated_err:
             print(f"[WARN] Failed to save raw annotated document: {raw_annotated_err}", file=sys.stderr)
@@ -569,7 +569,7 @@ def makeRun(
             except Exception as extract_err:
                 raw_resolver_data["extraction_error"] = str(extract_err)
             
-            (lx_output_dir / raw_resolver_name).write_text(
+            (chunks_dir / raw_resolver_name).write_text(
                 json.dumps(raw_resolver_data, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
@@ -693,18 +693,18 @@ def makeRun(
                 }
             }
             raw_name = f"annotated_extractions_{idx:03}.json" if idx is not None else "annotated_extractions_single.json"
-            (lx_output_dir / raw_name).write_text(
+            (chunks_dir / raw_name).write_text(
                 json.dumps(raw_legacy, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
             
-            # Save as raw_extraction.json as requested
+            # Save as raw_extraction.json to chunks folder as requested
             raw_extraction_name = "raw_extraction.json"
-            (lx_output_dir / raw_extraction_name).write_text(
+            (chunks_dir / raw_extraction_name).write_text(
                 json.dumps(raw_legacy, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
-            print(f"[INFO] Raw extraction data saved to: {raw_extraction_name}", file=sys.stderr)
+            print(f"[INFO] Raw extraction data saved to chunks folder: {raw_extraction_name}", file=sys.stderr)
             
             # Return the extraction data for combination
             return raw_legacy
