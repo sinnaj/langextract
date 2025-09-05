@@ -84,7 +84,7 @@
       this.currentUser = this.getCurrentUser();
       this.activeOverlay = null;
       this.hoverIndicators = new Map(); // Map element -> indicator
-      this.persistentIndicators = new Map(); // Map position_key -> indicator for existing comments
+      this.persistentIndicators = new Map(); // Map "panel_index:position_key" -> indicator for existing comments
       this.hoverTimeout = null; // Debounce hover events
       this.activeIndicator = null; // Currently shown hover indicator
       this.lastHoverTime = 0; // Cooldown tracking
@@ -680,12 +680,17 @@
       
       switch (pos1.type) {
         case 'json_node':
-          return pos1.path === pos2.path;
+          // Match both path and line for JSON nodes
+          return (pos1.path === pos2.path) && 
+                 (Math.abs((pos1.line || 0) - (pos2.line || 0)) <= 1);
         case 'code_line':
         case 'text_line':
-          return pos1.line === pos2.line;
+          // Allow for small line number variations (within 1 line)
+          return Math.abs((pos1.line || 1) - (pos2.line || 1)) <= 1;
         case 'image_coords':
-          return Math.abs(pos1.x - pos2.x) < 10 && Math.abs(pos1.y - pos2.y) < 10;
+          // Allow for small coordinate variations (within 10 pixels)
+          return Math.abs((pos1.x || 0) - (pos2.x || 0)) < 10 && 
+                 Math.abs((pos1.y || 0) - (pos2.y || 0)) < 10;
         default:
           return false;
       }
@@ -843,7 +848,11 @@
         position_data: JSON.stringify(position)
       };
 
-      await CommentsAPI.createComment(commentData);
+      console.log('Saving comment:', commentData);
+      const result = await CommentsAPI.createComment(commentData);
+      console.log('Comment saved successfully:', result);
+      
+      return result;
     }
 
     editComment(commentId, overlay) {
@@ -906,7 +915,10 @@
 
     async refreshComments(panelIndex) {
       if (this.currentFilePath) {
+        console.log('Refreshing comments for file:', this.currentFilePath, 'panel:', panelIndex);
         this.comments = await CommentsAPI.getComments(this.currentFilePath);
+        console.log('Loaded comments:', this.comments.length, 'comments');
+        
         // Update comment indicators to show persistent indicators for existing comments
         this.updateCommentIndicators(panelIndex);
       }
@@ -924,8 +936,10 @@
         const preview = panel.querySelector('.preview');
         if (!preview) return;
 
-        // First, clear any existing persistent indicators for this panel
-        this.clearPersistentIndicators(preview);
+        const currentPanelIndex = parseInt(panel.dataset.panel || '0');
+
+        // First, clear any existing persistent indicators for THIS panel only
+        this.clearPersistentIndicators(preview, currentPanelIndex);
 
         // Group comments by position for this file
         const commentsByPosition = new Map();
@@ -940,41 +954,44 @@
             }
             commentsByPosition.get(posKey).push(comment);
           } catch (e) {
-            console.warn('Invalid position data for comment:', comment.id);
+            console.warn('Invalid position data for comment:', comment.id, e);
           }
         });
 
         // Create persistent indicators for positions with comments
         commentsByPosition.forEach((comments, posKey) => {
-          this.createPersistentIndicator(preview, comments[0], comments, panel);
+          this.createPersistentIndicator(preview, comments[0], comments, panel, currentPanelIndex);
         });
       });
     }
 
     getPositionKey(position) {
-      // Create a unique key for position matching
+      // Create a unique key for position matching with better specificity
       switch (position.type) {
         case 'json_node':
-          return `json:${position.path}`;
+          return `json:${position.path || 'root'}:${position.line || 0}`;
         case 'code_line':
+          return `code:${position.line || 1}`;
         case 'text_line':
-          return `line:${position.line}`;
+          return `text:${position.line || 1}`;
         case 'image_coords':
-          return `img:${position.x},${position.y}`;
+          return `img:${Math.round(position.x || 0)},${Math.round(position.y || 0)}`;
         default:
           return `unknown:${JSON.stringify(position)}`;
       }
     }
 
-    createPersistentIndicator(preview, firstComment, allComments, panel) {
+    createPersistentIndicator(preview, firstComment, allComments, panel, panelIndex) {
       if (!firstComment.position_data) return;
 
       try {
         const position = JSON.parse(firstComment.position_data);
         const posKey = this.getPositionKey(position);
+        const panelPosKey = `${panelIndex}:${posKey}`;
         
-        // Don't create duplicate persistent indicators
-        if (this.persistentIndicators.has(posKey)) {
+        // Don't create duplicate persistent indicators for this panel+position
+        if (this.persistentIndicators.has(panelPosKey)) {
+          console.log('Persistent indicator already exists for', panelPosKey);
           return;
         }
 
@@ -1001,17 +1018,20 @@
         indicator.className = 'comment-hover-indicator persistent';
         indicator.innerHTML = '💬';
         indicator.title = `${allComments.length} comment(s) at ${position.display || this.getPositionDisplay(position)}`;
+        indicator.dataset.panelIndex = panelIndex.toString();
+        indicator.dataset.positionKey = posKey;
         
         // Position indicator
         targetElement.appendChild(indicator);
 
-        // Track the persistent indicator
-        this.persistentIndicators.set(posKey, indicator);
+        // Track the persistent indicator with panel-specific key
+        this.persistentIndicators.set(panelPosKey, indicator);
+
+        console.log('Created persistent indicator for', panelPosKey, 'with', allComments.length, 'comments');
 
         // Add click handler to show existing comments
         indicator.addEventListener('click', (e) => {
           e.stopPropagation();
-          const panelIndex = panel ? parseInt(panel.dataset.panel || '0') : 0;
           this.showCommentOverlay(targetElement, position, panelIndex, allComments);
         });
 
@@ -1135,8 +1155,8 @@
       if (panel) {
         const preview = panel.querySelector('.preview');
         if (preview) {
-          // Clear all indicators (both hover and persistent)
-          this.clearAllIndicators(preview);
+          // Clear all indicators (both hover and persistent) for this panel only
+          this.clearAllIndicators(preview, panelIndex);
         }
       }
       
@@ -1147,8 +1167,8 @@
       this.refreshComments(panelIndex);
     }
 
-    clearPersistentIndicators(previewElement) {
-      // Remove persistent indicators and clean up tracking
+    clearPersistentIndicators(previewElement, panelIndex) {
+      // Remove persistent indicators for specific panel and clean up tracking
       const persistentIndicators = previewElement.querySelectorAll('.comment-hover-indicator.persistent');
       persistentIndicators.forEach(indicator => {
         const element = indicator.parentElement;
@@ -1159,15 +1179,21 @@
             element.classList.remove('comment-hover-area');
           }
         }
+        
+        // Remove from tracking map using panel-specific key
+        const posKey = indicator.dataset.positionKey;
+        if (posKey && panelIndex !== undefined) {
+          const panelPosKey = `${panelIndex}:${posKey}`;
+          this.persistentIndicators.delete(panelPosKey);
+          console.log('Cleared persistent indicator for', panelPosKey);
+        }
+        
         indicator.remove();
       });
-      
-      // Clear persistent indicators tracking
-      this.persistentIndicators.clear();
     }
 
-    clearAllIndicators(previewElement) {
-      // Remove all indicators and clean up tracking
+    clearAllIndicators(previewElement, panelIndex) {
+      // Remove all indicators for specific panel and clean up tracking
       const indicators = previewElement.querySelectorAll('.comment-hover-indicator');
       indicators.forEach(indicator => {
         const element = indicator.parentElement;
@@ -1175,12 +1201,23 @@
           this.hoverIndicators.delete(element);
           element.classList.remove('comment-hover-area', 'has-comments');
         }
+        
+        // Remove persistent indicator from tracking if it has position data
+        if (indicator.classList.contains('persistent')) {
+          const posKey = indicator.dataset.positionKey;
+          if (posKey && panelIndex !== undefined) {
+            const panelPosKey = `${panelIndex}:${posKey}`;
+            this.persistentIndicators.delete(panelPosKey);
+          }
+        }
+        
         indicator.remove();
       });
       
-      // Clear tracking maps
-      this.persistentIndicators.clear();
-      this.activeIndicator = null;
+      // Clear active indicator if it was in this panel
+      if (this.activeIndicator && !document.body.contains(this.activeIndicator)) {
+        this.activeIndicator = null;
+      }
     }
 
     escapeHTML(text) {
