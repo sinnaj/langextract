@@ -490,6 +490,10 @@
     }
 
     detectContentType(previewElement) {
+      // Check for UBERMODE tree structure first
+      if (previewElement.querySelector('.tree-node') || previewElement.querySelector('.tree-node-content')) {
+        return 'ubermode';
+      }
       // Detect content type from preview element structure
       if (previewElement.querySelector('.json-formatter-row')) return 'json';
       if (previewElement.querySelector('pre code')) return 'code';
@@ -503,6 +507,8 @@
       const previewRect = previewElement.getBoundingClientRect();
       
       switch (contentType) {
+        case 'ubermode':
+          return this.calculateUberModePosition(element, previewElement);
         case 'json':
           return this.calculateJSONPosition(element, previewElement);
         case 'code':
@@ -512,6 +518,59 @@
         default:
           return this.calculateTextPosition(element, previewElement);
       }
+    }
+
+    calculateUberModePosition(element, previewElement) {
+      // For UBERMODE tree nodes, identify the node and extraction details
+      const treeNode = element.closest('.tree-node') || element.closest('.flat-tree-node');
+      if (!treeNode) return null;
+
+      const nodeId = treeNode.getAttribute('data-node-id');
+      if (!nodeId) return null;
+
+      // Extract extraction ID and other metadata from the node
+      const nodeContent = treeNode.querySelector('.tree-node-content');
+      let extractionId = null;
+      let nodeType = 'unknown';
+      let nodeText = '';
+
+      if (nodeContent) {
+        // Try to extract information from the node content
+        const textElements = nodeContent.querySelectorAll('.text-gray-600, .text-gray-400, span');
+        for (const textEl of textElements) {
+          const text = textEl.textContent.trim();
+          if (text.includes('ID:')) {
+            // Extract extraction ID if available
+            const idMatch = text.match(/ID:\s*([^\s,)]+)/);
+            if (idMatch) {
+              extractionId = idMatch[1];
+            }
+          }
+          if (text.includes('Type:')) {
+            // Extract node type if available
+            const typeMatch = text.match(/Type:\s*([^\s,)]+)/);
+            if (typeMatch) {
+              nodeType = typeMatch[1];
+            }
+          }
+        }
+        
+        // Get the main node text (usually the first part)
+        const primaryText = nodeContent.querySelector('.font-medium, .text-gray-900, .text-white');
+        if (primaryText) {
+          nodeText = primaryText.textContent.trim();
+        }
+      }
+
+      // Generate a unique position key for this tree node
+      return {
+        type: 'ubermode_node',
+        node_id: nodeId,
+        extraction_id: extractionId || nodeId,
+        node_type: nodeType,
+        node_text: nodeText.substring(0, 50), // Limit length for display
+        display: `${nodeType || 'Node'}: ${nodeText.substring(0, 30) || nodeId}`
+      };
     }
 
     calculateJSONPosition(element, previewElement) {
@@ -682,6 +741,10 @@
       if (pos1.type !== pos2.type) return false;
       
       switch (pos1.type) {
+        case 'ubermode_node':
+          // For UBERMODE nodes, match by extraction_id or node_id
+          return (pos1.extraction_id === pos2.extraction_id) || 
+                 (pos1.node_id === pos2.node_id);
         case 'json_node':
           // Match both path and line for JSON nodes
           return (pos1.path === pos2.path) && 
@@ -772,17 +835,33 @@
         if (!text) return;
 
         try {
+          // First, save the comment
           await this.saveComment(text, position, panelIndex);
           this.closeOverlay();
           
-          // Clear ALL indicators for this panel before refreshing to prevent duplication
+          // Clear ALL indicators for this panel to prevent any duplication
           const panel = document.querySelector(`.preview-panel[data-panel="${panelIndex}"]`);
           if (panel) {
             const preview = panel.querySelector('.preview');
             if (preview) {
+              // Enhanced cleanup: clear all tracking maps for this panel
               this.clearAllIndicators(preview, panelIndex);
+              
+              // Also clear any lingering hover indicators that might not have been tracked properly
+              const allIndicators = preview.querySelectorAll('.comment-hover-indicator');
+              allIndicators.forEach(indicator => {
+                const element = indicator.parentElement;
+                if (element) {
+                  this.hoverIndicators.delete(element);
+                  element.classList.remove('comment-hover-area', 'has-comments');
+                }
+                indicator.remove();
+              });
             }
           }
+          
+          // Add a small delay to ensure cleanup is complete before refreshing
+          await new Promise(resolve => setTimeout(resolve, 100));
           
           // Refresh comments and update indicators
           await this.refreshComments(panelIndex);
@@ -863,14 +942,8 @@
       const result = await CommentsAPI.createComment(commentData);
       console.log('Comment saved successfully:', result);
       
-      // Immediately add the new comment to our local array to prevent timing issues
-      this.comments.push({
-        id: result.id,
-        text_body: text,
-        author_name: userName,
-        position_data: JSON.stringify(position),
-        created_at: result.created_at || new Date().toISOString()
-      });
+      // Don't immediately update local array - let refreshComments handle it
+      // This prevents timing conflicts between local and server state
       
       return result;
     }
@@ -989,6 +1062,8 @@
     getPositionKey(position) {
       // Create a unique key for position matching with better specificity
       switch (position.type) {
+        case 'ubermode_node':
+          return `ubermode:${position.extraction_id || position.node_id}:${position.node_type || 'unknown'}`;
         case 'json_node':
           return `json:${position.path || 'root'}:${position.line || 0}`;
         case 'code_line':
@@ -1069,6 +1144,8 @@
       // More robust element finding based on position type
       try {
         switch (position.type) {
+          case 'ubermode_node':
+            return this.findUberModeElement(preview, position);
           case 'json_node':
             return this.findJSONElement(preview, position);
           case 'code_line':
@@ -1083,6 +1160,36 @@
         console.warn('Error finding element for position:', position, e);
         return null;
       }
+    }
+
+    findUberModeElement(preview, position) {
+      // For UBERMODE, find the tree node by its node_id
+      const nodeId = position.node_id;
+      if (!nodeId) return null;
+
+      // Look for tree nodes with the matching data-node-id
+      const treeNode = preview.querySelector(`[data-node-id="${nodeId}"]`);
+      if (treeNode) {
+        // Return the node content for better positioning
+        const nodeContent = treeNode.querySelector('.tree-node-content');
+        return nodeContent || treeNode;
+      }
+
+      // Fallback: look for any tree node containing similar text or extraction ID
+      const allTreeNodes = preview.querySelectorAll('.tree-node, .flat-tree-node');
+      for (const node of allTreeNodes) {
+        const nodeContent = node.querySelector('.tree-node-content');
+        if (nodeContent) {
+          const text = nodeContent.textContent.toLowerCase();
+          // Try to match by extraction ID or node text
+          if ((position.extraction_id && text.includes(position.extraction_id.toLowerCase())) ||
+              (position.node_text && text.includes(position.node_text.toLowerCase().substring(0, 20)))) {
+            return nodeContent;
+          }
+        }
+      }
+
+      return null;
     }
 
     findJSONElement(preview, position) {
