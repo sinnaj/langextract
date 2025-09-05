@@ -861,10 +861,12 @@
           }
           
           // Add a small delay to ensure cleanup is complete before refreshing
-          await new Promise(resolve => setTimeout(resolve, 100));
+          await new Promise(resolve => setTimeout(resolve, 150));
           
           // Refresh comments and update indicators
           await this.refreshComments(panelIndex);
+          
+          console.log('Comment saved and indicators refreshed successfully for panel:', panelIndex);
         } catch (error) {
           alert('Error saving comment: ' + error.message);
         }
@@ -1008,12 +1010,24 @@
 
     async refreshComments(panelIndex) {
       if (this.currentFilePath) {
-        console.log('Refreshing comments for file:', this.currentFilePath, 'panel:', panelIndex);
+        console.log('=== Refreshing comments for file:', this.currentFilePath, 'panel:', panelIndex);
+        
+        // Get fresh comments from server
         this.comments = await CommentsAPI.getComments(this.currentFilePath);
-        console.log('Loaded comments:', this.comments.length, 'comments');
+        console.log('Loaded comments:', this.comments.length, 'comments for file:', this.currentFilePath);
+        
+        if (this.comments.length > 0) {
+          console.log('Comment details:', this.comments.map(c => ({
+            id: c.id,
+            position: c.position_data ? JSON.parse(c.position_data) : null,
+            author: c.author_name,
+            text: c.text_body?.substring(0, 50) + '...'
+          })));
+        }
         
         // Update comment indicators to show persistent indicators for existing comments
         this.updateCommentIndicators(panelIndex);
+        console.log('=== Comments refresh complete for panel:', panelIndex);
       }
     }
 
@@ -1095,6 +1109,13 @@
         const targetElement = this.findElementForPosition(preview, position);
         if (!targetElement) {
           console.warn('Could not find target element for position:', position);
+          return;
+        }
+
+        // Check if this element already has ANY persistent indicator to prevent duplicates
+        const existingPersistent = targetElement.querySelector('.comment-hover-indicator.persistent');
+        if (existingPersistent) {
+          console.log('Element already has a persistent indicator, skipping:', posKey);
           return;
         }
 
@@ -1337,6 +1358,7 @@
           if (posKey && panelIndex !== undefined) {
             const panelPosKey = `${panelIndex}:${posKey}`;
             this.persistentIndicators.delete(panelPosKey);
+            console.log('Clearing persistent indicator:', panelPosKey);
           }
         }
         
@@ -1347,6 +1369,16 @@
       if (this.activeIndicator && !document.body.contains(this.activeIndicator)) {
         this.activeIndicator = null;
       }
+      
+      // Additional cleanup: remove any lingering hover area classes
+      const hoverAreas = previewElement.querySelectorAll('.comment-hover-area');
+      hoverAreas.forEach(area => {
+        if (!area.querySelector('.comment-hover-indicator')) {
+          area.classList.remove('comment-hover-area', 'has-comments');
+        }
+      });
+      
+      console.log(`Cleared all indicators for panel ${panelIndex}. Persistent indicators remaining:`, this.persistentIndicators.size);
     }
 
     escapeHTML(text) {
