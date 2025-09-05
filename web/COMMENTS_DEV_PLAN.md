@@ -1,10 +1,19 @@
 # UI Integration Plan for Comments System
 
 ## Overview
-This document outlines the plan for integrating the backend commenting system with the existing web UI. The backend is now complete with SQLite database and REST API endpoints. The UI integration should wait until the ongoing UI refactoring is finished.
+This document outlines the plan for creating a very simple commenting system backend and integrating it into the existing tree view of the existing Web App UI . THE backend utilizes a SQLite database and REST API endpoints.
+
 
 ## Backend API Summary
-The following REST API endpoints are available:
+
+There is an existing solution that was severely overengineered. I want you to adjust the current implementation to a very streamlined approach that links Comments to dedicated extraction entities.
+Comments/Comment Threads should only exist in reference to a specific tree item.
+The item is itentified by combining the currently viewed Run and the items id.
+
+You can see the current implementation in `\web\static\comments.js`, `\web\comments_db.py` , `\web\app.py`
+
+Modify the backend to reflect this much more straighforward commenting behaviour. Remove any logic related to floating comments, comment position, mouse position.
+Remove any behaviour that is not directly linked to creating, fetching, viewing, editing, deleting comments or replying to comments.
 
 ### GET `/api/comments?file_path=<path>`
 - Retrieves all comments for a specific file
@@ -13,8 +22,8 @@ The following REST API endpoints are available:
 
 ### POST `/api/comments`
 - Creates a new comment
-- Required fields: `file_path`, `author_name`, `text_body`
-- Optional fields: `position_data`, `parent_comment_id`
+- Required fields: `file_path`, `author_name`, `text_body`, `tree_item`
+- Optional fields: `parent_comment_id`
 - Returns created comment with assigned ID
 
 ### PUT `/api/comments/<id>`
@@ -36,6 +45,7 @@ The following REST API endpoints are available:
 - Gets details of a specific comment
 - Includes reply count
 - Returns comment details
+
 
 ## UI Integration Points
 
@@ -129,24 +139,6 @@ Implement basic user identification:
 - Screen reader support for comment content
 - High contrast mode support for comment UI
 
-## Database Schema ADJUSTMENTS
-There os a current database schema that supports flexible position tracking:
-
-```json
-{
-  "line": 42,           // Text files
-  "column": 10,         // Text files
-  "page": 2,            // Multi-page documents
-  "path": "root.users[0].name",  // JSON files
-  "position": 1234,     // Markdown character position
-  "section": "Overview", // Markdown section
-  "x": 150,             // Image coordinates
-  "y": 200              // Image coordinates
-}
-```
-The flexible position tracking is not necessary. Completely rework this implementation. Comments/Comment Threads should only exist in reference to a tree item.
-Change the Endpoints managed in \web\static\comments.js to only store a reference to the item that the comment is created on.
-The item is itentified by combining the currently viewed Run and its entity id.
 
 ## Testing Strategy
 1. **Unit Tests**: Test individual comment UI components
