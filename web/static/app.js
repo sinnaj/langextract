@@ -727,12 +727,26 @@
               const isOptimizerUberMode = previewOptimizers[panelIndex].uberMode;
               
               // Wait for JSON data to be parsed before checking UBERMODE activation
-              setTimeout(() => {
+              // Use a more robust approach for large files
+              const waitForJsonData = (attempt = 1, maxAttempts = 20) => {
                 const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
                 const filePath = f.path || 'unknown';
                 const isCombinedExtractions = filePath.toLowerCase().includes('combined_extractions.json');
                 
-                console.log(`UBERMODE sync for file ${filePath}: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}, is combined_extractions=${isCombinedExtractions}`);
+                console.log(`UBERMODE sync attempt ${attempt} for file ${filePath}: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}, is combined_extractions=${isCombinedExtractions}`);
+                
+                if (!hasJsonData && attempt < maxAttempts) {
+                  // JSON not ready yet, wait longer and retry
+                  const delay = Math.min(100 * attempt, 1000); // Progressive delay up to 1 second
+                  console.log(`JSON not parsed yet, retrying in ${delay}ms (attempt ${attempt}/${maxAttempts})`);
+                  setTimeout(() => waitForJsonData(attempt + 1, maxAttempts), delay);
+                  return;
+                }
+                
+                if (!hasJsonData) {
+                  console.warn(`JSON data not available after ${maxAttempts} attempts, skipping UBERMODE sync`);
+                  return;
+                }
                 
                 // Auto-enable UBERMODE button for combined_extractions.json files
                 if (isCombinedExtractions && hasJsonData && !isButtonEnabled) {
@@ -754,7 +768,10 @@
                   previewOptimizers[panelIndex].toggleUberMode();
                   updateUberModeButton(uberToggle, false);
                 }
-              }, 100); // Small delay to ensure JSON parsing is complete
+              };
+              
+              // Start the waiting process
+              waitForJsonData();
             }
           } else {
             // Fallback to original loading method

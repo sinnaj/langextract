@@ -1574,7 +1574,9 @@ class PreviewOptimizer {
       jsonData: !!jsonData,
       meta: meta,
       dataKeys: Object.keys(jsonData || {}),
-      extractionCount: jsonData?.extractions?.length || 0
+      extractionCount: jsonData?.extractions?.length || 0,
+      sectionCount: jsonData?.sections?.length || 0,
+      documentMetadata: jsonData?.document_metadata || 'none'
     });
     
     // Detect file type and validate for UBERMODE
@@ -1589,13 +1591,17 @@ class PreviewOptimizer {
       isCombinedExtractions,
       hasExtractions: !!(jsonData?.extractions),
       hasChunkEvaluations: !!(jsonData?.chunk_evaluations),
+      hasDocumentMetadata: !!(jsonData?.document_metadata),
+      hasSections: !!(jsonData?.sections),
       dataStructureCheck: {
         topLevelKeys: Object.keys(jsonData || {}),
         extractionsArray: Array.isArray(jsonData?.extractions),
         extractionCount: jsonData?.extractions?.length || 0,
+        sectionsArray: Array.isArray(jsonData?.sections),
+        sectionCount: jsonData?.sections?.length || 0,
         chunkEvaluationsArray: Array.isArray(jsonData?.chunk_evaluations),
         chunkEvaluationCount: jsonData?.chunk_evaluations?.length || 0,
-        sourceFile: jsonData?.source_file || 'not found'
+        sourceFile: jsonData?.source_file || jsonData?.document_metadata?.source_file || 'not found'
       }
     });
     
@@ -1675,13 +1681,30 @@ class PreviewOptimizer {
       // Render tree visualization
       console.log('Creating tree visualization...');
       const treeContainer = this.createTreeVisualization(jsonData);
-      container.appendChild(treeContainer);
       
+      if (!treeContainer) {
+        throw new Error('Failed to create tree visualization container');
+      }
+      
+      container.appendChild(treeContainer);
       this.element.appendChild(container);
+      
       console.log('renderUberMode completed successfully');
+      console.log('Final DOM structure:', {
+        containerChildren: container.children.length,
+        treeContent: treeContainer.querySelector('.tree-content')?.children.length || 0,
+        totalNodesInDOM: this.element.querySelectorAll('.tree-node').length
+      });
     } catch (error) {
       console.error('Error in renderUberMode:', error);
       console.error('Stack trace:', error.stack);
+      console.error('Input data debug:', {
+        hasJsonData: !!jsonData,
+        jsonDataType: typeof jsonData,
+        jsonDataKeys: jsonData ? Object.keys(jsonData) : [],
+        extractionsType: jsonData?.extractions ? typeof jsonData.extractions : 'undefined',
+        extractionsLength: Array.isArray(jsonData?.extractions) ? jsonData.extractions.length : 'not array'
+      });
       
       // Show error message to user
       this.element.innerHTML = `
@@ -1689,6 +1712,13 @@ class PreviewOptimizer {
           <h3 class="text-red-800 font-semibold">UBERMODE Error</h3>
           <p class="text-red-600 mt-2">Failed to render tree view: ${error.message}</p>
           <p class="text-sm text-red-500 mt-1">Check browser console for details.</p>
+          <div class="mt-3 text-xs text-red-400 bg-red-100 p-2 rounded">
+            <strong>Debug info:</strong><br>
+            File: ${this.currentFile?.filePath || 'unknown'}<br>
+            Data type: ${typeof jsonData}<br>
+            Has extractions: ${!!(jsonData?.extractions)}<br>
+            Extractions count: ${jsonData?.extractions?.length || 0}
+          </div>
         </div>
       `;
     }
@@ -1943,7 +1973,23 @@ class PreviewOptimizer {
   buildDocumentTree(data) {
     const startTime = performance.now();
     console.log('Building document tree...');
-    console.log('Raw input data:', data);
+    console.log('Raw input data:', {
+      hasData: !!data,
+      dataType: typeof data,
+      dataKeys: data ? Object.keys(data) : [],
+      extractionInfo: {
+        hasExtractions: !!(data?.extractions),
+        extractionsType: data?.extractions ? typeof data.extractions : 'undefined',
+        extractionsIsArray: Array.isArray(data?.extractions),
+        extractionCount: Array.isArray(data?.extractions) ? data.extractions.length : 0
+      },
+      sectionInfo: {
+        hasSections: !!(data?.sections),
+        sectionsType: data?.sections ? typeof data.sections : 'undefined',
+        sectionsIsArray: Array.isArray(data?.sections),
+        sectionCount: Array.isArray(data?.sections) ? data.sections.length : 0
+      }
+    });
     
     const nodes = new Map();
     const rootNodes = [];
@@ -1951,11 +1997,13 @@ class PreviewOptimizer {
     // Normalize the data format to handle both old and new structures
     const normalizedData = this.normalizeJsonDataForUberMode(data);
     console.log('Normalized data for tree building:', {
+      hasNormalizedData: !!normalizedData,
       hasExtractions: !!(normalizedData?.extractions),
       extractionCount: normalizedData?.extractions?.length || 0,
       hasSections: !!(normalizedData?.sections),
       sectionCount: normalizedData?.sections?.length || 0,
-      sampleExtraction: normalizedData?.extractions?.[0] || null
+      sampleExtraction: normalizedData?.extractions?.[0] || null,
+      sampleSection: normalizedData?.sections?.[0] || null
     });
     
     // Handle extraction format
