@@ -777,6 +777,11 @@
             // Fallback to original loading method
             await loadFileOriginal(runId, f, panelIndex);
           }
+          
+          // Notify comments system about file change
+          if (window.commentsUI) {
+            window.commentsUI.onFileChanged(panelIndex, f.path);
+          }
         });
         
         // Initialize selection state

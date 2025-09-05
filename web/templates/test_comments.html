@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments UI Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .preview-panel { border: 1px solid #ccc; padding: 20px; margin: 10px; width: 600px; }
+        .preview { background: #f9f9f9; padding: 15px; border-radius: 5px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Comments UI Test</h1>
+    
+    <div class="preview-panel" data-panel="0">
+        <h3>Code Preview</h3>
+        <div class="preview">
+            <pre><code>function test() {
+    return "hello world";
+}
+
+const data = {
+    "name": "test",
+    "value": 42
+};</code></pre>
+        </div>
+    </div>
+
+    <div class="preview-panel" data-panel="1">
+        <h3>JSON Preview</h3>
+        <div class="preview">
+            <div class="json-viewer">
+                <div class="json-formatter-row">
+                    <span class="json-formatter-key">"document_id"</span>: <span>"test_doc"</span>
+                </div>
+                <div class="json-formatter-row">
+                    <span class="json-formatter-key">"extractions"</span>: <span>[...]</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/comments.js"></script>
+    <script>
+        // Override the API endpoint temporarily for testing
+        window.fetch = async (url, options) => {
+            if (url.includes('/api/comments')) {
+                if (options && options.method === 'POST') {
+                    console.log('Mock creating comment:', JSON.parse(options.body));
+                    return { 
+                        ok: true, 
+                        json: async () => ({ id: Date.now(), ...JSON.parse(options.body) })
+                    };
+                } else {
+                    // Mock getting comments
+                    return {
+                        ok: true,
+                        json: async () => ({
+                            comments: [
+                                {
+                                    id: 1,
+                                    text_body: "This is a test comment",
+                                    author_name: "Test User",
+                                    created_at: new Date().toISOString(),
+                                    position_data: JSON.stringify({
+                                        type: 'code_line',
+                                        line: 2,
+                                        display: 'Line 2'
+                                    })
+                                }
+                            ]
+                        })
+                    };
+                }
+            }
+            return window.originalFetch(url, options);
+        };
+
+        // Initialize after DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                if (window.hoverCommentsUI) {
+                    window.hoverCommentsUI.onFileChanged(0, 'test_file.js');
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
