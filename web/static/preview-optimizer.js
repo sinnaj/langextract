@@ -1983,7 +1983,8 @@ class PreviewOptimizer {
     if (!this.treeFilterState) {
       this.treeFilterState = {
         activeFilters: new Set(['Tag', 'Parameter']), // Default: filter out Tags and Parameters
-        availableTypes: new Set()
+        availableTypes: new Set(),
+        normLeafsOnly: false // Default: disabled (dark grey)
       };
     }
     
@@ -2015,10 +2016,15 @@ class PreviewOptimizer {
     
     // Add "Only show Roots with Norm Leafs" button
     const normLeafsButton = document.createElement('button');
-    normLeafsButton.className = 'px-3 py-1 text-xs bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-600 transition-colors';
+    const isNormLeafsActive = this.treeFilterState.normLeafsOnly;
+    normLeafsButton.className = `px-3 py-1 text-xs rounded transition-colors ${
+      isNormLeafsActive 
+        ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+        : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+    }`;
     normLeafsButton.textContent = 'Only show Roots with Norm Leafs';
     normLeafsButton.title = 'Show only Section root nodes that contain Norm descendants';
-    normLeafsButton.onclick = () => this.filterRootsWithNormLeafs(data, container);
+    normLeafsButton.onclick = () => this.toggleNormLeafsFilter(data, container);
     controls.appendChild(normLeafsButton);
 
     // Add "Disable all filters" button
@@ -2158,6 +2164,16 @@ class PreviewOptimizer {
             : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
         }`;
       }
+      
+      // Update "Only show Roots with Norm Leafs" button state
+      if (buttonText === 'Only show Roots with Norm Leafs') {
+        const isActive = this.treeFilterState.normLeafsOnly;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          isActive 
+            ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+            : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+        }`;
+      }
     });
     
     // Rebuild and re-render the tree
@@ -2176,6 +2192,40 @@ class PreviewOptimizer {
         </div>
       `;
     }
+  }
+
+  // Toggle the "Only show Roots with Norm Leafs" filter
+  toggleNormLeafsFilter(data, container) {
+    console.log('Toggling "Only show Roots with Norm Leafs" filter');
+    
+    // Toggle the state
+    this.treeFilterState.normLeafsOnly = !this.treeFilterState.normLeafsOnly;
+    
+    if (this.treeFilterState.normLeafsOnly) {
+      // Apply the filter
+      this.filterRootsWithNormLeafs(data, container);
+    } else {
+      // Reset to show all nodes with current entity type filters
+      this.refreshTreeVisualization(data, container);
+    }
+    
+    // Update button styling
+    this.updateNormLeafsButtonStyling(container);
+  }
+
+  // Update the styling of the "Only show Roots with Norm Leafs" button
+  updateNormLeafsButtonStyling(container) {
+    const buttons = container.querySelectorAll('.tree-controls button');
+    buttons.forEach(button => {
+      if (button.textContent === 'Only show Roots with Norm Leafs') {
+        const isActive = this.treeFilterState.normLeafsOnly;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          isActive 
+            ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+            : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+        }`;
+      }
+    });
   }
 
   // Filter to show only Section roots that have Norm leafs
@@ -2216,6 +2266,7 @@ class PreviewOptimizer {
     // Reset the tree filter state to show all entity types
     if (this.treeFilterState) {
       this.treeFilterState.activeFilters.clear();
+      this.treeFilterState.normLeafsOnly = false; // Reset norm leafs filter
     }
     
     // Refresh the tree visualization to reflect the change
