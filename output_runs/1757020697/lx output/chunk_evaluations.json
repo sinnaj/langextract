@@ -1,0 +1,5537 @@
+{
+  "source_file": "output_runs\\1757020697\\input\\DBSI_LlamaIndex.md",
+  "evaluation_statistics": {
+    "total_chunks": 246,
+    "extract_count": 162,
+    "drop_count": 18,
+    "manual_count": 66,
+    "extract_percentage": 65.9,
+    "drop_percentage": 7.3,
+    "manual_percentage": 26.8
+  },
+  "chunk_evaluations": [
+    {
+      "section_metadata": {
+        "section_id": "section_001",
+        "section_name": "Documento Básico **SI**",
+        "section_level": 1,
+        "section_index": 0,
+        "parent_section": null,
+        "sub_sections": [
+          "section_002",
+          "section_003"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 26,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_002",
+        "section_name": "Seguridad en caso de incendio",
+        "section_level": 2,
+        "section_index": 1,
+        "parent_section": "section_001",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 315,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_003",
+        "section_name": "Disposiciones normativas publicadas en el Boletín Oficial del Estado",
+        "section_level": 2,
+        "section_index": 2,
+        "parent_section": "section_001",
+        "sub_sections": [
+          "section_004"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 690,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "Documento Básico consolidado",
+        "section_level": 3,
+        "section_index": 3,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 284,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_005",
+        "section_name": "Introducción",
+        "section_level": 1,
+        "section_index": 4,
+        "parent_section": null,
+        "sub_sections": [
+          "section_006",
+          "section_007",
+          "section_008"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 15,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_006",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_index": 5,
+        "parent_section": "section_005",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3393,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_007",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_index": 6,
+        "parent_section": "section_005",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1473,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_008",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "section_index": 7,
+        "parent_section": "section_005",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2382,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_009",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 8,
+        "parent_section": null,
+        "sub_sections": [
+          "section_010",
+          "section_011",
+          "section_012",
+          "section_013",
+          "section_014"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "INTRODUCCIÓN",
+        "section_level": 2,
+        "section_index": 9,
+        "parent_section": "section_009",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 4864,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_011",
+        "section_name": "IV Condiciones particulares para el cumplimiento del DB-SI",
+        "section_level": 2,
+        "section_index": 10,
+        "parent_section": "section_009",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 453,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "V Condiciones de comportamiento ante el fuego de los productos de construcción y de los elementos constructivos",
+        "section_level": 2,
+        "section_index": 11,
+        "parent_section": "section_009",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2422,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_013",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "section_index": 12,
+        "parent_section": "section_009",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 922,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_014",
+        "section_name": "VII Terminología",
+        "section_level": 2,
+        "section_index": 13,
+        "parent_section": "section_009",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 463,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_015",
+        "section_name": "Índice",
+        "section_level": 1,
+        "section_index": 14,
+        "parent_section": null,
+        "sub_sections": [
+          "section_016",
+          "section_017",
+          "section_018",
+          "section_019",
+          "section_020",
+          "section_021"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 9,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Sección SI 1  Propagación interior",
+        "section_level": 2,
+        "section_index": 15,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 325,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_017",
+        "section_name": "Sección SI 2  Propagación exterior",
+        "section_level": 2,
+        "section_index": 16,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 87,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Sección SI 3  Evacuación de ocupantes",
+        "section_level": 2,
+        "section_index": 17,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 564,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_019",
+        "section_name": "Sección SI 4  Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 18,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 209,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_020",
+        "section_name": "Sección SI 5  Intervención de los bomberos",
+        "section_level": 2,
+        "section_index": 19,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 171,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_021",
+        "section_name": "2  Accesibilidad por fachada",
+        "section_level": 2,
+        "section_index": 20,
+        "parent_section": "section_015",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 32,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_022",
+        "section_name": "Sección SI 6   Resistencia al fuego de la estructura",
+        "section_level": 1,
+        "section_index": 21,
+        "parent_section": null,
+        "sub_sections": [
+          "section_023",
+          "section_024",
+          "section_025",
+          "section_026",
+          "section_027",
+          "section_028"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 55,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_023",
+        "section_name": "1  Generalidades",
+        "section_level": 2,
+        "section_index": 22,
+        "parent_section": "section_022",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 20,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_024",
+        "section_name": "2  Resistencia al fuego de la estructura",
+        "section_level": 2,
+        "section_index": 23,
+        "parent_section": "section_022",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 44,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_025",
+        "section_name": "3  Elementos estructurales principales",
+        "section_level": 2,
+        "section_index": 24,
+        "parent_section": "section_022",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 42,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_026",
+        "section_name": "4  Elementos estructurales secundarios",
+        "section_level": 2,
+        "section_index": 25,
+        "parent_section": "section_022",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 42,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_027",
+        "section_name": "5  Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_index": 26,
+        "parent_section": "section_022",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 71,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_028",
+        "section_name": "6  Determinación de la *resistencia al fuego*",
+        "section_level": 2,
+        "section_index": 27,
+        "parent_section": "section_022",
+        "sub_sections": [
+          "section_029",
+          "section_030",
+          "section_031",
+          "section_032",
+          "section_033",
+          "section_034",
+          "section_035"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 49,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_029",
+        "section_name": "Anejo SI A",
+        "section_level": 3,
+        "section_index": 28,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 30,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_030",
+        "section_name": "Anejo SI B",
+        "section_level": 3,
+        "section_index": 29,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 61,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_031",
+        "section_name": "Anejo SI C",
+        "section_level": 3,
+        "section_index": 30,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 78,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_032",
+        "section_name": "Anejo SI D",
+        "section_level": 3,
+        "section_index": 31,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 68,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_033",
+        "section_name": "Anejo SI E",
+        "section_level": 3,
+        "section_index": 32,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 69,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_034",
+        "section_name": "Anejo SI F",
+        "section_level": 3,
+        "section_index": 33,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 68,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_035",
+        "section_name": "Anejo SI G",
+        "section_level": 3,
+        "section_index": 34,
+        "parent_section": "section_028",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 72,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_036",
+        "section_name": "Sección SI 1",
+        "section_level": 1,
+        "section_index": 35,
+        "parent_section": null,
+        "sub_sections": [
+          "section_037"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_037",
+        "section_name": "Propagación interior",
+        "section_level": 2,
+        "section_index": 36,
+        "parent_section": "section_036",
+        "sub_sections": [
+          "section_038"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 24,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_038",
+        "section_name": "1 Compartimentación en *sectores de incendio*",
+        "section_level": 3,
+        "section_index": 37,
+        "parent_section": "section_037",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2923,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_039",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 38,
+        "parent_section": null,
+        "sub_sections": [
+          "section_040"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_040",
+        "section_name": "SI 1. Propagación interior",
+        "section_level": 2,
+        "section_index": 39,
+        "parent_section": "section_039",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 4183,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_041",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 40,
+        "parent_section": null,
+        "sub_sections": [
+          "section_042"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_042",
+        "section_name": "SI 1. Propagación interior",
+        "section_level": 2,
+        "section_index": 41,
+        "parent_section": "section_041",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3245,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_043",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 42,
+        "parent_section": null,
+        "sub_sections": [
+          "section_044",
+          "section_045"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_044",
+        "section_name": "SI 1. Propagación interior",
+        "section_level": 2,
+        "section_index": 43,
+        "parent_section": "section_043",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3311,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_045",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "section_index": 44,
+        "parent_section": "section_043",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1004,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_046",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 45,
+        "parent_section": null,
+        "sub_sections": [
+          "section_047"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_047",
+        "section_name": "SI 1. Propagación interior",
+        "section_level": 2,
+        "section_index": 46,
+        "parent_section": "section_046",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3122,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_048",
+        "section_name": "Documento Básico SI Seguridad en caso de Incendio",
+        "section_level": 1,
+        "section_index": 47,
+        "parent_section": null,
+        "sub_sections": [
+          "section_049"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_049",
+        "section_name": "SI 1. Propagación interior",
+        "section_level": 2,
+        "section_index": 48,
+        "parent_section": "section_048",
+        "sub_sections": [
+          "section_050",
+          "section_051",
+          "section_052",
+          "section_053",
+          "section_054"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 30,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_050",
+        "section_name": "Hospitalario",
+        "section_level": 3,
+        "section_index": 49,
+        "parent_section": "section_049",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 264,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_051",
+        "section_name": "Administrativo",
+        "section_level": 3,
+        "section_index": 50,
+        "parent_section": "section_049",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 186,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_052",
+        "section_name": "Residencial Público",
+        "section_level": 3,
+        "section_index": 51,
+        "parent_section": "section_049",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 118,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_053",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "section_index": 52,
+        "parent_section": "section_049",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 835,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_054",
+        "section_name": "Pública concurrencia",
+        "section_level": 3,
+        "section_index": 53,
+        "parent_section": "section_049",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 6398,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_055",
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_level": 1,
+        "section_index": 54,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1529,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_056",
+        "section_name": "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+        "section_level": 1,
+        "section_index": 55,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3835,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_057",
+        "section_name": "Sección SI 2",
+        "section_level": 1,
+        "section_index": 56,
+        "parent_section": null,
+        "sub_sections": [
+          "section_058"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_058",
+        "section_name": "Propagación exterior",
+        "section_level": 2,
+        "section_index": 57,
+        "parent_section": "section_057",
+        "sub_sections": [
+          "section_059",
+          "section_060"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 24,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_059",
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 3,
+        "section_index": 58,
+        "parent_section": "section_058",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1323,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_060",
+        "section_name": "Figuras explicativas",
+        "section_level": 3,
+        "section_index": 59,
+        "parent_section": "section_058",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 598,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_061",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 60,
+        "parent_section": null,
+        "sub_sections": [
+          "section_062"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_062",
+        "section_name": "SI 2. Propagación exterior",
+        "section_level": 2,
+        "section_index": 61,
+        "parent_section": "section_061",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 297,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_063",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 62,
+        "parent_section": null,
+        "sub_sections": [
+          "section_064"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_064",
+        "section_name": "SI 2. Propagación exterior",
+        "section_level": 2,
+        "section_index": 63,
+        "parent_section": "section_063",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1991,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_065",
+        "section_name": "Sección SI 3",
+        "section_level": 1,
+        "section_index": 64,
+        "parent_section": null,
+        "sub_sections": [
+          "section_066"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_066",
+        "section_name": "Evacuación de ocupantes",
+        "section_level": 2,
+        "section_index": 65,
+        "parent_section": "section_065",
+        "sub_sections": [
+          "section_067",
+          "section_068"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 27,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_067",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 3,
+        "section_index": 66,
+        "parent_section": "section_066",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1511,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_068",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 3,
+        "section_index": 67,
+        "parent_section": "section_066",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 7157,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_069",
+        "section_name": "3 Número de salidas y longitud de los *recorridos de evacuación*",
+        "section_level": 1,
+        "section_index": 68,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1133,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_070",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 69,
+        "parent_section": null,
+        "sub_sections": [
+          "section_071"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_071",
+        "section_name": "SI 3. Evacuación de ocupantes",
+        "section_level": 2,
+        "section_index": 70,
+        "parent_section": "section_070",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3057,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_072",
+        "section_name": "4 Dimensionado de los medios de evacuación",
+        "section_level": 1,
+        "section_index": 71,
+        "parent_section": null,
+        "sub_sections": [
+          "section_073",
+          "section_074"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 45,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_073",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 2,
+        "section_index": 72,
+        "parent_section": "section_072",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1221,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_074",
+        "section_name": "4.2 Cálculo",
+        "section_level": 2,
+        "section_index": 73,
+        "parent_section": "section_072",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2965,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_075",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 74,
+        "parent_section": null,
+        "sub_sections": [
+          "section_076"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_076",
+        "section_name": "SI 3. Evacuación de ocupantes",
+        "section_level": 2,
+        "section_index": 75,
+        "parent_section": "section_075",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 5337,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_077",
+        "section_name": "Protección de las escaleras",
+        "section_level": 1,
+        "section_index": 76,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3712,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_078",
+        "section_name": "6 Puertas situadas en recorridos de evacuación",
+        "section_level": 1,
+        "section_index": 77,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3442,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_079",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 1,
+        "section_index": 78,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2852,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_080",
+        "section_name": "Control del humo de incendio",
+        "section_level": 1,
+        "section_index": 79,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1758,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_081",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 1,
+        "section_index": 80,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1724,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_082",
+        "section_name": "Sección SI 4",
+        "section_level": 1,
+        "section_index": 81,
+        "parent_section": null,
+        "sub_sections": [
+          "section_083"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_083",
+        "section_name": "Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 82,
+        "parent_section": "section_082",
+        "sub_sections": [
+          "section_084"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 48,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_084",
+        "section_name": "1  Dotación de instalaciones de protección contra incendios",
+        "section_level": 3,
+        "section_index": 83,
+        "parent_section": "section_083",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2551,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_085",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 84,
+        "parent_section": null,
+        "sub_sections": [
+          "section_086"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_086",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 85,
+        "parent_section": "section_085",
+        "sub_sections": [
+          "section_087",
+          "section_088",
+          "section_089",
+          "section_090"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 761,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_087",
+        "section_name": "Residencial Vivienda",
+        "section_level": 3,
+        "section_index": 86,
+        "parent_section": "section_086",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 367,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_088",
+        "section_name": "Administrativo",
+        "section_level": 3,
+        "section_index": 87,
+        "parent_section": "section_086",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 639,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_089",
+        "section_name": "Residencial Público",
+        "section_level": 3,
+        "section_index": 88,
+        "parent_section": "section_086",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 687,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_090",
+        "section_name": "Hospitalario",
+        "section_level": 3,
+        "section_index": 89,
+        "parent_section": "section_086",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 744,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_091",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 90,
+        "parent_section": null,
+        "sub_sections": [
+          "section_092",
+          "section_097"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_092",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 91,
+        "parent_section": "section_091",
+        "sub_sections": [
+          "section_093",
+          "section_094",
+          "section_095",
+          "section_096"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 364,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_093",
+        "section_name": "Docente",
+        "section_level": 3,
+        "section_index": 92,
+        "parent_section": "section_092",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 632,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_094",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "section_index": 93,
+        "parent_section": "section_092",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1222,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_095",
+        "section_name": "Pública concurrencia",
+        "section_level": 3,
+        "section_index": 94,
+        "parent_section": "section_092",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 623,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_096",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "section_index": 95,
+        "parent_section": "section_092",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2970,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_097",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2,
+        "section_index": 96,
+        "parent_section": "section_091",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 323,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_098",
+        "section_name": "Sección SI 5",
+        "section_level": 1,
+        "section_index": 97,
+        "parent_section": null,
+        "sub_sections": [
+          "section_099"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_099",
+        "section_name": "Intervención de los bomberos",
+        "section_level": 2,
+        "section_index": 98,
+        "parent_section": "section_098",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 32,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_100",
+        "section_name": "1 Condiciones de aproximación y entorno(1)",
+        "section_level": 1,
+        "section_index": 99,
+        "parent_section": null,
+        "sub_sections": [
+          "section_101",
+          "section_102",
+          "section_103"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 45,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_101",
+        "section_name": "1.1 Aproximación a los edificios",
+        "section_level": 2,
+        "section_index": 100,
+        "parent_section": "section_100",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 541,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_102",
+        "section_name": "1.2 Entorno de los edificios",
+        "section_level": 2,
+        "section_index": 101,
+        "parent_section": "section_100",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2886,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_103",
+        "section_name": "Accesibilidad por fachada",
+        "section_level": 2,
+        "section_index": 102,
+        "parent_section": "section_100",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1263,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_104",
+        "section_name": "Sección SI 6",
+        "section_level": 1,
+        "section_index": 103,
+        "parent_section": null,
+        "sub_sections": [
+          "section_105"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_105",
+        "section_name": "Resistencia al fuego de la estructura",
+        "section_level": 2,
+        "section_index": 104,
+        "parent_section": "section_104",
+        "sub_sections": [
+          "section_106",
+          "section_107"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 41,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_106",
+        "section_name": "1 Generalidades",
+        "section_level": 3,
+        "section_index": 105,
+        "parent_section": "section_105",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2359,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_107",
+        "section_name": "2 Resistencia al fuego de la estructura",
+        "section_level": 3,
+        "section_index": 106,
+        "parent_section": "section_105",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 766,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_108",
+        "section_name": "Elementos estructurales principales",
+        "section_level": 1,
+        "section_index": 107,
+        "parent_section": null,
+        "sub_sections": [
+          "section_109",
+          "section_110"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3849,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_109",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "section_index": 108,
+        "parent_section": "section_108",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1214,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_110",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_index": 109,
+        "parent_section": "section_108",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1388,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_111",
+        "section_name": "6 Determinación de la *resistencia al fuego*",
+        "section_level": 1,
+        "section_index": 110,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1527,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_112",
+        "section_name": "Anejo SI A  Terminología",
+        "section_level": 1,
+        "section_index": 111,
+        "parent_section": null,
+        "sub_sections": [
+          "section_113",
+          "section_114",
+          "section_115"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 656,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_113",
+        "section_name": "Altura de evacuación",
+        "section_level": 2,
+        "section_index": 112,
+        "parent_section": "section_112",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 304,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_114",
+        "section_name": "Aparcamiento abierto",
+        "section_level": 2,
+        "section_index": 113,
+        "parent_section": "section_112",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 441,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_115",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_index": 114,
+        "parent_section": "section_112",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1581,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_116",
+        "section_name": "Atrio",
+        "section_level": 1,
+        "section_index": 115,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 283,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_117",
+        "section_name": "Caja escénica",
+        "section_level": 1,
+        "section_index": 116,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1829,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_118",
+        "section_name": "Carga de fuego",
+        "section_level": 1,
+        "section_index": 117,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 221,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_119",
+        "section_name": "Curva normalizada tiempo-temperatura",
+        "section_level": 1,
+        "section_index": 118,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 167,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_120",
+        "section_name": "Curvas tiempo-temperatura",
+        "section_level": 1,
+        "section_index": 119,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 543,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_121",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 120,
+        "parent_section": null,
+        "sub_sections": [
+          "section_122",
+          "section_128",
+          "section_129",
+          "section_130"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_122",
+        "section_name": "Anejo A. Terminología",
+        "section_level": 2,
+        "section_index": 121,
+        "parent_section": "section_121",
+        "sub_sections": [
+          "section_123",
+          "section_124",
+          "section_125",
+          "section_126",
+          "section_127"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 25,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_123",
+        "section_name": "Densidad de carga de fuego",
+        "section_level": 3,
+        "section_index": 122,
+        "parent_section": "section_122",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 198,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_124",
+        "section_name": "Densidad de carga de fuego de cálculo",
+        "section_level": 3,
+        "section_index": 123,
+        "parent_section": "section_122",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 233,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_125",
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 3,
+        "section_index": 124,
+        "parent_section": "section_122",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 566,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_126",
+        "section_name": "Escalera especialmente protegida",
+        "section_level": 3,
+        "section_index": 125,
+        "parent_section": "section_122",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 505,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_127",
+        "section_name": "Escalera protegida",
+        "section_level": 3,
+        "section_index": 126,
+        "parent_section": "section_122",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3250,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_128",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_index": 127,
+        "parent_section": "section_121",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1678,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_129",
+        "section_name": "Establecimiento",
+        "section_level": 2,
+        "section_index": 128,
+        "parent_section": "section_121",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 390,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_130",
+        "section_name": "Fuego de cálculo",
+        "section_level": 2,
+        "section_index": 129,
+        "parent_section": "section_121",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 114,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_131",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 130,
+        "parent_section": null,
+        "sub_sections": [
+          "section_132"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_132",
+        "section_name": "Anejo A. Terminología",
+        "section_level": 2,
+        "section_index": 131,
+        "parent_section": "section_131",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2899,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_133",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 1,
+        "section_index": 132,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3976,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_134",
+        "section_name": "Recorridos de evacuación alternativos",
+        "section_level": 1,
+        "section_index": 133,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 404,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_135",
+        "section_name": "Resistencia al fuego",
+        "section_level": 1,
+        "section_index": 134,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 283,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_136",
+        "section_name": "Salida de edificio",
+        "section_level": 1,
+        "section_index": 135,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 354,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_137",
+        "section_name": "Salida de emergencia",
+        "section_level": 1,
+        "section_index": 136,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 179,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_138",
+        "section_name": "Salida de planta",
+        "section_level": 1,
+        "section_index": 137,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1606,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_139",
+        "section_name": "Sector bajo rasante",
+        "section_level": 1,
+        "section_index": 138,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 202,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_140",
+        "section_name": "Sector de incendio",
+        "section_level": 1,
+        "section_index": 139,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 387,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_141",
+        "section_name": "Sector de riesgo mínimo",
+        "section_level": 1,
+        "section_index": 140,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 842,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_142",
+        "section_name": "Sistema de alarma de incendios",
+        "section_level": 1,
+        "section_index": 141,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 143,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_143",
+        "section_name": "Sistema de detección de incendios",
+        "section_level": 1,
+        "section_index": 142,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 237,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_144",
+        "section_name": "Sistema de presión diferencial",
+        "section_level": 1,
+        "section_index": 143,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 283,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_145",
+        "section_name": "Superficie útil",
+        "section_level": 1,
+        "section_index": 144,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 447,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_146",
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_level": 1,
+        "section_index": 145,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 258,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_147",
+        "section_name": "Uso Administrativo",
+        "section_level": 1,
+        "section_index": 146,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 258,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_148",
+        "section_name": "Uso Almacén",
+        "section_level": 1,
+        "section_index": 147,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 591,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_149",
+        "section_name": "Uso Aparcamiento",
+        "section_level": 1,
+        "section_index": 148,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1319,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_150",
+        "section_name": "Uso Comercial",
+        "section_level": 1,
+        "section_index": 149,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 885,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_151",
+        "section_name": "Uso Docente",
+        "section_level": 1,
+        "section_index": 150,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 425,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_152",
+        "section_name": "Uso Hospitalario",
+        "section_level": 1,
+        "section_index": 151,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 605,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_153",
+        "section_name": "Uso Residencial Público",
+        "section_level": 1,
+        "section_index": 152,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 410,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_154",
+        "section_name": "Uso Residencial Vivienda",
+        "section_level": 1,
+        "section_index": 153,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 184,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_155",
+        "section_name": "Ventilación forzada",
+        "section_level": 1,
+        "section_index": 154,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 86,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_156",
+        "section_name": "Ventilación natural",
+        "section_level": 1,
+        "section_index": 155,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 168,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_157",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 1,
+        "section_index": 156,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2983,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_158",
+        "section_name": "Anejo B  Tiempo equivalente de exposición al fuego",
+        "section_level": 1,
+        "section_index": 157,
+        "parent_section": null,
+        "sub_sections": [
+          "section_159",
+          "section_160",
+          "section_161"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 53,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_159",
+        "section_name": "B.1  Generalidades",
+        "section_level": 2,
+        "section_index": 158,
+        "parent_section": "section_158",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 754,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_160",
+        "section_name": "B.2  Curva normalizada tiempo – temperatura",
+        "section_level": 2,
+        "section_index": 159,
+        "parent_section": "section_158",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 932,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_161",
+        "section_name": "B.3  Tiempo equivalente de exposición al fuego",
+        "section_level": 2,
+        "section_index": 160,
+        "parent_section": "section_158",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3409,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_162",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 1,
+        "section_index": 161,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2736,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_163",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 162,
+        "parent_section": null,
+        "sub_sections": [
+          "section_164",
+          "section_165"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_164",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 163,
+        "parent_section": "section_163",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1595,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_165",
+        "section_name": "B.5 Valor característico de la *densidad de carga de fuego* (1)",
+        "section_level": 2,
+        "section_index": 164,
+        "parent_section": "section_163",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2224,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_166",
+        "section_name": "Anejo C. **Resistencia al fuego** de las estructuras de hormigón armado",
+        "section_level": 1,
+        "section_index": 165,
+        "parent_section": null,
+        "sub_sections": [
+          "section_167",
+          "section_168",
+          "section_170",
+          "section_171",
+          "section_172",
+          "section_173",
+          "section_174",
+          "section_175",
+          "section_176",
+          "section_177"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 74,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_167",
+        "section_name": "C.1 Generalidades",
+        "section_level": 2,
+        "section_index": 166,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 497,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_168",
+        "section_name": "C.2 Tablas",
+        "section_level": 2,
+        "section_index": 167,
+        "parent_section": "section_166",
+        "sub_sections": [
+          "section_169"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 14,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_169",
+        "section_name": "C.2.1 Generalidades",
+        "section_level": 3,
+        "section_index": 168,
+        "parent_section": "section_168",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3261,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_170",
+        "section_name": "C.2.2 Soportes y muros",
+        "section_level": 2,
+        "section_index": 169,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1879,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_171",
+        "section_name": "C.2.3 Vigas",
+        "section_level": 2,
+        "section_index": 170,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 881,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_172",
+        "section_name": "C.2.3.1 Vigas con las tres caras expuestas al fuego",
+        "section_level": 2,
+        "section_index": 171,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1688,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_173",
+        "section_name": "C.2.3.2 Vigas expuestas en todas sus caras",
+        "section_level": 2,
+        "section_index": 172,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 211,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_174",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 2,
+        "section_index": 173,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2505,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_175",
+        "section_name": "C.2.3.4 Forjados bidireccionales",
+        "section_level": 2,
+        "section_index": 174,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2425,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_176",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 2,
+        "section_index": 175,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1615,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_177",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 2,
+        "section_index": 176,
+        "parent_section": "section_166",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 631,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_178",
+        "section_name": "C.3 Método simplificado de la isoterma 500",
+        "section_level": 1,
+        "section_index": 177,
+        "parent_section": null,
+        "sub_sections": [
+          "section_179",
+          "section_180",
+          "section_181",
+          "section_182"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 45,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_179",
+        "section_name": "C.3.1 Campo de aplicación",
+        "section_level": 3,
+        "section_index": 178,
+        "parent_section": "section_178",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 641,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_180",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_level": 3,
+        "section_index": 179,
+        "parent_section": "section_178",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1319,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_181",
+        "section_name": "C.3.3 Reducción de las características mecánicas",
+        "section_level": 3,
+        "section_index": 180,
+        "parent_section": "section_178",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1308,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_182",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "section_index": 181,
+        "parent_section": "section_178",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 565,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_183",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 182,
+        "parent_section": null,
+        "sub_sections": [
+          "section_184"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_184",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 183,
+        "parent_section": "section_183",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3076,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_185",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 184,
+        "parent_section": null,
+        "sub_sections": [
+          "section_186"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_186",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 185,
+        "parent_section": "section_185",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1869,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_187",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 186,
+        "parent_section": null,
+        "sub_sections": [
+          "section_188"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_188",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 187,
+        "parent_section": "section_187",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2646,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_189",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 188,
+        "parent_section": null,
+        "sub_sections": [
+          "section_190"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_190",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 189,
+        "parent_section": "section_189",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2089,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_191",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 190,
+        "parent_section": null,
+        "sub_sections": [
+          "section_192"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_192",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 191,
+        "parent_section": "section_191",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2721,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_193",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 192,
+        "parent_section": null,
+        "sub_sections": [
+          "section_194"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_194",
+        "section_name": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+        "section_level": 2,
+        "section_index": 193,
+        "parent_section": "section_193",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1230,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_195",
+        "section_name": "Anejo D  _Resistencia al fuego_ de los elementos de acero",
+        "section_level": 1,
+        "section_index": 194,
+        "parent_section": null,
+        "sub_sections": [
+          "section_196",
+          "section_197",
+          "section_199",
+          "section_201",
+          "section_203"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 60,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_196",
+        "section_name": "D.1  Generalidades",
+        "section_level": 2,
+        "section_index": 195,
+        "parent_section": "section_195",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 917,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_197",
+        "section_name": "D.2  Método simplificado de cálculo",
+        "section_level": 2,
+        "section_index": 196,
+        "parent_section": "section_195",
+        "sub_sections": [
+          "section_198"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 39,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_198",
+        "section_name": "D.2.1  Vigas y tirantes",
+        "section_level": 3,
+        "section_index": 197,
+        "parent_section": "section_197",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 4891,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_199",
+        "section_name": "D.2.2 Soportes",
+        "section_level": 2,
+        "section_index": 198,
+        "parent_section": "section_195",
+        "sub_sections": [
+          "section_200"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 18,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_200",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 3,
+        "section_index": 199,
+        "parent_section": "section_199",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 345,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_201",
+        "section_name": "Anejo D. Resistencia al fuego de los elementos de acero",
+        "section_level": 2,
+        "section_index": 200,
+        "parent_section": "section_195",
+        "sub_sections": [
+          "section_202"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1981,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_202",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_level": 3,
+        "section_index": 201,
+        "parent_section": "section_201",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3616,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_203",
+        "section_name": "D.3 Conexiones",
+        "section_level": 2,
+        "section_index": 202,
+        "parent_section": "section_195",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 379,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_204",
+        "section_name": "Anejo SI E **Resistencia al fuego** de las estructuras de madera",
+        "section_level": 1,
+        "section_index": 203,
+        "parent_section": null,
+        "sub_sections": [
+          "section_205",
+          "section_206"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 67,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_205",
+        "section_name": "E.1 Generalidades",
+        "section_level": 2,
+        "section_index": 204,
+        "parent_section": "section_204",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 241,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_206",
+        "section_name": "E.2 Método de la sección reducida",
+        "section_level": 2,
+        "section_index": 205,
+        "parent_section": "section_204",
+        "sub_sections": [
+          "section_207"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 37,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_207",
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_index": 206,
+        "parent_section": "section_206",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1901,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_208",
+        "section_name": "Frondosas",
+        "section_level": 1,
+        "section_index": 207,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 113,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_209",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 208,
+        "parent_section": null,
+        "sub_sections": [
+          "section_210",
+          "section_211"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_210",
+        "section_name": "Anejo E. Resistencia al fuego de las estructuras de madera",
+        "section_level": 2,
+        "section_index": 209,
+        "parent_section": "section_209",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3048,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_211",
+        "section_name": "E.2.3.2.3 Tiempos de fallo de revestimientos de protección",
+        "section_level": 2,
+        "section_index": 210,
+        "parent_section": "section_209",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1530,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_212",
+        "section_name": "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+        "section_level": 1,
+        "section_index": 211,
+        "parent_section": null,
+        "sub_sections": [
+          "section_213",
+          "section_214",
+          "section_215",
+          "section_216"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 75,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_213",
+        "section_name": "E.3.1 Generalidades",
+        "section_level": 2,
+        "section_index": 212,
+        "parent_section": "section_212",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 704,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_214",
+        "section_name": "E.3.2 Vigas",
+        "section_level": 2,
+        "section_index": 213,
+        "parent_section": "section_212",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 463,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_215",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 2,
+        "section_index": 214,
+        "parent_section": "section_212",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 437,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_216",
+        "section_name": "E.3.4 Elementos compuestos con uniones mecánicas",
+        "section_level": 2,
+        "section_index": 215,
+        "parent_section": "section_212",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 651,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_217",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 216,
+        "parent_section": null,
+        "sub_sections": [
+          "section_218"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_218",
+        "section_name": "Anejo E. Resistencia al fuego de las estructuras de madera",
+        "section_level": 2,
+        "section_index": 217,
+        "parent_section": "section_217",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 296,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_219",
+        "section_name": "E.4 Uniones",
+        "section_level": 1,
+        "section_index": 218,
+        "parent_section": null,
+        "sub_sections": [
+          "section_220",
+          "section_221"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 14,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_220",
+        "section_name": "E.4.1 Generalidades",
+        "section_level": 2,
+        "section_index": 219,
+        "parent_section": "section_219",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 553,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_221",
+        "section_name": "E.4.2 Uniones con piezas laterales de madera",
+        "section_level": 2,
+        "section_index": 220,
+        "parent_section": "section_219",
+        "sub_sections": [
+          "section_222"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 48,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_222",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_level": 3,
+        "section_index": 221,
+        "parent_section": "section_221",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1965,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_223",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 1,
+        "section_index": 222,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2827,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_224",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 223,
+        "parent_section": null,
+        "sub_sections": [
+          "section_225",
+          "section_227"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_225",
+        "section_name": "Anejo E. Resistencia al fuego de las estructuras de madera",
+        "section_level": 2,
+        "section_index": 224,
+        "parent_section": "section_224",
+        "sub_sections": [
+          "section_226"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 603,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_226",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_level": 3,
+        "section_index": 225,
+        "parent_section": "section_225",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2585,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_227",
+        "section_name": "E.4.3 Uniones con placas de acero al exterior",
+        "section_level": 2,
+        "section_index": 226,
+        "parent_section": "section_224",
+        "sub_sections": [
+          "section_228"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 49,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_228",
+        "section_name": "E.4.3.1 Uniones no protegidas",
+        "section_level": 3,
+        "section_index": 227,
+        "parent_section": "section_227",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 2928,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_229",
+        "section_name": "E.5 Disposiciones constructivas",
+        "section_level": 1,
+        "section_index": 228,
+        "parent_section": null,
+        "sub_sections": [
+          "section_230",
+          "section_234",
+          "section_235"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 34,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_230",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 2,
+        "section_index": 229,
+        "parent_section": "section_229",
+        "sub_sections": [
+          "section_231",
+          "section_232",
+          "section_233"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 26,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_231",
+        "section_name": "E.5.1.1 Dimensiones y separaciones",
+        "section_level": 3,
+        "section_index": 230,
+        "parent_section": "section_230",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 640,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_232",
+        "section_name": "E.5.1.2 Detalles de las uniones de los tableros",
+        "section_level": 3,
+        "section_index": 231,
+        "parent_section": "section_230",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 881,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_233",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 3,
+        "section_index": 232,
+        "parent_section": "section_230",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 210,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_234",
+        "section_name": "E.5.2 Otros elementos",
+        "section_level": 2,
+        "section_index": 233,
+        "parent_section": "section_229",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 901,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_235",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_index": 234,
+        "parent_section": "section_229",
+        "sub_sections": [
+          "section_236"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 752,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_236",
+        "section_name": "Figura E.7. Ejemplos de fijaciones para los tableros de protección",
+        "section_level": 3,
+        "section_index": 235,
+        "parent_section": "section_235",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 209,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_237",
+        "section_name": "Anejo F  **Resistencia al fuego de los elementos de fábrica**",
+        "section_level": 1,
+        "section_index": 236,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 3980,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_238",
+        "section_name": "Anejo SI G  Normas relacionadas con la aplicación del DB SI",
+        "section_level": 1,
+        "section_index": 237,
+        "parent_section": null,
+        "sub_sections": [
+          "section_239"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 583,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Identified as Table of Contents",
+        "processing_type": "drop",
+        "metadata": {
+          "content_type": "table_of_contents"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_239",
+        "section_name": "1 Reacción al fuego",
+        "section_level": 2,
+        "section_index": 238,
+        "parent_section": "section_238",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1488,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_240",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 239,
+        "parent_section": null,
+        "sub_sections": [
+          "section_241",
+          "section_242",
+          "section_245",
+          "section_246"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_241",
+        "section_name": "Anejo G. Normas relacionadas con la aplicación del DB SI",
+        "section_level": 2,
+        "section_index": 240,
+        "parent_section": "section_240",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1336,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_242",
+        "section_name": "2 Resistencia al fuego",
+        "section_level": 2,
+        "section_index": 241,
+        "parent_section": "section_240",
+        "sub_sections": [
+          "section_243",
+          "section_244"
+        ],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 7483,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_243",
+        "section_name": "3 Instalaciones para control del humo y del calor",
+        "section_level": 3,
+        "section_index": 242,
+        "parent_section": "section_242",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1285,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_244",
+        "section_name": "4 Puertas, herrajes y dispositivos de apertura",
+        "section_level": 3,
+        "section_index": 243,
+        "parent_section": "section_242",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 1560,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_245",
+        "section_name": "5 Señalización",
+        "section_level": 2,
+        "section_index": 244,
+        "parent_section": "section_240",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 479,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_246",
+        "section_name": "6 Otras materias",
+        "section_level": 2,
+        "section_index": 245,
+        "parent_section": "section_240",
+        "sub_sections": [],
+        "section_summary": "",
+        "section_type": "Headline"
+      },
+      "chunk_length": 542,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    }
+  ]
+}
