@@ -83,9 +83,10 @@
       this.comments = [];
       this.currentUser = this.getCurrentUser();
       this.activeOverlay = null;
-      this.hoverIndicators = new Map(); // Map panel -> indicators
+      this.hoverIndicators = new Map(); // Map element -> indicator
+      this.persistentIndicators = new Map(); // Map position_key -> indicator for existing comments
       this.hoverTimeout = null; // Debounce hover events
-      this.activeIndicator = null; // Currently shown indicator
+      this.activeIndicator = null; // Currently shown hover indicator
       this.lastHoverTime = 0; // Cooldown tracking
       this.hoverCooldown = 150; // Minimum time between indicator changes (ms)
       this.init();
@@ -128,23 +129,24 @@
       style.textContent = `
         .comment-hover-indicator {
           position: absolute;
-          left: -25px;
+          left: -30px;
           top: 50%;
           transform: translateY(-50%);
-          width: 16px;
-          height: 16px;
+          width: 24px;
+          height: 24px;
           background: #3b82f6;
           color: white;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 10px;
+          font-size: 14px;
           cursor: pointer;
           opacity: 0;
           transition: opacity 0.3s ease, transform 0.2s ease;
           z-index: 1000;
           will-change: opacity, transform;
+          pointer-events: auto;
         }
         
         .comment-hover-indicator.show {
@@ -310,7 +312,7 @@
         }
         
         .has-comments .comment-hover-indicator {
-          background: #10b981;
+          background: #2563eb;
           opacity: 1;
         }
         
@@ -319,7 +321,7 @@
         }
         
         .has-comments .comment-hover-indicator:hover {
-          background: #059669;
+          background: #1d4ed8;
           transform: translateY(-50%) scale(1.1);
         }
       `;
@@ -379,13 +381,20 @@
     }
 
     clearPreviewHover(previewElement) {
-      // Remove existing hover indicators
-      const indicators = previewElement.querySelectorAll('.comment-hover-indicator');
-      indicators.forEach(indicator => indicator.remove());
+      // Remove existing hover indicators but preserve persistent ones
+      const indicators = previewElement.querySelectorAll('.comment-hover-indicator:not(.persistent)');
+      indicators.forEach(indicator => {
+        this.hoverIndicators.delete(indicator.parentElement);
+        indicator.remove();
+      });
       
-      // Remove hover area classes
+      // Remove hover area classes from elements without persistent indicators
       const hoverAreas = previewElement.querySelectorAll('.comment-hover-area');
-      hoverAreas.forEach(area => area.classList.remove('comment-hover-area'));
+      hoverAreas.forEach(area => {
+        if (!area.querySelector('.comment-hover-indicator.persistent')) {
+          area.classList.remove('comment-hover-area');
+        }
+      });
     }
 
     handlePreviewHover(e, previewElement, panelIndex) {
@@ -411,8 +420,8 @@
     }
 
     processHoverTarget(target, previewElement, panelIndex) {
-      // Hide any currently active indicator first
-      this.hideActiveIndicator();
+      // Hide any currently active hover indicator first (but preserve persistent ones)
+      this.hideActiveHoverIndicator();
 
       // Determine content type and position strategy
       const contentType = this.detectContentType(previewElement);
@@ -430,27 +439,35 @@
         this.hoverTimeout = null;
       }
 
-      // Hide active indicator with delay to allow interaction
+      // Hide active hover indicator with delay to allow interaction (but preserve persistent ones)
       setTimeout(() => {
         if (!previewElement.matches(':hover') && !this.isOverlayActive()) {
-          this.hideActiveIndicator();
+          this.hideActiveHoverIndicator();
         }
       }, 200); // Longer delay for smoother experience
     }
 
-    hideActiveIndicator() {
-      if (this.activeIndicator) {
+    hideActiveHoverIndicator() {
+      // Only hide the currently active hover indicator, not persistent ones
+      if (this.activeIndicator && !this.activeIndicator.classList.contains('persistent')) {
         this.activeIndicator.classList.remove('show');
         // Remove the indicator after transition completes
         setTimeout(() => {
           if (this.activeIndicator && this.activeIndicator.parentElement && 
-              !this.activeIndicator.classList.contains('show')) {
+              !this.activeIndicator.classList.contains('show') &&
+              !this.activeIndicator.classList.contains('persistent')) {
+            this.hoverIndicators.delete(this.activeIndicator.parentElement);
             this.activeIndicator.remove();
             this.activeIndicator.parentElement?.classList.remove('comment-hover-area');
             this.activeIndicator = null;
           }
         }, 300); // Match CSS transition duration
       }
+    }
+
+    hideActiveIndicator() {
+      // Legacy method - redirect to new method
+      this.hideActiveHoverIndicator();
     }
 
     isOverlayActive() {
@@ -558,22 +575,26 @@
     }
 
     showHoverIndicator(element, position, panelIndex) {
+      // Check if this element already has any indicator (hover or persistent)
+      const existingIndicator = this.hoverIndicators.get(element) || element.querySelector('.comment-hover-indicator');
+      if (existingIndicator) {
+        // If it's a persistent indicator, don't change it
+        if (existingIndicator.classList.contains('persistent')) {
+          return;
+        }
+        // For hover indicators, just make sure it's visible and set as active
+        existingIndicator.classList.add('show');
+        this.activeIndicator = existingIndicator;
+        return;
+      }
+
       // Make element a hover area if it isn't already
       if (!element.classList.contains('comment-hover-area')) {
         element.classList.add('comment-hover-area');
       }
 
-      // Check if this element already has an indicator
-      let indicator = element.querySelector('.comment-hover-indicator');
-      if (indicator) {
-        // Just make sure it's visible and set as active
-        indicator.classList.add('show');
-        this.activeIndicator = indicator;
-        return;
-      }
-
       // Create new hover indicator
-      indicator = document.createElement('div');
+      const indicator = document.createElement('div');
       indicator.className = 'comment-hover-indicator';
       indicator.innerHTML = '💬';
       indicator.title = `Add comment to ${position.display}`;
@@ -583,11 +604,15 @@
       if (existingComments.length > 0) {
         element.classList.add('has-comments');
         indicator.title = `${existingComments.length} comment(s) at ${position.display}`;
+        // Don't make this persistent here - that's handled by refreshComments
       }
 
       // Position indicator
       element.style.position = 'relative';
       element.appendChild(indicator);
+
+      // Track the indicator
+      this.hoverIndicators.set(element, indicator);
 
       // Add click handler
       indicator.addEventListener('click', (e) => {
@@ -604,16 +629,21 @@
     }
 
     hideHoverIndicators(panelIndex) {
-      // Hide indicators for specific panel or all if panelIndex is undefined
+      // Hide non-persistent indicators for specific panel or all if panelIndex is undefined
       const selector = panelIndex !== undefined ? 
-        `.preview-panel[data-panel="${panelIndex}"] .comment-hover-indicator` : 
-        '.comment-hover-indicator';
+        `.preview-panel[data-panel="${panelIndex}"] .comment-hover-indicator:not(.persistent)` : 
+        '.comment-hover-indicator:not(.persistent)';
       
       document.querySelectorAll(selector).forEach(indicator => {
-        if (!indicator.closest('.has-comments')) {
-          indicator.remove();
-          indicator.parentElement?.classList.remove('comment-hover-area');
+        const element = indicator.parentElement;
+        if (element) {
+          this.hoverIndicators.delete(element);
+          // Only remove hover area class if no persistent indicator exists
+          if (!element.querySelector('.comment-hover-indicator.persistent')) {
+            element.classList.remove('comment-hover-area');
+          }
         }
+        indicator.remove();
       });
     }
 
@@ -858,36 +888,175 @@
     async refreshComments(panelIndex) {
       if (this.currentFilePath) {
         this.comments = await CommentsAPI.getComments(this.currentFilePath);
-        // Update hover indicators to show comment states
-        this.updateCommentIndicators();
+        // Update comment indicators to show persistent indicators for existing comments
+        this.updateCommentIndicators(panelIndex);
       }
     }
 
-    updateCommentIndicators() {
-      // Update all hover indicators to show if they have comments
-      document.querySelectorAll('.comment-hover-area').forEach(area => {
-        const indicator = area.querySelector('.comment-hover-indicator');
-        if (indicator) {
-          // Recalculate position and check for comments
-          // This is a simplified version - full implementation would recalculate positions
-          area.classList.toggle('has-comments', Math.random() < 0.3); // Placeholder
-        }
+    updateCommentIndicators(panelIndex) {
+      // Get the panel or all panels if no specific panel
+      const panels = panelIndex !== undefined ? 
+        [document.querySelector(`.preview-panel[data-panel="${panelIndex}"]`)] :
+        Array.from(document.querySelectorAll('.preview-panel'));
+
+      panels.forEach(panel => {
+        if (!panel) return;
+        
+        const preview = panel.querySelector('.preview');
+        if (!preview) return;
+
+        // Group comments by position for this file
+        const commentsByPosition = new Map();
+        this.comments.forEach(comment => {
+          if (!comment.position_data) return;
+          
+          try {
+            const position = JSON.parse(comment.position_data);
+            const posKey = this.getPositionKey(position);
+            if (!commentsByPosition.has(posKey)) {
+              commentsByPosition.set(posKey, []);
+            }
+            commentsByPosition.get(posKey).push(comment);
+          } catch (e) {
+            console.warn('Invalid position data for comment:', comment.id);
+          }
+        });
+
+        // Create persistent indicators for positions with comments
+        commentsByPosition.forEach((comments, posKey) => {
+          this.createPersistentIndicator(preview, comments[0], comments);
+        });
       });
+    }
+
+    getPositionKey(position) {
+      // Create a unique key for position matching
+      switch (position.type) {
+        case 'json_node':
+          return `json:${position.path}`;
+        case 'code_line':
+        case 'text_line':
+          return `line:${position.line}`;
+        case 'image_coords':
+          return `img:${position.x},${position.y}`;
+        default:
+          return `unknown:${JSON.stringify(position)}`;
+      }
+    }
+
+    createPersistentIndicator(preview, firstComment, allComments) {
+      if (!firstComment.position_data) return;
+
+      try {
+        const position = JSON.parse(firstComment.position_data);
+        const posKey = this.getPositionKey(position);
+        
+        // Don't create duplicate persistent indicators
+        if (this.persistentIndicators.has(posKey)) {
+          return;
+        }
+
+        // Find the best element to attach the indicator to
+        // This is a simplified version - in a real implementation, you'd recreate the exact position logic
+        const targetElement = this.findElementForPosition(preview, position);
+        if (!targetElement) return;
+
+        // Make element a hover area
+        targetElement.classList.add('comment-hover-area', 'has-comments');
+        targetElement.style.position = 'relative';
+
+        // Create persistent indicator
+        const indicator = document.createElement('div');
+        indicator.className = 'comment-hover-indicator persistent';
+        indicator.innerHTML = '💬';
+        indicator.title = `${allComments.length} comment(s) at ${position.display || this.getPositionDisplay(position)}`;
+        
+        // Position indicator
+        targetElement.appendChild(indicator);
+
+        // Track the persistent indicator
+        this.persistentIndicators.set(posKey, indicator);
+
+        // Add click handler
+        indicator.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.showCommentOverlay(targetElement, position, 0, allComments);
+        });
+
+        // Show immediately (persistent indicators are always visible)
+        indicator.classList.add('show');
+        
+      } catch (e) {
+        console.warn('Error creating persistent indicator:', e);
+      }
+    }
+
+    findElementForPosition(preview, position) {
+      // Simplified element finding - in a real implementation, you'd recreate the exact targeting logic
+      // For now, just find a reasonable element based on position type
+      switch (position.type) {
+        case 'json_node':
+          // Try to find JSON elements
+          const jsonRows = preview.querySelectorAll('.json-formatter-row');
+          return jsonRows[Math.min(jsonRows.length - 1, Math.max(0, (position.line || 1) - 1))];
+        case 'code_line':
+          // Try to find code lines
+          const codeLines = preview.querySelectorAll('pre code, .line, .hljs-line');
+          return codeLines[Math.min(codeLines.length - 1, Math.max(0, (position.line || 1) - 1))];
+        default:
+          // Fallback to any child element
+          const allElements = preview.querySelectorAll('*');
+          return allElements[Math.min(allElements.length - 1, Math.max(0, (position.line || 1) - 1))];
+      }
+    }
+
+    getPositionDisplay(position) {
+      switch (position.type) {
+        case 'json_node':
+          return position.path ? `JSON: ${position.path}` : 'JSON node';
+        case 'code_line':
+        case 'text_line':
+          return `Line ${position.line}`;
+        case 'image_coords':
+          return `Coords (${position.x}, ${position.y})`;
+        default:
+          return 'Unknown position';
+      }
     }
 
     // Public API for integration with app.js
     onFileChanged(panelIndex, filePath) {
       this.currentFilePath = filePath;
-      this.refreshComments(panelIndex);
       
-      // Clear existing hover areas in this panel
+      // Clear existing indicators for this panel
       const panel = document.querySelector(`.preview-panel[data-panel="${panelIndex}"]`);
       if (panel) {
         const preview = panel.querySelector('.preview');
         if (preview) {
-          this.clearPreviewHover(preview);
+          // Clear all indicators (both hover and persistent)
+          this.clearAllIndicators(preview);
         }
       }
+      
+      // Load new comments and create persistent indicators
+      this.refreshComments(panelIndex);
+    }
+
+    clearAllIndicators(previewElement) {
+      // Remove all indicators and clean up tracking
+      const indicators = previewElement.querySelectorAll('.comment-hover-indicator');
+      indicators.forEach(indicator => {
+        const element = indicator.parentElement;
+        if (element) {
+          this.hoverIndicators.delete(element);
+          element.classList.remove('comment-hover-area', 'has-comments');
+        }
+        indicator.remove();
+      });
+      
+      // Clear tracking maps
+      this.persistentIndicators.clear();
+      this.activeIndicator = null;
     }
 
     escapeHTML(text) {

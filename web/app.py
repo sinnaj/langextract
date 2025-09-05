@@ -155,6 +155,11 @@ def list_runs():
 def index():
     return render_template("index.html")
 
+
+@app.get("/test-comments")
+def test_comments():
+    return render_template("test_comments.html")
+
 @app.get("/choices")
 def choices():
     return jsonify({
