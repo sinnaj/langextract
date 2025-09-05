@@ -288,6 +288,8 @@ def makeRun(
 
     run_warnings: List[str] = []
 
+    ##TODO: Understand if this is still used
+
     def _synthesize_extraction(text: str, norms: List[Dict[str, Any]] | None = None, errors: List[str] | None = None, warnings: List[str] | None = None) -> Dict[str, Any]:
         nn = norms or []
         return {
@@ -320,6 +322,10 @@ def makeRun(
             "parameters": [],
             "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
         }
+
+    ##TODO: 
+    # 1.fetch extraction classes dynamically and add section_id to them
+    # 2.normalize section_id addition across all classes
 
     def _call_and_capture(text: str, idx: int | None = None, section_metadata=None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
@@ -377,6 +383,8 @@ def makeRun(
             
             return result_data
         
+        ##TODO: Add warning when internal chunking i used because a section is too large
+
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
@@ -424,6 +432,9 @@ def makeRun(
             raw_annotated_data["object_is_none"] = annotated is None
             raw_annotated_data["object_attributes"] = [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
             
+
+            ##TODO: Understand if this trial and error approach for serialization is still used, simplify to reflect current output structure instead of trial/error approach at runtime.
+
             # Try to serialize using common serialization methods
             serialization_attempts = {}
             
