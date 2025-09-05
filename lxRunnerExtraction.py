@@ -288,6 +288,8 @@ def makeRun(
 
     run_warnings: List[str] = []
 
+    ##TODO: Understand if this is still used
+
     def _synthesize_extraction(text: str, norms: List[Dict[str, Any]] | None = None, errors: List[str] | None = None, warnings: List[str] | None = None) -> Dict[str, Any]:
         nn = norms or []
         return {
@@ -320,6 +322,10 @@ def makeRun(
             "parameters": [],
             "quality": {"errors": errors or [], "warnings": warnings or [], "confidence_global": 0.5, "uncertainty_global": 0.5},
         }
+
+    ##TODO: 
+    # 1.fetch extraction classes dynamically and add section_id to them
+    # 2.normalize section_id addition across all classes
 
     def _call_and_capture(text: str, idx: int | None = None, section_metadata=None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
@@ -377,6 +383,8 @@ def makeRun(
             
             return result_data
         
+        ##TODO: Add warning when internal chunking i used because a section is too large
+
         # Let the library handle internal chunking via extract_kwargs["max_char_buffer"]
         # (Do not override max_char_buffer here so internal chunking can occur.)
         extract_kwargs["text_or_documents"] = text
@@ -424,6 +432,9 @@ def makeRun(
             raw_annotated_data["object_is_none"] = annotated is None
             raw_annotated_data["object_attributes"] = [attr for attr in dir(annotated) if not attr.startswith('_')] if annotated is not None else []
             
+
+            ##TODO: Understand if this trial and error approach for serialization is still used, simplify to reflect current output structure instead of trial/error approach at runtime.
+
             # Try to serialize using common serialization methods
             serialization_attempts = {}
             
@@ -509,12 +520,12 @@ def makeRun(
             
             raw_annotated_data["serialization_attempts"] = serialization_attempts
             
-            # Save the raw annotated document structure
-            (lx_output_dir / raw_annotated_name).write_text(
+            # Save the raw annotated document structure to chunks folder
+            (chunks_dir / raw_annotated_name).write_text(
                 json.dumps(raw_annotated_data, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
-            print(f"[DEBUG] Raw annotated document saved to: {raw_annotated_name}", file=sys.stderr)
+            print(f"[DEBUG] Raw annotated document saved to chunks folder: {raw_annotated_name}", file=sys.stderr)
             
         except Exception as raw_annotated_err:
             print(f"[WARN] Failed to save raw annotated document: {raw_annotated_err}", file=sys.stderr)
@@ -569,7 +580,7 @@ def makeRun(
             except Exception as extract_err:
                 raw_resolver_data["extraction_error"] = str(extract_err)
             
-            (lx_output_dir / raw_resolver_name).write_text(
+            (chunks_dir / raw_resolver_name).write_text(
                 json.dumps(raw_resolver_data, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
@@ -693,18 +704,18 @@ def makeRun(
                 }
             }
             raw_name = f"annotated_extractions_{idx:03}.json" if idx is not None else "annotated_extractions_single.json"
-            (lx_output_dir / raw_name).write_text(
+            (chunks_dir / raw_name).write_text(
                 json.dumps(raw_legacy, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
             
-            # Save as raw_extraction.json as requested
+            # Save as raw_extraction.json to chunks folder as requested
             raw_extraction_name = "raw_extraction.json"
-            (lx_output_dir / raw_extraction_name).write_text(
+            (chunks_dir / raw_extraction_name).write_text(
                 json.dumps(raw_legacy, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
-            print(f"[INFO] Raw extraction data saved to: {raw_extraction_name}", file=sys.stderr)
+            print(f"[INFO] Raw extraction data saved to chunks folder: {raw_extraction_name}", file=sys.stderr)
             
             # Return the extraction data for combination
             return raw_legacy

@@ -727,22 +727,51 @@
               const isOptimizerUberMode = previewOptimizers[panelIndex].uberMode;
               
               // Wait for JSON data to be parsed before checking UBERMODE activation
-              setTimeout(() => {
+              // Use a more robust approach for large files
+              const waitForJsonData = (attempt = 1, maxAttempts = 20) => {
                 const hasJsonData = previewOptimizers[panelIndex].currentJsonData !== null;
-                console.log(`UBERMODE sync: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}`);
+                const filePath = f.path || 'unknown';
+                const isCombinedExtractions = filePath.toLowerCase().includes('combined_extractions.json');
+                
+                console.log(`UBERMODE sync attempt ${attempt} for file ${filePath}: button enabled=${isButtonEnabled}, optimizer mode=${isOptimizerUberMode}, has JSON=${hasJsonData}, is combined_extractions=${isCombinedExtractions}`);
+                
+                if (!hasJsonData && attempt < maxAttempts) {
+                  // JSON not ready yet, wait longer and retry
+                  const delay = Math.min(100 * attempt, 1000); // Progressive delay up to 1 second
+                  console.log(`JSON not parsed yet, retrying in ${delay}ms (attempt ${attempt}/${maxAttempts})`);
+                  setTimeout(() => waitForJsonData(attempt + 1, maxAttempts), delay);
+                  return;
+                }
+                
+                if (!hasJsonData) {
+                  console.warn(`JSON data not available after ${maxAttempts} attempts, skipping UBERMODE sync`);
+                  return;
+                }
+                
+                // Auto-enable UBERMODE button for combined_extractions.json files
+                if (isCombinedExtractions && hasJsonData && !isButtonEnabled) {
+                  console.log('Auto-enabling UBERMODE button for combined_extractions.json');
+                  updateUberModeButton(uberToggle, true);
+                }
+                
+                // Refresh the button state check after potential auto-enable
+                const isButtonEnabledAfter = uberToggle.getAttribute('data-enabled') === 'true';
                 
                 // Only trigger UBERMODE if button is enabled and JSON data is available
-                if (isButtonEnabled && !isOptimizerUberMode && hasJsonData) {
+                if (isButtonEnabledAfter && !isOptimizerUberMode && hasJsonData) {
                   console.log('Activating UBERMODE for newly loaded JSON file');
                   previewOptimizers[panelIndex].toggleUberMode();
                   updateUberModeButton(uberToggle, true);
-                } else if (!isButtonEnabled && isOptimizerUberMode) {
+                } else if (!isButtonEnabledAfter && isOptimizerUberMode) {
                   // Button is disabled but optimizer is in UBERMODE - deactivate it
                   console.log('Deactivating UBERMODE - button is disabled');
                   previewOptimizers[panelIndex].toggleUberMode();
                   updateUberModeButton(uberToggle, false);
                 }
-              }, 100); // Small delay to ensure JSON parsing is complete
+              };
+              
+              // Start the waiting process
+              waitForJsonData();
             }
           } else {
             // Fallback to original loading method
@@ -761,18 +790,36 @@
         if (fileBadgesEl) fileBadgesEl.appendChild(badge);
       }
       
-      // If nothing selected yet, auto-open the first readable file (preferring json/log/txt)
+      // If nothing selected yet, auto-open the first readable file (preferring combined_extractions.json for UBERMODE)
       if (!selectedFilePaths[panelIndex] && createdBadges.length) {
-        const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
+        console.log(`Auto-selecting file for panel ${panelIndex}. Available files:`, createdBadges.map(b => b.file.path));
+        
         const findPreferred = () => {
-          for (const ext of preferExt) {
-            const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext));
-            if (found) return found;
+          // First priority: combined_extractions.json for UBERMODE functionality
+          const combinedExtractions = createdBadges.find(({ file }) => 
+            file.path.toLowerCase().includes('combined_extractions.json'));
+          if (combinedExtractions) {
+            console.log('Auto-selecting combined_extractions.json for UBERMODE functionality');
+            return combinedExtractions;
           }
+          
+          // Second priority: other JSON files
+          const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
+          for (const ext of preferExt) {
+            const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext.toLowerCase()));
+            if (found) {
+              console.log(`Auto-selecting first file with extension ${ext}:`, found.file.path);
+              return found;
+            }
+          }
+          console.log('Auto-selecting first available file:', createdBadges[0].file.path);
           return createdBadges[0];
         };
         const target = findPreferred();
-        if (target) target.btn.click();
+        if (target) {
+          console.log('Clicking auto-selected file:', target.file.path);
+          target.btn.click();
+        }
       }
     } catch (e) {
       console.error('files error', e);
