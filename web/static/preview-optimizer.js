@@ -67,11 +67,23 @@ class PreviewOptimizer {
         return;
       }
       
-      // Determine loading strategy based on file size
-      if (fileSize > this.options.maxPreviewSize) {
-        await this.loadLargeFile(runId, filePath, fileSize);
-      } else {
+      // Special handling for UBERMODE-critical files - load completely to avoid JSON parsing issues
+      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || filePath.includes('chunk_evaluations.json');
+      const shouldLoadCompletely = isUberModeCriticalFile && fileSize <= 10000000; // Up to 10MB for UBERMODE files
+      
+      console.log('File loading strategy:', {
+        filePath,
+        fileSize: this.formatBytes(fileSize),
+        isUberModeCritical: isUberModeCriticalFile,
+        shouldLoadCompletely,
+        exceedsPreviewSize: fileSize > this.options.maxPreviewSize
+      });
+      
+      // Determine loading strategy based on file size and type
+      if (shouldLoadCompletely || fileSize <= this.options.maxPreviewSize) {
         await this.loadRegularFile(runId, filePath, fileSize);
+      } else {
+        await this.loadLargeFile(runId, filePath, fileSize);
       }
       
     } catch (error) {
@@ -81,8 +93,29 @@ class PreviewOptimizer {
     }
   }
   
+  // Force reload file without cache
+  async forceReloadFile() {
+    if (!this.currentFile) return;
+    
+    const { runId, filePath, fileSize } = this.currentFile;
+    const cacheKey = `${runId}:${filePath}`;
+    
+    // Clear cache entry
+    if (this.cache.has(cacheKey)) {
+      this.cache.delete(cacheKey);
+      console.log(`Cleared cache for ${filePath}`);
+    }
+    
+    // Reload file
+    await this.loadFile(runId, filePath, fileSize);
+  }
+  
   async loadRegularFile(runId, filePath, fileSize) {
-    const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(filePath)}`);
+    const url = `/runs/${runId}/file?path=${encodeURIComponent(filePath)}`;
+    console.log(`Loading file from URL: ${url}`);
+    console.log(`Expected file path: ${filePath}`);
+    
+    const resp = await fetch(url);
     const contentType = resp.headers.get('content-type') || '';
     
     if (!resp.ok) {
@@ -90,6 +123,25 @@ class PreviewOptimizer {
     }
     
     const content = await resp.text();
+    console.log(`Content loaded successfully for ${filePath}, length: ${content.length}`);
+    
+    // Quick data structure check for debugging
+    if (filePath.includes('.json')) {
+      try {
+        const parsed = JSON.parse(content);
+        console.log(`Loaded JSON file ${filePath} with data structure:`, {
+          hasExtractions: !!(parsed?.extractions),
+          extractionCount: parsed?.extractions?.length || 0,
+          hasChunkEvaluations: !!(parsed?.chunk_evaluations),
+          chunkEvaluationCount: parsed?.chunk_evaluations?.length || 0,
+          topLevelKeys: Object.keys(parsed || {}),
+          sampleContent: Object.keys(parsed || {}).slice(0, 5)
+        });
+      } catch (e) {
+        console.log(`JSON parsing failed for ${filePath}:`, e.message);
+      }
+    }
+    
     const meta = {
       size: fileSize,
       truncated: false,
@@ -133,17 +185,29 @@ class PreviewOptimizer {
     // Clear previous content
     this.element.innerHTML = '';
     
-    // Add file info header for large/truncated files
-    if (meta.truncated || meta.size > this.options.maxPreviewSize) {
+    console.log('renderContent called for file:', this.currentFile?.filePath);
+    console.log('Content type:', contentType);
+    console.log('Content length:', content.length);
+    console.log('Meta:', meta);
+    
+    // Add file info header for large/truncated files (but not for UBERMODE files that are intentionally loaded completely)
+    const isUberModeCriticalFile = this.currentFile?.filePath && 
+      (this.currentFile.filePath.includes('combined_extractions.json') || this.currentFile.filePath.includes('chunk_evaluations.json'));
+    const shouldShowFileInfo = meta.truncated || (meta.size > this.options.maxPreviewSize && !isUberModeCriticalFile);
+    
+    if (shouldShowFileInfo) {
       this.addFileInfoHeader(meta);
     }
     
     // Determine content type and render accordingly
     if (this.isJsonContent(contentType)) {
+      console.log('Detected JSON content, calling renderJson');
       this.renderJson(content, meta);
     } else if (this.isMarkdownContent(contentType)) {
+      console.log('Detected Markdown content, calling renderMarkdown');
       this.renderMarkdown(content, meta);  
     } else {
+      console.log('Detected text content, calling renderText');
       this.renderText(content, meta);
     }
 
@@ -271,21 +335,64 @@ class PreviewOptimizer {
       return this.renderJsonl(content, meta);
     }
 
+    // Enhanced debugging for UBERMODE file loading issues
+    console.log('renderJson called for file:', this.currentFile?.filePath);
+    console.log('Content preview (first 200 chars):', content.substring(0, 200));
+    console.log('Content length:', content.length);
+
     try {
       const obj = JSON.parse(content);
       this.currentJsonData = obj; // Store for UBERMODE
       
+      console.log('JSON parsing successful!');
+      console.log('currentJsonData set to:', !!this.currentJsonData);
+      console.log('Object keys:', Object.keys(obj || {}));
+      
+      // Detect file type for better UBERMODE feedback
+      const filePath = this.currentFile?.filePath || 'unknown';
+      const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
+      const isCombinedExtractions = filePath.includes('combined_extractions.json');
+      
       console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
       console.log('Current UBERMODE state:', this.uberMode);
+      console.log('File being loaded:', filePath);
+      console.log('File type detection:', { isChunkEvaluations, isCombinedExtractions });
 
       // Check if UBERMODE is enabled and if this panel should show tree visualization
       const shouldShowTreeView = this.shouldShowTreeVisualization();
-      console.log('Should show tree view:', shouldShowTreeView);
+      console.log('UBERMODE check:', {
+        uberMode: this.uberMode,
+        shouldShowTreeView: shouldShowTreeView,
+        hasJsonData: !!obj,
+        currentJsonData: !!this.currentJsonData,
+        dataStructure: {
+          hasExtractions: !!(obj?.extractions),
+          extractionCount: obj?.extractions?.length || 0,
+          hasSections: !!(obj?.sections),
+          sectionCount: obj?.sections?.length || 0
+        }
+      });
       
       if (this.uberMode && shouldShowTreeView) {
         console.log('UBERMODE is enabled and this panel should show tree view');
-        this.renderUberMode(obj, meta);
-        return;
+        console.log('Data structure:', {
+          hasExtractions: !!(obj?.extractions),
+          extractionCount: obj?.extractions?.length || 0,
+          hasSections: !!(obj?.sections),
+          sectionCount: obj?.sections?.length || 0
+        });
+        try {
+          console.log('Calling renderUberMode...');
+          this.renderUberMode(obj, meta);
+          return;
+        } catch (error) {
+          console.error('Error in renderUberMode:', error);
+          console.error('Stack trace:', error.stack);
+        }
+      } else if (this.uberMode && !shouldShowTreeView) {
+        console.log('UBERMODE is enabled but this panel should not show tree view');
+      } else if (!this.uberMode) {
+        console.log('UBERMODE is not enabled');
       }
 
       // Determine rendering strategy based on JSON size and complexity
@@ -317,6 +424,10 @@ class PreviewOptimizer {
         this.renderEnhancedJson(jsonString, meta);
       }
     } catch (e) {
+      console.error('JSON parsing failed for file:', this.currentFile?.filePath);
+      console.error('Parsing error:', e);
+      console.error('Content that failed to parse (first 500 chars):', content.substring(0, 500));
+      console.error('Content length:', content.length);
       // Invalid JSON, render as text
       this.renderTextContent(content, meta);
     }
@@ -1497,21 +1608,158 @@ class PreviewOptimizer {
   }
 
   renderUberMode(jsonData, meta) {
+    console.log('renderUberMode called with:', {
+      jsonData: !!jsonData,
+      meta: meta,
+      dataKeys: Object.keys(jsonData || {}),
+      extractionCount: jsonData?.extractions?.length || 0,
+      sectionCount: jsonData?.sections?.length || 0,
+      documentMetadata: jsonData?.document_metadata || 'none'
+    });
+    
+    // Detect file type and validate for UBERMODE
+    const filePath = this.currentFile?.filePath || 'unknown';
+    const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
+    const isCombinedExtractions = filePath.includes('combined_extractions.json');
+    
+    // Enhanced debugging for data structure mismatch
+    console.log('UBERMODE file validation:', { 
+      filePath, 
+      isChunkEvaluations, 
+      isCombinedExtractions,
+      hasExtractions: !!(jsonData?.extractions),
+      hasChunkEvaluations: !!(jsonData?.chunk_evaluations),
+      hasDocumentMetadata: !!(jsonData?.document_metadata),
+      hasSections: !!(jsonData?.sections),
+      dataStructureCheck: {
+        topLevelKeys: Object.keys(jsonData || {}),
+        extractionsArray: Array.isArray(jsonData?.extractions),
+        extractionCount: jsonData?.extractions?.length || 0,
+        sectionsArray: Array.isArray(jsonData?.sections),
+        sectionCount: jsonData?.sections?.length || 0,
+        chunkEvaluationsArray: Array.isArray(jsonData?.chunk_evaluations),
+        chunkEvaluationCount: jsonData?.chunk_evaluations?.length || 0,
+        sourceFile: jsonData?.source_file || jsonData?.document_metadata?.source_file || 'not found'
+      }
+    });
+    
+    // Detect data structure mismatch
+    if (isCombinedExtractions && jsonData?.chunk_evaluations && !jsonData?.extractions) {
+      console.error('DATA MISMATCH: combined_extractions.json filename but contains chunk_evaluations data!');
+      console.error('This suggests the wrong file content is being loaded by the server');
+    }
+    
     // Clear previous content
     this.element.innerHTML = '';
     
-    // Update stats
-    this.updateUberModeStats(jsonData);
+    // Show warning if wrong file type is loaded
+    if (isChunkEvaluations && !jsonData?.extractions) {
+      console.warn('UBERMODE: chunk_evaluations.json loaded instead of combined_extractions.json');
+      this.element.innerHTML = `
+        <div class="bg-amber-50 border border-amber-200 rounded p-4">
+          <h3 class="text-amber-800 font-semibold flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Wrong File for UBERMODE
+          </h3>
+          <p class="text-amber-700 mt-2">You have loaded <strong>chunk_evaluations.json</strong> which contains evaluation data, not extraction data.</p>
+          <p class="text-amber-600 mt-1">For UBERMODE tree view, please select <strong>combined_extractions.json</strong> instead.</p>
+          <div class="mt-3 p-2 bg-white border border-amber-200 rounded text-sm">
+            <strong>What you need:</strong> combined_extractions.json contains the hierarchical extraction data with sections and entities that UBERMODE can display as a tree.
+          </div>
+        </div>
+      `;
+      return;
+    }
     
-    // Create UBERMODE container
-    const container = document.createElement('div');
-    container.className = 'ubermode-container space-y-4';
+    // Check for data structure mismatch (wrong file content loaded)
+    if (isCombinedExtractions && jsonData?.chunk_evaluations && !jsonData?.extractions) {
+      console.error('CRITICAL: File path indicates combined_extractions.json but data structure is chunk_evaluations!');
+      
+      // Clear cache for this file to force reload
+      const cacheKey = `${this.currentFile?.runId}:${this.currentFile?.filePath}`;
+      if (this.cache.has(cacheKey)) {
+        console.log('Clearing cache for file with data mismatch');
+        this.cache.delete(cacheKey);
+      }
+      
+      this.element.innerHTML = `
+        <div class="bg-red-50 border border-red-200 rounded p-4">
+          <h3 class="text-red-800 font-semibold flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+            </svg>
+            File Content Mismatch Error
+          </h3>
+          <p class="text-red-700 mt-2">The file path indicates <strong>combined_extractions.json</strong> but the content appears to be chunk evaluation data.</p>
+          <p class="text-red-600 mt-1">This suggests a server-side file serving issue or incorrect file generation.</p>
+          <div class="mt-3 p-2 bg-white border border-red-200 rounded text-sm">
+            <strong>Debug info:</strong> Expected "extractions" array but found "chunk_evaluations" array.<br>
+            <strong>File path:</strong> ${filePath}<br>
+            <strong>Cache cleared:</strong> Yes, please try reloading the file.
+          </div>
+          <button onclick="location.reload()" class="mt-3 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
+            Reload Page
+          </button>
+        </div>
+      `;
+      return;
+    }
     
-    // Render tree visualization
-    const treeContainer = this.createTreeVisualization(jsonData);
-    container.appendChild(treeContainer);
-    
-    this.element.appendChild(container);
+    try {
+      // Update stats
+      console.log('Updating UBERMODE stats...');
+      this.updateUberModeStats(jsonData);
+      
+      // Create UBERMODE container
+      const container = document.createElement('div');
+      container.className = 'ubermode-container space-y-4';
+      
+      // Render tree visualization
+      console.log('Creating tree visualization...');
+      const treeContainer = this.createTreeVisualization(jsonData);
+      
+      if (!treeContainer) {
+        throw new Error('Failed to create tree visualization container');
+      }
+      
+      container.appendChild(treeContainer);
+      this.element.appendChild(container);
+      
+      console.log('renderUberMode completed successfully');
+      console.log('Final DOM structure:', {
+        containerChildren: container.children.length,
+        treeContent: treeContainer.querySelector('.tree-content')?.children.length || 0,
+        totalNodesInDOM: this.element.querySelectorAll('.tree-node').length
+      });
+    } catch (error) {
+      console.error('Error in renderUberMode:', error);
+      console.error('Stack trace:', error.stack);
+      console.error('Input data debug:', {
+        hasJsonData: !!jsonData,
+        jsonDataType: typeof jsonData,
+        jsonDataKeys: jsonData ? Object.keys(jsonData) : [],
+        extractionsType: jsonData?.extractions ? typeof jsonData.extractions : 'undefined',
+        extractionsLength: Array.isArray(jsonData?.extractions) ? jsonData.extractions.length : 'not array'
+      });
+      
+      // Show error message to user
+      this.element.innerHTML = `
+        <div class="bg-red-50 border border-red-200 rounded p-4">
+          <h3 class="text-red-800 font-semibold">UBERMODE Error</h3>
+          <p class="text-red-600 mt-2">Failed to render tree view: ${error.message}</p>
+          <p class="text-sm text-red-500 mt-1">Check browser console for details.</p>
+          <div class="mt-3 text-xs text-red-400 bg-red-100 p-2 rounded">
+            <strong>Debug info:</strong><br>
+            File: ${this.currentFile?.filePath || 'unknown'}<br>
+            Data type: ${typeof jsonData}<br>
+            Has extractions: ${!!(jsonData?.extractions)}<br>
+            Extractions count: ${jsonData?.extractions?.length || 0}
+          </div>
+        </div>
+      `;
+    }
   }
 
   updateUberModeStats(jsonData) {
@@ -1523,15 +1771,29 @@ class PreviewOptimizer {
   }
 
   analyzeJsonData(data) {
+    console.log('Analyzing JSON data for stats...');
+    console.log('Raw input data for analysis:', data);
     const stats = {
       totalItems: 0,
       types: new Map(),
       quality: '—'
     };
     
+    // Normalize the data format to handle both old and new structures
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    console.log('Normalized data for analysis:', {
+      hasExtractions: !!(normalizedData?.extractions),
+      extractionCount: normalizedData?.extractions?.length || 0,
+      hasSections: !!(normalizedData?.sections),
+      sectionCount: normalizedData?.sections?.length || 0,
+      sampleExtraction: normalizedData?.extractions?.[0] || null,
+      extractionSample: normalizedData?.extractions?.slice(0, 3) || []
+    });
+    
     // Handle extraction format - count by extraction_class
-    if (data && data.extractions && Array.isArray(data.extractions)) {
-      data.extractions.forEach(extraction => {
+    if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      console.log(`Processing ${normalizedData.extractions.length} extractions for stats...`);
+      normalizedData.extractions.forEach((extraction, index) => {
         stats.totalItems++;
         
         // Count extraction types dynamically
@@ -1539,6 +1801,8 @@ class PreviewOptimizer {
         if (extractionClass) {
           const currentCount = stats.types.get(extractionClass) || 0;
           stats.types.set(extractionClass, currentCount + 1);
+        } else {
+          console.warn(`Extraction ${index} missing extraction_class:`, extraction);
         }
         
         // Quality indicators (check if any extraction has quality info)
@@ -1554,6 +1818,13 @@ class PreviewOptimizer {
           }
         }
       });
+      console.log('Analysis complete:', {
+        totalItems: stats.totalItems,
+        types: Object.fromEntries(stats.types),
+        quality: stats.quality
+      });
+    } else {
+      console.warn('No extractions found in normalized data');
     }
     
     return stats;
@@ -1681,6 +1952,12 @@ class PreviewOptimizer {
   }
 
   createTreeVisualization(data) {
+    console.log('createTreeVisualization called with data:', {
+      hasData: !!data,
+      dataKeys: Object.keys(data || {}),
+      extractionCount: data?.extractions?.length || 0
+    });
+    
     const container = document.createElement('div');
     container.className = 'tree-visualization bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4';
     
@@ -1692,24 +1969,112 @@ class PreviewOptimizer {
     const tree = document.createElement('div');
     tree.className = 'tree-content space-y-1';
     
-    // Build document tree from extraction data
-    const documentTree = this.buildDocumentTree(data);
-    this.renderDocumentTree(tree, documentTree);
+    try {
+      // Build document tree from extraction data
+      console.log('Building document tree...');
+      const documentTree = this.buildDocumentTree(data);
+      console.log('Document tree built, rendering...', {
+        rootNodeCount: documentTree?.length || 0,
+        rootNodes: documentTree?.map(n => `${n.id} (${n.children?.length || 0} children)`) || []
+      });
+      
+      this.renderDocumentTree(tree, documentTree);
+      console.log('Tree rendering completed');
+    } catch (error) {
+      console.error('Error in tree visualization:', error);
+      console.error('Stack trace:', error.stack);
+      
+      tree.innerHTML = `
+        <div class="text-red-600 p-4">
+          <p>Error building tree: ${error.message}</p>
+          <p class="text-sm mt-2">Check browser console for details.</p>
+        </div>
+      `;
+    }
     
     container.appendChild(tree);
     return container;
   }
 
+  // Helper method to normalize JSON data format for UBERMODE
+  normalizeJsonDataForUberMode(data) {
+    // Handle the new combined_extractions.json format with nested structure
+    if (data && data.extractions && Array.isArray(data.extractions)) {
+      // Already in the expected format { extractions: [...] }
+      return data;
+    }
+    
+    // Handle legacy format or other structures - return as-is if no extractions found
+    return data;
+  }
+
   buildDocumentTree(data) {
+    const startTime = performance.now();
+    console.log('Building document tree...');
+    console.log('Raw input data:', {
+      hasData: !!data,
+      dataType: typeof data,
+      dataKeys: data ? Object.keys(data) : [],
+      extractionInfo: {
+        hasExtractions: !!(data?.extractions),
+        extractionsType: data?.extractions ? typeof data.extractions : 'undefined',
+        extractionsIsArray: Array.isArray(data?.extractions),
+        extractionCount: Array.isArray(data?.extractions) ? data.extractions.length : 0
+      },
+      sectionInfo: {
+        hasSections: !!(data?.sections),
+        sectionsType: data?.sections ? typeof data.sections : 'undefined',
+        sectionsIsArray: Array.isArray(data?.sections),
+        sectionCount: Array.isArray(data?.sections) ? data.sections.length : 0
+      }
+    });
+    
     const nodes = new Map();
     const rootNodes = [];
     
+    // Normalize the data format to handle both old and new structures
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    console.log('Normalized data for tree building:', {
+      hasNormalizedData: !!normalizedData,
+      hasExtractions: !!(normalizedData?.extractions),
+      extractionCount: normalizedData?.extractions?.length || 0,
+      hasSections: !!(normalizedData?.sections),
+      sectionCount: normalizedData?.sections?.length || 0,
+      sampleExtraction: normalizedData?.extractions?.[0] || null,
+      sampleSection: normalizedData?.sections?.[0] || null
+    });
+    
     // Handle extraction format
-    if (data && data.extractions && Array.isArray(data.extractions)) {
-      // Filter relevant extraction types like section_tree_visualizer.py does
-      const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      let relevant = data.extractions.filter(ext => 
-        relevantTypes.includes(ext.extraction_class)
+    if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      console.log('Processing extractions for tree building...');
+      // First, add actual section nodes from the sections array if available
+      if (normalizedData.sections && Array.isArray(normalizedData.sections)) {
+        normalizedData.sections.forEach(section => {
+          if (section.section_id) {
+            const nodeData = {
+              id: section.section_id,
+              title: section.section_name || section.section_title || section.extraction_text || section.section_id,
+              type: 'SECTION',
+              parentId: section.parent_section || null,
+              parentType: 'SECTION',
+              summary: section.section_summary || '',
+              extractionText: section.extraction_text || '',
+              children: [],
+              isExpanded: false, // Sections start collapsed
+              level: 0,
+              attributes: section,
+              extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
+            };
+            nodes.set(section.section_id, nodeData);
+            console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
+          }
+        });
+      }
+      
+      // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
+      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA']; // Exclude as requested
+      let relevant = normalizedData.extractions.filter(ext => 
+        !excludedTypes.includes(ext.extraction_class)
       );
       
       // Apply statistics filter if one is active
@@ -1718,7 +2083,7 @@ class PreviewOptimizer {
         console.log(`Filtering extractions by type: ${currentFilter}`);
         
         // Get all extractions that match the filter
-        const filteredExtractions = data.extractions.filter(ext => 
+        const filteredExtractions = normalizedData.extractions.filter(ext => 
           ext.extraction_class === currentFilter
         );
         
@@ -1727,8 +2092,7 @@ class PreviewOptimizer {
         
         // Add filtered nodes and collect their parent chain
         filteredExtractions.forEach(ext => {
-          const attrs = ext.attributes || {};
-          const nodeId = attrs.id;
+          const nodeId = this.getNodeId(ext);
           if (nodeId) {
             requiredNodeIds.add(nodeId);
             
@@ -1737,7 +2101,7 @@ class PreviewOptimizer {
             while (parentId) {
               requiredNodeIds.add(parentId);
               // Find parent extraction to continue the chain
-              const parentExt = data.extractions.find(e => e.attributes?.id === parentId);
+              const parentExt = normalizedData.extractions.find(e => this.getNodeId(e) === parentId);
               parentId = parentExt ? this.getParentId(parentExt) : null;
             }
           }
@@ -1745,24 +2109,42 @@ class PreviewOptimizer {
         
         // Filter relevant extractions to only include required nodes
         relevant = relevant.filter(ext => {
-          const nodeId = ext.attributes?.id;
+          const nodeId = this.getNodeId(ext);
           return nodeId && requiredNodeIds.has(nodeId);
         });
         
-        console.log(`Filtered from ${data.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
+        console.log(`Filtered from ${normalizedData.extractions.length} total to ${relevant.length} relevant nodes for filter: ${currentFilter}`);
       }
       
-      console.log(`Building tree from ${relevant.length} relevant extractions out of ${data.extractions.length} total`);
+      console.log(`Building tree from ${relevant.length} relevant extractions out of ${normalizedData.extractions.length} total`);
+      
+      // Performance safeguard for very large documents
+      const totalNodes = (normalizedData.sections?.length || 0) + relevant.length;
+      const MAX_TREE_NODES = 5000; // Reasonable limit for browser performance
+      
+      console.log(`Total nodes to process: ${totalNodes} (${normalizedData.sections?.length || 0} sections + ${relevant.length} extractions)`);
+      
+      if (totalNodes > MAX_TREE_NODES) {
+        console.warn(`Large document detected: ${totalNodes} total nodes. This may affect performance.`);
+        console.warn(`Consider using the statistics filter to reduce the scope.`);
+        
+        // For very large documents, limit to sections and a sample of extractions
+        if (totalNodes > MAX_TREE_NODES * 2) {
+          console.warn(`Document too large (${totalNodes} nodes). Limiting to first ${MAX_TREE_NODES} extractions.`);
+          relevant = relevant.slice(0, MAX_TREE_NODES - (normalizedData.sections?.length || 0));
+          console.log(`Limited to ${relevant.length} extractions for performance`);
+        }
+      }
       
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
       relevant.forEach(extraction => {
-        const attrs = extraction.attributes || {};
-        const nodeId = attrs.id;
+        const nodeId = this.getNodeId(extraction);
         if (!nodeId) {
           console.warn('Skipping extraction without ID:', extraction);
           return;
         }
         
+        const attrs = extraction.attributes || {};
         const nodeData = {
           id: nodeId,
           title: this.getNodeTitle(extraction),
@@ -1782,9 +2164,40 @@ class PreviewOptimizer {
         console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
       });
       
-      // Check if we need to create synthetic root nodes (following section_tree_visualizer.py)
-      this.createSyntheticRoots(nodes);
+      // Create synthetic root nodes only if needed and sections array is not available
+      if (!normalizedData.sections || normalizedData.sections.length === 0) {
+        this.createSyntheticRoots(nodes);
+      }
       
+      // Create synthetic parent nodes for missing parents before building relationships
+      const missingParents = new Set();
+      nodes.forEach(node => {
+        if (node.parentId && !nodes.has(node.parentId)) {
+          missingParents.add(node.parentId);
+        }
+      });
+      
+      // Create synthetic nodes for missing parents
+      missingParents.forEach(parentId => {
+        const syntheticNode = {
+          id: parentId,
+          title: `[Dropped Section] ${parentId}`,
+          type: 'SECTION',
+          parentId: null, // Make synthetic nodes root-level
+          parentType: 'SECTION',
+          summary: 'This section was dropped during processing but is referenced by child sections.',
+          extractionText: '',
+          children: [],
+          isExpanded: false, // Synthetic parent nodes start collapsed
+          level: 0,
+          attributes: { section_id: parentId, section_name: `[Dropped Section] ${parentId}`, synthetic: true },
+          extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
+        };
+        nodes.set(parentId, syntheticNode);
+        rootNodes.push(syntheticNode); // Add synthetic parents to root nodes
+        console.log(`Created synthetic parent node: ${parentId}`);
+      });
+
       // Second pass: build parent-child relationships
       let orphanCount = 0;
       nodes.forEach(node => {
@@ -1793,7 +2206,7 @@ class PreviewOptimizer {
           parent.children.push(node);
           node.level = parent.level + 1;
           console.log(`Linked ${node.id} as child of ${parent.id} (level ${node.level})`);
-        } else {
+        } else if (!node.attributes?.synthetic) { // Don't double-add synthetic nodes
           // Node has no valid parent, make it a root
           rootNodes.push(node);
           node.level = 0;
@@ -1816,10 +2229,10 @@ class PreviewOptimizer {
       });
       rootNodes.sort((a, b) => a.id.localeCompare(b.id));
       
-      // Auto-expand first level for better initial view
+      // Start with all nodes collapsed by default
       rootNodes.forEach(root => {
-        root.isExpanded = true;
-        // Also expand first level of children if they have children
+        root.isExpanded = false;
+        // Keep all child levels collapsed initially
         root.children.forEach(child => {
           if (child.children.length > 0) {
             child.isExpanded = false; // Keep second level collapsed initially
@@ -1829,9 +2242,56 @@ class PreviewOptimizer {
       
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
+    } else {
+      console.warn('No valid extraction data found for tree building');
+      console.warn('Normalized data check failed:', {
+        hasNormalizedData: !!normalizedData,
+        hasExtractions: !!(normalizedData?.extractions),
+        isExtractionsArray: Array.isArray(normalizedData?.extractions),
+        extractionCount: normalizedData?.extractions?.length || 0
+      });
     }
     
+    const endTime = performance.now();
+    console.log(`Tree building completed in ${(endTime - startTime).toFixed(2)}ms`);
+    console.log('Returning root nodes:', rootNodes.length);
+    
     return rootNodes;
+  }
+
+  // Helper method to extract ID from extraction data
+  getNodeId(extraction) {
+    const attrs = extraction.attributes || {};
+    
+    // First try to get ID from attributes
+    if (attrs.id) {
+      return attrs.id;
+    }
+    
+    // Try to parse ID from extraction_text (Python dict format)
+    if (extraction.extraction_text) {
+      try {
+        // Handle Python dictionary format with single quotes
+        const pythonDictStr = extraction.extraction_text;
+        
+        // Look for 'id': 'value' pattern in the string
+        const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
+        if (idMatch) {
+          return idMatch[1];
+        }
+        
+        // Alternative patterns
+        const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
+        if (idMatch2) {
+          return idMatch2[1];
+        }
+      } catch (error) {
+        console.warn('Error parsing extraction_text for ID:', error);
+      }
+    }
+    
+    // Fall back to section_parent_id or extraction_index for unique ID
+    return attrs.section_parent_id || extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
   }
 
   // Helper method to determine parent ID following section_tree_visualizer.py patterns
@@ -1839,14 +2299,28 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
     
-    // Follow the same parent ID resolution logic as section_tree_visualizer.py
-    if (type === 'NORM') {
-      return attrs.parent_section_id || attrs.parent_id;
-    } else if (type === 'TABLE') {
-      return attrs.parent_section_id || attrs.parent_id;
-    } else {
-      return attrs.parent_id;
+    // First try to get parent from attributes
+    let parentId = attrs.parent_section_id || attrs.parent_id;
+    
+    // If not found, try to parse from extraction_text
+    if (!parentId && extraction.extraction_text) {
+      try {
+        const pythonDictStr = extraction.extraction_text;
+        const parentMatch = pythonDictStr.match(/'parent_section_id':\s*'([^']+)'/);
+        if (parentMatch) {
+          parentId = parentMatch[1];
+        }
+      } catch (error) {
+        console.warn('Error parsing extraction_text for parent ID:', error);
+      }
     }
+    
+    // Fall back to section_parent_id
+    if (!parentId) {
+      parentId = extraction.section_parent_id;
+    }
+    
+    return parentId;
   }
 
   // Create synthetic root nodes following section_tree_visualizer.py patterns
@@ -1859,14 +2333,14 @@ class PreviewOptimizer {
         console.log(`Creating synthetic root node for ${cteRootId}`);
         nodes.set(cteRootId, {
           id: cteRootId,
-          title: 'CTE DB-SI - Documento Básico de Seguridad en caso de Incendio',
-          type: 'LEGAL_DOCUMENT',
+          title: 'CTE - Código Técnico de la Edificación',
+          type: 'SECTION', // Change from LEGAL_DOCUMENT to SECTION
           parentId: null,
           parentType: null,
           summary: 'Código Técnico de la Edificación - Documento Básico de Seguridad en caso de Incendio',
-          extractionText: 'Root Document',
+          extractionText: cteRootId,
           children: [],
-          isExpanded: true, // Root should be expanded
+          isExpanded: false, // Root nodes start collapsed by default
           level: 0,
           attributes: { id: cteRootId },
           extraction: null // Synthetic node
@@ -1888,13 +2362,13 @@ class PreviewOptimizer {
         nodes.set(rootId, {
           id: rootId,
           title: this.generateSyntheticRootTitle(rootId),
-          type: 'LEGAL_DOCUMENT',
+          type: 'SECTION', // Change from LEGAL_DOCUMENT to SECTION to avoid confusion
           parentId: null,
           parentType: null,
-          summary: `Synthetic root document: ${rootId}`,
-          extractionText: 'Synthetic Root Document',
+          summary: `Root section: ${rootId}`,
+          extractionText: rootId,
           children: [],
-          isExpanded: true,
+          isExpanded: false, // Generic root nodes start collapsed by default
           level: 0,
           attributes: { id: rootId },
           extraction: null
@@ -1905,14 +2379,19 @@ class PreviewOptimizer {
 
   generateSyntheticRootTitle(rootId) {
     // Generate more meaningful titles for synthetic roots based on ID patterns
+    // Remove "Document Root" as requested
     if (rootId.includes('CTE')) {
       return 'CTE - Código Técnico de la Edificación';
     } else if (rootId.includes('DB')) {
       return `Documento Básico - ${rootId}`;
     } else if (rootId.includes('SI')) {
       return `Seguridad en caso de Incendio - ${rootId}`;
+    } else if (rootId.startsWith('section_')) {
+      // Extract section number and create a more meaningful title
+      const sectionNum = rootId.replace('section_', '');
+      return `Section ${sectionNum}`;
     } else {
-      return `Document Root - ${rootId}`;
+      return rootId; // Just use the ID itself instead of "Document Root"
     }
   }
 
@@ -1920,19 +2399,52 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     const type = extraction.extraction_class;
     
-    // Follow section_tree_visualizer.py patterns for title extraction
+    // For sections, try to get from section metadata first
     if (type === 'SECTION') {
-      return attrs.section_title || extraction.extraction_text || 'Untitled Section';
-    } else if (type === 'NORM') {
+      // Check if we have section metadata
+      if (extraction.section_metadata) {
+        return extraction.section_metadata.section_name || extraction.section_metadata.section_title || 'Untitled Section';
+      }
+      // Use section_name if available, otherwise fall back to section_title or extraction text
+      return attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
+    } 
+    
+    // For NORM extractions, try to parse the norm statement from extraction_text
+    else if (type === 'NORM') {
+      // Try to parse norm statement from extraction_text Python dict format
+      if (extraction.extraction_text) {
+        try {
+          const pythonDictStr = extraction.extraction_text;
+          
+          // Look for norm_statement in the extraction_text
+          const normMatch = pythonDictStr.match(/'norm_statement':\s*'([^']+)'/);
+          if (normMatch) {
+            const statement = normMatch[1];
+            return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
+          }
+          
+          // Alternative patterns
+          const normMatch2 = pythonDictStr.match(/"norm_statement":\s*"([^"]+)"/);
+          if (normMatch2) {
+            const statement = normMatch2[1];
+            return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
+          }
+        } catch (error) {
+          console.warn('Error parsing extraction_text for norm statement:', error);
+        }
+      }
+      
+      // Fall back to attributes or raw extraction text
       const statement = attrs.norm_statement || attrs.statement_text || extraction.extraction_text || '';
-      // Truncate long norm statements like section_tree_visualizer.py does
-      return statement.length > 100 ? statement.substring(0, 100) + '...' : statement;
-    } else if (type === 'TABLE') {
-      return attrs.table_title || extraction.extraction_text?.substring(0, 50) || 'Table';
-    } else if (type === 'LEGAL_DOCUMENT') {
-      return attrs.doc_title || attrs.title || 'Legal Document';
+      return statement.length > 80 ? statement.substring(0, 80) + '...' : statement;
+    } 
+    
+    // For other types, use extraction class as title with extraction text truncated
+    else {
+      const text = extraction.extraction_text || '';
+      const displayText = text.length > 50 ? text.substring(0, 50) + '...' : text;
+      return `${type}: ${displayText}` || type;
     }
-    return extraction.extraction_text || 'Unknown';
   }
 
   getNodeSummary(extraction) {
@@ -1949,9 +2461,17 @@ class PreviewOptimizer {
       return `Paragraph ${paragraphNum} - ${obligationType}`;
     } else if (type === 'TABLE') {
       return attrs.table_description || '';
+    } else if (type === 'PROCEDURE' || type === 'Procedure') {
+      const stepNum = attrs.step_number || attrs.paragraph_number || 'N/A';
+      const procType = attrs.procedure_type || 'Procedure';
+      return `Step ${stepNum} - ${procType}`;
     } else if (type === 'LEGAL_DOCUMENT') {
+      // For root sections, just return the type name instead of formatted document info
+      if (!attrs.doc_type && !attrs.jurisdiction) {
+        return 'Legal Document';
+      }
       // Match the format: "{doc_type} - {jurisdiction}"
-      const docType = attrs.doc_type || 'Document';
+      const docType = attrs.doc_type || 'Legal Document';
       const jurisdiction = attrs.jurisdiction || 'Unknown jurisdiction';
       return `${docType} - ${jurisdiction}`;
     }
@@ -1959,9 +2479,15 @@ class PreviewOptimizer {
   }
 
   renderDocumentTree(container, nodes) {
+    const startTime = performance.now();
+    console.log(`Rendering tree with ${nodes.length} root nodes...`);
+    
     nodes.forEach(node => {
       this.renderDocumentNode(container, node, 0);
     });
+    
+    const endTime = performance.now();
+    console.log(`Tree rendering completed in ${(endTime - startTime).toFixed(2)}ms`);
   }
 
   renderDocumentNode(container, node, level) {
@@ -1986,7 +2512,11 @@ class PreviewOptimizer {
     const indicator = document.createElement('span');
     indicator.className = 'tree-indicator text-gray-500 dark:text-gray-400 select-none w-5 h-5 text-center flex-shrink-0 transition-all duration-200 flex items-center justify-center';
     
-    if (node.children.length > 0) {
+    // Always make nodes expandable (for children or details)
+    const hasChildren = node.children.length > 0;
+    const hasDetails = this.hasNodeDetails(node);
+    
+    if (hasChildren || hasDetails) {
       indicator.textContent = node.isExpanded ? '▼' : '▶';
       indicator.style.cursor = 'pointer';
       indicator.classList.add('clickable', 'hover:text-blue-600', 'dark:hover:text-blue-400', 'hover:bg-blue-50', 'dark:hover:bg-blue-900', 'rounded');
@@ -2009,12 +2539,9 @@ class PreviewOptimizer {
     const header = document.createElement('div');
     header.className = 'tree-header flex items-center space-x-2 flex-wrap';
     
-    const idSpan = document.createElement('span');
-    idSpan.className = 'node-id font-semibold text-blue-600 dark:text-blue-400 text-sm';
-    idSpan.textContent = node.id;
-    
+    // Remove ID display - just show title and type
     const titleSpan = document.createElement('span');
-    titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm';
+    titleSpan.className = 'node-title text-gray-800 dark:text-gray-200 text-sm flex-grow';
     titleSpan.textContent = node.title;
     titleSpan.title = node.title; // Show full title on hover
     titleSpan.style.wordBreak = 'break-word'; // Allow text wrapping
@@ -2023,7 +2550,6 @@ class PreviewOptimizer {
     typeSpan.className = `node-type text-xs px-2 py-1 rounded-full flex-shrink-0 font-medium ${this.getTypeClass(node.type)}`;
     typeSpan.textContent = node.type;
     
-    header.appendChild(idSpan);
     header.appendChild(titleSpan);
     header.appendChild(typeSpan);
     info.appendChild(header);
@@ -2041,6 +2567,28 @@ class PreviewOptimizer {
     nodeContent.appendChild(indicator);
     nodeContent.appendChild(info);
     nodeElement.appendChild(nodeContent);
+    
+    // Create details container (for expandable details)
+    const detailsContainer = document.createElement('div');
+    detailsContainer.className = 'tree-details transition-all duration-300 ease-in-out overflow-hidden';
+    
+    // Render details if the node has them
+    if (this.hasNodeDetails(node)) {
+      this.renderNodeDetails(detailsContainer, node, level);
+      
+      // Set initial visibility
+      if (node.isExpanded) {
+        detailsContainer.style.display = 'block';
+        detailsContainer.style.maxHeight = 'none';
+        detailsContainer.style.opacity = '1';
+      } else {
+        detailsContainer.style.display = 'none';
+        detailsContainer.style.maxHeight = '0px';
+        detailsContainer.style.opacity = '0';
+      }
+      
+      nodeElement.appendChild(detailsContainer);
+    }
     
     // Create children container
     const childrenContainer = document.createElement('div');
@@ -2075,11 +2623,14 @@ class PreviewOptimizer {
         return;
       }
       
-      // Single click - toggle expand/collapse for nodes with children
-      if (node.children.length > 0) {
+      // Single click - toggle expand/collapse for nodes with children or details
+      const hasChildren = node.children.length > 0;
+      const hasDetails = this.hasNodeDetails(node);
+      
+      if (hasChildren || hasDetails) {
         e.preventDefault();
         e.stopPropagation();
-        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, currently expanded: ${node.isExpanded}`);
+        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
         
         // Toggle expanded state
         node.isExpanded = !node.isExpanded;
@@ -2096,37 +2647,74 @@ class PreviewOptimizer {
           indicator.style.backgroundColor = 'transparent';
         }
         
-        // Toggle children visibility with smooth animation
-        if (node.isExpanded) {
-          // Expanding
-          childrenContainer.style.display = 'block';
-          childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-          // Force a reflow
-          childrenContainer.offsetHeight;
-          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-          childrenContainer.style.opacity = '1';
-          
-          // Remove max-height after animation for dynamic content
-          setTimeout(() => {
-            if (node.isExpanded) {
-              childrenContainer.style.maxHeight = 'none';
-            }
-          }, 300);
-        } else {
-          // Collapsing
-          childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-          childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-          // Force a reflow
-          childrenContainer.offsetHeight;
-          childrenContainer.style.maxHeight = '0px';
-          childrenContainer.style.opacity = '0';
-          
-          // Hide after animation completes
-          setTimeout(() => {
-            if (!node.isExpanded) { // Check if still collapsed
-              childrenContainer.style.display = 'none';
-            }
-          }, 300);
+        // Toggle details visibility if they exist
+        if (hasDetails) {
+          if (node.isExpanded) {
+            // Expanding details
+            detailsContainer.style.display = 'block';
+            detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+            // Force a reflow
+            detailsContainer.offsetHeight;
+            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+            detailsContainer.style.opacity = '1';
+            
+            // Remove max-height after animation for dynamic content
+            setTimeout(() => {
+              if (node.isExpanded) {
+                detailsContainer.style.maxHeight = 'none';
+              }
+            }, 300);
+          } else {
+            // Collapsing details
+            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+            detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+            // Force a reflow
+            detailsContainer.offsetHeight;
+            detailsContainer.style.maxHeight = '0px';
+            detailsContainer.style.opacity = '0';
+            
+            // Hide after animation completes
+            setTimeout(() => {
+              if (!node.isExpanded) { // Check if still collapsed
+                detailsContainer.style.display = 'none';
+              }
+            }, 300);
+          }
+        }
+        
+        // Toggle children visibility if they exist
+        if (hasChildren) {
+          if (node.isExpanded) {
+            // Expanding
+            childrenContainer.style.display = 'block';
+            childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+            // Force a reflow
+            childrenContainer.offsetHeight;
+            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+            childrenContainer.style.opacity = '1';
+            
+            // Remove max-height after animation for dynamic content
+            setTimeout(() => {
+              if (node.isExpanded) {
+                childrenContainer.style.maxHeight = 'none';
+              }
+            }, 300);
+          } else {
+            // Collapsing
+            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+            childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+            // Force a reflow
+            childrenContainer.offsetHeight;
+            childrenContainer.style.maxHeight = '0px';
+            childrenContainer.style.opacity = '0';
+            
+            // Hide after animation completes
+            setTimeout(() => {
+              if (!node.isExpanded) { // Check if still collapsed
+                childrenContainer.style.display = 'none';
+              }
+            }, 300);
+          }
         }
         
         console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
@@ -3071,6 +3659,134 @@ class PreviewOptimizer {
     return classes[type] || 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
   }
 
+  // Check if a node has details that can be expanded
+  hasNodeDetails(node) {
+    if (!node || !node.extraction) return false;
+    
+    const type = node.type;
+    const attrs = node.extraction.attributes || {};
+    
+    if (type === 'SECTION') {
+      return attrs.parent_section || attrs.section_level || attrs.section_summary;
+    } else if (type === 'NORM') {
+      return attrs.norm_statement || attrs.applies_if || attrs.exempt_if;
+    } else if (type === 'TABLE') {
+      return attrs.table_description || attrs.table_content;
+    } else if (type === 'LEGAL_DOCUMENT') {
+      return attrs.doc_type || attrs.jurisdiction || attrs.document_summary;
+    }
+    
+    // For other types, check if there are any meaningful attributes
+    return Object.keys(attrs).length > 1; // More than just 'id'
+  }
+
+  // Render detailed information for a node
+  renderNodeDetails(container, node, level) {
+    const detailsContent = document.createElement('div');
+    detailsContent.className = 'tree-node-details bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-3 ml-8 mt-2';
+    
+    const type = node.type;
+    const extraction = node.extraction;
+    const attrs = extraction ? extraction.attributes || {} : {};
+    
+    // Create details based on node type
+    if (type === 'SECTION') {
+      this.renderSectionDetails(detailsContent, attrs);
+    } else if (type === 'NORM') {
+      this.renderNormDetails(detailsContent, attrs, extraction);
+    } else if (type === 'TABLE') {
+      this.renderTableDetails(detailsContent, attrs);
+    } else if (type === 'LEGAL_DOCUMENT') {
+      this.renderLegalDocumentDetails(detailsContent, attrs);
+    } else {
+      this.renderGenericDetails(detailsContent, attrs);
+    }
+    
+    container.appendChild(detailsContent);
+  }
+
+  renderSectionDetails(container, attrs) {
+    const details = [
+      { label: 'Parent Section', value: attrs.parent_section || 'None' },
+      { label: 'Section Level', value: attrs.section_level || 'N/A' },
+      { label: 'Section Summary', value: attrs.section_summary || 'No summary available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderNormDetails(container, attrs, extraction) {
+    const details = [
+      { label: 'Norm Statement', value: attrs.norm_statement || extraction?.extraction_text || 'No statement available' },
+      { label: 'Applies If', value: attrs.applies_if || 'Not specified' },
+      { label: 'Satisfied If', value: attrs.satisfied_if || 'Not specified' },
+      { label: 'Exempt If', value: attrs.exempt_if || 'Not specified' },
+      { label: 'Obligation Type', value: attrs.obligation_type || 'Not specified' },
+      { label: 'Paragraph Number', value: attrs.paragraph_number || 'N/A' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderTableDetails(container, attrs) {
+    const details = [
+      { label: 'Table Description', value: attrs.table_description || 'No description available' },
+      { label: 'Table Content', value: attrs.table_content || 'No content available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderLegalDocumentDetails(container, attrs) {
+    const details = [
+      { label: 'Document Type', value: attrs.doc_type || 'Unknown' },
+      { label: 'Jurisdiction', value: attrs.jurisdiction || 'Unknown' },
+      { label: 'Document Summary', value: attrs.document_summary || 'No summary available' }
+    ];
+    
+    this.renderDetailsList(container, details);
+  }
+
+  renderGenericDetails(container, attrs) {
+    // For other types, show all available attributes except 'id'
+    const details = [];
+    Object.keys(attrs).forEach(key => {
+      if (key !== 'id' && attrs[key] !== null && attrs[key] !== undefined) {
+        const label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        const value = typeof attrs[key] === 'object' ? JSON.stringify(attrs[key]) : String(attrs[key]);
+        details.push({ label, value });
+      }
+    });
+    
+    if (details.length > 0) {
+      this.renderDetailsList(container, details);
+    } else {
+      container.innerHTML = '<div class="text-xs text-gray-500 dark:text-gray-400">No additional details available</div>';
+    }
+  }
+
+  renderDetailsList(container, details) {
+    details.forEach(detail => {
+      if (detail.value && detail.value !== 'N/A' && detail.value !== 'Not specified') {
+        const detailItem = document.createElement('div');
+        detailItem.className = 'detail-item mb-2 last:mb-0';
+        
+        const label = document.createElement('div');
+        label.className = 'detail-label text-xs font-medium text-gray-700 dark:text-gray-300 mb-1';
+        label.textContent = detail.label + ':';
+        
+        const value = document.createElement('div');
+        value.className = 'detail-value text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-words';
+        value.textContent = detail.value;
+        value.style.wordBreak = 'break-word';
+        
+        detailItem.appendChild(label);
+        detailItem.appendChild(value);
+        container.appendChild(detailItem);
+      }
+    });
+  }
+
   escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
@@ -3147,7 +3863,8 @@ class PreviewOptimizer {
     console.log(`Rendering filtered tree view with filter: ${filterType || 'none'}`);
     
     const data = this.currentJsonData;
-    if (!data || !data.extractions) {
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    if (!normalizedData || !normalizedData.extractions) {
       console.log('No extraction data available for filtering');
       return;
     }
@@ -3158,7 +3875,7 @@ class PreviewOptimizer {
       console.log('No tree container found, falling back to full re-render');
       // Fallback to full re-render
       this.element.innerHTML = '';
-      this.renderUberMode(data, { size: 0, truncated: false });
+      this.renderUberMode(normalizedData, { size: 0, truncated: false });
       return;
     }
 
@@ -3171,10 +3888,10 @@ class PreviewOptimizer {
 
     if (!filterType) {
       // No filter - show hierarchical tree
-      this.renderHierarchicalTree(treeElement, data);
+      this.renderHierarchicalTree(treeElement, normalizedData);
     } else {
       // Filter active - show flat list of matching items
-      this.renderFlatFilteredTree(treeElement, data, filterType);
+      this.renderFlatFilteredTree(treeElement, normalizedData, filterType);
     }
   }
 
@@ -3194,15 +3911,18 @@ class PreviewOptimizer {
   renderFlatFilteredTree(treeElement, data, filterType) {
     console.log(`Rendering flat filtered tree for type: ${filterType}`);
     
+    // Normalize data format first
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    
     // Get all extractions that match the filter
-    const filteredExtractions = data.extractions.filter(ext => 
+    const filteredExtractions = normalizedData.extractions.filter(ext => 
       ext.extraction_class === filterType
     );
 
     console.log(`Found ${filteredExtractions.length} items matching filter: ${filterType}`);
 
     // Group by parent-child relationships within the same type
-    const flatItems = this.buildFlatFilteredItems(filteredExtractions, data, filterType);
+    const flatItems = this.buildFlatFilteredItems(filteredExtractions, normalizedData, filterType);
     
     // Clear and render flat list
     treeElement.innerHTML = '';
@@ -3360,15 +4080,27 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     let displayText = '';
     
-    // Format display text based on extraction type
-    if (attrs.section_title) {
-      displayText = `${attrs.id || 'Unknown'} - ${attrs.section_title}`;
-    } else if (attrs.norm_statement) {
-      displayText = `${attrs.id || 'Unknown'} - ${attrs.norm_statement.substring(0, 100)}${attrs.norm_statement.length > 100 ? '...' : ''}`;
-    } else if (extraction.extraction_text) {
-      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_text.substring(0, 100)}${extraction.extraction_text.length > 100 ? '...' : ''}`;
+    // Format display text based on extraction type - remove IDs
+    if (extraction.extraction_class === 'SECTION') {
+      // Use section_name if available, otherwise section_title
+      displayText = attrs.section_name || attrs.section_title || extraction.extraction_text || 'Untitled Section';
+    } else if (extraction.extraction_class === 'NORM') {
+      displayText = attrs.norm_statement?.substring(0, 100) || extraction.extraction_text?.substring(0, 100) || 'Norm';
+      if ((attrs.norm_statement?.length || extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
+    } else if (extraction.extraction_class === 'TABLE') {
+      displayText = attrs.table_title || extraction.extraction_text?.substring(0, 100) || 'Table';
+      if ((extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
+    } else if (extraction.extraction_class === 'LEGAL_DOCUMENT') {
+      displayText = extraction.extraction_text || attrs.doc_title || attrs.title || 'Legal Document';
     } else {
-      displayText = `${attrs.id || 'Unknown'} - ${extraction.extraction_class}`;
+      displayText = extraction.extraction_text?.substring(0, 100) || extraction.extraction_class || 'Unknown';
+      if ((extraction.extraction_text?.length || 0) > 100) {
+        displayText += '...';
+      }
     }
     
     nodeText.textContent = displayText;
@@ -3411,7 +4143,8 @@ class PreviewOptimizer {
     console.log(`Rendering filtered JSON view with filter: ${filterType || 'none'}`);
     
     const data = this.currentJsonData;
-    if (!data || !data.extractions) {
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    if (!normalizedData || !normalizedData.extractions) {
       console.log('No extraction data available for JSON filtering');
       return;
     }
@@ -3425,10 +4158,10 @@ class PreviewOptimizer {
 
     if (!filterType) {
       // No filter - show complete JSON
-      this.renderCompleteJsonView(jsonContainer, data);
+      this.renderCompleteJsonView(jsonContainer, normalizedData);
     } else {
       // Filter active - show only matching extractions
-      this.renderFlatJsonFilter(jsonContainer, data, filterType);
+      this.renderFlatJsonFilter(jsonContainer, normalizedData, filterType);
     }
   }
 

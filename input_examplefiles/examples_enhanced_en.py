@@ -240,10 +240,12 @@ EXAMPLES: List[lx.data.ExampleData] = [
 
     # 2) MINIMAL PROHIBITION with occupancy trigger
     lx.data.ExampleData(
-        text='2 Installation of key-requiring devices on the main evacuation route is not supported when the occupation exceeds 100 people.'       extractions=[
+        text='2 Installation of key-requiring devices on the main evacuation route is not supported when the occupation exceeds 100 people.',
+        extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text='The installation of key-required devices on the main evacuation route is not supported when the occupation exceeds 100 persons.'               attributes={
+                extraction_text='The installation of key-required devices on the main evacuation route is not supported when the occupation exceeds 100 persons.',
+                attributes={
                     "paragraph_number": 2,
                     "obligation_type": "PROHIBITION",
                     "applies_if": "EVACUATION.PERSONS > 100",
@@ -286,10 +288,12 @@ EXAMPLES: List[lx.data.ExampleData] = [
 
     # 3) Consequence + question + numeric parameter + zone condition
     lx.data.ExampleData(
-        text='In zone R6.2, the presentation of Annex III shall be required when the opening force is < 220 N.'        extractions=[
+        text='In zone R6.2, the presentation of Annex III shall be required when the opening force is < 220 N.',
+        extractions=[
             lx.data.Extraction(
                 extraction_class="Norm",
-                extraction_text='The presentation of Annex III shall be required when the opening force is > 220 N.'                attributes={
+                extraction_text='The presentation of Annex III shall be required when the opening force is > 220 N.',
+                attributes={
                     "paragraph_number": 3,
                     "obligation_type": "MANDATORY",
                     "applies_if": "ZONE.CODE == 'R6.2'",

@@ -1,0 +1,637 @@
+{
+  "document_id": "doc_45e743fa",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "## Administrativo\n\n| Instalación                      | Condición                                                                                  |\n|---------------------------------|--------------------------------------------------------------------------------------------|\n| **Bocas de incendio equipadas** | Si la superficie construida excede de 2.000 m². (7)                                       |",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "section_010",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be installed.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND BUILDING.AREA.CONSTRUCTED > 2000",
+        "satisfied_if": "FIRE_HYDRANT.EQUIPPED.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_HYDRANT.EQUIPPED",
+          "BUILDING.AREA.CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED > 2000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 405
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 35
+      },
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "## Administrativo\n\n| Instalación                      | Condición                                                                                  |\n|---------------------------------|--------------------------------------------------------------------------------------------|\n| **Columna seca** (5)             | Si la altura de evacuación excede de 24 m.                                                |",
+      "attributes": {
+        "id": "f1e2d3c4-b5a6-7890-1234-567890abcdef",
+        "parent_section_id": "section_010",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A dry column must be installed.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND BUILDING.HEIGHT.EVACUATION > 24",
+        "satisfied_if": "DRY_COLUMN.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "DRY_COLUMN",
+          "BUILDING.HEIGHT.EVACUATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.HEIGHT.EVACUATION > 24 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 534
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 57
+      },
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "## Administrativo\n\n| Instalación                      | Condición                                                                                  |\n|---------------------------------|--------------------------------------------------------------------------------------------|\n| *Sistema de alarma* (6)          | Si la superficie construida excede de 1.000 m².                                           |",
+      "attributes": {
+        "id": "g1h2i3j4-k5l6-7890-1234-567890abcdef",
+        "parent_section_id": "section_010",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An alarm system must be installed.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND BUILDING.AREA.CONSTRUCTED > 1000",
+        "satisfied_if": "ALARM_SYSTEM.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ALARM_SYSTEM",
+          "BUILDING.AREA.CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED > 1000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 663
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 79
+      },
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "## Administrativo\n\n| Instalación                      | Condición                                                                                  |\n|---------------------------------|--------------------------------------------------------------------------------------------|\n| *Sistema de detección de incendio* | Si la superficie construida excede de 2.000 m², detectores en zonas de riesgo alto conforme al capítulo 2 de la Sección 1 de este DB. Si excede de 5.000 m², en todo el edificio. |",
+      "attributes": {
+        "id": "k1l2m3n4-o5p6-7890-1234-567890abcdef",
+        "parent_section_id": "section_010",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire detection system must be installed.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND BUILDING.AREA.CONSTRUCTED > 2000",
+        "satisfied_if": "FIRE_DETECTION_SYSTEM.INSTALLED == TRUE AND (BUILDING.AREA.CONSTRUCTED > 2000 AND FIRE_DETECTION_SYSTEM.DETECTORS.HIGH_RISK_ZONES_COMPLIANT_WITH_DB_SECTION_1_CHAPTER_2 == TRUE) OR (BUILDING.AREA.CONSTRUCTED > 5000 AND FIRE_DETECTION_SYSTEM.DETECTORS.WHOLE_BUILDING == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE_DETECTION_SYSTEM",
+          "BUILDING.AREA.CONSTRUCTED",
+          "HIGH_RISK_ZONES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED > 2000 sq_m",
+          "BUILDING.AREA.CONSTRUCTED > 5000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 882
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 137
+      },
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "## Administrativo\n\n| Instalación                      | Condición                                                                                  |\n|---------------------------------|--------------------------------------------------------------------------------------------|\n| **Hidrantes exteriores**         | Uno si la superficie total construida está comprendida entre 5.000 y 10.000 m².           |\n|                                 | Uno más por cada 10.000 m² adicionales o fracción.(3)                                    |",
+      "attributes": {
+        "id": "p1q2r3s4-t5u6-7890-1234-567890abcdef",
+        "parent_section_id": "section_010",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Outdoor hydrants must be installed.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND BUILDING.AREA.CONSTRUCTED >= 5000",
+        "satisfied_if": "(BUILDING.AREA.CONSTRUCTED >= 5000 AND BUILDING.AREA.CONSTRUCTED <= 10000 AND OUTDOOR_HYDRANTS.COUNT == 1) OR (BUILDING.AREA.CONSTRUCTED > 10000 AND OUTDOOR_HYDRANTS.COUNT == (1 + CEIL((BUILDING.AREA.CONSTRUCTED - 10000) / 10000)))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "OUTDOOR_HYDRANTS",
+          "BUILDING.AREA.CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED >= 5000 sq_m",
+          "BUILDING.AREA.CONSTRUCTED <= 10000 sq_m",
+          "ADDITIONAL_HYDRANTS_PER_10000_SQ_M"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 1138
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 185
+      },
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_HYDRANT.EQUIPPED",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "FIRE_HYDRANT.EQUIPPED",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "BUILDING.AREA.CONSTRUCTED",
+        "used_by_norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "g1h2i3j4-k5l6-7890-1234-567890abcdef",
+          "k1l2m3n4-o5p6-7890-1234-567890abcdef",
+          "p1q2r3s4-t5u6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "DRY_COLUMN",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "DRY_COLUMN",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.HEIGHT.EVACUATION",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "BUILDING.HEIGHT.EVACUATION",
+        "used_by_norm_ids": [
+          "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ALARM_SYSTEM",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "ALARM_SYSTEM",
+        "used_by_norm_ids": [
+          "g1h2i3j4-k5l6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE_DETECTION_SYSTEM",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "FIRE_DETECTION_SYSTEM",
+        "used_by_norm_ids": [
+          "k1l2m3n4-o5p6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "HIGH_RISK_ZONES",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "HIGH_RISK_ZONES",
+        "used_by_norm_ids": [
+          "k1l2m3n4-o5p6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "OUTDOOR_HYDRANTS",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "OUTDOOR_HYDRANTS",
+        "used_by_norm_ids": [
+          "p1q2r3s4-t5u6-7890-1234-567890abcdef"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 2000 sq_m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 2000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.HEIGHT.EVACUATION > 24 m",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "BUILDING.HEIGHT.EVACUATION",
+        "operator": ">",
+        "value": 24,
+        "unit": "m",
+        "norm_ids": [
+          "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 1000 sq_m",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 1000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "g1h2i3j4-k5l6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 2000 sq_m",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 2000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "k1l2m3n4-o5p6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 5000 sq_m",
+      "attributes": {
+        "id": "P::000005",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 5000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "k1l2m3n4-o5p6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED >= 5000 sq_m",
+      "attributes": {
+        "id": "P::000006",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">=",
+        "value": 5000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "p1q2r3s4-t5u6-7890-1234-567890abcdef"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED <= 10000 sq_m",
+      "attributes": {
+        "id": "P::000007",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": "<=",
+        "value": 10000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "p1q2r3s4-t5u6-7890-1234-567890abcdef"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_010",
+      "section_name": "Administrativo",
+      "section_level": 2,
+      "parent_section": "section_008",
+      "sub_sections": [],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 20
+  }
+}

@@ -1,0 +1,1635 @@
+{
+  "document_id": "doc_f35e0a85",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la superficie construida excede de 500 m².(7) Se excluyen los aparcamientos robotizados.",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND BUILDING.AREA.CONSTRUCTED > 500",
+        "satisfied_if": "FIRE.HYDRANT.EQUIPPED.INSTALLED == TRUE",
+        "exempt_if": "PARKING.TYPE == 'ROBOTIZED'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.HYDRANT.EQUIPPED",
+          "BUILDING.AREA.CONSTRUCTED",
+          "PARKING.TYPE.ROBOTIZED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED > 500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 52,
+        "end_pos": 116
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 8,
+        "end_index": 22
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si existen más de tres plantas bajo rasante o más de cuatro sobre rasante, con tomas en todas sus plantas.",
+      "attributes": {
+        "id": "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Dry risers must be installed with outlets on all floors.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND (BUILDING.FLOORS.BELOW_GROUND > 3 OR BUILDING.FLOORS.ABOVE_GROUND > 4)",
+        "satisfied_if": "FIRE.DRY_RISER.INSTALLED == TRUE AND FIRE.DRY_RISER.OUTLETS.ALL_FLOORS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DRY_RISER",
+          "BUILDING.FLOORS.BELOW_GROUND",
+          "BUILDING.FLOORS.ABOVE_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.FLOORS.BELOW_GROUND > 3",
+          "BUILDING.FLOORS.ABOVE_GROUND > 4"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 169,
+        "end_pos": 275
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 32,
+        "end_index": 58
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En aparcamientos convencionales cuya superficie construida exceda de 500 m².(8) Los aparcamientos robotizados dispondrán de pulsadores de alarma en todo caso.",
+      "attributes": {
+        "id": "c2d6g08d-5e55-4fc2-9c99-g7b1b7c2c7d2",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire detection system must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND PARKING.TYPE == 'CONVENTIONAL' AND BUILDING.AREA.CONSTRUCTED > 500",
+        "satisfied_if": "FIRE.DETECTION_SYSTEM.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTION_SYSTEM",
+          "PARKING.TYPE.CONVENTIONAL",
+          "BUILDING.AREA.CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED > 500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 371,
+        "end_pos": 528
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 84,
+        "end_index": 110
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los aparcamientos robotizados dispondrán de pulsadores de alarma en todo caso.",
+      "attributes": {
+        "id": "d3e7h19e-6f66-5fd3-0d00-h8c2c8e3e8f3",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Robotized car parks must have alarm buttons in all cases.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND PARKING.TYPE == 'ROBOTIZED'",
+        "satisfied_if": "FIRE.ALARM_BUTTONS.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.ALARM_BUTTONS",
+          "PARKING.TYPE.ROBOTIZED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 451,
+        "end_pos": 678
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 97,
+        "end_index": 147
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Uno si la superficie construida está comprendida entre 1.000 y 10.000 m² y uno más cada 10.000 m² más o fracción.(3)",
+      "attributes": {
+        "id": "e4f8i20f-7g77-6ge4-1e11-i9d3d9f4f9g4",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Exterior hydrants must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND BUILDING.AREA.CONSTRUCTED >= 1000",
+        "satisfied_if": "(BUILDING.AREA.CONSTRUCTED >= 1000 AND BUILDING.AREA.CONSTRUCTED <= 10000 AND FIRE.HYDRANT.EXTERIOR.COUNT >= 1); OR (BUILDING.AREA.CONSTRUCTED > 10000 AND FIRE.HYDRANT.EXTERIOR.COUNT >= (1 + CEIL((BUILDING.AREA.CONSTRUCTED - 10000) / 10000)))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.HYDRANT.EXTERIOR",
+          "BUILDING.AREA.CONSTRUCTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.CONSTRUCTED >= 1000 sq_m",
+          "BUILDING.AREA.CONSTRUCTED <= 10000 sq_m",
+          "1 hydrant per 10000 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 621,
+        "end_pos": 736
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 136,
+        "end_index": 174
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En todo aparcamiento robotizado.",
+      "attributes": {
+        "id": "f5g9j31g-8h88-7hf5-2f22-j0e4e0g5g0h5",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Automatic extinguishing system must be installed.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND PARKING.TYPE == 'ROBOTIZED'",
+        "satisfied_if": "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC",
+          "PARKING.TYPE.ROBOTIZED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 819,
+        "end_pos": 850
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 202,
+        "end_index": 206
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Un extintor en el exterior del local o de la zona y próximo a la puerta de acceso, el cual podrá servir simultáneamente a varios locales o zonas. En el interior del local o de la zona se instalarán además los extintores necesarios para que el recorrido real hasta alguno de ellos, incluido el situado en el exterior, no sea mayor que 15 m en locales y zonas de riesgo especial medio o bajo, o que 10 m en locales o zonas de riesgo especial alto.",
+      "attributes": {
+        "id": "g6h0k42h-9i99-8ig6-3g33-k1f5f1h6h1i6",
+        "parent_section_id": "section_018",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire extinguishers must be installed.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.EXTINGUISHER.OUTSIDE.COUNT >= 1 AND FIRE.EXTINGUISHER.DISTANCE.MAX <= 15 AND FIRE.RISK.LEVEL IN ['MEDIUM', 'LOW']; OR FIRE.EXTINGUISHER.DISTANCE.MAX <= 10 AND FIRE.RISK.LEVEL == 'HIGH'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EXTINGUISHER",
+          "FIRE.RISK.LEVEL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.EXTINGUISHER.DISTANCE.MAX <= 15 m",
+          "FIRE.EXTINGUISHER.DISTANCE.MAX <= 10 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 891,
+        "end_pos": 1336
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 220,
+        "end_index": 321
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los equipos serán de tipo 45 mm, excepto en edificios de uso Residencial Vivienda, en lo que serán de tipo 25 mm.",
+      "attributes": {
+        "id": "h7i1l53i-0j00-9ji7-4h44-l2g6g2i7i2j7",
+        "parent_section_id": "section_018",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipment must be of 45 mm type.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EQUIPMENT.TYPE == '45mm'",
+        "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND EQUIPMENT.TYPE == '25mm'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EQUIPMENT.TYPE",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EQUIPMENT.TYPE == '45mm'",
+          "EQUIPMENT.TYPE == '25mm'"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 1341,
+        "end_pos": 1454
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 323,
+        "end_index": 352
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "Para el cómputo de la dotación que se establece se pueden considerar los hidrantes que se encuentran en la vía pública a menos de 100 m de la fachada accesible del edificio. Los hidrantes que se instalen pueden estar conectados a la red pública de suministro de agua.",
+      "attributes": {
+        "id": "i8j2m64j-1k11-0kl8-5i55-m3h7h3j8j3k8",
+        "parent_section_id": "section_018",
+        "Procedure": "For the calculation of the required provision, hydrants located on public roads less than 100 m from the accessible facade of the building may be considered. Installed hydrants may be connected to the public water supply network.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.HYDRANT.COMPUTATION",
+          "FIRE.HYDRANT.LOCATION",
+          "WATER.SUPPLY.CONNECTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        }
+      },
+      "char_interval": {
+        "start_pos": 1459,
+        "end_pos": 1726
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 354,
+        "end_index": 414
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "Para la determinación de la potencia instalada sólo se considerarán los aparatos directamente destinados a la preparación de alimentos y susceptibles de provocar ignición. Las freidoras y las sartenes basculantes se computarán a razón de 1 kW por cada litro de capacidad, independientemente de la potencia que tengan. La protección aportada por la instalación automática cubrirá los aparatos antes citados y la eficacia del sistema debe quedar asegurada teniendo en cuenta la actuación del sistema de extracción de humos.",
+      "attributes": {
+        "id": "j9k3n75k-2l22-1lm9-6j66-n4i8i4k9k4l9",
+        "parent_section_id": "section_018",
+        "Procedure": "For determining installed power, only appliances directly intended for food preparation and capable of causing ignition will be considered. Fryers and tilting pans will be calculated at 1 kW per liter of capacity, regardless of their power. The protection provided by the automatic installation must cover the aforementioned appliances, and the system's effectiveness must be ensured considering the operation of the smoke extraction system.",
+        "target_reference": [],
+        "Tags": [
+          "POWER.CALCULATION",
+          "FOOD.PREPARATION.APPLIANCES",
+          "FIRE.PROTECTION",
+          "SMOKE.EXTRACTION.SYSTEM"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        }
+      },
+      "char_interval": {
+        "start_pos": 1731,
+        "end_pos": 2252
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 416,
+        "end_index": 524
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los municipios pueden sustituir esta condición por la de una instalación de bocas de incendio equipadas cuando, por el emplazamiento de un edificio o por el nivel de dotación de los servicios públicos de extinción existentes, no quede garantizada la utilidad de la instalación de columna seca.",
+      "attributes": {
+        "id": "k0l4o86l-3m33-2mn0-7k77-o5j9j5l0l5m0",
+        "parent_section_id": "section_018",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Municipalities may substitute the dry riser condition with an equipped fire hydrant installation.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.DRY_RISER.UTILITY_GUARANTEED == FALSE AND FIRE.HYDRANT.EQUIPPED.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DRY_RISER",
+          "FIRE.HYDRANT.EQUIPPED",
+          "MUNICIPALITY.AUTHORITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 2257,
+        "end_pos": 2550
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 526,
+        "end_index": 588
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El sistema de alarma transmitirá señales visuales además de acústicas. Las señales visuales serán perceptibles incluso en el interior de viviendas accesibles para personas con discapacidad auditiva (ver definición en el Anejo SUA A del DB SUA).",
+      "attributes": {
+        "id": "l1m5p97m-4n44-3no1-8l88-p6k0k6m1m6n1",
+        "parent_section_id": "section_018",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The alarm system must transmit visual signals in addition to acoustic ones. Visual signals must be perceptible even inside accessible homes for people with hearing disabilities.",
+        "applies_if": "TRUE",
+        "satisfied_if": "ALARM.SYSTEM.VISUAL_SIGNALS == TRUE AND ALARM.SYSTEM.ACOUSTIC_SIGNALS == TRUE AND ALARM.SYSTEM.VISUAL_SIGNALS.PERCEPTIBLE_IN_ACCESSIBLE_HOMES_FOR_HEARING_IMPAIRED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ALARM.SYSTEM",
+          "VISUAL_SIGNALS",
+          "ACOUSTIC_SIGNALS",
+          "ACCESSIBILITY.HEARING_IMPAIRED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Refers to Annex SUA A of DB SUA for definition of accessible homes for hearing impaired."
+      },
+      "char_interval": {
+        "start_pos": 2555,
+        "end_pos": 2799
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 590,
+        "end_index": 643
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los equipos serán de tipo 25 mm.",
+      "attributes": {
+        "id": "m2n6q08n-5o55-4pq2-9m99-q7l1l7n2n7o2",
+        "parent_section_id": "section_018",
+        "paragraph_number": 7,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipment must be of 25 mm type.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EQUIPMENT.TYPE == '25mm'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EQUIPMENT.TYPE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EQUIPMENT.TYPE == '25mm'"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 2804,
+        "end_pos": 2836
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 645,
+        "end_index": 655
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El sistema dispondrá al menos de detectores de incendio.",
+      "attributes": {
+        "id": "n3o7r19o-6p66-5qr3-0n00-r8m2m8o3o8p3",
+        "parent_section_id": "section_018",
+        "paragraph_number": 8,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The system must have at least fire detectors.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.DETECTION_SYSTEM.DETECTORS.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTION_SYSTEM",
+          "FIRE.DETECTORS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 2841,
+        "end_pos": 2897
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 657,
+        "end_index": 668
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La condición de disponer detectores automáticos térmicos puede sustituirse por una instalación automática de extinción no exigida.",
+      "attributes": {
+        "id": "o4p8s20p-7q77-6rs4-1o11-s9n3n9p4p9q4",
+        "parent_section_id": "section_018",
+        "paragraph_number": 9,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The condition of having automatic thermal detectors can be replaced by an unrequired automatic extinguishing system.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.DETECTORS.AUTOMATIC_THERMAL.INSTALLED == TRUE; OR FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC.INSTALLED == TRUE AND FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC.REQUIRED == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTORS.AUTOMATIC_THERMAL",
+          "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": ""
+      },
+      "char_interval": {
+        "start_pos": 2902,
+        "end_pos": 3032
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 670,
+        "end_index": 700
+      },
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.HYDRANT.EQUIPPED",
+      "attributes": {
+        "id": "T::000001",
+        "tag": "FIRE.HYDRANT.EQUIPPED",
+        "used_by_norm_ids": [
+          "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+          "k0l4o86l-3m33-2mn0-7k77-o5j9j5l0l5m0"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED",
+      "attributes": {
+        "id": "T::000002",
+        "tag": "BUILDING.AREA.CONSTRUCTED",
+        "used_by_norm_ids": [
+          "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+          "c2d6g08d-5e55-4fc2-9c99-g7b1b7c2c7d2",
+          "e4f8i20f-7g77-6ge4-1e11-i9d3d9f4f9g4"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "PARKING.TYPE.ROBOTIZED",
+      "attributes": {
+        "id": "T::000003",
+        "tag": "PARKING.TYPE.ROBOTIZED",
+        "used_by_norm_ids": [
+          "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+          "d3e7h19e-6f66-5fd3-0d00-h8c2c8e3e8f3",
+          "f5g9j31g-8h88-7hf5-2f22-j0e4e0g5g0h5"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.DRY_RISER",
+      "attributes": {
+        "id": "T::000004",
+        "tag": "FIRE.DRY_RISER",
+        "used_by_norm_ids": [
+          "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d",
+          "k0l4o86l-3m33-2mn0-7k77-o5j9j5l0l5m0"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.FLOORS.BELOW_GROUND",
+      "attributes": {
+        "id": "T::000005",
+        "tag": "BUILDING.FLOORS.BELOW_GROUND",
+        "used_by_norm_ids": [
+          "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.FLOORS.ABOVE_GROUND",
+      "attributes": {
+        "id": "T::000006",
+        "tag": "BUILDING.FLOORS.ABOVE_GROUND",
+        "used_by_norm_ids": [
+          "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.DETECTION_SYSTEM",
+      "attributes": {
+        "id": "T::000007",
+        "tag": "FIRE.DETECTION_SYSTEM",
+        "used_by_norm_ids": [
+          "c2d6g08d-5e55-4fc2-9c99-g7b1b7c2c7d2",
+          "n3o7r19o-6p66-5qr3-0n00-r8m2m8o3o8p3"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "PARKING.TYPE.CONVENTIONAL",
+      "attributes": {
+        "id": "T::000008",
+        "tag": "PARKING.TYPE.CONVENTIONAL",
+        "used_by_norm_ids": [
+          "c2d6g08d-5e55-4fc2-9c99-g7b1b7c2c7d2"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.ALARM_BUTTONS",
+      "attributes": {
+        "id": "T::000009",
+        "tag": "FIRE.ALARM_BUTTONS",
+        "used_by_norm_ids": [
+          "d3e7h19e-6f66-5fd3-0d00-h8c2c8e3e8f3"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.HYDRANT.EXTERIOR",
+      "attributes": {
+        "id": "T::000010",
+        "tag": "FIRE.HYDRANT.EXTERIOR",
+        "used_by_norm_ids": [
+          "e4f8i20f-7g77-6ge4-1e11-i9d3d9f4f9g4"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC",
+      "attributes": {
+        "id": "T::000011",
+        "tag": "FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC",
+        "used_by_norm_ids": [
+          "f5g9j31g-8h88-7hf5-2f22-j0e4e0g5g0h5",
+          "o4p8s20p-7q77-6rs4-1o11-s9n3n9p4p9q4"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.EXTINGUISHER",
+      "attributes": {
+        "id": "T::000012",
+        "tag": "FIRE.EXTINGUISHER",
+        "used_by_norm_ids": [
+          "g6h0k42h-9i99-8ig6-3g33-k1f5f1h6h1i6"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.RISK.LEVEL",
+      "attributes": {
+        "id": "T::000013",
+        "tag": "FIRE.RISK.LEVEL",
+        "used_by_norm_ids": [
+          "g6h0k42h-9i99-8ig6-3g33-k1f5f1h6h1i6"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "EQUIPMENT.TYPE",
+      "attributes": {
+        "id": "T::000014",
+        "tag": "EQUIPMENT.TYPE",
+        "used_by_norm_ids": [
+          "h7i1l53i-0j00-9ji7-4h44-l2g6g2i7i2j7",
+          "m2n6q08n-5o55-4pq2-9m99-q7l1l7n2n7o2"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+      "attributes": {
+        "id": "T::000015",
+        "tag": "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+        "used_by_norm_ids": [
+          "h7i1l53i-0j00-9ji7-4h44-l2g6g2i7i2j7"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "MUNICIPALITY.AUTHORITY",
+      "attributes": {
+        "id": "T::000016",
+        "tag": "MUNICIPALITY.AUTHORITY",
+        "used_by_norm_ids": [
+          "k0l4o86l-3m33-2mn0-7k77-o5j9j5l0l5m0"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ALARM.SYSTEM",
+      "attributes": {
+        "id": "T::000017",
+        "tag": "ALARM.SYSTEM",
+        "used_by_norm_ids": [
+          "l1m5p97m-4n44-3no1-8l88-p6k0k6m1m6n1"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "VISUAL_SIGNALS",
+      "attributes": {
+        "id": "T::000018",
+        "tag": "VISUAL_SIGNALS",
+        "used_by_norm_ids": [
+          "l1m5p97m-4n44-3no1-8l88-p6k0k6m1m6n1"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ACOUSTIC_SIGNALS",
+      "attributes": {
+        "id": "T::000019",
+        "tag": "ACOUSTIC_SIGNALS",
+        "used_by_norm_ids": [
+          "l1m5p97m-4n44-3no1-8l88-p6k0k6m1m6n1"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "ACCESSIBILITY.HEARING_IMPAIRED",
+      "attributes": {
+        "id": "T::000020",
+        "tag": "ACCESSIBILITY.HEARING_IMPAIRED",
+        "used_by_norm_ids": [
+          "l1m5p97m-4n44-3no1-8l88-p6k0k6m1m6n1"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.DETECTORS",
+      "attributes": {
+        "id": "T::000021",
+        "tag": "FIRE.DETECTORS",
+        "used_by_norm_ids": [
+          "n3o7r19o-6p66-5qr3-0n00-r8m2m8o3o8p3"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Tag",
+      "extraction_text": "FIRE.DETECTORS.AUTOMATIC_THERMAL",
+      "attributes": {
+        "id": "T::000022",
+        "tag": "FIRE.DETECTORS.AUTOMATIC_THERMAL",
+        "used_by_norm_ids": [
+          "o4p8s20p-7q77-6rs4-1o11-s9n3n9p4p9q4"
+        ],
+        "related_topics": [
+          "SAFETY.FIRE"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 500 sq_m",
+      "attributes": {
+        "id": "P::000001",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 500,
+        "unit": "sq_m",
+        "norm_ids": [
+          "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.FLOORS.BELOW_GROUND > 3",
+      "attributes": {
+        "id": "P::000002",
+        "applies_for_tag": "BUILDING.FLOORS.BELOW_GROUND",
+        "operator": ">",
+        "value": 3,
+        "unit": null,
+        "norm_ids": [
+          "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.FLOORS.ABOVE_GROUND > 4",
+      "attributes": {
+        "id": "P::000003",
+        "applies_for_tag": "BUILDING.FLOORS.ABOVE_GROUND",
+        "operator": ">",
+        "value": 4,
+        "unit": null,
+        "norm_ids": [
+          "b1c5f97c-4d44-4fb1-8bf8-f6a0a107ab5d"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED > 500 sq_m",
+      "attributes": {
+        "id": "P::000004",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">",
+        "value": 500,
+        "unit": "sq_m",
+        "norm_ids": [
+          "c2d6g08d-5e55-4fc2-9c99-g7b1b7c2c7d2"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED >= 1000 sq_m",
+      "attributes": {
+        "id": "P::000005",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": ">=",
+        "value": 1000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "e4f8i20f-7g77-6ge4-1e11-i9d3d9f4f9g4"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "BUILDING.AREA.CONSTRUCTED <= 10000 sq_m",
+      "attributes": {
+        "id": "P::000006",
+        "applies_for_tag": "BUILDING.AREA.CONSTRUCTED",
+        "operator": "<=",
+        "value": 10000,
+        "unit": "sq_m",
+        "norm_ids": [
+          "e4f8i20f-7g77-6ge4-1e11-i9d3d9f4f9g4"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "FIRE.EXTINGUISHER.DISTANCE.MAX <= 15 m",
+      "attributes": {
+        "id": "P::000007",
+        "applies_for_tag": "FIRE.EXTINGUISHER.DISTANCE.MAX",
+        "operator": "<=",
+        "value": 15,
+        "unit": "m",
+        "norm_ids": [
+          "g6h0k42h-9i99-8ig6-3g33-k1f5f1h6h1i6"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "FIRE.EXTINGUISHER.DISTANCE.MAX <= 10 m",
+      "attributes": {
+        "id": "P::000008",
+        "applies_for_tag": "FIRE.EXTINGUISHER.DISTANCE.MAX",
+        "operator": "<=",
+        "value": 10,
+        "unit": "m",
+        "norm_ids": [
+          "g6h0k42h-9i99-8ig6-3g33-k1f5f1h6h1i6"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "EQUIPMENT.TYPE == '45mm'",
+      "attributes": {
+        "id": "P::000009",
+        "applies_for_tag": "EQUIPMENT.TYPE",
+        "operator": "==",
+        "value": "'45mm'",
+        "unit": null,
+        "norm_ids": [
+          "h7i1l53i-0j00-9ji7-4h44-l2g6g2i7i2j7"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "EQUIPMENT.TYPE == '25mm'",
+      "attributes": {
+        "id": "P::000010",
+        "applies_for_tag": "EQUIPMENT.TYPE",
+        "operator": "==",
+        "value": "'25mm'",
+        "unit": null,
+        "norm_ids": [
+          "h7i1l53i-0j00-9ji7-4h44-l2g6g2i7i2j7"
+        ]
+      }
+    },
+    {
+      "extraction_class": "Parameter",
+      "extraction_text": "EQUIPMENT.TYPE == '25mm'",
+      "attributes": {
+        "id": "P::000011",
+        "applies_for_tag": "EQUIPMENT.TYPE",
+        "operator": "==",
+        "value": "'25mm'",
+        "unit": null,
+        "norm_ids": [
+          "m2n6q08n-5o55-4pq2-9m99-q7l1l7n2n7o2"
+        ]
+      }
+    }
+  ],
+  "section_metadata": [
+    {
+      "section_id": "section_018",
+      "section_name": "Aparcamiento",
+      "section_level": 3,
+      "parent_section": "section_014",
+      "sub_sections": [],
+      "section_summary": ""
+    }
+  ],
+  "processing_info": {
+    "chunking_method": "section_based",
+    "total_sections": 1,
+    "total_extractions": 48
+  }
+}

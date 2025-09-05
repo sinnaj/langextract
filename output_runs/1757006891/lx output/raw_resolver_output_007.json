@@ -1,0 +1,69 @@
+{
+  "document_id": "doc_68fb5398",
+  "extractions_raw": "[Extraction(extraction_class='NORM', extraction_text='Salvo otra indicación en relación con el uso, en todo edificio cuya *altura de evacuación* exceda de 80 m.', char_interval=CharInterval(start_pos=39, end_pos=145), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=1, group_index=0, description=None, attributes={'id': 'e1b2c3d4-a5b6-7c8d-9e0f-1234567890ab', 'parent_section_id': '7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'An automatic extinguishing system must be installed.', 'applies_if': 'BUILDING.EVACUATION.HEIGHT > 80', 'satisfied_if': 'BUILDING.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['GENERAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['BUILDING.EVACUATION.HEIGHT', 'FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['BUILDING.EVACUATION.HEIGHT > 80 m'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='En cocinas en las que la potencia instalada exceda de 20 kW en *uso Hospitalario* o *Residencial Público* o de 50 kW en cualquier otro uso.(4)', char_interval=CharInterval(start_pos=149, end_pos=291), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=2, group_index=1, description=None, attributes={'id': 'f2g3h4i5-j6k7-l8m9-n0p1-234567890qrs', 'parent_section_id': '7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d', 'paragraph_number': 2, 'obligation_type': 'MANDATORY', 'norm_statement': 'An automatic extinguishing system must be installed.', 'applies_if': \"(KITCHEN.INSTALLED_POWER > 20 AND KITCHEN.USAGE IN ['PUBLIC.HOSPITAL', 'PUBLIC.RESIDENTIAL']) OR (KITCHEN.INSTALLED_POWER > 50 AND KITCHEN.USAGE NOT IN ['PUBLIC.HOSPITAL', 'PUBLIC.RESIDENTIAL'])\", 'satisfied_if': 'KITCHEN.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['GENERAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['KITCHEN.INSTALLED_POWER', 'KITCHEN.USAGE.PUBLIC.HOSPITAL', 'KITCHEN.USAGE.PUBLIC.RESIDENTIAL', 'FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['KITCHEN.INSTALLED_POWER > 20 kW', 'KITCHEN.INSTALLED_POWER > 50 kW'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='En centros de transformación cuyos aparatos tengan aislamiento dieléctrico con punto de inflamación menor que 300 ºC y potencia instalada mayor que 1 000 kVA en cada aparato o mayor que 4 000 kVA en el conjunto de los aparatos. Si el centro está integrado en un edificio de uso Pública concurrencia y tiene acceso desde el interior del edificio, dichas potencias son 630 kVA y 2 520 kVA respectivamente.', char_interval=CharInterval(start_pos=294, end_pos=697), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=3, group_index=2, description=None, attributes={'id': 'g3h4i5j6-k7l8-m9n0-p1q2-34567890qrst', 'parent_section_id': '7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d', 'paragraph_number': 3, 'obligation_type': 'MANDATORY', 'norm_statement': 'An automatic extinguishing system must be installed.', 'applies_if': \"TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT < 300 AND (\\n                        (TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 1000 OR TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 4000) AND NOT (BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS == TRUE)\\n                    ) OR (\\n                        (TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 630 OR TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 2520) AND BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS == TRUE\\n                    )\", 'satisfied_if': 'TRANSFORMATION_CENTER.HAS_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['GENERAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL', 'BUILDING.USAGE.PUBLIC.ASSEMBLY', 'TRANSFORMATION_CENTER.HAS_INTERIOR_ACCESS', 'FIRE.EXTINGUISHING_SYSTEM.AUTOMATIC'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['TRANSFORMATION_CENTER.APPARATUS.DIELECTRIC_INSULATION.FLASH_POINT < 300 C', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 1000 kVA', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 4000 kVA', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_PER_APPARATUS > 630 kVA', 'TRANSFORMATION_CENTER.APPARATUS.INSTALLED_POWER_TOTAL > 2520 kVA'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''})]",
+  "extractions_is_none": false,
+  "extractions_type": "<class 'list'>",
+  "metadata": {
+    "type": "<class 'langextract.core.data.AnnotatedDocument'>",
+    "attributes": [
+      "document_id",
+      "extractions",
+      "text",
+      "tokenized_text"
+    ]
+  },
+  "extractions_count": 3,
+  "sample_extractions": [
+    {
+      "index": 0,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "Salvo otra indicación en relación con el uso, en todo edificio cuya *altura de evacuación* exceda de 80 m."
+    },
+    {
+      "index": 1,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "En cocinas en las que la potencia instalada exceda de 20 kW en *uso Hospitalario* o *Residencial Público* o de 50 kW en cualquier otro uso.(4)"
+    },
+    {
+      "index": 2,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "En centros de transformación cuyos aparatos tengan aislamiento dieléctrico con punto de inflamación menor que 300 ºC y potencia instalada mayor que 1 000 kVA en cada aparato o mayor que 4 000 kVA en e..."
+    }
+  ]
+}

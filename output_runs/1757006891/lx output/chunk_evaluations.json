@@ -1,0 +1,419 @@
+{
+  "source_file": "output_runs\\1757006891\\input\\DBSI-29-35_LlamaIndex.md",
+  "evaluation_statistics": {
+    "total_chunks": 19,
+    "extract_count": 16,
+    "drop_count": 0,
+    "manual_count": 3,
+    "extract_percentage": 84.2,
+    "drop_percentage": 0.0,
+    "manual_percentage": 15.8
+  },
+  "chunk_evaluations": [
+    {
+      "section_metadata": {
+        "section_id": "section_001",
+        "section_name": "6 Puertas situadas en recorridos de evacuación",
+        "section_level": 1,
+        "section_index": 0,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 3429,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_002",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 1,
+        "section_index": 1,
+        "parent_section": null,
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 2852,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_003",
+        "section_name": "Control del humo de incendio",
+        "section_level": 1,
+        "section_index": 2,
+        "parent_section": null,
+        "sub_sections": [
+          "section_004"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 1394,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_004",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "section_index": 3,
+        "parent_section": "section_003",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 1727,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_005",
+        "section_name": "Sección SI 4",
+        "section_level": 1,
+        "section_index": 4,
+        "parent_section": null,
+        "sub_sections": [
+          "section_006"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 16,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_006",
+        "section_name": "Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 5,
+        "parent_section": "section_005",
+        "sub_sections": [
+          "section_007"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 48,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_007",
+        "section_name": "1  Dotación de instalaciones de protección contra incendios",
+        "section_level": 3,
+        "section_index": 6,
+        "parent_section": "section_006",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 2553,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_008",
+        "section_name": "Instalación automática de extinción",
+        "section_level": 1,
+        "section_index": 7,
+        "parent_section": null,
+        "sub_sections": [
+          "section_009",
+          "section_010",
+          "section_011",
+          "section_012"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 704,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_009",
+        "section_name": "Residencial Vivienda",
+        "section_level": 2,
+        "section_index": 8,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 816,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_010",
+        "section_name": "Administrativo",
+        "section_level": 2,
+        "section_index": 9,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 1145,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_011",
+        "section_name": "Residencial Público",
+        "section_level": 2,
+        "section_index": 10,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 1145,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_012",
+        "section_name": "Hospitalario",
+        "section_level": 2,
+        "section_index": 11,
+        "parent_section": "section_008",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 1191,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_013",
+        "section_name": "Documento Básico SI en caso de Incendio",
+        "section_level": 1,
+        "section_index": 12,
+        "parent_section": null,
+        "sub_sections": [
+          "section_014",
+          "section_019"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 43,
+      "evaluation": {
+        "should_extract": false,
+        "reason": "Contains only headlines with minimal content",
+        "processing_type": "manual",
+        "metadata": {
+          "content_type": "headline_only",
+          "section_structure": true,
+          "add_to_final_json": true
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_014",
+        "section_name": "SI 4. Instalaciones de protección contra incendios",
+        "section_level": 2,
+        "section_index": 13,
+        "parent_section": "section_013",
+        "sub_sections": [
+          "section_015",
+          "section_016",
+          "section_017",
+          "section_018"
+        ],
+        "section_summary": ""
+      },
+      "chunk_length": 360,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_015",
+        "section_name": "Docente",
+        "section_level": 3,
+        "section_index": 14,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 626,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_016",
+        "section_name": "Comercial",
+        "section_level": 3,
+        "section_index": 15,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 1216,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_017",
+        "section_name": "Pública concurrencia",
+        "section_level": 3,
+        "section_index": 16,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 621,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_018",
+        "section_name": "Aparcamiento",
+        "section_level": 3,
+        "section_index": 17,
+        "parent_section": "section_014",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 3033,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    },
+    {
+      "section_metadata": {
+        "section_id": "section_019",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2,
+        "section_index": 18,
+        "parent_section": "section_013",
+        "sub_sections": [],
+        "section_summary": ""
+      },
+      "chunk_length": 316,
+      "evaluation": {
+        "should_extract": true,
+        "reason": "Contains substantial content suitable for extraction",
+        "processing_type": "extract",
+        "metadata": {
+          "content_type": "substantial_content"
+        }
+      }
+    }
+  ]
+}

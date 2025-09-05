@@ -1,0 +1,69 @@
+{
+  "object_type": "<class 'langextract.core.data.AnnotatedDocument'>",
+  "object_is_none": false,
+  "object_attributes": [
+    "document_id",
+    "extractions",
+    "text",
+    "tokenized_text"
+  ],
+  "__dict___result": {
+    "extractions": "[Extraction(extraction_class='NORM', extraction_text='La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interval=CharInterval(start_pos=83, end_pos=315), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=1, group_index=0, description=None, attributes={'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef', 'parent_section_id': '2', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'Signaling of manual fire protection installations must comply with the current Fire Protection Installations Regulation.', 'applies_if': 'TRUE', 'satisfied_if': 'FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNALLING.COMPLIES_WITH_REGULATION == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['GENERAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['FIRE.PROTECTION.INSTALLATION', 'FIRE.PROTECTION.INSTALLATION.MANUAL', 'SIGNALLING'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': [], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='LEGAL_DOCUMENT', extraction_text='Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interval=CharInterval(start_pos=202, end_pos=315), alignment_status=<AlignmentStatus.MATCH_FUZZY: 'match_fuzzy'>, extraction_index=2, group_index=1, description=None, attributes={'id': 'f1e2d3c4-b5a6-9876-5432-10fedcba9876', 'document_type': 'REGULATION', 'title': 'Reglamento de instalaciones de protección contra incendios', 'code': 'Real Decreto 513/2017', 'date': '2017-05-22', 'jurisdiction': 'ES', 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}})]",
+    "text": "## 2 Señalización de las instalaciones manuales de protección contra incendios\n\n1. La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n",
+    "_document_id": "doc_77199710"
+  },
+  "manual_extraction": {
+    "document_id": "doc_77199710",
+    "extractions": {
+      "type": "<class 'list'>",
+      "string_repr": "[Extraction(extraction_class='NORM', extraction_text='La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interval=CharInterval(start_pos=83, end_pos=315), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=1, group_index=0, description=None, attributes={'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef', 'parent_section_id': '2', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'Signaling of manual fire protection installations must comply with the current Fire Protection Installations Regulation.', 'applies_if': 'TRUE', 'satisfied_if': 'FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNALLING.COMPLIES_WITH_REGULATION == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['GENERAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['FIRE.PROTECTION.INSTALLATION', 'FIRE.PROTECTION.INSTALLATION.MANUAL', 'SIGNALLING'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': [], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='LEGAL_DOCUMENT', extraction_text='Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interval=CharInterval(start_pos=202, end_pos=315), alignment_status=<AlignmentStatus.MATCH_FUZZY: 'match_fuzzy'>, extraction_index=2, group_index=1, description=None, attributes={'id': 'f1e2d3c4-b5a6-9876-5432-10fedcba9876', 'document_type': 'REGULATION', 'title': 'Reglamento de instalaciones de protección contra incendios', 'code': 'Real Decreto 513/2017', 'date': '2017-05-22', 'jurisdiction': 'ES', 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}})]",
+      "is_none": false,
+      "has_len": true,
+      "length": 2,
+      "is_iterable": true,
+      "sample_items": [
+        {
+          "index": 0,
+          "type": "<class 'langextract.core.data.Extraction'>",
+          "string_repr": "Extraction(extraction_class='NORM', extraction_text='La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interva...",
+          "attributes": [
+            "alignment_status",
+            "attributes",
+            "char_interval",
+            "description",
+            "extraction_class",
+            "extraction_index",
+            "extraction_text",
+            "group_index",
+            "token_interval"
+          ]
+        },
+        {
+          "index": 1,
+          "type": "<class 'langextract.core.data.Extraction'>",
+          "string_repr": "Extraction(extraction_class='LEGAL_DOCUMENT', extraction_text='Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.', char_interval=CharInterval(start_pos=202, end_pos=315), alignment_status=<AlignmentStatus.MATCH_FUZZY: 'match_fuzzy'>, ex...",
+          "attributes": [
+            "alignment_status",
+            "attributes",
+            "char_interval",
+            "description",
+            "extraction_class",
+            "extraction_index",
+            "extraction_text",
+            "group_index",
+            "token_interval"
+          ]
+        }
+      ]
+    },
+    "text": "## 2 Señalización de las instalaciones manuales de protección contra incendios\n\n1. La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n",
+    "metadata": "attribute_not_found",
+    "config": "attribute_not_found",
+    "results": "attribute_not_found"
+  },
+  "serialization_attempts": {
+    "to_dict": "method_not_available",
+    "__dict__": "success",
+    "manual_extraction": "success"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "document_id": "doc_b2126e19",
+  "extractions_raw": "[Extraction(extraction_class='NORM', extraction_text='En las zonas de riesgo especial alto, conforme al capítulo 2 de la Sección 1 de este DB, cuya superficie construida exceda de 500 m², un extintor móvil de 25 kg de polvo o de CO₂ por cada 2.500 m² de superficie o fracción.', char_interval=CharInterval(start_pos=313, end_pos=535), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=1, group_index=0, description=None, attributes={'id': 'e1b2c3d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e', 'parent_section_id': 'hospitalario-section', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'A 25 kg powder or CO2 mobile extinguisher must be provided for every 2,500 m² of surface area or fraction thereof in high special risk areas, as per Chapter 2 of Section 1 of this DB, where the constructed surface area exceeds 500 m².', 'applies_if': \"BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.RISK_LEVEL == 'HIGH' AND AREA.SIZE > 500\", 'satisfied_if': \"FIRE_EXTINGUISHER.TYPE IN ['POWDER', 'CO2'] AND FIRE_EXTINGUISHER.WEIGHT == 25 AND FIRE_EXTINGUISHER.COUNT >= (AREA.SIZE / 2500)\", 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['PUBLIC.HOSPITAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['FIRE.EXTINGUISHER', 'AREA.RISK_LEVEL.HIGH', 'AREA.SIZE'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['AREA.SIZE > 500 sq_m', 'FIRE_EXTINGUISHER.WEIGHT == 25 kg', 'FIRE_EXTINGUISHER.DENSITY == 1 per 2500 sq_m'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='Si la altura de evacuación excede de 15 m.', char_interval=CharInterval(start_pos=575, end_pos=617), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=2, group_index=1, description=None, attributes={'id': 'f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c', 'parent_section_id': 'hospitalario-section', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'A dry column must be installed.', 'applies_if': \"BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND BUILDING.EVACUATION.HEIGHT > 15\", 'satisfied_if': 'FIRE_SUPPRESSION.DRY_COLUMN.INSTALLED == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['PUBLIC.HOSPITAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['BUILDING.EVACUATION.HEIGHT', 'FIRE_SUPPRESSION.DRY_COLUMN'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['BUILDING.EVACUATION.HEIGHT > 15 m'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='En todo caso.', char_interval=CharInterval(start_pos=703, end_pos=715), alignment_status=<AlignmentStatus.MATCH_LESSER: 'match_lesser'>, extraction_index=3, group_index=2, description=None, attributes={'id': 'g3h4i5j6-k7l8-9m0n-1o2p-3q4r5s6t7u8v', 'parent_section_id': 'hospitalario-section', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'Equipped fire hydrants must be installed.', 'applies_if': \"BUILDING.USAGE == 'PUBLIC.HOSPITAL'\", 'satisfied_if': 'FIRE_HYDRANT.EQUIPPED.INSTALLED == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['PUBLIC.HOSPITAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['FIRE_HYDRANT.EQUIPPED'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': [], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='En todo caso. El sistema dispondrá de detectores y de pulsadores manuales y debe permitir la transmisión de alarmas locales, de alarma general y de instrucciones verbales.', char_interval=CharInterval(start_pos=851, end_pos=1022), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=4, group_index=3, description=None, attributes={'id': 'h4i5j6k7-l8m9-0n1o-2p3q-4r5s6t7u8v9w', 'parent_section_id': 'hospitalario-section', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'A fire detection and alarm system must be installed. The system must have detectors and manual call points and allow the transmission of local alarms, general alarms, and verbal instructions.', 'applies_if': \"BUILDING.USAGE == 'PUBLIC.HOSPITAL'\", 'satisfied_if': 'FIRE_DETECTION_SYSTEM.INSTALLED == TRUE AND FIRE_DETECTION_SYSTEM.HAS_DETECTORS == TRUE AND FIRE_DETECTION_SYSTEM.HAS_MANUAL_CALL_POINTS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_LOCAL_ALARMS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_GENERAL_ALARMS == TRUE AND FIRE_DETECTION_SYSTEM.TRANSMITS_VERBAL_INSTRUCTIONS == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['PUBLIC.HOSPITAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['FIRE.DETECTION_SYSTEM', 'FIRE.ALARM_SYSTEM'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': [], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''}), Extraction(extraction_class='NORM', extraction_text='Si el edificio dispone de más de 100 camas debe contar con comunicación telefónica directa con el servicio de bomberos.', char_interval=CharInterval(start_pos=1061, end_pos=1180), alignment_status=<AlignmentStatus.MATCH_EXACT: 'match_exact'>, extraction_index=5, group_index=4, description=None, attributes={'id': 'i5j6k7l8-m9n0-1o2p-3q4r-5s6t7u8v9w0x', 'parent_section_id': 'hospitalario-section', 'paragraph_number': 1, 'obligation_type': 'MANDATORY', 'norm_statement': 'If the building has more than 100 beds, it must have direct telephone communication with the fire department.', 'applies_if': \"BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND BUILDING.BED_COUNT > 100\", 'satisfied_if': 'COMMUNICATION.FIRE_DEPARTMENT.DIRECT_TELEPHONE == TRUE', 'exempt_if': 'FALSE', 'topics': ['SAFETY.FIRE'], 'project_dimensions': {'PROJECT.TYPE': ['NEW', 'REFORM'], 'BUILDING.USAGE': ['PUBLIC.HOSPITAL']}, 'priority': 5, 'priority_factors': {'severity': 0.9, 'likelihood': 0.9, 'impact': 0.8}, 'relevant_tags': ['BUILDING.BED_COUNT', 'COMMUNICATION.FIRE_DEPARTMENT'], 'relevant_roles': [], 'lifecycle_phase': [], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': [], 'UNCERTAINTY': 0.05}, 'source': {'span_char_start': None, 'span_char_end': None, 'visual_refs': []}, 'extracted_parameters': ['BUILDING.BED_COUNT > 100'], 'consequence_ids': [], 'confidence': 0.95, 'uncertainty': 0.05, 'notes': ''})]",
+  "extractions_is_none": false,
+  "extractions_type": "<class 'list'>",
+  "metadata": {
+    "type": "<class 'langextract.core.data.AnnotatedDocument'>",
+    "attributes": [
+      "document_id",
+      "extractions",
+      "text",
+      "tokenized_text"
+    ]
+  },
+  "extractions_count": 5,
+  "sample_extractions": [
+    {
+      "index": 0,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "En las zonas de riesgo especial alto, conforme al capítulo 2 de la Sección 1 de este DB, cuya superficie construida exceda de 500 m², un extintor móvil de 25 kg de polvo o de CO₂ por cada 2.500 m² de ..."
+    },
+    {
+      "index": 1,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "Si la altura de evacuación excede de 15 m."
+    },
+    {
+      "index": 2,
+      "type": "<class 'langextract.core.data.Extraction'>",
+      "attributes": [
+        "alignment_status",
+        "attributes",
+        "char_interval",
+        "description",
+        "extraction_class",
+        "extraction_index",
+        "extraction_text",
+        "group_index",
+        "token_interval"
+      ],
+      "extraction_class": "NORM",
+      "extraction_text_preview": "En todo caso."
+    }
+  ]
+}
