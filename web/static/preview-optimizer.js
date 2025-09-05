@@ -1979,21 +1979,66 @@ class PreviewOptimizer {
     const controls = document.createElement('div');
     controls.className = 'tree-controls flex flex-wrap gap-2 mb-4';
     
-    // Add filter button for "Only show Roots with Norm Leafs"
-    const filterButton = document.createElement('button');
-    filterButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
-    filterButton.textContent = 'Only show Roots with Norm Leafs';
-    filterButton.title = 'Show only Section root nodes that contain Norm descendants';
-    filterButton.onclick = () => this.filterRootsWithNormLeafs(data, container);
-    controls.appendChild(filterButton);
+    // Initialize tree filter state if not already set
+    if (!this.treeFilterState) {
+      this.treeFilterState = {
+        activeFilters: new Set(['Tag', 'Parameter']), // Default: filter out Tags and Parameters
+        availableTypes: new Set(),
+        normLeafsOnly: false // Default: disabled (dark grey)
+      };
+    }
+    
+    // Get all available entity types from the data
+    const availableTypes = this.getAvailableEntityTypes(data);
+    this.treeFilterState.availableTypes = availableTypes;
+    
+    // Add entity type filter buttons
+    availableTypes.forEach(entityType => {
+      const isFiltered = this.treeFilterState.activeFilters.has(entityType);
+      const button = document.createElement('button');
+      button.className = `px-3 py-1 text-xs rounded transition-colors ${
+        isFiltered 
+          ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+          : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+      }`;
+      button.textContent = this.formatTypeName(entityType);
+      button.title = `${isFiltered ? 'Show' : 'Hide'} ${this.formatTypeName(entityType)} entities in the tree`;
+      button.onclick = () => this.toggleEntityTypeFilter(entityType, data, container);
+      controls.appendChild(button);
+    });
+    
+    // Add separator
+    if (availableTypes.size > 0) {
+      const separator = document.createElement('div');
+      separator.className = 'border-l border-gray-300 dark:border-gray-600 mx-2';
+      controls.appendChild(separator);
+    }
+    
+    // Add "Only show Roots with Norm Leafs" button
+    const normLeafsButton = document.createElement('button');
+    const isNormLeafsActive = this.treeFilterState.normLeafsOnly;
+    normLeafsButton.className = `px-3 py-1 text-xs rounded transition-colors ${
+      isNormLeafsActive 
+        ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+        : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+    }`;
+    normLeafsButton.textContent = 'Only show Roots with Norm Leafs';
+    normLeafsButton.title = 'Show only Section root nodes that contain Norm descendants';
+    normLeafsButton.onclick = () => this.toggleNormLeafsFilter(data, container);
+    controls.appendChild(normLeafsButton);
 
-    // Add show all button
-    const showAllButton = document.createElement('button');
-    showAllButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
-    showAllButton.textContent = 'Show All';
-    showAllButton.title = 'Show all sections and extractions';
-    showAllButton.onclick = () => this.showAllNodes(data, container);
-    controls.appendChild(showAllButton);
+    // Add "Disable all filters" button
+    const disableFiltersButton = document.createElement('button');
+    const hasActiveFilters = this.treeFilterState.activeFilters.size > 0;
+    disableFiltersButton.className = `px-3 py-1 text-xs rounded transition-colors ${
+      hasActiveFilters 
+        ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+        : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+    }`;
+    disableFiltersButton.textContent = 'Disable all filters';
+    disableFiltersButton.title = 'Show all sections and extractions';
+    disableFiltersButton.onclick = () => this.showAllNodes(data, container);
+    controls.appendChild(disableFiltersButton);
 
     container.appendChild(controls);
     
@@ -2039,6 +2084,150 @@ class PreviewOptimizer {
     return data;
   }
 
+  // Get all available entity types from the data
+  getAvailableEntityTypes(data) {
+    const normalizedData = this.normalizeJsonDataForUberMode(data);
+    const entityTypes = new Set();
+    
+    if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      normalizedData.extractions.forEach(extraction => {
+        if (extraction.extraction_class) {
+          entityTypes.add(extraction.extraction_class);
+        }
+      });
+    }
+    
+    // Also add SECTION if we have sections
+    if (normalizedData && normalizedData.sections && Array.isArray(normalizedData.sections)) {
+      entityTypes.add('SECTION');
+    }
+    
+    // Sort for consistent ordering (SECTION first, then alphabetical)
+    const sortedTypes = Array.from(entityTypes).sort((a, b) => {
+      if (a === 'SECTION') return -1;
+      if (b === 'SECTION') return 1;
+      return a.localeCompare(b);
+    });
+    
+    console.log('Available entity types:', sortedTypes);
+    return new Set(sortedTypes);
+  }
+
+  // Toggle filter for a specific entity type
+  toggleEntityTypeFilter(entityType, data, container) {
+    if (this.treeFilterState.activeFilters.has(entityType)) {
+      this.treeFilterState.activeFilters.delete(entityType);
+      console.log(`Showing ${entityType} entities`);
+    } else {
+      this.treeFilterState.activeFilters.add(entityType);
+      console.log(`Hiding ${entityType} entities`);
+    }
+    
+    // Rebuild the tree visualization with updated filters
+    this.refreshTreeVisualization(data, container);
+  }
+
+  // Refresh the tree visualization with current filter state
+  refreshTreeVisualization(data, container) {
+    // Update button states first
+    const buttons = container.querySelectorAll('.tree-controls button');
+    buttons.forEach(button => {
+      const buttonText = button.textContent;
+      
+      // Update entity type filter buttons
+      if (buttonText !== 'Only show Roots with Norm Leafs' && buttonText !== 'Disable all filters') {
+        // This is an entity type button, find the corresponding entity type
+        let actualEntityType = null;
+        this.treeFilterState.availableTypes.forEach(type => {
+          if (this.formatTypeName(type) === buttonText) {
+            actualEntityType = type;
+          }
+        });
+        
+        if (actualEntityType) {
+          const isFiltered = this.treeFilterState.activeFilters.has(actualEntityType);
+          button.className = `px-3 py-1 text-xs rounded transition-colors ${
+            isFiltered 
+              ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+              : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+          }`;
+          button.title = `${isFiltered ? 'Show' : 'Hide'} ${buttonText} entities in the tree`;
+        }
+      }
+      
+      // Update "Disable all filters" button state
+      if (buttonText === 'Disable all filters') {
+        const hasActiveFilters = this.treeFilterState.activeFilters.size > 0;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          hasActiveFilters 
+            ? 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800' 
+            : 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700'
+        }`;
+      }
+      
+      // Update "Only show Roots with Norm Leafs" button state
+      if (buttonText === 'Only show Roots with Norm Leafs') {
+        const isActive = this.treeFilterState.normLeafsOnly;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          isActive 
+            ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+            : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+        }`;
+      }
+    });
+    
+    // Rebuild and re-render the tree
+    const tree = container.querySelector('.tree-content');
+    tree.innerHTML = '';
+    
+    try {
+      const documentTree = this.buildDocumentTree(data);
+      this.renderDocumentTree(tree, documentTree);
+      console.log('Tree refreshed with current filters:', Array.from(this.treeFilterState.activeFilters));
+    } catch (error) {
+      console.error('Error refreshing tree:', error);
+      tree.innerHTML = `
+        <div class="text-red-600 p-4">
+          <p>Error rebuilding tree: ${error.message}</p>
+        </div>
+      `;
+    }
+  }
+
+  // Toggle the "Only show Roots with Norm Leafs" filter
+  toggleNormLeafsFilter(data, container) {
+    console.log('Toggling "Only show Roots with Norm Leafs" filter');
+    
+    // Toggle the state
+    this.treeFilterState.normLeafsOnly = !this.treeFilterState.normLeafsOnly;
+    
+    if (this.treeFilterState.normLeafsOnly) {
+      // Apply the filter
+      this.filterRootsWithNormLeafs(data, container);
+    } else {
+      // Reset to show all nodes with current entity type filters
+      this.refreshTreeVisualization(data, container);
+    }
+    
+    // Update button styling
+    this.updateNormLeafsButtonStyling(container);
+  }
+
+  // Update the styling of the "Only show Roots with Norm Leafs" button
+  updateNormLeafsButtonStyling(container) {
+    const buttons = container.querySelectorAll('.tree-controls button');
+    buttons.forEach(button => {
+      if (button.textContent === 'Only show Roots with Norm Leafs') {
+        const isActive = this.treeFilterState.normLeafsOnly;
+        button.className = `px-3 py-1 text-xs rounded transition-colors ${
+          isActive 
+            ? 'bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-700' 
+            : 'bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-800'
+        }`;
+      }
+    });
+  }
+
   // Filter to show only Section roots that have Norm leafs
   filterRootsWithNormLeafs(data, container) {
     console.log('Applying "Only show Roots with Norm Leafs" filter');
@@ -2072,13 +2261,16 @@ class PreviewOptimizer {
 
   // Show all nodes (reset filter)
   showAllNodes(data, container) {
-    console.log('Showing all nodes - resetting filter');
+    console.log('Showing all nodes - resetting filters');
     
-    // Build and render the complete tree
-    const documentTree = this.buildDocumentTree(data);
-    const treeElement = container.querySelector('.tree-content');
-    treeElement.innerHTML = '';
-    this.renderDocumentTree(treeElement, documentTree);
+    // Reset the tree filter state to show all entity types
+    if (this.treeFilterState) {
+      this.treeFilterState.activeFilters.clear();
+      this.treeFilterState.normLeafsOnly = false; // Reset norm leafs filter
+    }
+    
+    // Refresh the tree visualization to reflect the change
+    this.refreshTreeVisualization(data, container);
   }
 
   buildDocumentTree(data) {
@@ -2120,35 +2312,52 @@ class PreviewOptimizer {
     // Handle extraction format
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
       console.log('Processing extractions for tree building...');
-      // First, add actual section nodes from the sections array if available
+      // First, add actual section nodes from the sections array if available (respecting SECTION filter)
       if (normalizedData.sections && Array.isArray(normalizedData.sections)) {
-        normalizedData.sections.forEach(section => {
-          if (section.section_id) {
-            const nodeData = {
-              id: section.section_id,
-              title: section.section_name || section.section_title || section.extraction_text || section.section_id,
-              type: 'SECTION',
-              parentId: section.parent_section || null,
-              parentType: 'SECTION',
-              summary: section.section_summary || '',
-              extractionText: section.extraction_text || '',
-              children: [],
-              isExpanded: false, // Sections start collapsed
-              level: 0,
-              attributes: section,
-              extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
-            };
-            nodes.set(section.section_id, nodeData);
-            console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
-          }
-        });
+        // Check if SECTION type should be included
+        const shouldIncludeSections = !this.treeFilterState || !this.treeFilterState.activeFilters || !this.treeFilterState.activeFilters.has('SECTION');
+        
+        if (shouldIncludeSections) {
+          normalizedData.sections.forEach(section => {
+            if (section.section_id) {
+              const nodeData = {
+                id: section.section_id,
+                title: section.section_name || section.section_title || section.extraction_text || section.section_id,
+                type: 'SECTION',
+                parentId: section.parent_section || null,
+                parentType: 'SECTION',
+                summary: section.section_summary || '',
+                extractionText: section.extraction_text || '',
+                children: [],
+                isExpanded: false, // Sections start collapsed
+                level: 0,
+                attributes: section,
+                extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
+              };
+              nodes.set(section.section_id, nodeData);
+              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
+            }
+          });
+        } else {
+          console.log('Sections filtered out by user preference');
+        }
       }
       
-      // Filter relevant extraction types - excluding TAG entries and other non-tree types
-      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA', 'TAG', 'Tag']; // Exclude TAG entries from tree view
-      let relevant = normalizedData.extractions.filter(ext => 
-        !excludedTypes.includes(ext.extraction_class)
-      );
+      // Filter relevant extraction types based on current tree filter state
+      // Use tree filter state if available, otherwise fall back to default exclusions
+      let relevant;
+      if (this.treeFilterState && this.treeFilterState.activeFilters) {
+        console.log('Using tree filter state:', Array.from(this.treeFilterState.activeFilters));
+        relevant = normalizedData.extractions.filter(ext => 
+          !this.treeFilterState.activeFilters.has(ext.extraction_class)
+        );
+      } else {
+        // Fallback to original exclusion logic for backward compatibility
+        const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA', 'TAG', 'Tag'];
+        relevant = normalizedData.extractions.filter(ext => 
+          !excludedTypes.includes(ext.extraction_class)
+        );
+      }
       
       // Apply statistics filter if one is active
       const currentFilter = window.globalStatisticsFilter;
