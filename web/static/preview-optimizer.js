@@ -1965,6 +1965,28 @@ class PreviewOptimizer {
     title.className = 'text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200';
     title.textContent = '🌳 Document Structure';
     container.appendChild(title);
+
+    // Add tree view controls
+    const controls = document.createElement('div');
+    controls.className = 'tree-controls flex flex-wrap gap-2 mb-4';
+    
+    // Add filter button for "Only show Roots with Norm Leafs"
+    const filterButton = document.createElement('button');
+    filterButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
+    filterButton.textContent = 'Only show Roots with Norm Leafs';
+    filterButton.title = 'Show only Section root nodes that contain Norm descendants';
+    filterButton.onclick = () => this.filterRootsWithNormLeafs(data, container);
+    controls.appendChild(filterButton);
+
+    // Add show all button
+    const showAllButton = document.createElement('button');
+    showAllButton.className = 'px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors';
+    showAllButton.textContent = 'Show All';
+    showAllButton.title = 'Show all sections and extractions';
+    showAllButton.onclick = () => this.showAllNodes(data, container);
+    controls.appendChild(showAllButton);
+
+    container.appendChild(controls);
     
     const tree = document.createElement('div');
     tree.className = 'tree-content space-y-1';
@@ -2006,6 +2028,48 @@ class PreviewOptimizer {
     
     // Handle legacy format or other structures - return as-is if no extractions found
     return data;
+  }
+
+  // Filter to show only Section roots that have Norm leafs
+  filterRootsWithNormLeafs(data, container) {
+    console.log('Applying "Only show Roots with Norm Leafs" filter');
+    
+    // Build the complete tree first
+    const documentTree = this.buildDocumentTree(data);
+    
+    // Helper function to check if a node has NORM descendants
+    const hasNormDescendants = (node) => {
+      // If this node is a NORM, it counts
+      if (node.type === 'NORM') {
+        return true;
+      }
+      
+      // Check all children recursively
+      return node.children.some(child => hasNormDescendants(child));
+    };
+    
+    // Filter to only include Section root nodes that have Norm descendants
+    const filteredTree = documentTree.filter(rootNode => {
+      return rootNode.type === 'SECTION' && hasNormDescendants(rootNode);
+    });
+    
+    console.log(`Filtered from ${documentTree.length} root nodes to ${filteredTree.length} Section roots with Norm leafs`);
+    
+    // Re-render the tree with filtered data
+    const treeElement = container.querySelector('.tree-content');
+    treeElement.innerHTML = '';
+    this.renderDocumentTree(treeElement, filteredTree);
+  }
+
+  // Show all nodes (reset filter)
+  showAllNodes(data, container) {
+    console.log('Showing all nodes - resetting filter');
+    
+    // Build and render the complete tree
+    const documentTree = this.buildDocumentTree(data);
+    const treeElement = container.querySelector('.tree-content');
+    treeElement.innerHTML = '';
+    this.renderDocumentTree(treeElement, documentTree);
   }
 
   buildDocumentTree(data) {
