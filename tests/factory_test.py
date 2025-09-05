@@ -339,8 +339,6 @@ class FactoryTest(absltest.TestCase):  # pylint: disable=too-many-public-methods
         "Either model_id or provider must be specified", str(cm.exception)
     )
 
-<<<<<<< HEAD
-=======
   def test_gemini_vertexai_parameters_accepted(self):
     """Test that Vertex AI parameters are properly passed to Gemini provider."""
     original_entries = router._ENTRIES.copy()  # pylint: disable=protected-access
@@ -422,7 +420,6 @@ class FactoryTest(absltest.TestCase):  # pylint: disable=too-many-public-methods
       router._ENTRIES = original_entries  # pylint: disable=protected-access
       router._ENTRY_KEYS = original_keys  # pylint: disable=protected-access
 
->>>>>>> upstream/main
 
 if __name__ == "__main__":
   absltest.main()

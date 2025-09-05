@@ -520,6 +520,7 @@ class TestGeminiLanguageModel(absltest.TestCase):
         http_options=http_options,
     )
 
+
 class TestOpenAILanguageModelInference(parameterized.TestCase):
 
   @parameterized.named_parameters(

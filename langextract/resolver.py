@@ -28,6 +28,7 @@ import json
 import operator
 import re
 from pathlib import Path
+from typing import Final
 
 from absl import logging
 import yaml
@@ -38,6 +39,12 @@ from langextract.core import schema
 from langextract.core import tokenizer
 
 _FUZZY_ALIGNMENT_MIN_THRESHOLD = 0.75
+
+ALIGNMENT_PARAM_KEYS: Final[frozenset[str]] = frozenset({
+    "enable_fuzzy_alignment",
+    "fuzzy_alignment_threshold",
+    "accept_match_lesser",
+})
 
 
 class AbstractResolver(abc.ABC):

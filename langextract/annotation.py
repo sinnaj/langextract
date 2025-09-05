@@ -201,6 +201,7 @@ class Annotator:
       batch_length: int = 1,
       debug: bool = True,
       extraction_passes: int = 1,
+      show_progress: bool = True,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Annotates a sequence of documents with NLP extractions.
@@ -223,6 +224,7 @@ class Annotator:
         standard single extraction.
         Values > 1 reprocess tokens multiple times, potentially increasing
         costs with the potential for a more thorough extraction.
+      show_progress: Whether to show progress bar. Defaults to True.
       **kwargs: Additional arguments passed to LanguageModel.infer and Resolver.
 
     Yields:
@@ -234,7 +236,13 @@ class Annotator:
 
     if extraction_passes == 1:
       yield from self._annotate_documents_single_pass(
-          documents, resolver, max_char_buffer, batch_length, debug, **kwargs
+          documents,
+          resolver,
+          max_char_buffer,
+          batch_length,
+          debug,
+          show_progress,
+          **kwargs,
       )
     else:
       yield from self._annotate_documents_sequential_passes(
@@ -244,6 +252,7 @@ class Annotator:
           batch_length,
           debug,
           extraction_passes,
+          show_progress,
           **kwargs,
       )
 
@@ -254,6 +263,7 @@ class Annotator:
       max_char_buffer: int,
       batch_length: int,
       debug: bool,
+      show_progress: bool = True,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Single-pass annotation logic (original implementation)."""
@@ -273,7 +283,7 @@ class Annotator:
     model_info = progress.get_model_info(self._language_model)
 
     progress_bar = progress.create_extraction_progress_bar(
-        batches, model_info=model_info, disable=not debug
+        batches, model_info=model_info, disable=not show_progress
     )
 
     chars_processed = 0
@@ -397,6 +407,7 @@ class Annotator:
       batch_length: int,
       debug: bool,
       extraction_passes: int,
+      show_progress: bool = True,
       **kwargs,
   ) -> Iterator[data.AnnotatedDocument]:
     """Sequential extraction passes logic for improved recall."""
@@ -423,7 +434,8 @@ class Annotator:
           max_char_buffer,
           batch_length,
           debug=(debug and pass_num == 0),
-          **kwargs,  # Only show progress on first pass
+          show_progress=show_progress if pass_num == 0 else False,
+          **kwargs,
       ):
         doc_id = annotated_doc.document_id
 
@@ -472,6 +484,7 @@ class Annotator:
       additional_context: str | None = None,
       debug: bool = True,
       extraction_passes: int = 1,
+      show_progress: bool = True,
       **kwargs,
   ) -> data.AnnotatedDocument:
     """Annotates text with NLP extractions for text input.
@@ -488,6 +501,7 @@ class Annotator:
         recall by finding additional entities. Defaults to 1, which performs
         standard single extraction. Values > 1 reprocess tokens multiple times,
         potentially increasing costs.
+      show_progress: Whether to show progress bar. Defaults to True.
       **kwargs: Additional arguments for inference and resolver_lib.
 
     Returns:
@@ -511,6 +525,7 @@ class Annotator:
             batch_length,
             debug,
             extraction_passes,
+            show_progress,
             **kwargs,
         )
     )
