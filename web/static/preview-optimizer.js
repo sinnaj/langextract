@@ -284,7 +284,13 @@ class PreviewOptimizer {
         uberMode: this.uberMode,
         shouldShowTreeView: shouldShowTreeView,
         hasJsonData: !!obj,
-        currentJsonData: !!this.currentJsonData
+        currentJsonData: !!this.currentJsonData,
+        dataStructure: {
+          hasExtractions: !!(obj?.extractions),
+          extractionCount: obj?.extractions?.length || 0,
+          hasSections: !!(obj?.sections),
+          sectionCount: obj?.sections?.length || 0
+        }
       });
       
       if (this.uberMode && shouldShowTreeView) {
@@ -295,10 +301,18 @@ class PreviewOptimizer {
           hasSections: !!(obj?.sections),
           sectionCount: obj?.sections?.length || 0
         });
-        this.renderUberMode(obj, meta);
-        return;
+        try {
+          console.log('Calling renderUberMode...');
+          this.renderUberMode(obj, meta);
+          return;
+        } catch (error) {
+          console.error('Error in renderUberMode:', error);
+          console.error('Stack trace:', error.stack);
+        }
       } else if (this.uberMode && !shouldShowTreeView) {
         console.log('UBERMODE is enabled but this panel should not show tree view');
+      } else if (!this.uberMode) {
+        console.log('UBERMODE is not enabled');
       }
 
       // Determine rendering strategy based on JSON size and complexity
@@ -1510,21 +1524,45 @@ class PreviewOptimizer {
   }
 
   renderUberMode(jsonData, meta) {
+    console.log('renderUberMode called with:', {
+      jsonData: !!jsonData,
+      meta: meta,
+      dataKeys: Object.keys(jsonData || {}),
+      extractionCount: jsonData?.extractions?.length || 0
+    });
+    
     // Clear previous content
     this.element.innerHTML = '';
     
-    // Update stats
-    this.updateUberModeStats(jsonData);
-    
-    // Create UBERMODE container
-    const container = document.createElement('div');
-    container.className = 'ubermode-container space-y-4';
-    
-    // Render tree visualization
-    const treeContainer = this.createTreeVisualization(jsonData);
-    container.appendChild(treeContainer);
-    
-    this.element.appendChild(container);
+    try {
+      // Update stats
+      console.log('Updating UBERMODE stats...');
+      this.updateUberModeStats(jsonData);
+      
+      // Create UBERMODE container
+      const container = document.createElement('div');
+      container.className = 'ubermode-container space-y-4';
+      
+      // Render tree visualization
+      console.log('Creating tree visualization...');
+      const treeContainer = this.createTreeVisualization(jsonData);
+      container.appendChild(treeContainer);
+      
+      this.element.appendChild(container);
+      console.log('renderUberMode completed successfully');
+    } catch (error) {
+      console.error('Error in renderUberMode:', error);
+      console.error('Stack trace:', error.stack);
+      
+      // Show error message to user
+      this.element.innerHTML = `
+        <div class="bg-red-50 border border-red-200 rounded p-4">
+          <h3 class="text-red-800 font-semibold">UBERMODE Error</h3>
+          <p class="text-red-600 mt-2">Failed to render tree view: ${error.message}</p>
+          <p class="text-sm text-red-500 mt-1">Check browser console for details.</p>
+        </div>
+      `;
+    }
   }
 
   updateUberModeStats(jsonData) {
@@ -1537,6 +1575,7 @@ class PreviewOptimizer {
 
   analyzeJsonData(data) {
     console.log('Analyzing JSON data for stats...');
+    console.log('Raw input data for analysis:', data);
     const stats = {
       totalItems: 0,
       types: new Map(),
@@ -1545,16 +1584,19 @@ class PreviewOptimizer {
     
     // Normalize the data format to handle both old and new structures
     const normalizedData = this.normalizeJsonDataForUberMode(data);
-    console.log('Normalized data:', {
+    console.log('Normalized data for analysis:', {
       hasExtractions: !!(normalizedData?.extractions),
       extractionCount: normalizedData?.extractions?.length || 0,
       hasSections: !!(normalizedData?.sections),
-      sectionCount: normalizedData?.sections?.length || 0
+      sectionCount: normalizedData?.sections?.length || 0,
+      sampleExtraction: normalizedData?.extractions?.[0] || null,
+      extractionSample: normalizedData?.extractions?.slice(0, 3) || []
     });
     
     // Handle extraction format - count by extraction_class
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
-      normalizedData.extractions.forEach(extraction => {
+      console.log(`Processing ${normalizedData.extractions.length} extractions for stats...`);
+      normalizedData.extractions.forEach((extraction, index) => {
         stats.totalItems++;
         
         // Count extraction types dynamically
@@ -1562,6 +1604,8 @@ class PreviewOptimizer {
         if (extractionClass) {
           const currentCount = stats.types.get(extractionClass) || 0;
           stats.types.set(extractionClass, currentCount + 1);
+        } else {
+          console.warn(`Extraction ${index} missing extraction_class:`, extraction);
         }
         
         // Quality indicators (check if any extraction has quality info)
@@ -1577,6 +1621,13 @@ class PreviewOptimizer {
           }
         }
       });
+      console.log('Analysis complete:', {
+        totalItems: stats.totalItems,
+        types: Object.fromEntries(stats.types),
+        quality: stats.quality
+      });
+    } else {
+      console.warn('No extractions found in normalized data');
     }
     
     return stats;
@@ -1704,6 +1755,12 @@ class PreviewOptimizer {
   }
 
   createTreeVisualization(data) {
+    console.log('createTreeVisualization called with data:', {
+      hasData: !!data,
+      dataKeys: Object.keys(data || {}),
+      extractionCount: data?.extractions?.length || 0
+    });
+    
     const container = document.createElement('div');
     container.className = 'tree-visualization bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4';
     
@@ -1715,9 +1772,28 @@ class PreviewOptimizer {
     const tree = document.createElement('div');
     tree.className = 'tree-content space-y-1';
     
-    // Build document tree from extraction data
-    const documentTree = this.buildDocumentTree(data);
-    this.renderDocumentTree(tree, documentTree);
+    try {
+      // Build document tree from extraction data
+      console.log('Building document tree...');
+      const documentTree = this.buildDocumentTree(data);
+      console.log('Document tree built, rendering...', {
+        rootNodeCount: documentTree?.length || 0,
+        rootNodes: documentTree?.map(n => `${n.id} (${n.children?.length || 0} children)`) || []
+      });
+      
+      this.renderDocumentTree(tree, documentTree);
+      console.log('Tree rendering completed');
+    } catch (error) {
+      console.error('Error in tree visualization:', error);
+      console.error('Stack trace:', error.stack);
+      
+      tree.innerHTML = `
+        <div class="text-red-600 p-4">
+          <p>Error building tree: ${error.message}</p>
+          <p class="text-sm mt-2">Check browser console for details.</p>
+        </div>
+      `;
+    }
     
     container.appendChild(tree);
     return container;
@@ -1738,15 +1814,24 @@ class PreviewOptimizer {
   buildDocumentTree(data) {
     const startTime = performance.now();
     console.log('Building document tree...');
+    console.log('Raw input data:', data);
     
     const nodes = new Map();
     const rootNodes = [];
     
     // Normalize the data format to handle both old and new structures
     const normalizedData = this.normalizeJsonDataForUberMode(data);
+    console.log('Normalized data for tree building:', {
+      hasExtractions: !!(normalizedData?.extractions),
+      extractionCount: normalizedData?.extractions?.length || 0,
+      hasSections: !!(normalizedData?.sections),
+      sectionCount: normalizedData?.sections?.length || 0,
+      sampleExtraction: normalizedData?.extractions?.[0] || null
+    });
     
     // Handle extraction format
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
+      console.log('Processing extractions for tree building...');
       // First, add actual section nodes from the sections array if available
       if (normalizedData.sections && Array.isArray(normalizedData.sections)) {
         normalizedData.sections.forEach(section => {
@@ -1822,6 +1907,8 @@ class PreviewOptimizer {
       const totalNodes = (normalizedData.sections?.length || 0) + relevant.length;
       const MAX_TREE_NODES = 5000; // Reasonable limit for browser performance
       
+      console.log(`Total nodes to process: ${totalNodes} (${normalizedData.sections?.length || 0} sections + ${relevant.length} extractions)`);
+      
       if (totalNodes > MAX_TREE_NODES) {
         console.warn(`Large document detected: ${totalNodes} total nodes. This may affect performance.`);
         console.warn(`Consider using the statistics filter to reduce the scope.`);
@@ -1830,6 +1917,7 @@ class PreviewOptimizer {
         if (totalNodes > MAX_TREE_NODES * 2) {
           console.warn(`Document too large (${totalNodes} nodes). Limiting to first ${MAX_TREE_NODES} extractions.`);
           relevant = relevant.slice(0, MAX_TREE_NODES - (normalizedData.sections?.length || 0));
+          console.log(`Limited to ${relevant.length} extractions for performance`);
         }
       }
       
@@ -1939,10 +2027,19 @@ class PreviewOptimizer {
       
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
+    } else {
+      console.warn('No valid extraction data found for tree building');
+      console.warn('Normalized data check failed:', {
+        hasNormalizedData: !!normalizedData,
+        hasExtractions: !!(normalizedData?.extractions),
+        isExtractionsArray: Array.isArray(normalizedData?.extractions),
+        extractionCount: normalizedData?.extractions?.length || 0
+      });
     }
     
     const endTime = performance.now();
     console.log(`Tree building completed in ${(endTime - startTime).toFixed(2)}ms`);
+    console.log('Returning root nodes:', rootNodes.length);
     
     return rootNodes;
   }
