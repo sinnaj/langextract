@@ -280,12 +280,25 @@ class PreviewOptimizer {
 
       // Check if UBERMODE is enabled and if this panel should show tree visualization
       const shouldShowTreeView = this.shouldShowTreeVisualization();
-      console.log('Should show tree view:', shouldShowTreeView);
+      console.log('UBERMODE check:', {
+        uberMode: this.uberMode,
+        shouldShowTreeView: shouldShowTreeView,
+        hasJsonData: !!obj,
+        currentJsonData: !!this.currentJsonData
+      });
       
       if (this.uberMode && shouldShowTreeView) {
         console.log('UBERMODE is enabled and this panel should show tree view');
+        console.log('Data structure:', {
+          hasExtractions: !!(obj?.extractions),
+          extractionCount: obj?.extractions?.length || 0,
+          hasSections: !!(obj?.sections),
+          sectionCount: obj?.sections?.length || 0
+        });
         this.renderUberMode(obj, meta);
         return;
+      } else if (this.uberMode && !shouldShowTreeView) {
+        console.log('UBERMODE is enabled but this panel should not show tree view');
       }
 
       // Determine rendering strategy based on JSON size and complexity
@@ -1523,6 +1536,7 @@ class PreviewOptimizer {
   }
 
   analyzeJsonData(data) {
+    console.log('Analyzing JSON data for stats...');
     const stats = {
       totalItems: 0,
       types: new Map(),
@@ -1531,6 +1545,12 @@ class PreviewOptimizer {
     
     // Normalize the data format to handle both old and new structures
     const normalizedData = this.normalizeJsonDataForUberMode(data);
+    console.log('Normalized data:', {
+      hasExtractions: !!(normalizedData?.extractions),
+      extractionCount: normalizedData?.extractions?.length || 0,
+      hasSections: !!(normalizedData?.sections),
+      sectionCount: normalizedData?.sections?.length || 0
+    });
     
     // Handle extraction format - count by extraction_class
     if (normalizedData && normalizedData.extractions && Array.isArray(normalizedData.extractions)) {
@@ -1716,6 +1736,9 @@ class PreviewOptimizer {
   }
 
   buildDocumentTree(data) {
+    const startTime = performance.now();
+    console.log('Building document tree...');
+    
     const nodes = new Map();
     const rootNodes = [];
     
@@ -1795,6 +1818,21 @@ class PreviewOptimizer {
       
       console.log(`Building tree from ${relevant.length} relevant extractions out of ${normalizedData.extractions.length} total`);
       
+      // Performance safeguard for very large documents
+      const totalNodes = (normalizedData.sections?.length || 0) + relevant.length;
+      const MAX_TREE_NODES = 5000; // Reasonable limit for browser performance
+      
+      if (totalNodes > MAX_TREE_NODES) {
+        console.warn(`Large document detected: ${totalNodes} total nodes. This may affect performance.`);
+        console.warn(`Consider using the statistics filter to reduce the scope.`);
+        
+        // For very large documents, limit to sections and a sample of extractions
+        if (totalNodes > MAX_TREE_NODES * 2) {
+          console.warn(`Document too large (${totalNodes} nodes). Limiting to first ${MAX_TREE_NODES} extractions.`);
+          relevant = relevant.slice(0, MAX_TREE_NODES - (normalizedData.sections?.length || 0));
+        }
+      }
+      
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
       relevant.forEach(extraction => {
         const nodeId = this.getNodeId(extraction);
@@ -1803,6 +1841,7 @@ class PreviewOptimizer {
           return;
         }
         
+        const attrs = extraction.attributes || {};
         const nodeData = {
           id: nodeId,
           title: this.getNodeTitle(extraction),
@@ -1901,6 +1940,9 @@ class PreviewOptimizer {
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
     }
+    
+    const endTime = performance.now();
+    console.log(`Tree building completed in ${(endTime - startTime).toFixed(2)}ms`);
     
     return rootNodes;
   }
@@ -2125,9 +2167,15 @@ class PreviewOptimizer {
   }
 
   renderDocumentTree(container, nodes) {
+    const startTime = performance.now();
+    console.log(`Rendering tree with ${nodes.length} root nodes...`);
+    
     nodes.forEach(node => {
       this.renderDocumentNode(container, node, 0);
     });
+    
+    const endTime = performance.now();
+    console.log(`Tree rendering completed in ${(endTime - startTime).toFixed(2)}ms`);
   }
 
   renderDocumentNode(container, node, level) {
