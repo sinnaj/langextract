@@ -1516,8 +1516,17 @@ class PreviewOptimizer {
   shouldShowTreeVisualization() {
     // If UBERMODE is not enabled, never show tree visualization
     if (!this.uberMode) {
+      console.log('shouldShowTreeVisualization: UBERMODE not enabled');
       return false;
     }
+
+    // If we have valid extraction data with combined_extractions.json, always show tree view
+    if (this.currentJsonData && this.currentJsonData.extractions && this.currentFile?.filePath?.includes('combined_extractions.json')) {
+      console.log('Found combined_extractions.json with valid data - enabling tree view');
+      return true;
+    }
+    
+    console.log('shouldShowTreeVisualization: Not combined_extractions.json, checking panel logic');
 
     // Get current panel configuration
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
@@ -2071,8 +2080,8 @@ class PreviewOptimizer {
         });
       }
       
-      // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
-      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA']; // Exclude as requested
+      // Filter relevant extraction types - excluding TAG entries and other non-tree types
+      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA', 'TAG', 'Tag']; // Exclude TAG entries from tree view
       let relevant = normalizedData.extractions.filter(ext => 
         !excludedTypes.includes(ext.extraction_class)
       );
