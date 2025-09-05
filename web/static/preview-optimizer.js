@@ -2092,8 +2092,6 @@ class PreviewOptimizer {
       return `${type}: ${displayText}` || type;
     }
   }
-    return extraction.extraction_text || 'Unknown';
-  }
 
   getNodeSummary(extraction) {
     const attrs = extraction.attributes || {};
