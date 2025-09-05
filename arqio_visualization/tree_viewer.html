@@ -373,11 +373,15 @@
       
       console.log('Building tree from', items.length, 'items');
       
-      // Filter relevant extraction types like the Python script does
+      // Filter relevant extraction types - exclude Tags (case-insensitive)
       const relevantTypes = ['SECTION', 'NORM', 'TABLE', 'LEGAL_DOCUMENT'];
-      const relevantItems = items.filter(item => 
-        item && relevantTypes.includes(item.extraction_class)
-      );
+      const relevantItems = items.filter(item => {
+        if (!item || !item.extraction_class) return false;
+        const type = item.extraction_class.toUpperCase();
+        // Explicitly exclude TAG/Tag entries
+        if (type === 'TAG') return false;
+        return relevantTypes.includes(type);
+      });
       
       console.log('Filtered to', relevantItems.length, 'relevant items');
       
@@ -400,7 +404,7 @@
         if (!item || !item.attributes) return;
         
         const attributes = item.attributes;
-        const extraction_class = item.extraction_class;
+        const extraction_class = item.extraction_class.toUpperCase(); // Normalize to uppercase
         const id = attributes.id;
         
         // Skip if we've already processed this ID
@@ -987,13 +991,40 @@
       
       console.log('Found extractions:', jsonData.extractions.length);
       
+      // Convert sections metadata to SECTION extraction entries
+      const sectionsAsExtractions = [];
+      if (jsonData.sections && Array.isArray(jsonData.sections)) {
+        jsonData.sections.forEach(section => {
+          const sectionExtraction = {
+            extraction_class: 'SECTION',
+            extraction_text: section.section_name || '',
+            attributes: {
+              id: section.section_id,
+              section_title: section.section_name,
+              sectioning_type: 'Section',
+              parent_id: section.parent_section,
+              section_summary: section.section_summary || '',
+              section_level: section.section_level,
+              processing_type: section.processing_type,
+              extraction_count: section.extraction_count
+            }
+          };
+          sectionsAsExtractions.push(sectionExtraction);
+        });
+        console.log('Converted', sectionsAsExtractions.length, 'sections to extraction format');
+      }
+      
+      // Combine sections and extractions
+      const allItems = [...sectionsAsExtractions, ...jsonData.extractions];
+      console.log('Total items for tree building:', allItems.length);
+      
       // Clear any existing data to prevent duplication
       treeData = null;
       currentFilter = null;
       
       // Log a sample of different extraction types for debugging
       const samplesByType = {};
-      jsonData.extractions.forEach(ext => {
+      allItems.forEach(ext => {
         const type = ext?.extraction_class;
         if (type && !samplesByType[type]) {
           samplesByType[type] = ext;
@@ -1001,7 +1032,7 @@
       });
       console.log('Sample extractions by type:', samplesByType);
       
-      treeData = buildTree(jsonData.extractions);
+      treeData = buildTree(allItems);
       console.log('Built tree data:', treeData);
       console.log('Root items count:', treeData.length);
       

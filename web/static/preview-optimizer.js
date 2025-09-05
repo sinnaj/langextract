@@ -1516,8 +1516,17 @@ class PreviewOptimizer {
   shouldShowTreeVisualization() {
     // If UBERMODE is not enabled, never show tree visualization
     if (!this.uberMode) {
+      console.log('shouldShowTreeVisualization: UBERMODE not enabled');
       return false;
     }
+
+    // If we have valid extraction data with combined_extractions.json, always show tree view
+    if (this.currentJsonData && this.currentJsonData.extractions && this.currentFile?.filePath?.includes('combined_extractions.json')) {
+      console.log('Found combined_extractions.json with valid data - enabling tree view');
+      return true;
+    }
+    
+    console.log('shouldShowTreeVisualization: Not combined_extractions.json, checking panel logic');
 
     // Get current panel configuration
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
@@ -2135,8 +2144,8 @@ class PreviewOptimizer {
         });
       }
       
-      // Filter relevant extraction types - excluding LEGAL_DOCUMENT as requested
-      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA']; // Exclude as requested
+      // Filter relevant extraction types - excluding TAG entries and other non-tree types
+      const excludedTypes = ['LEGAL_DOCUMENT', 'Legal_Document', 'Legal_Documents', 'CHUNK_METADATA', 'TAG', 'Tag']; // Exclude TAG entries from tree view
       let relevant = normalizedData.extractions.filter(ext => 
         !excludedTypes.includes(ext.extraction_class)
       );
@@ -2328,12 +2337,10 @@ class PreviewOptimizer {
     const attrs = extraction.attributes || {};
     
     // First try to get ID from attributes
-    if (attrs.id) {
-      return attrs.id;
-    }
+    let baseId = attrs.id;
     
-    // Try to parse ID from extraction_text (Python dict format)
-    if (extraction.extraction_text) {
+    // Try to parse ID from extraction_text (Python dict format) if no ID in attributes
+    if (!baseId && extraction.extraction_text) {
       try {
         // Handle Python dictionary format with single quotes
         const pythonDictStr = extraction.extraction_text;
@@ -2341,21 +2348,29 @@ class PreviewOptimizer {
         // Look for 'id': 'value' pattern in the string
         const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
         if (idMatch) {
-          return idMatch[1];
+          baseId = idMatch[1];
         }
         
         // Alternative patterns
         const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
         if (idMatch2) {
-          return idMatch2[1];
+          baseId = idMatch2[1];
         }
       } catch (error) {
         console.warn('Error parsing extraction_text for ID:', error);
       }
     }
     
-    // Fall back to section_parent_id or extraction_index for unique ID
-    return attrs.section_parent_id || extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
+    // If still no base ID, create a fallback
+    if (!baseId) {
+      baseId = extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
+    }
+    
+    // Make the ID unique by combining with parent section and extraction index to avoid conflicts
+    // This is crucial because the same base ID can appear in multiple sections
+    const parentId = attrs.parent_section_id || extraction.section_parent_id || 'unknown';
+    const extractionIndex = extraction.extraction_index || 0;
+    return `${baseId}__${parentId}__${extractionIndex}`;
   }
 
   // Helper method to determine parent ID following section_tree_visualizer.py patterns
