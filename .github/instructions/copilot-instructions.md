@@ -184,7 +184,7 @@ html = lx.visualize("extraction_results.jsonl")
 ## Debugging Approaches
 
 - **Per-chunk traces**: Check `output_runs/<id>/chunks/` for raw resolver output
-- **Emergency saves**: `lx output/` contains pre-processing document snapshots  
+- **Emergency saves**: `lx_output/` contains pre-processing document snapshots  
 - **Quality metrics**: `quality.errors` and `quality.warnings` in final output
 - **Verbose logging**: LangExtract uses absl logging with alignment details
 

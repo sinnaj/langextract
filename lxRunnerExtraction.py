@@ -2,7 +2,7 @@
 
 Purpose:
     - Load prompt and few-shot examples, call the model, and persist the annotated outputs exactly
-        as returned by the library (per-extraction records) into a per-run folder "lx output".
+        as returned by the library (per-extraction records) into a per-run folder "lx_output".
     - Derive lightweight Tag and Parameter entries directly from Norm attributes and append them to
         the annotated outputs.
 
@@ -84,7 +84,7 @@ def makeRun(
     run_dir = Path("output_runs") / RUN_ID
     chunks_dir = run_dir / "chunks"
     # New: folder to persist raw annotated outputs before any processing/enrichment
-    lx_output_dir = run_dir / "lx output"
+    lx_output_dir = run_dir / "lx_output"
     run_dir.mkdir(parents=True, exist_ok=True)
     chunks_dir.mkdir(parents=True, exist_ok=True)
     lx_output_dir.mkdir(parents=True, exist_ok=True)

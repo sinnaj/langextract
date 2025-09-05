@@ -73,7 +73,7 @@ python validate_dashboard.py
 
 The dashboard automatically looks for the latest `combined_extractions.json` file in the `output_runs` directory. You can also:
 
-1. **Use Latest File**: Automatically detected from `output_runs/{timestamp}/lx output/combined_extractions.json`
+1. **Use Latest File**: Automatically detected from `output_runs/{timestamp}/lx_output/combined_extractions.json`
 2. **Upload File**: Upload your own `combined_extractions.json` file through the sidebar
 
 ### Navigation

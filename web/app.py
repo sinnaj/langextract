@@ -325,9 +325,9 @@ def run_files(run_id: str):
     if not run_dir.exists():
         return abort(404)
     
-    # Only show files from the 'lx output' folder for processed results
+    # Only show files from the 'lx_output' folder for processed results
     # This prevents showing intermediate processing files from chunks folder
-    lx_output_dir = run_dir / "lx output"
+    lx_output_dir = run_dir / "lx_output"
     files: list[dict[str, Any]] = []
     
     if lx_output_dir.exists():

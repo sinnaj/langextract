@@ -88,7 +88,7 @@ def makeRun(
     run_dir = Path("output_runs") / RUN_ID
     chunks_dir = run_dir / "chunks"
     # New: folder to persist raw annotated outputs before any processing/enrichment
-    lx_output_dir = run_dir / "lx output"
+    lx_output_dir = run_dir / "lx_output"
     run_dir.mkdir(parents=True, exist_ok=True)
     chunks_dir.mkdir(parents=True, exist_ok=True)
     lx_output_dir.mkdir(parents=True, exist_ok=True)

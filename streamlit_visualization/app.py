@@ -27,7 +27,7 @@ def find_latest_combined_extractions():
     
     for run_dir in output_runs_path.iterdir():
         if run_dir.is_dir():
-            combined_file = run_dir / "lx output" / "combined_extractions.json"
+            combined_file = run_dir / "lx_output" / "combined_extractions.json"
             if combined_file.exists():
                 try:
                     timestamp = int(run_dir.name)

@@ -474,7 +474,7 @@ class SectionTreeBuilder:
 
 def main():
     """Main function to run the section tree visualizer"""
-    json_file_path = r"c:\Projects\Arqio\LangExtract\langextract\output_runs\1756836143\lx output\annotated_extractions_single.json"
+    json_file_path = r"c:\Projects\Arqio\LangExtract\langextract\output_runs\1756836143\lx_output\annotated_extractions_single.json"
     
     print("Section Tree Visualizer")
     print("="*50)
