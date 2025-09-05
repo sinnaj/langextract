@@ -81,8 +81,29 @@ class PreviewOptimizer {
     }
   }
   
+  // Force reload file without cache
+  async forceReloadFile() {
+    if (!this.currentFile) return;
+    
+    const { runId, filePath, fileSize } = this.currentFile;
+    const cacheKey = `${runId}:${filePath}`;
+    
+    // Clear cache entry
+    if (this.cache.has(cacheKey)) {
+      this.cache.delete(cacheKey);
+      console.log(`Cleared cache for ${filePath}`);
+    }
+    
+    // Reload file
+    await this.loadFile(runId, filePath, fileSize);
+  }
+  
   async loadRegularFile(runId, filePath, fileSize) {
-    const resp = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(filePath)}`);
+    const url = `/runs/${runId}/file?path=${encodeURIComponent(filePath)}`;
+    console.log(`Loading file from URL: ${url}`);
+    console.log(`Expected file path: ${filePath}`);
+    
+    const resp = await fetch(url);
     const contentType = resp.headers.get('content-type') || '';
     
     if (!resp.ok) {
@@ -90,6 +111,24 @@ class PreviewOptimizer {
     }
     
     const content = await resp.text();
+    
+    // Quick data structure check for debugging
+    if (filePath.includes('.json')) {
+      try {
+        const parsed = JSON.parse(content);
+        console.log(`Loaded JSON file ${filePath} with data structure:`, {
+          hasExtractions: !!(parsed?.extractions),
+          extractionCount: parsed?.extractions?.length || 0,
+          hasChunkEvaluations: !!(parsed?.chunk_evaluations),
+          chunkEvaluationCount: parsed?.chunk_evaluations?.length || 0,
+          topLevelKeys: Object.keys(parsed || {}),
+          sampleContent: Object.keys(parsed || {}).slice(0, 5)
+        });
+      } catch (e) {
+        console.log(`JSON parsing failed for ${filePath}:`, e.message);
+      }
+    }
+    
     const meta = {
       size: fileSize,
       truncated: false,
@@ -1543,13 +1582,28 @@ class PreviewOptimizer {
     const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
     const isCombinedExtractions = filePath.includes('combined_extractions.json');
     
+    // Enhanced debugging for data structure mismatch
     console.log('UBERMODE file validation:', { 
       filePath, 
       isChunkEvaluations, 
       isCombinedExtractions,
       hasExtractions: !!(jsonData?.extractions),
-      hasChunkEvaluations: !!(jsonData?.chunk_evaluations)
+      hasChunkEvaluations: !!(jsonData?.chunk_evaluations),
+      dataStructureCheck: {
+        topLevelKeys: Object.keys(jsonData || {}),
+        extractionsArray: Array.isArray(jsonData?.extractions),
+        extractionCount: jsonData?.extractions?.length || 0,
+        chunkEvaluationsArray: Array.isArray(jsonData?.chunk_evaluations),
+        chunkEvaluationCount: jsonData?.chunk_evaluations?.length || 0,
+        sourceFile: jsonData?.source_file || 'not found'
+      }
     });
+    
+    // Detect data structure mismatch
+    if (isCombinedExtractions && jsonData?.chunk_evaluations && !jsonData?.extractions) {
+      console.error('DATA MISMATCH: combined_extractions.json filename but contains chunk_evaluations data!');
+      console.error('This suggests the wrong file content is being loaded by the server');
+    }
     
     // Clear previous content
     this.element.innerHTML = '';
@@ -1570,6 +1624,40 @@ class PreviewOptimizer {
           <div class="mt-3 p-2 bg-white border border-amber-200 rounded text-sm">
             <strong>What you need:</strong> combined_extractions.json contains the hierarchical extraction data with sections and entities that UBERMODE can display as a tree.
           </div>
+        </div>
+      `;
+      return;
+    }
+    
+    // Check for data structure mismatch (wrong file content loaded)
+    if (isCombinedExtractions && jsonData?.chunk_evaluations && !jsonData?.extractions) {
+      console.error('CRITICAL: File path indicates combined_extractions.json but data structure is chunk_evaluations!');
+      
+      // Clear cache for this file to force reload
+      const cacheKey = `${this.currentFile?.runId}:${this.currentFile?.filePath}`;
+      if (this.cache.has(cacheKey)) {
+        console.log('Clearing cache for file with data mismatch');
+        this.cache.delete(cacheKey);
+      }
+      
+      this.element.innerHTML = `
+        <div class="bg-red-50 border border-red-200 rounded p-4">
+          <h3 class="text-red-800 font-semibold flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+            </svg>
+            File Content Mismatch Error
+          </h3>
+          <p class="text-red-700 mt-2">The file path indicates <strong>combined_extractions.json</strong> but the content appears to be chunk evaluation data.</p>
+          <p class="text-red-600 mt-1">This suggests a server-side file serving issue or incorrect file generation.</p>
+          <div class="mt-3 p-2 bg-white border border-red-200 rounded text-sm">
+            <strong>Debug info:</strong> Expected "extractions" array but found "chunk_evaluations" array.<br>
+            <strong>File path:</strong> ${filePath}<br>
+            <strong>Cache cleared:</strong> Yes, please try reloading the file.
+          </div>
+          <button onclick="location.reload()" class="mt-3 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
+            Reload Page
+          </button>
         </div>
       `;
       return;
