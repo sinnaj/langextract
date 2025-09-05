@@ -963,12 +963,12 @@
       button.classList.add('bg-blue-500', 'text-white');
       button.classList.remove('text-gray-500');
       button.setAttribute('data-enabled', 'true');
-      button.title = 'Disable UBERMODE';
+      button.title = 'Disable Tree View';
     } else {
       button.classList.remove('bg-blue-500', 'text-white');
       button.classList.add('text-gray-500');
       button.setAttribute('data-enabled', 'false');
-      button.title = 'Enable UBERMODE';
+      button.title = 'Enable Tree View';
     }
   }
 })();

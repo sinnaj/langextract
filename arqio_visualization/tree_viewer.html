@@ -322,6 +322,7 @@
       <button class="ghost" onclick="filterByType('NORM')">Norms Only</button>
       <button class="ghost" onclick="filterByType('TABLE')">Tables Only</button>
       <button class="ghost" onclick="filterByType('LEGAL_DOCUMENT')">Legal Docs Only</button>
+      <button class="ghost" onclick="filterRootsWithNormLeafs()">Only show Roots with Norm Leafs</button>
       <button class="ghost" onclick="showAll()">Show All</button>
       <button class="ghost" onclick="toggleDetails()">Toggle Details</button>
     </div>
@@ -917,6 +918,54 @@
           break;
         }
       }
+    }
+
+    function filterRootsWithNormLeafs() {
+      currentFilter = 'ROOTS_WITH_NORM_LEAFS';
+      const nodes = document.querySelectorAll('.tree-node');
+      
+      // Helper function to check if a node has NORM leafs in its descendants
+      function hasNormLeafs(nodeElement) {
+        const nodeType = nodeElement.getAttribute('data-type');
+        
+        // If this node itself is a NORM, it's a leaf
+        if (nodeType === 'NORM') {
+          return true;
+        }
+        
+        // Check all children recursively
+        const childrenContainer = nodeElement.querySelector('.tree-children');
+        if (childrenContainer) {
+          const childNodes = childrenContainer.querySelectorAll(':scope > .tree-node');
+          for (const childNode of childNodes) {
+            if (hasNormLeafs(childNode)) {
+              return true;
+            }
+          }
+        }
+        
+        return false;
+      }
+      
+      // First, hide all nodes
+      nodes.forEach(node => {
+        node.style.display = 'none';
+      });
+      
+      // Then show only SECTION nodes that have NORM leafs
+      nodes.forEach(node => {
+        const nodeType = node.getAttribute('data-type');
+        if (nodeType === 'SECTION' && hasNormLeafs(node)) {
+          node.style.display = 'block';
+          showParents(node);
+          
+          // Also show all descendants of this section to display the full tree
+          const descendants = node.querySelectorAll('.tree-node');
+          descendants.forEach(descendant => {
+            descendant.style.display = 'block';
+          });
+        }
+      });
     }
 
     function toggleDetails() {
