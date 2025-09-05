@@ -53,6 +53,22 @@ streamlit run app.py
 
 This will start the dashboard at `http://localhost:8501`
 
+### Quick Test
+
+Use the provided test script to validate and start the dashboard:
+
+```bash
+./test_dashboard.sh
+```
+
+### Validation
+
+To validate that your data files are compatible with the dashboard:
+
+```bash
+python validate_dashboard.py
+```
+
 ### Data Sources
 
 The dashboard automatically looks for the latest `combined_extractions.json` file in the `output_runs` directory. You can also:
