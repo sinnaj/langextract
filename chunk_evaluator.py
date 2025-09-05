@@ -173,6 +173,32 @@ def evaluate_chunks(chunks: List[SectionChunk]) -> List[Tuple[SectionChunk, Chun
     return results
 
 
+def evaluate_and_postprocess_chunks(chunks: List[SectionChunk]) -> List[Tuple[SectionChunk, ChunkEvaluation]]:
+    """Evaluate section chunks and apply post-processing rules.
+    
+    This function performs the complete evaluation pipeline:
+    1. Initial evaluation of chunks
+    2. Dropping children of dropped sections
+    3. Handling repeating section names according to rules
+    
+    Args:
+        chunks: List of section chunks to evaluate.
+        
+    Returns:
+        List of tuples (chunk, evaluation) after post-processing.
+    """
+    # Import here to avoid circular imports
+    from section_postprocessor import post_process_section_evaluations
+    
+    # Initial evaluation
+    initial_evaluations = evaluate_chunks(chunks)
+    
+    # Apply post-processing
+    result = post_process_section_evaluations(initial_evaluations)
+    
+    return result.processed_evaluations
+
+
 def get_evaluation_statistics(evaluations: List[Tuple[SectionChunk, ChunkEvaluation]]) -> Dict[str, Any]:
     """Get statistics about chunk evaluations.
     
@@ -207,11 +233,13 @@ if __name__ == "__main__":
     from pathlib import Path
     from section_chunker import create_section_chunks
     
-    if len(sys.argv) != 2:
-        print("Usage: python chunk_evaluator.py <input_file.md>")
+    if len(sys.argv) < 2 or len(sys.argv) > 3:
+        print("Usage: python chunk_evaluator.py <input_file.md> [--postprocess]")
         sys.exit(1)
     
     input_file = Path(sys.argv[1])
+    use_postprocessing = len(sys.argv) == 3 and sys.argv[2] == "--postprocess"
+    
     if not input_file.exists():
         print(f"Error: File {input_file} does not exist")
         sys.exit(1)
@@ -220,13 +248,32 @@ if __name__ == "__main__":
     text = input_file.read_text(encoding="utf-8")
     chunks = create_section_chunks(text)
     
-    # Evaluate chunks
-    evaluations = evaluate_chunks(chunks)
+    # Evaluate chunks (with or without post-processing)
+    if use_postprocessing:
+        evaluations = evaluate_and_postprocess_chunks(chunks)
+        # Get post-processing details for output
+        from section_postprocessor import post_process_section_evaluations
+        initial_evaluations = evaluate_chunks(chunks)
+        result = post_process_section_evaluations(initial_evaluations)
+        
+        postprocessing_info = {
+            "enabled": True,
+            "total_sections_before": len(initial_evaluations),
+            "total_sections_after": len(result.processed_evaluations),
+            "dropped_sections": result.dropped_sections,
+            "merged_sections": result.merged_sections,
+            "processing_log": result.processing_log
+        }
+    else:
+        evaluations = evaluate_chunks(chunks)
+        postprocessing_info = {"enabled": False}
+    
     stats = get_evaluation_statistics(evaluations)
     
     # Output results
     output = {
         "source_file": str(input_file),
+        "postprocessing": postprocessing_info,
         "evaluation_statistics": stats,
         "chunk_evaluations": []
     }
