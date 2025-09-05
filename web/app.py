@@ -160,6 +160,11 @@ def index():
 def test_comments():
     return render_template("test_comments.html")
 
+
+@app.get("/demo")
+def demo():
+    return render_template("demo.html")
+
 @app.get("/choices")
 def choices():
     return jsonify({
