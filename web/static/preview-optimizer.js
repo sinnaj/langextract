@@ -275,8 +275,15 @@ class PreviewOptimizer {
       const obj = JSON.parse(content);
       this.currentJsonData = obj; // Store for UBERMODE
       
+      // Detect file type for better UBERMODE feedback
+      const filePath = this.currentFile?.filePath || 'unknown';
+      const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
+      const isCombinedExtractions = filePath.includes('combined_extractions.json');
+      
       console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
       console.log('Current UBERMODE state:', this.uberMode);
+      console.log('File being loaded:', filePath);
+      console.log('File type detection:', { isChunkEvaluations, isCombinedExtractions });
 
       // Check if UBERMODE is enabled and if this panel should show tree visualization
       const shouldShowTreeView = this.shouldShowTreeVisualization();
@@ -1531,8 +1538,42 @@ class PreviewOptimizer {
       extractionCount: jsonData?.extractions?.length || 0
     });
     
+    // Detect file type and validate for UBERMODE
+    const filePath = this.currentFile?.filePath || 'unknown';
+    const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
+    const isCombinedExtractions = filePath.includes('combined_extractions.json');
+    
+    console.log('UBERMODE file validation:', { 
+      filePath, 
+      isChunkEvaluations, 
+      isCombinedExtractions,
+      hasExtractions: !!(jsonData?.extractions),
+      hasChunkEvaluations: !!(jsonData?.chunk_evaluations)
+    });
+    
     // Clear previous content
     this.element.innerHTML = '';
+    
+    // Show warning if wrong file type is loaded
+    if (isChunkEvaluations && !jsonData?.extractions) {
+      console.warn('UBERMODE: chunk_evaluations.json loaded instead of combined_extractions.json');
+      this.element.innerHTML = `
+        <div class="bg-amber-50 border border-amber-200 rounded p-4">
+          <h3 class="text-amber-800 font-semibold flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Wrong File for UBERMODE
+          </h3>
+          <p class="text-amber-700 mt-2">You have loaded <strong>chunk_evaluations.json</strong> which contains evaluation data, not extraction data.</p>
+          <p class="text-amber-600 mt-1">For UBERMODE tree view, please select <strong>combined_extractions.json</strong> instead.</p>
+          <div class="mt-3 p-2 bg-white border border-amber-200 rounded text-sm">
+            <strong>What you need:</strong> combined_extractions.json contains the hierarchical extraction data with sections and entities that UBERMODE can display as a tree.
+          </div>
+        </div>
+      `;
+      return;
+    }
     
     try {
       // Update stats

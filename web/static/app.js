@@ -761,10 +761,16 @@
         if (fileBadgesEl) fileBadgesEl.appendChild(badge);
       }
       
-      // If nothing selected yet, auto-open the first readable file (preferring json/log/txt)
+      // If nothing selected yet, auto-open the first readable file (preferring combined_extractions.json for UBERMODE)
       if (!selectedFilePaths[panelIndex] && createdBadges.length) {
-        const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
         const findPreferred = () => {
+          // First priority: combined_extractions.json for UBERMODE functionality
+          const combinedExtractions = createdBadges.find(({ file }) => 
+            file.path.toLowerCase().includes('combined_extractions.json'));
+          if (combinedExtractions) return combinedExtractions;
+          
+          // Second priority: other JSON files
+          const preferExt = ['.json', '.jsonl', '.ndjson', '.log', '.txt', '.md'];
           for (const ext of preferExt) {
             const found = createdBadges.find(({ file }) => file.path.toLowerCase().endsWith(ext));
             if (found) return found;
