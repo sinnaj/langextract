@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree Comments Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-tree { border: 1px solid #ccc; padding: 20px; margin: 20px 0; }
+        .tree-node { padding: 10px; margin: 5px 0; border: 1px solid #ddd; }
+        .tree-node-content { display: flex; align-items: center; }
+        .test-log { background: #f5f5f5; padding: 10px; margin: 10px 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Tree Comments System Test</h1>
+    
+    <div class="test-log" id="log">Loading...</div>
+    
+    <h2>Test Tree Nodes</h2>
+    <div class="test-tree">
+        <div class="tree-node" data-extraction-id="CTE.DB.SI">
+            <div class="tree-node-content">Root Node (CTE.DB.SI)</div>
+        </div>
+        <div class="tree-node" data-extraction-id="NORM_15_1">
+            <div class="tree-node-content">Norm 15-1 (NORM_15_1)</div>
+        </div>
+        <div class="tree-node" data-extraction-id="SECTION_intro">
+            <div class="tree-node-content">Introduction Section (SECTION_intro)</div>
+        </div>
+        <div class="tree-node" data-extraction-id="PARAMETER_temp_limit">
+            <div class="tree-node-content">Temperature Parameter (PARAMETER_temp_limit)</div>
+        </div>
+    </div>
+
+    <script src="/static/tree-comments.js"></script>
+    <script>
+        function log(message) {
+            const logEl = document.getElementById('log');
+            logEl.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+            console.log(message);
+        }
+        
+        // Test the tree comments system
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM loaded, initializing tree comments...');
+            
+            // Initialize the tree comments UI
+            const treeCommentsUI = window.initializeTreeComments();
+            log('Tree comments UI initialized: ' + (treeCommentsUI ? 'SUCCESS' : 'FAILED'));
+            
+            // Test with sample file
+            if (treeCommentsUI) {
+                treeCommentsUI.initializeForFile('lx output/combined_extractions.json')
+                    .then(() => {
+                        log('File initialized successfully');
+                        log('Comments data loaded, checking indicators...');
+                        
+                        // Check if indicators were created
+                        const indicators = document.querySelectorAll('.tree-comment-indicator');
+                        log('Found ' + indicators.length + ' comment indicators');
+                        
+                        // Log each indicator
+                        indicators.forEach((indicator, index) => {
+                            const treeItem = indicator.dataset.treeItem;
+                            const hasComments = indicator.classList.contains('has-comments');
+                            log('Indicator ' + index + ': ' + treeItem + ' (' + (hasComments ? 'has comments' : 'no comments') + ')');
+                        });
+                    })
+                    .catch(error => {
+                        log('Error initializing file: ' + error.message);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

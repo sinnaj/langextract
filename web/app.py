@@ -97,6 +97,12 @@ INPUT_DIRS = {
 
 PAST_MODELS_FILE = REPO_ROOT / "web" / "pastmodels.json"
 
+@app.route('/test-comments')
+def test_comments():
+    """Test page for comments functionality."""
+    return render_template('test_comments.html')
+
+
 # Initialize comments database
 COMMENTS_DB_PATH = REPO_ROOT / "web" / "comments.db"
 comments_db = CommentsDB(COMMENTS_DB_PATH)
