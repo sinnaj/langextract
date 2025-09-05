@@ -483,13 +483,18 @@ def run_file(run_id: str):
 
 @app.get("/api/comments")
 def get_comments():
-    """Get comments for a specific file."""
+    """Get comments for a specific file and optionally tree item."""
     file_path = request.args.get("file_path", "")
+    tree_item = request.args.get("tree_item", "")
+    
     if not file_path:
         return jsonify({"error": "file_path parameter is required"}), 400
     
     try:
-        comments = comments_db.get_comments_for_file(file_path)
+        if tree_item:
+            comments = comments_db.get_comments_for_tree_item(file_path, tree_item)
+        else:
+            comments = comments_db.get_comments_for_file(file_path)
         return jsonify({"comments": comments})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -504,7 +509,7 @@ def create_comment():
             return jsonify({"error": "JSON data is required"}), 400
         
         # Validate required fields
-        required_fields = ["file_path", "author_name", "text_body"]
+        required_fields = ["file_path", "author_name", "text_body", "tree_item"]
         for field in required_fields:
             if not data.get(field):
                 return jsonify({"error": f"{field} is required"}), 400
@@ -512,7 +517,7 @@ def create_comment():
         # Create comment object
         comment = Comment(
             file_path=data["file_path"],
-            position_data=data.get("position_data", {}),
+            tree_item=data["tree_item"],
             author_name=data["author_name"],
             text_body=data["text_body"],
             parent_comment_id=data.get("parent_comment_id")
@@ -607,7 +612,7 @@ def reply_to_comment(comment_id: int):
         # Create reply comment
         reply_comment = Comment(
             file_path=parent_comment.file_path,
-            position_data=parent_comment.position_data,  # Inherit position from parent
+            tree_item=parent_comment.tree_item,  # Inherit tree_item from parent
             author_name=data["author_name"],
             text_body=data["text_body"],
             parent_comment_id=comment_id

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Simple test script for the commenting system."""
+"""Test script for the simplified tree-based commenting system."""
 
 import json
-import requests
 import tempfile
 import os
 import sys
@@ -14,9 +13,9 @@ sys.path.append(str(Path(__file__).parent))
 from comments_db import CommentsDB, Comment
 
 
-def test_database_operations():
-    """Test basic database operations."""
-    print("Testing database operations...")
+def test_simplified_database_operations():
+    """Test basic database operations with tree_item field."""
+    print("Testing simplified database operations...")
     
     # Create a temporary database
     with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as f:
@@ -26,12 +25,12 @@ def test_database_operations():
         # Initialize database
         db = CommentsDB(db_path)
         
-        # Test creating a comment
+        # Test creating a comment with tree_item
         comment = Comment(
-            file_path="test/file.py",
+            file_path="test/run123/file.py",
             tree_item="extraction_456",
             author_name="test_user",
-            text_body="This is a test comment"
+            text_body="This is a test comment on tree item"
         )
         
         created_comment = db.create_comment(comment)
@@ -41,13 +40,13 @@ def test_database_operations():
         # Test retrieving the comment
         retrieved_comment = db.get_comment(created_comment.id)
         assert retrieved_comment is not None
-        assert retrieved_comment.text_body == "This is a test comment"
+        assert retrieved_comment.text_body == "This is a test comment on tree item"
         assert retrieved_comment.tree_item == "extraction_456"
         print("✓ Retrieved comment successfully")
         
         # Test creating a reply
         reply = Comment(
-            file_path="test/file.py",
+            file_path="test/run123/file.py",
             tree_item="extraction_456",
             author_name="reply_user",
             text_body="This is a reply",
@@ -58,10 +57,16 @@ def test_database_operations():
         assert created_reply.id is not None
         print(f"✓ Created reply with ID: {created_reply.id}")
         
-        # Test getting comments for file
-        comments = db.get_comments_for_file("test/file.py")
+        # Test getting comments for tree item
+        comments = db.get_comments_for_tree_item("test/run123/file.py", "extraction_456")
         assert len(comments) == 1  # Should be one root comment with one reply
         assert len(comments[0]['replies']) == 1
+        print("✓ Retrieved tree item comments with replies")
+        
+        # Test getting comments for file
+        all_comments = db.get_comments_for_file("test/run123/file.py")
+        assert len(all_comments) == 1  # Should be one root comment with one reply
+        assert len(all_comments[0]['replies']) == 1
         print("✓ Retrieved file comments with replies")
         
         # Test updating comment
@@ -78,16 +83,16 @@ def test_database_operations():
         assert deleted_comment is None
         print("✓ Deleted comment successfully")
         
-        print("All database tests passed!")
+        print("All simplified database tests passed!")
         
     finally:
         # Clean up
         os.unlink(db_path)
 
 
-def test_position_data_flexibility():
-    """Test that tree_item works for different file types."""
-    print("\nTesting tree_item flexibility...")
+def test_multiple_tree_items():
+    """Test comments on multiple tree items."""
+    print("\nTesting multiple tree items...")
     
     with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as f:
         db_path = f.name
@@ -95,45 +100,44 @@ def test_position_data_flexibility():
     try:
         db = CommentsDB(db_path)
         
-        # Test different position data formats
-        test_cases = [
-            {
-                "file_path": "document.txt",
-                "tree_item": "section_25",
-                "description": "Text section"
-            },
-            {
-                "file_path": "data.json",
-                "tree_item": "extraction_users_0",
-                "description": "JSON extraction"
-            },
-            {
-                "file_path": "readme.md",
-                "tree_item": "section_installation", 
-                "description": "Markdown section"
-            },
-            {
-                "file_path": "image.png",
-                "tree_item": "annotation_150_200",
-                "description": "Image annotation"
-            }
-        ]
+        # Create comments on different tree items
+        tree_items = ["extraction_1", "extraction_2", "extraction_3"]
         
-        for i, test_case in enumerate(test_cases):
+        for i, tree_item in enumerate(tree_items):
             comment = Comment(
-                file_path=test_case["file_path"],
-                tree_item=test_case["tree_item"],
+                file_path="test/run123/file.py",
+                tree_item=tree_item,
                 author_name=f"user_{i}",
-                text_body=f"Comment on {test_case['description']}"
+                text_body=f"Comment on {tree_item}"
             )
             
             created_comment = db.create_comment(comment)
-            retrieved_comment = db.get_comment(created_comment.id)
+            print(f"✓ Created comment for {tree_item}")
             
-            assert retrieved_comment.tree_item == test_case["tree_item"]
-            print(f"✓ {test_case['description']}: {test_case['tree_item']}")
+            # Create a reply for each
+            reply = Comment(
+                file_path="test/run123/file.py",
+                tree_item=tree_item,
+                author_name=f"replier_{i}",
+                text_body=f"Reply to {tree_item}",
+                parent_comment_id=created_comment.id
+            )
+            db.create_comment(reply)
+            print(f"✓ Created reply for {tree_item}")
         
-        print("All tree_item tests passed!")
+        # Test getting comments for specific tree item
+        comments_1 = db.get_comments_for_tree_item("test/run123/file.py", "extraction_1")
+        assert len(comments_1) == 1
+        assert comments_1[0]['tree_item'] == "extraction_1"
+        assert len(comments_1[0]['replies']) == 1
+        print("✓ Retrieved comments for specific tree item")
+        
+        # Test getting all comments for file
+        all_comments = db.get_comments_for_file("test/run123/file.py")
+        assert len(all_comments) == 3
+        print("✓ Retrieved all comments for file")
+        
+        print("All multiple tree items tests passed!")
         
     finally:
         os.unlink(db_path)
@@ -141,14 +145,14 @@ def test_position_data_flexibility():
 
 def main():
     """Run all tests."""
-    print("Running Comments System Tests")
-    print("=" * 40)
+    print("Running Simplified Comments System Tests")
+    print("=" * 50)
     
-    test_database_operations()
-    test_position_data_flexibility()
+    test_simplified_database_operations()
+    test_multiple_tree_items()
     
-    print("\n" + "=" * 40)
-    print("All tests passed! 🎉")
+    print("\n" + "=" * 50)
+    print("All simplified tests passed! 🎉")
 
 
 if __name__ == "__main__":

@@ -719,6 +719,12 @@
           if (previewOptimizers[panelIndex]) {
             await previewOptimizers[panelIndex].loadFile(runId, f.path, f.size);
             
+            // Initialize comments for tree-based files
+            if (window.treeCommentsUI && f.path) {
+              console.log('Initializing comments for file:', f.path);
+              await window.treeCommentsUI.initializeForFile(f.path);
+            }
+            
             // After loading file, sync UBERMODE state properly
             const panel = panels[panelIndex];
             const uberToggle = panel?.querySelector('.ubermode-toggle');
