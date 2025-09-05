@@ -67,11 +67,23 @@ class PreviewOptimizer {
         return;
       }
       
-      // Determine loading strategy based on file size
-      if (fileSize > this.options.maxPreviewSize) {
-        await this.loadLargeFile(runId, filePath, fileSize);
-      } else {
+      // Special handling for UBERMODE-critical files - load completely to avoid JSON parsing issues
+      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || filePath.includes('chunk_evaluations.json');
+      const shouldLoadCompletely = isUberModeCriticalFile && fileSize <= 10000000; // Up to 10MB for UBERMODE files
+      
+      console.log('File loading strategy:', {
+        filePath,
+        fileSize: this.formatBytes(fileSize),
+        isUberModeCritical: isUberModeCriticalFile,
+        shouldLoadCompletely,
+        exceedsPreviewSize: fileSize > this.options.maxPreviewSize
+      });
+      
+      // Determine loading strategy based on file size and type
+      if (shouldLoadCompletely || fileSize <= this.options.maxPreviewSize) {
         await this.loadRegularFile(runId, filePath, fileSize);
+      } else {
+        await this.loadLargeFile(runId, filePath, fileSize);
       }
       
     } catch (error) {
@@ -178,8 +190,12 @@ class PreviewOptimizer {
     console.log('Content length:', content.length);
     console.log('Meta:', meta);
     
-    // Add file info header for large/truncated files
-    if (meta.truncated || meta.size > this.options.maxPreviewSize) {
+    // Add file info header for large/truncated files (but not for UBERMODE files that are intentionally loaded completely)
+    const isUberModeCriticalFile = this.currentFile?.filePath && 
+      (this.currentFile.filePath.includes('combined_extractions.json') || this.currentFile.filePath.includes('chunk_evaluations.json'));
+    const shouldShowFileInfo = meta.truncated || (meta.size > this.options.maxPreviewSize && !isUberModeCriticalFile);
+    
+    if (shouldShowFileInfo) {
       this.addFileInfoHeader(meta);
     }
     
