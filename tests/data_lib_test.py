@@ -19,10 +19,7 @@ from absl.testing import parameterized
 import numpy as np
 
 from langextract import data_lib
-<<<<<<< HEAD
-=======
 from langextract import io
->>>>>>> upstream/main
 from langextract.core import data
 from langextract.core import tokenizer
 

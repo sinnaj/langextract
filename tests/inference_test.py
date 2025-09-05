@@ -436,8 +436,6 @@ class TestGeminiLanguageModel(absltest.TestCase):
         "unknown_runtime_param", config, "Unknown kwargs should be filtered out"
     )
 
-<<<<<<< HEAD
-=======
   def test_gemini_requires_auth_config(self):
     """Test that Gemini requires either API key or Vertex AI config."""
     with self.assertRaises(exceptions.InferenceConfigError) as cm:
@@ -521,8 +519,6 @@ class TestGeminiLanguageModel(absltest.TestCase):
         location="us-central1",
         http_options=http_options,
     )
-
->>>>>>> upstream/main
 
 class TestOpenAILanguageModelInference(parameterized.TestCase):
 

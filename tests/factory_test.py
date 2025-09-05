@@ -65,11 +65,7 @@ class FakeOpenAIProvider(base_model.BaseLanguageModel):
     return self.infer(prompts)
 
 
-<<<<<<< HEAD
-class FactoryTest(absltest.TestCase):
-=======
 class FactoryTest(absltest.TestCase):  # pylint: disable=too-many-public-methods
->>>>>>> upstream/main
 
   def setUp(self):
     super().setUp()
