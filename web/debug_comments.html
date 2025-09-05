@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeCommentsUI Debug Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tree-comment-indicator {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          margin-left: 8px;
+          border-radius: 50%;
+          font-size: 12px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          vertical-align: middle;
+        }
+        
+        .tree-comment-indicator.no-comments {
+          background: #3b82f6;
+          color: white;
+        }
+        
+        .tree-comment-indicator.has-comments {
+          background: #22c55e;
+          color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">TreeCommentsUI Debug Test</h1>
+    
+    <div class="bg-white p-4 rounded shadow mb-4">
+        <h2 class="text-lg font-semibold mb-2">Test Tree Structure</h2>
+        <div id="test-tree" class="space-y-2">
+            <div class="tree-node" data-extraction-id="extraction_1">
+                <div class="tree-node-content flex items-center p-2 border rounded">
+                    <span>Test Node 1 (extraction_1)</span>
+                </div>
+            </div>
+            <div class="tree-node" data-extraction-id="extraction_2">
+                <div class="tree-node-content flex items-center p-2 border rounded">
+                    <span>Test Node 2 (extraction_2)</span>
+                </div>
+            </div>
+            <div class="tree-node" data-node-id="node_3">
+                <div class="tree-node-content flex items-center p-2 border rounded">
+                    <span>Test Node 3 (node_3)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white p-4 rounded shadow mb-4">
+        <h2 class="text-lg font-semibold mb-2">Debug Information</h2>
+        <div id="debug-info" class="text-sm space-y-1"></div>
+    </div>
+    
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold mb-2">Actions</h2>
+        <button id="init-comments" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">Initialize Comments</button>
+        <button id="init-for-file" class="bg-green-500 text-white px-4 py-2 rounded mr-2">Initialize for File</button>
+        <button id="update-indicators" class="bg-purple-500 text-white px-4 py-2 rounded mr-2">Update Indicators</button>
+        <button id="add-test-comment" class="bg-orange-500 text-white px-4 py-2 rounded">Add Test Comment</button>
+    </div>
+    
+    <script src="/static/tree-comments.js"></script>
+    <script>
+        function log(message) {
+            console.log(message);
+            const debugInfo = document.getElementById('debug-info');
+            const div = document.createElement('div');
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            debugInfo.appendChild(div);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM loaded');
+            
+            // Check if TreeCommentsUI is available
+            log(`window.TreeCommentsUI: ${typeof window.TreeCommentsUI}`);
+            log(`window.initializeTreeComments: ${typeof window.initializeTreeComments}`);
+            log(`window.treeCommentsUI: ${typeof window.treeCommentsUI}`);
+            
+            document.getElementById('init-comments').addEventListener('click', function() {
+                log('Manually initializing TreeComments...');
+                try {
+                    const ui = window.initializeTreeComments();
+                    log(`TreeCommentsUI initialized: ${!!ui}`);
+                    log(`window.treeCommentsUI after init: ${typeof window.treeCommentsUI}`);
+                } catch (error) {
+                    log(`Error initializing: ${error.message}`);
+                }
+            });
+            
+            document.getElementById('init-for-file').addEventListener('click', async function() {
+                log('Initializing for test file...');
+                try {
+                    if (window.treeCommentsUI) {
+                        await window.treeCommentsUI.initializeForFile('test-file.json');
+                        log('Successfully initialized for file');
+                    } else {
+                        log('window.treeCommentsUI not available');
+                    }
+                } catch (error) {
+                    log(`Error initializing for file: ${error.message}`);
+                }
+            });
+            
+            document.getElementById('update-indicators').addEventListener('click', function() {
+                log('Manually updating tree indicators...');
+                try {
+                    if (window.treeCommentsUI) {
+                        window.treeCommentsUI.updateTreeIndicators();
+                        log('Tree indicators updated');
+                    } else {
+                        log('window.treeCommentsUI not available');
+                    }
+                } catch (error) {
+                    log(`Error updating indicators: ${error.message}`);
+                }
+            });
+            
+            document.getElementById('add-test-comment').addEventListener('click', async function() {
+                log('Adding test comment...');
+                try {
+                    const response = await fetch('/api/comments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            file_path: 'test-file.json',
+                            tree_item: 'extraction_1',
+                            author_name: 'Test User',
+                            text_body: 'This is a test comment'
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        log('Test comment added successfully');
+                        // Refresh indicators
+                        if (window.treeCommentsUI) {
+                            await window.treeCommentsUI.initializeForFile('test-file.json');
+                        }
+                    } else {
+                        log(`Failed to add comment: ${response.status}`);
+                    }
+                } catch (error) {
+                    log(`Error adding comment: ${error.message}`);
+                }
+            });
+            
+            // Auto-check initialization after a short delay
+            setTimeout(function() {
+                log('Checking auto-initialization...');
+                log(`window.treeCommentsUI after auto-init: ${typeof window.treeCommentsUI}`);
+                
+                // Try to initialize and update indicators
+                if (window.treeCommentsUI) {
+                    log('Auto-updating tree indicators...');
+                    window.treeCommentsUI.updateTreeIndicators();
+                } else {
+                    log('TreeCommentsUI not auto-initialized');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -371,12 +371,14 @@
     // Initialize comments for a file
     async initializeForFile(filePath) {
       this.currentFilePath = filePath;
-      console.log('Initializing comments for file:', filePath);
+      console.log('TreeCommentsUI: Initializing comments for file:', filePath);
       
       // Load all comments for the file
       try {
         const allComments = await CommentsAPI.getComments(filePath);
         this.commentsData.clear();
+        
+        console.log(`TreeCommentsUI: Loaded ${allComments.length} comments from API for file:`, filePath);
         
         // Group comments by tree_item
         for (const comment of allComments) {
@@ -387,10 +389,13 @@
           this.commentsData.get(treeItem).push(comment);
         }
         
-        console.log('Loaded comments data:', this.commentsData);
+        console.log('TreeCommentsUI: Grouped comments data by tree item:', this.commentsData);
+        console.log('TreeCommentsUI: Number of tree items with comments:', this.commentsData.size);
+        
+        // Update tree indicators
         this.updateTreeIndicators();
       } catch (error) {
-        console.error('Failed to load comments:', error);
+        console.error('TreeCommentsUI: Failed to load comments:', error);
       }
     }
 
@@ -398,10 +403,21 @@
     updateTreeIndicators() {
       // Find all tree nodes and add comment indicators
       const treeNodes = document.querySelectorAll('[data-extraction-id], [data-node-id]');
+      console.log(`TreeCommentsUI: Found ${treeNodes.length} tree nodes for comment indicators`);
+      
+      if (treeNodes.length === 0) {
+        console.warn('TreeCommentsUI: No tree nodes found with data-extraction-id or data-node-id attributes');
+        console.log('TreeCommentsUI: Available elements in DOM:', document.querySelectorAll('[data-extraction-id]').length, 'with data-extraction-id,', document.querySelectorAll('[data-node-id]').length, 'with data-node-id');
+      }
       
       for (const node of treeNodes) {
         const treeItem = node.dataset.extractionId || node.dataset.nodeId;
-        if (!treeItem) continue;
+        if (!treeItem) {
+          console.warn('TreeCommentsUI: Tree node found but no treeItem extracted:', node);
+          continue;
+        }
+        
+        console.log(`TreeCommentsUI: Processing tree item: ${treeItem}`);
         
         // Remove existing indicator
         const existingIndicator = node.querySelector('.tree-comment-indicator');
@@ -421,10 +437,12 @@
           indicator.classList.add('has-comments');
           indicator.innerHTML = `<span class="tree-comment-count">${totalComments}</span>`;
           indicator.title = `${totalComments} comment(s)`;
+          console.log(`TreeCommentsUI: Added indicator for ${treeItem} with ${totalComments} comments`);
         } else {
           indicator.classList.add('no-comments');
           indicator.innerHTML = '💬';
           indicator.title = 'Add comment';
+          console.log(`TreeCommentsUI: Added indicator for ${treeItem} with no comments`);
         }
         
         // Add click handler
@@ -437,6 +455,8 @@
         const nodeContent = node.querySelector('.tree-node-content') || node;
         nodeContent.appendChild(indicator);
       }
+      
+      console.log(`TreeCommentsUI: Finished updating ${treeNodes.length} tree indicators`);
     }
 
     countTotalComments(comments) {
@@ -725,6 +745,8 @@
   function initializeTreeComments() {
     if (!treeCommentsUI) {
       treeCommentsUI = new TreeCommentsUI();
+      // Expose the instance globally for app.js to access
+      window.treeCommentsUI = treeCommentsUI;
     }
     return treeCommentsUI;
   }

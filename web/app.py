@@ -161,6 +161,11 @@ def list_runs():
 def index():
     return render_template("index.html")
 
+@app.get("/debug")
+def debug():
+    """Debug page for testing TreeCommentsUI."""
+    return send_file("debug_comments.html")
+
 @app.get("/choices")
 def choices():
     return jsonify({
