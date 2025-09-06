@@ -1,10 +1,10 @@
 {
   "resolver_debug": {
-    "source_text_preview": "Dr. Smith prescribed Ibuprofen 400mg twice daily.",
-    "source_text_length": 49,
-    "token_offset": 0,
-    "char_offset": 0,
-    "num_extractions_input": 2,
+    "source_text_preview": "After two weeks, the doctor added Metoprolol 25mg twice",
+    "source_text_length": 55,
+    "token_offset": 9,
+    "char_offset": 50,
+    "num_extractions_input": 1,
     "num_aligned_groups": 1,
     "alignment_settings": {
       "enable_fuzzy_alignment": true,
@@ -15,27 +15,17 @@
       {
         "group_index": 0,
         "extraction_class": "medication",
-        "extraction_text": "Ibuprofen",
+        "extraction_text": "Metoprolol",
         "extraction_index": null,
         "alignment_status": "MATCH_EXACT",
         "token_interval": {
-          "start_index": 4,
-          "end_index": 5
+          "start_index": 16,
+          "end_index": 17
         },
         "char_interval": {
-          "start_pos": 21,
-          "end_pos": 30
+          "start_pos": 84,
+          "end_pos": 94
         },
-        "attributes": null
-      },
-      {
-        "group_index": 0,
-        "extraction_class": "medication",
-        "extraction_text": "Acetaminophen",
-        "extraction_index": null,
-        "alignment_status": null,
-        "token_interval": null,
-        "char_interval": null,
         "attributes": null
       }
     ]
