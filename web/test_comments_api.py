@@ -28,7 +28,7 @@ def test_api_endpoints():
         # Test creating a comment
         comment_data = {
             "file_path": "test/example.py",
-            "position_data": {"line": 10, "column": 5},
+            "tree_item": "example.py:line_10",
             "author_name": "api_tester",
             "text_body": "This is an API test comment"
         }

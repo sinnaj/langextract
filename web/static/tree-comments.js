@@ -196,7 +196,7 @@
         .dark .comment-panel {
           background: #1f2937;
           border-color: #374151;
-          color: #f9fafb;
+          color: #f3f4f6;
         }
         
         .comment-panel-header {
@@ -204,7 +204,7 @@
           border-bottom: 1px solid #e5e7eb;
           background: #f9fafb;
           display: flex;
-          justify-content: between;
+          justify-content: space-between;
           align-items: center;
         }
         
@@ -228,8 +228,16 @@
           color: #6b7280;
         }
         
+        .dark .comment-panel-close {
+          color: #9ca3af;
+        }
+        
         .comment-panel-close:hover {
           color: #374151;
+        }
+        
+        .dark .comment-panel-close:hover {
+          color: #f3f4f6;
         }
         
         .comment-panel-body {
@@ -258,18 +266,27 @@
           color: #6b7280;
         }
         
+        .dark .comment-header {
+          color: #9ca3af;
+        }
+        
         .comment-author {
           font-weight: 600;
           color: #374151;
         }
         
         .dark .comment-author {
-          color: #f9fafb;
+          color: #f3f4f6;
         }
         
         .comment-text {
           margin-bottom: 8px;
           line-height: 1.5;
+          color: #111827;
+        }
+        
+        .dark .comment-text {
+          color: #f3f4f6;
         }
         
         .comment-actions {
@@ -279,17 +296,28 @@
         }
         
         .comment-btn {
-          background: none;
+          background: white;
           border: 1px solid #d1d5db;
           border-radius: 4px;
           padding: 4px 8px;
           cursor: pointer;
           font-size: 12px;
           transition: all 0.2s ease;
+          color: #374151;
+        }
+        
+        .dark .comment-btn {
+          background: #1f2937;
+          border-color: #374151;
+          color: #f3f4f6;
         }
         
         .comment-btn:hover {
           background: #f3f4f6;
+        }
+        
+        .dark .comment-btn:hover {
+          background: #374151;
         }
         
         .comment-btn-primary {
@@ -319,6 +347,10 @@
           border-left: 2px solid #e5e7eb;
         }
         
+        .dark .comment-reply {
+          border-left-color: #374151;
+        }
+        
         .comment-form {
           margin-top: 16px;
           padding: 16px;
@@ -341,11 +373,13 @@
           resize: vertical;
           font-family: inherit;
           margin-bottom: 8px;
+          background: white;
+          color: #111827;
         }
         
         .dark .comment-textarea {
           background: #111827;
-          color: #f9fafb;
+          color: #f3f4f6;
           border-color: #374151;
         }
         
