@@ -131,21 +131,34 @@ def display_hierarchical_analysis(df):
         
         root_counts = df['root_category'].value_counts()
         if not root_counts.empty:
+            # Group categories with only 1 occurrence
+            pie_data = {}
+            single_count = 0
+            
+            for category, count in root_counts.items():
+                if count > 1:
+                    pie_data[category] = count
+                else:
+                    single_count += count
+            
+            if single_count > 0:
+                pie_data['Others (1 occurrence each)'] = single_count
+            
             fig_roots = px.pie(
-                values=root_counts.values,
-                names=root_counts.index,
+                values=list(pie_data.values()),
+                names=list(pie_data.keys()),
                 title="Distribution of Root Categories"
             )
             st.plotly_chart(fig_roots, use_container_width=True)
         
-        # Show top root categories table
+        # Show top root categories table with Max Depth
         st.subheader("Top Root Categories")
         root_stats = df.groupby('root_category').agg({
             'tag_path': 'count',
             'usage_count': 'sum',
-            'depth': 'mean'
+            'depth': ['mean', 'max']
         }).round(1)
-        root_stats.columns = ['Tag Count', 'Total Usage', 'Avg Depth']
+        root_stats.columns = ['Tag Count', 'Total Usage', 'Avg Depth', 'Max Depth']
         root_stats = root_stats.sort_values('Tag Count', ascending=False)
         st.dataframe(root_stats, use_container_width=True)
     

@@ -8,8 +8,8 @@ import os
 from datetime import datetime
 
 st.set_page_config(
-    page_title="LangExtract Dashboard",
-    page_icon="🔍",
+    page_title="Sections - LangExtract",
+    page_icon="📄",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -77,16 +77,16 @@ def display_kpi_cards(data):
     
     with col2:
         st.metric(
-            label="Processing Success Rate",
-            value=f"{eval_stats.get('extract_percentage', 0):.1f}%",
-            delta=f"{eval_stats.get('extract_count', 0)} extracted"
+            label="Total Sections",
+            value=len(sections),
+            delta=f"{doc_metadata.get('total_original_sections', 0)} original"
         )
     
     with col3:
         st.metric(
-            label="Total Sections",
-            value=len(sections),
-            delta=f"{doc_metadata.get('total_original_sections', 0)} original"
+            label="Sections Processed Manually",
+            value=eval_stats.get('manual_count', 0),
+            delta=f"{eval_stats.get('manual_percentage', 0):.1f}% of total"
         )
     
     with col4:
@@ -239,8 +239,8 @@ def display_extractions_analysis(data):
         st.plotly_chart(fig_sections, use_container_width=True)
 
 def main():
-    st.title("🔍 LangExtract Dashboard")
-    st.markdown("Dashboard for visualizing language extraction results")
+    st.title("📄 Sections")
+    st.markdown("Analysis of sections and processing results from LangExtract")
     
     # Sidebar for file selection
     st.sidebar.title("Data Source")
