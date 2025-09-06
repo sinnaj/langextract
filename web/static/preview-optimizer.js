@@ -3992,6 +3992,9 @@ class PreviewOptimizer {
     // Clear and re-render
     treeElement.innerHTML = '';
     this.renderDocumentTree(treeElement, documentTree);
+    
+    // Restore comment indicators after tree rendering
+    this.restoreCommentIndicators();
   }
 
   // Render flat list of filtered items
@@ -4014,6 +4017,9 @@ class PreviewOptimizer {
     // Clear and render flat list
     treeElement.innerHTML = '';
     this.renderFlatList(treeElement, flatItems, filterType);
+    
+    // Restore comment indicators after tree rendering
+    this.restoreCommentIndicators();
   }
 
   // Build flat list items with same-type hierarchies preserved
@@ -4422,6 +4428,20 @@ class PreviewOptimizer {
     jsonContainer.appendChild(contentWrapper);
     mainContainer.appendChild(jsonContainer);
     this.element.appendChild(mainContainer);
+  }
+
+  // Restore comment indicators after tree rendering
+  restoreCommentIndicators() {
+    // Use setTimeout to allow DOM to settle after tree rendering
+    setTimeout(() => {
+      console.log('PreviewOptimizer: Restoring comment indicators after tree rendering');
+      if (window.treeCommentsUI && window.treeCommentsUI.updateTreeIndicators) {
+        window.treeCommentsUI.updateTreeIndicators();
+        console.log('PreviewOptimizer: Comment indicators restored');
+      } else {
+        console.log('PreviewOptimizer: TreeCommentsUI not available for restoring indicators');
+      }
+    }, 100); // Small delay to ensure DOM is fully updated
   }
 }
 

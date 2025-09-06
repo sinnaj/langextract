@@ -144,7 +144,7 @@
             // Use requestAnimationFrame to ensure tree is rendered
             requestAnimationFrame(async () => {
               try {
-                await window.treeCommentsUI.initializeForFile(currentFilePath);
+                await window.treeCommentsUI.initializeForFile(currentFilePath, currentRunId);
                 console.log('Comments initialized after UBERMODE toggle for:', currentFilePath);
               } catch (error) {
                 console.error('Error initializing comments after UBERMODE toggle:', error);
@@ -743,7 +743,7 @@
               // Use requestAnimationFrame to ensure DOM is updated
               requestAnimationFrame(async () => {
                 try {
-                  await window.treeCommentsUI.initializeForFile(f.path);
+                  await window.treeCommentsUI.initializeForFile(f.path, runId);
                   console.log('Comments initialized successfully for:', f.path);
                 } catch (error) {
                   console.error('Error initializing comments:', error);

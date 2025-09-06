@@ -497,15 +497,17 @@ def get_comments():
     """Get comments for a specific file and optionally tree item."""
     file_path = request.args.get("file_path", "")
     tree_item = request.args.get("tree_item", "")
+    run_id = request.args.get("run_id", "")
     
     if not file_path:
         return jsonify({"error": "file_path parameter is required"}), 400
     
     try:
+        run_id_param = run_id if run_id else None
         if tree_item:
-            comments = comments_db.get_comments_for_tree_item(file_path, tree_item)
+            comments = comments_db.get_comments_for_tree_item(file_path, tree_item, run_id_param)
         else:
-            comments = comments_db.get_comments_for_file(file_path)
+            comments = comments_db.get_comments_for_file(file_path, run_id_param)
         return jsonify({"comments": comments})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -531,7 +533,8 @@ def create_comment():
             tree_item=data["tree_item"],
             author_name=data["author_name"],
             text_body=data["text_body"],
-            parent_comment_id=data.get("parent_comment_id")
+            parent_comment_id=data.get("parent_comment_id"),
+            run_id=data.get("run_id")  # Optional run_id for scoping
         )
         
         # Validate parent comment exists if specified
@@ -626,7 +629,8 @@ def reply_to_comment(comment_id: int):
             tree_item=parent_comment.tree_item,  # Inherit tree_item from parent
             author_name=data["author_name"],
             text_body=data["text_body"],
-            parent_comment_id=comment_id
+            parent_comment_id=comment_id,
+            run_id=parent_comment.run_id  # Inherit run_id from parent
         )
         
         # Create the reply

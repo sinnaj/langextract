@@ -20,6 +20,7 @@ class Comment:
     text_body: str = ""
     created_at: float = 0.0
     parent_comment_id: Optional[int] = None
+    run_id: Optional[str] = None
     
     def __post_init__(self):
         if self.created_at == 0.0:
@@ -50,8 +51,8 @@ class CommentsDB:
             cursor = conn.execute("PRAGMA table_info(comments)")
             columns = [row[1] for row in cursor.fetchall()]
             
-            if 'tree_item' not in columns:
-                # Create new table with updated schema
+            if 'run_id' not in columns or 'tree_item' not in columns:
+                # Create new table with updated schema including run_id
                 conn.execute("""
                     CREATE TABLE IF NOT EXISTS comments_new (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -61,19 +62,29 @@ class CommentsDB:
                         text_body TEXT NOT NULL,
                         created_at REAL NOT NULL,
                         parent_comment_id INTEGER NULL,
+                        run_id TEXT NULL,
                         FOREIGN KEY (parent_comment_id) REFERENCES comments_new (id) ON DELETE CASCADE
                     )
                 """)
                 
                 # Migrate existing data if old table exists
                 if 'position_data' in columns:
+                    # Migrating from position_data schema
                     conn.execute("""
-                        INSERT INTO comments_new (id, file_path, tree_item, author_name, text_body, created_at, parent_comment_id)
-                        SELECT id, file_path, 'migrated', author_name, text_body, created_at, parent_comment_id
+                        INSERT INTO comments_new (id, file_path, tree_item, author_name, text_body, created_at, parent_comment_id, run_id)
+                        SELECT id, file_path, 'migrated', author_name, text_body, created_at, parent_comment_id, NULL
                         FROM comments
                     """)
-                    conn.execute("DROP TABLE comments")
+                elif 'tree_item' in columns:
+                    # Migrating from tree_item schema without run_id
+                    conn.execute("""
+                        INSERT INTO comments_new (id, file_path, tree_item, author_name, text_body, created_at, parent_comment_id, run_id)
+                        SELECT id, file_path, tree_item, author_name, text_body, created_at, parent_comment_id, NULL
+                        FROM comments
+                    """)
                 
+                # Drop old table and rename new one
+                conn.execute("DROP TABLE IF EXISTS comments")
                 conn.execute("ALTER TABLE comments_new RENAME TO comments")
             else:
                 # Create table with new schema if it doesn't exist
@@ -86,6 +97,7 @@ class CommentsDB:
                         text_body TEXT NOT NULL,
                         created_at REAL NOT NULL,
                         parent_comment_id INTEGER NULL,
+                        run_id TEXT NULL,
                         FOREIGN KEY (parent_comment_id) REFERENCES comments (id) ON DELETE CASCADE
                     )
                 """)
@@ -107,6 +119,18 @@ class CommentsDB:
                 CREATE INDEX IF NOT EXISTS idx_comments_created_at 
                 ON comments (created_at)
             """)
+            conn.execute("""
+                CREATE INDEX IF NOT EXISTS idx_comments_run_id 
+                ON comments (run_id)
+            """)
+            conn.execute("""
+                CREATE INDEX IF NOT EXISTS idx_comments_file_run 
+                ON comments (file_path, run_id)
+            """)
+            conn.execute("""
+                CREATE INDEX IF NOT EXISTS idx_comments_tree_run 
+                ON comments (tree_item, run_id)
+            """)
             
             conn.commit()
     
@@ -124,15 +148,16 @@ class CommentsDB:
         """Create a new comment in the database."""
         with self._get_connection() as conn:
             cursor = conn.execute("""
-                INSERT INTO comments (file_path, tree_item, author_name, text_body, created_at, parent_comment_id)
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT INTO comments (file_path, tree_item, author_name, text_body, created_at, parent_comment_id, run_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
             """, (
                 comment.file_path,
                 comment.tree_item,
                 comment.author_name,
                 comment.text_body,
                 comment.created_at,
-                comment.parent_comment_id
+                comment.parent_comment_id,
+                comment.run_id
             ))
             comment.id = cursor.lastrowid
             conn.commit()
@@ -153,19 +178,27 @@ class CommentsDB:
                     author_name=row['author_name'],
                     text_body=row['text_body'],
                     created_at=row['created_at'],
-                    parent_comment_id=row['parent_comment_id']
+                    parent_comment_id=row['parent_comment_id'],
+                    run_id=row['run_id'] if 'run_id' in row.keys() else None  # Handle cases where run_id might be NULL
                 )
             return None
     
-    def get_comments_for_file(self, file_path: str) -> List[Dict[str, Any]]:
+    def get_comments_for_file(self, file_path: str, run_id: Optional[str] = None) -> List[Dict[str, Any]]:
         """Get all comments for a file, organized with replies."""
         with self._get_connection() as conn:
-            # Get all comments for the file
-            rows = conn.execute("""
-                SELECT * FROM comments 
-                WHERE file_path = ? 
-                ORDER BY created_at ASC
-            """, (file_path,)).fetchall()
+            # Get all comments for the file, optionally filtered by run_id
+            if run_id:
+                rows = conn.execute("""
+                    SELECT * FROM comments 
+                    WHERE file_path = ? AND (run_id = ? OR run_id IS NULL)
+                    ORDER BY created_at ASC
+                """, (file_path, run_id)).fetchall()
+            else:
+                rows = conn.execute("""
+                    SELECT * FROM comments 
+                    WHERE file_path = ? 
+                    ORDER BY created_at ASC
+                """, (file_path,)).fetchall()
             
             comments_dict = {}
             root_comments = []
@@ -179,7 +212,8 @@ class CommentsDB:
                     author_name=row['author_name'],
                     text_body=row['text_body'],
                     created_at=row['created_at'],
-                    parent_comment_id=row['parent_comment_id']
+                    parent_comment_id=row['parent_comment_id'],
+                    run_id=row['run_id'] if 'run_id' in row.keys() else None
                 )
                 comment_dict = comment.to_dict()
                 comment_dict['replies'] = []
@@ -197,15 +231,22 @@ class CommentsDB:
             
             return root_comments
     
-    def get_comments_for_tree_item(self, file_path: str, tree_item: str) -> List[Dict[str, Any]]:
+    def get_comments_for_tree_item(self, file_path: str, tree_item: str, run_id: Optional[str] = None) -> List[Dict[str, Any]]:
         """Get all comments for a specific tree item, organized with replies."""
         with self._get_connection() as conn:
-            # Get all comments for the tree item
-            rows = conn.execute("""
-                SELECT * FROM comments 
-                WHERE file_path = ? AND tree_item = ?
-                ORDER BY created_at ASC
-            """, (file_path, tree_item)).fetchall()
+            # Get all comments for the tree item, optionally filtered by run_id
+            if run_id:
+                rows = conn.execute("""
+                    SELECT * FROM comments 
+                    WHERE file_path = ? AND tree_item = ? AND (run_id = ? OR run_id IS NULL)
+                    ORDER BY created_at ASC
+                """, (file_path, tree_item, run_id)).fetchall()
+            else:
+                rows = conn.execute("""
+                    SELECT * FROM comments 
+                    WHERE file_path = ? AND tree_item = ?
+                    ORDER BY created_at ASC
+                """, (file_path, tree_item)).fetchall()
             
             comments_dict = {}
             root_comments = []
@@ -219,7 +260,8 @@ class CommentsDB:
                     author_name=row['author_name'],
                     text_body=row['text_body'],
                     created_at=row['created_at'],
-                    parent_comment_id=row['parent_comment_id']
+                    parent_comment_id=row['parent_comment_id'],
+                    run_id=row['run_id'] if 'run_id' in row.keys() else None
                 )
                 comment_dict = comment.to_dict()
                 comment_dict['replies'] = []

@@ -8,11 +8,14 @@
 
   // Comments API client
   class CommentsAPI {
-    static async getComments(filePath, treeItem = null) {
+    static async getComments(filePath, treeItem = null, runId = null) {
       try {
         let url = `/api/comments?file_path=${encodeURIComponent(filePath)}`;
         if (treeItem) {
           url += `&tree_item=${encodeURIComponent(treeItem)}`;
+        }
+        if (runId) {
+          url += `&run_id=${encodeURIComponent(runId)}`;
         }
         const response = await fetch(url);
         if (!response.ok) {
@@ -104,6 +107,7 @@
   class TreeCommentsUI {
     constructor() {
       this.currentFilePath = null;
+      this.currentRunId = null;
       this.currentUser = this.getCurrentUser();
       this.activePanel = null;
       this.commentsData = new Map(); // treeItem -> comments
@@ -181,10 +185,10 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          background: white;
-          border: 1px solid #d1d5db;
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
           border-radius: 8px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
           z-index: 1000;
           max-width: 600px;
           width: 90vw;
@@ -194,9 +198,9 @@
         }
         
         .dark .comment-panel {
-          background: #1f2937;
+          background: #111827;
           border-color: #374151;
-          color: #f3f4f6;
+          color: #f9fafb;
         }
         
         .comment-panel-header {
@@ -209,7 +213,7 @@
         }
         
         .dark .comment-panel-header {
-          background: #111827;
+          background: #1f2937;
           border-bottom-color: #374151;
         }
         
@@ -246,14 +250,14 @@
         
         .comment-item {
           margin-bottom: 16px;
-          padding: 12px;
+          padding: 16px;
           border: 1px solid #e5e7eb;
-          border-radius: 6px;
-          background: #f9fafb;
+          border-radius: 8px;
+          background: #ffffff;
         }
         
         .dark .comment-item {
-          background: #111827;
+          background: #1f2937;
           border-color: #374151;
         }
         
@@ -272,11 +276,11 @@
         
         .comment-author {
           font-weight: 600;
-          color: #374151;
+          color: #111827;
         }
         
         .dark .comment-author {
-          color: #f3f4f6;
+          color: #f9fafb;
         }
         
         .comment-text {
@@ -286,7 +290,7 @@
         }
         
         .dark .comment-text {
-          color: #f3f4f6;
+          color: #f9fafb;
         }
         
         .comment-actions {
@@ -296,43 +300,47 @@
         }
         
         .comment-btn {
-          background: white;
+          background: #ffffff;
           border: 1px solid #d1d5db;
-          border-radius: 4px;
-          padding: 4px 8px;
+          border-radius: 6px;
+          padding: 6px 12px;
           cursor: pointer;
           font-size: 12px;
-          transition: all 0.2s ease;
+          font-weight: 500;
+          transition: all 0.15s ease;
           color: #374151;
         }
         
         .dark .comment-btn {
-          background: #1f2937;
-          border-color: #374151;
-          color: #f3f4f6;
+          background: #374151;
+          border-color: #4b5563;
+          color: #f9fafb;
         }
         
         .comment-btn:hover {
-          background: #f3f4f6;
+          background: #f9fafb;
+          border-color: #9ca3af;
         }
         
         .dark .comment-btn:hover {
-          background: #374151;
+          background: #4b5563;
+          border-color: #6b7280;
         }
         
         .comment-btn-primary {
           background: #3b82f6;
-          color: white;
+          color: #ffffff;
           border-color: #3b82f6;
         }
         
         .comment-btn-primary:hover {
           background: #2563eb;
+          border-color: #2563eb;
         }
         
         .comment-btn-danger {
           background: #ef4444;
-          color: white;
+          color: #ffffff;
           border-color: #ef4444;
         }
         
@@ -355,8 +363,8 @@
           margin-top: 16px;
           padding: 16px;
           border: 1px solid #e5e7eb;
-          border-radius: 6px;
-          background: white;
+          border-radius: 8px;
+          background: #ffffff;
         }
         
         .dark .comment-form {
@@ -367,20 +375,32 @@
         .comment-textarea {
           width: 100%;
           min-height: 80px;
-          padding: 8px;
+          padding: 12px;
           border: 1px solid #d1d5db;
-          border-radius: 4px;
+          border-radius: 6px;
           resize: vertical;
           font-family: inherit;
-          margin-bottom: 8px;
-          background: white;
+          margin-bottom: 12px;
+          background: #ffffff;
           color: #111827;
+          transition: border-color 0.15s ease;
+        }
+        
+        .comment-textarea:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .dark .comment-textarea {
           background: #111827;
-          color: #f3f4f6;
+          color: #f9fafb;
           border-color: #374151;
+        }
+        
+        .dark .comment-textarea:focus {
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .comment-form-actions {
@@ -403,16 +423,17 @@
     }
 
     // Initialize comments for a file
-    async initializeForFile(filePath) {
+    async initializeForFile(filePath, runId = null) {
       this.currentFilePath = filePath;
-      console.log('TreeCommentsUI: Initializing comments for file:', filePath);
+      this.currentRunId = runId || window.currentRunId || null;
+      console.log('TreeCommentsUI: Initializing comments for file:', filePath, 'runId:', this.currentRunId);
       
-      // Load all comments for the file
+      // Load all comments for the file with run scoping
       try {
-        const allComments = await CommentsAPI.getComments(filePath);
+        const allComments = await CommentsAPI.getComments(filePath, null, this.currentRunId);
         this.commentsData.clear();
         
-        console.log(`TreeCommentsUI: Loaded ${allComments.length} comments from API for file:`, filePath);
+        console.log(`TreeCommentsUI: Loaded ${allComments.length} comments from API for file:`, filePath, 'runId:', this.currentRunId);
         
         // Group comments by tree_item
         for (const comment of allComments) {
@@ -508,8 +529,8 @@
     async showCommentsPanel(treeItem) {
       this.closeActivePanel();
       
-      // Get comments for this tree item
-      const comments = await CommentsAPI.getComments(this.currentFilePath, treeItem);
+      // Get comments for this tree item with run scoping
+      const comments = await CommentsAPI.getComments(this.currentFilePath, treeItem, this.currentRunId);
       
       // Create overlay
       const overlay = document.createElement('div');
@@ -643,13 +664,14 @@
               file_path: this.currentFilePath,
               tree_item: treeItem,
               author_name: userName,
-              text_body: text
+              text_body: text,
+              run_id: this.currentRunId
             });
           }
           
-          // Refresh the panel
-          this.showCommentsPanel(treeItem);
-          this.initializeForFile(this.currentFilePath); // Refresh indicators
+          // Refresh the panel and close it after successful submission
+          this.closeActivePanel();
+          this.initializeForFile(this.currentFilePath, this.currentRunId); // Refresh indicators
           
         } catch (error) {
           alert('Failed to submit comment: ' + error.message);
@@ -662,7 +684,8 @@
         if (isReply) {
           form.remove();
         } else {
-          textarea.value = '';
+          // For main comments, close the entire panel
+          this.closeActivePanel();
         }
       });
       
