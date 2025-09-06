@@ -27,6 +27,8 @@ import itertools
 import json
 import operator
 import re
+import signal
+import time
 from pathlib import Path
 from typing import Final
 
@@ -242,16 +244,25 @@ class Resolver(AbstractResolver):
       suppress_flag = suppress_parse_errors
 
     try:
-      extraction_data = self.string_to_extraction_data(input_text)
+      # Use timeout wrapper to prevent hanging during parsing
+      def parse_operation():
+        return self.string_to_extraction_data(input_text)
+        
+      extraction_data = self._with_timeout(parse_operation, timeout_seconds=30)
       logging.debug("Parsed content: %s", extraction_data)
 
-    except (ResolverParsingError, ValueError) as e:
+    except (ResolverParsingError, ValueError, TimeoutError) as e:
       if suppress_flag:
         logging.exception(
-            "Failed to parse input_text: %s, error: %s", input_text, e
+            "Failed to parse input_text (suppress_parse_errors=True): %s", str(e)[:200]
         )
         return []
-      raise ResolverParsingError("Failed to parse content.") from e
+      else:
+        # When suppress_parse_errors=False, we should always raise the exception
+        if isinstance(e, TimeoutError):
+          raise ResolverParsingError(f"Parsing timed out: {e}") from e
+        else:
+          raise ResolverParsingError("Failed to parse content.") from e
 
     processed_extractions = self.extract_ordered_extractions(extraction_data)
 
@@ -381,6 +392,69 @@ class Resolver(AbstractResolver):
 
     logging.info("Completed alignment process for the provided source_text.")
 
+  def _early_sanitize_input(self, input_str: str) -> str:
+    """Early sanitization to remove obvious control characters and problematic sequences.
+    
+    This is a lightweight sanitization that runs before any parsing attempts
+    to prevent hanging or infinite loops caused by malformed input.
+    
+    Args:
+        input_str: The input string to sanitize
+        
+    Returns:
+        Sanitized string with control characters removed
+    """
+    if not input_str:
+      return input_str
+      
+    # Remove ASCII control characters except TAB (0x09), LF (0x0A), CR (0x0D)
+    # This is a quick filter to prevent parsing issues
+    sanitized = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', input_str)
+    
+    # If we removed characters, log it for debugging
+    if len(sanitized) != len(input_str):
+      removed_count = len(input_str) - len(sanitized)
+      logging.debug(f"Early sanitization removed {removed_count} control characters")
+    
+    return sanitized
+
+  def _with_timeout(self, func, timeout_seconds=30):
+    """Execute a function with a timeout to prevent hanging.
+    
+    Args:
+        func: Function to execute
+        timeout_seconds: Maximum time to wait before timing out
+        
+    Returns:
+        Result of the function call
+        
+    Raises:
+        TimeoutError: If the function takes longer than timeout_seconds
+    """
+    class TimeoutException(Exception):
+      pass
+    
+    def timeout_handler(signum, frame):
+      raise TimeoutException("Operation timed out")
+    
+    # Set up the timeout
+    old_handler = signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(timeout_seconds)
+    
+    try:
+      result = func()
+      signal.alarm(0)  # Cancel the alarm
+      signal.signal(signal.SIGALRM, old_handler)  # Restore old handler
+      return result
+    except TimeoutException:
+      signal.alarm(0)  # Cancel the alarm
+      signal.signal(signal.SIGALRM, old_handler)  # Restore old handler
+      raise TimeoutError(f"Operation timed out after {timeout_seconds} seconds")
+    except Exception:
+      signal.alarm(0)  # Cancel the alarm  
+      signal.signal(signal.SIGALRM, old_handler)  # Restore old handler
+      raise
+
   def _extract_and_parse_content(
       self,
       input_string: str,
@@ -410,6 +484,9 @@ class Resolver(AbstractResolver):
     if not input_string or not isinstance(input_string, str):
       logging.error("Input string must be a non-empty string.")
       raise ValueError("Input string must be a non-empty string.")
+
+    # Apply early sanitization to prevent parsing issues with control characters
+    input_string = self._early_sanitize_input(input_string)
 
     if self.fence_output:
       left_key = "```" + self.format_type.value
