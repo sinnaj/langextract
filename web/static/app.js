@@ -21,6 +21,7 @@
   window.selectedFilePaths = selectedFilePaths;
   window.currentColumnCount = currentColumnCount;
   window.previewOptimizers = previewOptimizers;
+  window.currentRunId = currentRunId; // Expose current run ID for comments system
 
   // Initialize performance optimizers
   let consoleOptimizer = null;
@@ -496,6 +497,7 @@
       // Only update global state if loading into the first panel
       if (panelIndex === 0) {
         currentRunId = runId;
+        window.currentRunId = runId; // Update global reference
         runIdEl.textContent = `Loaded Run: ${runId}`;
       }
       
@@ -901,6 +903,7 @@
       const data = await res.json();
   const runId = data.run_id;
   currentRunId = runId;
+  window.currentRunId = runId; // Update global reference
   runIdEl.textContent = `Run: ${runId}`;
   if (cancelBtn) cancelBtn.disabled = false;
 

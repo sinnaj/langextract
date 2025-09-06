@@ -188,9 +188,10 @@ class CommentsDB:
         with self._get_connection() as conn:
             # Get all comments for the file, optionally filtered by run_id
             if run_id:
+                # Only show comments that match the specific run_id (strict run isolation)
                 rows = conn.execute("""
                     SELECT * FROM comments 
-                    WHERE file_path = ? AND (run_id = ? OR run_id IS NULL)
+                    WHERE file_path = ? AND run_id = ?
                     ORDER BY created_at ASC
                 """, (file_path, run_id)).fetchall()
             else:
@@ -236,9 +237,10 @@ class CommentsDB:
         with self._get_connection() as conn:
             # Get all comments for the tree item, optionally filtered by run_id
             if run_id:
+                # Only show comments that match the specific run_id (strict run isolation)
                 rows = conn.execute("""
                     SELECT * FROM comments 
-                    WHERE file_path = ? AND tree_item = ? AND (run_id = ? OR run_id IS NULL)
+                    WHERE file_path = ? AND tree_item = ? AND run_id = ?
                     ORDER BY created_at ASC
                 """, (file_path, tree_item, run_id)).fetchall()
             else:

@@ -427,6 +427,7 @@
       this.currentFilePath = filePath;
       this.currentRunId = runId || window.currentRunId || null;
       console.log('TreeCommentsUI: Initializing comments for file:', filePath, 'runId:', this.currentRunId);
+      console.log('TreeCommentsUI: window.currentRunId:', window.currentRunId, 'passed runId:', runId);
       
       // Load all comments for the file with run scoping
       try {
@@ -434,10 +435,12 @@
         this.commentsData.clear();
         
         console.log(`TreeCommentsUI: Loaded ${allComments.length} comments from API for file:`, filePath, 'runId:', this.currentRunId);
+        console.log('TreeCommentsUI: Raw comments data:', allComments);
         
         // Group comments by tree_item
         for (const comment of allComments) {
           const treeItem = comment.tree_item;
+          console.log(`TreeCommentsUI: Processing comment for treeItem "${treeItem}" with run_id "${comment.run_id}"`);
           if (!this.commentsData.has(treeItem)) {
             this.commentsData.set(treeItem, []);
           }
@@ -529,8 +532,13 @@
     async showCommentsPanel(treeItem) {
       this.closeActivePanel();
       
+      console.log(`TreeCommentsUI: Opening comments panel for treeItem "${treeItem}" with run_id "${this.currentRunId}"`);
+      
       // Get comments for this tree item with run scoping
       const comments = await CommentsAPI.getComments(this.currentFilePath, treeItem, this.currentRunId);
+      
+      console.log(`TreeCommentsUI: Retrieved ${comments.length} comments for treeItem "${treeItem}" and run_id "${this.currentRunId}"`);
+      console.log('TreeCommentsUI: Comments data:', comments);
       
       // Create overlay
       const overlay = document.createElement('div');
