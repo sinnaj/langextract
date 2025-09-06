@@ -30,7 +30,7 @@ def demo_commenting_system():
     
     text_comment = Comment(
         file_path="src/main.py",
-        position_data={"line": 45, "column": 12},
+        tree_item="main.py:function_validate_input",
         author_name="alice",
         text_body="This function needs better error handling"
     )
@@ -41,7 +41,7 @@ def demo_commenting_system():
     # Add reply
     reply = Comment(
         file_path="src/main.py",
-        position_data={"line": 45, "column": 12},
+        tree_item="main.py:function_validate_input",
         author_name="bob",
         text_body="Agreed! I'll add try-catch blocks.",
         parent_comment_id=created_comment.id
@@ -56,13 +56,13 @@ def demo_commenting_system():
     
     json_comment = Comment(
         file_path="config/settings.json",
-        position_data={"path": "database.connection.timeout"},
+        tree_item="settings.json:database.connection.timeout",
         author_name="charlie",
         text_body="This timeout seems too low for production"
     )
     
     db.create_comment(json_comment)
-    print(f"Created comment on JSON path: '{json_comment.position_data['path']}'")
+    print(f"Created comment on JSON path: '{json_comment.tree_item}'")
     
     # Demo 3: Markdown file commenting
     print("\n📝 Demo 3: Markdown File Commenting")
@@ -70,13 +70,13 @@ def demo_commenting_system():
     
     md_comment = Comment(
         file_path="docs/README.md",
-        position_data={"position": 1250, "section": "Installation"},
+        tree_item="README.md:section_installation",
         author_name="diana",
         text_body="We should add a Windows-specific installation section"
     )
     
     db.create_comment(md_comment)
-    print(f"Created comment in section '{md_comment.position_data['section']}'")
+    print(f"Created comment in section '{md_comment.tree_item}'")
     
     # Demo 4: Image file commenting
     print("\n🖼️  Demo 4: Image File Commenting")
@@ -84,13 +84,13 @@ def demo_commenting_system():
     
     image_comment = Comment(
         file_path="assets/diagram.png",
-        position_data={"x": 250, "y": 180},
+        tree_item="diagram.png:coord_250_180",
         author_name="eve",
         text_body="This arrow is pointing to the wrong component"
     )
     
     db.create_comment(image_comment)
-    print(f"Created comment at coordinates ({image_comment.position_data['x']}, {image_comment.position_data['y']})")
+    print(f"Created comment at coordinates: '{image_comment.tree_item}'")
     
     # Demo 5: Show all comments for each file
     print("\n📊 Demo 5: Retrieving Comments")

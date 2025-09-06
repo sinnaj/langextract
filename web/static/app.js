@@ -21,6 +21,7 @@
   window.selectedFilePaths = selectedFilePaths;
   window.currentColumnCount = currentColumnCount;
   window.previewOptimizers = previewOptimizers;
+  window.currentRunId = currentRunId; // Expose current run ID for comments system
 
   // Initialize performance optimizers
   let consoleOptimizer = null;
@@ -135,6 +136,22 @@
           
           // Refresh all other JSON panels to update their tree/JSON view based on new configuration
           refreshAllJsonPanels(panelIndex);
+          
+          // Initialize comments if UBERMODE is enabled and we have a file
+          const currentFilePath = selectedFilePaths[panelIndex];
+          if (isEnabled && window.treeCommentsUI && currentFilePath) {
+            console.log('Initializing comments after UBERMODE toggle for:', currentFilePath);
+            
+            // Use requestAnimationFrame to ensure tree is rendered
+            requestAnimationFrame(async () => {
+              try {
+                await window.treeCommentsUI.initializeForFile(currentFilePath, currentRunId);
+                console.log('Comments initialized after UBERMODE toggle for:', currentFilePath);
+              } catch (error) {
+                console.error('Error initializing comments after UBERMODE toggle:', error);
+              }
+            });
+          }
           
           // Show/hide stats section
           const statsSection = document.querySelector('.ubermode-stats');
@@ -480,6 +497,7 @@
       // Only update global state if loading into the first panel
       if (panelIndex === 0) {
         currentRunId = runId;
+        window.currentRunId = runId; // Update global reference
         runIdEl.textContent = `Loaded Run: ${runId}`;
       }
       
@@ -719,6 +737,27 @@
           if (previewOptimizers[panelIndex]) {
             await previewOptimizers[panelIndex].loadFile(runId, f.path, f.size);
             
+            // Initialize comments for tree-based files
+            // Wait a moment for DOM to be fully updated, then initialize comments
+            if (window.treeCommentsUI && f.path) {
+              console.log('Initializing comments for file:', f.path);
+              
+              // Use requestAnimationFrame to ensure DOM is updated
+              requestAnimationFrame(async () => {
+                try {
+                  await window.treeCommentsUI.initializeForFile(f.path, runId);
+                  console.log('Comments initialized successfully for:', f.path);
+                } catch (error) {
+                  console.error('Error initializing comments:', error);
+                }
+              });
+            } else {
+              console.log('TreeCommentsUI not available or no file path:', {
+                treeCommentsUI: !!window.treeCommentsUI,
+                filePath: f.path
+              });
+            }
+            
             // After loading file, sync UBERMODE state properly
             const panel = panels[panelIndex];
             const uberToggle = panel?.querySelector('.ubermode-toggle');
@@ -864,6 +903,7 @@
       const data = await res.json();
   const runId = data.run_id;
   currentRunId = runId;
+  window.currentRunId = runId; // Update global reference
   runIdEl.textContent = `Run: ${runId}`;
   if (cancelBtn) cancelBtn.disabled = false;
 

@@ -2785,6 +2785,14 @@ class PreviewOptimizer {
     nodeElement.style.marginLeft = `${indent}px`;
     nodeElement.setAttribute('data-node-id', node.id);
     
+    // Add extraction ID for comments system
+    if (node.extraction && node.extraction.attributes && node.extraction.attributes.id) {
+      nodeElement.setAttribute('data-extraction-id', node.extraction.attributes.id);
+    } else if (node.type !== 'SECTION') {
+      // For non-section nodes, use the node ID as extraction ID
+      nodeElement.setAttribute('data-extraction-id', node.id);
+    }
+    
     // Create the node content
     const nodeContent = document.createElement('div');
     nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
@@ -4193,6 +4201,9 @@ class PreviewOptimizer {
     // Clear and re-render
     treeElement.innerHTML = '';
     this.renderDocumentTree(treeElement, documentTree);
+    
+    // Restore comment indicators after tree rendering
+    this.restoreCommentIndicators();
   }
 
   // Render flat list of filtered items
@@ -4215,6 +4226,9 @@ class PreviewOptimizer {
     // Clear and render flat list
     treeElement.innerHTML = '';
     this.renderFlatList(treeElement, flatItems, filterType);
+    
+    // Restore comment indicators after tree rendering
+    this.restoreCommentIndicators();
   }
 
   // Build flat list items with same-type hierarchies preserved
@@ -4340,6 +4354,14 @@ class PreviewOptimizer {
     nodeElement.className = 'flat-tree-node';
     nodeElement.style.marginLeft = `${indent}px`;
     nodeElement.setAttribute('data-node-id', item.id);
+    
+    // Add extraction ID for comments system
+    if (item.extraction && item.extraction.attributes && item.extraction.attributes.id) {
+      nodeElement.setAttribute('data-extraction-id', item.extraction.attributes.id);
+    } else {
+      // For items without explicit extraction ID, use the item ID
+      nodeElement.setAttribute('data-extraction-id', item.id);
+    }
 
     const nodeContent = document.createElement('div');
     nodeContent.className = 'tree-node-content flex items-start space-x-2 py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded transition-colors border-l-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600';
@@ -4615,6 +4637,20 @@ class PreviewOptimizer {
     jsonContainer.appendChild(contentWrapper);
     mainContainer.appendChild(jsonContainer);
     this.element.appendChild(mainContainer);
+  }
+
+  // Restore comment indicators after tree rendering
+  restoreCommentIndicators() {
+    // Use setTimeout to allow DOM to settle after tree rendering
+    setTimeout(() => {
+      console.log('PreviewOptimizer: Restoring comment indicators after tree rendering');
+      if (window.treeCommentsUI && window.treeCommentsUI.updateTreeIndicators) {
+        window.treeCommentsUI.updateTreeIndicators();
+        console.log('PreviewOptimizer: Comment indicators restored');
+      } else {
+        console.log('PreviewOptimizer: TreeCommentsUI not available for restoring indicators');
+      }
+    }, 100); // Small delay to ensure DOM is fully updated
   }
 }
 
