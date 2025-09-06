@@ -330,7 +330,7 @@ def makeRun(
     ##NOTE: Dynamic extraction class handling and section_id normalization 
     # implemented in _add_section_parent_to_extractions function below
 
-    def _call_and_capture(text: str, idx: int | None = None, section_metadata=None) -> Optional[Dict[str, Any]]:
+    def _call_and_capture(text: str, idx: int | None = None, section_metadata=None, section_chunk=None) -> Optional[Dict[str, Any]]:
         nonlocal run_warnings
         
         def _sanitize_for_log(raw: str, limit: int = 2000) -> str:
@@ -542,6 +542,18 @@ def makeRun(
                     "end_pos": getattr(ci, "end_pos", None),
                 }
 
+            def _adjust_char_interval_to_absolute(ci_dict, section_chunk):
+                """Adjust char_interval from section-relative to document-absolute positions."""
+                if not ci_dict or not section_chunk:
+                    return ci_dict
+                
+                if ci_dict.get("start_pos") is not None and ci_dict.get("end_pos") is not None:
+                    # Add the section's absolute start position to convert relative to absolute
+                    ci_dict["start_pos"] += section_chunk.char_start
+                    ci_dict["end_pos"] += section_chunk.char_start
+                
+                return ci_dict
+
             def _ti_dict(ti):
                 if not ti:
                     return None
@@ -599,11 +611,15 @@ def makeRun(
                     attributes = dict(attributes)
                     attributes["parent_section_id"] = section_metadata.section_id
                 
+                # Convert char_interval and adjust to absolute positions if needed
+                char_interval_dict = _ci_dict(getattr(e, "char_interval", None))
+                char_interval_dict = _adjust_char_interval_to_absolute(char_interval_dict, section_chunk)
+                
                 item = {
                     "extraction_class": extraction_class,
                     "extraction_text": getattr(e, "extraction_text", None),
                     "attributes": attributes,
-                    "char_interval": _ci_dict(getattr(e, "char_interval", None)),
+                    "char_interval": char_interval_dict,
                     "alignment_status": _get_alignment_status_value(getattr(e, "alignment_status", None)),
                     "extraction_index": getattr(e, "extraction_index", None),
                     "group_index": getattr(e, "group_index", None),
@@ -718,7 +734,7 @@ def makeRun(
             if evaluation.processing_type == "extract":
                 # Process with langextract
                 print(f"[INFO] Extracting section {i+1}/{len(chunk_evaluations)}: {section_metadata.section_name}")
-                result = _call_and_capture(section_chunk.chunk_text, i, section_metadata)
+                result = _call_and_capture(section_chunk.chunk_text, i, section_metadata, section_chunk)
                 
                 if result and "extractions" in result:
                     # Add extractions to the collection
@@ -803,7 +819,7 @@ def makeRun(
     else:
         # Fallback to original approach for empty input
         print("[INFO] No section chunks found, processing as single document")
-        result = _call_and_capture(INPUT_TEXT, None, None)
+        result = _call_and_capture(INPUT_TEXT, None, None, None)
         
         # Save as combined result for consistency
         combined_result = {
