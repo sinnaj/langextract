@@ -12,20 +12,14 @@ Both evaluators use Large Language Models (LLM) to assess quality based on speci
 ## Requirements
 
 ### Dependencies
-The evaluators require the LangExtract package and its dependencies, which should already be installed if you're working in this repository.
+The evaluators require Python 3.6+ and the `requests` library for API calls.
 
 ### API Keys
-You need **one** of the following API keys:
+You need an **OpenRouter API Key**:
 
-1. **OpenRouter API Key** (recommended):
-   - Get from: https://openrouter.ai/keys
-   - Set as environment variable: `OPENROUTER_API_KEY`
-   - Uses Gemini 2.5 Flash via OpenRouter's API
-
-2. **Gemini API Key** (fallback):
-   - Get from: https://ai.google.dev/gemini-api/docs/api-key
-   - Set as environment variable: `GEMINI_API_KEY`
-   - Uses Gemini 2.5 Flash directly
+- Get from: https://openrouter.ai/keys
+- Set as environment variable: `OPENROUTER_API_KEY`
+- Uses Gemini 2.5 Flash via OpenRouter's direct API
 
 ## Norm Evaluator
 
@@ -199,7 +193,7 @@ The evaluators are designed to work with the standard LangExtract pipeline:
    - Verify the JSON structure matches expected format
 
 2. **"API key required"**
-   - Set either `OPENROUTER_API_KEY` or `GEMINI_API_KEY` environment variable
+   - Set `OPENROUTER_API_KEY` environment variable
    - Verify the key is valid and has sufficient credits
 
 3. **"Evaluation failed"**

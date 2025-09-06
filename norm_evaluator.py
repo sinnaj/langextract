@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Norm evaluator for extraction quality assessment.
 
-This script evaluates norm extractions using an LLM (OpenRouter with Gemini 2.5 Flash)
+This script evaluates norm extractions using direct API calls to OpenRouter with Gemini 2.5 Flash
 to assess norm quality based on two key criteria:
 
 1. Atomicity: How well is this norm interpretable/implementable without additional context
@@ -16,12 +16,10 @@ import os
 import sys
 import argparse
 import statistics
+import requests
 from typing import Dict, List, Any, Optional
 from pathlib import Path
 from datetime import datetime
-
-import langextract as lx
-from langextract.data import ExampleData, Extraction
 
 
 def create_evaluation_prompt(norm: Dict[str, Any]) -> str:
@@ -77,53 +75,45 @@ Focus on being precise and constructive in your evaluation."""
     return prompt
 
 
-def create_llm_client() -> Any:
-    """Create LLM client for OpenRouter with Gemini 2.5 Flash or local Gemini.
+def make_openrouter_request(prompt: str, model: str = "google/gemini-2.5-flash") -> Dict[str, Any]:
+    """Make a direct request to OpenRouter API.
     
+    Args:
+        prompt: The prompt to send to the model
+        model: The model to use
+        
     Returns:
-        Configured LLM client
+        Response from the API
     """
-    # Try OpenRouter first (preferred)
-    openrouter_key = os.getenv('OPENROUTER_API_KEY')
-    if openrouter_key:
-        try:
-            # OpenRouter uses OpenAI-compatible API
-            model = lx.get_language_model(
-                'openai',
-                model_id='google/gemini-2.5-flash',
-                api_key=openrouter_key,
-                base_url='https://openrouter.ai/api/v1',
-                temperature=0.1
-            )
-            print("Using OpenRouter with Gemini 2.5 Flash")
-            return model
-        except Exception as e:
-            print(f"OpenRouter initialization failed: {e}")
+    api_key = os.getenv('OPENROUTER_API_KEY')
+    if not api_key:
+        raise ValueError("OPENROUTER_API_KEY environment variable is required")
     
-    # Fallback to local Gemini
-    gemini_key = os.getenv('GEMINI_API_KEY')
-    if gemini_key:
-        try:
-            model = lx.get_language_model(
-                'gemini',
-                model_id='gemini-2.5-flash',
-                api_key=gemini_key,
-                temperature=0.1
-            )
-            print("Using local Gemini 2.5 Flash")
-            return model
-        except Exception as e:
-            print(f"Gemini initialization failed: {e}")
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
     
-    raise ValueError("Either OPENROUTER_API_KEY or GEMINI_API_KEY environment variable is required")
+    data = {
+        "model": model,
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.1
+    }
+    
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()
+    
+    return response.json()
 
 
-def evaluate_norm(norm: Dict[str, Any], model: Any) -> Dict[str, Any]:
-    """Evaluate a single norm using the LLM.
+def evaluate_norm(norm: Dict[str, Any]) -> Dict[str, Any]:
+    """Evaluate a single norm using direct OpenRouter API call.
     
     Args:
         norm: Norm extraction dictionary
-        model: LLM model instance
         
     Returns:
         Evaluation results dictionary
@@ -131,26 +121,38 @@ def evaluate_norm(norm: Dict[str, Any], model: Any) -> Dict[str, Any]:
     prompt = create_evaluation_prompt(norm)
     
     try:
-        # Use langextract's extract function for structured output
-        result = lx.extract(
-            model=model,
-            text=prompt,
-            schema={
-                "type": "object",
-                "properties": {
-                    "atomicity_score": {"type": "integer", "minimum": 1, "maximum": 10},
-                    "atomicity_reasoning": {"type": "string"},
-                    "applicability_structure_score": {"type": "integer", "minimum": 1, "maximum": 10},
-                    "applicability_structure_reasoning": {"type": "string"},
-                    "overall_quality": {"type": "number"},
-                    "key_issues": {"type": "array", "items": {"type": "string"}},
-                    "suggestions": {"type": "array", "items": {"type": "string"}}
-                },
-                "required": ["atomicity_score", "applicability_structure_score", "overall_quality"]
-            }
-        )
+        # Make direct API request to OpenRouter
+        response = make_openrouter_request(prompt)
         
-        evaluation = result[0] if result else {}
+        # Extract the response content
+        content = response['choices'][0]['message']['content']
+        
+        # Try to parse JSON from the response
+        try:
+            # Look for JSON in the response
+            if '```json' in content:
+                json_start = content.find('```json') + 7
+                json_end = content.find('```', json_start)
+                json_content = content[json_start:json_end].strip()
+            elif '{' in content:
+                json_start = content.find('{')
+                json_end = content.rfind('}') + 1
+                json_content = content[json_start:json_end]
+            else:
+                json_content = content
+                
+            evaluation = json.loads(json_content)
+        except json.JSONDecodeError:
+            # If JSON parsing fails, create a basic structure
+            evaluation = {
+                "atomicity_score": 5,
+                "atomicity_reasoning": "Could not parse evaluation response",
+                "applicability_structure_score": 5,
+                "applicability_structure_reasoning": "Could not parse evaluation response",
+                "overall_quality": 5.0,
+                "key_issues": ["Response parsing failed"],
+                "suggestions": ["Re-evaluate manually"]
+            }
         
         # Add norm identification
         evaluation["norm_id"] = norm.get('attributes', {}).get('id', 'unknown')
@@ -196,16 +198,14 @@ def evaluate_norms(input_file: Path, output_file: Optional[Path] = None) -> Dict
         return {"error": "No norms found"}
     
     print(f"Found {len(norms)} norms to evaluate...")
-    
-    # Create LLM client
-    model = create_llm_client()
+    print("Using OpenRouter with Gemini 2.5 Flash")
     
     # Evaluate norms
     evaluations = []
     for i, norm in enumerate(norms):
         print(f"Evaluating norm {i+1}/{len(norms)}: {norm.get('attributes', {}).get('id', 'unknown')}")
         
-        evaluation = evaluate_norm(norm, model)
+        evaluation = evaluate_norm(norm)
         evaluations.append(evaluation)
     
     # Sort by overall quality (lowest first)
@@ -330,10 +330,9 @@ Environment Variables:
         sys.exit(1)
     
     # Check for API key
-    if not os.getenv('OPENROUTER_API_KEY') and not os.getenv('GEMINI_API_KEY'):
-        print("Error: Either OPENROUTER_API_KEY or GEMINI_API_KEY environment variable is required")
+    if not os.getenv('OPENROUTER_API_KEY'):
+        print("Error: OPENROUTER_API_KEY environment variable is required")
         print("Get OpenRouter API key from: https://openrouter.ai/keys")
-        print("Get Gemini API key from: https://ai.google.dev/gemini-api/docs/api-key")
         sys.exit(1)
     
     try:

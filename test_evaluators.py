@@ -199,7 +199,7 @@ if __name__ == "__main__":
     if success1 and success2:
         print("\n🎉 All tests passed! The evaluators are ready to use.")
         print("\nTo run with real API:")
-        print("1. Set OPENROUTER_API_KEY or GEMINI_API_KEY environment variable")
+        print("1. Set OPENROUTER_API_KEY environment variable")
         print("2. Run: python norm_evaluator.py combined_extractions.json")
         print("3. Run: python tag_evaluator.py combined_extractions.json")
     else:

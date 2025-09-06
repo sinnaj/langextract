@@ -11,11 +11,9 @@ Two evaluation scripts have been created to assess the quality of extractions fr
 
 ## Quick Start
 
-1. **Set up API key** (choose one):
+1. **Set up API key**:
    ```bash
-   export OPENROUTER_API_KEY="your_key_here"  # Recommended
-   # OR
-   export GEMINI_API_KEY="your_key_here"      # Fallback
+   export OPENROUTER_API_KEY="your_key_here"
    ```
 
 2. **Run evaluations**:
@@ -54,8 +52,8 @@ Both evaluators generate comprehensive reports with:
 
 ## API Requirements
 
-- **OpenRouter**: Uses `google/gemini-2.5-flash` model via OpenAI-compatible API
-- **Gemini**: Direct access to `gemini-2.5-flash` model
+- **OpenRouter**: Uses `google/gemini-2.5-flash` model via direct API calls
 - Robust error handling for API failures
+- No dependency on langextract model selection
 
 The evaluators are production-ready and follow the repository's coding standards.
