@@ -270,6 +270,40 @@ Content A3."""
         # Should not include single sections
         self.assertNotIn("Section B", repeating)
         self.assertNotIn("Section C", repeating)
+    
+    def test_mixed_manual_extraction_multiple_extracts(self):
+        """Test bug: mixed manual/extraction with multiple extraction sections should consolidate extracts."""
+        content = """# Main Section
+Content here.
+
+## Duplicate Section
+This has substantial content for extraction and should be kept.
+
+## Duplicate Section
+
+## Duplicate Section
+More substantial content here that should also be extracted but dropped in favor of highest level.
+
+## Normal Section
+Normal content."""
+        
+        result = self._process_markdown(content)
+        
+        # Should have only ONE "Duplicate Section" remaining
+        duplicate_sections = [chunk for chunk, _ in result.processed_evaluations 
+                             if chunk.section_metadata.section_name == "Duplicate Section"]
+        
+        self.assertEqual(len(duplicate_sections), 1, 
+                        f"Expected exactly 1 'Duplicate Section', but found {len(duplicate_sections)}")
+        
+        # The remaining section should be marked for extraction
+        remaining_eval = next(eval for chunk, eval in result.processed_evaluations 
+                            if chunk.section_metadata.section_name == "Duplicate Section")
+        self.assertEqual(remaining_eval.processing_type, "extract")
+        
+        # Should be the highest level (first) extraction section
+        remaining_section = duplicate_sections[0]
+        self.assertEqual(remaining_section.section_metadata.section_level, 2)
 
 
 if __name__ == "__main__":

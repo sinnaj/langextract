@@ -159,11 +159,16 @@ def handle_repeating_sections(
             # Drop all manual sections
             manual_ids = [chunk.section_metadata.section_id for chunk, _ in manual_sections]
             
-            # Update children of manual sections to point to target extraction section
-            _update_children_parent(target_id, manual_ids, updated_evaluations)
+            # Drop all other extraction sections (keep only the highest level one)
+            extract_ids_to_drop = [chunk.section_metadata.section_id for chunk, _ in extract_sections 
+                                  if chunk.section_metadata.section_id != target_id]
             
-            sections_to_remove.update(manual_ids)
-            processing_log.append(f"Mixed sections '{section_name}': dropped manual {manual_ids}, kept extraction {target_id}")
+            # Update children of manual and dropped extraction sections to point to target extraction section
+            all_ids_to_drop = manual_ids + extract_ids_to_drop
+            _update_children_parent(target_id, all_ids_to_drop, updated_evaluations)
+            
+            sections_to_remove.update(all_ids_to_drop)
+            processing_log.append(f"Mixed sections '{section_name}': dropped manual {manual_ids}, dropped duplicate extractions {extract_ids_to_drop}, kept extraction {target_id}")
         
         # Rule 2.c: All extraction - keep only highest level
         elif len(extract_sections) == len(sections):

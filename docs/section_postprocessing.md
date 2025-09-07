@@ -80,7 +80,8 @@ If all sections with the same name are marked for manual processing, they are me
 If some sections are marked for manual processing and others for extraction:
 - All manual processing sections are dropped
 - The highest level extraction section is kept
-- Children of dropped manual sections are reassigned to the kept extraction section
+- All other extraction sections are also dropped (ensuring only one section remains)
+- Children of dropped sections are reassigned to the kept extraction section
 
 **Example:**
 ```markdown
@@ -89,6 +90,9 @@ Content for extraction.
 
 ## Mixed Section      (manual, dropped)
 ### Child Section     (reassigned to extraction section)
+
+## Mixed Section      (extraction, dropped)
+More content here.
 ```
 
 #### Rule 2.c: All Extraction Sections
