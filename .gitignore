@@ -154,6 +154,9 @@ instance/
 *.js.map
 .dev/
 
+# Docs
+/docs/test_docs/
+
 # Temporary files
 tmp/
 temp/
