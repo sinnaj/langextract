@@ -160,6 +160,19 @@ This approach can extract hundreds of entities from full novels while maintainin
 pip install langextract
 ```
 
+**Optional Dependencies:**
+
+```bash
+# For PDF to Markdown conversion with Docling
+pip install "langextract[docling]"
+
+# For OpenAI models
+pip install "langextract[openai]"
+
+# For all optional dependencies
+pip install "langextract[all]"
+```
+
 *Recommended for most users. For isolated environments, consider using a virtual environment:*
 
 ```bash
@@ -337,6 +350,37 @@ For detailed installation, Docker setup, and examples, see [`examples/ollama/`](
 ## More Examples
 
 Additional examples of LangExtract in action:
+
+### PDF to Markdown Conversion
+
+LangExtract includes a powerful PDF to Markdown conversion tool powered by [Docling](https://github.com/DS4SD/docling), enabling advanced document processing with layout analysis, table recognition, and more.
+
+```bash
+# Convert PDF to Markdown
+pip install "langextract[docling]"
+python scripts/pdf_to_markdown.py document.pdf output.md
+
+# Convert from URL
+python scripts/pdf_to_markdown.py https://arxiv.org/pdf/2408.09869 paper.md
+```
+
+Then use the converted Markdown with LangExtract:
+
+```python
+import langextract as lx
+from scripts.pdf_to_markdown import convert_pdf_to_markdown
+
+# Convert PDF and extract information
+markdown_content = convert_pdf_to_markdown("document.pdf")
+result = lx.extract(
+    text_or_documents=markdown_content,
+    prompt_description="Extract key findings and conclusions",
+    examples=[],
+    model_id="gemini-2.5-flash"
+)
+```
+
+**[View PDF Conversion Documentation →](docs/pdf_to_markdown.md)**
 
 ### *Romeo and Juliet* Full Text Extraction
 
