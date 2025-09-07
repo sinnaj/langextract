@@ -3,22 +3,27 @@
 PDF to Markdown Conversion Script using Docling
 
 This script uses the docling library to parse PDF files and convert them to
-Markdown format. It supports both local files and URLs.
+Markdown format or DoclingDocument format. It supports both local files and URLs.
 
 Usage:
     python pdf_to_markdown.py input.pdf [output.md]
     python pdf_to_markdown.py https://example.com/document.pdf [output.md]
+    python pdf_to_markdown.py input.pdf output.json --format docling
 
 Example:
     python pdf_to_markdown.py document.pdf converted_document.md
     python pdf_to_markdown.py https://arxiv.org/pdf/2408.09869 arxiv_paper.md
+    python pdf_to_markdown.py document.pdf document.json --format docling
 """
 
 import argparse
 import logging
-import sys
 from pathlib import Path
-from typing import Optional
+import sys
+from typing import Literal, Optional, Union, TYPE_CHECKING
+
+if TYPE_CHECKING:
+  from docling_core.types.doc import DoclingDocument
 
 
 def setup_logging(verbose: bool = False) -> None:
@@ -30,20 +35,22 @@ def setup_logging(verbose: bool = False) -> None:
 
 
 def convert_pdf_to_markdown(
-    source: str | Path,
-    output_path: Optional[str | Path] = None,
+    source: Union[str, Path],
+    output_path: Optional[Union[str, Path]] = None,
     verbose: bool = False,
-) -> str:
+    output_format: Literal['markdown', 'docling'] = 'markdown',
+) -> Union[str, 'DoclingDocument']:
   """
-  Convert a PDF file to Markdown using docling.
+  Convert a PDF file to Markdown or DoclingDocument using docling.
 
   Args:
       source: Path to PDF file or URL
-      output_path: Optional output path for Markdown file
+      output_path: Optional output path for output file
       verbose: Enable verbose logging
+      output_format: Output format - 'markdown' or 'docling'
 
   Returns:
-      The Markdown content as a string
+      The content as a string (markdown) or DoclingDocument object (docling)
 
   Raises:
       ImportError: If docling is not installed
@@ -52,6 +59,7 @@ def convert_pdf_to_markdown(
   try:
     # pylint: disable=import-outside-toplevel
     from docling.document_converter import DocumentConverter
+    from docling_core.types.doc import DoclingDocument
   except ImportError as e:
     raise ImportError(
         'docling is required for PDF conversion. '
@@ -70,18 +78,35 @@ def convert_pdf_to_markdown(
     # Convert the document
     result = converter.convert(source)
 
-    # Export to Markdown
-    markdown_content = result.document.export_to_markdown()
-
     logger.info('Document converted successfully')
 
-    # Save to file if output path is provided
-    if output_path:
-      output_file = Path(output_path)
-      output_file.write_text(markdown_content, encoding='utf-8')
-      logger.info('Markdown saved to: %s', output_file)
+    if output_format == 'docling':
+      # Return the DoclingDocument directly
+      content = result.document
 
-    return markdown_content
+      # Save to file if output path is provided
+      if output_path:
+        output_file = Path(output_path)
+        if output_file.suffix.lower() == '.json':
+          result.document.save_as_json(output_file)
+        elif output_file.suffix.lower() in ['.yaml', '.yml']:
+          result.document.save_as_yaml(output_file)
+        else:
+          # Default to JSON if extension not recognized
+          result.document.save_as_json(output_file)
+        logger.info('DoclingDocument saved to: %s', output_file)
+
+    else:
+      # Export to Markdown (default behavior)
+      content = result.document.export_to_markdown()
+
+      # Save to file if output path is provided
+      if output_path:
+        output_file = Path(output_path)
+        output_file.write_text(content, encoding='utf-8')
+        logger.info('Markdown saved to: %s', output_file)
+
+    return content
 
   except Exception as e:
     logger.error('Failed to convert document: %s', e)
@@ -91,19 +116,26 @@ def convert_pdf_to_markdown(
 def main() -> None:
   """Main command-line interface."""
   parser = argparse.ArgumentParser(
-      description='Convert PDF files to Markdown using docling',
+      description=(
+          'Convert PDF files to Markdown or DoclingDocument using docling'
+      ),
       formatter_class=argparse.RawDescriptionHelpFormatter,
       epilog=__doc__,
   )
 
   parser.add_argument('input', help='Path to PDF file or URL')
 
-  parser.add_argument(
-      'output', nargs='?', help='Output Markdown file path (optional)'
-  )
+  parser.add_argument('output', nargs='?', help='Output file path (optional)')
 
   parser.add_argument(
       '-v', '--verbose', action='store_true', help='Enable verbose logging'
+  )
+
+  parser.add_argument(
+      '--format',
+      choices=['markdown', 'docling'],
+      default='markdown',
+      help='Output format: markdown (default) or docling document',
   )
 
   args = parser.parse_args()
@@ -114,19 +146,29 @@ def main() -> None:
     if not output_path:
       input_path = Path(args.input)
       if input_path.suffix == '.pdf':
-        output_path = input_path.with_suffix('.md')
+        if args.format == 'docling':
+          output_path = input_path.with_suffix('.json')
+        else:
+          output_path = input_path.with_suffix('.md')
       else:
         # For URLs or files without .pdf extension
-        output_path = Path('converted_document.md')
+        if args.format == 'docling':
+          output_path = Path('converted_document.json')
+        else:
+          output_path = Path('converted_document.md')
 
     # Convert the document
-    markdown_content = convert_pdf_to_markdown(
-        args.input, output_path, args.verbose
+    content = convert_pdf_to_markdown(
+        args.input, output_path, args.verbose, args.format
     )
 
     # Print to stdout if no output file specified
     if not args.output:
-      print(markdown_content)
+      if args.format == 'docling':
+        # For DoclingDocument, print JSON representation
+        print(content.model_dump_json(indent=2))
+      else:
+        print(content)
 
   except ImportError as e:
     print(f'Error: {e}', file=sys.stderr)
