@@ -357,30 +357,49 @@ def makeRun(
                 s = s[:limit] + " ... [truncated]"
             return s
             
-        ##NOTE: Improved dynamic extraction class handling and normalized section_id addition
-        # This replaces the hardcoded list approach with dynamic detection of extraction types
+        ##NOTE: Updated to use docling hierarchical metadata instead of manual section assignment
+        # With docling chunking, individual chunks contain their hierarchical position
+        # Extract this information from section_metadata instead of manually calculating
         
-        def _add_section_parent_to_extractions(result_data: Dict[str, Any], section_id: str) -> Dict[str, Any]:
-            """Add section ID as parent to all extracted objects dynamically."""
-            if not result_data or not section_id:
+        def _add_docling_hierarchy_to_extractions(result_data: Dict[str, Any], section_metadata=None) -> Dict[str, Any]:
+            """Add hierarchical information from docling chunk metadata to extracted objects."""
+            if not result_data:
                 return result_data
+                
+            # Extract hierarchical information from docling metadata
+            hierarchical_info = {}
+            if section_metadata:
+                hierarchical_info = {
+                    "chunk_id": section_metadata.section_id,
+                    "chunk_name": section_metadata.section_name, 
+                    "chunk_type": section_metadata.section_type,
+                    "hierarchical_level": section_metadata.section_level,
+                    "parent_chunk_id": section_metadata.parent_section_id,
+                    "child_chunks": section_metadata.sub_sections,
+                    "docling_metadata": getattr(section_metadata, 'docling_metadata', {}),
+                    "doc_items_info": getattr(section_metadata, 'doc_items_info', [])
+                }
                 
             # Navigate through the result structure to find extractions
             if "extractions" in result_data and isinstance(result_data["extractions"], list):
                 for extraction in result_data["extractions"]:
                     if isinstance(extraction, dict):
-                        # Dynamically find all extraction types instead of hardcoding
+                        # Add hierarchical context to the extraction
+                        extraction["hierarchical_context"] = hierarchical_info
+                        
+                        # Dynamically find all extraction types and add hierarchy info
                         for key, value in extraction.items():
                             if isinstance(value, list):
                                 # This is likely an extraction type (norms, tags, parameters, etc.)
                                 for item in value:
                                     if isinstance(item, dict):
-                                        # Normalize section ID addition - use consistent field name
-                                        item["section_parent_id"] = section_id
-                        
-                        # Also add section metadata to the extraction itself
-                        if section_metadata:
-                            extraction["section_metadata"] = section_metadata.to_dict()
+                                        # Add hierarchical context to individual extracted items
+                                        item["chunk_context"] = {
+                                            "chunk_id": hierarchical_info.get("chunk_id"),
+                                            "chunk_type": hierarchical_info.get("chunk_type"),
+                                            "hierarchical_level": hierarchical_info.get("hierarchical_level"),
+                                            "parent_chunk_id": hierarchical_info.get("parent_chunk_id")
+                                        }
             
             return result_data
         
@@ -413,9 +432,9 @@ def makeRun(
             synthesized = _synthesize_extraction(text, norms=[], errors=[safe_err], warnings=run_warnings)
             result = {"extractions": [synthesized]}
             
-            # Add section parent information if available
+            # Add hierarchical information from docling metadata if available
             if section_metadata:
-                result = _add_section_parent_to_extractions(result, section_metadata.section_id)
+                result = _add_docling_hierarchy_to_extractions(result, section_metadata)
             
             raw_name = f"chunk_{idx:03}.json" if idx is not None else "chunk_single.json"
             try:
@@ -578,29 +597,31 @@ def makeRun(
                 attributes = getattr(e, "attributes", {})
                 extraction_class = getattr(e, "extraction_class", None)
                 
-                # Use section metadata from parameter if provided
-                extraction_section_metadata = None
+                # Use hierarchical context from docling chunk metadata if provided
+                hierarchical_context = None
                 if section_metadata:
-                    extraction_section_metadata = {
-                        "section_id": section_metadata.section_id,
-                        "section_name": section_metadata.section_name,
-                        "section_level": section_metadata.section_level,
-                        "parent_section": section_metadata.parent_section_id,
-                        "sub_sections": section_metadata.sub_sections,
-                        "section_summary": section_metadata.section_summary,
+                    hierarchical_context = {
+                        "chunk_id": section_metadata.section_id,
+                        "chunk_name": section_metadata.section_name,
+                        "chunk_type": section_metadata.section_type,
+                        "hierarchical_level": section_metadata.section_level,
+                        "parent_chunk_id": section_metadata.parent_section_id,
+                        "child_chunks": section_metadata.sub_sections,
+                        "docling_metadata": getattr(section_metadata, 'docling_metadata', {}),
+                        "doc_items_info": getattr(section_metadata, 'doc_items_info', [])
                     }
                     # Add to section metadata list if not already present
-                    if extraction_section_metadata not in section_metadata_list:
-                        section_metadata_list.append(extraction_section_metadata)
+                    if hierarchical_context not in section_metadata_list:
+                        section_metadata_list.append(hierarchical_context)
                     
-                    # For ALL extraction classes, ensure parent_section_id is set in attributes
+                    # Add hierarchical context to attributes instead of just parent_section_id
                     if attributes is None:
                         attributes = {}
                     if not isinstance(attributes, dict):
                         attributes = {}
-                    # Make a copy to avoid modifying original and ensure parent_section_id is set
+                    # Make a copy to avoid modifying original
                     attributes = dict(attributes)
-                    attributes["parent_section_id"] = section_metadata.section_id
+                    attributes["hierarchical_context"] = hierarchical_context
                 
                 item = {
                     "extraction_class": extraction_class,
@@ -612,7 +633,7 @@ def makeRun(
                     "group_index": getattr(e, "group_index", None),
                     "description": getattr(e, "description", None),
                     "token_interval": _ti_dict(getattr(e, "token_interval", None)),
-                    "section_metadata": extraction_section_metadata,  # Add section metadata to each extraction
+                    "hierarchical_context": hierarchical_context,  # Add docling hierarchical context
                 }
                 raw_items.append(item)
 
@@ -643,10 +664,10 @@ def makeRun(
             raw_legacy = {
                 "document_id": getattr(annotated, "document_id", None),
                 "extractions": raw_items,
-                "section_metadata": section_metadata_list,  # Include section metadata
+                "hierarchical_contexts": section_metadata_list,  # Changed from section_metadata to hierarchical_contexts
                 "processing_info": {
-                    "chunking_method": "docling_hierarchical",
-                    "total_sections": len(section_metadata_list),
+                    "chunking_method": "docling_hierarchical_enhanced",
+                    "total_chunks": len(section_metadata_list),
                     "total_extractions": len(raw_items)
                 }
             }
@@ -724,9 +745,10 @@ def makeRun(
                 result = _call_and_capture(section_chunk.chunk_text, i, section_metadata)
                 
                 if result and "extractions" in result:
-                    # Add extractions to the collection
+                    # Add extractions to the collection with hierarchical context
                     for extraction in result["extractions"]:
-                        extraction["section_parent_id"] = section_metadata.section_id
+                        # The hierarchical information is already added by _add_docling_hierarchy_to_extractions
+                        # Add the extraction to the collection
                         all_extractions.append(extraction)
                 
                 section_info["has_extractions"] = True

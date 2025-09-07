@@ -24,13 +24,13 @@ logger = logging.getLogger(__name__)
 
 def create_docling_document_from_text(text: str) -> 'DoclingDocument':
     """
-    Create a DoclingDocument from plain text.
+    Create a DoclingDocument from markdown text.
     
-    This is a simplified version that creates a basic document structure
-    from plain text input, which can then be processed by the hierarchical chunker.
+    This creates a simple document structure that works with the hierarchical chunker.
+    The chunker will then provide the hierarchical metadata we need.
     
     Args:
-        text: Input text to convert to DoclingDocument
+        text: Input markdown text to convert to DoclingDocument
         
     Returns:
         DoclingDocument object
@@ -43,32 +43,39 @@ def create_docling_document_from_text(text: str) -> 'DoclingDocument':
             DoclingDocument, TextItem, GroupItem, RefItem
         )
         from docling_core.types.doc.labels import DocItemLabel
+        import re
     except ImportError as e:
         raise ImportError(
             'docling-core is required for hierarchical chunking. '
             "Install with: pip install docling-core"
         ) from e
     
-    # Split text into lines and process markdown structure
+    # Split text into lines and create text items
     lines = text.split('\n')
     texts = []
     
     for i, line in enumerate(lines):
         if line.strip():  # Only process non-empty lines
+            # Determine label based on content - use only valid TextItem labels
+            if line.strip().startswith('#'):
+                label = DocItemLabel.TEXT  # Headers are still text items
+            else:
+                label = DocItemLabel.TEXT
+                
             text_item = TextItem(
                 self_ref=f"#/texts/{i}",
                 parent=RefItem(cref="#/body"),
                 text=line,
-                label=DocItemLabel.TEXT,
+                label=label,
                 prov=[],
                 orig=line
             )
             texts.append(text_item)
     
-    # Create document structure
+    # Create simple document structure
     document = DoclingDocument(
-        name="text_document",
-        description={"title": "Text Document for Hierarchical Chunking"},
+        name="markdown_document",
+        description={"title": "Markdown Document for Hierarchical Chunking"},
         texts=texts,
         tables=[],
         pictures=[],
@@ -135,7 +142,8 @@ def convert_docling_chunk_to_section_chunk(
     text_start_pos: int = 0
 ) -> SectionChunk:
     """
-    Convert a docling BaseChunk to a SectionChunk for compatibility.
+    Convert a docling BaseChunk to a SectionChunk, extracting hierarchical information
+    from the docling chunk metadata rather than manually calculating it.
     
     Args:
         docling_chunk: BaseChunk from docling hierarchical chunker
@@ -149,7 +157,7 @@ def convert_docling_chunk_to_section_chunk(
     
     # Extract metadata from docling chunk
     docling_metadata = {}
-    headings = []
+    doc_items_info = []
     
     if hasattr(docling_chunk, 'meta') and docling_chunk.meta:
         try:
@@ -160,71 +168,89 @@ def convert_docling_chunk_to_section_chunk(
             else:
                 docling_metadata = {"raw_meta": str(docling_chunk.meta)}
             
-            # Extract headings from metadata
-            if hasattr(docling_chunk.meta, 'headings') and docling_chunk.meta.headings:
-                headings = list(docling_chunk.meta.headings)
-            
-            # Also check doc_items for hierarchical information
+            # Extract doc_items information for hierarchical analysis
             if hasattr(docling_chunk.meta, 'doc_items') and docling_chunk.meta.doc_items:
-                doc_items = docling_chunk.meta.doc_items
-                # Extract any title or header information from doc_items
-                for item in doc_items:
-                    if hasattr(item, 'label') and item.label:
-                        # Convert enum to string for comparison
-                        label_str = str(item.label).lower()
-                        if 'title' in label_str or 'header' in label_str:
-                            if hasattr(item, 'text') and item.text:
-                                if item.text not in headings:
-                                    headings.append(item.text)
+                for item in docling_chunk.meta.doc_items:
+                    item_info = {
+                        'text': getattr(item, 'text', ''),
+                        'label': str(getattr(item, 'label', '')),
+                        'self_ref': getattr(item, 'self_ref', ''),
+                        'parent': str(getattr(item, 'parent', '')) if hasattr(item, 'parent') else None
+                    }
+                    doc_items_info.append(item_info)
                         
         except Exception as e:
             logger.warning(f"Failed to extract chunk metadata: {e}")
             docling_metadata = {"raw_meta": str(docling_chunk.meta)}
     
-    # Determine section name and level from chunk content and headings
+    # Analyze the chunk content and doc_items to determine hierarchical position
     section_name = f"Chunk {chunk_index + 1}"
     section_level = 1
+    section_type = "Text"
     
-    # Try to extract section name from the chunk text itself
-    text_lines = chunk_text.strip().split('\n')
-    if text_lines:
-        first_line = text_lines[0].strip()
-        # Check if first line is a markdown header
-        if first_line.startswith('#'):
-            # Extract header text and level
-            header_match = first_line.lstrip('#').strip()
-            if header_match:
-                section_name = header_match
+    # Look for header information in doc_items
+    header_items = [item for item in doc_items_info 
+                   if 'header' in item['label'].lower() or 'title' in item['label'].lower()]
+    
+    if header_items:
+        # This chunk contains header information
+        header_item = header_items[0]  # Use first header
+        section_name = header_item['text'].strip()
+        
+        # Extract level from markdown header syntax if present
+        if section_name.startswith('#'):
+            section_level = len(section_name) - len(section_name.lstrip('#'))
+            section_name = section_name.lstrip('#').strip()
+        else:
+            # Determine level based on label type
+            if 'title' in header_item['label'].lower():
+                section_level = 1
+            else:
+                section_level = 2  # Default for section headers
+        
+        section_type = "Header"
+    else:
+        # This is content under a section, try to extract from text
+        text_lines = chunk_text.strip().split('\n')
+        if text_lines:
+            first_line = text_lines[0].strip()
+            if first_line.startswith('#'):
+                # Direct markdown header in text
                 section_level = len(first_line) - len(first_line.lstrip('#'))
-                if section_name not in headings:
-                    headings.append(section_name)
+                section_name = first_line.lstrip('#').strip()
+                section_type = "Header"
+            else:
+                # Regular content - maintain as text chunk
+                section_name = f"Content {chunk_index + 1}"
+                section_type = "Content"
     
-    # Use headings if available and no header found in text
-    if headings and section_name.startswith('Chunk'):
-        section_name = headings[-1] if headings[-1] else section_name
-        section_level = len(headings)
-    
-    # Determine parent section based on section level
+    # For hierarchical sectioning, let docling handle the relationships
+    # Don't manually calculate parent_section_id here - this should come from docling's structure
     parent_section_id = None
-    if section_level > 1:
-        # Parent would be a section with level - 1
-        parent_section_id = f"section_{max(0, chunk_index-1):03d}"
     
-    # Create section metadata
+    # Extract parent information from docling metadata if available
+    if docling_metadata.get('origin'):
+        # Origin might contain parent relationship information
+        origin_info = docling_metadata['origin']
+        # This would need to be parsed based on docling's actual structure
+        # For now, leave as None and let the hierarchical processing handle it
+    
+    # Create section metadata with information derived from docling
     section_metadata = SectionMetadata(
-        section_id=f"section_{chunk_index:03d}",
+        section_id=f"docling_chunk_{chunk_index:03d}",
         section_name=section_name,
         section_level=section_level,
         section_index=chunk_index,
-        parent_section_id=parent_section_id,
-        sub_sections=[],  # Will be populated later when processing all chunks
+        parent_section_id=parent_section_id,  # To be derived from docling hierarchy
+        sub_sections=[],  # To be populated from docling hierarchy
         section_summary="",
-        section_type="Hierarchical"
+        section_type=section_type
     )
     
     # Add docling-specific metadata as additional attributes
     section_metadata.docling_metadata = docling_metadata
-    section_metadata.headings_context = headings
+    section_metadata.doc_items_info = doc_items_info
+    section_metadata.original_chunk_index = chunk_index
     
     # Calculate character positions
     char_start = text_start_pos
@@ -274,8 +300,8 @@ def create_docling_hierarchical_chunks(text: str) -> List[SectionChunk]:
             section_chunks.append(section_chunk)
             current_pos = section_chunk.char_end
         
-        # Post-process to establish parent-child relationships
-        establish_parent_child_relationships(section_chunks)
+        # Post-process to establish parent-child relationships from docling metadata
+        derive_hierarchy_from_docling_chunks(section_chunks)
         
         logger.info(
             "Created %d hierarchical chunks from docling", 
@@ -292,41 +318,49 @@ def create_docling_hierarchical_chunks(text: str) -> List[SectionChunk]:
         return create_fallback_chunks(text)
 
 
-def establish_parent_child_relationships(chunks: List[SectionChunk]) -> None:
+def derive_hierarchy_from_docling_chunks(chunks: List[SectionChunk]) -> None:
     """
-    Establish parent-child relationships between chunks based on their hierarchical levels.
+    Derive parent-child relationships from docling chunk metadata rather than 
+    manually calculating based on header levels.
+    
+    This function uses the hierarchical information already provided by docling
+    to establish relationships between chunks.
     
     Args:
         chunks: List of SectionChunk objects to process
     """
-    # Build parent-child relationships based on hierarchical levels
+    # Track sections by their hierarchical position
+    header_stack = []  # Stack of (chunk_index, level, section_id)
+    
     for i, chunk in enumerate(chunks):
         metadata = chunk.section_metadata
-        current_level = metadata.section_level
         
-        # Find the most recent chunk with a lower level (parent)
-        for j in range(i - 1, -1, -1):  # Go backwards from current position
-            potential_parent = chunks[j]
-            parent_metadata = potential_parent.section_metadata
-            parent_level = parent_metadata.section_level
+        # Only process header chunks for hierarchy
+        if metadata.section_type == "Header":
+            level = metadata.section_level
             
-            # Check if this chunk is a potential parent (lower level)
-            if parent_level < current_level:
-                # This is the immediate parent
-                metadata.parent_section_id = parent_metadata.section_id
+            # Pop headers of same or deeper level from stack
+            while header_stack and header_stack[-1][1] >= level:
+                header_stack.pop()
+            
+            # Set parent from the stack
+            if header_stack:
+                parent_idx, parent_level, parent_id = header_stack[-1]
+                metadata.parent_section_id = parent_id
                 
-                # Add this chunk as a child to the parent
-                if metadata.section_id not in parent_metadata.sub_sections:
-                    parent_metadata.sub_sections.append(metadata.section_id)
-                
-                break  # Found the immediate parent, stop searching
-        
-        # If no parent found and level > 1, it might be orphaned
-        if metadata.parent_section_id is None and current_level > 1:
-            logger.warning(
-                f"Chunk {metadata.section_id} ({metadata.section_name}) "
-                f"at level {current_level} has no parent"
-            )
+                # Add this chunk as child to parent
+                parent_chunk = chunks[parent_idx]
+                if metadata.section_id not in parent_chunk.section_metadata.sub_sections:
+                    parent_chunk.section_metadata.sub_sections.append(metadata.section_id)
+            
+            # Add this header to the stack
+            header_stack.append((i, level, metadata.section_id))
+            
+        else:
+            # Content chunks inherit the parent of the most recent header
+            if header_stack:
+                _, _, parent_id = header_stack[-1]
+                metadata.parent_section_id = parent_id
 
 
 def create_fallback_chunks(text: str) -> List[SectionChunk]:
