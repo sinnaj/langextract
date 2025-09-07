@@ -30,8 +30,8 @@ from langextract import providers
 from postprocessing.extract_tags import extract_tags_from_norms
 from postprocessing.extract_params import extract_parameters_from_norms
 
-# Import section chunker and evaluator
-from section_chunker import create_section_chunks, get_section_statistics
+# Import docling hierarchical chunker and evaluator
+from docling_integration import create_docling_hierarchical_chunks, get_docling_hierarchical_statistics
 from chunk_evaluator import evaluate_chunks, get_evaluation_statistics
 
 # ---------------------------------------------------------------------------
@@ -223,11 +223,14 @@ def makeRun(
     else:
         INPUT_TEXT = INPUT_FILE.read_text(encoding="utf-8")
         
-        # Create section chunks from the input text
-        print("[INFO] Creating section-based chunks from input text...")
-        SECTION_CHUNKS = create_section_chunks(INPUT_TEXT)
-        SECTION_STATS = get_section_statistics(SECTION_CHUNKS)
-        print(f"[INFO] Created {SECTION_STATS['total_sections']} sections: {SECTION_STATS['levels']}")
+        # Create hierarchical chunks using docling from the input text
+        print("[INFO] Creating docling hierarchical chunks from input text...")
+        SECTION_CHUNKS = create_docling_hierarchical_chunks(INPUT_TEXT)
+        SECTION_STATS = get_docling_hierarchical_statistics(SECTION_CHUNKS)
+        print(f"[INFO] Created {SECTION_STATS['total_sections']} hierarchical chunks: {SECTION_STATS['levels']}")
+        print(f"[INFO] Chunking method: {SECTION_STATS['chunking_method']}")
+        if SECTION_STATS.get('hierarchical_chunks', 0) > 0:
+            print(f"[INFO] Hierarchical chunks: {SECTION_STATS['hierarchical_chunks']}, Fallback chunks: {SECTION_STATS.get('fallback_chunks', 0)}")
 
 
 
@@ -642,7 +645,7 @@ def makeRun(
                 "extractions": raw_items,
                 "section_metadata": section_metadata_list,  # Include section metadata
                 "processing_info": {
-                    "chunking_method": "section_based",
+                    "chunking_method": "docling_hierarchical",
                     "total_sections": len(section_metadata_list),
                     "total_extractions": len(raw_items)
                 }
@@ -671,7 +674,7 @@ def makeRun(
                 "extractions": [],
                 "section_metadata": [],
                 "processing_info": {
-                    "chunking_method": "section_based",
+                    "chunking_method": "docling_hierarchical",
                     "total_sections": 0,
                     "total_extractions": 0,
                     "error": str(pe)
@@ -681,7 +684,7 @@ def makeRun(
  
     
 
-    print("[INFO] Processing document using section-based chunking with evaluation")
+    print("[INFO] Processing document using docling hierarchical chunking with evaluation")
     
     if SECTION_CHUNKS:
         # Evaluate chunks to determine processing approach
@@ -750,7 +753,7 @@ def makeRun(
         combined_result = {
             "document_metadata": {
                 "source_file": str(INPUT_FILE) if INPUT_FILE else "unknown",
-                "processing_method": "section_based_with_evaluation",
+                "processing_method": "docling_hierarchical_with_evaluation",
                 "total_original_sections": len(SECTION_CHUNKS),
                 "total_processed_sections": len(all_sections),
                 "total_extractions": len(all_extractions),
@@ -809,7 +812,7 @@ def makeRun(
         combined_result = {
             "document_metadata": {
                 "source_file": str(INPUT_FILE) if INPUT_FILE else "unknown",
-                "processing_method": "single_document",
+                "processing_method": "docling_hierarchical_single_document",
                 "total_original_sections": 0,
                 "total_processed_sections": 0,
                 "total_extractions": len(result.get("extractions", [])) if result else 0,
@@ -831,6 +834,6 @@ def makeRun(
         except Exception as e:
             print(f"[WARN] Failed to save combined results: {e}")
     
-    print(f"[INFO] Section-based processing with evaluation complete. Results saved to: {lx_output_dir}")
+    print(f"[INFO] Docling hierarchical processing with evaluation complete. Results saved to: {lx_output_dir}")
     return
     
