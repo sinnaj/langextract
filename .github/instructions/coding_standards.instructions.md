@@ -73,7 +73,11 @@ async def create_user(
 - Keep comments up-to-date with code changes
 - Use TODO comments sparingly and include issue references
 
-## Error Handling
+## General Practice
+- Write **modular** and **reusable** code
+- Follow **DRY** (Don't Repeat Yourself) principle
+- Prefer **composition** over inheritance
+- Do not add or remove functionality to the existing /langextract codebase, adjust the pipeline before or after lx is called instead.
 
 ### HTTP Exceptions
 - Use consistent HTTP status codes:
