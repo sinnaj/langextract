@@ -95,13 +95,129 @@ def calculate_text_similarity(text1: str, text2: str) -> float:
   return len(intersection) / len(union) if union else 0.0
 
 
+def update_parent_references(docling_data: Dict[str, Any]) -> Dict[str, Any]:
+  """
+  Update parent references in DoclingDocument to reflect hierarchical structure.
+  
+  Args:
+      docling_data: DoclingDocument JSON data with corrected levels
+      
+  Returns:
+      Updated DoclingDocument with corrected parent references
+  """
+  logger = logging.getLogger(__name__)
+  
+  # Create a deep copy of the docling data
+  import copy
+  updated_data = copy.deepcopy(docling_data)
+  
+  texts = updated_data.get('texts', [])
+  
+  # Find all section headers and track their hierarchical relationships
+  section_headers = []
+  for i, text_item in enumerate(texts):
+    if text_item.get('label') == 'section_header':
+      section_headers.append({
+        'index': i,
+        'text': text_item.get('text', ''),
+        'level': text_item.get('level', 1),
+        'ref': f"#/texts/{i}"
+      })
+  
+  logger.info(f'Updating parent references for {len(section_headers)} section headers')
+  
+  # Track the most recent parent at each level
+  parent_stack = {}  # level -> {'index': index, 'ref': ref}
+  updates_count = 0
+  
+  for header in section_headers:
+    current_level = header['level']
+    current_index = header['index']
+    current_ref = header['ref']
+    
+    # Determine the appropriate parent
+    parent_ref = "#/body"  # Default for level 1
+    
+    if current_level > 1:
+      # Find the most recent parent at the previous level
+      for parent_level in range(current_level - 1, 0, -1):
+        if parent_level in parent_stack:
+          parent_ref = parent_stack[parent_level]['ref']
+          break
+    
+    # Update the parent reference if it changed
+    old_parent_ref = texts[current_index].get('parent', {}).get('$ref', '')
+    if parent_ref != old_parent_ref:
+      texts[current_index]['parent'] = {'$ref': parent_ref}
+      updates_count += 1
+      logger.debug(f'Updated parent for "{header["text"][:50]}..." from "{old_parent_ref}" to "{parent_ref}"')
+    
+    # Update the parent stack for this level and clear deeper levels
+    parent_stack[current_level] = {
+      'index': current_index,
+      'ref': current_ref
+    }
+    
+    # Clear deeper levels from the stack
+    levels_to_remove = [level for level in parent_stack.keys() if level > current_level]
+    for level in levels_to_remove:
+      del parent_stack[level]
+  
+  logger.info(f'Updated parent references for {updates_count} section headers')
+  
+  return updated_data
+
+
+def generate_toc_markdown(docling_data: Dict[str, Any]) -> str:
+  """
+  Generate a table of contents in markdown format from DoclingDocument section headers.
+  
+  Args:
+      docling_data: DoclingDocument JSON data with corrected levels
+      
+  Returns:
+      Markdown formatted table of contents
+  """
+  texts = docling_data.get('texts', [])
+  
+  # Extract section headers with their levels
+  section_headers = []
+  for text_item in texts:
+    if text_item.get('label') == 'section_header':
+      section_headers.append({
+        'text': text_item.get('text', ''),
+        'level': text_item.get('level', 1)
+      })
+  
+  if not section_headers:
+    return "# Table of Contents\n\nNo section headers found.\n"
+  
+  # Generate markdown
+  lines = [
+    "# Table of Contents",
+    "",
+    "Generated from DoclingDocument section hierarchy.",
+    ""
+  ]
+  
+  for header in section_headers:
+    # Create indentation based on level (level 1 = no indent, level 2 = 2 spaces, etc.)
+    indent = "  " * (header['level'] - 1)
+    # Use dashes for all levels
+    line = f"{indent}- {header['text']}"
+    lines.append(line)
+  
+  lines.append("")  # Add final newline
+  return "\n".join(lines)
+
+
 def map_toc_to_docling_sections(
     toc_entries: List[Dict[str, Any]], 
     docling_data: Dict[str, Any],
     similarity_threshold: float = 0.5
 ) -> Dict[str, Any]:
   """
-  Map ToC entries to DoclingDocument section headers and update their levels.
+  Map ToC entries to DoclingDocument section headers and update their levels and parent references.
   
   Args:
       toc_entries: List of ToC entries with level, title, and page
@@ -109,7 +225,7 @@ def map_toc_to_docling_sections(
       similarity_threshold: Minimum similarity score for matching
       
   Returns:
-      Updated DoclingDocument with corrected section header levels
+      Updated DoclingDocument with corrected section header levels and parent references
   """
   logger = logging.getLogger(__name__)
   
@@ -172,6 +288,9 @@ def map_toc_to_docling_sections(
   
   logger.info(f'Updated levels for {updates_count} section headers')
   
+  # Update parent references based on the new hierarchical structure
+  updated_data = update_parent_references(updated_data)
+  
   return updated_data
 
 
@@ -183,7 +302,7 @@ def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Dict[st
       docling_data: DoclingDocument JSON data
       
   Returns:
-      Updated DoclingDocument with inferred section header levels
+      Updated DoclingDocument with inferred section header levels and parent references
   """
   logger = logging.getLogger(__name__)
   
@@ -264,6 +383,9 @@ def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Dict[st
   
   logger.info(f'Updated levels for {updates_count} section headers based on text patterns')
   
+  # Update parent references based on the new hierarchical structure
+  updated_data = update_parent_references(updated_data)
+  
   return updated_data
 
 
@@ -271,6 +393,7 @@ def process_docling_document_only(
     docling_json_path: Union[str, Path],
     output_path: Optional[Union[str, Path]] = None,
     verbose: bool = False,
+    generate_toc_md: bool = False,
 ) -> Dict[str, Any]:
   """
   Process a DoclingDocument JSON file to infer hierarchical levels without PDF ToC.
@@ -279,9 +402,10 @@ def process_docling_document_only(
       docling_json_path: Path to DoclingDocument JSON file
       output_path: Optional output path for corrected JSON file
       verbose: Enable verbose logging
+      generate_toc_md: Generate a table of contents markdown file
       
   Returns:
-      Updated DoclingDocument with corrected section header levels
+      Updated DoclingDocument with corrected section header levels and parent references
       
   Raises:
       FileNotFoundError: If the JSON file doesn't exist
@@ -307,6 +431,13 @@ def process_docling_document_only(
           encoding='utf-8'
       )
       logger.info('Updated DoclingDocument saved to: %s', output_file)
+      
+      # Generate ToC markdown if requested
+      if generate_toc_md:
+        toc_md_content = generate_toc_markdown(updated_docling_data)
+        toc_md_path = output_file.with_suffix('.md')
+        toc_md_path.write_text(toc_md_content, encoding='utf-8')
+        logger.info('ToC markdown saved to: %s', toc_md_path)
     
     return updated_docling_data
     
@@ -321,6 +452,7 @@ def extract_pdf_toc(
     verbose: bool = False,
     output_format: Literal['json', 'text'] = 'json',
     docling_json_path: Optional[Union[str, Path]] = None,
+    generate_toc_md: bool = False,
 ) -> Union[List[Dict[str, Any]], str, Dict[str, Any]]:
   """
   Extract table of contents from a PDF file using PyMuPDF and optionally map to DoclingDocument.
@@ -331,6 +463,7 @@ def extract_pdf_toc(
       verbose: Enable verbose logging
       output_format: Output format - 'json' or 'text'
       docling_json_path: Optional path to DoclingDocument JSON for level mapping
+      generate_toc_md: Generate a table of contents markdown file
 
   Returns:
       List of ToC entries (json format), formatted text string, or updated DoclingDocument
@@ -416,6 +549,13 @@ def extract_pdf_toc(
           )
           logger.info('Updated DoclingDocument saved to: %s', output_file)
         
+        # Generate ToC markdown if requested
+        if generate_toc_md:
+          toc_md_content = generate_toc_markdown(updated_docling_data)
+          toc_md_path = output_file.with_suffix('.md') if output_path else Path('toc.md')
+          toc_md_path.write_text(toc_md_content, encoding='utf-8')
+          logger.info('ToC markdown saved to: %s', toc_md_path)
+        
         return updated_docling_data
         
       except Exception as e:
@@ -480,8 +620,8 @@ Examples:
   %(prog)s document.pdf --format text
   %(prog)s document.pdf --output toc.json --format json
   %(prog)s https://arxiv.org/pdf/2408.09869 --format text --verbose
-  %(prog)s document.pdf --docling-json document.json --output corrected_document.json
-  %(prog)s --docling-json-only --docling-json document.json --output corrected_document.json
+  %(prog)s document.pdf --docling-json document.json --output corrected_document.json --generate-toc-md
+  %(prog)s --docling-json-only --docling-json document.json --output corrected_document.json --generate-toc-md
       """.strip(),
   )
 
@@ -512,6 +652,11 @@ Examples:
       help='Process only DoclingDocument JSON file without PDF (infer levels from text patterns)',
   )
   parser.add_argument(
+      '--generate-toc-md',
+      action='store_true',
+      help='Generate a table of contents markdown file (.md) showing section hierarchy',
+  )
+  parser.add_argument(
       '--verbose', '-v', action='store_true', help='Enable verbose logging'
   )
 
@@ -528,7 +673,8 @@ Examples:
       content = process_docling_document_only(
           args.docling_json,
           args.output,
-          args.verbose
+          args.verbose,
+          args.generate_toc_md
       )
       
       # Print to stdout if no output file specified
@@ -568,7 +714,8 @@ Examples:
         output_path, 
         args.verbose, 
         args.format,
-        args.docling_json
+        args.docling_json,
+        args.generate_toc_md
     )
 
     # Print to stdout if no output file specified
