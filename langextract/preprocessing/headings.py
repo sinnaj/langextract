@@ -153,8 +153,19 @@ def _collect_headers(doc: Any) -> list[dict]:
   if hasattr(doc.body, 'children') and doc.body.children:
     for child_ref in doc.body.children:
       ref_str = None
-      if hasattr(child_ref, 'cref'):
+      if hasattr(child_ref, '__dict__'):
+        # Handle JsonDoc objects - look for $ref converted to _ref attribute or similar
+        child_dict = child_ref.__dict__
+        if '$ref' in child_dict:
+          ref_str = child_dict['$ref']
+        elif '_ref' in child_dict:
+          ref_str = child_dict['_ref']
+        elif 'ref' in child_dict:
+          ref_str = child_dict['ref']
+      elif hasattr(child_ref, 'cref'):
         ref_str = child_ref.cref
+      elif isinstance(child_ref, dict):
+        ref_str = child_ref.get('$ref') or child_ref.get('ref') or child_ref.get('_ref')
       elif isinstance(child_ref, str):
         ref_str = child_ref
       

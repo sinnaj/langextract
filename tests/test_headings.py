@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Tests for langextract.postprocess.headings module."""
+"""Tests for langextract.preprocessing.headings module."""
 
 import json
 import os
@@ -20,7 +20,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from langextract.postprocess.headings import (
+from langextract.preprocessing.headings import (
     OutlineHeading,
     _is_anchor,
     _numbering_level,
