@@ -86,6 +86,7 @@ packages = [
     "langextract",
     "langextract._compat",
     "langextract.core",
+    "langextract.postprocess",
     "langextract.providers",
     "langextract.providers.schemas"
 ]
