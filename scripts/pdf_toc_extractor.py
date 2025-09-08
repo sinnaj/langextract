@@ -288,6 +288,36 @@ def map_toc_to_docling_sections(
   
   logger.info(f'Updated levels for {updates_count} section headers')
   
+  # Process unmapped section headers: set their level to previous level + 1
+  mapped_indices = {mapping['section_header']['index'] for mapping in mappings}
+  unmapped_updates_count = 0
+  
+  # Sort section headers by their index to process them in document order
+  section_headers_sorted = sorted(section_headers, key=lambda x: x['index'])
+  
+  previous_level = 1  # Default level for the first section
+  
+  for header in section_headers_sorted:
+    section_index = header['index']
+    
+    if section_index in mapped_indices:
+      # This section was mapped to a ToC entry, use its updated level as reference
+      previous_level = texts[section_index].get('level', 1)
+    else:
+      # This section was not mapped, set its level to previous level + 1
+      new_level = previous_level + 1
+      old_level = texts[section_index].get('level', 1)
+      
+      if new_level != old_level:
+        texts[section_index]['level'] = new_level
+        unmapped_updates_count += 1
+        logger.debug(f'Updated unmapped section "{texts[section_index].get("text", "")[:50]}..." level from {old_level} to {new_level}')
+      
+      previous_level = new_level
+  
+  if unmapped_updates_count > 0:
+    logger.info(f'Updated levels for {unmapped_updates_count} unmapped section headers')
+  
   # Update parent references based on the new hierarchical structure
   updated_data = update_parent_references(updated_data)
   
