@@ -23,7 +23,7 @@ import logging
 from pathlib import Path
 import re
 import sys
-from typing import Any, Dict, List, Literal, Optional, Union
+from typing import Any, Dict, List, Literal, Optional, Tuple, Union
 import urllib.parse
 import urllib.request
 import unicodedata
@@ -168,6 +168,187 @@ def update_parent_references(docling_data: Dict[str, Any]) -> Dict[str, Any]:
   return updated_data
 
 
+def generate_toc_mapping_report(
+    mapping_report: Dict[str, Any],
+    toc_entries: Optional[List[Dict[str, Any]]] = None
+) -> str:
+  """
+  Generate a detailed ToC mapping report in markdown format.
+  
+  Args:
+      mapping_report: Report data from mapping process
+      toc_entries: Original ToC entries from PDF (if available)
+      
+  Returns:
+      Markdown formatted report string
+  """
+  lines = [
+    "# Table of Contents Mapping Report",
+    "",
+    "This report details the mapping process between PDF Table of Contents and DoclingDocument section headers.",
+    ""
+  ]
+  
+  # Section 1: Initial ToC extracted from PDF
+  lines.extend([
+    "## 1. Initial Table of Contents from PDF",
+    ""
+  ])
+  
+  if toc_entries and len(toc_entries) > 0:
+    lines.append(f"**Total ToC entries found:** {len(toc_entries)}")
+    lines.append("")
+    lines.append("| Level | Title | Page |")
+    lines.append("|-------|-------|------|")
+    
+    for entry in toc_entries:
+      # Escape pipe characters in titles for proper markdown table formatting
+      title = entry['title'].replace('|', '\\|')
+      lines.append(f"| {entry['level']} | {title} | {entry['page']} |")
+    
+    lines.append("")
+  else:
+    lines.extend([
+      "*No PDF ToC available - processing DoclingDocument only mode*",
+      ""
+    ])
+  
+  # Section 2: Mapping Issues Report
+  lines.extend([
+    "## 2. Mapping Issues Report",
+    ""
+  ])
+  
+  # Unmapped ToC entries
+  unmapped_toc = mapping_report.get('unmapped_toc_entries', [])
+  if unmapped_toc:
+    lines.extend([
+      f"### 2.1 PDF ToC Headlines Not Matched to DoclingDocument ({len(unmapped_toc)} entries)",
+      "",
+      "These ToC entries from the PDF could not be matched to any section headers in the DoclingDocument:",
+      ""
+    ])
+    
+    for i, entry in enumerate(unmapped_toc, 1):
+      lines.append(f"{i}. **Level {entry['level']}**: {entry['title']} (Page {entry['page']})")
+    
+    lines.append("")
+  else:
+    lines.extend([
+      "### 2.1 PDF ToC Headlines Not Matched to DoclingDocument",
+      "",
+      "*All PDF ToC entries were successfully matched to DoclingDocument section headers.*",
+      ""
+    ])
+  
+  # Unmapped section headers
+  unmapped_sections = mapping_report.get('unmapped_section_headers', [])
+  if unmapped_sections:
+    lines.extend([
+      f"### 2.2 DoclingDocument Section Headers Not Mapped to ToC ({len(unmapped_sections)} entries)",
+      "",
+      "These section headers in the DoclingDocument could not be matched to any PDF ToC entries:",
+      ""
+    ])
+    
+    for i, header in enumerate(unmapped_sections, 1):
+      # Truncate long titles for readability
+      title = header['text']
+      if len(title) > 80:
+        title = title[:77] + "..."
+      lines.append(f"{i}. {title}")
+    
+    lines.append("")
+  else:
+    lines.extend([
+      "### 2.2 DoclingDocument Section Headers Not Mapped to ToC",
+      "",
+      "*All DoclingDocument section headers were successfully mapped to PDF ToC entries.*",
+      ""
+    ])
+  
+  # Section 3: Successful Mappings
+  lines.extend([
+    "## 3. Successful Mappings",
+    ""
+  ])
+  
+  successful_mappings = mapping_report.get('successful_mappings', [])
+  if successful_mappings:
+    lines.append(f"**Total successful mappings:** {len(successful_mappings)}")
+    lines.append("")
+    lines.append("| ToC Level | ToC Title | Matched Section Header | Similarity |")
+    lines.append("|-----------|-----------|------------------------|------------|")
+    
+    for mapping in successful_mappings:
+      toc_entry = mapping['toc_entry']
+      section_header = mapping['section_header']
+      similarity = mapping['similarity']
+      
+      # Escape pipe characters and truncate long titles
+      toc_title = toc_entry['title'].replace('|', '\\|')
+      if len(toc_title) > 40:
+        toc_title = toc_title[:37] + "..."
+      
+      section_title = section_header['text'].replace('|', '\\|')
+      if len(section_title) > 40:
+        section_title = section_title[:37] + "..."
+      
+      lines.append(f"| {toc_entry['level']} | {toc_title} | {section_title} | {similarity:.3f} |")
+    
+    lines.append("")
+  else:
+    lines.extend([
+      "*No successful mappings found.*",
+      ""
+    ])
+  
+  # Section 4: Summary Statistics
+  lines.extend([
+    "## 4. Summary Statistics",
+    ""
+  ])
+  
+  total_toc_entries = len(toc_entries) if toc_entries else 0
+  total_section_headers = mapping_report.get('total_section_headers', 0)
+  successful_mappings_count = len(successful_mappings)
+  unmapped_toc_count = len(unmapped_toc)
+  unmapped_sections_count = len(unmapped_sections)
+  updated_levels_count = mapping_report.get('updated_levels_count', 0)
+  unmapped_updates_count = mapping_report.get('unmapped_updates_count', 0)
+  
+  lines.extend([
+    f"- **PDF ToC entries found:** {total_toc_entries}",
+    f"- **DoclingDocument section headers:** {total_section_headers}",
+    f"- **Successful mappings:** {successful_mappings_count}",
+    f"- **Unmapped ToC entries:** {unmapped_toc_count}",
+    f"- **Unmapped section headers:** {unmapped_sections_count}",
+    f"- **Section headers with updated levels (from ToC):** {updated_levels_count}",
+    f"- **Section headers with inferred levels (unmapped):** {unmapped_updates_count}",
+    ""
+  ])
+  
+  if total_toc_entries > 0:
+    mapping_rate = (successful_mappings_count / total_toc_entries) * 100
+    lines.append(f"- **Mapping success rate:** {mapping_rate:.1f}%")
+  
+  if total_section_headers > 0:
+    coverage_rate = (successful_mappings_count / total_section_headers) * 100
+    lines.append(f"- **Section header coverage:** {coverage_rate:.1f}%")
+  
+  lines.append("")
+  
+  # Add generation timestamp
+  from datetime import datetime
+  timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+  lines.extend([
+    "---",
+    f"*Report generated on {timestamp}*"
+  ])
+  
+  return "\n".join(lines)
+
+
 def generate_toc_markdown(docling_data: Dict[str, Any]) -> str:
   """
   Generate a table of contents in markdown format from DoclingDocument section headers.
@@ -215,7 +396,7 @@ def map_toc_to_docling_sections(
     toc_entries: List[Dict[str, Any]], 
     docling_data: Dict[str, Any],
     similarity_threshold: float = 0.5
-) -> Dict[str, Any]:
+) -> Tuple[Dict[str, Any], Dict[str, Any]]:
   """
   Map ToC entries to DoclingDocument section headers and update their levels and parent references.
   
@@ -225,7 +406,7 @@ def map_toc_to_docling_sections(
       similarity_threshold: Minimum similarity score for matching
       
   Returns:
-      Updated DoclingDocument with corrected section header levels and parent references
+      Tuple of (updated DoclingDocument, mapping report data)
   """
   logger = logging.getLogger(__name__)
   
@@ -250,6 +431,9 @@ def map_toc_to_docling_sections(
   
   # Map ToC entries to section headers
   mappings = []
+  unmapped_toc_entries = []
+  used_section_indices = set()
+  
   for toc_entry in toc_entries:
     toc_title = toc_entry['title']
     toc_level = toc_entry['level']
@@ -258,6 +442,10 @@ def map_toc_to_docling_sections(
     best_similarity = 0.0
     
     for header in section_headers:
+      # Skip headers that are already matched
+      if header['index'] in used_section_indices:
+        continue
+        
       similarity = calculate_text_similarity(toc_title, header['text'])
       
       if similarity > best_similarity and similarity >= similarity_threshold:
@@ -270,9 +458,15 @@ def map_toc_to_docling_sections(
         'section_header': best_match,
         'similarity': best_similarity
       })
+      used_section_indices.add(best_match['index'])
       logger.debug(f'Mapped "{toc_title}" (level {toc_level}) to "{best_match["text"]}" (similarity: {best_similarity:.3f})')
+    else:
+      unmapped_toc_entries.append(toc_entry)
+      logger.debug(f'Could not map ToC entry "{toc_title}" (level {toc_level})')
   
   logger.info(f'Successfully mapped {len(mappings)} ToC entries to section headers')
+  if unmapped_toc_entries:
+    logger.info(f'{len(unmapped_toc_entries)} ToC entries could not be mapped')
   
   # Update the levels in the DoclingDocument
   updates_count = 0
@@ -290,6 +484,7 @@ def map_toc_to_docling_sections(
   
   # Process unmapped section headers: set their level to previous level + 1
   mapped_indices = {mapping['section_header']['index'] for mapping in mappings}
+  unmapped_section_headers = [h for h in section_headers if h['index'] not in mapped_indices]
   unmapped_updates_count = 0
   
   # Sort section headers by their index to process them in document order
@@ -321,10 +516,21 @@ def map_toc_to_docling_sections(
   # Update parent references based on the new hierarchical structure
   updated_data = update_parent_references(updated_data)
   
-  return updated_data
+  # Prepare mapping report data
+  mapping_report = {
+    'toc_entries': toc_entries,
+    'successful_mappings': mappings,
+    'unmapped_toc_entries': unmapped_toc_entries,
+    'unmapped_section_headers': unmapped_section_headers,
+    'total_section_headers': len(section_headers),
+    'updated_levels_count': updates_count,
+    'unmapped_updates_count': unmapped_updates_count
+  }
+  
+  return updated_data, mapping_report
 
 
-def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Dict[str, Any]:
+def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:
   """
   Infer hierarchical levels from section header text patterns when no PDF ToC is available.
   
@@ -332,7 +538,7 @@ def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Dict[st
       docling_data: DoclingDocument JSON data
       
   Returns:
-      Updated DoclingDocument with inferred section header levels and parent references
+      Tuple of (updated DoclingDocument, mapping report data)
   """
   logger = logging.getLogger(__name__)
   
@@ -416,7 +622,18 @@ def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Dict[st
   # Update parent references based on the new hierarchical structure
   updated_data = update_parent_references(updated_data)
   
-  return updated_data
+  # Prepare mapping report data (for DoclingDocument-only mode)
+  mapping_report = {
+    'toc_entries': [],  # No PDF ToC in this mode
+    'successful_mappings': [],  # No mappings in this mode
+    'unmapped_toc_entries': [],
+    'unmapped_section_headers': section_headers,  # All sections are "unmapped" from ToC perspective
+    'total_section_headers': len(section_headers),
+    'updated_levels_count': 0,  # No ToC-based updates
+    'unmapped_updates_count': updates_count  # All updates are from inference
+  }
+  
+  return updated_data, mapping_report
 
 
 def process_docling_document_only(
@@ -424,6 +641,7 @@ def process_docling_document_only(
     output_path: Optional[Union[str, Path]] = None,
     verbose: bool = False,
     generate_toc_md: bool = False,
+    generate_toc_report: bool = False,
 ) -> Dict[str, Any]:
   """
   Process a DoclingDocument JSON file to infer hierarchical levels without PDF ToC.
@@ -433,6 +651,7 @@ def process_docling_document_only(
       output_path: Optional output path for corrected JSON file
       verbose: Enable verbose logging
       generate_toc_md: Generate a table of contents markdown file
+      generate_toc_report: Generate a detailed mapping report
       
   Returns:
       Updated DoclingDocument with corrected section header levels and parent references
@@ -451,7 +670,7 @@ def process_docling_document_only(
       docling_data = json.load(f)
     
     # Infer hierarchical levels from text patterns
-    updated_docling_data = infer_hierarchical_levels_from_text(docling_data)
+    updated_docling_data, mapping_report = infer_hierarchical_levels_from_text(docling_data)
     
     # Save updated DoclingDocument if output path provided
     if output_path:
@@ -468,6 +687,13 @@ def process_docling_document_only(
         toc_md_path = output_file.with_suffix('.md')
         toc_md_path.write_text(toc_md_content, encoding='utf-8')
         logger.info('ToC markdown saved to: %s', toc_md_path)
+      
+      # Generate ToC report if requested
+      if generate_toc_report:
+        toc_report_content = generate_toc_mapping_report(mapping_report)
+        toc_report_path = output_file.parent / 'toc_report.md'
+        toc_report_path.write_text(toc_report_content, encoding='utf-8')
+        logger.info('ToC mapping report saved to: %s', toc_report_path)
     
     return updated_docling_data
     
@@ -483,6 +709,7 @@ def extract_pdf_toc(
     output_format: Literal['json', 'text'] = 'json',
     docling_json_path: Optional[Union[str, Path]] = None,
     generate_toc_md: bool = False,
+    generate_toc_report: bool = False,
 ) -> Union[List[Dict[str, Any]], str, Dict[str, Any]]:
   """
   Extract table of contents from a PDF file using PyMuPDF and optionally map to DoclingDocument.
@@ -494,6 +721,7 @@ def extract_pdf_toc(
       output_format: Output format - 'json' or 'text'
       docling_json_path: Optional path to DoclingDocument JSON for level mapping
       generate_toc_md: Generate a table of contents markdown file
+      generate_toc_report: Generate a detailed mapping report
 
   Returns:
       List of ToC entries (json format), formatted text string, or updated DoclingDocument
@@ -568,7 +796,7 @@ def extract_pdf_toc(
           docling_data = json.load(f)
         
         # Map ToC entries to DoclingDocument section headers
-        updated_docling_data = map_toc_to_docling_sections(toc_entries, docling_data)
+        updated_docling_data, mapping_report = map_toc_to_docling_sections(toc_entries, docling_data)
         
         # Save updated DoclingDocument if output path provided
         if output_path:
@@ -585,6 +813,13 @@ def extract_pdf_toc(
           toc_md_path = output_file.with_suffix('.md') if output_path else Path('toc.md')
           toc_md_path.write_text(toc_md_content, encoding='utf-8')
           logger.info('ToC markdown saved to: %s', toc_md_path)
+        
+        # Generate ToC report if requested
+        if generate_toc_report:
+          toc_report_content = generate_toc_mapping_report(mapping_report, toc_entries)
+          toc_report_path = output_file.parent / 'toc_report.md' if output_path else Path('toc_report.md')
+          toc_report_path.write_text(toc_report_content, encoding='utf-8')
+          logger.info('ToC mapping report saved to: %s', toc_report_path)
         
         return updated_docling_data
         
@@ -651,7 +886,7 @@ Examples:
   %(prog)s document.pdf --output toc.json --format json
   %(prog)s https://arxiv.org/pdf/2408.09869 --format text --verbose
   %(prog)s document.pdf --docling-json document.json --output corrected_document.json --generate-toc-md
-  %(prog)s --docling-json-only --docling-json document.json --output corrected_document.json --generate-toc-md
+  %(prog)s --docling-json-only --docling-json document.json --output corrected_document.json --generate-toc-md --generate-toc-report
       """.strip(),
   )
 
@@ -687,6 +922,11 @@ Examples:
       help='Generate a table of contents markdown file (.md) showing section hierarchy',
   )
   parser.add_argument(
+      '--generate-toc-report',
+      action='store_true',
+      help='Generate a detailed ToC mapping report (toc_report.md) with mapping statistics and issues',
+  )
+  parser.add_argument(
       '--verbose', '-v', action='store_true', help='Enable verbose logging'
   )
 
@@ -704,7 +944,8 @@ Examples:
           args.docling_json,
           args.output,
           args.verbose,
-          args.generate_toc_md
+          args.generate_toc_md,
+          args.generate_toc_report
       )
       
       # Print to stdout if no output file specified
@@ -745,7 +986,8 @@ Examples:
         args.verbose, 
         args.format,
         args.docling_json,
-        args.generate_toc_md
+        args.generate_toc_md,
+        args.generate_toc_report
     )
 
     # Print to stdout if no output file specified
