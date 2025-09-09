@@ -29,6 +29,9 @@ import sys
 from typing import Any, Dict, List, Tuple
 import unicodedata
 
+# Regex pattern for numbering detection  
+RE_NUM = re.compile(r'^(?P<head>([A-Z].)?\d+(?:.\d+){0,5})\b')
+
 
 def setup_logging(verbose: bool = False) -> None:
   """Set up logging configuration."""
@@ -79,44 +82,67 @@ def normalize_text(text: str) -> str:
   return text_clean
 
 
+def numbering_key(text: str) -> Tuple[str, int]:
+  """
+  Extract numbering prefix and depth from text for sibling level detection.
+  Returns (prefix, depth) for use in keeping siblings flat.
+  
+  Args:
+      text: Text to analyze for numbering patterns
+      
+  Returns:
+      Tuple of (prefix, depth) where prefix is the numbering stem and depth is nesting level
+  """
+  # Use original text, not normalized (to preserve dots)
+  m = RE_NUM.match(text.strip())
+  if not m:
+    return ("", 0)
+  head = m.group('head')  # e.g. "E.2.3.2.1" or "11.2.3"
+  depth = head.count('.') + 1
+  prefix = head.rsplit('.', 1)[0] if '.' in head else head
+  return (prefix, depth)
+
+
 def build_toc_intervals(toc_entries: List[Dict[str, Any]], total_pages: int = 1000) -> List[Dict[str, Any]]:
   """
-  Build (start_page, end_page) page intervals for every ToC node.
+  Build ToC parent pointers + intervals.
+  Enhance build_toc_intervals to compute id, parent_idx, start_page, end_page.
   
   Args:
       toc_entries: List of ToC entries with level, title, and page
       total_pages: Total number of pages in the document (for last entry)
       
   Returns:
-      List of ToC entries with added start_page and end_page fields
+      List of ToC entries with added id, parent_idx, start_page and end_page fields
   """
   if not toc_entries:
     return []
   
   # Create a copy to avoid modifying original data
   import copy
-  entries_with_intervals = copy.deepcopy(toc_entries)
+  entries = copy.deepcopy(toc_entries)
+  entries.sort(key=lambda x: (x['page'], x['level']))
   
-  # Sort by page number to ensure proper ordering
-  entries_with_intervals.sort(key=lambda x: x['page'])
+  # Parent via level stack
+  stack = []  # (idx, level)
+  for i, e in enumerate(entries):
+    e['id'] = i
+    while stack and stack[-1][1] >= e['level']:
+      stack.pop()
+    e['parent_idx'] = stack[-1][0] if stack else None
+    stack.append((i, e['level']))
   
-  for i, entry in enumerate(entries_with_intervals):
-    entry['start_page'] = entry['page']
-    
-    # Find the end page by looking at the next entry at the same or higher level
-    current_level = entry['level']
-    end_page = total_pages  # Default to end of document
-    
-    # Look for the next entry that would terminate this section
-    for j in range(i + 1, len(entries_with_intervals)):
-      next_entry = entries_with_intervals[j]
-      if next_entry['level'] <= current_level:
-        end_page = next_entry['page'] - 1
+  # Intervals
+  for i, e in enumerate(entries):
+    e['start_page'] = e['page']
+    end_page = total_pages
+    for j in range(i + 1, len(entries)):
+      if entries[j]['level'] <= e['level']:
+        end_page = entries[j]['page'] - 1
         break
+    e['end_page'] = max(e['start_page'], end_page)
     
-    entry['end_page'] = max(entry['start_page'], end_page)
-  
-  return entries_with_intervals
+  return entries
 
 
 def extract_docling_element_page(text_item: Dict[str, Any]) -> int:
@@ -397,6 +423,7 @@ def multi_pass_mapping(
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
   """
   Perform multi-pass mapping with three strategies: exact/near, structured/numbered, fuzzy+context.
+  Remember which ToC node each section matched by storing toc_idx.
   
   Args:
       toc_entries_with_intervals: ToC entries with page intervals
@@ -437,6 +464,7 @@ def multi_pass_mapping(
       if sim_result['similarity'] > 0.85 and sim_result['confidence'] > 0.7:
         mappings.append({
           'toc_entry': toc_entry,
+          'toc_idx': i,  # <— add this
           'section_header': section,
           'similarity_info': sim_result,
           'pass': 1
@@ -473,6 +501,7 @@ def multi_pass_mapping(
          (sim_result['similarity'] > 0.7 and sim_result['confidence'] > 0.6):
         mappings.append({
           'toc_entry': toc_entry,
+          'toc_idx': i,  # <— add this
           'section_header': section,
           'similarity_info': sim_result,
           'pass': 2
@@ -513,6 +542,7 @@ def multi_pass_mapping(
           best_score = sim_result['similarity']
           best_match = {
             'toc_entry': toc_entry,
+            'toc_idx': i,  # <— add this
             'section_header': section,
             'similarity_info': sim_result,
             'pass': 3,
@@ -567,15 +597,16 @@ def find_deepest_toc_ancestor(
 
 def page_driven_parenting(
     mappings: List[Dict[str, Any]], 
-    toc_entries_with_intervals: List[Dict[str, Any]],
+    toc_entries: List[Dict[str, Any]],
     docling_data: Dict[str, Any]
 ) -> Dict[str, Any]:
   """
-  Update parent references using page-driven logic based on ToC intervals.
+  Rework parenting to use ToC ancestry (not "previous section").
+  Replace the core logic with ToC ancestry-based parenting.
   
   Args:
       mappings: Successful ToC-to-section mappings
-      toc_entries_with_intervals: ToC entries with page intervals
+      toc_entries: ToC entries with parent pointers and intervals
       docling_data: DoclingDocument data to update
       
   Returns:
@@ -583,83 +614,75 @@ def page_driven_parenting(
   """
   logger = logging.getLogger(__name__)
   
-  # Create a deep copy
   import copy
-  updated_data = copy.deepcopy(docling_data)
-  texts = updated_data.get('texts', [])
+  updated = copy.deepcopy(docling_data)
+  texts = updated.get('texts', [])
   
-  # Create mapping from section index to ToC level
-  section_to_toc_level = {}
-  section_to_toc_entry = {}
+  # Map: ToC idx -> doc idx (for mapped headings)
+  toc_idx_to_doc_idx = {m['toc_idx']: m['section_header']['index'] for m in mappings}
   
-  for mapping in mappings:
-    section_index = mapping['section_header']['index']
-    toc_entry = mapping['toc_entry']
-    section_to_toc_level[section_index] = toc_entry['level']
-    section_to_toc_entry[section_index] = toc_entry
+  def nearest_mapped_toc_ancestor_doc_idx(toc_idx):
+    """Climb ToC parents until we find a mapped ancestor"""
+    p = toc_entries[toc_idx].get('parent_idx')
+    while p is not None:
+      if p in toc_idx_to_doc_idx:
+        return toc_idx_to_doc_idx[p]
+      p = toc_entries[p].get('parent_idx')
+    return None
   
-  # Process all section headers in document order
-  section_headers = []
-  for i, text_item in enumerate(texts):
-    if text_item.get('label') == 'section_header':
-      section_headers.append({
-        'index': i,
-        'text': text_item.get('text', ''),
-        'level': text_item.get('level', 1),
-        'page': extract_docling_element_page(text_item)
-      })
+  # 1) For mapped nodes: parent to their true ToC parent (or #/body if none)
+  for m in mappings:
+    doc_idx = m['section_header']['index']
+    toc_idx = m['toc_idx']
+    parent_doc_idx = nearest_mapped_toc_ancestor_doc_idx(toc_idx)
+    parent_ref = "#/body" if parent_doc_idx is None else f"#/texts/{parent_doc_idx}"
+    if texts[doc_idx].get('parent', {}).get('$ref') != parent_ref:
+      texts[doc_idx]['parent'] = {'$ref': parent_ref}
   
-  logger.info(f'Processing {len(section_headers)} section headers for page-driven parenting')
+  # Helpers for unmapped
+  def containing_toc_idx(page: int):
+    """Find containing ToC entry by page interval"""
+    cand = [e for e in toc_entries if e['start_page'] <= page <= e['end_page']]
+    if not cand:
+      return None
+    return max(cand, key=lambda e: e['level'])['id']  # deepest by level
   
-  updates_count = 0
+  mapped_doc_indices = {m['section_header']['index'] for m in mappings}
   
-  for header in section_headers:
-    section_index = header['index']
-    section_page = header['page']
+  # 2) For unmapped headers: parent to deepest mapped ancestor by interval
+  for i, t in enumerate(texts):
+    if t.get('label') != 'section_header' or i in mapped_doc_indices:
+      continue
+    page = extract_docling_element_page(t)
+    ci = containing_toc_idx(page) if page > 0 else None
     
-    # Determine parent reference
-    parent_ref = "#/body"  # Default
+    parent_doc_idx = None
+    # climb ToC to find nearest mapped ancestor
+    while ci is not None and parent_doc_idx is None:
+      parent_doc_idx = toc_idx_to_doc_idx.get(ci)
+      if parent_doc_idx is None:
+        ci = toc_entries[ci].get('parent_idx')
     
-    if section_index in section_to_toc_level:
-      # This section is mapped to a ToC entry
-      toc_level = section_to_toc_level[section_index]
+    # Guardrails: Never parent under "Índice" 
+    if parent_doc_idx is not None:
+      parent_text = texts[parent_doc_idx].get('text', '').lower()
+      if normalize_text(parent_text) == 'indice':
+        parent_doc_idx = None
+    
+    # Guardrails: Keep Anejo/Sección families separate
+    if parent_doc_idx is not None:
+      current_text = t.get('text', '').lower()
+      parent_text = texts[parent_doc_idx].get('text', '').lower()
       
-      if toc_level > 1:
-        # Find the appropriate parent based on ToC hierarchy
-        current_toc_entry = section_to_toc_entry[section_index]
-        
-        # Look for a parent ToC entry (lower level number, earlier page)
-        for other_mapping in mappings:
-          other_toc = other_mapping['toc_entry']
-          other_section_index = other_mapping['section_header']['index']
-          
-          # Must be lower level (closer to root) and earlier in document
-          if (other_toc['level'] < toc_level and 
-              other_toc['page'] <= current_toc_entry['page'] and
-              other_section_index != section_index):
-            parent_ref = f"#/texts/{other_section_index}"
-            # Take the most recent appropriate parent
-            break
-    else:
-      # This section is not mapped to ToC, use page-driven logic
-      ancestor = find_deepest_toc_ancestor(section_page, toc_entries_with_intervals)
-      if ancestor:
-        # Find the corresponding section for this ToC ancestor
-        for mapping in mappings:
-          if mapping['toc_entry']['title'] == ancestor['title'] and mapping['toc_entry']['page'] == ancestor['page']:
-            parent_ref = f"#/texts/{mapping['section_header']['index']}"
-            break
+      if ('anejo' in current_text and ('seccion' in parent_text or 'sección' in parent_text)) or \
+         (('seccion' in current_text or 'sección' in current_text) and 'anejo' in parent_text):
+        parent_doc_idx = None
     
-    # Update parent reference if different
-    old_parent_ref = texts[section_index].get('parent', {}).get('$ref', '')
-    if parent_ref != old_parent_ref:
-      texts[section_index]['parent'] = {'$ref': parent_ref}
-      updates_count += 1
-      logger.debug(f'Updated parent for "{header["text"][:50]}..." from "{old_parent_ref}" to "{parent_ref}"')
+    parent_ref = "#/body" if parent_doc_idx is None else f"#/texts/{parent_doc_idx}"
+    if t.get('parent', {}).get('$ref') != parent_ref:
+      t['parent'] = {'$ref': parent_ref}
   
-  logger.info(f'Updated parent references for {updates_count} section headers using page-driven logic')
-  
-  return updated_data
+  return updated
 
 
 def perform_consistency_checks(
@@ -1238,53 +1261,50 @@ def enhanced_map_toc_to_docling_sections(
   unmapped_updates_count = 0
   synthetic_toc_nodes = []
   
-  # Sort all section headers by document order
-  all_section_headers = sorted(
-    [{'index': i, 'text': texts[i].get('text', ''), 'level': texts[i].get('level', 1), 'page': extract_docling_element_page(texts[i])} 
-     for i in range(len(texts)) if texts[i].get('label') == 'section_header'],
-    key=lambda x: x['index']
-  )
+  # Helper functions for containing ToC index
+  def containing_toc_idx(page: int):
+    """Find containing ToC entry by page interval"""
+    cand = [e for e in toc_entries_with_intervals if e['start_page'] <= page <= e['end_page']]
+    if not cand:
+      return None
+    return max(cand, key=lambda e: e['level'])['id']  # deepest by level
   
-  # Track mapped sections
-  mapped_indices = {mapping['section_header']['index'] for mapping in mappings}
+  # Map: ToC idx -> doc idx (for mapped headings)
+  toc_idx_to_doc_idx = {m['toc_idx']: m['section_header']['index'] for m in mappings}
+  mapped_doc_indices = {m['section_header']['index'] for m in mappings}
   
-  previous_level = 1
-  for header in all_section_headers:
-    section_index = header['index']
+  # Process unmapped sections
+  for i, t in enumerate(texts):
+    if t.get('label') != 'section_header' or i in mapped_doc_indices:
+      continue
+      
+    page = extract_docling_element_page(t)
+    section_text = t.get('text', '')
+    ci = containing_toc_idx(page) if page > 0 else None
     
-    if section_index in mapped_indices:
-      # This section was mapped to ToC, use its level as reference
-      previous_level = texts[section_index].get('level', 1)
-    else:
-      # Unmapped section - determine if it should be kept as heading or demoted
-      section_page = header['page']
-      section_text = header['text']
-      
-      # Check if it's inside any ToC interval
-      containing_toc = find_deepest_toc_ancestor(section_page, toc_entries_with_intervals)
-      
-      if containing_toc:
-        # Inside a ToC interval - check if it looks like a valid subheading
-        if re.search(r'\d+(?:\.\d+)*\s+', section_text) or len(section_text.split()) >= 2:
-          # Looks like a valid numbered subheading - keep as derived heading
-          new_level = previous_level + 1
-          old_level = texts[section_index].get('level', 1)
-          
-          if new_level != old_level:
-            texts[section_index]['level'] = new_level
-            texts[section_index]['derived'] = True  # Mark as derived, not ground-truth ToC
-            unmapped_updates_count += 1
-            logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived)')
-          
-          previous_level = new_level
-        else:
-          # Doesn't look like a heading - demote to body text
-          logger.debug(f'Demoting auxiliary content to body: "{section_text[:50]}..."')
-          texts[section_index]['label'] = 'text'
-      else:
-        # Outside ToC intervals - likely auxiliary content or error
-        logger.debug(f'Section outside ToC intervals, demoting: "{section_text[:50]}..."')
-        texts[section_index]['label'] = 'text'
+    parent_doc_idx = None
+    # climb ToC to find nearest mapped ancestor
+    while ci is not None and parent_doc_idx is None:
+      parent_doc_idx = toc_idx_to_doc_idx.get(ci)
+      if parent_doc_idx is None:
+        ci = toc_entries_with_intervals[ci].get('parent_idx')
+    
+    # After you compute parent_doc_idx via intervals:
+    parent_level = 1 if parent_doc_idx is None else texts[parent_doc_idx].get('level', 1)
+    prefix, depth = numbering_key(section_text)
+    
+    # Choose level relative to parent; keep siblings flat:
+    new_level = parent_level + 1
+    old_level = t.get('level', 1)
+    
+    if new_level != old_level:
+      texts[i]['level'] = new_level
+      texts[i]['derived'] = True  # Mark as derived, not ground-truth ToC
+      unmapped_updates_count += 1
+      logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived from parent level {parent_level})')
+  
+  # Optionally store sibling-level cache for consistency:
+  # sibling_level_cache[(parent_doc_idx, prefix)] = new_level
   
   logger.info(f'Processed {unmapped_updates_count} unmapped sections with enhanced logic')
   

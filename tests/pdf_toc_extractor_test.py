@@ -21,6 +21,7 @@ try:
     extract_pdf_toc, 
     setup_logging, 
     normalize_text, 
+    numbering_key,
     calculate_text_similarity,
     calculate_enhanced_similarity,
     enhanced_map_toc_to_docling_sections,
@@ -151,8 +152,18 @@ class TestPdfTocExtractor(unittest.TestCase):
     
     docling_data = {
         'texts': [
-            {'label': 'section_header', 'text': 'Introduction', 'level': 1},
-            {'label': 'section_header', 'text': 'Background Info', 'level': 1},
+            {
+                'label': 'section_header', 
+                'text': 'Introduction', 
+                'level': 1,
+                'prov': [{'page_no': 1}]
+            },
+            {
+                'label': 'section_header', 
+                'text': 'Background Info', 
+                'level': 1,
+                'prov': [{'page_no': 3}]
+            },
             {'label': 'paragraph', 'text': 'Some content'},
         ]
     }
@@ -304,6 +315,83 @@ class TestPdfTocExtractor(unittest.TestCase):
     self.assertGreater(result['similarity'], 0.7)
     self.assertGreater(result['structure_bonus'], 0)
     self.assertEqual(result['page_distance'], 1)
+
+  def test_numbering_key(self):
+    """Test numbering key extraction for sibling detection."""
+    # Test various numbering patterns
+    result1 = numbering_key('11.1 Some text')
+    self.assertEqual(result1, ('11', 2))  # prefix=11, depth=2
+    
+    result2 = numbering_key('E.2.3.2.1 Some text')  
+    self.assertEqual(result2, ('E.2.3.2', 5))  # prefix=E.2.3.2, depth=5
+    
+    result3 = numbering_key('No numbers here')
+    self.assertEqual(result3, ('', 0))  # no numbering
+    
+    result4 = numbering_key('5 Simple number')
+    self.assertEqual(result4, ('5', 1))  # prefix=5, depth=1
+
+  def test_build_toc_intervals_with_parent_pointers(self):
+    """Test enhanced ToC interval building with parent pointers and IDs."""
+    toc_entries = [
+      {'level': 1, 'title': 'Chapter 1', 'page': 1},
+      {'level': 2, 'title': 'Section 1.1', 'page': 3},
+      {'level': 2, 'title': 'Section 1.2', 'page': 5},
+      {'level': 1, 'title': 'Chapter 2', 'page': 10}
+    ]
+    
+    intervals = build_toc_intervals(toc_entries, 20)
+    
+    self.assertEqual(len(intervals), 4)
+    
+    # Check IDs are assigned
+    for i, entry in enumerate(intervals):
+      self.assertEqual(entry['id'], i)
+    
+    # Check parent pointers  
+    self.assertIsNone(intervals[0]['parent_idx'])  # Chapter 1, no parent
+    self.assertEqual(intervals[1]['parent_idx'], 0)  # Section 1.1 -> Chapter 1
+    self.assertEqual(intervals[2]['parent_idx'], 0)  # Section 1.2 -> Chapter 1  
+    self.assertIsNone(intervals[3]['parent_idx'])  # Chapter 2, no parent
+    
+    # Check intervals
+    self.assertEqual(intervals[0]['start_page'], 1)
+    self.assertEqual(intervals[0]['end_page'], 9)  # Before Chapter 2
+    self.assertEqual(intervals[3]['start_page'], 10)
+    self.assertEqual(intervals[3]['end_page'], 20)  # End of document
+
+  def test_page_driven_parenting_guardrails(self):
+    """Test page-driven parenting with guardrails (Índice, Anejo/Sección separation)."""
+    # Test data with Índice (should not parent under it)
+    toc_entries = [
+      {'level': 1, 'title': 'Índice', 'page': 1, 'id': 0, 'parent_idx': None, 'start_page': 1, 'end_page': 5},
+      {'level': 1, 'title': 'Sección SI 1', 'page': 6, 'id': 1, 'parent_idx': None, 'start_page': 6, 'end_page': 20}
+    ]
+    
+    mappings = [
+      {
+        'toc_idx': 0, 
+        'section_header': {'index': 0}, 
+        'toc_entry': toc_entries[0]
+      },
+      {
+        'toc_idx': 1,
+        'section_header': {'index': 1},
+        'toc_entry': toc_entries[1]  
+      }
+    ]
+    
+    docling_data = {
+      'texts': [
+        {'label': 'section_header', 'text': 'Índice', 'level': 1},
+        {'label': 'section_header', 'text': 'Sección SI 1 Propagación', 'level': 1, 'prov': [{'page_no': 6}]},
+      ]
+    }
+    
+    updated_data = page_driven_parenting(mappings, toc_entries, docling_data)
+    
+    # Sección should not be parented under Índice due to guardrail
+    self.assertEqual(updated_data['texts'][1]['parent']['$ref'], '#/body')
 
 
 if __name__ == '__main__':
