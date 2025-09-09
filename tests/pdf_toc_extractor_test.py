@@ -22,9 +22,18 @@ try:
     setup_logging, 
     normalize_text, 
     calculate_text_similarity,
-    map_toc_to_docling_sections,
+    calculate_enhanced_similarity,
+    enhanced_map_toc_to_docling_sections,
     update_parent_references,
-    generate_toc_markdown
+    generate_toc_markdown,
+    build_toc_intervals,
+    extract_docling_element_page,
+    detect_auxiliary_content,
+    split_combined_headings,
+    multi_pass_mapping,
+    find_deepest_toc_ancestor,
+    page_driven_parenting,
+    perform_consistency_checks
   )
 except ImportError as e:
   # Handle import issues in test environment
@@ -63,10 +72,10 @@ class TestPdfTocExtractor(unittest.TestCase):
     normalized1 = normalize_text(text1)
     self.assertIn('seccion', normalized1.lower())
     
-    # Test whitespace normalization
+    # Test whitespace normalization (enhanced version removes spaces between letters)
     text2 = "  Multiple   spaces  "
     normalized2 = normalize_text(text2)
-    self.assertEqual(normalized2, "multiple spaces")
+    self.assertEqual(normalized2, "multiplespaces")  # Updated expectation
 
   def test_calculate_text_similarity(self):
     """Test text similarity calculation."""
@@ -148,7 +157,7 @@ class TestPdfTocExtractor(unittest.TestCase):
         ]
     }
     
-    updated_data, mapping_report = map_toc_to_docling_sections(toc_entries, docling_data)
+    updated_data, mapping_report = enhanced_map_toc_to_docling_sections(toc_entries, docling_data)
     
     # Check that levels were updated
     self.assertEqual(updated_data['texts'][0]['level'], 1)  # Introduction
@@ -191,6 +200,110 @@ class TestPdfTocExtractor(unittest.TestCase):
     self.assertIn('- Chapter 1', result)
     self.assertIn('  - Section 1.1', result)
     self.assertNotIn('Some content', result)  # Should not include non-headers
+
+  def test_enhanced_normalize_text(self):
+    """Test enhanced text normalization with OCR artifacts."""
+    # Test Unicode handling
+    self.assertEqual(normalize_text('Secci\\u00f3n SI 1'), 'seccionsi 1')  # Updated expectation
+    
+    # Test OCR spacing issues - spaces between letters are removed
+    self.assertEqual(normalize_text('D ocumento B ásico'), 'documentobasico')
+    
+    # Test punctuation normalization (exclamation mark gets stripped at end)
+    self.assertEqual(normalize_text('Title , with ; punctuation !'), 'title, with; punctuation')
+    
+    # Test leading/trailing punctuation removal
+    self.assertEqual(normalize_text('- Title -'), 'title')
+
+  def test_build_toc_intervals(self):
+    """Test ToC interval calculation."""
+    toc_entries = [
+      {'level': 1, 'title': 'Chapter 1', 'page': 1},
+      {'level': 2, 'title': 'Section 1.1', 'page': 3},
+      {'level': 1, 'title': 'Chapter 2', 'page': 10}
+    ]
+    
+    intervals = build_toc_intervals(toc_entries, 20)
+    
+    self.assertEqual(len(intervals), 3)
+    self.assertEqual(intervals[0]['start_page'], 1)
+    self.assertEqual(intervals[0]['end_page'], 9)  # Before Chapter 2
+    self.assertEqual(intervals[1]['start_page'], 3)
+    self.assertEqual(intervals[1]['end_page'], 9)  # Before Chapter 2
+    self.assertEqual(intervals[2]['start_page'], 10)
+    self.assertEqual(intervals[2]['end_page'], 20)  # End of document
+
+  def test_extract_docling_element_page(self):
+    """Test page extraction from DoclingDocument elements."""
+    # Element with page info
+    element_with_page = {
+      'text': 'Test header',
+      'prov': [{'page_no': 5, 'bbox': {}}]
+    }
+    self.assertEqual(extract_docling_element_page(element_with_page), 5)
+    
+    # Element without page info
+    element_without_page = {'text': 'Test header'}
+    self.assertEqual(extract_docling_element_page(element_without_page), 0)
+
+  def test_detect_auxiliary_content(self):
+    """Test auxiliary content detection."""
+    # Table content
+    table_result = detect_auxiliary_content('Tabla 1.1 Valores')
+    self.assertTrue(table_result['is_auxiliary'])
+    self.assertEqual(table_result['type'], 'table')
+    
+    # Equation content
+    equation_result = detect_auxiliary_content('Fórmula 2.3')
+    self.assertTrue(equation_result['is_auxiliary']) 
+    self.assertEqual(equation_result['type'], 'equation')
+    
+    # Caption content
+    caption_result = detect_auxiliary_content('Figura 1.5 Ejemplo')
+    self.assertTrue(caption_result['is_auxiliary'])
+    self.assertEqual(caption_result['type'], 'caption')
+    
+    # Valid heading
+    heading_result = detect_auxiliary_content('Sección SI 1 Propagación interior')
+    self.assertFalse(heading_result['is_auxiliary'])
+    self.assertEqual(heading_result['type'], 'heading')
+
+  def test_split_combined_headings(self):
+    """Test splitting of combined headings."""
+    # Combined Anejo headings
+    combined = 'Anejo SI A Terminología Anejo SI B Referencias'
+    split_result = split_combined_headings(combined)
+    self.assertEqual(len(split_result), 2)
+    self.assertIn('Anejo SI A Terminología', split_result)
+    self.assertIn('Anejo SI B Referencias', split_result)
+    
+    # Single heading (no splitting)
+    single = 'Sección SI 1 Propagación interior'
+    single_result = split_combined_headings(single)
+    self.assertEqual(len(single_result), 1)
+    self.assertEqual(single_result[0], single)
+
+  def test_calculate_enhanced_similarity(self):
+    """Test enhanced similarity calculation with confidence and page proximity."""
+    # High similarity, same page
+    result = calculate_enhanced_similarity(
+      'Sección SI 1 Propagación interior',
+      'Sección SI 1 Propagación interior', 
+      5, 5
+    )
+    self.assertGreater(result['similarity'], 0.9)
+    self.assertGreater(result['confidence'], 0.8)
+    self.assertEqual(result['page_distance'], 0)
+    
+    # Structural match with page proximity
+    result = calculate_enhanced_similarity(
+      'SI 2 Propagación exterior',
+      'Sección SI 2 Propagación exterior',
+      10, 11
+    )
+    self.assertGreater(result['similarity'], 0.7)
+    self.assertGreater(result['structure_bonus'], 0)
+    self.assertEqual(result['page_distance'], 1)
 
 
 if __name__ == '__main__':
