@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 """
-PDF Table of Contents (ToC) Extraction Script using PyMuPDF
+PDF Table of Contents (ToC) Extraction and DoclingDocument Mapping Script
 
-This script uses the PyMuPDF library to extract table of contents from PDF files.
-It supports both local files and URLs, with multiple output formats.
+This script extracts table of contents from PDF files using PyMuPDF and maps
+the ToC levels to section headers in DoclingDocument JSON files.
 
 Usage:
-    python pdf_toc_extractor.py input.pdf
-    python pdf_toc_extractor.py https://example.com/document.pdf
-    python pdf_toc_extractor.py input.pdf --output toc.json --format json
-    python pdf_toc_extractor.py input.pdf --output toc.txt --format text
+    python pdf_toc_extractor.py input.pdf docling_document.json
+
+The script will:
+1. Extract ToC from the PDF
+2. Map ToC headlines to DoclingDocument section headers
+3. Generate a detailed mapping report
+4. Create headline_fixed_doclingdocument.json with corrected hierarchical levels
+5. Update parent references based on the hierarchy
+6. Add a new ToC visualization to the report based on the corrected document
 
 Example:
-    python pdf_toc_extractor.py document.pdf
-    python pdf_toc_extractor.py https://arxiv.org/pdf/2408.09869 --format json
-    python pdf_toc_extractor.py document.pdf --output document_toc.json
+    python pdf_toc_extractor.py document.pdf document.json
 """
 
 import argparse
@@ -23,9 +26,7 @@ import logging
 from pathlib import Path
 import re
 import sys
-from typing import Any, Dict, List, Literal, Optional, Tuple, Union
-import urllib.parse
-import urllib.request
+from typing import Any, Dict, List, Tuple
 import unicodedata
 
 
@@ -170,14 +171,16 @@ def update_parent_references(docling_data: Dict[str, Any]) -> Dict[str, Any]:
 
 def generate_toc_mapping_report(
     mapping_report: Dict[str, Any],
-    toc_entries: Optional[List[Dict[str, Any]]] = None
+    toc_entries: List[Dict[str, Any]],
+    corrected_docling_data: Dict[str, Any]
 ) -> str:
   """
   Generate a detailed ToC mapping report in markdown format.
   
   Args:
       mapping_report: Report data from mapping process
-      toc_entries: Original ToC entries from PDF (if available)
+      toc_entries: Original ToC entries from PDF
+      corrected_docling_data: Updated DoclingDocument with corrected hierarchy
       
   Returns:
       Markdown formatted report string
@@ -195,23 +198,17 @@ def generate_toc_mapping_report(
     ""
   ])
   
-  if toc_entries and len(toc_entries) > 0:
-    lines.append(f"**Total ToC entries found:** {len(toc_entries)}")
-    lines.append("")
-    lines.append("| Level | Title | Page |")
-    lines.append("|-------|-------|------|")
-    
-    for entry in toc_entries:
-      # Escape pipe characters in titles for proper markdown table formatting
-      title = entry['title'].replace('|', '\\|')
-      lines.append(f"| {entry['level']} | {title} | {entry['page']} |")
-    
-    lines.append("")
-  else:
-    lines.extend([
-      "*No PDF ToC available - processing DoclingDocument only mode*",
-      ""
-    ])
+  lines.append(f"**Total ToC entries found:** {len(toc_entries)}")
+  lines.append("")
+  lines.append("| Level | Title | Page |")
+  lines.append("|-------|-------|------|")
+  
+  for entry in toc_entries:
+    # Escape pipe characters in titles for proper markdown table formatting
+    title = entry['title'].replace('|', '\\|')
+    lines.append(f"| {entry['level']} | {title} | {entry['page']} |")
+  
+  lines.append("")
   
   # Section 2: Mapping Issues Report
   lines.extend([
@@ -309,7 +306,7 @@ def generate_toc_mapping_report(
     ""
   ])
   
-  total_toc_entries = len(toc_entries) if toc_entries else 0
+  total_toc_entries = len(toc_entries)
   total_section_headers = mapping_report.get('total_section_headers', 0)
   successful_mappings_count = len(successful_mappings)
   unmapped_toc_count = len(unmapped_toc)
@@ -335,6 +332,22 @@ def generate_toc_mapping_report(
   if total_section_headers > 0:
     coverage_rate = (successful_mappings_count / total_section_headers) * 100
     lines.append(f"- **Section header coverage:** {coverage_rate:.1f}%")
+  
+  lines.append("")
+  
+  # Section 5: New Table of Contents from Corrected Document
+  lines.extend([
+    "## 5. New Table of Contents from Corrected Document",
+    "",
+    "This ToC is generated from the headline_fixed_doclingdocument.json with corrected hierarchical levels:",
+    "",
+  ])
+  
+  # Generate ToC from corrected document
+  corrected_toc = generate_toc_markdown(corrected_docling_data)
+  # Remove the header and description from the generated ToC, keep only the list
+  toc_lines = corrected_toc.split('\n')[4:]  # Skip header lines
+  lines.extend(toc_lines)
   
   lines.append("")
   
@@ -530,205 +543,19 @@ def map_toc_to_docling_sections(
   return updated_data, mapping_report
 
 
-def infer_hierarchical_levels_from_text(docling_data: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+def extract_pdf_toc(pdf_path: str) -> List[Dict[str, Any]]:
   """
-  Infer hierarchical levels from section header text patterns when no PDF ToC is available.
-  
-  Args:
-      docling_data: DoclingDocument JSON data
-      
-  Returns:
-      Tuple of (updated DoclingDocument, mapping report data)
-  """
-  logger = logging.getLogger(__name__)
-  
-  # Create a deep copy of the docling data
-  import copy
-  updated_data = copy.deepcopy(docling_data)
-  
-  # Find all section headers in the texts array
-  section_headers = []
-  texts = updated_data.get('texts', [])
-  
-  for i, text_item in enumerate(texts):
-    if text_item.get('label') == 'section_header':
-      section_headers.append({
-        'index': i,
-        'text': text_item.get('text', ''),
-        'original_level': text_item.get('level', 1)
-      })
-  
-  logger.info(f'Found {len(section_headers)} section headers for level inference')
-  
-  # Define patterns for different levels (Spanish document patterns)
-  level_patterns = [
-    # Level 1: Main titles and sections
-    (1, [
-      r'^D\s*ocumento\s+B\s*ásico',  # Documento Básico
-      r'^Seguridad\s+en\s+caso\s+de\s+incendio',  # Main title
-      r'^Introducción$',  # Introduction
-      r'^I{1,3}\s+[A-Z]',  # Roman numerals (I, II, III)
-      r'^Artículo\s+\d+',  # Article numbers
-      r'^Índice$',  # Index
-      r'^Anejo\s+[A-Z]+',  # Anejo sections
-      r'^Disposiciones\s+normativas',  # Regulations
-      r'^Documento\s+Básico\s+consolidado',  # Consolidated document
-    ]),
-    
-    # Level 2: Section headers like "Sección SI X"
-    (2, [
-      r'^Sección\s+SI\s+\d+',  # Sección SI 1, Sección SI 2, etc.
-    ]),
-    
-    # Level 3: Numbered subsections like "1 Title", "2 Title"  
-    (3, [
-      r'^\d+\s+[A-Z]',  # Number followed by title (1 Title, 2 Title)
-      r'^\d+\.\d+\s+[A-Z]',  # Decimal numbering (1.1 Title, 1.2 Title)
-    ]),
-    
-    # Level 4: Sub-numbered sections like "1.1 Title"
-    (4, [
-      r'^\d+\.\d+\.\d+\s+[A-Z]',  # Triple decimal (1.1.1 Title)
-    ]),
-  ]
-  
-  # Apply pattern matching to infer levels
-  updates_count = 0
-  
-  for header in section_headers:
-    text = header['text']
-    inferred_level = 1  # Default level
-    
-    # Test patterns in order
-    for level, patterns in level_patterns:
-      for pattern in patterns:
-        if re.match(pattern, text.strip(), re.IGNORECASE):
-          inferred_level = level
-          break
-      if inferred_level != 1:  # If we found a match, stop checking
-        break
-    
-    # Update the level if it changed
-    section_index = header['index']
-    old_level = texts[section_index].get('level', 1)
-    
-    if inferred_level != old_level:
-      texts[section_index]['level'] = inferred_level
-      updates_count += 1
-      logger.debug(f'Inferred level {inferred_level} for "{text[:50]}..." (was {old_level})')
-  
-  logger.info(f'Updated levels for {updates_count} section headers based on text patterns')
-  
-  # Update parent references based on the new hierarchical structure
-  updated_data = update_parent_references(updated_data)
-  
-  # Prepare mapping report data (for DoclingDocument-only mode)
-  mapping_report = {
-    'toc_entries': [],  # No PDF ToC in this mode
-    'successful_mappings': [],  # No mappings in this mode
-    'unmapped_toc_entries': [],
-    'unmapped_section_headers': section_headers,  # All sections are "unmapped" from ToC perspective
-    'total_section_headers': len(section_headers),
-    'updated_levels_count': 0,  # No ToC-based updates
-    'unmapped_updates_count': updates_count  # All updates are from inference
-  }
-  
-  return updated_data, mapping_report
-
-
-def process_docling_document_only(
-    docling_json_path: Union[str, Path],
-    output_path: Optional[Union[str, Path]] = None,
-    verbose: bool = False,
-    generate_toc_md: bool = False,
-    generate_toc_report: bool = False,
-) -> Dict[str, Any]:
-  """
-  Process a DoclingDocument JSON file to infer hierarchical levels without PDF ToC.
-  
-  Args:
-      docling_json_path: Path to DoclingDocument JSON file
-      output_path: Optional output path for corrected JSON file
-      verbose: Enable verbose logging
-      generate_toc_md: Generate a table of contents markdown file
-      generate_toc_report: Generate a detailed mapping report
-      
-  Returns:
-      Updated DoclingDocument with corrected section header levels and parent references
-      
-  Raises:
-      FileNotFoundError: If the JSON file doesn't exist
-      Exception: For other processing errors
-  """
-  setup_logging(verbose)
-  logger = logging.getLogger(__name__)
-  
-  logger.info(f'Processing DoclingDocument from: {docling_json_path}')
-  
-  try:
-    with open(docling_json_path, 'r', encoding='utf-8') as f:
-      docling_data = json.load(f)
-    
-    # Infer hierarchical levels from text patterns
-    updated_docling_data, mapping_report = infer_hierarchical_levels_from_text(docling_data)
-    
-    # Save updated DoclingDocument if output path provided
-    if output_path:
-      output_file = Path(output_path)
-      output_file.write_text(
-          json.dumps(updated_docling_data, indent=2, ensure_ascii=False), 
-          encoding='utf-8'
-      )
-      logger.info('Updated DoclingDocument saved to: %s', output_file)
-      
-      # Generate ToC markdown if requested
-      if generate_toc_md:
-        toc_md_content = generate_toc_markdown(updated_docling_data)
-        toc_md_path = output_file.with_suffix('.md')
-        toc_md_path.write_text(toc_md_content, encoding='utf-8')
-        logger.info('ToC markdown saved to: %s', toc_md_path)
-      
-      # Generate ToC report if requested
-      if generate_toc_report:
-        toc_report_content = generate_toc_mapping_report(mapping_report)
-        toc_report_path = output_file.parent / 'toc_report.md'
-        toc_report_path.write_text(toc_report_content, encoding='utf-8')
-        logger.info('ToC mapping report saved to: %s', toc_report_path)
-    
-    return updated_docling_data
-    
-  except Exception as e:
-    logger.error('Failed to process DoclingDocument: %s', e)
-    raise
-
-
-def extract_pdf_toc(
-    source: Union[str, Path],
-    output_path: Optional[Union[str, Path]] = None,
-    verbose: bool = False,
-    output_format: Literal['json', 'text'] = 'json',
-    docling_json_path: Optional[Union[str, Path]] = None,
-    generate_toc_md: bool = False,
-    generate_toc_report: bool = False,
-) -> Union[List[Dict[str, Any]], str, Dict[str, Any]]:
-  """
-  Extract table of contents from a PDF file using PyMuPDF and optionally map to DoclingDocument.
+  Extract table of contents from a PDF file using PyMuPDF.
 
   Args:
-      source: Path to PDF file or URL
-      output_path: Optional output path for output file
-      verbose: Enable verbose logging
-      output_format: Output format - 'json' or 'text'
-      docling_json_path: Optional path to DoclingDocument JSON for level mapping
-      generate_toc_md: Generate a table of contents markdown file
-      generate_toc_report: Generate a detailed mapping report
+      pdf_path: Path to PDF file
 
   Returns:
-      List of ToC entries (json format), formatted text string, or updated DoclingDocument
+      List of ToC entries with level, title, and page
 
   Raises:
       ImportError: If PyMuPDF is not installed
-      FileNotFoundError: If the source file doesn't exist
+      FileNotFoundError: If the PDF file doesn't exist
       Exception: For other processing errors
   """
   try:
@@ -739,29 +566,10 @@ def extract_pdf_toc(
         "Install with: pip install 'langextract[pymupdf]'"
     ) from e
 
-  setup_logging(verbose)
   logger = logging.getLogger(__name__)
-
-  logger.info('Extracting ToC from: %s', source)
+  logger.info('Extracting ToC from: %s', pdf_path)
 
   try:
-    # Handle URLs by downloading to temporary location
-    temp_file = None
-    if isinstance(source, str) and (
-        source.startswith('http://') or source.startswith('https://')
-    ):
-      logger.info('Downloading PDF from URL: %s', source)
-      import tempfile
-
-      with tempfile.NamedTemporaryFile(
-          delete=False, suffix='.pdf'
-      ) as temp_file:
-        with urllib.request.urlopen(source) as response:
-          temp_file.write(response.read())
-        pdf_path = temp_file.name
-    else:
-      pdf_path = str(source)
-
     # Open the PDF document
     doc = fitz.open(pdf_path)
 
@@ -770,12 +578,6 @@ def extract_pdf_toc(
 
     # Close the document
     doc.close()
-
-    # Clean up temporary file if it was created
-    if temp_file:
-      import os
-
-      os.unlink(temp_file.name)
 
     logger.info('Successfully extracted ToC with %d entries', len(toc))
 
@@ -787,224 +589,117 @@ def extract_pdf_toc(
     for level, title, page in toc:
       toc_entries.append({'level': level, 'title': title.strip(), 'page': page})
 
-    # If DoclingDocument JSON path is provided, map ToC to section headers
-    if docling_json_path:
-      logger.info(f'Loading DoclingDocument from: {docling_json_path}')
-      
-      try:
-        with open(docling_json_path, 'r', encoding='utf-8') as f:
-          docling_data = json.load(f)
-        
-        # Map ToC entries to DoclingDocument section headers
-        updated_docling_data, mapping_report = map_toc_to_docling_sections(toc_entries, docling_data)
-        
-        # Save updated DoclingDocument if output path provided
-        if output_path:
-          output_file = Path(output_path)
-          output_file.write_text(
-              json.dumps(updated_docling_data, indent=2, ensure_ascii=False), 
-              encoding='utf-8'
-          )
-          logger.info('Updated DoclingDocument saved to: %s', output_file)
-        
-        # Generate ToC markdown if requested
-        if generate_toc_md:
-          toc_md_content = generate_toc_markdown(updated_docling_data)
-          toc_md_path = output_file.with_suffix('.md') if output_path else Path('toc.md')
-          toc_md_path.write_text(toc_md_content, encoding='utf-8')
-          logger.info('ToC markdown saved to: %s', toc_md_path)
-        
-        # Generate ToC report if requested
-        if generate_toc_report:
-          toc_report_content = generate_toc_mapping_report(mapping_report, toc_entries)
-          toc_report_path = output_file.parent / 'toc_report.md' if output_path else Path('toc_report.md')
-          toc_report_path.write_text(toc_report_content, encoding='utf-8')
-          logger.info('ToC mapping report saved to: %s', toc_report_path)
-        
-        return updated_docling_data
-        
-      except Exception as e:
-        logger.error('Failed to process DoclingDocument: %s', e)
-        raise
-
-    # Format output based on requested format
-    if output_format == 'text':
-      content = format_toc_as_text(toc_entries)
-    else:
-      content = toc_entries
-
-    # Save to file if output path is provided
-    if output_path:
-      output_file = Path(output_path)
-      if output_format == 'text':
-        output_file.write_text(content, encoding='utf-8')
-      else:
-        output_file.write_text(
-            json.dumps(content, indent=2, ensure_ascii=False), encoding='utf-8'
-        )
-      logger.info('ToC saved to: %s', output_file)
-
-    return content
+    return toc_entries
 
   except Exception as e:
     logger.error('Failed to extract ToC: %s', e)
     raise
 
 
-def format_toc_as_text(toc_entries: List[Dict[str, Any]]) -> str:
+def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
   """
-  Format ToC entries as readable text.
-
+  Main processing function for the PDF ToC extractor use case.
+  
+  This function:
+  1. Extracts ToC from PDF
+  2. Maps ToC headlines to DoclingDocument section headers  
+  3. Generates a mapping report
+  4. Creates headline_fixed_doclingdocument.json with updated levels
+  5. Updates parent references based on hierarchy
+  6. Adds new ToC visualization to the report
+  
   Args:
-      toc_entries: List of ToC entry dictionaries
-
-  Returns:
-      Formatted text string
+      pdf_path: Path to PDF file
+      docling_json_path: Path to DoclingDocument JSON file
   """
-  if not toc_entries:
-    return 'No table of contents found.\n'
-
-  lines = ['Table of Contents', '=' * 18, '']
-
-  for entry in toc_entries:
-    indent = '  ' * (entry['level'] - 1)
-    line = f"{indent}{entry['title']} ... {entry['page']}"
-    lines.append(line)
-
-  return '\n'.join(lines) + '\n'
+  logger = logging.getLogger(__name__)
+  
+  try:
+    # Step 1: Extract ToC from PDF
+    logger.info('Step 1: Extracting ToC from PDF...')
+    toc_entries = extract_pdf_toc(pdf_path)
+    
+    # Step 2: Load DoclingDocument
+    logger.info('Step 2: Loading DoclingDocument...')
+    with open(docling_json_path, 'r', encoding='utf-8') as f:
+      docling_data = json.load(f)
+    
+    # Step 3: Map ToC to DoclingDocument section headers
+    logger.info('Step 3: Mapping ToC to DoclingDocument section headers...')
+    updated_docling_data, mapping_report = map_toc_to_docling_sections(toc_entries, docling_data)
+    
+    # Step 4: Save headline_fixed_doclingdocument.json
+    logger.info('Step 4: Saving corrected DoclingDocument...')
+    output_json_path = Path(docling_json_path).with_name('headline_fixed_doclingdocument.json')
+    output_json_path.write_text(
+        json.dumps(updated_docling_data, indent=2, ensure_ascii=False), 
+        encoding='utf-8'
+    )
+    logger.info('Corrected DoclingDocument saved to: %s', output_json_path)
+    
+    # Step 5: Generate comprehensive report
+    logger.info('Step 5: Generating mapping report...')
+    report_content = generate_toc_mapping_report(mapping_report, toc_entries, updated_docling_data)
+    report_path = Path(docling_json_path).with_name('report.md')
+    report_path.write_text(report_content, encoding='utf-8')
+    logger.info('Mapping report saved to: %s', report_path)
+    
+    logger.info('Processing completed successfully!')
+    
+  except Exception as e:
+    logger.error('Processing failed: %s', e)
+    raise
 
 
 def main() -> None:
   """Main command-line interface."""
   parser = argparse.ArgumentParser(
-      description='Extract table of contents from PDF files using PyMuPDF',
+      description='Extract PDF ToC and map to DoclingDocument section headers',
       formatter_class=argparse.RawDescriptionHelpFormatter,
       epilog="""
-Examples:
-  %(prog)s document.pdf
-  %(prog)s document.pdf --format text
-  %(prog)s document.pdf --output toc.json --format json
-  %(prog)s https://arxiv.org/pdf/2408.09869 --format text --verbose
-  %(prog)s document.pdf --docling-json document.json --output corrected_document.json --generate-toc-md
-  %(prog)s --docling-json-only --docling-json document.json --output corrected_document.json --generate-toc-md --generate-toc-report
+Example:
+  %(prog)s document.pdf document.json
+  
+This will:
+  1. Extract ToC from document.pdf
+  2. Map ToC headlines to section headers in document.json
+  3. Create headline_fixed_doclingdocument.json with corrected levels
+  4. Generate report.md with mapping analysis and new ToC
       """.strip(),
   )
 
-  parser.add_argument('input', nargs='?', help='Input PDF file path or URL (optional if using --docling-json-only)')
-  parser.add_argument(
-      '--output',
-      '-o',
-      help='Output file path (if not specified, prints to stdout)',
-  )
-  parser.add_argument(
-      '--format',
-      '-f',
-      choices=['json', 'text'],
-      default='json',
-      help=(
-          'Output format: json (structured) or text (human-readable). Default:'
-          ' json'
-      ),
-  )
-  parser.add_argument(
-      '--docling-json',
-      '-d',
-      help='Path to DoclingDocument JSON file for ToC level mapping',
-  )
-  parser.add_argument(
-      '--docling-json-only',
-      action='store_true',
-      help='Process only DoclingDocument JSON file without PDF (infer levels from text patterns)',
-  )
-  parser.add_argument(
-      '--generate-toc-md',
-      action='store_true',
-      help='Generate a table of contents markdown file (.md) showing section hierarchy',
-  )
-  parser.add_argument(
-      '--generate-toc-report',
-      action='store_true',
-      help='Generate a detailed ToC mapping report (toc_report.md) with mapping statistics and issues',
-  )
+  parser.add_argument('pdf_file', help='Input PDF file path')
+  parser.add_argument('docling_json', help='DoclingDocument JSON file path')
   parser.add_argument(
       '--verbose', '-v', action='store_true', help='Enable verbose logging'
   )
 
   try:
     args = parser.parse_args()
-
-    # Handle docling-json-only mode
-    if args.docling_json_only:
-      if not args.docling_json:
-        print('Error: --docling-json is required when using --docling-json-only', file=sys.stderr)
-        sys.exit(1)
-      
-      # Process DoclingDocument without PDF
-      content = process_docling_document_only(
-          args.docling_json,
-          args.output,
-          args.verbose,
-          args.generate_toc_md,
-          args.generate_toc_report
-      )
-      
-      # Print to stdout if no output file specified
-      if not args.output:
-        print(json.dumps(content, indent=2, ensure_ascii=False))
-      
-      return
-
-    # Validate input for PDF processing
-    if not args.input:
-      print('Error: input PDF file is required unless using --docling-json-only', file=sys.stderr)
+    
+    # Set up logging
+    setup_logging(args.verbose)
+    
+    # Validate input files exist
+    pdf_path = Path(args.pdf_file)
+    json_path = Path(args.docling_json)
+    
+    if not pdf_path.exists():
+      print(f'Error: PDF file not found: {pdf_path}', file=sys.stderr)
       sys.exit(1)
-
-    # Determine output file if not specified
-    output_path = args.output
-    if not output_path and not sys.stdout.isatty():
-      # When piping output, use stdout
-      output_path = None
-    elif not output_path:
-      # Generate default output filename
-      input_path = Path(args.input)
-      if input_path.suffix.lower() == '.pdf':
-        if args.format == 'text':
-          output_path = input_path.with_suffix('.toc.txt')
-        else:
-          output_path = input_path.with_suffix('.toc.json')
-      else:
-        # For URLs or files without .pdf extension
-        if args.format == 'text':
-          output_path = Path('extracted_toc.txt')
-        else:
-          output_path = Path('extracted_toc.json')
-
-    # Extract the ToC
-    content = extract_pdf_toc(
-        args.input, 
-        output_path, 
-        args.verbose, 
-        args.format,
-        args.docling_json,
-        args.generate_toc_md,
-        args.generate_toc_report
-    )
-
-    # Print to stdout if no output file specified
-    if not args.output:
-      if args.docling_json:
-        # If processing DoclingDocument, always output as JSON
-        print(json.dumps(content, indent=2, ensure_ascii=False))
-      elif args.format == 'json':
-        print(json.dumps(content, indent=2, ensure_ascii=False))
-      else:
-        print(content, end='')
+      
+    if not json_path.exists():
+      print(f'Error: DoclingDocument JSON file not found: {json_path}', file=sys.stderr)
+      sys.exit(1)
+    
+    # Process the files
+    process_pdf_and_docling(str(pdf_path), str(json_path))
 
   except ImportError as e:
     print(f'Error: {e}', file=sys.stderr)
     sys.exit(1)
   except Exception as e:
-    print(f'ToC extraction failed: {e}', file=sys.stderr)
+    print(f'Processing failed: {e}', file=sys.stderr)
     sys.exit(1)
 
 
