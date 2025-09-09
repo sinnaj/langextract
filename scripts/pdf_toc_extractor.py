@@ -1273,6 +1273,9 @@ def enhanced_map_toc_to_docling_sections(
   toc_idx_to_doc_idx = {m['toc_idx']: m['section_header']['index'] for m in mappings}
   mapped_doc_indices = {m['section_header']['index'] for m in mappings}
   
+  # Sibling-level cache for consistency: (parent_doc_idx, prefix) -> level
+  sibling_level_cache = {}
+  
   # Process unmapped sections
   for i, t in enumerate(texts):
     if t.get('label') != 'section_header' or i in mapped_doc_indices:
@@ -1294,17 +1297,24 @@ def enhanced_map_toc_to_docling_sections(
     prefix, depth = numbering_key(section_text)
     
     # Choose level relative to parent; keep siblings flat:
-    new_level = parent_level + 1
+    cache_key = (parent_doc_idx, prefix)
+    if cache_key in sibling_level_cache:
+      # Use cached level for siblings with same numbering prefix
+      new_level = sibling_level_cache[cache_key]
+    else:
+      # First time seeing this prefix under this parent
+      new_level = parent_level + 1
+      sibling_level_cache[cache_key] = new_level
+    
     old_level = t.get('level', 1)
     
     if new_level != old_level:
       texts[i]['level'] = new_level
       texts[i]['derived'] = True  # Mark as derived, not ground-truth ToC
       unmapped_updates_count += 1
-      logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived from parent level {parent_level})')
+      logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived from parent level {parent_level}, prefix "{prefix}")')
   
-  # Optionally store sibling-level cache for consistency:
-  # sibling_level_cache[(parent_doc_idx, prefix)] = new_level
+  logger.info(f'Processed {unmapped_updates_count} unmapped sections with enhanced logic')
   
   logger.info(f'Processed {unmapped_updates_count} unmapped sections with enhanced logic')
   
