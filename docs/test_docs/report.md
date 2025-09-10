@@ -231,7 +231,7 @@ These ToC entries could not be matched to DoclingDocument section headers:
 
 1. **Level 2**: 1 Condiciones de aproximación y entorno( ) (Pages 36-36)
 
-### 5.2 DoclingDocument Headers Not Mapped (28 entries)
+### 5.2 DoclingDocument Headers Not Mapped (27 entries)
 
 These section headers could not be matched to PDF ToC entries:
 
@@ -250,12 +250,12 @@ These section headers could not be matched to PDF ToC entries:
 13. Sección SI 2   Propagación exterior (Page 8)
 14. Sección SI 3   Evacuación de ocupantes (Page 8)
 15. Sección SI 4   Instalaciones de protección contra incendios (Page 8)
-*... and 13 more unmapped sections*
+*... and 12 more unmapped sections*
 
 ## 6. Processing Summary
 
 - **PDF ToC entries processed:** 163
-- **DoclingDocument section headers found:** 186
+- **DoclingDocument section headers found:** 185
 - **Successful ToC mappings:** 162
 - **Ground-truth level updates:** 162
 - **Derived level updates:** 28
@@ -263,7 +263,7 @@ These section headers could not be matched to PDF ToC entries:
 - **Auxiliary content demoted:** 0
 
 - **ToC mapping success rate:** 99.4%
-- **Section header coverage:** 87.1%
+- **Section header coverage:** 87.6%
 
 ## 7. Final Table of Contents (Ground-Truth + Derived)
 
@@ -462,5 +462,5 @@ Generated from the corrected DoclingDocument with ToC-driven hierarchy:
 
 
 ---
-*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 15:32:52 UTC*
+*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 18:34:04 UTC*
 *Multi-pass mapping with page intervals and consistency validation*
