@@ -175,11 +175,11 @@ page-driven parenting, auxiliary content detection, and comprehensive consistenc
 
 ## 2. Multi-Pass Mapping Statistics
 
-**Pass 1 (Exact/Near matches):** 158 matches
+**Pass 1 (Exact/Near matches):** 160 matches
 **Pass 2 (Structural/Numbered):** 0 matches
 **Pass 3 (Fuzzy+Context):** 0 matches
-**Pass 4 (Page Scanning):** 4 matches
-**Total successful mappings:** 162
+**Pass 4 (Page Scanning):** 3 matches
+**Total successful mappings:** 163
 
 ## 3. Mapping Quality Analysis
 
@@ -205,31 +205,20 @@ page-driven parenting, auxiliary content detection, and comprehensive consistenc
 | 1 | Sección SI 3 Evacuación de ocu | Sección SI 3 Evacuación de ocu | 1.000 | 1.000 | exact | 0 |
 | 1 | 1 Compatibilidad de los elemen | 1 Compatibilidad de los elemen | 1.000 | 1.000 | exact | 0 |
 | 1 | 2 Cálculo de la ocupación | 2 Cálculo de la ocupación | 1.000 | 1.000 | exact | 0 |
-*... and 142 more mappings*
+*... and 143 more mappings*
 
 ## 4. Consistency Check Results
 
-**Level jump violations:** 2
+**Level jump violations:** 0
 **Page order violations:** 1
 **Unique path violations:** 0
 **Anejo/Sección cross-contamination:** 0
 
-### Critical Issues:
-
-1. Level jump detected: section 'Instalaciones de protección contra incendios...' jumps from level 1 to 3
-2. Level jump detected: section '1.1 Aproximación a los edificios...' jumps from level 1 to 3
-
 ### Warnings:
 
-1. Page order violation: section 'c ...' on page 56 after section on page 91
+1. Page order violation: section '2 Resistencia al fuego...' on page 87 after section on page 91
 
 ## 5. Unmapped Content Analysis
-
-### 5.1 PDF ToC Headlines Not Matched (1 entries)
-
-These ToC entries could not be matched to DoclingDocument section headers:
-
-1. **Level 2**: 1 Condiciones de aproximación y entorno( ) (Pages 36-36)
 
 ### 5.2 DoclingDocument Headers Not Mapped (27 entries)
 
@@ -255,20 +244,24 @@ These section headers could not be matched to PDF ToC entries:
 ## 6. Processing Summary
 
 - **PDF ToC entries processed:** 163
-- **DoclingDocument section headers found:** 185
-- **Successful ToC mappings:** 162
-- **Ground-truth level updates:** 162
-- **Derived level updates:** 28
+- **DoclingDocument section headers found:** 187
+- **Successful ToC mappings:** 163
+- **Ground-truth level updates:** 163
+- **Derived level updates:** 27
 - **Synthetic ToC nodes created:** 0
 - **Auxiliary content demoted:** 0
+- **Orphaned metadata sections handled:** 4
 
-- **ToC mapping success rate:** 99.4%
-- **Section header coverage:** 87.6%
+- **Synthetic 'Document Info' parent created:** Yes
+
+- **ToC mapping success rate:** 100.0%
+- **Section header coverage:** 87.2%
 
 ## 7. Final Table of Contents (Ground-Truth + Derived)
 
 Generated from the corrected DoclingDocument with ToC-driven hierarchy:
 
+- Document Info
   - D ocumento B ásico
   - Seguridad en caso de incendio
   - Disposiciones normativas publicadas en el Boletín Oficial del Estado
@@ -319,11 +312,11 @@ Generated from the corrected DoclingDocument with ToC-driven hierarchy:
   - 7 Señalización de los medios de evacuación
   - 8 Control del humo de incendio
   - 9 Evacuación de personas con discapacidad en caso de incendio
-- Sección SI 4
-    - Instalaciones de protección contra incendios
+- Sección SI 4 Instalaciones de protección contra incendios
   - 1 Dotación de instalaciones de protección contra incendios
   - 2 Señalización de las instalaciones manuales de protección contra incendios
 - Sección SI 5 Intervención de los bomberos
+  - 1 Condiciones de aproximación y entorno (1)
     - 1.1 Aproximación a los edificios
     - 1.2 Entorno de los edificios
   - 2 Accesibilidad por fachada
@@ -392,6 +385,7 @@ Generated from the corrected DoclingDocument with ToC-driven hierarchy:
     - Coeficiente de ventilación w
     - 3 Los valores del coeficiente de corrección k c se toman de la siguiente tabla:
   - B.4 Valor de cálculo de la densidad de carga de fuego
+  - B.5 Valor característico de la densidad de carga de fuego ( 1 )
 - Anejo C. Resistencia al fuego de las estructuras de hormigón armado
   - C.1   Generalidades
   - C.2 Tablas
@@ -455,12 +449,11 @@ Generated from the corrected DoclingDocument with ToC-driven hierarchy:
   - 1 Reacción al fuego
   - 3 Instalaciones para control del humo y del calor
   - 4 Puertas, herrajes y dispositivos de apertura
-  - c 
-  - 2 Resistencia al fuego
+- 2 Resistencia al fuego
   - 5 Señalización
   - 6 Otras materias
 
 
 ---
-*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 18:34:04 UTC*
+*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 22:43:28 UTC*
 *Multi-pass mapping with page intervals and consistency validation*
