@@ -449,11 +449,11 @@ Generated from the corrected DoclingDocument with ToC-driven hierarchy:
   - 1 Reacción al fuego
   - 3 Instalaciones para control del humo y del calor
   - 4 Puertas, herrajes y dispositivos de apertura
-- 2 Resistencia al fuego
+  - 2 Resistencia al fuego
   - 5 Señalización
   - 6 Otras materias
 
 
 ---
-*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 22:43:28 UTC*
+*Enhanced ToC-driven hierarchy repair completed on 2025-09-10 23:16:29 UTC*
 *Multi-pass mapping with page intervals and consistency validation*
