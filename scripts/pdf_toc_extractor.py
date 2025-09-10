@@ -1472,6 +1472,7 @@ def generate_enhanced_toc_mapping_report(
   updated_levels_count = mapping_report.get('updated_levels_count', 0)
   unmapped_updates_count = mapping_report.get('unmapped_updates_count', 0)
   synthetic_nodes_count = len(mapping_report.get('synthetic_toc_nodes', []))
+  orphaned_info = mapping_report.get('orphaned_sections_info', {})
   
   lines.extend([
     f"- **PDF ToC entries processed:** {total_toc_entries}",
@@ -1481,8 +1482,13 @@ def generate_enhanced_toc_mapping_report(
     f"- **Derived level updates:** {unmapped_updates_count}",
     f"- **Synthetic ToC nodes created:** {synthetic_nodes_count}",
     f"- **Auxiliary content demoted:** {mapping_report.get('demoted_content_count', 0)}",
+    f"- **Orphaned metadata sections handled:** {orphaned_info.get('orphaned_sections_found', 0)}",
     ""
   ])
+  
+  if orphaned_info.get('synthetic_parent_created', False):
+    lines.append(f"- **Synthetic 'Document Info' parent created:** Yes")
+    lines.append("")
   
   if total_toc_entries > 0:
     mapping_rate = (successful_mappings_count / total_toc_entries) * 100
@@ -1757,6 +1763,12 @@ def enhanced_map_toc_to_docling_sections(
   logger.info('Step 7: Performing consistency checks')
   consistency_results = perform_consistency_checks(updated_data, mappings)
   
+  # Step 8: Handle orphaned metadata sections
+  logger.info('Step 8: Handling orphaned metadata sections')
+  logger.debug(f'Before orphaned handling: {len(updated_data.get("texts", []))} text elements')
+  updated_data, orphaned_info = handle_orphaned_metadata_sections(updated_data)
+  logger.debug(f'After orphaned handling: {len(updated_data.get("texts", []))} text elements, found {orphaned_info.get("orphaned_sections_found", 0)} orphaned sections')
+  
   # Prepare comprehensive mapping report
   mapping_report = {
     'toc_entries': toc_entries,
@@ -1769,6 +1781,7 @@ def enhanced_map_toc_to_docling_sections(
     'unmapped_updates_count': unmapped_updates_count,
     'synthetic_toc_nodes': synthetic_toc_nodes,
     'consistency_results': consistency_results,
+    'orphaned_sections_info': orphaned_info,
     'pass_statistics': {
       'pass_1_matches': len([m for m in mappings if m.get('pass') == 1]),
       'pass_2_matches': len([m for m in mappings if m.get('pass') == 2]),
@@ -1779,6 +1792,153 @@ def enhanced_map_toc_to_docling_sections(
   }
   
   return updated_data, mapping_report
+
+
+def handle_orphaned_metadata_sections(docling_data: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+  """
+  Detect orphaned Level 1 sections at the beginning of the document that outline 
+  metadata about the document and create a synthetic level 1 section_header 
+  called "Document Info" to parent them, making them level 2.
+  
+  Args:
+      docling_data: DoclingDocument JSON data
+      
+  Returns:
+      Tuple of (updated DoclingDocument, info about changes made)
+  """
+  logger = logging.getLogger(__name__)
+  
+  import copy
+  updated_data = copy.deepcopy(docling_data)
+  texts = updated_data.get('texts', [])
+  
+  # Find orphaned metadata sections - level 1 sections at the beginning of document (pages 1-3)
+  # that appear before the main structural content and represent document metadata
+  orphaned_sections = []
+  
+  logger.debug(f'Checking {len(texts)} text elements for orphaned metadata sections')
+  
+  for i, text_item in enumerate(texts):
+    if text_item.get('label') != 'section_header':
+      continue
+      
+    page = extract_docling_element_page(text_item)
+    level = text_item.get('level', 1)
+    text_content = text_item.get('text', '').strip()
+    
+    # Debug logging for first few section headers
+    if i < 50:  
+      logger.debug(f'  Index {i}: "{text_content}" (Page {page}, Level {level}, Label: {text_item.get("label")})')
+    
+    # Look for sections on early pages (1-3) that are document metadata
+    # NOTE: These sections may have been changed to level 2 during unmapped section processing
+    if page <= 3 and level <= 2:
+      # Check if this section looks like document metadata vs. main content structure
+      metadata_indicators = [
+        'documento', 'básico', 'seguridad', 'disposiciones', 'normativas', 
+        'boletín', 'oficial', 'consolidado', 'exigencias', 'básicas'
+      ]
+      
+      # Exclude sections that are clearly main structural content
+      main_structure_indicators = [
+        'introducción', 'índice', 'sección si', 'anejo', 'i objeto', 'ii ámbito', 
+        'iii criterios', 'iv condiciones', 'v condiciones', 'vi laboratorios', 'vii terminología',
+        'artículo 11', '11.1 exigencia', '11.2 exigencia', '11.3 exigencia', 
+        '11.4 exigencia', '11.5 exigencia', '11.6 exigencia'
+      ]
+      
+      text_lower = text_content.lower()
+      
+      # Check if it's document metadata and not main structure
+      is_metadata = any(indicator in text_lower for indicator in metadata_indicators)
+      is_main_structure = any(indicator in text_lower for indicator in main_structure_indicators)
+      
+      # Special case: "D ocumento B ásico" by itself (with space) is metadata
+      # Handle Unicode characters by normalizing them and removing spaces
+      import unicodedata
+      normalized_text = unicodedata.normalize('NFD', text_lower)
+      ascii_text = ''.join(c for c in normalized_text if unicodedata.category(c) != 'Mn')
+      clean_text = ascii_text.replace(' ', '')
+      is_document_basic = ('documentobasico' in clean_text and len(text_content.strip()) < 30)
+      
+      if (is_metadata or is_document_basic) and not is_main_structure:
+        # Check if this section was already modified during unmapped processing by checking for 'derived' flag
+        was_derived = text_item.get('derived', False)
+        
+        orphaned_sections.append({
+          'index': i,
+          'text': text_content,
+          'page': page,
+          'original_level': level,
+          'was_derived': was_derived
+        })
+  
+  if not orphaned_sections:
+    logger.info('No orphaned metadata sections found')
+    return updated_data, {'orphaned_sections_found': 0, 'synthetic_parent_created': False}
+  
+  logger.info(f'Found {len(orphaned_sections)} orphaned metadata sections:')
+  for section in orphaned_sections:
+    was_derived_note = " (already level 2 from unmapped processing)" if section.get('was_derived') else ""
+    logger.info(f'  - "{section["text"]}" (Page {section["page"]}, Level {section["original_level"]}){was_derived_note}')
+  
+  # Create a synthetic "Document Info" level 1 section header
+  synthetic_parent = {
+    'self_ref': f'#/texts/{len(texts)}',
+    'parent': {'$ref': '#/body'},
+    'children': [],
+    'content_layer': 'body',
+    'label': 'section_header',
+    'prov': [{
+      'page_no': 1,
+      'bbox': {'l': 0, 't': 0, 'r': 100, 'b': 10, 'coord_origin': 'TOPLEFT'},
+      'charspan': [0, 13]
+    }],
+    'orig': 'Document Info',
+    'text': 'Document Info',
+    'level': 1,
+    'synthetic': True,
+    'created_for_orphaned_sections': True
+  }
+  
+  # Add the synthetic parent to the texts array at the beginning (after headers but before content)
+  # Insert it before the first orphaned section to maintain document order
+  first_orphan_index = min(section['index'] for section in orphaned_sections)
+  texts.insert(first_orphan_index, synthetic_parent)
+  synthetic_parent_index = first_orphan_index
+  
+  # Update all indices for sections that come after the insertion point
+  for section in orphaned_sections:
+    if section['index'] >= first_orphan_index:
+      section['index'] += 1  # Adjust for the insertion
+  
+  # Update the self_ref of the synthetic parent to reflect its actual position
+  texts[synthetic_parent_index]['self_ref'] = f'#/texts/{synthetic_parent_index}'
+  
+  # Update the orphaned sections to be children of the synthetic parent
+  for section in orphaned_sections:
+    section_index = section['index']
+    # Set parent reference to the synthetic parent
+    texts[section_index]['parent'] = {'$ref': f'#/texts/{synthetic_parent_index}'}
+    # Make them level 2 (children of level 1 Document Info)
+    texts[section_index]['level'] = 2
+    logger.info(f'Updated section "{section["text"]}" to be level 2 child of "Document Info"')
+  
+  # Update all subsequent self_ref values to maintain consistency
+  for i in range(synthetic_parent_index + 1, len(texts)):
+    if 'self_ref' in texts[i]:
+      texts[i]['self_ref'] = f'#/texts/{i}'
+  
+  logger.info(f'Created synthetic "Document Info" parent section for {len(orphaned_sections)} orphaned metadata sections')
+  
+  changes_info = {
+    'orphaned_sections_found': len(orphaned_sections),
+    'synthetic_parent_created': True,
+    'synthetic_parent_index': synthetic_parent_index,
+    'updated_sections': [s['index'] for s in orphaned_sections]
+  }
+  
+  return updated_data, changes_info
 
 
 def extract_pdf_toc(pdf_path: str) -> List[Dict[str, Any]]:
@@ -1900,6 +2060,7 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     # Step 6: Log summary statistics
     consistency = mapping_report.get('consistency_results', {})
     pass_stats = mapping_report.get('pass_statistics', {})
+    orphaned_info = mapping_report.get('orphaned_sections_info', {})
     
     logger.info('=== PROCESSING SUMMARY ===')
     logger.info(f'ToC entries processed: {len(toc_entries)}')
@@ -1912,6 +2073,9 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     logger.info(f'Synthetic sections created: {len(mapping_report.get("synthetic_sections", []))}')
     logger.info(f'Ground-truth updates: {mapping_report.get("updated_levels_count", 0)}')
     logger.info(f'Derived updates: {mapping_report.get("unmapped_updates_count", 0)}')
+    logger.info(f'Orphaned metadata sections handled: {orphaned_info.get("orphaned_sections_found", 0)}')
+    if orphaned_info.get("synthetic_parent_created", False):
+      logger.info('  - Created synthetic "Document Info" parent section')
     logger.info(f'Consistency issues: {len(consistency.get("issues", []))}')
     logger.info(f'Consistency warnings: {len(consistency.get("warnings", []))}')
     
