@@ -4,6 +4,10 @@
 This runner implements the enhanced extraction pipeline as outlined in 
 docs/prompts/extraction_pipeline_guide.md with deterministic IDs, PDF anchoring,
 and comprehensive quality metrics.
+
+Usage:
+    python enhanced_lx_runner.py document.pdf --output-dir results/
+    python enhanced_lx_runner.py document.pdf --markdown-path converted.md --output-dir results/
 """
 
 import json
@@ -164,16 +168,16 @@ def extract_with_langextract(
 
 
 def run_enhanced_extraction(
-    input_path: Path,
-    pdf_path: Optional[Path] = None,
-    output_dir: Optional[Path] = None
+    pdf_path: Path,
+    output_dir: Optional[Path] = None,
+    markdown_path: Optional[Path] = None
 ) -> Dict[str, Any]:
-    """Run enhanced extraction pipeline on input document.
+    """Run enhanced extraction pipeline on PDF document.
     
     Args:
-        input_path: Path to input markdown/text file
-        pdf_path: Optional path to source PDF for ToC/anchoring
+        pdf_path: Path to source PDF file
         output_dir: Optional output directory
+        markdown_path: Optional path to pre-converted markdown (if None, will convert PDF)
         
     Returns:
         Dictionary with extraction results and metrics
@@ -184,50 +188,45 @@ def run_enhanced_extraction(
     output_dir.mkdir(parents=True, exist_ok=True)
     
     print("[INFO] Setting up enhanced extraction pipeline...")
+    print(f"[INFO] Processing PDF: {pdf_path}")
+    
+    # Generate markdown from PDF if not provided
+    if markdown_path is None or not markdown_path.exists():
+        print("[INFO] Converting PDF to markdown using Docling...")
+        markdown_path = output_dir / "converted_document.md"
+        
+        # Import and use the PDF to markdown converter
+        sys.path.insert(0, str(Path(__file__).parent / "scripts"))
+        try:
+            from pdf_to_markdown import convert_pdf_to_markdown
+            convert_pdf_to_markdown(
+                source=pdf_path,
+                output_path=markdown_path,
+                verbose=False,
+                output_format='markdown'
+            )
+            print(f"[INFO] Markdown saved to: {markdown_path}")
+        except ImportError as e:
+            print(f"[ERROR] Could not import pdf_to_markdown: {e}")
+            print("[ERROR] Please ensure docling is installed: pip install docling")
+            sys.exit(1)
+        except Exception as e:
+            print(f"[ERROR] PDF to markdown conversion failed: {e}")
+            sys.exit(1)
     
     # Setup providers and configuration
     setup_langextract_providers()
     config = create_extraction_config()
     prompt, examples = load_prompt_and_examples()
     
-    # Initialize enhanced pipeline
-    if pdf_path and pdf_path.exists():
-        pipeline = EnhancedExtractionPipeline(pdf_path)
-        pipeline.load_document_data()
-        pipeline.create_sections()
-        
-        # Create chunks from enhanced sections
-        print("[INFO] Creating section-based chunks from ToC intervals...")
-        chunks = pipeline.create_chunks_for_extraction(max_chars=5000)
-        
-    else:
-        # Fallback: use existing section chunker on input text
-        print("[INFO] Using fallback section chunking (no PDF ToC available)...")
-        input_text = input_path.read_text(encoding="utf-8")
-        
-        # Use existing section chunker
-        section_chunks = create_section_chunks(input_text)
-        chunk_evaluations = evaluate_chunks(section_chunks)
-        
-        # Convert to format expected by enhanced pipeline
-        chunks = []
-        for section_chunk, evaluation in chunk_evaluations:
-            if evaluation.processing_type == "extract":
-                chunk_text = section_chunk.chunk_text
-                # Create a minimal enhanced section for compatibility
-                from extraction_pipeline.data_models import EnhancedSection
-                section = EnhancedSection(
-                    section_id=section_chunk.section_metadata.section_id,
-                    section_name=section_chunk.section_metadata.section_name,
-                    section_level=section_chunk.section_metadata.section_level,
-                    section_index=section_chunk.section_metadata.section_index,
-                    toc_path=[section_chunk.section_metadata.section_name]
-                )
-                chunks.append((chunk_text, section))
-        
-        # Create minimal pipeline for processing
-        pipeline = EnhancedExtractionPipeline()
-        pipeline.sections = [section for _, section in chunks]
+    # Initialize enhanced pipeline with PDF
+    pipeline = EnhancedExtractionPipeline(pdf_path)
+    pipeline.load_document_data()
+    pipeline.create_sections()
+    
+    # Create chunks from enhanced sections
+    print("[INFO] Creating section-based chunks from ToC intervals...")
+    chunks = pipeline.create_chunks_for_extraction(max_chars=5000)
     
     print(f"[INFO] Processing {len(chunks)} section chunks...")
     
@@ -291,14 +290,14 @@ def main():
         description="Enhanced LangExtract Runner with PDF anchoring and quality metrics"
     )
     parser.add_argument(
-        "input_path",
+        "pdf_path",
         type=Path,
-        help="Path to input markdown/text file"
+        help="Path to source PDF file"
     )
     parser.add_argument(
-        "--pdf-path",
+        "--markdown-path",
         type=Path,
-        help="Optional path to source PDF for ToC extraction and anchoring"
+        help="Optional path to pre-converted markdown file (if not provided, PDF will be converted)"
     )
     parser.add_argument(
         "--output-dir",
@@ -308,19 +307,19 @@ def main():
     
     args = parser.parse_args()
     
-    if not args.input_path.exists():
-        print(f"Error: Input file not found: {args.input_path}")
+    if not args.pdf_path.exists():
+        print(f"Error: PDF file not found: {args.pdf_path}")
         sys.exit(1)
     
-    if args.pdf_path and not args.pdf_path.exists():
-        print(f"Error: PDF file not found: {args.pdf_path}")
+    if args.markdown_path and not args.markdown_path.exists():
+        print(f"Error: Markdown file not found: {args.markdown_path}")
         sys.exit(1)
     
     try:
         results = run_enhanced_extraction(
-            args.input_path,
             args.pdf_path,
-            args.output_dir
+            args.output_dir,
+            args.markdown_path
         )
         
         print("\n[SUCCESS] Enhanced extraction completed successfully!")
