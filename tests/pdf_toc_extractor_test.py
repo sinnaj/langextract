@@ -423,6 +423,25 @@ class TestPdfTocExtractor(unittest.TestCase):
       normalize_text_for_matching(docling_text)
     )
     
+    # Test Unicode parentheses
+    self.assertEqual(
+      normalize_text_for_matching('Test （1）'),
+      'test'
+    )
+    
+    # Test various invisible characters
+    text_with_invisible = '1 Condiciones de aproximación\u200B y entorno( )'
+    self.assertEqual(
+      normalize_text_for_matching(text_with_invisible),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test parentheses with symbols
+    self.assertEqual(
+      normalize_text_for_matching('Section title (*) with symbols'),
+      'sectiontitlewithsymbols'
+    )
+    
     # Test multiple footnote patterns
     result = normalize_text_for_matching('Section title (a) with (1) references')
     self.assertNotIn('(', result)  # All footnotes should be removed
@@ -512,6 +531,55 @@ class TestPdfTocExtractor(unittest.TestCase):
       'B.5 Valor característico de la densidad'
     )
     self.assertGreater(sim2, 0.8)  # Should be high similarity despite footnote
+
+  def test_detect_and_merge_split_headlines(self):
+    """Test detection and merging of split headlines."""
+    from pdf_toc_extractor import detect_and_merge_split_headlines
+    
+    # Test data: ToC entry that should match merged sections
+    toc_entries = [{
+      'title': 'Sección SI 4 Instalaciones de protección contra incendios',
+      'page': 32,
+      'level': 1
+    }]
+    
+    # DoclingDocument sections that are incorrectly split
+    docling_sections = [
+      {
+        'index': 0,
+        'text': 'Sección SI 4',
+        'page': 32,
+        'original_level': 1
+      },
+      {
+        'index': 1, 
+        'text': 'Instalaciones de protección contra incendios',
+        'page': 32,
+        'original_level': 2
+      },
+      {
+        'index': 2,
+        'text': 'Different section',
+        'page': 33,
+        'original_level': 1
+      }
+    ]
+    
+    # Run the split detection
+    merged_sections = detect_and_merge_split_headlines(toc_entries, docling_sections)
+    
+    # Should have merged the first two sections
+    self.assertEqual(len(merged_sections), 2)  # One less section after merging
+    
+    # First section should contain merged text
+    merged_section = merged_sections[0]
+    self.assertIn('Sección SI 4', merged_section['text'])
+    self.assertIn('Instalaciones de protección contra incendios', merged_section['text'])
+    self.assertIn('merged_from', merged_section)
+    self.assertEqual(len(merged_section['merged_from']), 2)
+    
+    # Third section should remain unchanged
+    self.assertEqual(merged_sections[1]['text'], 'Different section')
 
 
 if __name__ == '__main__':

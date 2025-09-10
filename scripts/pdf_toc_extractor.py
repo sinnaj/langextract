@@ -87,6 +87,7 @@ def normalize_text_for_matching(text: str) -> str:
   Enhanced text normalization specifically for ToC-to-section matching.
   Handles footnote references like "(1)" or "( 1 )" better than standard normalization.
   Also handles empty parentheses "( )" which can appear in ToC entries.
+  Enhanced to handle invisible characters and various Unicode parentheses.
   
   Args:
       text: Text to normalize
@@ -94,12 +95,24 @@ def normalize_text_for_matching(text: str) -> str:
   Returns:
       Normalized text string optimized for matching
   """
-  # Remove footnote references like "(1)", "( 1 )", "(1 )", "( )", "()", etc.
-  # This handles both numbered footnotes and empty parentheses
-  text_clean = re.sub(r'\(\s*\d*\s*\)', '', text).strip()
+  # First, handle various Unicode parentheses and invisible characters
+  # Replace various Unicode parentheses with standard ones
+  text_clean = text.replace('（', '(').replace('）', ')')
+  text_clean = text_clean.replace('❨', '(').replace('❩', ')')
+  
+  # Remove zero-width characters and other invisible characters
+  text_clean = ''.join(char for char in text_clean if ord(char) not in [0x200B, 0x200C, 0x200D, 0xFEFF])
+  
+  # Remove footnote references with various patterns:
+  # - (1), ( 1 ), (1 ), ( ), (), etc. - numbered footnotes and empty parentheses
+  # - Handle any whitespace including non-breaking spaces
+  text_clean = re.sub(r'\(\s*\d*\s*\)', '', text_clean).strip()
   
   # Also handle other common footnote patterns
-  text_clean = re.sub(r'\(\s*[a-z]\s*\)', '', text_clean).strip()  # (a), (b), etc.
+  text_clean = re.sub(r'\(\s*[a-zA-Z]\s*\)', '', text_clean).strip()  # (a), (b), etc.
+  
+  # Handle parentheses with special characters or symbols
+  text_clean = re.sub(r'\(\s*[^\w\s]*\s*\)', '', text_clean).strip()
   
   # Clean up any double spaces that might result
   text_clean = re.sub(r'\s+', ' ', text_clean).strip()
@@ -315,6 +328,131 @@ def split_combined_headings(text: str) -> List[str]:
   
   # No splitting patterns found, return original text
   return [text] if text else []
+
+
+def detect_and_merge_split_headlines(
+    toc_entries: List[Dict[str, Any]], 
+    docling_sections: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+  """
+  Detect when Docling incorrectly splits headlines and merge them.
+  
+  Sometimes Docling splits a single headline from the ToC into multiple consecutive 
+  section headers. This function detects such cases and merges them.
+  
+  Args:
+      toc_entries: List of ToC entries with intervals
+      docling_sections: List of DoclingDocument section headers
+      
+  Returns:
+      Updated list of DoclingDocument sections with merged headlines
+  """
+  logger = logging.getLogger(__name__)
+  
+  if not toc_entries or not docling_sections:
+    return docling_sections
+  
+  # Create a copy to avoid modifying the original
+  import copy
+  sections = copy.deepcopy(docling_sections)
+  
+  # Sort sections by page and then by position on page (using bbox if available)
+  sections.sort(key=lambda s: (s.get('page', 0), s.get('index', 0)))
+  
+  merged_count = 0
+  indices_to_remove = set()
+  
+  # For each ToC entry, check if there are consecutive DoclingDocument sections
+  # on the same page that together might form the complete ToC title
+  for toc_entry in toc_entries:
+    toc_title = toc_entry['title']
+    toc_page = toc_entry['page']
+    toc_normalized = normalize_text_for_matching(toc_title)
+    
+    # Find all sections on this page
+    page_sections = [s for s in sections if s.get('page') == toc_page]
+    
+    if len(page_sections) < 2:
+      continue
+    
+    # Look for consecutive sections that might be parts of the same headline
+    for i in range(len(page_sections) - 1):
+      if page_sections[i]['index'] in indices_to_remove:
+        continue
+        
+      current_section = page_sections[i]
+      next_section = page_sections[i + 1]
+      
+      # Check if current section is similar to start of ToC entry
+      current_text = current_section['text']
+      current_normalized = normalize_text_for_matching(current_text)
+      
+      # Skip if current section already matches the ToC entry well
+      if calculate_text_similarity(current_normalized, toc_normalized) > 0.8:
+        continue
+      
+      # Try merging current and next section
+      combined_text = f"{current_text} {next_section['text']}".strip()
+      combined_normalized = normalize_text_for_matching(combined_text)
+      
+      # Check if merged text matches ToC entry better than individual parts
+      combined_similarity = calculate_text_similarity(combined_normalized, toc_normalized)
+      current_similarity = calculate_text_similarity(current_normalized, toc_normalized)
+      next_similarity = calculate_text_similarity(
+        normalize_text_for_matching(next_section['text']), toc_normalized
+      )
+      
+      # If combined similarity is significantly better, merge them
+      if (combined_similarity > 0.7 and 
+          combined_similarity > current_similarity + 0.2 and
+          combined_similarity > next_similarity + 0.2):
+        
+        logger.info(f'Merging split headlines on page {toc_page}:')
+        logger.info(f'  Part 1: "{current_text}"')
+        logger.info(f'  Part 2: "{next_section["text"]}"')
+        logger.info(f'  Combined: "{combined_text}"')
+        logger.info(f'  ToC target: "{toc_title}"')
+        logger.info(f'  Similarity improvement: {current_similarity:.3f} -> {combined_similarity:.3f}')
+        
+        # Update the current section with merged text
+        current_section['text'] = combined_text
+        current_section['merged_from'] = [current_section['index'], next_section['index']]
+        
+        # Mark the next section for removal
+        indices_to_remove.add(next_section['index'])
+        merged_count += 1
+        
+        # Try to extend the merge to include more consecutive sections
+        j = i + 2
+        while j < len(page_sections):
+          if page_sections[j]['index'] in indices_to_remove:
+            j += 1
+            continue
+            
+          extended_text = f"{combined_text} {page_sections[j]['text']}".strip()
+          extended_normalized = normalize_text_for_matching(extended_text)
+          extended_similarity = calculate_text_similarity(extended_normalized, toc_normalized)
+          
+          if extended_similarity > combined_similarity + 0.1:
+            logger.info(f'  Extended merge with: "{page_sections[j]["text"]}"')
+            combined_text = extended_text
+            combined_similarity = extended_similarity
+            current_section['text'] = combined_text
+            current_section['merged_from'].append(page_sections[j]['index'])
+            indices_to_remove.add(page_sections[j]['index'])
+            j += 1
+          else:
+            break
+        
+        break  # Move to next ToC entry
+  
+  # Remove sections that were merged into others
+  sections_filtered = [s for s in sections if s['index'] not in indices_to_remove]
+  
+  if merged_count > 0:
+    logger.info(f'Successfully merged {merged_count} split headlines')
+  
+  return sections_filtered
 
 
 def scan_page_for_text_matches(
@@ -1458,6 +1596,11 @@ def enhanced_map_toc_to_docling_sections(
   
   logger.info(f'Found {len(section_headers)} valid section headers in DoclingDocument')
   logger.info(f'Found {len(toc_entries_with_intervals)} ToC entries with intervals')
+  
+  # Step 2.5: Detect and merge split headlines
+  logger.info('Step 2.5: Detecting and merging split headlines')
+  section_headers = detect_and_merge_split_headlines(toc_entries_with_intervals, section_headers)
+  logger.info(f'After split headline detection: {len(section_headers)} section headers')
   
   # Step 3: Multi-pass mapping
   logger.info('Step 3: Performing multi-pass mapping')
