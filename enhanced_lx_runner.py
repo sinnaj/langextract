@@ -1,183 +1,255 @@
 #!/usr/bin/env python3
-"""Enhanced LangExtract Runner with improved extraction pipeline.
+"""Enhanced LangExtract Runner with Docling Document processing.
 
 This runner implements the enhanced extraction pipeline as outlined in 
-docs/prompts/extraction_pipeline_guide.md with deterministic IDs, PDF anchoring,
-and comprehensive quality metrics.
+docs/prompts/extraction_pipeline_guide.md using Docling Documents directly,
+with ToC-driven chunking and headline fixes.
 
 Usage:
     python enhanced_lx_runner.py document.pdf --output-dir results/
-    python enhanced_lx_runner.py document.pdf --markdown-path converted.md --output-dir results/
+    python enhanced_lx_runner.py document.pdf --docling-path converted.json --output-dir results/
 """
 
 import json
 import os
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 import tempfile
 
-# Import enhanced pipeline components
-from extraction_pipeline.enhanced_pipeline import EnhancedExtractionPipeline
+# Import enhanced pipeline components (commented out for chunking-only version)
+# from extraction_pipeline.enhanced_pipeline import EnhancedExtractionPipeline
 
-# Import existing langextract functionality
-import langextract as lx
-from langextract import factory
-from langextract import providers
+# Import existing langextract functionality (commented out for chunking-only version)  
+# import langextract as lx
+# from langextract import factory
+# from langextract import providers
 
-# Import existing modules
-from section_chunker import create_section_chunks
-from chunk_evaluator import evaluate_chunks
+# Import existing modules (commented out for chunking-only version)
+# from section_chunker import create_section_chunks
+# from chunk_evaluator import evaluate_chunks
 
 
 def setup_langextract_providers():
     """Setup LangExtract providers and configuration."""
-    providers.load_builtins_once()
-    providers.load_plugins_once()
-    
-    try:
-        avail = providers.list_providers()
-        print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
-    except Exception:
-        pass
+    # Commented out for chunking-only test version
+    pass
 
 
-def create_extraction_config() -> factory.ModelConfig:
+def create_extraction_config():
     """Create LangExtract model configuration."""
-    from dotenv import load_dotenv
-    load_dotenv()
-    
-    USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
-    OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")
-    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-    
-    if USE_OPENROUTER:
-        if not OPENROUTER_KEY:
-            print("WARNING: OPENROUTER (OPENAI_API_KEY) key not set – OpenRouter call will fail.", file=sys.stderr)
-        
-        MODEL_ID = "google/gemini-2.5-flash"
-        return factory.ModelConfig(
-            model_id=MODEL_ID,
-            provider="OpenAILanguageModel",
-            provider_kwargs={
-                "api_key": OPENROUTER_KEY,
-                "base_url": "https://openrouter.ai/api/v1",
-                "temperature": 0.15,
-                "format_type": lx.data.FormatType.JSON,
-                "max_workers": 20,
-            },
-        )
-    else:
-        if not GOOGLE_API_KEY:
-            print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
-        
-        MODEL_ID = "gemini-2.5-flash"
-        return factory.ModelConfig(
-            model_id=MODEL_ID,
-            provider="GeminiLanguageModel",
-            provider_kwargs={
-                "api_key": GOOGLE_API_KEY,
-                "temperature": 0.15,
-                "format_type": lx.data.FormatType.JSON,
-            },
-        )
+    # Commented out for chunking-only test version
+    pass
 
 
-def load_prompt_and_examples() -> tuple[str, List[Any]]:
+def load_prompt_and_examples():
     """Load prompt and examples for extraction."""
-    # Load prompt
-    prompt_file = Path("input_promptfiles/prompt_norm_extraction.md")
-    if prompt_file.exists():
-        prompt_description = prompt_file.read_text(encoding="utf-8")
-    else:
-        prompt_description = (
-            "Extract Norms, Tags, and Parameters. Return a JSON object with an 'extractions' array."
-        )
-    
-    # Load examples
-    import importlib.util
-    examples_file = Path("input_examplefiles/default.py")
-    if examples_file.exists():
-        spec = importlib.util.spec_from_file_location("lx_examples", str(examples_file))
-        if spec and spec.loader:
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            examples = getattr(module, "EXAMPLES", [])
-        else:
-            examples = []
-    else:
-        examples = []
-    
-    return prompt_description, examples
+    # Commented out for chunking-only test version
+    return "", []
 
 
 def extract_with_langextract(
     text: str, 
     prompt: str, 
     examples: List[Any], 
-    config: factory.ModelConfig
+    config: Any
 ) -> Optional[Dict[str, Any]]:
     """Extract using LangExtract with error handling."""
-    try:
-        extract_kwargs = {
-            "text_or_documents": text,
-            "prompt_description": prompt,
-            "examples": examples,
-            "config": config,
-            "fence_output": False,
-            "use_schema_constraints": False,
-            "max_char_buffer": 5000,
-            "extraction_passes": 2,
-            "resolver_params": {
-                "fence_output": False,
-                "format_type": lx.data.FormatType.JSON,
-                "suppress_parse_errors_default": False,
-            },
-        }
+    # Commented out for chunking-only test version
+    return None
+
+
+def create_chunks_from_docling_document(
+    docling_document: Dict[str, Any],
+    max_chars: int = 5000
+) -> List[Tuple[str, Dict[str, Any]]]:
+    """Create chunks from a headline-fixed Docling Document.
+    
+    This function extracts section headers and their content from the Docling Document,
+    creates ToC-interval based chunks with context headers.
+    
+    Args:
+        docling_document: The headline-fixed Docling Document JSON
+        max_chars: Maximum characters per chunk
         
-        annotated = lx.extract(**extract_kwargs)
-        
-        # Convert to dict format
-        result_items = []
-        extractions = getattr(annotated, "extractions", [])
-        
-        for extraction in extractions:
-            if extraction is None:
-                continue
-                
-            attributes = getattr(extraction, "attributes", {})
-            extraction_class = getattr(extraction, "extraction_class", None)
+    Returns:
+        List of (chunk_text, section_info) tuples
+    """
+    chunks = []
+    texts = docling_document.get('texts', [])
+    
+    # Find all section headers in the document
+    section_headers = []
+    for i, text_item in enumerate(texts):
+        if text_item.get('label') == 'section_header':
+            # Extract page info from provenance
+            page_no = 1
+            prov = text_item.get('prov', [])
+            if prov and isinstance(prov, list) and len(prov) > 0:
+                first_prov = prov[0]
+                if isinstance(first_prov, dict) and 'page_no' in first_prov:
+                    page_no = first_prov['page_no']
             
-            item = {
-                "extraction_class": extraction_class,
-                "extraction_text": getattr(extraction, "extraction_text", None),
-                "attributes": attributes,
-                "char_interval": getattr(extraction, "char_interval", None),
-                "alignment_status": getattr(extraction, "alignment_status", None),
-            }
-            result_items.append(item)
+            section_headers.append({
+                'index': i,
+                'text': text_item.get('text', ''),
+                'level': text_item.get('level', 1),
+                'page': page_no,
+                'parent_ref': text_item.get('parent', {}).get('$ref', '#/body')
+            })
+    
+    print(f"[DEBUG] Found {len(section_headers)} section headers in Docling Document")
+    
+    # Create chunks for each section by collecting content between section headers
+    for i, header in enumerate(section_headers):
+        section_name = header['text']
+        section_level = header['level']
+        section_page = header['page']
         
-        return {
-            "document_id": getattr(annotated, "document_id", None),
-            "extractions": result_items
+        # Find the range of text elements for this section
+        start_index = header['index'] + 1  # Start after the header
+        
+        # Find end index (before next section at same or higher level)
+        end_index = len(texts)
+        for j in range(i + 1, len(section_headers)):
+            next_header = section_headers[j]
+            if next_header['level'] <= section_level:
+                end_index = next_header['index']
+                break
+        
+        # Collect content for this section
+        section_content_parts = []
+        end_page = section_page
+        
+        for text_idx in range(start_index, min(end_index, len(texts))):
+            text_item = texts[text_idx]
+            text_content = text_item.get('text', '').strip()
+            
+            if text_content:
+                # Skip nested section headers (they'll be processed separately)
+                if text_item.get('label') == 'section_header':
+                    continue
+                    
+                section_content_parts.append(text_content)
+                
+                # Update end page based on content
+                prov = text_item.get('prov', [])
+                if prov and isinstance(prov, list) and len(prov) > 0:
+                    first_prov = prov[0]
+                    if isinstance(first_prov, dict) and 'page_no' in first_prov:
+                        end_page = max(end_page, first_prov['page_no'])
+        
+        section_content = '\n'.join(section_content_parts)
+        
+        # Skip empty sections
+        if not section_content.strip():
+            print(f"[DEBUG] Skipping empty section: {section_name}")
+            continue
+        
+        # Build ToC path (simplified - could be enhanced with actual hierarchy)
+        toc_path = [section_name]
+        
+        # Create context header
+        context_header = f"# Section: {section_name}\n"
+        context_header += f"**Level:** {section_level}\n"
+        context_header += f"**Page:** {section_page}"
+        if end_page > section_page:
+            context_header += f"-{end_page}"
+        context_header += "\n"
+        
+        # Create section info
+        section_info = {
+            "section_name": section_name,
+            "section_level": section_level,
+            "start_page": section_page,
+            "end_page": end_page,
+            "toc_path": toc_path,
+            "section_index": i
         }
         
-    except Exception as e:
-        print(f"[ERROR] LangExtract failed: {e}", file=sys.stderr)
-        return None
+        if len(section_content) <= max_chars:
+            # Single chunk
+            chunk_text = f"{context_header}\n{section_content}"
+            chunks.append((chunk_text, section_info))
+            print(f"[DEBUG] Created chunk for section '{section_name}' ({len(section_content)} chars)")
+        else:
+            # Split large content into multiple chunks
+            split_chunks = split_large_content(section_content, max_chars)
+            for j, split_content in enumerate(split_chunks):
+                chunk_header = f"{context_header} (Part {j+1}/{len(split_chunks)})\n"
+                chunk_text = f"{chunk_header}\n{split_content}"
+                chunks.append((chunk_text, section_info))
+            print(f"[DEBUG] Split section '{section_name}' into {len(split_chunks)} chunks")
+    
+    return chunks
+
+
+def split_large_content(content: str, max_chars: int) -> List[str]:
+    """Split large content into smaller chunks with sentence overlap.
+    
+    Args:
+        content: Content to split
+        max_chars: Maximum characters per chunk
+        
+    Returns:
+        List of content chunks
+    """
+    import re
+    
+    # Split into sentences
+    sentences = re.split(r'[.!?]+\s+', content)
+    sentences = [s.strip() for s in sentences if s.strip()]
+    
+    if not sentences:
+        return [content]
+    
+    chunks = []
+    current_chunk = []
+    current_length = 0
+    overlap_size = max(1, len(sentences) // 20)  # 5% overlap
+    
+    i = 0
+    while i < len(sentences):
+        sentence = sentences[i]
+        
+        if current_length + len(sentence) <= max_chars:
+            current_chunk.append(sentence)
+            current_length += len(sentence) + 1  # +1 for space
+            i += 1
+        else:
+            if current_chunk:
+                # Finish current chunk
+                chunks.append(' '.join(current_chunk))
+                
+                # Start new chunk with overlap
+                overlap_start = max(0, len(current_chunk) - overlap_size)
+                current_chunk = current_chunk[overlap_start:]
+                current_length = sum(len(s) + 1 for s in current_chunk)
+            else:
+                # Sentence too long, take it anyway
+                current_chunk.append(sentence)
+                chunks.append(' '.join(current_chunk))
+                current_chunk = []
+                current_length = 0
+                i += 1
+    
+    if current_chunk:
+        chunks.append(' '.join(current_chunk))
+    
+    return chunks
 
 
 def run_enhanced_extraction(
     pdf_path: Path,
     output_dir: Optional[Path] = None,
-    markdown_path: Optional[Path] = None
+    docling_path: Optional[Path] = None
 ) -> Dict[str, Any]:
     """Run enhanced extraction pipeline on PDF document.
     
     Args:
         pdf_path: Path to source PDF file
         output_dir: Optional output directory
-        markdown_path: Optional path to pre-converted markdown (if None, will convert PDF)
+        docling_path: Optional path to pre-converted docling document (if None, will convert PDF)
         
     Returns:
         Dictionary with extraction results and metrics
@@ -190,94 +262,110 @@ def run_enhanced_extraction(
     print("[INFO] Setting up enhanced extraction pipeline...")
     print(f"[INFO] Processing PDF: {pdf_path}")
     
-    # Generate markdown from PDF if not provided
-    if markdown_path is None or not markdown_path.exists():
-        print("[INFO] Converting PDF to markdown using Docling...")
-        markdown_path = output_dir / "converted_document.md"
+    # Generate Docling Document from PDF if not provided
+    if docling_path is None or not docling_path.exists():
+        print("[INFO] Converting PDF to Docling Document...")
+        docling_path = output_dir / "converted_document.json"
         
-        # Import and use the PDF to markdown converter
+        # Import and use the PDF to Docling Document converter
         sys.path.insert(0, str(Path(__file__).parent / "scripts"))
         try:
-            from pdf_to_markdown import convert_pdf_to_markdown
-            convert_pdf_to_markdown(
+            from pdf_to_docling_document import convert_pdf_to_docling_document
+            convert_pdf_to_docling_document(
                 source=pdf_path,
-                output_path=markdown_path,
-                verbose=False,
-                output_format='markdown'
+                output_path=docling_path,
+                verbose=False
             )
-            print(f"[INFO] Markdown saved to: {markdown_path}")
+            print(f"[INFO] Docling Document saved to: {docling_path}")
         except ImportError as e:
-            print(f"[ERROR] Could not import pdf_to_markdown: {e}")
+            print(f"[ERROR] Could not import pdf_to_docling_document: {e}")
             print("[ERROR] Please ensure docling is installed: pip install docling")
             sys.exit(1)
         except Exception as e:
-            print(f"[ERROR] PDF to markdown conversion failed: {e}")
+            print(f"[ERROR] PDF to Docling Document conversion failed: {e}")
             sys.exit(1)
     
-    # Setup providers and configuration
-    setup_langextract_providers()
-    config = create_extraction_config()
-    prompt, examples = load_prompt_and_examples()
+    # Apply ToC extraction and headline fixes using pdf_toc_extractor.py
+    print("[INFO] Extracting ToC and fixing headlines in Docling Document...")
+    fixed_docling_path = output_dir / "headline_fixed_doclingdocument.json" 
     
-    # Initialize enhanced pipeline with PDF
-    pipeline = EnhancedExtractionPipeline(pdf_path)
-    pipeline.load_document_data()
-    pipeline.create_sections()
-    
-    # Create chunks from enhanced sections
-    print("[INFO] Creating section-based chunks from ToC intervals...")
-    chunks = pipeline.create_chunks_for_extraction(max_chars=5000)
-    
-    print(f"[INFO] Processing {len(chunks)} section chunks...")
-    
-    # Extract from each chunk
-    extraction_results = []
-    for i, (chunk_text, section) in enumerate(chunks):
-        print(f"[INFO] Extracting from chunk {i+1}/{len(chunks)}: {section.section_name}")
+    try:
+        from scripts.pdf_toc_extractor import process_pdf_and_docling
+        process_pdf_and_docling(str(pdf_path), str(docling_path))
         
-        result = extract_with_langextract(chunk_text, prompt, examples, config)
-        if result:
-            extraction_results.append(result)
+        # The pdf_toc_extractor saves the fixed document as headline_fixed_doclingdocument.json
+        # in the same directory as the original docling document
+        original_fixed_path = docling_path.parent / "headline_fixed_doclingdocument.json"
+        if original_fixed_path.exists():
+            # Move to our output directory
+            import shutil
+            shutil.move(str(original_fixed_path), str(fixed_docling_path))
+            print(f"[INFO] Headline-fixed Docling Document saved to: {fixed_docling_path}")
         else:
-            # Create empty result for failed extractions
-            extraction_results.append({
-                "document_id": f"chunk_{i}",
-                "extractions": []
-            })
+            print("[WARNING] Headline fixing may have failed, using original Docling Document")
+            fixed_docling_path = docling_path
+            
+    except Exception as e:
+        print(f"[ERROR] ToC extraction and headline fixing failed: {e}")
+        print("[INFO] Continuing with original Docling Document")
+        fixed_docling_path = docling_path
     
-    # Process results through enhanced pipeline
-    print("[INFO] Processing extraction results through enhanced pipeline...")
-    enhanced_sections, quality_metrics = pipeline.process_extraction_results(
-        extraction_results, [section for _, section in chunks]
-    )
+    # Load the fixed Docling Document
+    print("[INFO] Loading headline-fixed Docling Document...")
+    with open(fixed_docling_path, 'r', encoding='utf-8') as f:
+        docling_document = json.load(f)
     
-    # Generate comprehensive report
-    report = pipeline.generate_extraction_report()
+    # Create sections and chunks from the fixed Docling Document
+    print("[INFO] Creating ToC-interval based chunks from fixed Docling Document...")
+    chunks = create_chunks_from_docling_document(docling_document, max_chars=5000)
     
-    # Save enhanced results
-    enhanced_output_path = output_dir / "enhanced_extractions.json"
-    pipeline.export_enhanced_results(enhanced_output_path, include_raw_data=True)
+    print(f"[INFO] Created {len(chunks)} chunks for processing")
     
-    # Save extraction report
-    report_path = output_dir / "extraction_report.json"
-    with open(report_path, 'w', encoding='utf-8') as f:
-        json.dump(report, f, indent=2, ensure_ascii=False)
+    # Save chunks for testing as requested
+    chunks_output_path = output_dir / "generated_chunks.json"
+    chunks_data = []
     
-    print(f"[INFO] Enhanced extraction complete:")
-    print(f"  - Sections processed: {quality_metrics.total_sections}")
-    print(f"  - Norms extracted: {quality_metrics.total_norms}")
-    print(f"  - Anchoring success rate: {quality_metrics.anchoring_success_rate():.1%}")
-    print(f"  - Parameter normalization: {quality_metrics.parameter_normalization_coverage:.1%}")
-    print(f"  - Results saved to: {enhanced_output_path}")
-    print(f"  - Report saved to: {report_path}")
+    for i, (chunk_text, section_info) in enumerate(chunks):
+        chunk_data = {
+            "chunk_id": i + 1,
+            "section_name": section_info.get("section_name", f"Section {i+1}"),
+            "section_path": section_info.get("toc_path", []),
+            "start_page": section_info.get("start_page"),
+            "end_page": section_info.get("end_page"), 
+            "section_level": section_info.get("section_level", 1),
+            "chunk_text": chunk_text,
+            "char_count": len(chunk_text),
+            "has_context_header": chunk_text.startswith("# Section:")
+        }
+        chunks_data.append(chunk_data)
     
+    # Save chunks to JSON file for testing and validation
+    with open(chunks_output_path, 'w', encoding='utf-8') as f:
+        json.dump({
+            "pipeline_info": {
+                "version": "1.0",
+                "method": "docling_toc_based_chunking", 
+                "pdf_source": str(pdf_path),
+                "docling_document": str(fixed_docling_path),
+                "total_chunks": len(chunks)
+            },
+            "chunks": chunks_data
+        }, f, indent=2, ensure_ascii=False)
+    
+    print(f"[INFO] Generated chunks saved to: {chunks_output_path}")
+    print(f"[SUCCESS] Enhanced pipeline test completed up to chunk creation!")
+    print(f"  - Input PDF: {pdf_path}")
+    print(f"  - Docling Document: {fixed_docling_path}")
+    print(f"  - Generated chunks: {len(chunks)}")
+    print(f"  - Chunks saved to: {chunks_output_path}")
+    
+    # For now, return the chunks data instead of running full extraction
     return {
-        "enhanced_sections": enhanced_sections,
-        "quality_metrics": quality_metrics,
-        "extraction_report": report,
+        "chunks": chunks_data,
+        "docling_document": docling_document,
         "output_files": {
-            "enhanced_results": enhanced_output_path,
-            "extraction_report": report_path
+            "docling_document": fixed_docling_path,
+            "chunks": chunks_output_path
         }
     }
 
@@ -295,9 +383,9 @@ def main():
         help="Path to source PDF file"
     )
     parser.add_argument(
-        "--markdown-path",
+        "--docling-path",
         type=Path,
-        help="Optional path to pre-converted markdown file (if not provided, PDF will be converted)"
+        help="Optional path to pre-converted Docling Document file (if not provided, PDF will be converted)"
     )
     parser.add_argument(
         "--output-dir",
@@ -311,31 +399,39 @@ def main():
         print(f"Error: PDF file not found: {args.pdf_path}")
         sys.exit(1)
     
-    if args.markdown_path and not args.markdown_path.exists():
-        print(f"Error: Markdown file not found: {args.markdown_path}")
+    if args.docling_path and not args.docling_path.exists():
+        print(f"Error: Docling Document file not found: {args.docling_path}")
         sys.exit(1)
     
     try:
         results = run_enhanced_extraction(
             args.pdf_path,
             args.output_dir,
-            args.markdown_path
+            args.docling_path
         )
         
-        print("\n[SUCCESS] Enhanced extraction completed successfully!")
+        print("\n[SUCCESS] Enhanced pipeline test completed successfully!")
         
         # Print summary statistics
-        quality_metrics = results["quality_metrics"]
-        print("\nQuality Metrics Summary:")
-        print(f"  Total Sections: {quality_metrics.total_sections}")
-        print(f"  Total Norms: {quality_metrics.total_norms}")
-        print(f"  Anchoring Success: {quality_metrics.anchoring_success_rate():.1%}")
-        print(f"    - Exact matches: {quality_metrics.anchoring_success_exact}")
-        print(f"    - Normalized matches: {quality_metrics.anchoring_success_normalized}")
-        print(f"    - Fuzzy matches: {quality_metrics.anchoring_success_fuzzy}")
-        print(f"    - Fallbacks: {quality_metrics.anchoring_fallback}")
-        print(f"  Parameter normalization: {quality_metrics.parameter_normalization_coverage:.1%}")
-        print(f"  Low confidence norms: {len(quality_metrics.low_confidence_norms)}")
+        chunks_data = results["chunks"]
+        print("\nPipeline Summary:")
+        print(f"  Total Chunks Generated: {len(chunks_data)}")
+        print(f"  Average Chunk Size: {sum(c['char_count'] for c in chunks_data) // len(chunks_data) if chunks_data else 0} characters")
+        
+        sections_by_level = {}
+        for chunk in chunks_data:
+            level = chunk.get('section_level', 1)
+            sections_by_level[level] = sections_by_level.get(level, 0) + 1
+        
+        print("  Sections by Level:")
+        for level in sorted(sections_by_level.keys()):
+            print(f"    Level {level}: {sections_by_level[level]} sections")
+        
+        print(f"\nOutput Files:")
+        for file_type, file_path in results["output_files"].items():
+            print(f"  {file_type}: {file_path}")
+        
+        print(f"\nNext steps: Run langextract on the generated chunks to extract norms and parameters.")
         
     except Exception as e:
         print(f"[ERROR] Enhanced extraction failed: {e}", file=sys.stderr)
