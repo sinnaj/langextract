@@ -86,6 +86,7 @@ def normalize_text_for_matching(text: str) -> str:
   """
   Enhanced text normalization specifically for ToC-to-section matching.
   Handles footnote references like "(1)" or "( 1 )" better than standard normalization.
+  Also handles empty parentheses "( )" which can appear in ToC entries.
   
   Args:
       text: Text to normalize
@@ -93,9 +94,9 @@ def normalize_text_for_matching(text: str) -> str:
   Returns:
       Normalized text string optimized for matching
   """
-  # Remove footnote references like "(1)", "( 1 )", "(1 )", etc.
-  # This handles the specific case mentioned in the issue
-  text_clean = re.sub(r'\(\s*\d+\s*\)', '', text).strip()
+  # Remove footnote references like "(1)", "( 1 )", "(1 )", "( )", "()", etc.
+  # This handles both numbered footnotes and empty parentheses
+  text_clean = re.sub(r'\(\s*\d*\s*\)', '', text).strip()
   
   # Also handle other common footnote patterns
   text_clean = re.sub(r'\(\s*[a-z]\s*\)', '', text_clean).strip()  # (a), (b), etc.

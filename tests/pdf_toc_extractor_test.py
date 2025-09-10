@@ -409,6 +409,20 @@ class TestPdfTocExtractor(unittest.TestCase):
       'b5valorcaracteristico'
     )
     
+    # Test empty parentheses (specific issue from user comment)
+    self.assertEqual(
+      normalize_text_for_matching('1 Condiciones de aproximación y entorno( )'),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test matching between empty parentheses and numbered footnotes
+    toc_text = '1 Condiciones de aproximación y entorno( )'
+    docling_text = '1 Condiciones de aproximación y entorno (1)'
+    self.assertEqual(
+      normalize_text_for_matching(toc_text),
+      normalize_text_for_matching(docling_text)
+    )
+    
     # Test multiple footnote patterns
     result = normalize_text_for_matching('Section title (a) with (1) references')
     self.assertNotIn('(', result)  # All footnotes should be removed
