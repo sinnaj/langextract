@@ -1131,13 +1131,26 @@ def fix_page_order_within_parents(docling_data: Dict[str, Any]) -> Dict[str, Any
       children_by_index = sorted(children, key=lambda x: x['index'])
       
       # Check for page order violations within this parent group
+      # Be more tolerant for structured containers (Anejo, Sección) where ToC order matters more than page order
+      parent_element = None
+      if parent_ref.startswith('#/texts/'):
+        parent_idx = int(parent_ref.split('/')[-1])
+        parent_element = texts[parent_idx]
+      
+      is_structured_parent = (parent_element and 
+                             (parent_element.get('text', '').strip().startswith('Anejo') or 
+                              parent_element.get('text', '').strip().startswith('Sección')))
+      
+      # Use higher tolerance for structured parents where subsections may be logically grouped
+      page_tolerance = 5 if is_structured_parent else 2
+      
       violations = []
       for i in range(1, len(children_by_index)):
         prev_page = children_by_index[i-1]['page']
         curr_page = children_by_index[i]['page']
         
-        # Allow some tolerance for same or close pages
-        if prev_page > 0 and curr_page > 0 and curr_page < prev_page - 2:
+        # Allow tolerance for same or close pages, more for structured parents  
+        if prev_page > 0 and curr_page > 0 and curr_page < prev_page - page_tolerance:
           violations.append({
             'prev_child': children_by_index[i-1],
             'curr_child': children_by_index[i],
@@ -1189,20 +1202,33 @@ def fix_page_order_within_parents(docling_data: Dict[str, Any]) -> Dict[str, Any
                   prev_section_found = True
                   break
             
-            # If we found the previous section, but pages are still out of order,
-            # consider making this section a sibling at the same level as its parent
-            # (promoting it up one level)
+            # If we found the previous section, check if promotion is actually needed
+            # Only promote if there's a significant structural issue, not just page order
             if prev_section_found:
               current_parent_ref = texts[curr_index].get('parent', {}).get('$ref')
               if current_parent_ref and current_parent_ref.startswith('#/texts/'):
                 parent_idx = int(current_parent_ref.split('/')[-1])
-                grandparent_ref = texts[parent_idx].get('parent', {}).get('$ref', '#/body')
                 
-                logger.info(f'Promoting section "{curr_text[:30]}..." to be sibling of its current parent (level up)')
-                texts[curr_index]['parent'] = {'$ref': grandparent_ref}
-                texts[curr_index]['level'] = max(1, curr_level - 1)  # Move up one level
-                fixes_applied_this_iteration += 1
-                break  # Process one fix at a time
+                # Check if this section has ground_truth flag (came from ToC mapping)
+                # If it does, respect the ToC-driven hierarchy and don't promote
+                is_ground_truth = not texts[curr_index].get('derived', False)
+                
+                # Also check if the parent is a well-structured container (like "Anejo")
+                parent_text = texts[parent_idx].get('text', '').strip()
+                is_anejo_parent = parent_text.startswith('Anejo') or parent_text.startswith('Sección')
+                
+                # Only promote if this is a derived section (not ToC-mapped) and 
+                # the parent is not a structured container
+                if not is_ground_truth and not is_anejo_parent:
+                  grandparent_ref = texts[parent_idx].get('parent', {}).get('$ref', '#/body')
+                  
+                  logger.info(f'Promoting section "{curr_text[:30]}..." to be sibling of its current parent (level up)')
+                  texts[curr_index]['parent'] = {'$ref': grandparent_ref}
+                  texts[curr_index]['level'] = max(1, curr_level - 1)  # Move up one level
+                  fixes_applied_this_iteration += 1
+                  break  # Process one fix at a time
+                else:
+                  logger.debug(f'Skipping promotion of "{curr_text[:30]}..." - preserving ToC-driven hierarchy under "{parent_text[:30]}..."')
           
           # Strategy 3: Check if section should be moved to a different parent based on page proximity
           best_parent_ref = parent_ref  # Default to current parent
