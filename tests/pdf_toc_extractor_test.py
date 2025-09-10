@@ -581,6 +581,45 @@ class TestPdfTocExtractor(unittest.TestCase):
     # Third section should remain unchanged
     self.assertEqual(merged_sections[1]['text'], 'Different section')
 
+  def test_enhanced_parentheses_normalization(self):
+    """Test enhanced parentheses handling including Unicode and invisible characters."""
+    # Test empty parentheses
+    result1 = normalize_text_for_matching('1 Condiciones de aproximación y entorno( )')
+    result2 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (1)')
+    self.assertEqual(result1, result2)
+    
+    # Test various Unicode parentheses
+    result3 = normalize_text_for_matching('1 Condiciones de aproximación y entorno（１）')
+    self.assertEqual(result1, result3)
+    
+    # Test symbol parentheses
+    result4 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (*)')
+    self.assertEqual(result1, result4)
+    
+    # Test lettered footnotes
+    result5 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (a)')
+    self.assertEqual(result1, result5)
+
+  def test_auxiliary_content_detection_fixed(self):
+    """Test that section headers with footnote references are not flagged as auxiliary content."""
+    # This should NOT be flagged as auxiliary content
+    valid_header = '1 Condiciones de aproximación y entorno (1)'
+    result = detect_auxiliary_content(valid_header)
+    self.assertFalse(result['is_auxiliary'])
+    self.assertEqual(result['type'], 'heading')
+    
+    # This should still be flagged as equation
+    equation = 'A = π × r² (1)'
+    eq_result = detect_auxiliary_content(equation)
+    self.assertTrue(eq_result['is_auxiliary'])
+    self.assertEqual(eq_result['type'], 'equation')
+    
+    # Another valid header with different footnote
+    valid_header2 = 'B.5 Valor característico de la densidad de carga de fuego ( 1 )'
+    result2 = detect_auxiliary_content(valid_header2)
+    self.assertFalse(result2['is_auxiliary'])
+    self.assertEqual(result2['type'], 'heading')
+
 
 if __name__ == '__main__':
   unittest.main()

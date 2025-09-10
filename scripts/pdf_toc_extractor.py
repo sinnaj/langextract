@@ -237,7 +237,8 @@ def detect_auxiliary_content(text: str) -> Dict[str, Any]:
     r'\bfórmula\b.*\d+',  # "Fórmula 1"
     r'\becuación\b.*\d+',  # "Ecuación 1"
     r'^[a-zA-Z]\s*=\s*',  # Variable assignments
-    r'[\(\[].*\d+[\.\d]*.*[\)\]]',  # Parenthetical expressions
+    r'^\s*[\(\[].*[=<>±∞∑∏∫].*[\)\]]\s*$',  # Mathematical expressions with operators
+    r'^\s*[a-zA-Z]\s*[\(\[].*\d+[\.\d]*.*[\)\]]\s*$',  # Variable with parenthetical value (whole line)
   ]
   
   # Caption indicators
@@ -332,7 +333,8 @@ def split_combined_headings(text: str) -> List[str]:
 
 def detect_and_merge_split_headlines(
     toc_entries: List[Dict[str, Any]], 
-    docling_sections: List[Dict[str, Any]]
+    docling_sections: List[Dict[str, Any]],
+    docling_data: Dict[str, Any] = None
 ) -> List[Dict[str, Any]]:
   """
   Detect when Docling incorrectly splits headlines and merge them.
@@ -343,6 +345,7 @@ def detect_and_merge_split_headlines(
   Args:
       toc_entries: List of ToC entries with intervals
       docling_sections: List of DoclingDocument section headers
+      docling_data: Full DoclingDocument data (to update the actual text elements)
       
   Returns:
       Updated list of DoclingDocument sections with merged headlines
@@ -418,6 +421,13 @@ def detect_and_merge_split_headlines(
         current_section['text'] = combined_text
         current_section['merged_from'] = [current_section['index'], next_section['index']]
         
+        # Update the DoclingDocument data if provided
+        if docling_data is not None:
+          texts = docling_data.get('texts', [])
+          if current_section['index'] < len(texts):
+            texts[current_section['index']]['text'] = combined_text
+            texts[current_section['index']]['merged_from'] = current_section['merged_from']
+        
         # Mark the next section for removal
         indices_to_remove.add(next_section['index'])
         merged_count += 1
@@ -440,6 +450,14 @@ def detect_and_merge_split_headlines(
             current_section['text'] = combined_text
             current_section['merged_from'].append(page_sections[j]['index'])
             indices_to_remove.add(page_sections[j]['index'])
+            
+            # Update DoclingDocument data for extended merge
+            if docling_data is not None:
+              texts = docling_data.get('texts', [])
+              if current_section['index'] < len(texts):
+                texts[current_section['index']]['text'] = combined_text
+                texts[current_section['index']]['merged_from'] = current_section['merged_from']
+            
             j += 1
           else:
             break
@@ -448,6 +466,17 @@ def detect_and_merge_split_headlines(
   
   # Remove sections that were merged into others
   sections_filtered = [s for s in sections if s['index'] not in indices_to_remove]
+  
+  # Also update the DoclingDocument data to remove/demote merged sections
+  if docling_data is not None and indices_to_remove:
+    texts = docling_data.get('texts', [])
+    for index in indices_to_remove:
+      if index < len(texts) and texts[index].get('label') == 'section_header':
+        # Convert merged sections to regular text instead of removing them entirely
+        # This preserves the content but removes them from the section hierarchy
+        texts[index]['label'] = 'text'  # Demote from section_header to text
+        texts[index]['merged_into'] = True  # Mark as merged
+        logger.debug(f'Demoted merged section at index {index}: "{texts[index].get("text", "")[:50]}..."')
   
   if merged_count > 0:
     logger.info(f'Successfully merged {merged_count} split headlines')
@@ -1599,7 +1628,7 @@ def enhanced_map_toc_to_docling_sections(
   
   # Step 2.5: Detect and merge split headlines
   logger.info('Step 2.5: Detecting and merging split headlines')
-  section_headers = detect_and_merge_split_headlines(toc_entries_with_intervals, section_headers)
+  section_headers = detect_and_merge_split_headlines(toc_entries_with_intervals, section_headers, updated_data)
   logger.info(f'After split headline detection: {len(section_headers)} section headers')
   
   # Step 3: Multi-pass mapping
