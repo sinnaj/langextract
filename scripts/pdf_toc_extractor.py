@@ -1075,6 +1075,185 @@ def page_driven_parenting(
   return updated
 
 
+def fix_page_order_within_parents(docling_data: Dict[str, Any]) -> Dict[str, Any]:
+  """
+  Fix page order violations by ensuring child sections are logically sorted by page within parents.
+  
+  This function identifies sections that are out of page order within their parent groups
+  and attempts to fix the ordering by updating parent relationships when appropriate.
+  
+  Args:
+      docling_data: DoclingDocument data with parent-child relationships
+      
+  Returns:
+      Updated DoclingDocument with improved page ordering
+  """
+  logger = logging.getLogger(__name__)
+  
+  import copy
+  updated_data = copy.deepcopy(docling_data)
+  texts = updated_data.get('texts', [])
+  
+  total_fixes_applied = 0
+  max_iterations = 5  # Prevent infinite loops
+  iteration = 0
+  
+  while iteration < max_iterations:
+    iteration += 1
+    logger.debug(f'Page order fix iteration {iteration}')
+    
+    # Group sections by parent and analyze page ordering
+    parent_to_children = {}
+    
+    for i, text_item in enumerate(texts):
+      if text_item.get('label') == 'section_header':
+        parent_ref = text_item.get('parent', {}).get('$ref', '#/body')
+        if parent_ref not in parent_to_children:
+          parent_to_children[parent_ref] = []
+        
+        page = extract_docling_element_page(text_item)
+        parent_to_children[parent_ref].append({
+          'index': i,
+          'page': page,
+          'text': text_item.get('text', ''),
+          'level': text_item.get('level', 1),
+          'element': text_item
+        })
+    
+    fixes_applied_this_iteration = 0
+    
+    # For each parent group, check for page order violations
+    for parent_ref, children in parent_to_children.items():
+      if len(children) <= 1:
+        continue
+        
+      # Sort by document order (index) to see current arrangement
+      children_by_index = sorted(children, key=lambda x: x['index'])
+      
+      # Check for page order violations within this parent group
+      violations = []
+      for i in range(1, len(children_by_index)):
+        prev_page = children_by_index[i-1]['page']
+        curr_page = children_by_index[i]['page']
+        
+        # Allow some tolerance for same or close pages
+        if prev_page > 0 and curr_page > 0 and curr_page < prev_page - 2:
+          violations.append({
+            'prev_child': children_by_index[i-1],
+            'curr_child': children_by_index[i],
+            'page_gap': prev_page - curr_page
+          })
+      
+      if violations:
+        logger.info(f'Iteration {iteration}: Found {len(violations)} page order violations under parent {parent_ref}:')
+        
+        # Try to fix violations by reordering or reparenting (process one at a time)
+        for violation in violations[:1]:  # Fix one violation at a time to avoid conflicts
+          curr_child = violation['curr_child']
+          curr_index = curr_child['index']
+          curr_page = curr_child['page']
+          curr_text = curr_child['text']
+          curr_level = curr_child['level']
+          
+          logger.debug(f'  Violation: "{curr_text[:30]}..." on page {curr_page} appears after page {violation["prev_child"]["page"]}')
+          
+          # Strategy 1: If it's a very short section (likely auxiliary content), demote it
+          if len(curr_text.strip()) <= 2:
+            logger.info(f'Converting very short section "{curr_text}" to regular text (likely auxiliary content)')
+            texts[curr_index]['label'] = 'text'  # Demote from section_header to text
+            fixes_applied_this_iteration += 1
+            break  # Process one fix at a time
+          
+          # Strategy 2: Check if this section should be at a different level or parent
+          # Look for numbered sections that might belong in sequence
+          
+          # If this is a numbered section (e.g., "2 Resistencia..."), look for section "1" nearby
+          import re
+          number_match = re.match(r'^(\d+)\s+(.+)', curr_text.strip())
+          if number_match:
+            section_number = int(number_match.group(1))
+            section_title = number_match.group(2)
+            
+            # Look for the previous numbered section in the same parent
+            prev_section_found = False
+            for other_child in children_by_index:
+              if other_child['index'] == curr_index:
+                continue
+                
+              other_number_match = re.match(r'^(\d+)\s+(.+)', other_child['text'].strip())
+              if other_number_match:
+                other_section_number = int(other_number_match.group(1))
+                
+                # If we find section N-1, and current section is N, they should be siblings
+                if other_section_number == section_number - 1:
+                  prev_section_found = True
+                  break
+            
+            # If we found the previous section, but pages are still out of order,
+            # consider making this section a sibling at the same level as its parent
+            # (promoting it up one level)
+            if prev_section_found:
+              current_parent_ref = texts[curr_index].get('parent', {}).get('$ref')
+              if current_parent_ref and current_parent_ref.startswith('#/texts/'):
+                parent_idx = int(current_parent_ref.split('/')[-1])
+                grandparent_ref = texts[parent_idx].get('parent', {}).get('$ref', '#/body')
+                
+                logger.info(f'Promoting section "{curr_text[:30]}..." to be sibling of its current parent (level up)')
+                texts[curr_index]['parent'] = {'$ref': grandparent_ref}
+                texts[curr_index]['level'] = max(1, curr_level - 1)  # Move up one level
+                fixes_applied_this_iteration += 1
+                break  # Process one fix at a time
+          
+          # Strategy 3: Check if section should be moved to a different parent based on page proximity
+          best_parent_ref = parent_ref  # Default to current parent
+          best_parent_score = float('inf')
+          
+          # Check all other parents to see if any would be a better fit
+          for other_parent_ref, other_children in parent_to_children.items():
+            if other_parent_ref == parent_ref:
+              continue
+              
+            # Find the page range of this parent's children
+            other_pages = [child['page'] for child in other_children if child['page'] > 0]
+            if not other_pages:
+              continue
+              
+            other_min_page = min(other_pages)
+            other_max_page = max(other_pages)
+            
+            # Check if current section's page fits better within this parent's range
+            if other_min_page <= curr_page <= other_max_page + 5:  # Allow some buffer
+              # Calculate how well it fits (smaller distance is better)
+              distance_score = min(abs(curr_page - other_min_page), abs(curr_page - other_max_page))
+              
+              if distance_score < best_parent_score:
+                best_parent_score = distance_score
+                best_parent_ref = other_parent_ref
+          
+          # If we found a better parent, update the section
+          if best_parent_ref != parent_ref and best_parent_score < 10:  # Only if significantly better
+            logger.info(f'Reparenting section "{curr_text[:30]}..." from {parent_ref} to {best_parent_ref}')
+            texts[curr_index]['parent'] = {'$ref': best_parent_ref}
+            fixes_applied_this_iteration += 1
+            break  # Process one fix at a time
+    
+    total_fixes_applied += fixes_applied_this_iteration
+    
+    # If no fixes were applied in this iteration, we're done
+    if fixes_applied_this_iteration == 0:
+      logger.debug(f'No fixes applied in iteration {iteration}, stopping')
+      break
+    else:
+      logger.debug(f'Applied {fixes_applied_this_iteration} fixes in iteration {iteration}')
+  
+  if total_fixes_applied > 0:
+    logger.info(f'Applied {total_fixes_applied} total fixes for page order violations over {iteration} iterations')
+  else:
+    logger.info('No page order fixes needed')
+    
+  return updated_data
+
+
 def perform_consistency_checks(
     docling_data: Dict[str, Any], 
     mappings: List[Dict[str, Any]]
@@ -1758,6 +1937,10 @@ def enhanced_map_toc_to_docling_sections(
   # Step 6: Page-driven parenting
   logger.info('Step 6: Applying page-driven parenting')
   updated_data = page_driven_parenting(mappings, toc_entries_with_intervals, updated_data)
+  
+  # Step 6.5: Fix page order within parent groups
+  logger.info('Step 6.5: Fixing page order within parent groups')
+  updated_data = fix_page_order_within_parents(updated_data)
   
   # Step 7: Consistency checks
   logger.info('Step 7: Performing consistency checks')
