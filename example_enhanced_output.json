@@ -1,0 +1,81 @@
+{
+  "extraction_pipeline": {
+    "version": "1.0",
+    "method": "enhanced_example",
+    "description": "Example demonstrating enhanced pipeline features"
+  },
+  "sections": [
+    {
+      "section_id": "8e797ed52eb5351a",
+      "section_name": "Evacuación",
+      "toc_path": [
+        "Sección SI 3",
+        "Evacuación"
+      ],
+      "tags": [
+        "SI3",
+        "Evacuación"
+      ],
+      "norms": []
+    },
+    {
+      "section_id": "c97eb61801451745",
+      "section_name": "Puertas",
+      "toc_path": [
+        "Sección SI 3",
+        "Evacuación",
+        "Puertas"
+      ],
+      "tags": [
+        "SI3",
+        "Evacuación",
+        "Puertas"
+      ],
+      "norms": [
+        {
+          "norm_id": "55816dd6ba50c800",
+          "text": "La anchura mínima de las puertas será de 0,80 m",
+          "parameters": [
+            {
+              "param_id": "a8162fbbb5a1f95d",
+              "name": "DOOR.WIDTH",
+              "operator": ">=",
+              "original_value": 800,
+              "original_unit": "mm",
+              "normalized_value": 0.8,
+              "normalized_unit": "m",
+              "unit_system": "SI"
+            }
+          ],
+          "tags": [
+            "Puertas/Dimensiones"
+          ]
+        },
+        {
+          "norm_id": "afaa8309127d1206",
+          "text": "La altura mínima de las puertas será de 2,00 m",
+          "parameters": [
+            {
+              "param_id": "94e27d80b68462a9",
+              "name": "DOOR.HEIGHT",
+              "operator": ">=",
+              "original_value": 2.0,
+              "original_unit": "m",
+              "normalized_value": 2.0,
+              "normalized_unit": "m",
+              "unit_system": "original"
+            }
+          ],
+          "tags": [
+            "Puertas/Dimensiones"
+          ]
+        }
+      ]
+    }
+  ],
+  "quality_metrics": {
+    "total_sections": 2,
+    "total_norms": 2,
+    "parameter_normalization_coverage": 0.5
+  }
+}
