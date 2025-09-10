@@ -2,20 +2,26 @@
 """
 Docling Hierarchical Chunking Script
 
-This script performs hierarchical chunking on a DoclingDocument using Docling's
-native HierarchicalChunker. It can work with DoclingDocument files (JSON/YAML) 
-or directly convert PDF files first and then perform chunking.
+This script performs chunking on a DoclingDocument using either Docling's
+native HierarchicalChunker or a custom level 1 section-based chunking approach.
+It can work with DoclingDocument files (JSON/YAML) or directly convert PDF files first.
 
 Usage:
     python docling_hierarchical_chunker.py input.json [output.json]
     python docling_hierarchical_chunker.py input.yaml [output.yaml] 
     python docling_hierarchical_chunker.py input.pdf [output.json]
+    python docling_hierarchical_chunker.py input.json --level1-sections [output.json]
     python docling_hierarchical_chunker.py --help
 
 Example:
+    # Standard hierarchical chunking
     python docling_hierarchical_chunker.py document.json chunks.json
-    python docling_hierarchical_chunker.py document.pdf chunks.json --verbose
-    python docling_hierarchical_chunker.py document.yaml --output chunks.yaml --verbose
+    
+    # Level 1 section-based chunking (each chunk starts with a level 1 section header)
+    python docling_hierarchical_chunker.py document.json chunks.json --level1-sections
+    
+    # PDF input with level 1 section chunking
+    python docling_hierarchical_chunker.py document.pdf chunks.json --level1-sections --verbose
 """
 
 import argparse
@@ -244,6 +250,148 @@ def perform_hierarchical_chunking(
   return chunks
 
 
+def perform_level1_section_chunking(
+    document: 'DoclingDocument',
+    delim: str = '\n\n'
+) -> List[Dict[str, Any]]:
+  """
+  Perform level 1 section-based chunking on a DoclingDocument.
+  
+  Each chunk will start with a level 1 section header and include all content
+  until the next level 1 section header.
+
+  Args:
+      document: The DoclingDocument to chunk
+      delim: Delimiter to use for joining content (default: '\n\n')
+
+  Returns:
+      List of chunk dictionaries
+
+  Raises:
+      ImportError: If docling-core is not installed
+  """
+  logger = logging.getLogger(__name__)
+  logger.info('Performing level 1 section chunking...')
+
+  texts = document.texts
+  if not texts:
+    logger.warning('Document has no texts to chunk')
+    return []
+
+  # Find all level 1 section headers
+  level1_indices = []
+  for i, text_item in enumerate(texts):
+    if (hasattr(text_item, 'label') and text_item.label == 'section_header' and
+        hasattr(text_item, 'level') and text_item.level == 1):
+      level1_indices.append(i)
+
+  if not level1_indices:
+    logger.warning('No level 1 section headers found in document')
+    return []
+
+  logger.info('Found %d level 1 section headers', len(level1_indices))
+
+  chunks = []
+  for i, start_idx in enumerate(level1_indices):
+    # Determine end index (next level 1 header or end of texts)
+    end_idx = level1_indices[i + 1] if i + 1 < len(level1_indices) else len(texts)
+    
+    # Collect all content for this section
+    section_texts = []
+    section_doc_items = []
+    section_header_text = ""
+    
+    for j in range(start_idx, end_idx):
+      text_item = texts[j]
+      
+      # Get the text content
+      if hasattr(text_item, 'text') and text_item.text:
+        section_texts.append(text_item.text)
+      elif hasattr(text_item, 'orig') and text_item.orig:
+        section_texts.append(text_item.orig)
+      
+      # Store the header text for the first item (which should be the level 1 header)
+      if j == start_idx and hasattr(text_item, 'text'):
+        section_header_text = text_item.text
+      
+      # Collect doc items for metadata
+      try:
+        # Convert text item to dict format for doc_items
+        doc_item = {}
+        if hasattr(text_item, 'self_ref'):
+          doc_item['self_ref'] = text_item.self_ref
+        if hasattr(text_item, 'parent'):
+          if hasattr(text_item.parent, 'cref'):
+            doc_item['parent'] = {'cref': text_item.parent.cref}
+          else:
+            doc_item['parent'] = {'cref': str(text_item.parent)}
+        if hasattr(text_item, 'children'):
+          doc_item['children'] = []
+        if hasattr(text_item, 'content_layer'):
+          doc_item['content_layer'] = text_item.content_layer
+        if hasattr(text_item, 'label'):
+          doc_item['label'] = text_item.label
+        if hasattr(text_item, 'prov'):
+          # Handle prov items carefully - they may contain non-serializable objects
+          prov_items = []
+          if text_item.prov:
+            for prov_item in text_item.prov:
+              try:
+                if hasattr(prov_item, 'model_dump'):
+                  prov_items.append(prov_item.model_dump())
+                elif hasattr(prov_item, 'dict'):
+                  prov_items.append(prov_item.dict())
+                else:
+                  # Try to extract basic attributes
+                  prov_dict = {}
+                  if hasattr(prov_item, 'page_no'):
+                    prov_dict['page_no'] = prov_item.page_no
+                  if hasattr(prov_item, 'bbox'):
+                    if hasattr(prov_item.bbox, 'model_dump'):
+                      prov_dict['bbox'] = prov_item.bbox.model_dump()
+                    elif hasattr(prov_item.bbox, 'dict'):
+                      prov_dict['bbox'] = prov_item.bbox.dict()
+                    else:
+                      prov_dict['bbox'] = str(prov_item.bbox)
+                  if hasattr(prov_item, 'charspan'):
+                    prov_dict['charspan'] = list(prov_item.charspan)
+                  prov_items.append(prov_dict)
+              except Exception as e:
+                logger.debug('Could not serialize prov item: %s', e)
+          doc_item['prov'] = prov_items
+        
+        section_doc_items.append(doc_item)
+      except Exception as e:
+        logger.debug('Could not process doc_item for text %d: %s', j, e)
+    
+    # Create chunk
+    if section_texts:
+      chunk_text = delim.join(section_texts)
+      
+      # Create metadata
+      metadata = {
+        'schema_name': 'docling_core.transforms.chunker.DocMeta',
+        'version': '1.0.0',
+        'doc_items': section_doc_items,
+        'headings': [section_header_text] if section_header_text else [],
+        'captions': None,
+        'origin': document.origin.model_dump() if hasattr(document, 'origin') and document.origin else None
+      }
+      
+      chunk = {
+        'chunk_id': len(chunks) + 1,
+        'text': chunk_text,
+        'metadata': metadata
+      }
+      
+      chunks.append(chunk)
+      logger.debug('Created chunk %d with %d text items (header: "%s")', 
+                  len(chunks), end_idx - start_idx, section_header_text[:50])
+
+  logger.info('Level 1 section chunking completed. Generated %d chunks', len(chunks))
+  return chunks
+
+
 def chunks_to_dict(chunks: List['BaseChunk']) -> List[Dict[str, Any]]:
   """
   Convert BaseChunk objects to dictionary representation.
@@ -305,7 +453,8 @@ def chunks_to_dict(chunks: List['BaseChunk']) -> List[Dict[str, Any]]:
 def save_chunks(
     chunks: List[Dict[str, Any]],
     output_path: Optional[Union[str, Path]] = None,
-    format_type: Optional[str] = None
+    format_type: Optional[str] = None,
+    chunking_method: str = 'hierarchical'
 ) -> None:
   """
   Save chunks to a file or print to stdout.
@@ -314,6 +463,7 @@ def save_chunks(
       chunks: List of chunk dictionaries
       output_path: Optional output file path
       format_type: Output format ('json' or 'yaml'), auto-detected if None
+      chunking_method: The chunking method used ('hierarchical' or 'level1_sections')
   """
   logger = logging.getLogger(__name__)
 
@@ -321,7 +471,7 @@ def save_chunks(
   output_data = {
       'metadata': {
           'total_chunks': len(chunks),
-          'chunking_method': 'hierarchical',
+          'chunking_method': chunking_method,
           'chunker': 'docling_hierarchical_chunker'
       },
       'chunks': chunks
@@ -359,8 +509,8 @@ def main() -> None:
   """Main command-line interface."""
   parser = argparse.ArgumentParser(
       description=(
-          'Perform hierarchical chunking on a DoclingDocument using Docling\'s '
-          'native HierarchicalChunker'
+          'Perform chunking on a DoclingDocument using either Docling\'s '
+          'native HierarchicalChunker or level 1 section-based chunking'
       ),
       formatter_class=argparse.RawDescriptionHelpFormatter,
       epilog=__doc__,
@@ -408,6 +558,12 @@ def main() -> None:
       help='Run with a built-in test document instead of loading from file'
   )
 
+  parser.add_argument(
+      '--level1-sections',
+      action='store_true',
+      help='Chunk by level 1 section headers (each chunk starts with a level 1 header and includes all content until the next level 1 header)'
+  )
+
   args = parser.parse_args()
 
   setup_logging(args.verbose)
@@ -424,20 +580,28 @@ def main() -> None:
         sys.exit(1)
       document = load_docling_document(args.input)
 
-    # Perform hierarchical chunking
-    chunks = perform_hierarchical_chunking(
-        document,
-        merge_list_items=not args.no_merge_lists,
-        delim=args.delimiter
-    )
-
-    # Convert chunks to dictionary format
-    chunk_dicts = chunks_to_dict(chunks)
+    # Perform chunking based on method selected
+    if args.level1_sections:
+      # Use level 1 section-based chunking
+      chunk_dicts = perform_level1_section_chunking(
+          document,
+          delim=args.delimiter
+      )
+    else:
+      # Use hierarchical chunking (default)
+      chunks = perform_hierarchical_chunking(
+          document,
+          merge_list_items=not args.no_merge_lists,
+          delim=args.delimiter
+      )
+      # Convert chunks to dictionary format
+      chunk_dicts = chunks_to_dict(chunks)
 
     # Save or print results
-    save_chunks(chunk_dicts, args.output, args.format)
+    chunking_method = 'level1_sections' if args.level1_sections else 'hierarchical'
+    save_chunks(chunk_dicts, args.output, args.format, chunking_method)
 
-    logger.info('Hierarchical chunking completed successfully')
+    logger.info('Chunking completed successfully')
 
   except ImportError as e:
     print(f'Error: {e}', file=sys.stderr)
