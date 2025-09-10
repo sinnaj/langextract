@@ -82,6 +82,37 @@ def normalize_text(text: str) -> str:
   return text_clean
 
 
+def normalize_text_for_matching(text: str) -> str:
+  """
+  Enhanced text normalization specifically for ToC-to-section matching.
+  Handles footnote references like "(1)" or "( 1 )" better than standard normalization.
+  
+  Args:
+      text: Text to normalize
+      
+  Returns:
+      Normalized text string optimized for matching
+  """
+  # Remove footnote references like "(1)", "( 1 )", "(1 )", etc.
+  # This handles the specific case mentioned in the issue
+  text_clean = re.sub(r'\(\s*\d+\s*\)', '', text).strip()
+  
+  # Also handle other common footnote patterns
+  text_clean = re.sub(r'\(\s*[a-z]\s*\)', '', text_clean).strip()  # (a), (b), etc.
+  
+  # Clean up any double spaces that might result
+  text_clean = re.sub(r'\s+', ' ', text_clean).strip()
+  
+  # Now apply standard normalization
+  normalized = normalize_text(text_clean)
+  
+  # Additional cleanup for better matching - remove spaces around dots and numbers
+  normalized = re.sub(r'\s*\.\s*', '', normalized)  # Remove dots and surrounding spaces completely
+  normalized = re.sub(r'\s+', '', normalized)  # Remove all remaining spaces for better matching
+  
+  return normalized
+
+
 def numbering_key(text: str) -> Tuple[str, int]:
   """
   Extract numbering prefix and depth from text for sibling level detection.
@@ -285,9 +316,100 @@ def split_combined_headings(text: str) -> List[str]:
   return [text] if text else []
 
 
+def scan_page_for_text_matches(
+    page_number: int,
+    docling_data: Dict[str, Any],
+    target_text: str,
+    similarity_threshold: float = 0.6
+) -> List[Dict[str, Any]]:
+  """
+  Scan all text elements on a specific page for matches, including table cells.
+  This addresses the issue where some headlines are identified as table elements.
+  
+  Args:
+      page_number: Page number to scan
+      docling_data: DoclingDocument data
+      target_text: Text to match against
+      similarity_threshold: Minimum similarity score to consider a match
+      
+  Returns:
+      List of potential matches with similarity scores and element info
+  """
+  logger = logging.getLogger(__name__)
+  matches = []
+  
+  # Get all texts elements
+  texts = docling_data.get('texts', [])
+  tables = docling_data.get('tables', [])
+  
+  target_normalized = normalize_text_for_matching(target_text)
+  
+  # Scan text elements
+  for i, text_item in enumerate(texts):
+    if extract_docling_element_page(text_item) != page_number:
+      continue
+      
+    text_content = text_item.get('text', '').strip()
+    if not text_content:
+      continue
+      
+    # Try matching with enhanced normalization
+    content_normalized = normalize_text_for_matching(text_content)
+    similarity = calculate_text_similarity(target_normalized, content_normalized)
+    
+    if similarity >= similarity_threshold:
+      matches.append({
+        'type': 'text',
+        'index': i,
+        'text': text_content,
+        'similarity': similarity,
+        'label': text_item.get('label', 'unknown'),
+        'page': page_number,
+        'element': text_item
+      })
+      logger.debug(f'Page scan found text match: "{text_content[:50]}..." (sim={similarity:.3f})')
+  
+  # Scan table cells
+  for table_idx, table in enumerate(tables):
+    if extract_docling_element_page(table) != page_number:
+      continue
+      
+    table_data = table.get('data', {})
+    table_cells = table_data.get('table_cells', [])
+    
+    for cell in table_cells:
+      cell_text = cell.get('text', '').strip()
+      if not cell_text:
+        continue
+        
+      # Try matching with enhanced normalization
+      cell_normalized = normalize_text_for_matching(cell_text)
+      similarity = calculate_text_similarity(target_normalized, cell_normalized)
+      
+      if similarity >= similarity_threshold:
+        matches.append({
+          'type': 'table_cell',
+          'table_index': table_idx,
+          'text': cell_text,
+          'similarity': similarity,
+          'label': 'table_cell',
+          'page': page_number,
+          'element': table,
+          'cell_data': cell
+        })
+        logger.debug(f'Page scan found table cell match: "{cell_text[:50]}..." (sim={similarity:.3f})')
+  
+  # Sort by similarity (highest first)
+  matches.sort(key=lambda x: x['similarity'], reverse=True)
+  
+  logger.debug(f'Page {page_number} scan found {len(matches)} potential matches for "{target_text[:30]}..."')
+  return matches
+
+
 def calculate_text_similarity(text1: str, text2: str) -> float:
   """
   Calculate similarity between two text strings using multiple approaches.
+  Uses enhanced normalization for better matching of footnoted text.
   
   Args:
       text1: First text string
@@ -296,37 +418,51 @@ def calculate_text_similarity(text1: str, text2: str) -> float:
   Returns:
       Similarity score between 0.0 and 1.0
   """
+  # Try both standard normalization and enhanced normalization for matching
   norm1 = normalize_text(text1)
   norm2 = normalize_text(text2)
   
+  # Also try enhanced normalization for footnotes
+  norm1_enhanced = normalize_text_for_matching(text1) 
+  norm2_enhanced = normalize_text_for_matching(text2)
+  
+  # Use the better of the two normalization approaches
   if norm1 == norm2:
     return 1.0
-  
-  # Split into tokens and calculate Jaccard similarity
-  tokens1 = set(norm1.split())
-  tokens2 = set(norm2.split())
-  
-  if not tokens1 and not tokens2:
+  if norm1_enhanced == norm2_enhanced:
     return 1.0
   
-  if not tokens1 or not tokens2:
-    return 0.0
+  # Calculate Jaccard similarity with both approaches and take the maximum
+  def jaccard_similarity(text_a: str, text_b: str) -> float:
+    tokens1 = set(text_a.split())
+    tokens2 = set(text_b.split())
+    
+    if not tokens1 and not tokens2:
+      return 1.0
+    if not tokens1 or not tokens2:
+      return 0.0
+    
+    intersection = tokens1.intersection(tokens2)
+    union = tokens1.union(tokens2)
+    return len(intersection) / len(union) if union else 0.0
   
-  intersection = tokens1.intersection(tokens2)
-  union = tokens1.union(tokens2)
-  
-  jaccard_sim = len(intersection) / len(union) if union else 0.0
+  # Try both normalization approaches
+  jaccard_sim1 = jaccard_similarity(norm1, norm2)
+  jaccard_sim2 = jaccard_similarity(norm1_enhanced, norm2_enhanced)
+  jaccard_sim = max(jaccard_sim1, jaccard_sim2)
   
   # Add substring similarity bonus
-  if norm1 in norm2 or norm2 in norm1:
+  if (norm1 in norm2 or norm2 in norm1) or (norm1_enhanced in norm2_enhanced or norm2_enhanced in norm1_enhanced):
     jaccard_sim = max(jaccard_sim, 0.7)
   
   # Add structural similarity for numbered sections
-  if re.search(r'\d+', norm1) and re.search(r'\d+', norm2):
-    nums1 = re.findall(r'\d+', norm1) 
-    nums2 = re.findall(r'\d+', norm2)
-    if nums1 and nums2 and nums1[0] == nums2[0]:
-      jaccard_sim = max(jaccard_sim, 0.6)
+  for n1, n2 in [(norm1, norm2), (norm1_enhanced, norm2_enhanced)]:
+    if re.search(r'\d+', n1) and re.search(r'\d+', n2):
+      nums1 = re.findall(r'\d+', n1) 
+      nums2 = re.findall(r'\d+', n2)
+      if nums1 and nums2 and nums1[0] == nums2[0]:
+        jaccard_sim = max(jaccard_sim, 0.6)
+        break
   
   return jaccard_sim
 
@@ -378,7 +514,8 @@ def calculate_enhanced_similarity(
   if toc_numbers and section_numbers:
     for toc_num in toc_numbers:
       for sec_num in section_numbers:
-        if normalize_text(toc_num) == normalize_text(sec_num):
+        # Use enhanced normalization for structural comparison
+        if normalize_text_for_matching(toc_num) == normalize_text_for_matching(sec_num):
           structure_bonus = 0.3
           break
       if structure_bonus > 0:
@@ -419,15 +556,17 @@ def calculate_enhanced_similarity(
 
 def multi_pass_mapping(
     toc_entries_with_intervals: List[Dict[str, Any]], 
-    docling_sections: List[Dict[str, Any]]
+    docling_sections: List[Dict[str, Any]],
+    docling_data: Dict[str, Any] = None
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
   """
-  Perform multi-pass mapping with three strategies: exact/near, structured/numbered, fuzzy+context.
+  Perform multi-pass mapping with four strategies: exact/near, structured/numbered, fuzzy+context, page scanning.
   Remember which ToC node each section matched by storing toc_idx.
   
   Args:
       toc_entries_with_intervals: ToC entries with page intervals
       docling_sections: DoclingDocument section headers with page info
+      docling_data: Full DoclingDocument data (for page scanning)
       
   Returns:
       Tuple of (successful_mappings, unmapped_toc_entries, unmapped_sections)
@@ -554,6 +693,89 @@ def multi_pass_mapping(
       used_toc_indices.add(i)
       used_section_indices.add(best_match['section_index'])
       logger.debug(f'Pass 3 match: "{toc_entry["title"]}" -> "{best_match["section_header"]["text"]}" (sim={best_score:.3f})')
+  
+  # Pass 4: Page scanning for unmapped ToC entries (including table cells)
+  if docling_data is not None:
+    logger.info('Pass 4: Page scanning for unmapped ToC entries')
+    for i, toc_entry in enumerate(toc_entries_with_intervals):
+      if i in used_toc_indices:
+        continue
+        
+      # Scan the ToC entry's page for potential matches
+      toc_page = toc_entry['page']
+      page_matches = scan_page_for_text_matches(
+        toc_page, 
+        docling_data, 
+        toc_entry['title'], 
+        similarity_threshold=0.6
+      )
+      
+      # Look for the best match that isn't already used
+      best_page_match = None
+      best_page_score = 0
+      
+      for match in page_matches:
+        if match['type'] == 'text':
+          # Check if this text element corresponds to any docling_sections entry
+          text_index = match['index']
+          section_match = next((s for s in docling_sections if s['index'] == text_index), None)
+          if section_match and docling_sections.index(section_match) not in used_section_indices:
+            if match['similarity'] > best_page_score:
+              best_page_score = match['similarity']
+              best_page_match = {
+                'toc_entry': toc_entry,
+                'toc_idx': i,
+                'section_header': section_match,
+                'similarity_info': {
+                  'similarity': match['similarity'],
+                  'confidence': 0.7 if match['similarity'] > 0.8 else 0.6,
+                  'text_similarity': match['similarity'],
+                  'page_distance': 0,
+                  'structure_bonus': 0.0,
+                  'match_type': 'page_scan'
+                },
+                'pass': 4,
+                'section_index': docling_sections.index(section_match),
+                'page_scan_match': match
+              }
+        elif match['type'] == 'table_cell':
+          # For table cells, we need to create a synthetic section header
+          # This addresses the issue where headlines are in table cells
+          if match['similarity'] > best_page_score:
+            best_page_score = match['similarity']
+            # Create a synthetic section header from the table cell
+            synthetic_section = {
+              'index': f"table_{match['table_index']}_cell",
+              'text': match['text'],
+              'original_level': 1,  # Default level, will be updated
+              'page': match['page'],
+              'synthetic': True,  # Mark as synthetic
+              'source_table_index': match['table_index'],
+              'source_cell_data': match['cell_data']
+            }
+            best_page_match = {
+              'toc_entry': toc_entry,
+              'toc_idx': i,
+              'section_header': synthetic_section,
+              'similarity_info': {
+                'similarity': match['similarity'],
+                'confidence': 0.6,  # Lower confidence for table cell matches
+                'text_similarity': match['similarity'],
+                'page_distance': 0,
+                'structure_bonus': 0.0,
+                'match_type': 'table_cell_scan'
+              },
+              'pass': 4,
+              'section_index': f"synthetic_{len(mappings)}",  # Synthetic index
+              'page_scan_match': match
+            }
+      
+      if best_page_match:
+        mappings.append(best_page_match)
+        used_toc_indices.add(i)
+        if isinstance(best_page_match['section_index'], int):
+          used_section_indices.add(best_page_match['section_index'])
+        logger.debug(f'Pass 4 page scan match: "{toc_entry["title"]}" -> "{best_page_match["section_header"]["text"]}" (sim={best_page_score:.3f}, type={best_page_match["similarity_info"]["match_type"]})')
   
   # Collect unmapped entries
   unmapped_toc_entries = [toc_entries_with_intervals[i] for i in range(len(toc_entries_with_intervals)) if i not in used_toc_indices]
@@ -952,6 +1174,7 @@ def generate_enhanced_toc_mapping_report(
     f"**Pass 1 (Exact/Near matches):** {pass_stats.get('pass_1_matches', 0)} matches",
     f"**Pass 2 (Structural/Numbered):** {pass_stats.get('pass_2_matches', 0)} matches", 
     f"**Pass 3 (Fuzzy+Context):** {pass_stats.get('pass_3_matches', 0)} matches",
+    f"**Pass 4 (Page Scanning):** {pass_stats.get('pass_4_matches', 0)} matches",
     f"**Total successful mappings:** {len(successful_mappings)}",
     ""
   ])
@@ -1238,21 +1461,56 @@ def enhanced_map_toc_to_docling_sections(
   # Step 3: Multi-pass mapping
   logger.info('Step 3: Performing multi-pass mapping')
   mappings, unmapped_toc_entries, unmapped_sections = multi_pass_mapping(
-    toc_entries_with_intervals, section_headers
+    toc_entries_with_intervals, section_headers, updated_data
   )
   
   # Step 4: Update levels based on successful mappings
   logger.info('Step 4: Updating hierarchical levels')
   updates_count = 0
+  synthetic_sections = []
+  
   for mapping in mappings:
-    section_index = mapping['section_header']['index']
+    section_header = mapping['section_header']
+    section_index = section_header['index']
     new_level = mapping['toc_entry']['level']
-    old_level = texts[section_index].get('level', 1)
     
-    texts[section_index]['level'] = new_level
+    # Handle synthetic sections (from table cells)
+    if section_header.get('synthetic', False):
+      # For synthetic sections, we need to create a new text element
+      synthetic_text_element = {
+        'label': 'section_header',
+        'text': section_header['text'],
+        'level': new_level,
+        'parent': {'$ref': '#/body'},  # Will be updated in parenting step
+        'synthetic': True,
+        'source_table_index': section_header.get('source_table_index'),
+        'prov': [{
+          'page_no': section_header['page'],
+          'bbox': section_header.get('source_cell_data', {}).get('bbox', {}),
+          'charspan': [0, len(section_header['text'])]
+        }]
+      }
+      texts.append(synthetic_text_element)
+      
+      # Update the mapping to point to the new text element index
+      new_index = len(texts) - 1
+      mapping['section_header']['index'] = new_index
+      section_index = new_index
+      
+      synthetic_sections.append({
+        'original_table_index': section_header.get('source_table_index'),
+        'new_text_index': new_index,
+        'toc_entry': mapping['toc_entry']
+      })
+      
+      logger.debug(f'Created synthetic section "{section_header["text"]}" from table cell at index {new_index}')
+    else:
+      # Regular section header
+      old_level = texts[section_index].get('level', 1)
+      texts[section_index]['level'] = new_level
+      logger.debug(f'Updated section "{texts[section_index].get("text", "")}" level from {old_level} to {new_level}')
+    
     updates_count += 1
-    
-    logger.debug(f'Updated section "{texts[section_index].get("text", "")}" level from {old_level} to {new_level}')
   
   logger.info(f'Updated levels for {updates_count} section headers from ToC mappings')
   
@@ -1341,8 +1599,10 @@ def enhanced_map_toc_to_docling_sections(
     'pass_statistics': {
       'pass_1_matches': len([m for m in mappings if m.get('pass') == 1]),
       'pass_2_matches': len([m for m in mappings if m.get('pass') == 2]),
-      'pass_3_matches': len([m for m in mappings if m.get('pass') == 3])
-    }
+      'pass_3_matches': len([m for m in mappings if m.get('pass') == 3]),
+      'pass_4_matches': len([m for m in mappings if m.get('pass') == 4])
+    },
+    'synthetic_sections': synthetic_sections
   }
   
   return updated_data, mapping_report
@@ -1475,6 +1735,8 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     logger.info(f'  - Pass 1 (exact): {pass_stats.get("pass_1_matches", 0)}')
     logger.info(f'  - Pass 2 (structural): {pass_stats.get("pass_2_matches", 0)}')
     logger.info(f'  - Pass 3 (fuzzy): {pass_stats.get("pass_3_matches", 0)}')
+    logger.info(f'  - Pass 4 (page scan): {pass_stats.get("pass_4_matches", 0)}')
+    logger.info(f'Synthetic sections created: {len(mapping_report.get("synthetic_sections", []))}')
     logger.info(f'Ground-truth updates: {mapping_report.get("updated_levels_count", 0)}')
     logger.info(f'Derived updates: {mapping_report.get("unmapped_updates_count", 0)}')
     logger.info(f'Consistency issues: {len(consistency.get("issues", []))}')
@@ -1496,7 +1758,9 @@ def main() -> None:
 Enhanced Features:
   • Stronger text normalization (accents, OCR spacing, punctuation)
   • ToC page intervals for precise section containment
-  • Multi-pass mapping: exact/near → structural/numbered → fuzzy+context
+  • Multi-pass mapping: exact/near → structural/numbered → fuzzy+context → page scanning
+  • Page scanning to find headers in table cells and other page elements
+  • Enhanced footnote handling for markers like "(1)" or "( 1 )"
   • Page-driven parenting based on ToC intervals
   • Auxiliary content detection (tables, equations, captions)
   • Combined heading splitting (e.g., "Anejo SI A ... Anejo SI B ...")

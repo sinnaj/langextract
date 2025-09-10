@@ -21,6 +21,7 @@ try:
     extract_pdf_toc, 
     setup_logging, 
     normalize_text, 
+    normalize_text_for_matching,
     numbering_key,
     calculate_text_similarity,
     calculate_enhanced_similarity,
@@ -32,6 +33,7 @@ try:
     detect_auxiliary_content,
     split_combined_headings,
     multi_pass_mapping,
+    scan_page_for_text_matches,
     find_deepest_toc_ancestor,
     page_driven_parenting,
     perform_consistency_checks
@@ -392,6 +394,110 @@ class TestPdfTocExtractor(unittest.TestCase):
     
     # Sección should not be parented under Índice due to guardrail
     self.assertEqual(updated_data['texts'][1]['parent']['$ref'], '#/body')
+
+  def test_normalize_text_for_matching(self):
+    """Test enhanced normalization that handles footnote references."""
+    # Test footnote reference removal
+    self.assertEqual(
+      normalize_text_for_matching('1 Condiciones de aproximación y entorno (1)'),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test spaced footnote reference
+    self.assertEqual(
+      normalize_text_for_matching('B.5 Valor característico ( 1 )'),
+      'b5valorcaracteristico'
+    )
+    
+    # Test multiple footnote patterns
+    result = normalize_text_for_matching('Section title (a) with (1) references')
+    self.assertNotIn('(', result)  # All footnotes should be removed
+    self.assertIn('section', result)
+    
+    # Test text without footnotes (should still normalize)
+    self.assertEqual(
+      normalize_text_for_matching('Normal section title'),
+      'normalsectiontitle'
+    )
+
+  def test_scan_page_for_text_matches(self):
+    """Test page scanning for text matches including table cells."""
+    docling_data = {
+      'texts': [
+        {
+          'text': '1 Condiciones de aproximación y entorno (1)',
+          'label': 'section_header',
+          'prov': [{'page_no': 36}]
+        },
+        {
+          'text': 'Other content',
+          'label': 'text', 
+          'prov': [{'page_no': 36}]
+        }
+      ],
+      'tables': [
+        {
+          'prov': [{'page_no': 36}],
+          'data': {
+            'table_cells': [
+              {
+                'text': '2 Resistencia al fuego',
+                'bbox': {'l': 70, 't': 426, 'r': 202, 'b': 435}
+              },
+              {
+                'text': '',
+                'bbox': {'l': 202, 't': 426, 'r': 300, 'b': 435}
+              }
+            ]
+          }
+        }
+      ]
+    }
+    
+    # Search for text that matches ToC entry with footnote
+    matches = scan_page_for_text_matches(
+      36, 
+      docling_data, 
+      '1 Condiciones de aproximación y entorno',
+      similarity_threshold=0.6
+    )
+    
+    # Should find at least one match
+    self.assertGreater(len(matches), 0)
+    
+    # The first match should be the section header
+    self.assertEqual(matches[0]['type'], 'text')
+    self.assertIn('condiciones', matches[0]['text'].lower())
+    
+    # Search for text that's in table cell
+    table_matches = scan_page_for_text_matches(
+      36,
+      docling_data,
+      '2 Resistencia al fuego',
+      similarity_threshold=0.6
+    )
+    
+    # Should find the table cell match
+    self.assertGreater(len(table_matches), 0)
+    table_match = next((m for m in table_matches if m['type'] == 'table_cell'), None)
+    self.assertIsNotNone(table_match)
+    self.assertIn('resistencia', table_match['text'].lower())
+
+  def test_enhanced_text_similarity_with_footnotes(self):
+    """Test that enhanced text similarity handles footnotes properly."""
+    # Test similarity with footnote references
+    sim1 = calculate_text_similarity(
+      '1 Condiciones de aproximación y entorno (1)',
+      '1 Condiciones de aproximación y entorno'
+    )
+    self.assertGreater(sim1, 0.8)  # Should be high similarity despite footnote
+    
+    # Test similarity with spaced footnote
+    sim2 = calculate_text_similarity(
+      'B.5 Valor característico de la densidad ( 1 )',
+      'B.5 Valor característico de la densidad'
+    )
+    self.assertGreater(sim2, 0.8)  # Should be high similarity despite footnote
 
 
 if __name__ == '__main__':
