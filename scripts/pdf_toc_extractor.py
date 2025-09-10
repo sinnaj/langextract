@@ -29,6 +29,9 @@ import sys
 from typing import Any, Dict, List, Tuple
 import unicodedata
 
+# Regex pattern for numbering detection  
+RE_NUM = re.compile(r'^(?P<head>([A-Z].)?\d+(?:.\d+){0,5})\b')
+
 
 def setup_logging(verbose: bool = False) -> None:
   """Set up logging configuration."""
@@ -79,44 +82,112 @@ def normalize_text(text: str) -> str:
   return text_clean
 
 
+def normalize_text_for_matching(text: str) -> str:
+  """
+  Enhanced text normalization specifically for ToC-to-section matching.
+  Handles footnote references like "(1)" or "( 1 )" better than standard normalization.
+  Also handles empty parentheses "( )" which can appear in ToC entries.
+  Enhanced to handle invisible characters and various Unicode parentheses.
+  
+  Args:
+      text: Text to normalize
+      
+  Returns:
+      Normalized text string optimized for matching
+  """
+  # First, handle various Unicode parentheses and invisible characters
+  # Replace various Unicode parentheses with standard ones
+  text_clean = text.replace('（', '(').replace('）', ')')
+  text_clean = text_clean.replace('❨', '(').replace('❩', ')')
+  
+  # Remove zero-width characters and other invisible characters
+  text_clean = ''.join(char for char in text_clean if ord(char) not in [0x200B, 0x200C, 0x200D, 0xFEFF])
+  
+  # Remove footnote references with various patterns:
+  # - (1), ( 1 ), (1 ), ( ), (), etc. - numbered footnotes and empty parentheses
+  # - Handle any whitespace including non-breaking spaces
+  text_clean = re.sub(r'\(\s*\d*\s*\)', '', text_clean).strip()
+  
+  # Also handle other common footnote patterns
+  text_clean = re.sub(r'\(\s*[a-zA-Z]\s*\)', '', text_clean).strip()  # (a), (b), etc.
+  
+  # Handle parentheses with special characters or symbols
+  text_clean = re.sub(r'\(\s*[^\w\s]*\s*\)', '', text_clean).strip()
+  
+  # Clean up any double spaces that might result
+  text_clean = re.sub(r'\s+', ' ', text_clean).strip()
+  
+  # Now apply standard normalization
+  normalized = normalize_text(text_clean)
+  
+  # Additional cleanup for better matching - remove spaces around dots and numbers
+  normalized = re.sub(r'\s*\.\s*', '', normalized)  # Remove dots and surrounding spaces completely
+  normalized = re.sub(r'\s+', '', normalized)  # Remove all remaining spaces for better matching
+  
+  return normalized
+
+
+def numbering_key(text: str) -> Tuple[str, int]:
+  """
+  Extract numbering prefix and depth from text for sibling level detection.
+  Returns (prefix, depth) for use in keeping siblings flat.
+  
+  Args:
+      text: Text to analyze for numbering patterns
+      
+  Returns:
+      Tuple of (prefix, depth) where prefix is the numbering stem and depth is nesting level
+  """
+  # Use original text, not normalized (to preserve dots)
+  m = RE_NUM.match(text.strip())
+  if not m:
+    return ("", 0)
+  head = m.group('head')  # e.g. "E.2.3.2.1" or "11.2.3"
+  depth = head.count('.') + 1
+  prefix = head.rsplit('.', 1)[0] if '.' in head else head
+  return (prefix, depth)
+
+
 def build_toc_intervals(toc_entries: List[Dict[str, Any]], total_pages: int = 1000) -> List[Dict[str, Any]]:
   """
-  Build (start_page, end_page) page intervals for every ToC node.
+  Build ToC parent pointers + intervals.
+  Enhance build_toc_intervals to compute id, parent_idx, start_page, end_page.
   
   Args:
       toc_entries: List of ToC entries with level, title, and page
       total_pages: Total number of pages in the document (for last entry)
       
   Returns:
-      List of ToC entries with added start_page and end_page fields
+      List of ToC entries with added id, parent_idx, start_page and end_page fields
   """
   if not toc_entries:
     return []
   
   # Create a copy to avoid modifying original data
   import copy
-  entries_with_intervals = copy.deepcopy(toc_entries)
+  entries = copy.deepcopy(toc_entries)
+  entries.sort(key=lambda x: (x['page'], x['level']))
   
-  # Sort by page number to ensure proper ordering
-  entries_with_intervals.sort(key=lambda x: x['page'])
+  # Parent via level stack
+  stack = []  # (idx, level)
+  for i, e in enumerate(entries):
+    e['id'] = i
+    while stack and stack[-1][1] >= e['level']:
+      stack.pop()
+    e['parent_idx'] = stack[-1][0] if stack else None
+    stack.append((i, e['level']))
   
-  for i, entry in enumerate(entries_with_intervals):
-    entry['start_page'] = entry['page']
-    
-    # Find the end page by looking at the next entry at the same or higher level
-    current_level = entry['level']
-    end_page = total_pages  # Default to end of document
-    
-    # Look for the next entry that would terminate this section
-    for j in range(i + 1, len(entries_with_intervals)):
-      next_entry = entries_with_intervals[j]
-      if next_entry['level'] <= current_level:
-        end_page = next_entry['page'] - 1
+  # Intervals
+  for i, e in enumerate(entries):
+    e['start_page'] = e['page']
+    end_page = total_pages
+    for j in range(i + 1, len(entries)):
+      if entries[j]['level'] <= e['level']:
+        end_page = entries[j]['page'] - 1
         break
+    e['end_page'] = max(e['start_page'], end_page)
     
-    entry['end_page'] = max(entry['start_page'], end_page)
-  
-  return entries_with_intervals
+  return entries
 
 
 def extract_docling_element_page(text_item: Dict[str, Any]) -> int:
@@ -166,7 +237,8 @@ def detect_auxiliary_content(text: str) -> Dict[str, Any]:
     r'\bfórmula\b.*\d+',  # "Fórmula 1"
     r'\becuación\b.*\d+',  # "Ecuación 1"
     r'^[a-zA-Z]\s*=\s*',  # Variable assignments
-    r'[\(\[].*\d+[\.\d]*.*[\)\]]',  # Parenthetical expressions
+    r'^\s*[\(\[].*[=<>±∞∑∏∫].*[\)\]]\s*$',  # Mathematical expressions with operators
+    r'^\s*[a-zA-Z]\s*[\(\[].*\d+[\.\d]*.*[\)\]]\s*$',  # Variable with parenthetical value (whole line)
   ]
   
   # Caption indicators
@@ -259,9 +331,253 @@ def split_combined_headings(text: str) -> List[str]:
   return [text] if text else []
 
 
+def detect_and_merge_split_headlines(
+    toc_entries: List[Dict[str, Any]], 
+    docling_sections: List[Dict[str, Any]],
+    docling_data: Dict[str, Any] = None
+) -> List[Dict[str, Any]]:
+  """
+  Detect when Docling incorrectly splits headlines and merge them.
+  
+  Sometimes Docling splits a single headline from the ToC into multiple consecutive 
+  section headers. This function detects such cases and merges them.
+  
+  Args:
+      toc_entries: List of ToC entries with intervals
+      docling_sections: List of DoclingDocument section headers
+      docling_data: Full DoclingDocument data (to update the actual text elements)
+      
+  Returns:
+      Updated list of DoclingDocument sections with merged headlines
+  """
+  logger = logging.getLogger(__name__)
+  
+  if not toc_entries or not docling_sections:
+    return docling_sections
+  
+  # Create a copy to avoid modifying the original
+  import copy
+  sections = copy.deepcopy(docling_sections)
+  
+  # Sort sections by page and then by position on page (using bbox if available)
+  sections.sort(key=lambda s: (s.get('page', 0), s.get('index', 0)))
+  
+  merged_count = 0
+  indices_to_remove = set()
+  
+  # For each ToC entry, check if there are consecutive DoclingDocument sections
+  # on the same page that together might form the complete ToC title
+  for toc_entry in toc_entries:
+    toc_title = toc_entry['title']
+    toc_page = toc_entry['page']
+    toc_normalized = normalize_text_for_matching(toc_title)
+    
+    # Find all sections on this page
+    page_sections = [s for s in sections if s.get('page') == toc_page]
+    
+    if len(page_sections) < 2:
+      continue
+    
+    # Look for consecutive sections that might be parts of the same headline
+    for i in range(len(page_sections) - 1):
+      if page_sections[i]['index'] in indices_to_remove:
+        continue
+        
+      current_section = page_sections[i]
+      next_section = page_sections[i + 1]
+      
+      # Check if current section is similar to start of ToC entry
+      current_text = current_section['text']
+      current_normalized = normalize_text_for_matching(current_text)
+      
+      # Skip if current section already matches the ToC entry well
+      if calculate_text_similarity(current_normalized, toc_normalized) > 0.8:
+        continue
+      
+      # Try merging current and next section
+      combined_text = f"{current_text} {next_section['text']}".strip()
+      combined_normalized = normalize_text_for_matching(combined_text)
+      
+      # Check if merged text matches ToC entry better than individual parts
+      combined_similarity = calculate_text_similarity(combined_normalized, toc_normalized)
+      current_similarity = calculate_text_similarity(current_normalized, toc_normalized)
+      next_similarity = calculate_text_similarity(
+        normalize_text_for_matching(next_section['text']), toc_normalized
+      )
+      
+      # If combined similarity is significantly better, merge them
+      if (combined_similarity > 0.7 and 
+          combined_similarity > current_similarity + 0.2 and
+          combined_similarity > next_similarity + 0.2):
+        
+        logger.info(f'Merging split headlines on page {toc_page}:')
+        logger.info(f'  Part 1: "{current_text}"')
+        logger.info(f'  Part 2: "{next_section["text"]}"')
+        logger.info(f'  Combined: "{combined_text}"')
+        logger.info(f'  ToC target: "{toc_title}"')
+        logger.info(f'  Similarity improvement: {current_similarity:.3f} -> {combined_similarity:.3f}')
+        
+        # Update the current section with merged text
+        current_section['text'] = combined_text
+        current_section['merged_from'] = [current_section['index'], next_section['index']]
+        
+        # Update the DoclingDocument data if provided
+        if docling_data is not None:
+          texts = docling_data.get('texts', [])
+          if current_section['index'] < len(texts):
+            texts[current_section['index']]['text'] = combined_text
+            texts[current_section['index']]['merged_from'] = current_section['merged_from']
+        
+        # Mark the next section for removal
+        indices_to_remove.add(next_section['index'])
+        merged_count += 1
+        
+        # Try to extend the merge to include more consecutive sections
+        j = i + 2
+        while j < len(page_sections):
+          if page_sections[j]['index'] in indices_to_remove:
+            j += 1
+            continue
+            
+          extended_text = f"{combined_text} {page_sections[j]['text']}".strip()
+          extended_normalized = normalize_text_for_matching(extended_text)
+          extended_similarity = calculate_text_similarity(extended_normalized, toc_normalized)
+          
+          if extended_similarity > combined_similarity + 0.1:
+            logger.info(f'  Extended merge with: "{page_sections[j]["text"]}"')
+            combined_text = extended_text
+            combined_similarity = extended_similarity
+            current_section['text'] = combined_text
+            current_section['merged_from'].append(page_sections[j]['index'])
+            indices_to_remove.add(page_sections[j]['index'])
+            
+            # Update DoclingDocument data for extended merge
+            if docling_data is not None:
+              texts = docling_data.get('texts', [])
+              if current_section['index'] < len(texts):
+                texts[current_section['index']]['text'] = combined_text
+                texts[current_section['index']]['merged_from'] = current_section['merged_from']
+            
+            j += 1
+          else:
+            break
+        
+        break  # Move to next ToC entry
+  
+  # Remove sections that were merged into others
+  sections_filtered = [s for s in sections if s['index'] not in indices_to_remove]
+  
+  # Also update the DoclingDocument data to remove/demote merged sections
+  if docling_data is not None and indices_to_remove:
+    texts = docling_data.get('texts', [])
+    for index in indices_to_remove:
+      if index < len(texts) and texts[index].get('label') == 'section_header':
+        # Convert merged sections to regular text instead of removing them entirely
+        # This preserves the content but removes them from the section hierarchy
+        texts[index]['label'] = 'text'  # Demote from section_header to text
+        texts[index]['merged_into'] = True  # Mark as merged
+        logger.debug(f'Demoted merged section at index {index}: "{texts[index].get("text", "")[:50]}..."')
+  
+  if merged_count > 0:
+    logger.info(f'Successfully merged {merged_count} split headlines')
+  
+  return sections_filtered
+
+
+def scan_page_for_text_matches(
+    page_number: int,
+    docling_data: Dict[str, Any],
+    target_text: str,
+    similarity_threshold: float = 0.6
+) -> List[Dict[str, Any]]:
+  """
+  Scan all text elements on a specific page for matches, including table cells.
+  This addresses the issue where some headlines are identified as table elements.
+  
+  Args:
+      page_number: Page number to scan
+      docling_data: DoclingDocument data
+      target_text: Text to match against
+      similarity_threshold: Minimum similarity score to consider a match
+      
+  Returns:
+      List of potential matches with similarity scores and element info
+  """
+  logger = logging.getLogger(__name__)
+  matches = []
+  
+  # Get all texts elements
+  texts = docling_data.get('texts', [])
+  tables = docling_data.get('tables', [])
+  
+  target_normalized = normalize_text_for_matching(target_text)
+  
+  # Scan text elements
+  for i, text_item in enumerate(texts):
+    if extract_docling_element_page(text_item) != page_number:
+      continue
+      
+    text_content = text_item.get('text', '').strip()
+    if not text_content:
+      continue
+      
+    # Try matching with enhanced normalization
+    content_normalized = normalize_text_for_matching(text_content)
+    similarity = calculate_text_similarity(target_normalized, content_normalized)
+    
+    if similarity >= similarity_threshold:
+      matches.append({
+        'type': 'text',
+        'index': i,
+        'text': text_content,
+        'similarity': similarity,
+        'label': text_item.get('label', 'unknown'),
+        'page': page_number,
+        'element': text_item
+      })
+      logger.debug(f'Page scan found text match: "{text_content[:50]}..." (sim={similarity:.3f})')
+  
+  # Scan table cells
+  for table_idx, table in enumerate(tables):
+    if extract_docling_element_page(table) != page_number:
+      continue
+      
+    table_data = table.get('data', {})
+    table_cells = table_data.get('table_cells', [])
+    
+    for cell in table_cells:
+      cell_text = cell.get('text', '').strip()
+      if not cell_text:
+        continue
+        
+      # Try matching with enhanced normalization
+      cell_normalized = normalize_text_for_matching(cell_text)
+      similarity = calculate_text_similarity(target_normalized, cell_normalized)
+      
+      if similarity >= similarity_threshold:
+        matches.append({
+          'type': 'table_cell',
+          'table_index': table_idx,
+          'text': cell_text,
+          'similarity': similarity,
+          'label': 'table_cell',
+          'page': page_number,
+          'element': table,
+          'cell_data': cell
+        })
+        logger.debug(f'Page scan found table cell match: "{cell_text[:50]}..." (sim={similarity:.3f})')
+  
+  # Sort by similarity (highest first)
+  matches.sort(key=lambda x: x['similarity'], reverse=True)
+  
+  logger.debug(f'Page {page_number} scan found {len(matches)} potential matches for "{target_text[:30]}..."')
+  return matches
+
+
 def calculate_text_similarity(text1: str, text2: str) -> float:
   """
   Calculate similarity between two text strings using multiple approaches.
+  Uses enhanced normalization for better matching of footnoted text.
   
   Args:
       text1: First text string
@@ -270,37 +586,51 @@ def calculate_text_similarity(text1: str, text2: str) -> float:
   Returns:
       Similarity score between 0.0 and 1.0
   """
+  # Try both standard normalization and enhanced normalization for matching
   norm1 = normalize_text(text1)
   norm2 = normalize_text(text2)
   
+  # Also try enhanced normalization for footnotes
+  norm1_enhanced = normalize_text_for_matching(text1) 
+  norm2_enhanced = normalize_text_for_matching(text2)
+  
+  # Use the better of the two normalization approaches
   if norm1 == norm2:
     return 1.0
-  
-  # Split into tokens and calculate Jaccard similarity
-  tokens1 = set(norm1.split())
-  tokens2 = set(norm2.split())
-  
-  if not tokens1 and not tokens2:
+  if norm1_enhanced == norm2_enhanced:
     return 1.0
   
-  if not tokens1 or not tokens2:
-    return 0.0
+  # Calculate Jaccard similarity with both approaches and take the maximum
+  def jaccard_similarity(text_a: str, text_b: str) -> float:
+    tokens1 = set(text_a.split())
+    tokens2 = set(text_b.split())
+    
+    if not tokens1 and not tokens2:
+      return 1.0
+    if not tokens1 or not tokens2:
+      return 0.0
+    
+    intersection = tokens1.intersection(tokens2)
+    union = tokens1.union(tokens2)
+    return len(intersection) / len(union) if union else 0.0
   
-  intersection = tokens1.intersection(tokens2)
-  union = tokens1.union(tokens2)
-  
-  jaccard_sim = len(intersection) / len(union) if union else 0.0
+  # Try both normalization approaches
+  jaccard_sim1 = jaccard_similarity(norm1, norm2)
+  jaccard_sim2 = jaccard_similarity(norm1_enhanced, norm2_enhanced)
+  jaccard_sim = max(jaccard_sim1, jaccard_sim2)
   
   # Add substring similarity bonus
-  if norm1 in norm2 or norm2 in norm1:
+  if (norm1 in norm2 or norm2 in norm1) or (norm1_enhanced in norm2_enhanced or norm2_enhanced in norm1_enhanced):
     jaccard_sim = max(jaccard_sim, 0.7)
   
   # Add structural similarity for numbered sections
-  if re.search(r'\d+', norm1) and re.search(r'\d+', norm2):
-    nums1 = re.findall(r'\d+', norm1) 
-    nums2 = re.findall(r'\d+', norm2)
-    if nums1 and nums2 and nums1[0] == nums2[0]:
-      jaccard_sim = max(jaccard_sim, 0.6)
+  for n1, n2 in [(norm1, norm2), (norm1_enhanced, norm2_enhanced)]:
+    if re.search(r'\d+', n1) and re.search(r'\d+', n2):
+      nums1 = re.findall(r'\d+', n1) 
+      nums2 = re.findall(r'\d+', n2)
+      if nums1 and nums2 and nums1[0] == nums2[0]:
+        jaccard_sim = max(jaccard_sim, 0.6)
+        break
   
   return jaccard_sim
 
@@ -352,7 +682,8 @@ def calculate_enhanced_similarity(
   if toc_numbers and section_numbers:
     for toc_num in toc_numbers:
       for sec_num in section_numbers:
-        if normalize_text(toc_num) == normalize_text(sec_num):
+        # Use enhanced normalization for structural comparison
+        if normalize_text_for_matching(toc_num) == normalize_text_for_matching(sec_num):
           structure_bonus = 0.3
           break
       if structure_bonus > 0:
@@ -393,14 +724,17 @@ def calculate_enhanced_similarity(
 
 def multi_pass_mapping(
     toc_entries_with_intervals: List[Dict[str, Any]], 
-    docling_sections: List[Dict[str, Any]]
+    docling_sections: List[Dict[str, Any]],
+    docling_data: Dict[str, Any] = None
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
   """
-  Perform multi-pass mapping with three strategies: exact/near, structured/numbered, fuzzy+context.
+  Perform multi-pass mapping with four strategies: exact/near, structured/numbered, fuzzy+context, page scanning.
+  Remember which ToC node each section matched by storing toc_idx.
   
   Args:
       toc_entries_with_intervals: ToC entries with page intervals
       docling_sections: DoclingDocument section headers with page info
+      docling_data: Full DoclingDocument data (for page scanning)
       
   Returns:
       Tuple of (successful_mappings, unmapped_toc_entries, unmapped_sections)
@@ -437,6 +771,7 @@ def multi_pass_mapping(
       if sim_result['similarity'] > 0.85 and sim_result['confidence'] > 0.7:
         mappings.append({
           'toc_entry': toc_entry,
+          'toc_idx': i,  # <— add this
           'section_header': section,
           'similarity_info': sim_result,
           'pass': 1
@@ -473,6 +808,7 @@ def multi_pass_mapping(
          (sim_result['similarity'] > 0.7 and sim_result['confidence'] > 0.6):
         mappings.append({
           'toc_entry': toc_entry,
+          'toc_idx': i,  # <— add this
           'section_header': section,
           'similarity_info': sim_result,
           'pass': 2
@@ -513,6 +849,7 @@ def multi_pass_mapping(
           best_score = sim_result['similarity']
           best_match = {
             'toc_entry': toc_entry,
+            'toc_idx': i,  # <— add this
             'section_header': section,
             'similarity_info': sim_result,
             'pass': 3,
@@ -524,6 +861,89 @@ def multi_pass_mapping(
       used_toc_indices.add(i)
       used_section_indices.add(best_match['section_index'])
       logger.debug(f'Pass 3 match: "{toc_entry["title"]}" -> "{best_match["section_header"]["text"]}" (sim={best_score:.3f})')
+  
+  # Pass 4: Page scanning for unmapped ToC entries (including table cells)
+  if docling_data is not None:
+    logger.info('Pass 4: Page scanning for unmapped ToC entries')
+    for i, toc_entry in enumerate(toc_entries_with_intervals):
+      if i in used_toc_indices:
+        continue
+        
+      # Scan the ToC entry's page for potential matches
+      toc_page = toc_entry['page']
+      page_matches = scan_page_for_text_matches(
+        toc_page, 
+        docling_data, 
+        toc_entry['title'], 
+        similarity_threshold=0.6
+      )
+      
+      # Look for the best match that isn't already used
+      best_page_match = None
+      best_page_score = 0
+      
+      for match in page_matches:
+        if match['type'] == 'text':
+          # Check if this text element corresponds to any docling_sections entry
+          text_index = match['index']
+          section_match = next((s for s in docling_sections if s['index'] == text_index), None)
+          if section_match and docling_sections.index(section_match) not in used_section_indices:
+            if match['similarity'] > best_page_score:
+              best_page_score = match['similarity']
+              best_page_match = {
+                'toc_entry': toc_entry,
+                'toc_idx': i,
+                'section_header': section_match,
+                'similarity_info': {
+                  'similarity': match['similarity'],
+                  'confidence': 0.7 if match['similarity'] > 0.8 else 0.6,
+                  'text_similarity': match['similarity'],
+                  'page_distance': 0,
+                  'structure_bonus': 0.0,
+                  'match_type': 'page_scan'
+                },
+                'pass': 4,
+                'section_index': docling_sections.index(section_match),
+                'page_scan_match': match
+              }
+        elif match['type'] == 'table_cell':
+          # For table cells, we need to create a synthetic section header
+          # This addresses the issue where headlines are in table cells
+          if match['similarity'] > best_page_score:
+            best_page_score = match['similarity']
+            # Create a synthetic section header from the table cell
+            synthetic_section = {
+              'index': f"table_{match['table_index']}_cell",
+              'text': match['text'],
+              'original_level': 1,  # Default level, will be updated
+              'page': match['page'],
+              'synthetic': True,  # Mark as synthetic
+              'source_table_index': match['table_index'],
+              'source_cell_data': match['cell_data']
+            }
+            best_page_match = {
+              'toc_entry': toc_entry,
+              'toc_idx': i,
+              'section_header': synthetic_section,
+              'similarity_info': {
+                'similarity': match['similarity'],
+                'confidence': 0.6,  # Lower confidence for table cell matches
+                'text_similarity': match['similarity'],
+                'page_distance': 0,
+                'structure_bonus': 0.0,
+                'match_type': 'table_cell_scan'
+              },
+              'pass': 4,
+              'section_index': f"synthetic_{len(mappings)}",  # Synthetic index
+              'page_scan_match': match
+            }
+      
+      if best_page_match:
+        mappings.append(best_page_match)
+        used_toc_indices.add(i)
+        if isinstance(best_page_match['section_index'], int):
+          used_section_indices.add(best_page_match['section_index'])
+        logger.debug(f'Pass 4 page scan match: "{toc_entry["title"]}" -> "{best_page_match["section_header"]["text"]}" (sim={best_page_score:.3f}, type={best_page_match["similarity_info"]["match_type"]})')
   
   # Collect unmapped entries
   unmapped_toc_entries = [toc_entries_with_intervals[i] for i in range(len(toc_entries_with_intervals)) if i not in used_toc_indices]
@@ -567,15 +987,16 @@ def find_deepest_toc_ancestor(
 
 def page_driven_parenting(
     mappings: List[Dict[str, Any]], 
-    toc_entries_with_intervals: List[Dict[str, Any]],
+    toc_entries: List[Dict[str, Any]],
     docling_data: Dict[str, Any]
 ) -> Dict[str, Any]:
   """
-  Update parent references using page-driven logic based on ToC intervals.
+  Rework parenting to use ToC ancestry (not "previous section").
+  Replace the core logic with ToC ancestry-based parenting.
   
   Args:
       mappings: Successful ToC-to-section mappings
-      toc_entries_with_intervals: ToC entries with page intervals
+      toc_entries: ToC entries with parent pointers and intervals
       docling_data: DoclingDocument data to update
       
   Returns:
@@ -583,82 +1004,279 @@ def page_driven_parenting(
   """
   logger = logging.getLogger(__name__)
   
-  # Create a deep copy
+  import copy
+  updated = copy.deepcopy(docling_data)
+  texts = updated.get('texts', [])
+  
+  # Map: ToC idx -> doc idx (for mapped headings)
+  toc_idx_to_doc_idx = {m['toc_idx']: m['section_header']['index'] for m in mappings}
+  
+  def nearest_mapped_toc_ancestor_doc_idx(toc_idx):
+    """Climb ToC parents until we find a mapped ancestor"""
+    p = toc_entries[toc_idx].get('parent_idx')
+    while p is not None:
+      if p in toc_idx_to_doc_idx:
+        return toc_idx_to_doc_idx[p]
+      p = toc_entries[p].get('parent_idx')
+    return None
+  
+  # 1) For mapped nodes: parent to their true ToC parent (or #/body if none)
+  for m in mappings:
+    doc_idx = m['section_header']['index']
+    toc_idx = m['toc_idx']
+    parent_doc_idx = nearest_mapped_toc_ancestor_doc_idx(toc_idx)
+    parent_ref = "#/body" if parent_doc_idx is None else f"#/texts/{parent_doc_idx}"
+    if texts[doc_idx].get('parent', {}).get('$ref') != parent_ref:
+      texts[doc_idx]['parent'] = {'$ref': parent_ref}
+  
+  # Helpers for unmapped
+  def containing_toc_idx(page: int):
+    """Find containing ToC entry by page interval"""
+    cand = [e for e in toc_entries if e['start_page'] <= page <= e['end_page']]
+    if not cand:
+      return None
+    return max(cand, key=lambda e: e['level'])['id']  # deepest by level
+  
+  mapped_doc_indices = {m['section_header']['index'] for m in mappings}
+  
+  # 2) For unmapped headers: parent to deepest mapped ancestor by interval
+  for i, t in enumerate(texts):
+    if t.get('label') != 'section_header' or i in mapped_doc_indices:
+      continue
+    page = extract_docling_element_page(t)
+    ci = containing_toc_idx(page) if page > 0 else None
+    
+    parent_doc_idx = None
+    # climb ToC to find nearest mapped ancestor
+    while ci is not None and parent_doc_idx is None:
+      parent_doc_idx = toc_idx_to_doc_idx.get(ci)
+      if parent_doc_idx is None:
+        ci = toc_entries[ci].get('parent_idx')
+    
+    # Guardrails: Never parent under "Índice" 
+    if parent_doc_idx is not None:
+      parent_text = texts[parent_doc_idx].get('text', '').lower()
+      if normalize_text(parent_text) == 'indice':
+        parent_doc_idx = None
+    
+    # Guardrails: Keep Anejo/Sección families separate
+    if parent_doc_idx is not None:
+      current_text = t.get('text', '').lower()
+      parent_text = texts[parent_doc_idx].get('text', '').lower()
+      
+      if ('anejo' in current_text and ('seccion' in parent_text or 'sección' in parent_text)) or \
+         (('seccion' in current_text or 'sección' in current_text) and 'anejo' in parent_text):
+        parent_doc_idx = None
+    
+    parent_ref = "#/body" if parent_doc_idx is None else f"#/texts/{parent_doc_idx}"
+    if t.get('parent', {}).get('$ref') != parent_ref:
+      t['parent'] = {'$ref': parent_ref}
+  
+  return updated
+
+
+def fix_page_order_within_parents(docling_data: Dict[str, Any]) -> Dict[str, Any]:
+  """
+  Fix page order violations by ensuring child sections are logically sorted by page within parents.
+  
+  This function identifies sections that are out of page order within their parent groups
+  and attempts to fix the ordering by updating parent relationships when appropriate.
+  
+  Args:
+      docling_data: DoclingDocument data with parent-child relationships
+      
+  Returns:
+      Updated DoclingDocument with improved page ordering
+  """
+  logger = logging.getLogger(__name__)
+  
   import copy
   updated_data = copy.deepcopy(docling_data)
   texts = updated_data.get('texts', [])
   
-  # Create mapping from section index to ToC level
-  section_to_toc_level = {}
-  section_to_toc_entry = {}
+  total_fixes_applied = 0
+  max_iterations = 5  # Prevent infinite loops
+  iteration = 0
   
-  for mapping in mappings:
-    section_index = mapping['section_header']['index']
-    toc_entry = mapping['toc_entry']
-    section_to_toc_level[section_index] = toc_entry['level']
-    section_to_toc_entry[section_index] = toc_entry
-  
-  # Process all section headers in document order
-  section_headers = []
-  for i, text_item in enumerate(texts):
-    if text_item.get('label') == 'section_header':
-      section_headers.append({
-        'index': i,
-        'text': text_item.get('text', ''),
-        'level': text_item.get('level', 1),
-        'page': extract_docling_element_page(text_item)
-      })
-  
-  logger.info(f'Processing {len(section_headers)} section headers for page-driven parenting')
-  
-  updates_count = 0
-  
-  for header in section_headers:
-    section_index = header['index']
-    section_page = header['page']
+  while iteration < max_iterations:
+    iteration += 1
+    logger.debug(f'Page order fix iteration {iteration}')
     
-    # Determine parent reference
-    parent_ref = "#/body"  # Default
+    # Group sections by parent and analyze page ordering
+    parent_to_children = {}
     
-    if section_index in section_to_toc_level:
-      # This section is mapped to a ToC entry
-      toc_level = section_to_toc_level[section_index]
-      
-      if toc_level > 1:
-        # Find the appropriate parent based on ToC hierarchy
-        current_toc_entry = section_to_toc_entry[section_index]
+    for i, text_item in enumerate(texts):
+      if text_item.get('label') == 'section_header':
+        parent_ref = text_item.get('parent', {}).get('$ref', '#/body')
+        if parent_ref not in parent_to_children:
+          parent_to_children[parent_ref] = []
         
-        # Look for a parent ToC entry (lower level number, earlier page)
-        for other_mapping in mappings:
-          other_toc = other_mapping['toc_entry']
-          other_section_index = other_mapping['section_header']['index']
-          
-          # Must be lower level (closer to root) and earlier in document
-          if (other_toc['level'] < toc_level and 
-              other_toc['page'] <= current_toc_entry['page'] and
-              other_section_index != section_index):
-            parent_ref = f"#/texts/{other_section_index}"
-            # Take the most recent appropriate parent
-            break
-    else:
-      # This section is not mapped to ToC, use page-driven logic
-      ancestor = find_deepest_toc_ancestor(section_page, toc_entries_with_intervals)
-      if ancestor:
-        # Find the corresponding section for this ToC ancestor
-        for mapping in mappings:
-          if mapping['toc_entry']['title'] == ancestor['title'] and mapping['toc_entry']['page'] == ancestor['page']:
-            parent_ref = f"#/texts/{mapping['section_header']['index']}"
-            break
+        page = extract_docling_element_page(text_item)
+        parent_to_children[parent_ref].append({
+          'index': i,
+          'page': page,
+          'text': text_item.get('text', ''),
+          'level': text_item.get('level', 1),
+          'element': text_item
+        })
     
-    # Update parent reference if different
-    old_parent_ref = texts[section_index].get('parent', {}).get('$ref', '')
-    if parent_ref != old_parent_ref:
-      texts[section_index]['parent'] = {'$ref': parent_ref}
-      updates_count += 1
-      logger.debug(f'Updated parent for "{header["text"][:50]}..." from "{old_parent_ref}" to "{parent_ref}"')
+    fixes_applied_this_iteration = 0
+    
+    # For each parent group, check for page order violations
+    for parent_ref, children in parent_to_children.items():
+      if len(children) <= 1:
+        continue
+        
+      # Sort by document order (index) to see current arrangement
+      children_by_index = sorted(children, key=lambda x: x['index'])
+      
+      # Check for page order violations within this parent group
+      # Be more tolerant for structured containers (Anejo, Sección) where ToC order matters more than page order
+      parent_element = None
+      if parent_ref.startswith('#/texts/'):
+        parent_idx = int(parent_ref.split('/')[-1])
+        parent_element = texts[parent_idx]
+      
+      is_structured_parent = (parent_element and 
+                             (parent_element.get('text', '').strip().startswith('Anejo') or 
+                              parent_element.get('text', '').strip().startswith('Sección')))
+      
+      # Use higher tolerance for structured parents where subsections may be logically grouped
+      page_tolerance = 5 if is_structured_parent else 2
+      
+      violations = []
+      for i in range(1, len(children_by_index)):
+        prev_page = children_by_index[i-1]['page']
+        curr_page = children_by_index[i]['page']
+        
+        # Allow tolerance for same or close pages, more for structured parents  
+        if prev_page > 0 and curr_page > 0 and curr_page < prev_page - page_tolerance:
+          violations.append({
+            'prev_child': children_by_index[i-1],
+            'curr_child': children_by_index[i],
+            'page_gap': prev_page - curr_page
+          })
+      
+      if violations:
+        logger.info(f'Iteration {iteration}: Found {len(violations)} page order violations under parent {parent_ref}:')
+        
+        # Try to fix violations by reordering or reparenting (process one at a time)
+        for violation in violations[:1]:  # Fix one violation at a time to avoid conflicts
+          curr_child = violation['curr_child']
+          curr_index = curr_child['index']
+          curr_page = curr_child['page']
+          curr_text = curr_child['text']
+          curr_level = curr_child['level']
+          
+          logger.debug(f'  Violation: "{curr_text[:30]}..." on page {curr_page} appears after page {violation["prev_child"]["page"]}')
+          
+          # Strategy 1: If it's a very short section (likely auxiliary content), demote it
+          if len(curr_text.strip()) <= 2:
+            logger.info(f'Converting very short section "{curr_text}" to regular text (likely auxiliary content)')
+            texts[curr_index]['label'] = 'text'  # Demote from section_header to text
+            fixes_applied_this_iteration += 1
+            break  # Process one fix at a time
+          
+          # Strategy 2: Check if this section should be at a different level or parent
+          # Look for numbered sections that might belong in sequence
+          
+          # If this is a numbered section (e.g., "2 Resistencia..."), look for section "1" nearby
+          import re
+          number_match = re.match(r'^(\d+)\s+(.+)', curr_text.strip())
+          if number_match:
+            section_number = int(number_match.group(1))
+            section_title = number_match.group(2)
+            
+            # Look for the previous numbered section in the same parent
+            prev_section_found = False
+            for other_child in children_by_index:
+              if other_child['index'] == curr_index:
+                continue
+                
+              other_number_match = re.match(r'^(\d+)\s+(.+)', other_child['text'].strip())
+              if other_number_match:
+                other_section_number = int(other_number_match.group(1))
+                
+                # If we find section N-1, and current section is N, they should be siblings
+                if other_section_number == section_number - 1:
+                  prev_section_found = True
+                  break
+            
+            # If we found the previous section, check if promotion is actually needed
+            # Only promote if there's a significant structural issue, not just page order
+            if prev_section_found:
+              current_parent_ref = texts[curr_index].get('parent', {}).get('$ref')
+              if current_parent_ref and current_parent_ref.startswith('#/texts/'):
+                parent_idx = int(current_parent_ref.split('/')[-1])
+                
+                # Check if this section has ground_truth flag (came from ToC mapping)
+                # If it does, respect the ToC-driven hierarchy and don't promote
+                is_ground_truth = not texts[curr_index].get('derived', False)
+                
+                # Also check if the parent is a well-structured container (like "Anejo")
+                parent_text = texts[parent_idx].get('text', '').strip()
+                is_anejo_parent = parent_text.startswith('Anejo') or parent_text.startswith('Sección')
+                
+                # Only promote if this is a derived section (not ToC-mapped) and 
+                # the parent is not a structured container
+                if not is_ground_truth and not is_anejo_parent:
+                  grandparent_ref = texts[parent_idx].get('parent', {}).get('$ref', '#/body')
+                  
+                  logger.info(f'Promoting section "{curr_text[:30]}..." to be sibling of its current parent (level up)')
+                  texts[curr_index]['parent'] = {'$ref': grandparent_ref}
+                  texts[curr_index]['level'] = max(1, curr_level - 1)  # Move up one level
+                  fixes_applied_this_iteration += 1
+                  break  # Process one fix at a time
+                else:
+                  logger.debug(f'Skipping promotion of "{curr_text[:30]}..." - preserving ToC-driven hierarchy under "{parent_text[:30]}..."')
+          
+          # Strategy 3: Check if section should be moved to a different parent based on page proximity
+          best_parent_ref = parent_ref  # Default to current parent
+          best_parent_score = float('inf')
+          
+          # Check all other parents to see if any would be a better fit
+          for other_parent_ref, other_children in parent_to_children.items():
+            if other_parent_ref == parent_ref:
+              continue
+              
+            # Find the page range of this parent's children
+            other_pages = [child['page'] for child in other_children if child['page'] > 0]
+            if not other_pages:
+              continue
+              
+            other_min_page = min(other_pages)
+            other_max_page = max(other_pages)
+            
+            # Check if current section's page fits better within this parent's range
+            if other_min_page <= curr_page <= other_max_page + 5:  # Allow some buffer
+              # Calculate how well it fits (smaller distance is better)
+              distance_score = min(abs(curr_page - other_min_page), abs(curr_page - other_max_page))
+              
+              if distance_score < best_parent_score:
+                best_parent_score = distance_score
+                best_parent_ref = other_parent_ref
+          
+          # If we found a better parent, update the section
+          if best_parent_ref != parent_ref and best_parent_score < 10:  # Only if significantly better
+            logger.info(f'Reparenting section "{curr_text[:30]}..." from {parent_ref} to {best_parent_ref}')
+            texts[curr_index]['parent'] = {'$ref': best_parent_ref}
+            fixes_applied_this_iteration += 1
+            break  # Process one fix at a time
+    
+    total_fixes_applied += fixes_applied_this_iteration
+    
+    # If no fixes were applied in this iteration, we're done
+    if fixes_applied_this_iteration == 0:
+      logger.debug(f'No fixes applied in iteration {iteration}, stopping')
+      break
+    else:
+      logger.debug(f'Applied {fixes_applied_this_iteration} fixes in iteration {iteration}')
   
-  logger.info(f'Updated parent references for {updates_count} section headers using page-driven logic')
-  
+  if total_fixes_applied > 0:
+    logger.info(f'Applied {total_fixes_applied} total fixes for page order violations over {iteration} iterations')
+  else:
+    logger.info('No page order fixes needed')
+    
   return updated_data
 
 
@@ -929,6 +1547,7 @@ def generate_enhanced_toc_mapping_report(
     f"**Pass 1 (Exact/Near matches):** {pass_stats.get('pass_1_matches', 0)} matches",
     f"**Pass 2 (Structural/Numbered):** {pass_stats.get('pass_2_matches', 0)} matches", 
     f"**Pass 3 (Fuzzy+Context):** {pass_stats.get('pass_3_matches', 0)} matches",
+    f"**Pass 4 (Page Scanning):** {pass_stats.get('pass_4_matches', 0)} matches",
     f"**Total successful mappings:** {len(successful_mappings)}",
     ""
   ])
@@ -1058,6 +1677,7 @@ def generate_enhanced_toc_mapping_report(
   updated_levels_count = mapping_report.get('updated_levels_count', 0)
   unmapped_updates_count = mapping_report.get('unmapped_updates_count', 0)
   synthetic_nodes_count = len(mapping_report.get('synthetic_toc_nodes', []))
+  orphaned_info = mapping_report.get('orphaned_sections_info', {})
   
   lines.extend([
     f"- **PDF ToC entries processed:** {total_toc_entries}",
@@ -1067,8 +1687,13 @@ def generate_enhanced_toc_mapping_report(
     f"- **Derived level updates:** {unmapped_updates_count}",
     f"- **Synthetic ToC nodes created:** {synthetic_nodes_count}",
     f"- **Auxiliary content demoted:** {mapping_report.get('demoted_content_count', 0)}",
+    f"- **Orphaned metadata sections handled:** {orphaned_info.get('orphaned_sections_found', 0)}",
     ""
   ])
+  
+  if orphaned_info.get('synthetic_parent_created', False):
+    lines.append(f"- **Synthetic 'Document Info' parent created:** Yes")
+    lines.append("")
   
   if total_toc_entries > 0:
     mapping_rate = (successful_mappings_count / total_toc_entries) * 100
@@ -1212,24 +1837,64 @@ def enhanced_map_toc_to_docling_sections(
   logger.info(f'Found {len(section_headers)} valid section headers in DoclingDocument')
   logger.info(f'Found {len(toc_entries_with_intervals)} ToC entries with intervals')
   
+  # Step 2.5: Detect and merge split headlines
+  logger.info('Step 2.5: Detecting and merging split headlines')
+  section_headers = detect_and_merge_split_headlines(toc_entries_with_intervals, section_headers, updated_data)
+  logger.info(f'After split headline detection: {len(section_headers)} section headers')
+  
   # Step 3: Multi-pass mapping
   logger.info('Step 3: Performing multi-pass mapping')
   mappings, unmapped_toc_entries, unmapped_sections = multi_pass_mapping(
-    toc_entries_with_intervals, section_headers
+    toc_entries_with_intervals, section_headers, updated_data
   )
   
   # Step 4: Update levels based on successful mappings
   logger.info('Step 4: Updating hierarchical levels')
   updates_count = 0
+  synthetic_sections = []
+  
   for mapping in mappings:
-    section_index = mapping['section_header']['index']
+    section_header = mapping['section_header']
+    section_index = section_header['index']
     new_level = mapping['toc_entry']['level']
-    old_level = texts[section_index].get('level', 1)
     
-    texts[section_index]['level'] = new_level
+    # Handle synthetic sections (from table cells)
+    if section_header.get('synthetic', False):
+      # For synthetic sections, we need to create a new text element
+      synthetic_text_element = {
+        'label': 'section_header',
+        'text': section_header['text'],
+        'level': new_level,
+        'parent': {'$ref': '#/body'},  # Will be updated in parenting step
+        'synthetic': True,
+        'source_table_index': section_header.get('source_table_index'),
+        'prov': [{
+          'page_no': section_header['page'],
+          'bbox': section_header.get('source_cell_data', {}).get('bbox', {}),
+          'charspan': [0, len(section_header['text'])]
+        }]
+      }
+      texts.append(synthetic_text_element)
+      
+      # Update the mapping to point to the new text element index
+      new_index = len(texts) - 1
+      mapping['section_header']['index'] = new_index
+      section_index = new_index
+      
+      synthetic_sections.append({
+        'original_table_index': section_header.get('source_table_index'),
+        'new_text_index': new_index,
+        'toc_entry': mapping['toc_entry']
+      })
+      
+      logger.debug(f'Created synthetic section "{section_header["text"]}" from table cell at index {new_index}')
+    else:
+      # Regular section header
+      old_level = texts[section_index].get('level', 1)
+      texts[section_index]['level'] = new_level
+      logger.debug(f'Updated section "{texts[section_index].get("text", "")}" level from {old_level} to {new_level}')
+    
     updates_count += 1
-    
-    logger.debug(f'Updated section "{texts[section_index].get("text", "")}" level from {old_level} to {new_level}')
   
   logger.info(f'Updated levels for {updates_count} section headers from ToC mappings')
   
@@ -1238,53 +1903,60 @@ def enhanced_map_toc_to_docling_sections(
   unmapped_updates_count = 0
   synthetic_toc_nodes = []
   
-  # Sort all section headers by document order
-  all_section_headers = sorted(
-    [{'index': i, 'text': texts[i].get('text', ''), 'level': texts[i].get('level', 1), 'page': extract_docling_element_page(texts[i])} 
-     for i in range(len(texts)) if texts[i].get('label') == 'section_header'],
-    key=lambda x: x['index']
-  )
+  # Helper functions for containing ToC index
+  def containing_toc_idx(page: int):
+    """Find containing ToC entry by page interval"""
+    cand = [e for e in toc_entries_with_intervals if e['start_page'] <= page <= e['end_page']]
+    if not cand:
+      return None
+    return max(cand, key=lambda e: e['level'])['id']  # deepest by level
   
-  # Track mapped sections
-  mapped_indices = {mapping['section_header']['index'] for mapping in mappings}
+  # Map: ToC idx -> doc idx (for mapped headings)
+  toc_idx_to_doc_idx = {m['toc_idx']: m['section_header']['index'] for m in mappings}
+  mapped_doc_indices = {m['section_header']['index'] for m in mappings}
   
-  previous_level = 1
-  for header in all_section_headers:
-    section_index = header['index']
+  # Sibling-level cache for consistency: (parent_doc_idx, prefix) -> level
+  sibling_level_cache = {}
+  
+  # Process unmapped sections
+  for i, t in enumerate(texts):
+    if t.get('label') != 'section_header' or i in mapped_doc_indices:
+      continue
+      
+    page = extract_docling_element_page(t)
+    section_text = t.get('text', '')
+    ci = containing_toc_idx(page) if page > 0 else None
     
-    if section_index in mapped_indices:
-      # This section was mapped to ToC, use its level as reference
-      previous_level = texts[section_index].get('level', 1)
+    parent_doc_idx = None
+    # climb ToC to find nearest mapped ancestor
+    while ci is not None and parent_doc_idx is None:
+      parent_doc_idx = toc_idx_to_doc_idx.get(ci)
+      if parent_doc_idx is None:
+        ci = toc_entries_with_intervals[ci].get('parent_idx')
+    
+    # After you compute parent_doc_idx via intervals:
+    parent_level = 1 if parent_doc_idx is None else texts[parent_doc_idx].get('level', 1)
+    prefix, depth = numbering_key(section_text)
+    
+    # Choose level relative to parent; keep siblings flat:
+    cache_key = (parent_doc_idx, prefix)
+    if cache_key in sibling_level_cache:
+      # Use cached level for siblings with same numbering prefix
+      new_level = sibling_level_cache[cache_key]
     else:
-      # Unmapped section - determine if it should be kept as heading or demoted
-      section_page = header['page']
-      section_text = header['text']
-      
-      # Check if it's inside any ToC interval
-      containing_toc = find_deepest_toc_ancestor(section_page, toc_entries_with_intervals)
-      
-      if containing_toc:
-        # Inside a ToC interval - check if it looks like a valid subheading
-        if re.search(r'\d+(?:\.\d+)*\s+', section_text) or len(section_text.split()) >= 2:
-          # Looks like a valid numbered subheading - keep as derived heading
-          new_level = previous_level + 1
-          old_level = texts[section_index].get('level', 1)
-          
-          if new_level != old_level:
-            texts[section_index]['level'] = new_level
-            texts[section_index]['derived'] = True  # Mark as derived, not ground-truth ToC
-            unmapped_updates_count += 1
-            logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived)')
-          
-          previous_level = new_level
-        else:
-          # Doesn't look like a heading - demote to body text
-          logger.debug(f'Demoting auxiliary content to body: "{section_text[:50]}..."')
-          texts[section_index]['label'] = 'text'
-      else:
-        # Outside ToC intervals - likely auxiliary content or error
-        logger.debug(f'Section outside ToC intervals, demoting: "{section_text[:50]}..."')
-        texts[section_index]['label'] = 'text'
+      # First time seeing this prefix under this parent
+      new_level = parent_level + 1
+      sibling_level_cache[cache_key] = new_level
+    
+    old_level = t.get('level', 1)
+    
+    if new_level != old_level:
+      texts[i]['level'] = new_level
+      texts[i]['derived'] = True  # Mark as derived, not ground-truth ToC
+      unmapped_updates_count += 1
+      logger.debug(f'Updated unmapped section "{section_text[:50]}..." level to {new_level} (derived from parent level {parent_level}, prefix "{prefix}")')
+  
+  logger.info(f'Processed {unmapped_updates_count} unmapped sections with enhanced logic')
   
   logger.info(f'Processed {unmapped_updates_count} unmapped sections with enhanced logic')
   
@@ -1292,9 +1964,19 @@ def enhanced_map_toc_to_docling_sections(
   logger.info('Step 6: Applying page-driven parenting')
   updated_data = page_driven_parenting(mappings, toc_entries_with_intervals, updated_data)
   
+  # Step 6.5: Fix page order within parent groups
+  logger.info('Step 6.5: Fixing page order within parent groups')
+  updated_data = fix_page_order_within_parents(updated_data)
+  
   # Step 7: Consistency checks
   logger.info('Step 7: Performing consistency checks')
   consistency_results = perform_consistency_checks(updated_data, mappings)
+  
+  # Step 8: Handle orphaned metadata sections
+  logger.info('Step 8: Handling orphaned metadata sections')
+  logger.debug(f'Before orphaned handling: {len(updated_data.get("texts", []))} text elements')
+  updated_data, orphaned_info = handle_orphaned_metadata_sections(updated_data)
+  logger.debug(f'After orphaned handling: {len(updated_data.get("texts", []))} text elements, found {orphaned_info.get("orphaned_sections_found", 0)} orphaned sections')
   
   # Prepare comprehensive mapping report
   mapping_report = {
@@ -1308,14 +1990,164 @@ def enhanced_map_toc_to_docling_sections(
     'unmapped_updates_count': unmapped_updates_count,
     'synthetic_toc_nodes': synthetic_toc_nodes,
     'consistency_results': consistency_results,
+    'orphaned_sections_info': orphaned_info,
     'pass_statistics': {
       'pass_1_matches': len([m for m in mappings if m.get('pass') == 1]),
       'pass_2_matches': len([m for m in mappings if m.get('pass') == 2]),
-      'pass_3_matches': len([m for m in mappings if m.get('pass') == 3])
-    }
+      'pass_3_matches': len([m for m in mappings if m.get('pass') == 3]),
+      'pass_4_matches': len([m for m in mappings if m.get('pass') == 4])
+    },
+    'synthetic_sections': synthetic_sections
   }
   
   return updated_data, mapping_report
+
+
+def handle_orphaned_metadata_sections(docling_data: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+  """
+  Detect orphaned Level 1 sections at the beginning of the document that outline 
+  metadata about the document and create a synthetic level 1 section_header 
+  called "Document Info" to parent them, making them level 2.
+  
+  Args:
+      docling_data: DoclingDocument JSON data
+      
+  Returns:
+      Tuple of (updated DoclingDocument, info about changes made)
+  """
+  logger = logging.getLogger(__name__)
+  
+  import copy
+  updated_data = copy.deepcopy(docling_data)
+  texts = updated_data.get('texts', [])
+  
+  # Find orphaned metadata sections - level 1 sections at the beginning of document (pages 1-3)
+  # that appear before the main structural content and represent document metadata
+  orphaned_sections = []
+  
+  logger.debug(f'Checking {len(texts)} text elements for orphaned metadata sections')
+  
+  for i, text_item in enumerate(texts):
+    if text_item.get('label') != 'section_header':
+      continue
+      
+    page = extract_docling_element_page(text_item)
+    level = text_item.get('level', 1)
+    text_content = text_item.get('text', '').strip()
+    
+    # Debug logging for first few section headers
+    if i < 50:  
+      logger.debug(f'  Index {i}: "{text_content}" (Page {page}, Level {level}, Label: {text_item.get("label")})')
+    
+    # Look for sections on early pages (1-3) that are document metadata
+    # NOTE: These sections may have been changed to level 2 during unmapped section processing
+    if page <= 3 and level <= 2:
+      # Check if this section looks like document metadata vs. main content structure
+      metadata_indicators = [
+        'documento', 'básico', 'seguridad', 'disposiciones', 'normativas', 
+        'boletín', 'oficial', 'consolidado', 'exigencias', 'básicas'
+      ]
+      
+      # Exclude sections that are clearly main structural content
+      main_structure_indicators = [
+        'introducción', 'índice', 'sección si', 'anejo', 'i objeto', 'ii ámbito', 
+        'iii criterios', 'iv condiciones', 'v condiciones', 'vi laboratorios', 'vii terminología',
+        'artículo 11', '11.1 exigencia', '11.2 exigencia', '11.3 exigencia', 
+        '11.4 exigencia', '11.5 exigencia', '11.6 exigencia'
+      ]
+      
+      text_lower = text_content.lower()
+      
+      # Check if it's document metadata and not main structure
+      is_metadata = any(indicator in text_lower for indicator in metadata_indicators)
+      is_main_structure = any(indicator in text_lower for indicator in main_structure_indicators)
+      
+      # Special case: "D ocumento B ásico" by itself (with space) is metadata
+      # Handle Unicode characters by normalizing them and removing spaces
+      import unicodedata
+      normalized_text = unicodedata.normalize('NFD', text_lower)
+      ascii_text = ''.join(c for c in normalized_text if unicodedata.category(c) != 'Mn')
+      clean_text = ascii_text.replace(' ', '')
+      is_document_basic = ('documentobasico' in clean_text and len(text_content.strip()) < 30)
+      
+      if (is_metadata or is_document_basic) and not is_main_structure:
+        # Check if this section was already modified during unmapped processing by checking for 'derived' flag
+        was_derived = text_item.get('derived', False)
+        
+        orphaned_sections.append({
+          'index': i,
+          'text': text_content,
+          'page': page,
+          'original_level': level,
+          'was_derived': was_derived
+        })
+  
+  if not orphaned_sections:
+    logger.info('No orphaned metadata sections found')
+    return updated_data, {'orphaned_sections_found': 0, 'synthetic_parent_created': False}
+  
+  logger.info(f'Found {len(orphaned_sections)} orphaned metadata sections:')
+  for section in orphaned_sections:
+    was_derived_note = " (already level 2 from unmapped processing)" if section.get('was_derived') else ""
+    logger.info(f'  - "{section["text"]}" (Page {section["page"]}, Level {section["original_level"]}){was_derived_note}')
+  
+  # Create a synthetic "Document Info" level 1 section header
+  synthetic_parent = {
+    'self_ref': f'#/texts/{len(texts)}',
+    'parent': {'$ref': '#/body'},
+    'children': [],
+    'content_layer': 'body',
+    'label': 'section_header',
+    'prov': [{
+      'page_no': 1,
+      'bbox': {'l': 0, 't': 0, 'r': 100, 'b': 10, 'coord_origin': 'TOPLEFT'},
+      'charspan': [0, 13]
+    }],
+    'orig': 'Document Info',
+    'text': 'Document Info',
+    'level': 1,
+    'synthetic': True,
+    'created_for_orphaned_sections': True
+  }
+  
+  # Add the synthetic parent to the texts array at the beginning (after headers but before content)
+  # Insert it before the first orphaned section to maintain document order
+  first_orphan_index = min(section['index'] for section in orphaned_sections)
+  texts.insert(first_orphan_index, synthetic_parent)
+  synthetic_parent_index = first_orphan_index
+  
+  # Update all indices for sections that come after the insertion point
+  for section in orphaned_sections:
+    if section['index'] >= first_orphan_index:
+      section['index'] += 1  # Adjust for the insertion
+  
+  # Update the self_ref of the synthetic parent to reflect its actual position
+  texts[synthetic_parent_index]['self_ref'] = f'#/texts/{synthetic_parent_index}'
+  
+  # Update the orphaned sections to be children of the synthetic parent
+  for section in orphaned_sections:
+    section_index = section['index']
+    # Set parent reference to the synthetic parent
+    texts[section_index]['parent'] = {'$ref': f'#/texts/{synthetic_parent_index}'}
+    # Make them level 2 (children of level 1 Document Info)
+    texts[section_index]['level'] = 2
+    logger.info(f'Updated section "{section["text"]}" to be level 2 child of "Document Info"')
+  
+  # Update all subsequent self_ref values to maintain consistency
+  for i in range(synthetic_parent_index + 1, len(texts)):
+    if 'self_ref' in texts[i]:
+      texts[i]['self_ref'] = f'#/texts/{i}'
+  
+  logger.info(f'Created synthetic "Document Info" parent section for {len(orphaned_sections)} orphaned metadata sections')
+  
+  changes_info = {
+    'orphaned_sections_found': len(orphaned_sections),
+    'synthetic_parent_created': True,
+    'synthetic_parent_index': synthetic_parent_index,
+    'updated_sections': [s['index'] for s in orphaned_sections]
+  }
+  
+  return updated_data, changes_info
 
 
 def extract_pdf_toc(pdf_path: str) -> List[Dict[str, Any]]:
@@ -1437,6 +2269,7 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     # Step 6: Log summary statistics
     consistency = mapping_report.get('consistency_results', {})
     pass_stats = mapping_report.get('pass_statistics', {})
+    orphaned_info = mapping_report.get('orphaned_sections_info', {})
     
     logger.info('=== PROCESSING SUMMARY ===')
     logger.info(f'ToC entries processed: {len(toc_entries)}')
@@ -1445,8 +2278,13 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     logger.info(f'  - Pass 1 (exact): {pass_stats.get("pass_1_matches", 0)}')
     logger.info(f'  - Pass 2 (structural): {pass_stats.get("pass_2_matches", 0)}')
     logger.info(f'  - Pass 3 (fuzzy): {pass_stats.get("pass_3_matches", 0)}')
+    logger.info(f'  - Pass 4 (page scan): {pass_stats.get("pass_4_matches", 0)}')
+    logger.info(f'Synthetic sections created: {len(mapping_report.get("synthetic_sections", []))}')
     logger.info(f'Ground-truth updates: {mapping_report.get("updated_levels_count", 0)}')
     logger.info(f'Derived updates: {mapping_report.get("unmapped_updates_count", 0)}')
+    logger.info(f'Orphaned metadata sections handled: {orphaned_info.get("orphaned_sections_found", 0)}')
+    if orphaned_info.get("synthetic_parent_created", False):
+      logger.info('  - Created synthetic "Document Info" parent section')
     logger.info(f'Consistency issues: {len(consistency.get("issues", []))}')
     logger.info(f'Consistency warnings: {len(consistency.get("warnings", []))}')
     
@@ -1466,7 +2304,9 @@ def main() -> None:
 Enhanced Features:
   • Stronger text normalization (accents, OCR spacing, punctuation)
   • ToC page intervals for precise section containment
-  • Multi-pass mapping: exact/near → structural/numbered → fuzzy+context
+  • Multi-pass mapping: exact/near → structural/numbered → fuzzy+context → page scanning
+  • Page scanning to find headers in table cells and other page elements
+  • Enhanced footnote handling for markers like "(1)" or "( 1 )"
   • Page-driven parenting based on ToC intervals
   • Auxiliary content detection (tables, equations, captions)
   • Combined heading splitting (e.g., "Anejo SI A ... Anejo SI B ...")

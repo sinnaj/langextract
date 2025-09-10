@@ -21,6 +21,8 @@ try:
     extract_pdf_toc, 
     setup_logging, 
     normalize_text, 
+    normalize_text_for_matching,
+    numbering_key,
     calculate_text_similarity,
     calculate_enhanced_similarity,
     enhanced_map_toc_to_docling_sections,
@@ -31,6 +33,7 @@ try:
     detect_auxiliary_content,
     split_combined_headings,
     multi_pass_mapping,
+    scan_page_for_text_matches,
     find_deepest_toc_ancestor,
     page_driven_parenting,
     perform_consistency_checks
@@ -151,8 +154,18 @@ class TestPdfTocExtractor(unittest.TestCase):
     
     docling_data = {
         'texts': [
-            {'label': 'section_header', 'text': 'Introduction', 'level': 1},
-            {'label': 'section_header', 'text': 'Background Info', 'level': 1},
+            {
+                'label': 'section_header', 
+                'text': 'Introduction', 
+                'level': 1,
+                'prov': [{'page_no': 1}]
+            },
+            {
+                'label': 'section_header', 
+                'text': 'Background Info', 
+                'level': 1,
+                'prov': [{'page_no': 3}]
+            },
             {'label': 'paragraph', 'text': 'Some content'},
         ]
     }
@@ -304,6 +317,308 @@ class TestPdfTocExtractor(unittest.TestCase):
     self.assertGreater(result['similarity'], 0.7)
     self.assertGreater(result['structure_bonus'], 0)
     self.assertEqual(result['page_distance'], 1)
+
+  def test_numbering_key(self):
+    """Test numbering key extraction for sibling detection."""
+    # Test various numbering patterns
+    result1 = numbering_key('11.1 Some text')
+    self.assertEqual(result1, ('11', 2))  # prefix=11, depth=2
+    
+    result2 = numbering_key('E.2.3.2.1 Some text')  
+    self.assertEqual(result2, ('E.2.3.2', 5))  # prefix=E.2.3.2, depth=5
+    
+    result3 = numbering_key('No numbers here')
+    self.assertEqual(result3, ('', 0))  # no numbering
+    
+    result4 = numbering_key('5 Simple number')
+    self.assertEqual(result4, ('5', 1))  # prefix=5, depth=1
+
+  def test_build_toc_intervals_with_parent_pointers(self):
+    """Test enhanced ToC interval building with parent pointers and IDs."""
+    toc_entries = [
+      {'level': 1, 'title': 'Chapter 1', 'page': 1},
+      {'level': 2, 'title': 'Section 1.1', 'page': 3},
+      {'level': 2, 'title': 'Section 1.2', 'page': 5},
+      {'level': 1, 'title': 'Chapter 2', 'page': 10}
+    ]
+    
+    intervals = build_toc_intervals(toc_entries, 20)
+    
+    self.assertEqual(len(intervals), 4)
+    
+    # Check IDs are assigned
+    for i, entry in enumerate(intervals):
+      self.assertEqual(entry['id'], i)
+    
+    # Check parent pointers  
+    self.assertIsNone(intervals[0]['parent_idx'])  # Chapter 1, no parent
+    self.assertEqual(intervals[1]['parent_idx'], 0)  # Section 1.1 -> Chapter 1
+    self.assertEqual(intervals[2]['parent_idx'], 0)  # Section 1.2 -> Chapter 1  
+    self.assertIsNone(intervals[3]['parent_idx'])  # Chapter 2, no parent
+    
+    # Check intervals
+    self.assertEqual(intervals[0]['start_page'], 1)
+    self.assertEqual(intervals[0]['end_page'], 9)  # Before Chapter 2
+    self.assertEqual(intervals[3]['start_page'], 10)
+    self.assertEqual(intervals[3]['end_page'], 20)  # End of document
+
+  def test_page_driven_parenting_guardrails(self):
+    """Test page-driven parenting with guardrails (Índice, Anejo/Sección separation)."""
+    # Test data with Índice (should not parent under it)
+    toc_entries = [
+      {'level': 1, 'title': 'Índice', 'page': 1, 'id': 0, 'parent_idx': None, 'start_page': 1, 'end_page': 5},
+      {'level': 1, 'title': 'Sección SI 1', 'page': 6, 'id': 1, 'parent_idx': None, 'start_page': 6, 'end_page': 20}
+    ]
+    
+    mappings = [
+      {
+        'toc_idx': 0, 
+        'section_header': {'index': 0}, 
+        'toc_entry': toc_entries[0]
+      },
+      {
+        'toc_idx': 1,
+        'section_header': {'index': 1},
+        'toc_entry': toc_entries[1]  
+      }
+    ]
+    
+    docling_data = {
+      'texts': [
+        {'label': 'section_header', 'text': 'Índice', 'level': 1},
+        {'label': 'section_header', 'text': 'Sección SI 1 Propagación', 'level': 1, 'prov': [{'page_no': 6}]},
+      ]
+    }
+    
+    updated_data = page_driven_parenting(mappings, toc_entries, docling_data)
+    
+    # Sección should not be parented under Índice due to guardrail
+    self.assertEqual(updated_data['texts'][1]['parent']['$ref'], '#/body')
+
+  def test_normalize_text_for_matching(self):
+    """Test enhanced normalization that handles footnote references."""
+    # Test footnote reference removal
+    self.assertEqual(
+      normalize_text_for_matching('1 Condiciones de aproximación y entorno (1)'),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test spaced footnote reference
+    self.assertEqual(
+      normalize_text_for_matching('B.5 Valor característico ( 1 )'),
+      'b5valorcaracteristico'
+    )
+    
+    # Test empty parentheses (specific issue from user comment)
+    self.assertEqual(
+      normalize_text_for_matching('1 Condiciones de aproximación y entorno( )'),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test matching between empty parentheses and numbered footnotes
+    toc_text = '1 Condiciones de aproximación y entorno( )'
+    docling_text = '1 Condiciones de aproximación y entorno (1)'
+    self.assertEqual(
+      normalize_text_for_matching(toc_text),
+      normalize_text_for_matching(docling_text)
+    )
+    
+    # Test Unicode parentheses
+    self.assertEqual(
+      normalize_text_for_matching('Test （1）'),
+      'test'
+    )
+    
+    # Test various invisible characters
+    text_with_invisible = '1 Condiciones de aproximación\u200B y entorno( )'
+    self.assertEqual(
+      normalize_text_for_matching(text_with_invisible),
+      '1condicionesdeaproximacionyentorno'
+    )
+    
+    # Test parentheses with symbols
+    self.assertEqual(
+      normalize_text_for_matching('Section title (*) with symbols'),
+      'sectiontitlewithsymbols'
+    )
+    
+    # Test multiple footnote patterns
+    result = normalize_text_for_matching('Section title (a) with (1) references')
+    self.assertNotIn('(', result)  # All footnotes should be removed
+    self.assertIn('section', result)
+    
+    # Test text without footnotes (should still normalize)
+    self.assertEqual(
+      normalize_text_for_matching('Normal section title'),
+      'normalsectiontitle'
+    )
+
+  def test_scan_page_for_text_matches(self):
+    """Test page scanning for text matches including table cells."""
+    docling_data = {
+      'texts': [
+        {
+          'text': '1 Condiciones de aproximación y entorno (1)',
+          'label': 'section_header',
+          'prov': [{'page_no': 36}]
+        },
+        {
+          'text': 'Other content',
+          'label': 'text', 
+          'prov': [{'page_no': 36}]
+        }
+      ],
+      'tables': [
+        {
+          'prov': [{'page_no': 36}],
+          'data': {
+            'table_cells': [
+              {
+                'text': '2 Resistencia al fuego',
+                'bbox': {'l': 70, 't': 426, 'r': 202, 'b': 435}
+              },
+              {
+                'text': '',
+                'bbox': {'l': 202, 't': 426, 'r': 300, 'b': 435}
+              }
+            ]
+          }
+        }
+      ]
+    }
+    
+    # Search for text that matches ToC entry with footnote
+    matches = scan_page_for_text_matches(
+      36, 
+      docling_data, 
+      '1 Condiciones de aproximación y entorno',
+      similarity_threshold=0.6
+    )
+    
+    # Should find at least one match
+    self.assertGreater(len(matches), 0)
+    
+    # The first match should be the section header
+    self.assertEqual(matches[0]['type'], 'text')
+    self.assertIn('condiciones', matches[0]['text'].lower())
+    
+    # Search for text that's in table cell
+    table_matches = scan_page_for_text_matches(
+      36,
+      docling_data,
+      '2 Resistencia al fuego',
+      similarity_threshold=0.6
+    )
+    
+    # Should find the table cell match
+    self.assertGreater(len(table_matches), 0)
+    table_match = next((m for m in table_matches if m['type'] == 'table_cell'), None)
+    self.assertIsNotNone(table_match)
+    self.assertIn('resistencia', table_match['text'].lower())
+
+  def test_enhanced_text_similarity_with_footnotes(self):
+    """Test that enhanced text similarity handles footnotes properly."""
+    # Test similarity with footnote references
+    sim1 = calculate_text_similarity(
+      '1 Condiciones de aproximación y entorno (1)',
+      '1 Condiciones de aproximación y entorno'
+    )
+    self.assertGreater(sim1, 0.8)  # Should be high similarity despite footnote
+    
+    # Test similarity with spaced footnote
+    sim2 = calculate_text_similarity(
+      'B.5 Valor característico de la densidad ( 1 )',
+      'B.5 Valor característico de la densidad'
+    )
+    self.assertGreater(sim2, 0.8)  # Should be high similarity despite footnote
+
+  def test_detect_and_merge_split_headlines(self):
+    """Test detection and merging of split headlines."""
+    from pdf_toc_extractor import detect_and_merge_split_headlines
+    
+    # Test data: ToC entry that should match merged sections
+    toc_entries = [{
+      'title': 'Sección SI 4 Instalaciones de protección contra incendios',
+      'page': 32,
+      'level': 1
+    }]
+    
+    # DoclingDocument sections that are incorrectly split
+    docling_sections = [
+      {
+        'index': 0,
+        'text': 'Sección SI 4',
+        'page': 32,
+        'original_level': 1
+      },
+      {
+        'index': 1, 
+        'text': 'Instalaciones de protección contra incendios',
+        'page': 32,
+        'original_level': 2
+      },
+      {
+        'index': 2,
+        'text': 'Different section',
+        'page': 33,
+        'original_level': 1
+      }
+    ]
+    
+    # Run the split detection
+    merged_sections = detect_and_merge_split_headlines(toc_entries, docling_sections)
+    
+    # Should have merged the first two sections
+    self.assertEqual(len(merged_sections), 2)  # One less section after merging
+    
+    # First section should contain merged text
+    merged_section = merged_sections[0]
+    self.assertIn('Sección SI 4', merged_section['text'])
+    self.assertIn('Instalaciones de protección contra incendios', merged_section['text'])
+    self.assertIn('merged_from', merged_section)
+    self.assertEqual(len(merged_section['merged_from']), 2)
+    
+    # Third section should remain unchanged
+    self.assertEqual(merged_sections[1]['text'], 'Different section')
+
+  def test_enhanced_parentheses_normalization(self):
+    """Test enhanced parentheses handling including Unicode and invisible characters."""
+    # Test empty parentheses
+    result1 = normalize_text_for_matching('1 Condiciones de aproximación y entorno( )')
+    result2 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (1)')
+    self.assertEqual(result1, result2)
+    
+    # Test various Unicode parentheses
+    result3 = normalize_text_for_matching('1 Condiciones de aproximación y entorno（１）')
+    self.assertEqual(result1, result3)
+    
+    # Test symbol parentheses
+    result4 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (*)')
+    self.assertEqual(result1, result4)
+    
+    # Test lettered footnotes
+    result5 = normalize_text_for_matching('1 Condiciones de aproximación y entorno (a)')
+    self.assertEqual(result1, result5)
+
+  def test_auxiliary_content_detection_fixed(self):
+    """Test that section headers with footnote references are not flagged as auxiliary content."""
+    # This should NOT be flagged as auxiliary content
+    valid_header = '1 Condiciones de aproximación y entorno (1)'
+    result = detect_auxiliary_content(valid_header)
+    self.assertFalse(result['is_auxiliary'])
+    self.assertEqual(result['type'], 'heading')
+    
+    # This should still be flagged as equation
+    equation = 'A = π × r² (1)'
+    eq_result = detect_auxiliary_content(equation)
+    self.assertTrue(eq_result['is_auxiliary'])
+    self.assertEqual(eq_result['type'], 'equation')
+    
+    # Another valid header with different footnote
+    valid_header2 = 'B.5 Valor característico de la densidad de carga de fuego ( 1 )'
+    result2 = detect_auxiliary_content(valid_header2)
+    self.assertFalse(result2['is_auxiliary'])
+    self.assertEqual(result2['type'], 'heading')
 
 
 if __name__ == '__main__':
