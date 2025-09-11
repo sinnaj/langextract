@@ -42,7 +42,18 @@ def _run_enhanced_extraction(run_dir: Path, payload: dict):
         _print("Running enhanced extraction pipeline...")
         results = run_enhanced_extraction(
             pdf_path=pdf_path,
-            output_dir=output_dir
+            output_dir=output_dir,
+            # Pass LangExtract configuration parameters from payload
+            MODEL_ID=payload.get("MODEL_ID", "google/gemini-2.0-flash-exp"),
+            MODEL_TEMPERATURE=float(payload.get("MODEL_TEMPERATURE", 0.15)),
+            MAX_NORMS_PER_5K=int(payload.get("MAX_NORMS_PER_5K", 10)),
+            MAX_CHAR_BUFFER=int(payload.get("MAX_CHAR_BUFFER", 5000)),
+            EXTRACTION_PASSES=int(payload.get("EXTRACTION_PASSES", 1)),
+            INPUT_PROMPTFILE=payload.get("INPUT_PROMPTFILE"),
+            INPUT_GLOSSARYFILE=payload.get("INPUT_GLOSSARYFILE"),
+            INPUT_EXAMPLESFILE=payload.get("INPUT_EXAMPLESFILE"),
+            INPUT_SEMANTCSFILE=payload.get("INPUT_SEMANTCSFILE"),
+            INPUT_TEACHFILE=payload.get("INPUT_TEACHFILE")
         )
         
         quality_metrics = results["quality_metrics"]

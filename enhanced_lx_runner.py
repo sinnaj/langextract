@@ -92,12 +92,16 @@ def estimate_content_size_mb(content: str) -> float:
     return len(content.encode('utf-8')) / 1024 / 1024
 
 
-def create_extraction_config():
+def create_extraction_config(model_id: str = "google/gemini-2.0-flash-exp", temperature: float = 0.15):
     """Create LangExtract model configuration."""
     USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY = setup_langextract_providers()
     
-    MODEL_ID = "google/gemini-2.0-flash-exp" if USE_OPENROUTER else "gemini-2.0-flash-exp"
-    MODEL_TEMPERATURE = 0.15
+    # Process model ID - use provided model if it contains provider info, otherwise prepend prefix
+    if USE_OPENROUTER and not model_id.startswith("google/"):
+        MODEL_ID = f"google/{model_id}" if not "/" in model_id else model_id
+    else:
+        MODEL_ID = model_id
+    MODEL_TEMPERATURE = temperature
     
     if USE_OPENROUTER:
         cfg = factory.ModelConfig(
@@ -125,11 +129,53 @@ def create_extraction_config():
     return cfg, USE_OPENROUTER, OPENROUTER_KEY
 
 
-def load_prompt_and_examples():
+def should_skip_section_for_extraction(section_name: str) -> bool:
+    """Check if section should be skipped from LX extraction.
+    
+    Skips sections that match Índice (Index) or Anejo (Annex) patterns.
+    
+    Args:
+        section_name: Name of the section to check
+        
+    Returns:
+        True if section should be skipped from extraction, False otherwise
+    """
+    import re
+    
+    if not section_name:
+        return False
+    
+    # Convert to lowercase for case-insensitive matching
+    section_lower = section_name.lower().strip()
+    
+    # Define patterns for indices and annexes
+    skip_patterns = [
+        r'\bíndice\b',               # Spanish: Índice
+        r'\bindex\b',                # English: Index
+        r'\btable\s+of\s+contents\b', # English: Table of Contents
+        r'\banejo\b',                # Spanish: Anejo (Annex)  
+        r'\bannex\b',                # English: Annex
+        r'\bappendix\b',             # English: Appendix
+        r'\bapéndice\b',             # Spanish: Apéndice
+    ]
+    
+    # Check if any pattern matches
+    for pattern in skip_patterns:
+        if re.search(pattern, section_lower):
+            print(f"[INFO] Skipping section from LX extraction (matches {pattern}): {section_name}")
+            return True
+    
+    return False
+
+
+def load_prompt_and_examples(
+    prompt_file: Optional[str] = None, 
+    examples_file: Optional[str] = None
+):
     """Load prompt and examples for extraction."""
-    # Default prompt file path
-    PROMPT_FILE = Path("input_promptfiles/prompt.md")
-    DEFAULT_EXAMPLES_PATH = Path("input_examplefiles/default.py")
+    # Default file paths
+    PROMPT_FILE = Path(prompt_file) if prompt_file else Path("input_promptfiles/prompt.md")
+    DEFAULT_EXAMPLES_PATH = Path(examples_file) if examples_file else Path("input_examplefiles/default.py")
     
     # Load prompt
     if PROMPT_FILE.exists():
@@ -813,7 +859,18 @@ def run_enhanced_extraction(
     output_dir: Optional[Path] = None,
     docling_path: Optional[Path] = None,
     enable_gpu: bool = True,
-    max_chunk_chars: int = MAX_CHUNK_SIZE_CHARS
+    max_chunk_chars: int = MAX_CHUNK_SIZE_CHARS,
+    # LangExtract configuration parameters (from web application)
+    MODEL_ID: str = "google/gemini-2.0-flash-exp",
+    MODEL_TEMPERATURE: float = 0.15,
+    MAX_NORMS_PER_5K: int = 10,
+    MAX_CHAR_BUFFER: int = 5000,
+    EXTRACTION_PASSES: int = 1,
+    INPUT_PROMPTFILE: Optional[str] = None,
+    INPUT_GLOSSARYFILE: Optional[str] = None,
+    INPUT_EXAMPLESFILE: Optional[str] = None,
+    INPUT_SEMANTCSFILE: Optional[str] = None,
+    INPUT_TEACHFILE: Optional[str] = None
 ) -> Dict[str, Any]:
     """Run enhanced extraction pipeline on PDF document.
     
@@ -823,6 +880,16 @@ def run_enhanced_extraction(
         docling_path: Optional path to pre-converted docling document (if None, will convert PDF)
         enable_gpu: Enable GPU acceleration if available
         max_chunk_chars: Maximum characters per chunk
+        MODEL_ID: LangExtract model ID (e.g., "google/gemini-2.0-flash-exp")
+        MODEL_TEMPERATURE: Model temperature for extraction
+        MAX_NORMS_PER_5K: Maximum norms per 5K characters
+        MAX_CHAR_BUFFER: Maximum character buffer size
+        EXTRACTION_PASSES: Number of extraction passes
+        INPUT_PROMPTFILE: Path to prompt file
+        INPUT_GLOSSARYFILE: Path to glossary file
+        INPUT_EXAMPLESFILE: Path to examples file
+        INPUT_SEMANTCSFILE: Path to semantics file
+        INPUT_TEACHFILE: Path to teaching file
         
     Returns:
         Dictionary with extraction results and metrics
@@ -916,8 +983,8 @@ def run_enhanced_extraction(
     
     # Setup LangExtract configuration
     print("[INFO] Setting up LangExtract configuration...")
-    config, use_openrouter, openrouter_key = create_extraction_config()
-    prompt, examples = load_prompt_and_examples()
+    config, use_openrouter, openrouter_key = create_extraction_config(MODEL_ID, MODEL_TEMPERATURE)
+    prompt, examples = load_prompt_and_examples(INPUT_PROMPTFILE, INPUT_EXAMPLESFILE)
     
     # Process chunks with LangExtract
     print("[INFO] Processing chunks with LangExtract...")
@@ -939,6 +1006,12 @@ def run_enhanced_extraction(
         }
         
         all_sections.append(section_metadata)
+        
+        # Check if section should be skipped from LX extraction
+        section_name = section_info.get("section_name", "")
+        if should_skip_section_for_extraction(section_name):
+            print(f"[INFO] Skipping LX extraction for section: {section_name}")
+            continue
         
         # Extract using LangExtract
         extraction_result = extract_with_langextract(
