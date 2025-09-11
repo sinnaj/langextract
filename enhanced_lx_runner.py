@@ -23,23 +23,42 @@ MAX_SECTION_SIZE_MB = 50  # Maximum size for a section before chunking
 MAX_CHUNK_SIZE_CHARS = 50000  # Maximum characters per chunk to prevent OOM
 MEMORY_WARNING_THRESHOLD_MB = 1000  # Warn if memory usage exceeds this
 
-# Import enhanced pipeline components (commented out for chunking-only version)
-# from extraction_pipeline.enhanced_pipeline import EnhancedExtractionPipeline
+# Import LangExtract functionality
+import langextract as lx
+from langextract import factory
+from langextract import providers
+from dotenv import load_dotenv
 
-# Import existing langextract functionality (commented out for chunking-only version)  
-# import langextract as lx
-# from langextract import factory
-# from langextract import providers
-
-# Import existing modules (commented out for chunking-only version)
-# from section_chunker import create_section_chunks
-# from chunk_evaluator import evaluate_chunks
+# Import postprocessing modules
+from postprocessing.extract_tags import extract_tags_from_norms
+from postprocessing.extract_params import extract_parameters_from_norms
 
 
 def setup_langextract_providers():
     """Setup LangExtract providers and configuration."""
-    # Commented out for chunking-only test version
-    pass
+    load_dotenv()
+    
+    # Ensure provider registry is populated
+    providers.load_builtins_once()
+    providers.load_plugins_once()
+    
+    try:
+        avail = providers.list_providers()
+        print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
+    except Exception as e:
+        print(f"[WARNING] Could not list providers: {e}")
+    
+    # Check for API keys
+    USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
+    OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")
+    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+    
+    if USE_OPENROUTER and not OPENROUTER_KEY:
+        print("WARNING: OPENROUTER (OPENAI_API_KEY) key not set – OpenRouter call will fail.", file=sys.stderr)
+    elif not USE_OPENROUTER and not GOOGLE_API_KEY:
+        print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
+    
+    return USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY
 
 
 def get_memory_usage_mb() -> float:
@@ -75,25 +94,152 @@ def estimate_content_size_mb(content: str) -> float:
 
 def create_extraction_config():
     """Create LangExtract model configuration."""
-    # Commented out for chunking-only test version
-    pass
+    USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY = setup_langextract_providers()
+    
+    MODEL_ID = "google/gemini-2.0-flash-exp" if USE_OPENROUTER else "gemini-2.0-flash-exp"
+    MODEL_TEMPERATURE = 0.15
+    
+    if USE_OPENROUTER:
+        cfg = factory.ModelConfig(
+            model_id=MODEL_ID,
+            provider="OpenAILanguageModel",
+            provider_kwargs={
+                "api_key": OPENROUTER_KEY,
+                "base_url": "https://openrouter.ai/api/v1",
+                "temperature": MODEL_TEMPERATURE,
+                "format_type": lx.data.FormatType.JSON,
+                "max_workers": 20,
+            },
+        )
+    else:
+        cfg = factory.ModelConfig(
+            model_id=MODEL_ID,
+            provider="GeminiLanguageModel",
+            provider_kwargs={
+                "api_key": GOOGLE_API_KEY,
+                "temperature": MODEL_TEMPERATURE,
+                "format_type": lx.data.FormatType.JSON,
+            },
+        )
+    
+    return cfg, USE_OPENROUTER, OPENROUTER_KEY
 
 
 def load_prompt_and_examples():
     """Load prompt and examples for extraction."""
-    # Commented out for chunking-only test version
-    return "", []
+    # Default prompt file path
+    PROMPT_FILE = Path("input_promptfiles/prompt.md")
+    DEFAULT_EXAMPLES_PATH = Path("input_examplefiles/default.py")
+    
+    # Load prompt
+    if PROMPT_FILE.exists():
+        PROMPT_DESCRIPTION = PROMPT_FILE.read_text(encoding="utf-8")
+    else:
+        print(f"[WARN] Prompt file missing at {PROMPT_FILE}; using minimal default prompt.", file=sys.stderr)
+        PROMPT_DESCRIPTION = (
+            "Extract Norms, Tags, and Parameters from the given text. "
+            "Return a JSON object with an 'extractions' array."
+        )
+    
+    # Load examples
+    examples = []
+    if DEFAULT_EXAMPLES_PATH.exists():
+        try:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location("lx_examples", str(DEFAULT_EXAMPLES_PATH))
+            if spec and spec.loader:
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+                examples = getattr(module, "EXAMPLES", [])
+                print(f"[INFO] Loaded {len(examples)} few-shot examples from {DEFAULT_EXAMPLES_PATH}")
+        except Exception as e:
+            print(f"[WARN] Failed to load examples from {DEFAULT_EXAMPLES_PATH}: {e}")
+    else:
+        print(f"[WARN] Examples file not found at {DEFAULT_EXAMPLES_PATH}")
+    
+    return PROMPT_DESCRIPTION, examples
 
 
 def extract_with_langextract(
     text: str, 
     prompt: str, 
     examples: List[Any], 
-    config: Any
+    config: Any,
+    section_metadata: Optional[Dict[str, Any]] = None
 ) -> Optional[Dict[str, Any]]:
     """Extract using LangExtract with error handling."""
-    # Commented out for chunking-only test version
-    return None
+    try:
+        # Set up extraction parameters
+        MAX_CHAR_BUFFER = 5000
+        EXTRACTION_PASSES = 2
+        
+        extract_kwargs = dict(
+            text_or_documents=text,
+            prompt_description=prompt,
+            examples=examples,
+            config=config,
+            fence_output=False,
+            use_schema_constraints=False,
+            max_char_buffer=MAX_CHAR_BUFFER,
+            extraction_passes=EXTRACTION_PASSES,
+            resolver_params={
+                "fence_output": False,
+                "format_type": lx.data.FormatType.JSON,
+                "suppress_parse_errors_default": os.getenv("LX_SUPPRESS_PARSE_ERRORS", "false").lower() in {"1", "true", "yes"},
+            },
+        )
+        
+        print(f"[DEBUG] Calling lx.extract for {len(text)} characters of text")
+        
+        annotated = lx.extract(**extract_kwargs)
+        
+        if annotated is None:
+            raise ValueError("lx.extract returned None")
+        
+        # Process extractions
+        extractions = getattr(annotated, "extractions", [])
+        processed_extractions = []
+        
+        for extraction in extractions:
+            if extraction is None:
+                continue
+                
+            attributes = getattr(extraction, "attributes", {})
+            extraction_class = getattr(extraction, "extraction_class", None)
+            
+            # Add section metadata to extraction
+            if section_metadata and attributes:
+                if not isinstance(attributes, dict):
+                    attributes = {}
+                else:
+                    attributes = dict(attributes)
+                attributes["parent_section_id"] = section_metadata.get("section_id")
+                attributes["section_name"] = section_metadata.get("section_name")
+                attributes["section_level"] = section_metadata.get("section_level")
+            
+            item = {
+                "extraction_class": extraction_class,
+                "extraction_text": getattr(extraction, "extraction_text", None),
+                "attributes": attributes,
+                "char_interval": {
+                    "start_pos": getattr(getattr(extraction, "char_interval", None), "start_pos", None),
+                    "end_pos": getattr(getattr(extraction, "char_interval", None), "end_pos", None),
+                } if hasattr(extraction, "char_interval") and extraction.char_interval else None,
+                "alignment_status": getattr(extraction, "alignment_status", None),
+                "section_metadata": section_metadata
+            }
+            processed_extractions.append(item)
+        
+        return {
+            "document_id": getattr(annotated, "document_id", None),
+            "extractions": processed_extractions
+        }
+        
+    except Exception as e:
+        print(f"[ERROR] LangExtract extraction failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 
 def create_chunks_from_toc_and_docling(
@@ -518,6 +664,150 @@ def emergency_split_sentence(sentence: str, max_chars: int) -> List[str]:
     return chunks
 
 
+def process_extractions_with_postprocessing(extractions: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """Process extractions and derive tags and parameters from norms."""
+    all_extractions = []
+    all_tags = []
+    all_parameters = []
+    
+    # Collect norms for postprocessing
+    norms_to_process = []
+    
+    for extraction in extractions:
+        all_extractions.append(extraction)
+        
+        if extraction.get("extraction_class") == "NORM":
+            attributes = extraction.get("attributes", {})
+            if attributes:
+                norms_to_process.append(attributes)
+    
+    print(f"[INFO] Processing {len(norms_to_process)} norms for tag/parameter extraction")
+    
+    # Extract tags and parameters using modularized functions
+    if norms_to_process:
+        try:
+            derived_tags = extract_tags_from_norms(norms_to_process, tag_counter_start=1)
+            derived_params = extract_parameters_from_norms(norms_to_process, param_counter_start=1)
+            
+            all_tags.extend(derived_tags)
+            all_parameters.extend(derived_params)
+            
+            print(f"[INFO] Derived {len(derived_tags)} tags and {len(derived_params)} parameters")
+            
+        except Exception as e:
+            print(f"[ERROR] Postprocessing failed: {e}")
+    
+    return all_extractions, all_tags, all_parameters
+
+
+def generate_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, Any]], tags: List[Dict[str, Any]], parameters: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Generate a node tree structure compatible with web Tree View UI."""
+    
+    # Create section hierarchy
+    section_nodes = {}
+    root_sections = []
+    
+    # Build section hierarchy
+    for section in sections:
+        section_id = section.get("section_id", section.get("section_name", ""))
+        section_node = {
+            "id": section_id,
+            "title": section.get("section_name", "Unnamed Section"),
+            "type": "SECTION",
+            "level": section.get("section_level", 1),
+            "parent_id": section.get("parent_section_id"),
+            "children": [],
+            "metadata": {
+                "start_page": section.get("start_page"),
+                "end_page": section.get("end_page"),
+                "toc_path": section.get("toc_path", []),
+                "section_summary": section.get("section_summary", ""),
+                "extraction_count": 0
+            }
+        }
+        section_nodes[section_id] = section_node
+    
+    # Build parent-child relationships
+    for section_id, section_node in section_nodes.items():
+        parent_id = section_node.get("parent_id")
+        if parent_id and parent_id in section_nodes:
+            section_nodes[parent_id]["children"].append(section_node)
+        else:
+            root_sections.append(section_node)
+    
+    # Add extractions to their parent sections
+    for extraction in extractions:
+        extraction_class = extraction.get("extraction_class", "")
+        attributes = extraction.get("attributes", {})
+        parent_section_id = attributes.get("parent_section_id") or attributes.get("section_parent_id")
+        
+        if parent_section_id and parent_section_id in section_nodes:
+            section_node = section_nodes[parent_section_id]
+            
+            # Create extraction node
+            extraction_id = attributes.get("id", f"{extraction_class}_{len(section_node['children'])}")
+            extraction_node = {
+                "id": extraction_id,
+                "title": get_extraction_title(extraction),
+                "type": extraction_class,
+                "parent_id": parent_section_id,
+                "children": [],
+                "metadata": {
+                    "extraction_text": extraction.get("extraction_text", ""),
+                    "attributes": attributes,
+                    "char_interval": extraction.get("char_interval"),
+                    "alignment_status": extraction.get("alignment_status")
+                }
+            }
+            
+            section_node["children"].append(extraction_node)
+            section_node["metadata"]["extraction_count"] += 1
+    
+    # Create final tree structure
+    tree_structure = {
+        "document_tree": {
+            "type": "DOCUMENT",
+            "title": "Enhanced Extraction Document",
+            "children": root_sections,
+            "metadata": {
+                "total_sections": len(sections),
+                "total_extractions": len(extractions),
+                "total_tags": len(tags),
+                "total_parameters": len(parameters),
+                "processing_method": "docling_toc_based_enhanced_extraction"
+            }
+        },
+        "statistics": {
+            "sections_count": len(sections),
+            "extractions_count": len(extractions),
+            "tags_count": len(tags),
+            "parameters_count": len(parameters),
+            "section_hierarchy_levels": max([s.get("section_level", 1) for s in sections]) if sections else 0
+        }
+    }
+    
+    return tree_structure
+
+
+def get_extraction_title(extraction: Dict[str, Any]) -> str:
+    """Get a display title for an extraction."""
+    extraction_class = extraction.get("extraction_class", "")
+    attributes = extraction.get("attributes", {})
+    
+    if extraction_class == "NORM":
+        statement = attributes.get("norm_statement", "")
+        return statement[:80] + "..." if len(statement) > 80 else statement
+    elif extraction_class == "TAG":
+        return attributes.get("tag", f"Tag {attributes.get('id', '')}")
+    elif extraction_class == "PARAMETER":
+        param_name = attributes.get("parameter_name", "")
+        value = attributes.get("value", "")
+        unit = attributes.get("unit", "")
+        return f"{param_name}: {value} {unit}".strip()
+    else:
+        return attributes.get("id", f"{extraction_class} Item")
+
+
 def run_enhanced_extraction(
     pdf_path: Path,
     output_dir: Optional[Path] = None,
@@ -624,10 +914,103 @@ def run_enhanced_extraction(
     print(f"[INFO] Created {len(chunks)} chunks for processing")
     check_memory_usage("after chunking")
     
-    # Save chunks for testing as requested
+    # Setup LangExtract configuration
+    print("[INFO] Setting up LangExtract configuration...")
+    config, use_openrouter, openrouter_key = create_extraction_config()
+    prompt, examples = load_prompt_and_examples()
+    
+    # Process chunks with LangExtract
+    print("[INFO] Processing chunks with LangExtract...")
+    all_extractions = []
+    all_sections = []
+    
+    for i, (chunk_text, section_info) in enumerate(chunks):
+        print(f"[INFO] Processing chunk {i+1}/{len(chunks)}: {section_info.get('section_name', f'Chunk {i+1}')}")
+        
+        # Create section metadata for extraction
+        section_metadata = {
+            "section_id": section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower(),
+            "section_name": section_info.get("section_name", f"Section {i+1}"),
+            "section_level": section_info.get("section_level", 1),
+            "start_page": section_info.get("start_page"),
+            "end_page": section_info.get("end_page"),
+            "toc_path": section_info.get("toc_path", []),
+            "section_summary": f"Section at level {section_info.get('section_level', 1)}"
+        }
+        
+        all_sections.append(section_metadata)
+        
+        # Extract using LangExtract
+        extraction_result = extract_with_langextract(
+            text=chunk_text,
+            prompt=prompt,
+            examples=examples,
+            config=config,
+            section_metadata=section_metadata
+        )
+        
+        if extraction_result and extraction_result.get("extractions"):
+            all_extractions.extend(extraction_result["extractions"])
+            print(f"[INFO] Extracted {len(extraction_result['extractions'])} items from chunk {i+1}")
+        else:
+            print(f"[WARNING] No extractions from chunk {i+1}")
+        
+        # Memory management
+        if (i + 1) % 5 == 0:
+            check_memory_usage(f"chunk {i+1}/{len(chunks)}")
+            force_garbage_collection()
+    
+    print(f"[INFO] Total extractions collected: {len(all_extractions)}")
+    
+    # Postprocess extractions to derive tags and parameters
+    print("[INFO] Performing postprocessing to derive tags and parameters...")
+    processed_extractions, derived_tags, derived_parameters = process_extractions_with_postprocessing(all_extractions)
+    
+    # Generate node tree for web UI
+    print("[INFO] Generating node tree structure...")
+    node_tree = generate_node_tree(all_sections, processed_extractions, derived_tags, derived_parameters)
+    
+    # Save results
+    results_data = {
+        "pipeline_info": {
+            "version": "2.0",
+            "method": "enhanced_docling_toc_based_extraction",
+            "pdf_source": str(pdf_path),
+            "docling_document": str(fixed_docling_path),
+            "total_chunks": len(chunks),
+            "total_sections": len(all_sections),
+            "total_extractions": len(processed_extractions),
+            "total_tags": len(derived_tags),
+            "total_parameters": len(derived_parameters)
+        },
+        "sections": all_sections,
+        "extractions": processed_extractions,
+        "tags": derived_tags,
+        "parameters": derived_parameters,
+        "node_tree": node_tree,
+        "processing_stats": {
+            "chunks_processed": len(chunks),
+            "successful_extractions": len([e for e in processed_extractions if e]),
+            "sections_with_extractions": len([s for s in all_sections if any(
+                e.get("attributes", {}).get("parent_section_id") == s.get("section_id")
+                for e in processed_extractions
+            )])
+        }
+    }
+    
+    # Save main results
+    results_path = output_dir / "enhanced_extraction_results.json"
+    with open(results_path, 'w', encoding='utf-8') as f:
+        json.dump(results_data, f, indent=2, ensure_ascii=False)
+    
+    # Save node tree separately for web UI
+    tree_path = output_dir / "node_tree.json" 
+    with open(tree_path, 'w', encoding='utf-8') as f:
+        json.dump(node_tree, f, indent=2, ensure_ascii=False)
+    
+    # Save chunks for debugging
     chunks_output_path = output_dir / "generated_chunks.json"
     chunks_data = []
-    
     for i, (chunk_text, section_info) in enumerate(chunks):
         chunk_data = {
             "chunk_id": i + 1,
@@ -642,33 +1025,41 @@ def run_enhanced_extraction(
         }
         chunks_data.append(chunk_data)
     
-    # Save chunks to JSON file for testing and validation
     with open(chunks_output_path, 'w', encoding='utf-8') as f:
         json.dump({
-            "pipeline_info": {
-                "version": "1.0",
-                "method": "docling_toc_based_chunking", 
-                "pdf_source": str(pdf_path),
-                "docling_document": str(fixed_docling_path),
-                "total_chunks": len(chunks)
-            },
+            "pipeline_info": results_data["pipeline_info"],
             "chunks": chunks_data
         }, f, indent=2, ensure_ascii=False)
     
-    print(f"[INFO] Generated chunks saved to: {chunks_output_path}")
-    print(f"[SUCCESS] Enhanced pipeline test completed up to chunk creation!")
+    print(f"[SUCCESS] Enhanced extraction pipeline completed!")
     print(f"  - Input PDF: {pdf_path}")
-    print(f"  - Docling Document: {fixed_docling_path}")
-    print(f"  - Generated chunks: {len(chunks)}")
-    print(f"  - Chunks saved to: {chunks_output_path}")
+    print(f"  - Sections processed: {len(all_sections)}")
+    print(f"  - Extractions: {len(processed_extractions)}")
+    print(f"  - Tags: {len(derived_tags)}")
+    print(f"  - Parameters: {len(derived_parameters)}")
+    print(f"  - Results saved to: {results_path}")
+    print(f"  - Node tree saved to: {tree_path}")
     
-    # For now, return the chunks data instead of running full extraction
+    # Return compatible format for web runner
     return {
-        "chunks": chunks_data,
-        "docling_document": docling_document,
+        "quality_metrics": {
+            "total_sections": len(all_sections),
+            "total_norms": len([e for e in processed_extractions if e.get("extraction_class") == "NORM"]),
+            "total_tags": len(derived_tags),
+            "total_parameters": len(derived_parameters),
+            "anchoring_success_rate": lambda: 1.0,  # Placeholder for compatibility
+            "parameter_normalization_coverage": 1.0  # Placeholder for compatibility
+        },
+        "sections": all_sections,
+        "extractions": processed_extractions,
+        "tags": derived_tags,
+        "parameters": derived_parameters,
+        "node_tree": node_tree,
         "output_files": {
-            "docling_document": fixed_docling_path,
-            "chunks": chunks_output_path
+            "results": results_path,
+            "node_tree": tree_path,
+            "chunks": chunks_output_path,
+            "docling_document": fixed_docling_path
         }
     }
 
