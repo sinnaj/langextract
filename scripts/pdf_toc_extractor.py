@@ -26,7 +26,7 @@ import logging
 from pathlib import Path
 import re
 import sys
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 import unicodedata
 
 # Regex pattern for numbering detection  
@@ -2203,6 +2203,86 @@ def extract_pdf_toc(pdf_path: str) -> List[Dict[str, Any]]:
     raise
 
 
+def convert_to_hierarchical_toc(toc_entries_with_intervals: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+  """
+  Convert flat ToC list with intervals to hierarchical structure expected by enhanced runner.
+  
+  Args:
+      toc_entries_with_intervals: Flat list of ToC entries with parent_idx, start_page, end_page
+      
+  Returns:
+      Hierarchical ToC structure with nested children
+  """
+  if not toc_entries_with_intervals:
+    return []
+  
+  # Create a mapping for quick lookup
+  id_to_entry = {entry['id']: entry for entry in toc_entries_with_intervals}
+  
+  # Build hierarchical structure
+  hierarchical_entries = []
+  
+  for entry in toc_entries_with_intervals:
+    # Create the hierarchical entry
+    hierarchical_entry = {
+      'title': entry['title'],
+      'level': entry['level'],
+      'start_page': entry['start_page'],
+      'end_page': entry['end_page'],
+      'children': []
+    }
+    
+    # If this is a root entry (no parent), add to top level
+    if entry['parent_idx'] is None:
+      hierarchical_entries.append(hierarchical_entry)
+    else:
+      # Find parent and add as child
+      parent_entry = find_hierarchical_entry_by_original_id(
+        hierarchical_entries, entry['parent_idx'], id_to_entry
+      )
+      if parent_entry:
+        parent_entry['children'].append(hierarchical_entry)
+      else:
+        # Fallback: add to top level if parent not found
+        hierarchical_entries.append(hierarchical_entry)
+  
+  return hierarchical_entries
+
+
+def find_hierarchical_entry_by_original_id(
+    hierarchical_entries: List[Dict[str, Any]], 
+    target_id: int,
+    id_to_entry: Dict[int, Dict[str, Any]]
+) -> Optional[Dict[str, Any]]:
+  """
+  Find a hierarchical entry by its original flat list ID.
+  
+  Args:
+      hierarchical_entries: List of hierarchical ToC entries
+      target_id: Original ID to find
+      id_to_entry: Mapping of original IDs to flat entries
+      
+  Returns:
+      Hierarchical entry if found, None otherwise
+  """
+  if target_id not in id_to_entry:
+    return None
+  
+  target_title = id_to_entry[target_id]['title']
+  
+  def search_recursive(entries: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    for entry in entries:
+      if entry['title'] == target_title:
+        return entry
+      # Search in children
+      result = search_recursive(entry.get('children', []))
+      if result:
+        return result
+    return None
+  
+  return search_recursive(hierarchical_entries)
+
+
 def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
   """
   Enhanced processing function with ToC-driven hierarchy repairs.
@@ -2256,6 +2336,18 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
         encoding='utf-8'
     )
     logger.info('Corrected DoclingDocument saved to: %s', output_json_path)
+    
+    # Step 4.5: Save ToC data as separate JSON for enhanced runner compatibility
+    logger.info('Step 4.5: Saving ToC data...')
+    toc_with_intervals = build_toc_intervals(toc_entries, total_pages)
+    hierarchical_toc = convert_to_hierarchical_toc(toc_with_intervals)
+    
+    toc_json_path = Path(docling_json_path).with_name('toc.json')
+    toc_json_path.write_text(
+        json.dumps(hierarchical_toc, indent=2, ensure_ascii=False),
+        encoding='utf-8'
+    )
+    logger.info('ToC data saved to: %s', toc_json_path)
     
     # Step 5: Generate enhanced mapping report
     logger.info('Step 5: Generating enhanced mapping report...')
