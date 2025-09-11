@@ -13,18 +13,15 @@ Usage:
 import json
 import os
 import sys
+import gc
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import tempfile
-import warnings
 
-# Suppress PyTorch warnings about pin_memory when no GPU is available
-warnings.filterwarnings(
-    "ignore",
-    message=".*pin_memory.*argument is set as true but no accelerator is found.*",
-    category=UserWarning,
-    module="torch.utils.data.dataloader"
-)
+# Memory management constants
+MAX_SECTION_SIZE_MB = 50  # Maximum size for a section before chunking
+MAX_CHUNK_SIZE_CHARS = 50000  # Maximum characters per chunk to prevent OOM
+MEMORY_WARNING_THRESHOLD_MB = 1000  # Warn if memory usage exceeds this
 
 # Import enhanced pipeline components (commented out for chunking-only version)
 # from extraction_pipeline.enhanced_pipeline import EnhancedExtractionPipeline
@@ -43,6 +40,37 @@ def setup_langextract_providers():
     """Setup LangExtract providers and configuration."""
     # Commented out for chunking-only test version
     pass
+
+
+def get_memory_usage_mb() -> float:
+    """Get current memory usage in MB."""
+    try:
+        import psutil
+        process = psutil.Process(os.getpid())
+        return process.memory_info().rss / 1024 / 1024
+    except ImportError:
+        # Fallback - no memory monitoring
+        return 0.0
+
+
+def check_memory_usage(operation: str = "") -> None:
+    """Check and log memory usage, warn if high."""
+    memory_mb = get_memory_usage_mb()
+    if memory_mb > MEMORY_WARNING_THRESHOLD_MB:
+        print(f"[WARNING] High memory usage during {operation}: {memory_mb:.1f} MB")
+    else:
+        print(f"[DEBUG] Memory usage during {operation}: {memory_mb:.1f} MB")
+
+
+def force_garbage_collection() -> None:
+    """Force garbage collection to free memory."""
+    gc.collect()
+    print("[DEBUG] Forced garbage collection")
+
+
+def estimate_content_size_mb(content: str) -> float:
+    """Estimate memory size of content in MB."""
+    return len(content.encode('utf-8')) / 1024 / 1024
 
 
 def create_extraction_config():
@@ -179,6 +207,12 @@ def create_chunks_from_toc_and_docling(
         
         print(f"[DEBUG] Processing ToC section: {title} (Level {level}, pages {start_page}-{end_page})")
         
+        # Memory check before processing large sections
+        if i % 10 == 0:  # Check every 10 sections
+            check_memory_usage(f"section {i+1}/{len(all_toc_sections)}")
+            if get_memory_usage_mb() > MEMORY_WARNING_THRESHOLD_MB:
+                force_garbage_collection()
+        
         # Find the start and end positions for this section's content
         section_start_idx = None
         section_end_idx = len(text_elements)  # Default to end of document
@@ -217,6 +251,12 @@ def create_chunks_from_toc_and_docling(
         
         section_content = '\n'.join(section_content_parts)
         
+        # Check memory usage for large sections
+        content_size_mb = estimate_content_size_mb(section_content)
+        if content_size_mb > MAX_SECTION_SIZE_MB:
+            print(f"[WARNING] Large section detected: {title} ({content_size_mb:.1f} MB)")
+            print("[INFO] Will use memory-safe chunking for this section")
+        
         # Skip empty sections
         if not section_content.strip():
             print(f"[DEBUG] Skipping empty ToC section: {title}")
@@ -246,13 +286,22 @@ def create_chunks_from_toc_and_docling(
             chunks.append((chunk_text, section_info))
             print(f"[DEBUG] Created chunk for ToC section '{title}' ({len(section_content)} chars)")
         else:
-            # Split large content into multiple chunks
-            split_chunks = split_large_content(section_content, max_chars)
-            for j, split_content in enumerate(split_chunks):
-                chunk_header = f"{context_header} (Part {j+1}/{len(split_chunks)})\n"
-                chunk_text = f"{chunk_header}\n{split_content}"
-                chunks.append((chunk_text, section_info))
-            print(f"[DEBUG] Split ToC section '{title}' into {len(split_chunks)} chunks")
+            # Split large content into multiple chunks using memory-safe splitting
+            try:
+                split_chunks = split_large_content_safe(section_content, max_chars, title)
+                for j, split_content in enumerate(split_chunks):
+                    chunk_header = f"{context_header} (Part {j+1}/{len(split_chunks)})\n"
+                    chunk_text = f"{chunk_header}\n{split_content}"
+                    chunks.append((chunk_text, section_info))
+                print(f"[DEBUG] Split ToC section '{title}' into {len(split_chunks)} chunks")
+            except MemoryError:
+                print(f"[ERROR] Out of memory processing section: {title}")
+                print("[INFO] Skipping this section to prevent crash")
+                continue
+        
+        # Periodic garbage collection for large documents
+        if (i + 1) % 20 == 0:
+            force_garbage_collection()
     
     return chunks
 
@@ -317,44 +366,151 @@ def split_large_content(content: str, max_chars: int) -> List[str]:
     Returns:
         List of content chunks
     """
+    # Use the memory-safe version
+    return split_large_content_safe(content, max_chars, "")
+
+
+def split_large_content_safe(content: str, max_chars: int, section_title: str = "") -> List[str]:
+    """Memory-safe content splitting with proper error handling.
+    
+    Args:
+        content: Content to split
+        max_chars: Maximum characters per chunk
+        section_title: Section title for debugging
+        
+    Returns:
+        List of content chunks
+        
+    Raises:
+        MemoryError: If content is too large to process safely
+    """
     import re
     
-    # Split into sentences
-    sentences = re.split(r'[.!?]+\s+', content)
-    sentences = [s.strip() for s in sentences if s.strip()]
+    # Check content size upfront
+    content_size_mb = estimate_content_size_mb(content)
+    if content_size_mb > MAX_SECTION_SIZE_MB:
+        print(f"[WARNING] Attempting to split very large section: {section_title} ({content_size_mb:.1f} MB)")
     
-    if not sentences:
-        return [content]
+    # For extremely large content, use aggressive chunking
+    if content_size_mb > MAX_SECTION_SIZE_MB * 2:  # 100MB+
+        print(f"[ERROR] Section too large for safe processing: {section_title}")
+        print("[INFO] Using emergency chunking strategy...")
+        return emergency_chunk_content(content, max_chars)
     
+    try:
+        # Split into sentences with memory check
+        sentences = re.split(r'[.!?]+\s+', content)
+        sentences = [s.strip() for s in sentences if s.strip()]
+        
+        if not sentences:
+            return [content] if content.strip() else []
+        
+        print(f"[DEBUG] Splitting content into {len(sentences)} sentences for section: {section_title}")
+        
+        chunks = []
+        current_chunk = []
+        current_length = 0
+        overlap_size = max(1, len(sentences) // 20)  # 5% overlap
+        
+        i = 0
+        while i < len(sentences):
+            sentence = sentences[i]
+            
+            if current_length + len(sentence) <= max_chars:
+                current_chunk.append(sentence)
+                current_length += len(sentence) + 1  # +1 for space
+                i += 1
+            else:
+                if current_chunk:
+                    # Finish current chunk
+                    chunk_content = ' '.join(current_chunk)
+                    chunks.append(chunk_content)
+                    
+                    # Memory check after each chunk
+                    if len(chunks) % 10 == 0:  # Every 10 chunks
+                        check_memory_usage(f"chunk {len(chunks)} of {section_title}")
+                    
+                    # Start new chunk with overlap
+                    overlap_start = max(0, len(current_chunk) - overlap_size)
+                    current_chunk = current_chunk[overlap_start:]
+                    current_length = sum(len(s) + 1 for s in current_chunk)
+                else:
+                    # Single sentence is too large, split it further
+                    if len(sentence) > max_chars:
+                        print(f"[WARNING] Very long sentence in {section_title}, splitting...")
+                        sub_chunks = emergency_split_sentence(sentence, max_chars)
+                        chunks.extend(sub_chunks)
+                    else:
+                        chunks.append(sentence)
+                    i += 1
+        
+        if current_chunk:
+            chunks.append(' '.join(current_chunk))
+        
+        return chunks
+    
+    except MemoryError:
+        print(f"[ERROR] Memory error while processing section: {section_title}")
+        print("[INFO] Falling back to emergency chunking...")
+        return emergency_chunk_content(content, max_chars)
+
+
+def emergency_chunk_content(content: str, max_chars: int) -> List[str]:
+    """Emergency content chunking for very large sections."""
     chunks = []
+    start = 0
+    content_len = len(content)
+    
+    print("[INFO] Using emergency chunking (character-based splitting)")
+    
+    while start < content_len:
+        end = min(start + max_chars, content_len)
+        
+        # Try to find a good break point (sentence or paragraph end)
+        if end < content_len:
+            # Look back for sentence end
+            for i in range(end, max(start, end - 200), -1):
+                if content[i] in '.!?\n':
+                    end = i + 1
+                    break
+        
+        chunk = content[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        
+        start = end
+        
+        # Prevent infinite loops
+        if start >= content_len:
+            break
+    
+    print(f"[INFO] Emergency chunking created {len(chunks)} chunks")
+    return chunks
+
+
+def emergency_split_sentence(sentence: str, max_chars: int) -> List[str]:
+    """Emergency splitting of extremely long sentences."""
+    chunks = []
+    words = sentence.split()
     current_chunk = []
     current_length = 0
-    overlap_size = max(1, len(sentences) // 20)  # 5% overlap
     
-    i = 0
-    while i < len(sentences):
-        sentence = sentences[i]
-        
-        if current_length + len(sentence) <= max_chars:
-            current_chunk.append(sentence)
-            current_length += len(sentence) + 1  # +1 for space
-            i += 1
+    for word in words:
+        if current_length + len(word) + 1 <= max_chars:
+            current_chunk.append(word)
+            current_length += len(word) + 1
         else:
             if current_chunk:
-                # Finish current chunk
                 chunks.append(' '.join(current_chunk))
-                
-                # Start new chunk with overlap
-                overlap_start = max(0, len(current_chunk) - overlap_size)
-                current_chunk = current_chunk[overlap_start:]
-                current_length = sum(len(s) + 1 for s in current_chunk)
+                current_chunk = [word]
+                current_length = len(word)
             else:
-                # Sentence too long, take it anyway
-                current_chunk.append(sentence)
-                chunks.append(' '.join(current_chunk))
-                current_chunk = []
-                current_length = 0
-                i += 1
+                # Single word is too long, split it
+                chunks.append(word[:max_chars])
+                remaining = word[max_chars:]
+                while remaining:
+                    chunks.append(remaining[:max_chars])
+                    remaining = remaining[max_chars:]
     
     if current_chunk:
         chunks.append(' '.join(current_chunk))
@@ -365,7 +521,9 @@ def split_large_content(content: str, max_chars: int) -> List[str]:
 def run_enhanced_extraction(
     pdf_path: Path,
     output_dir: Optional[Path] = None,
-    docling_path: Optional[Path] = None
+    docling_path: Optional[Path] = None,
+    enable_gpu: bool = True,
+    max_chunk_chars: int = MAX_CHUNK_SIZE_CHARS
 ) -> Dict[str, Any]:
     """Run enhanced extraction pipeline on PDF document.
     
@@ -373,6 +531,8 @@ def run_enhanced_extraction(
         pdf_path: Path to source PDF file
         output_dir: Optional output directory
         docling_path: Optional path to pre-converted docling document (if None, will convert PDF)
+        enable_gpu: Enable GPU acceleration if available
+        max_chunk_chars: Maximum characters per chunk
         
     Returns:
         Dictionary with extraction results and metrics
@@ -384,6 +544,7 @@ def run_enhanced_extraction(
     
     print("[INFO] Setting up enhanced extraction pipeline...")
     print(f"[INFO] Processing PDF: {pdf_path}")
+    check_memory_usage("pipeline start")
     
     # Generate Docling Document from PDF if not provided
     if docling_path is None or not docling_path.exists():
@@ -397,9 +558,11 @@ def run_enhanced_extraction(
             convert_pdf_to_docling_document(
                 source=pdf_path,
                 output_path=docling_path,
-                verbose=False
+                verbose=False,
+                enable_gpu=enable_gpu
             )
             print(f"[INFO] Docling Document saved to: {docling_path}")
+            check_memory_usage("PDF conversion")
         except ImportError as e:
             print(f"[ERROR] Could not import pdf_to_docling_document: {e}")
             print("[ERROR] Please ensure docling is installed: pip install docling")
@@ -454,9 +617,12 @@ def run_enhanced_extraction(
     
     # Create sections and chunks from ToC and fixed Docling Document
     print("[INFO] Creating ToC-based chunks (non-ToC headers treated as text body)...")
-    chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=5000)
+    check_memory_usage("before chunking")
+    
+    chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=max_chunk_chars)
     
     print(f"[INFO] Created {len(chunks)} chunks for processing")
+    check_memory_usage("after chunking")
     
     # Save chunks for testing as requested
     chunks_output_path = output_dir / "generated_chunks.json"
@@ -529,6 +695,17 @@ def main():
         type=Path,
         help="Output directory for results (default: output_runs/enhanced_run)"
     )
+    parser.add_argument(
+        "--no-gpu",
+        action="store_true",
+        help="Disable GPU acceleration (use CPU only)"
+    )
+    parser.add_argument(
+        "--max-chunk-chars",
+        type=int,
+        default=MAX_CHUNK_SIZE_CHARS,
+        help=f"Maximum characters per chunk (default: {MAX_CHUNK_SIZE_CHARS})"
+    )
     
     args = parser.parse_args()
     
@@ -540,14 +717,22 @@ def main():
         print(f"Error: Docling Document file not found: {args.docling_path}")
         sys.exit(1)
     
+    # Print configuration
+    print(f"[INFO] GPU acceleration: {'disabled' if args.no_gpu else 'enabled'}")
+    print(f"[INFO] Max chunk size: {args.max_chunk_chars} characters")
+    check_memory_usage("startup")
+    
     try:
         results = run_enhanced_extraction(
             args.pdf_path,
             args.output_dir,
-            args.docling_path
+            args.docling_path,
+            enable_gpu=not args.no_gpu,
+            max_chunk_chars=args.max_chunk_chars
         )
         
         print("\n[SUCCESS] Enhanced pipeline test completed successfully!")
+        check_memory_usage("completion")
         
         # Print summary statistics
         chunks_data = results["chunks"]

@@ -32,20 +32,13 @@ def setup_logging(verbose: bool = False) -> None:
     logging.basicConfig(
         level=level, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
-    
-    # Suppress specific PyTorch warning about pin_memory when no GPU is available
-    warnings.filterwarnings(
-        "ignore",
-        message=".*pin_memory.*argument is set as true but no accelerator is found.*",
-        category=UserWarning,
-        module="torch.utils.data.dataloader"
-    )
 
 
 def convert_pdf_to_docling_document(
     source: str | Path,
     output_path: str | Path | None = None,
     verbose: bool = False,
+    enable_gpu: bool = True,
 ) -> 'DoclingDocument':
     """
     Convert a PDF file to DoclingDocument using docling.
@@ -54,6 +47,7 @@ def convert_pdf_to_docling_document(
         source: Path to PDF file or URL
         output_path: Optional output path for JSON file
         verbose: Enable verbose logging
+        enable_gpu: Enable GPU acceleration if available
 
     Returns:
         The DoclingDocument object
@@ -65,6 +59,13 @@ def convert_pdf_to_docling_document(
     try:
         # pylint: disable=import-outside-toplevel
         from docling.document_converter import DocumentConverter
+        from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
+        from docling.datamodel.base_models import InputFormat
+        from docling.datamodel.pipeline_options import (
+            PdfPipelineOptions,
+            TableFormerMode,
+        )
+        from docling.backend.docling_parse_backend import DoclingParseDocumentBackend
         from docling_core.types.doc import DoclingDocument
     except ImportError as e:
         raise ImportError(
@@ -76,10 +77,42 @@ def convert_pdf_to_docling_document(
     logger = logging.getLogger(__name__)
 
     logger.info('Converting PDF to DoclingDocument: %s', source)
+    
+    # Configure GPU acceleration
+    if enable_gpu:
+        try:
+            import torch
+            if torch.cuda.is_available():
+                device = torch.device('cuda')
+                logger.info(f'Using GPU acceleration on device: {torch.cuda.get_device_name()}')
+            else:
+                device = torch.device('cpu')
+                logger.info('CUDA not available, using CPU')
+        except ImportError:
+            logger.info('PyTorch not available, using default configuration')
+            device = None
+    else:
+        device = None
+        logger.info('GPU acceleration disabled')
 
     try:
-        # Initialize the document converter
-        converter = DocumentConverter()
+        # Configure pipeline options for better GPU utilization
+        pipeline_options = PdfPipelineOptions(
+            # Enable GPU acceleration for table extraction if available
+            do_table_structure=True,
+            table_structure_options={
+                "mode": TableFormerMode.ACCURATE if enable_gpu else TableFormerMode.FAST,
+            },
+            # Enable better OCR and layout analysis
+            do_ocr=True,
+        )
+        
+        # Initialize the document converter with GPU configuration
+        converter = DocumentConverter(
+            format_options={
+                InputFormat.PDF: pipeline_options,
+            }
+        )
 
         # Convert the document
         result = converter.convert(source)
@@ -118,6 +151,11 @@ def main() -> None:
     parser.add_argument(
         '-v', '--verbose', action='store_true', help='Enable verbose logging'
     )
+    
+    parser.add_argument(
+        '--no-gpu', action='store_true', 
+        help='Disable GPU acceleration (use CPU only)'
+    )
 
     args = parser.parse_args()
 
@@ -134,7 +172,7 @@ def main() -> None:
 
         # Convert the document
         docling_document = convert_pdf_to_docling_document(
-            args.input, output_path, args.verbose
+            args.input, output_path, args.verbose, enable_gpu=not args.no_gpu
         )
 
         # Print success message
