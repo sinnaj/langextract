@@ -64,6 +64,8 @@ def convert_pdf_to_docling_document(
         from docling.datamodel.pipeline_options import (
             PdfPipelineOptions,
             TableFormerMode,
+            TableStructureOptions,
+            AcceleratorOptions,
         )
         from docling.backend.docling_parse_backend import DoclingParseDocumentBackend
         from docling_core.types.doc import DoclingDocument
@@ -96,15 +98,33 @@ def convert_pdf_to_docling_document(
         logger.info('GPU acceleration disabled')
 
     try:
+        # Configure GPU acceleration
+        accelerator_options = AcceleratorOptions(
+            device='cuda' if enable_gpu else 'cpu',
+            num_threads=4
+        )
+        
+        # Configure table structure options
+        table_structure_options = TableStructureOptions(
+            mode=TableFormerMode.ACCURATE if enable_gpu else TableFormerMode.FAST,
+            do_cell_matching=True
+        )
+        
+        # Configure OCR options with GPU support
+        from docling.datamodel.pipeline_options import EasyOcrOptions
+        ocr_options = EasyOcrOptions(
+            use_gpu=enable_gpu,
+            lang=['en', 'fr', 'de', 'es'],
+            confidence_threshold=0.5
+        )
+        
         # Configure pipeline options for better GPU utilization
         pipeline_options = PdfPipelineOptions(
-            # Enable GPU acceleration for table extraction if available
+            accelerator_options=accelerator_options,
             do_table_structure=True,
-            table_structure_options={
-                "mode": TableFormerMode.ACCURATE if enable_gpu else TableFormerMode.FAST,
-            },
-            # Enable better OCR and layout analysis
+            table_structure_options=table_structure_options,
             do_ocr=True,
+            ocr_options=ocr_options,
         )
         
         # Initialize the document converter with GPU configuration
