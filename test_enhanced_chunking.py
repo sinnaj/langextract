@@ -12,11 +12,26 @@ from pathlib import Path
 import sys
 
 def create_mock_docling_document():
-    """Create a mock Docling Document for testing."""
+    """Create a mock Docling Document for testing with page headers and multi-level ToC."""
     mock_document = {
         "texts": [
+            # Page 1 header (should be ignored)
             {
                 "self_ref": "#/texts/0",
+                "parent": {"$ref": "#/body"},
+                "children": [],
+                "content_layer": "body",
+                "label": "page_header",
+                "prov": [{
+                    "page_no": 1,
+                    "bbox": {"l": 72, "t": 50, "r": 500, "b": 70, "coord_origin": "TOPLEFT"},
+                    "charspan": [0, 20]
+                }],
+                "text": "Página 1 - Header"
+            },
+            # Section SI 1 (Level 1 - in ToC)
+            {
+                "self_ref": "#/texts/1",
                 "parent": {"$ref": "#/body"},
                 "children": [],
                 "content_layer": "body",
@@ -24,83 +39,133 @@ def create_mock_docling_document():
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 100, "r": 500, "b": 120, "coord_origin": "TOPLEFT"},
-                    "charspan": [0, 15]
+                    "charspan": [21, 35]
                 }],
                 "orig": "Sección SI 1",
                 "text": "Sección SI 1",
                 "level": 1
             },
+            # Content for SI 1
             {
-                "self_ref": "#/texts/1",
-                "parent": {"$ref": "#/texts/0"},
+                "self_ref": "#/texts/2",
+                "parent": {"$ref": "#/texts/1"},
                 "children": [],
                 "content_layer": "body",
                 "label": "text",
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 130, "r": 500, "b": 180, "coord_origin": "TOPLEFT"},
-                    "charspan": [16, 150]
+                    "charspan": [36, 170]
                 }],
                 "text": "Este es el contenido de la Sección SI 1. Contiene información importante sobre seguridad contra incendios."
             },
+            # Subsection 1.1 Objetivo (Level 2 - in ToC)
             {
-                "self_ref": "#/texts/2",
-                "parent": {"$ref": "#/texts/0"},
+                "self_ref": "#/texts/3",
+                "parent": {"$ref": "#/texts/1"},
                 "children": [],
                 "content_layer": "body",
                 "label": "section_header",
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 200, "r": 500, "b": 220, "coord_origin": "TOPLEFT"},
-                    "charspan": [151, 170]
+                    "charspan": [171, 185]
                 }],
                 "orig": "1.1 Objetivo",
                 "text": "1.1 Objetivo",
                 "level": 2
             },
+            # Content for 1.1 Objetivo  
             {
-                "self_ref": "#/texts/3",
-                "parent": {"$ref": "#/texts/2"},
+                "self_ref": "#/texts/4",
+                "parent": {"$ref": "#/texts/3"},
                 "children": [],
                 "content_layer": "body",
                 "label": "text",
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 230, "r": 500, "b": 280, "coord_origin": "TOPLEFT"},
-                    "charspan": [171, 350]
+                    "charspan": [186, 365]
                 }],
                 "text": "El objetivo específico de esta subsección es establecer reglas detalladas para la seguridad."
             },
+            # Non-ToC Header (should be treated as text content)
             {
-                "self_ref": "#/texts/4",
-                "parent": {"$ref": "#/texts/0"},
+                "self_ref": "#/texts/5",
+                "parent": {"$ref": "#/texts/3"},
                 "children": [],
                 "content_layer": "body",
                 "label": "section_header",
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 290, "r": 500, "b": 310, "coord_origin": "TOPLEFT"},
-                    "charspan": [351, 370]
+                    "charspan": [366, 385]
                 }],
                 "orig": "Non-ToC Header",
                 "text": "Non-ToC Header",
-                "level": 2
+                "level": 3
             },
+            # Content under Non-ToC Header
             {
-                "self_ref": "#/texts/5",
-                "parent": {"$ref": "#/texts/4"},
+                "self_ref": "#/texts/6",
+                "parent": {"$ref": "#/texts/5"},
                 "children": [],
                 "content_layer": "body",
                 "label": "text",
                 "prov": [{
                     "page_no": 1,
                     "bbox": {"l": 72, "t": 320, "r": 500, "b": 350, "coord_origin": "TOPLEFT"},
-                    "charspan": [371, 450]
+                    "charspan": [386, 480]
                 }],
                 "text": "Este encabezado NO está en el ToC, por lo que debe ser tratado como texto del cuerpo."
             },
+            # Subsection 1.2 Ámbito (Level 2 - in ToC)
             {
-                "self_ref": "#/texts/6",
+                "self_ref": "#/texts/7",
+                "parent": {"$ref": "#/texts/1"},
+                "children": [],
+                "content_layer": "body",
+                "label": "section_header",
+                "prov": [{
+                    "page_no": 1,
+                    "bbox": {"l": 72, "t": 370, "r": 500, "b": 390, "coord_origin": "TOPLEFT"},
+                    "charspan": [481, 495]
+                }],
+                "orig": "1.2 Ámbito",
+                "text": "1.2 Ámbito",
+                "level": 2
+            },
+            # Content for 1.2 Ámbito
+            {
+                "self_ref": "#/texts/8",
+                "parent": {"$ref": "#/texts/7"},
+                "children": [],
+                "content_layer": "body",
+                "label": "text",
+                "prov": [{
+                    "page_no": 1,
+                    "bbox": {"l": 72, "t": 400, "r": 500, "b": 450, "coord_origin": "TOPLEFT"},
+                    "charspan": [496, 590]
+                }],
+                "text": "El ámbito de aplicación incluye todos los edificios y establecimientos."
+            },
+            # Page 2 header (should be ignored) 
+            {
+                "self_ref": "#/texts/9",
+                "parent": {"$ref": "#/body"},
+                "children": [],
+                "content_layer": "body",
+                "label": "page_header",
+                "prov": [{
+                    "page_no": 2,
+                    "bbox": {"l": 72, "t": 50, "r": 500, "b": 70, "coord_origin": "TOPLEFT"},
+                    "charspan": [591, 611]
+                }],
+                "text": "Página 2 - Header"
+            },
+            # Section SI 2 (Level 1 - in ToC)
+            {
+                "self_ref": "#/texts/10",
                 "parent": {"$ref": "#/body"},
                 "children": [],
                 "content_layer": "body",
@@ -108,33 +173,38 @@ def create_mock_docling_document():
                 "prov": [{
                     "page_no": 2,
                     "bbox": {"l": 72, "t": 100, "r": 500, "b": 120, "coord_origin": "TOPLEFT"},
-                    "charspan": [451, 465]
+                    "charspan": [612, 626]
                 }],
                 "orig": "Sección SI 2",
                 "text": "Sección SI 2",
                 "level": 1
             },
+            # Content for SI 2
             {
-                "self_ref": "#/texts/7",
-                "parent": {"$ref": "#/texts/6"},
+                "self_ref": "#/texts/11",
+                "parent": {"$ref": "#/texts/10"},
                 "children": [],
                 "content_layer": "body",
                 "label": "text",
                 "prov": [{
                     "page_no": 2,
                     "bbox": {"l": 72, "t": 130, "r": 500, "b": 250, "coord_origin": "TOPLEFT"},
-                    "charspan": [466, 600]
+                    "charspan": [627, 780]
                 }],
                 "text": "Esta sección trata sobre la propagación exterior del fuego. Se establecen las condiciones que deben cumplir los elementos constructivos."
             }
         ],
         "main_text": [
+            {"text": "Página 1 - Header", "label": "page_header"},
             {"text": "Sección SI 1", "label": "section_header"},
             {"text": "Este es el contenido de la Sección SI 1...", "label": "text"},
             {"text": "1.1 Objetivo", "label": "section_header"},
             {"text": "El objetivo específico de esta subsección...", "label": "text"},
             {"text": "Non-ToC Header", "label": "section_header"},
             {"text": "Este encabezado NO está en el ToC...", "label": "text"},
+            {"text": "1.2 Ámbito", "label": "section_header"},
+            {"text": "El ámbito de aplicación incluye...", "label": "text"},
+            {"text": "Página 2 - Header", "label": "page_header"},
             {"text": "Sección SI 2", "label": "section_header"},
             {"text": "Esta sección trata sobre la propagación exterior del fuego...", "label": "text"}
         ],
@@ -156,7 +226,7 @@ def test_chunking():
         print(f"Error importing chunking function: {e}")
         return False
     
-    # Create mock ToC data
+    # Create mock ToC data with multiple levels
     mock_toc = [
         {
             "title": "Sección SI 1",
@@ -166,6 +236,13 @@ def test_chunking():
             "children": [
                 {
                     "title": "1.1 Objetivo", 
+                    "level": 2,
+                    "start_page": 1,
+                    "end_page": 1,
+                    "children": []
+                },
+                {
+                    "title": "1.2 Ámbito",
                     "level": 2,
                     "start_page": 1,
                     "end_page": 1,
