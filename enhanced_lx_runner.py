@@ -59,16 +59,18 @@ def extract_with_langextract(
     return None
 
 
-def create_chunks_from_docling_document(
+def create_chunks_from_toc_and_docling(
+    toc_data: List[Dict[str, Any]],
     docling_document: Dict[str, Any],
     max_chars: int = 5000
 ) -> List[Tuple[str, Dict[str, Any]]]:
-    """Create chunks from a headline-fixed Docling Document.
+    """Create chunks based on ToC headlines, treating non-ToC section headers as text body.
     
-    This function extracts section headers and their content from the Docling Document,
-    creates ToC-interval based chunks with context headers.
+    This function creates chunks based only on ToC entries. Section headers that are present
+    in the Docling Document but not in the ToC are treated as part of the text body.
     
     Args:
+        toc_data: Table of Contents data with hierarchical structure
         docling_document: The headline-fixed Docling Document JSON
         max_chars: Maximum characters per chunk
         
@@ -78,110 +80,173 @@ def create_chunks_from_docling_document(
     chunks = []
     texts = docling_document.get('texts', [])
     
-    # Find all section headers in the document
-    section_headers = []
-    for i, text_item in enumerate(texts):
-        if text_item.get('label') == 'section_header':
-            # Extract page info from provenance
-            page_no = 1
-            prov = text_item.get('prov', [])
-            if prov and isinstance(prov, list) and len(prov) > 0:
-                first_prov = prov[0]
-                if isinstance(first_prov, dict) and 'page_no' in first_prov:
-                    page_no = first_prov['page_no']
+    # Extract all ToC headline titles for comparison
+    toc_titles = set()
+    
+    def collect_toc_titles(toc_nodes: List[Dict[str, Any]]) -> None:
+        """Recursively collect all ToC titles."""
+        for node in toc_nodes:
+            title = node.get('title', '').strip()
+            if title:
+                toc_titles.add(title.lower())
+            children = node.get('children', [])
+            if children:
+                collect_toc_titles(children)
+    
+    collect_toc_titles(toc_data)
+    print(f"[DEBUG] Found {len(toc_titles)} ToC titles")
+    
+    # Process each ToC entry to create chunks
+    def process_toc_node(
+        node: Dict[str, Any], 
+        parent_path: List[str] = None
+    ) -> None:
+        if parent_path is None:
+            parent_path = []
             
-            section_headers.append({
-                'index': i,
-                'text': text_item.get('text', ''),
-                'level': text_item.get('level', 1),
-                'page': page_no,
-                'parent_ref': text_item.get('parent', {}).get('$ref', '#/body')
-            })
-    
-    print(f"[DEBUG] Found {len(section_headers)} section headers in Docling Document")
-    
-    # Create chunks for each section by collecting content between section headers
-    for i, header in enumerate(section_headers):
-        section_name = header['text']
-        section_level = header['level']
-        section_page = header['page']
+        title = node.get('title', '').strip()
+        level = node.get('level', 1)
+        start_page = node.get('start_page')
+        end_page = node.get('end_page')
         
-        # Find the range of text elements for this section
-        start_index = header['index'] + 1  # Start after the header
+        if not title:
+            return
+            
+        # Skip index and document info sections
+        full_path = parent_path + [title]
+        if any('índice' in part.lower() or 'document info' in part.lower() 
+               for part in full_path):
+            return
         
-        # Find end index (before next section at same or higher level)
-        end_index = len(texts)
-        for j in range(i + 1, len(section_headers)):
-            next_header = section_headers[j]
-            if next_header['level'] <= section_level:
-                end_index = next_header['index']
-                break
+        print(f"[DEBUG] Processing ToC section: {title} (pages {start_page}-{end_page})")
         
-        # Collect content for this section
+        # Collect content for this ToC section from the Docling document
         section_content_parts = []
-        end_page = section_page
         
-        for text_idx in range(start_index, min(end_index, len(texts))):
-            text_item = texts[text_idx]
-            text_content = text_item.get('text', '').strip()
+        # Create a set of child ToC titles to exclude from this section's content
+        child_toc_titles = set()
+        children = node.get('children', [])
+        for child in children:
+            child_title = child.get('title', '').strip().lower()
+            if child_title:
+                child_toc_titles.add(child_title)
+        
+        # Find content within the page range of this ToC section
+        for text_item in texts:
+            # Get page number from provenance
+            page_no = get_page_from_provenance(text_item)
             
-            if text_content:
-                # Skip nested section headers (they'll be processed separately)
-                if text_item.get('label') == 'section_header':
-                    continue
+            # Check if this content is within the ToC section's page range
+            if start_page and end_page and start_page <= page_no <= end_page:
+                text_content = text_item.get('text', '').strip()
+                if text_content:
+                    # Include ALL content (even section headers not in ToC) as text body
+                    # But skip the main ToC header itself and child ToC headers
+                    if text_item.get('label') == 'section_header':
+                        if text_content.lower() == title.lower():
+                            continue  # Skip the main section header for this ToC entry
+                        elif text_content.lower() in child_toc_titles:
+                            continue  # Skip child ToC headers (they'll be in their own chunks)
                     
-                section_content_parts.append(text_content)
-                
-                # Update end page based on content
-                prov = text_item.get('prov', [])
-                if prov and isinstance(prov, list) and len(prov) > 0:
-                    first_prov = prov[0]
-                    if isinstance(first_prov, dict) and 'page_no' in first_prov:
-                        end_page = max(end_page, first_prov['page_no'])
+                    section_content_parts.append(text_content)
         
         section_content = '\n'.join(section_content_parts)
         
         # Skip empty sections
         if not section_content.strip():
-            print(f"[DEBUG] Skipping empty section: {section_name}")
-            continue
-        
-        # Build ToC path (simplified - could be enhanced with actual hierarchy)
-        toc_path = [section_name]
-        
-        # Create context header
-        context_header = f"# Section: {section_name}\n"
-        context_header += f"**Level:** {section_level}\n"
-        context_header += f"**Page:** {section_page}"
-        if end_page > section_page:
-            context_header += f"-{end_page}"
-        context_header += "\n"
-        
-        # Create section info
-        section_info = {
-            "section_name": section_name,
-            "section_level": section_level,
-            "start_page": section_page,
-            "end_page": end_page,
-            "toc_path": toc_path,
-            "section_index": i
-        }
-        
-        if len(section_content) <= max_chars:
-            # Single chunk
-            chunk_text = f"{context_header}\n{section_content}"
-            chunks.append((chunk_text, section_info))
-            print(f"[DEBUG] Created chunk for section '{section_name}' ({len(section_content)} chars)")
+            print(f"[DEBUG] Skipping empty ToC section: {title}")
         else:
-            # Split large content into multiple chunks
-            split_chunks = split_large_content(section_content, max_chars)
-            for j, split_content in enumerate(split_chunks):
-                chunk_header = f"{context_header} (Part {j+1}/{len(split_chunks)})\n"
-                chunk_text = f"{chunk_header}\n{split_content}"
+            # Create context header
+            path_str = " → ".join(full_path)
+            context_header = f"# Section: {title}\n"
+            context_header += f"**Path:** {path_str}\n"
+            context_header += f"**Level:** {level}\n"
+            if start_page and end_page:
+                context_header += f"**Pages:** {start_page}-{end_page}\n"
+            
+            # Create section info
+            section_info = {
+                "section_name": title,
+                "section_level": level,
+                "start_page": start_page,
+                "end_page": end_page,
+                "toc_path": full_path,
+                "section_index": len(chunks)
+            }
+            
+            if len(section_content) <= max_chars:
+                # Single chunk
+                chunk_text = f"{context_header}\n{section_content}"
                 chunks.append((chunk_text, section_info))
-            print(f"[DEBUG] Split section '{section_name}' into {len(split_chunks)} chunks")
+                print(f"[DEBUG] Created chunk for ToC section '{title}' ({len(section_content)} chars)")
+            else:
+                # Split large content into multiple chunks
+                split_chunks = split_large_content(section_content, max_chars)
+                for j, split_content in enumerate(split_chunks):
+                    chunk_header = f"{context_header} (Part {j+1}/{len(split_chunks)})\n"
+                    chunk_text = f"{chunk_header}\n{split_content}"
+                    chunks.append((chunk_text, section_info))
+                print(f"[DEBUG] Split ToC section '{title}' into {len(split_chunks)} chunks")
+        
+        # Process child ToC nodes
+        for child in children:
+            process_toc_node(child, full_path)
+    
+    # Process all root ToC nodes
+    for root_node in toc_data:
+        process_toc_node(root_node)
     
     return chunks
+
+
+def create_fallback_toc_from_docling(docling_document: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Create a fallback ToC from main section headers in Docling Document.
+    
+    Args:
+        docling_document: Docling Document JSON
+        
+    Returns:
+        Minimal ToC structure
+    """
+    texts = docling_document.get('texts', [])
+    toc_entries = []
+    
+    # Find level 1 section headers
+    for text_item in texts:
+        if (text_item.get('label') == 'section_header' and 
+            text_item.get('level', 1) == 1):
+            
+            page_no = get_page_from_provenance(text_item)
+            title = text_item.get('text', '').strip()
+            
+            if title:
+                toc_entries.append({
+                    'title': title,
+                    'level': 1,
+                    'start_page': page_no,
+                    'end_page': page_no + 1,  # Simple fallback
+                    'children': []
+                })
+    
+    print(f"[INFO] Created fallback ToC with {len(toc_entries)} entries")
+    return toc_entries
+
+
+def get_page_from_provenance(text_item: Dict[str, Any]) -> int:
+    """Extract page number from text item provenance.
+    
+    Args:
+        text_item: Text item from Docling document
+        
+    Returns:
+        Page number (1-based) or 0 if not found
+    """
+    prov = text_item.get('prov', [])
+    if prov and isinstance(prov, list) and len(prov) > 0:
+        first_prov = prov[0]
+        if isinstance(first_prov, dict) and 'page_no' in first_prov:
+            return first_prov['page_no']
+    return 0
 
 
 def split_large_content(content: str, max_chars: int) -> List[str]:
@@ -315,9 +380,23 @@ def run_enhanced_extraction(
     with open(fixed_docling_path, 'r', encoding='utf-8') as f:
         docling_document = json.load(f)
     
-    # Create sections and chunks from the fixed Docling Document
-    print("[INFO] Creating ToC-interval based chunks from fixed Docling Document...")
-    chunks = create_chunks_from_docling_document(docling_document, max_chars=5000)
+    # Load ToC data generated by pdf_toc_extractor
+    toc_path = docling_path.parent / "toc.json"
+    toc_data = []
+    
+    if toc_path.exists():
+        print(f"[INFO] Loading ToC data from: {toc_path}")
+        with open(toc_path, 'r', encoding='utf-8') as f:
+            toc_data = json.load(f)
+        print(f"[INFO] Loaded {len(toc_data)} ToC entries")
+    else:
+        print("[WARNING] ToC data not found, attempting to extract from Docling Document headers")
+        # Fallback: create minimal ToC from section headers
+        toc_data = create_fallback_toc_from_docling(docling_document)
+    
+    # Create sections and chunks from ToC and fixed Docling Document
+    print("[INFO] Creating ToC-based chunks (non-ToC headers treated as text body)...")
+    chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=5000)
     
     print(f"[INFO] Created {len(chunks)} chunks for processing")
     

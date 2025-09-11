@@ -41,7 +41,7 @@ def create_mock_docling_document():
                     "bbox": {"l": 72, "t": 130, "r": 500, "b": 180, "coord_origin": "TOPLEFT"},
                     "charspan": [16, 150]
                 }],
-                "text": "Este es el contenido de la Sección SI 1. Contiene información importante sobre seguridad contra incendios y evacuación de edificios."
+                "text": "Este es el contenido de la Sección SI 1. Contiene información importante sobre seguridad contra incendios."
             },
             {
                 "self_ref": "#/texts/2",
@@ -69,22 +69,22 @@ def create_mock_docling_document():
                     "bbox": {"l": 72, "t": 230, "r": 500, "b": 280, "coord_origin": "TOPLEFT"},
                     "charspan": [171, 350]
                 }],
-                "text": "El objetivo de esta sección es establecer las reglas y procedimientos para garantizar la seguridad de las personas en caso de incendio."
+                "text": "El objetivo específico de esta subsección es establecer reglas detalladas para la seguridad."
             },
             {
                 "self_ref": "#/texts/4",
-                "parent": {"$ref": "#/body"},
+                "parent": {"$ref": "#/texts/0"},
                 "children": [],
                 "content_layer": "body",
                 "label": "section_header",
                 "prov": [{
-                    "page_no": 2,
-                    "bbox": {"l": 72, "t": 100, "r": 500, "b": 120, "coord_origin": "TOPLEFT"},
-                    "charspan": [351, 365]
+                    "page_no": 1,
+                    "bbox": {"l": 72, "t": 290, "r": 500, "b": 310, "coord_origin": "TOPLEFT"},
+                    "charspan": [351, 370]
                 }],
-                "orig": "Sección SI 2",
-                "text": "Sección SI 2",
-                "level": 1
+                "orig": "Non-ToC Header",
+                "text": "Non-ToC Header",
+                "level": 2
             },
             {
                 "self_ref": "#/texts/5",
@@ -93,18 +93,48 @@ def create_mock_docling_document():
                 "content_layer": "body",
                 "label": "text",
                 "prov": [{
+                    "page_no": 1,
+                    "bbox": {"l": 72, "t": 320, "r": 500, "b": 350, "coord_origin": "TOPLEFT"},
+                    "charspan": [371, 450]
+                }],
+                "text": "Este encabezado NO está en el ToC, por lo que debe ser tratado como texto del cuerpo."
+            },
+            {
+                "self_ref": "#/texts/6",
+                "parent": {"$ref": "#/body"},
+                "children": [],
+                "content_layer": "body",
+                "label": "section_header",
+                "prov": [{
+                    "page_no": 2,
+                    "bbox": {"l": 72, "t": 100, "r": 500, "b": 120, "coord_origin": "TOPLEFT"},
+                    "charspan": [451, 465]
+                }],
+                "orig": "Sección SI 2",
+                "text": "Sección SI 2",
+                "level": 1
+            },
+            {
+                "self_ref": "#/texts/7",
+                "parent": {"$ref": "#/texts/6"},
+                "children": [],
+                "content_layer": "body",
+                "label": "text",
+                "prov": [{
                     "page_no": 2,
                     "bbox": {"l": 72, "t": 130, "r": 500, "b": 250, "coord_origin": "TOPLEFT"},
-                    "charspan": [366, 600]
+                    "charspan": [466, 600]
                 }],
-                "text": "Esta sección trata sobre la propagación exterior del fuego. Se establecen las condiciones que deben cumplir los elementos constructivos para limitar el riesgo de propagación del incendio por el exterior del edificio."
+                "text": "Esta sección trata sobre la propagación exterior del fuego. Se establecen las condiciones que deben cumplir los elementos constructivos."
             }
         ],
         "main_text": [
             {"text": "Sección SI 1", "label": "section_header"},
             {"text": "Este es el contenido de la Sección SI 1...", "label": "text"},
             {"text": "1.1 Objetivo", "label": "section_header"},
-            {"text": "El objetivo de esta sección...", "label": "text"},
+            {"text": "El objetivo específico de esta subsección...", "label": "text"},
+            {"text": "Non-ToC Header", "label": "section_header"},
+            {"text": "Este encabezado NO está en el ToC...", "label": "text"},
             {"text": "Sección SI 2", "label": "section_header"},
             {"text": "Esta sección trata sobre la propagación exterior del fuego...", "label": "text"}
         ],
@@ -121,19 +151,45 @@ def test_chunking():
     sys.path.insert(0, str(Path(__file__).parent))
     
     try:
-        from enhanced_lx_runner import create_chunks_from_docling_document
+        from enhanced_lx_runner import create_chunks_from_toc_and_docling
     except ImportError as e:
         print(f"Error importing chunking function: {e}")
         return False
+    
+    # Create mock ToC data
+    mock_toc = [
+        {
+            "title": "Sección SI 1",
+            "level": 1,
+            "start_page": 1,
+            "end_page": 1,
+            "children": [
+                {
+                    "title": "1.1 Objetivo", 
+                    "level": 2,
+                    "start_page": 1,
+                    "end_page": 1,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "title": "Sección SI 2",
+            "level": 1, 
+            "start_page": 2,
+            "end_page": 2,
+            "children": []
+        }
+    ]
     
     # Create mock Docling Document
     mock_doc = create_mock_docling_document()
     
     # Test chunking
-    print("Testing enhanced chunking with mock Docling Document...")
+    print("Testing enhanced ToC-based chunking with mock data...")
     
     try:
-        chunks = create_chunks_from_docling_document(mock_doc, max_chars=1000)
+        chunks = create_chunks_from_toc_and_docling(mock_toc, mock_doc, max_chars=1000)
         
         print(f"\nChunking successful! Generated {len(chunks)} chunks:")
         
@@ -165,8 +221,8 @@ def test_chunking():
             json.dump({
                 "pipeline_info": {
                     "version": "1.0",
-                    "method": "docling_toc_based_chunking", 
-                    "test_document": "mock_docling_document",
+                    "method": "toc_based_chunking_with_docling", 
+                    "test_document": "mock_toc_and_docling_document",
                     "total_chunks": len(chunks)
                 },
                 "chunks": chunks_data
@@ -174,11 +230,11 @@ def test_chunking():
             
             print(f"\nTest chunks saved to: {f.name}")
         
-        print("\n✅ Chunking test completed successfully!")
+        print("\n✅ ToC-based chunking test completed successfully!")
         return True
         
     except Exception as e:
-        print(f"\n❌ Chunking test failed: {e}")
+        print(f"\n❌ ToC-based chunking test failed: {e}")
         import traceback
         traceback.print_exc()
         return False
