@@ -16,6 +16,15 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import tempfile
+import warnings
+
+# Suppress PyTorch warnings about pin_memory when no GPU is available
+warnings.filterwarnings(
+    "ignore",
+    message=".*pin_memory.*argument is set as true but no accelerator is found.*",
+    category=UserWarning,
+    module="torch.utils.data.dataloader"
+)
 
 # Import enhanced pipeline components (commented out for chunking-only version)
 # from extraction_pipeline.enhanced_pipeline import EnhancedExtractionPipeline

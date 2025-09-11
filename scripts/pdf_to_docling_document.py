@@ -19,6 +19,7 @@ import argparse
 import logging
 from pathlib import Path
 import sys
+import warnings
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -30,6 +31,14 @@ def setup_logging(verbose: bool = False) -> None:
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(
         level=level, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    
+    # Suppress specific PyTorch warning about pin_memory when no GPU is available
+    warnings.filterwarnings(
+        "ignore",
+        message=".*pin_memory.*argument is set as true but no accelerator is found.*",
+        category=UserWarning,
+        module="torch.utils.data.dataloader"
     )
 
 
