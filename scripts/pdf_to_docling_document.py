@@ -58,8 +58,9 @@ def convert_pdf_to_docling_document(
     """
     try:
         # pylint: disable=import-outside-toplevel
-        from docling.document_converter import DocumentConverter
+        from docling.document_converter import DocumentConverter, FormatOption
         from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
+        from docling.pipeline.standard_pdf_pipeline import StandardPdfPipeline
         from docling.datamodel.base_models import InputFormat
         from docling.datamodel.pipeline_options import (
             PdfPipelineOptions,
@@ -127,10 +128,17 @@ def convert_pdf_to_docling_document(
             ocr_options=ocr_options,
         )
         
-        # Initialize the document converter with GPU configuration
+        # Create FormatOption with proper backend configuration
+        pdf_format_option = FormatOption(
+            pipeline_options=pipeline_options,
+            backend=PyPdfiumDocumentBackend,
+            pipeline_cls=StandardPdfPipeline,
+        )
+        
+        # Initialize the document converter with proper format options
         converter = DocumentConverter(
             format_options={
-                InputFormat.PDF: pipeline_options,
+                InputFormat.PDF: pdf_format_option,
             }
         )
 
