@@ -8,7 +8,12 @@ import os
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    DOTENV_AVAILABLE = True
+except ImportError:
+    DOTENV_AVAILABLE = False
+    def load_dotenv(): pass  # No-op fallback
 
 import langextract as lx
 from langextract import factory, providers
@@ -76,17 +81,18 @@ class ExtractionConfig:
 
 def setup_langextract_providers() -> None:
     """Setup LangExtract providers and configuration."""
-    load_dotenv()
-    
-    # Ensure provider registry is populated
-    providers.load_builtins_once()
-    providers.load_plugins_once()
+    if DOTENV_AVAILABLE:
+        load_dotenv()
     
     try:
+        # Ensure provider registry is populated
+        providers.load_builtins_once()
+        providers.load_plugins_once()
+        
         avail = providers.list_providers()
         print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
     except Exception as e:
-        print(f"[WARNING] Could not list providers: {e}")
+        print(f"[WARNING] Could not setup providers: {e}")
 
 
 def should_skip_section_for_extraction(section_name: str) -> bool:
