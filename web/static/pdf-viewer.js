@@ -64,10 +64,10 @@ class PDFViewer {
     this.canvas.height = viewport.height;
     this.canvas.width = viewport.width;
     
-    // Update overlay dimensions to match canvas
+    // Update overlay dimensions and position to match canvas exactly
     if (this.highlightOverlay) {
-      this.highlightOverlay.style.width = `${viewport.width}px`;
-      this.highlightOverlay.style.height = `${viewport.height}px`;
+      // Make sure the overlay is positioned to match the canvas
+      this.updateOverlayPosition();
     }
     
     // Render PDF page
@@ -115,6 +115,24 @@ class PDFViewer {
     if (zoomDisplay) {
       zoomDisplay.textContent = `${Math.round(this.scale * 100)}%`;
     }
+  }
+  
+  /**
+   * Update the highlight overlay position and size to match the canvas exactly
+   */
+  updateOverlayPosition() {
+    if (!this.canvas || !this.highlightOverlay) return;
+    
+    // Get canvas offset from container
+    const offset = this.getCanvasOffset();
+    
+    // Position overlay to match canvas exactly
+    this.highlightOverlay.style.left = `${offset.left}px`;
+    this.highlightOverlay.style.top = `${offset.top}px`;
+    this.highlightOverlay.style.width = `${this.canvas.width}px`;
+    this.highlightOverlay.style.height = `${this.canvas.height}px`;
+    
+    console.log(`Overlay positioned at: left=${offset.left}px, top=${offset.top}px, size=${this.canvas.width}x${this.canvas.height}px`);
   }
   
   updatePageDisplay() {
@@ -366,6 +384,8 @@ class PDFViewer {
       bottom = bbox.b * this.scale;
     }
     
+    // Since overlay is now positioned to match canvas exactly, 
+    // no additional offset needed
     return {
       left: Math.min(left, right),
       top: Math.min(top, bottom),
@@ -374,6 +394,31 @@ class PDFViewer {
     };
   }
   
+  /**
+   * Get the canvas offset relative to the PDF viewer container
+   * to account for wrapper padding and centering when positioning highlights
+   */
+  getCanvasOffset() {
+    if (!this.canvas || !this.highlightOverlay) {
+      return { left: 0, top: 0 };
+    }
+    
+    // Get the canvas position relative to the container
+    const canvasRect = this.canvas.getBoundingClientRect();
+    const containerRect = this.highlightOverlay.parentElement.getBoundingClientRect();
+    
+    // Calculate the offset
+    const offsetLeft = canvasRect.left - containerRect.left;
+    const offsetTop = canvasRect.top - containerRect.top;
+    
+    console.log(`Canvas offset calculated: left=${offsetLeft}px, top=${offsetTop}px`);
+    
+    return {
+      left: offsetLeft,
+      top: offsetTop
+    };
+  }
+
   clearHighlights() {
     this.currentHighlights.forEach(highlight => {
       if (highlight.parentNode) {
