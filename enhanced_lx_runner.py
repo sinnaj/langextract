@@ -173,6 +173,7 @@ def load_prompt_and_examples(
     return PROMPT_DESCRIPTION, examples
 
 
+@monitor_memory_during_processing
 def extract_with_langextract(
     text: str, 
     prompt: str, 
@@ -842,6 +843,7 @@ def get_extraction_title(extraction: Dict[str, Any]) -> str:
         return attributes.get("id", f"{extraction_class} Item")
 
 
+@monitor_memory_during_processing
 def run_enhanced_extraction(
     pdf_path: Path,
     output_dir: Optional[Path] = None,
