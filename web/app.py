@@ -674,6 +674,123 @@ def get_comment_details(comment_id: int):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+# PDF Viewer API endpoints
+
+@app.get("/api/runs/<run_id>/pdf")
+def serve_pdf(run_id: str):
+    """Serve the PDF file for a specific run."""
+    run_dir = OUTPUT_ROOT / run_id
+    if not run_dir.exists():
+        return abort(404, "Run not found")
+    
+    # Look for PDF file in the input directory
+    input_dir = run_dir / "input"
+    if not input_dir.exists():
+        return abort(404, "No input directory found")
+    
+    # Find the first PDF file in the input directory
+    pdf_files = list(input_dir.glob("*.pdf"))
+    if not pdf_files:
+        return abort(404, "No PDF file found for this run")
+    
+    pdf_path = pdf_files[0]  # Use the first PDF found
+    
+    try:
+        return send_file(pdf_path, as_attachment=False, mimetype='application/pdf')
+    except Exception as e:
+        return abort(500, f"Error serving PDF: {str(e)}")
+
+
+@app.get("/api/runs/<run_id>/positioning")
+def get_positioning_data(run_id: str):
+    """Get positioning data for PDF highlighting."""
+    run_dir = OUTPUT_ROOT / run_id
+    if not run_dir.exists():
+        return abort(404, "Run not found")
+    
+    # Look for output files that might contain positioning data
+    output_dir = run_dir / "lx output"
+    if not output_dir.exists():
+        return jsonify({"sections": []})  # Return empty if no output yet
+    
+    # Try to find the enhanced output with positioning data
+    enhanced_output_file = None
+    for pattern in ["enhanced_output.json", "*enhanced*.json", "output*.json"]:
+        files = list(output_dir.glob(pattern))
+        if files:
+            enhanced_output_file = files[0]
+            break
+    
+    if not enhanced_output_file:
+        return jsonify({"sections": []})  # Return empty if no enhanced output
+    
+    try:
+        with open(enhanced_output_file, 'r', encoding='utf-8') as f:
+            output_data = json.load(f)
+        
+        # Extract positioning data from the enhanced output
+        positioning_data = extract_positioning_from_output(output_data)
+        return jsonify(positioning_data)
+        
+    except Exception as e:
+        print(f"Error loading positioning data: {e}")
+        return jsonify({"sections": []})
+
+
+def extract_positioning_from_output(output_data):
+    """Extract positioning data from enhanced_lx_runner output."""
+    positioning_data = {"sections": []}
+    
+    if not isinstance(output_data, dict):
+        return positioning_data
+    
+    sections = output_data.get("sections", [])
+    for section in sections:
+        section_data = {
+            "section_id": section.get("section_id"),
+            "section_name": section.get("section_name"),
+            "norms": []
+        }
+        
+        # Add section-level positioning if available
+        if section.get("start_page") or section.get("end_page"):
+            section_data["positioning"] = {
+                "page_no": section.get("start_page", 1),
+                "start_page": section.get("start_page"),
+                "end_page": section.get("end_page")
+            }
+        
+        # Process norms within the section
+        norms = section.get("norms", [])
+        for norm in norms:
+            norm_data = {
+                "norm_id": norm.get("norm_id"),
+                "text": norm.get("text")
+            }
+            
+            # For now, use section positioning for norms
+            # In the future, enhanced_lx_runner should provide individual norm positioning
+            if section.get("start_page"):
+                norm_data["positioning"] = {
+                    "page_no": section.get("start_page"),
+                    # These would come from actual Docling positioning data
+                    "bbox": {
+                        "l": 50,   # Default positioning - should be replaced with real data
+                        "t": 700,
+                        "r": 500,
+                        "b": 650,
+                        "coord_origin": "BOTTOMLEFT"
+                    }
+                }
+            
+            section_data["norms"].append(norm_data)
+        
+        positioning_data["sections"].append(section_data)
+    
+    return positioning_data
+
+
 def _is_port_in_use(host: str, port: int) -> bool:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(0.5)
