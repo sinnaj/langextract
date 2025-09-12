@@ -3126,9 +3126,25 @@ class PreviewOptimizer {
     
     console.log(`Using extraction ID for PDF highlighting: ${elementId}`);
     
-    // Trigger PDF highlighting if PDF viewer is available and initialized
+    // Ensure PDF viewer is initialized if we have a current run ID
+    if (!window.pdfViewer && window.currentRunId) {
+      console.log('PDF viewer not ready, attempting initialization...');
+      window.initializePDFViewer(window.currentRunId);
+      // Try highlighting again after a short delay
+      setTimeout(() => {
+        if (window.pdfViewer) {
+          this.highlightNodeInPDF(node);
+        } else {
+          console.error('PDF viewer still not available after initialization attempt');
+        }
+      }, 1000);
+      return;
+    }
+    
+    // Trigger PDF highlighting if PDF viewer is available
     if (window.pdfViewer && window.currentRunId) {
       try {
+        console.log(`Calling pdfViewer.highlightElements with: [${elementId}]`);
         window.pdfViewer.highlightElements([elementId]);
         
         // If PDF viewer panel is not visible, make it visible
@@ -3137,9 +3153,21 @@ class PreviewOptimizer {
         console.log(`PDF highlighting triggered for ${elementId}`);
       } catch (error) {
         console.error('Error highlighting PDF elements:', error);
+        console.error('Highlight error details:', {
+          elementId: elementId,
+          nodeId: node.id,
+          nodeType: node.type,
+          pdfViewerExists: !!window.pdfViewer,
+          currentRunId: window.currentRunId
+        });
       }
     } else {
-      console.log('PDF viewer not available or not initialized');
+      console.log('PDF viewer or currentRunId not available for highlighting');
+      console.log('Debug info:', {
+        pdfViewerExists: !!window.pdfViewer,
+        currentRunId: window.currentRunId,
+        elementId: elementId
+      });
     }
   }
   

@@ -354,8 +354,8 @@
       syncRunToNewPanels(newlyVisiblePanels);
     }
     
-    // Initialize PDF viewer for panel 2 if it's visible and input is collapsed
-    if (currentColumnCount >= 2 && isInputPanelCollapsed && currentRunId) {
+    // Initialize PDF viewer for panel 2 if it's visible (regardless of input panel state)
+    if (currentColumnCount >= 2 && currentRunId) {
       initializePDFViewer(currentRunId);
     }
   }
@@ -435,6 +435,14 @@
     if (!isInputPanelCollapsed) {
       isInputPanelCollapsed = true;
       updateLayout();
+    }
+    
+    // Initialize PDF viewer if we have a run and are now in multi-column mode
+    if (currentRunId && currentColumnCount >= 2) {
+      // Small delay to ensure panel layout has updated
+      setTimeout(() => {
+        initializePDFViewer(currentRunId);
+      }, 100);
     }
   }
 
@@ -570,6 +578,11 @@
         const panels = document.querySelectorAll('.preview-panel');
         for (let i = 1; i < Math.min(currentColumnCount, panels.length); i++) {
           try { await loadExistingRunResults(runId, i); } catch (e) { console.error(e); }
+        }
+        
+        // Initialize PDF viewer if we have a run ID and are in multi-column mode
+        if (runId && currentColumnCount >= 2) {
+          initializePDFViewer(runId);
         }
       }
       

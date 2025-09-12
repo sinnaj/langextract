@@ -371,8 +371,21 @@ window.highlightPDFElements = function(elementIds) {
 };
 
 window.initializePDFViewer = function(runId) {
-  if (!pdfViewer || !runId) {
-    console.log('PDF viewer or runId not available for initialization');
+  if (!pdfViewer) {
+    console.log('PDF viewer not available, waiting for initialization...');
+    // Try again after a short delay
+    setTimeout(() => {
+      if (pdfViewer) {
+        window.initializePDFViewer(runId);
+      } else {
+        console.error('PDF viewer still not available after delay');
+      }
+    }, 500);
+    return;
+  }
+  
+  if (!runId) {
+    console.log('PDF viewer runId not provided for initialization');
     return;
   }
   
@@ -380,21 +393,27 @@ window.initializePDFViewer = function(runId) {
   
   // Load PDF file for this run
   const pdfUrl = `/api/runs/${runId}/pdf`;
+  const positioningUrl = `/api/runs/${runId}/positioning`;
+  
+  console.log(`Loading positioning data from: ${positioningUrl}`);
+  console.log(`Loading PDF from: ${pdfUrl}`);
   
   // First load positioning data, then PDF
-  fetch(`/api/runs/${runId}/positioning`)
+  fetch(positioningUrl)
     .then(response => {
+      console.log(`Positioning API response status: ${response.status}`);
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       return response.json();
     })
     .then(data => {
-      console.log('Loading positioning data:', data);
+      console.log('Positioning data received:', data);
       pdfViewer.loadPositioningData(data);
       console.log('PDF positioning data loaded successfully');
       
       // Try to load PDF after positioning data is loaded
+      console.log(`Now loading PDF from: ${pdfUrl}`);
       return pdfViewer.loadPDF(pdfUrl);
     })
     .then(() => {
@@ -402,9 +421,15 @@ window.initializePDFViewer = function(runId) {
     })
     .catch(error => {
       console.error('Failed to initialize PDF viewer:', error);
+      console.error('Error details:', {
+        runId: runId,
+        positioningUrl: positioningUrl,
+        pdfUrl: pdfUrl,
+        pdfViewerExists: !!pdfViewer
+      });
       
       // Even if positioning data fails, try to load PDF
-      if (error.message.includes('positioning')) {
+      if (error.message.includes('positioning') || error.message.includes('404')) {
         console.log('Attempting to load PDF without positioning data');
         pdfViewer.loadPDF(pdfUrl).catch(pdfError => {
           console.error('PDF loading also failed:', pdfError);
