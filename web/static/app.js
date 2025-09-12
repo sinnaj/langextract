@@ -356,7 +356,7 @@
     
     // Initialize PDF viewer for panel 2 if it's visible and input is collapsed
     if (currentColumnCount >= 2 && isInputPanelCollapsed && currentRunId) {
-      initializePDFViewer();
+      initializePDFViewer(currentRunId);
     }
   }
   
