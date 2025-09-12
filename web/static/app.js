@@ -1082,10 +1082,22 @@
       if (elementInfo) {
         console.log('Tree node selected:', elementInfo);
         
+        // Check PDF highlighting conditions
+        console.log('PDF highlighting conditions:');
+        console.log('- window.highlightPDFElements exists:', !!window.highlightPDFElements);
+        console.log('- isInputPanelCollapsed:', isInputPanelCollapsed);
+        console.log('- currentColumnCount >= 2:', currentColumnCount >= 2);
+        console.log('- pdfViewer exists:', !!window.pdfViewer);
+        
         // Highlight in PDF (requirement #5)
         if (window.highlightPDFElements && isInputPanelCollapsed && currentColumnCount >= 2) {
+          console.log('Attempting to highlight PDF elements:', [elementInfo.id]);
           window.highlightPDFElements([elementInfo.id]);
+        } else {
+          console.log('PDF highlighting skipped due to conditions not met');
         }
+      } else {
+        console.log('No element info extracted from tree node');
       }
     }
   }
@@ -1095,15 +1107,20 @@
     let elementId = null;
     let elementType = null;
     
+    console.log('Extracting element info from tree node:', treeNode);
+    
     // Try to get from data attributes first
     elementId = treeNode.getAttribute('data-tree-id') || 
                 treeNode.getAttribute('data-element-id');
+    
+    console.log('Element ID from data attributes:', elementId);
     
     if (!elementId) {
       // Try to extract from JSON formatter structure
       const keyElement = treeNode.querySelector('.json-formatter-key');
       if (keyElement) {
         const keyText = keyElement.textContent;
+        console.log('Found key element with text:', keyText);
         
         // Look for ID patterns in the key or nearby content
         if (keyText.includes('_id') || keyText.includes('id')) {
@@ -1111,6 +1128,7 @@
           const valueElement = treeNode.querySelector('.json-formatter-string');
           if (valueElement) {
             elementId = valueElement.textContent.replace(/"/g, '');
+            console.log('Found element ID from JSON value:', elementId);
           }
         }
         
@@ -1124,6 +1142,8 @@
         } else if (keyText.includes('parameter')) {
           elementType = 'PARAMETER';
         }
+        
+        console.log('Detected element type:', elementType);
       }
     }
     

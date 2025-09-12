@@ -216,7 +216,10 @@ class PDFViewer {
   highlightElements(elementIds) {
     this.clearHighlights();
     
-    if (!elementIds) return;
+    if (!elementIds) {
+      console.log('No elementIds provided to highlightElements');
+      return;
+    }
     
     // Normalize to array
     if (typeof elementIds === 'string') {
@@ -224,6 +227,15 @@ class PDFViewer {
     }
     
     console.log(`Highlighting elements: ${elementIds.join(', ')}`);
+    console.log(`Available pages in pageData: ${Array.from(this.pageData.keys()).join(', ')}`);
+    console.log(`Total elements in positioning data: ${Array.from(this.pageData.values()).reduce((sum, arr) => sum + arr.length, 0)}`);
+    
+    // Debug: show what element IDs are available
+    const availableElementIds = [];
+    for (const [pageNum, elements] of this.pageData) {
+      elements.forEach(el => availableElementIds.push(el.elementId));
+    }
+    console.log(`Available element IDs: ${availableElementIds.slice(0, 5).join(', ')}${availableElementIds.length > 5 ? '...' : ''} (total: ${availableElementIds.length})`);
     
     let targetPage = null;
     const elementsToHighlight = [];
@@ -399,11 +411,15 @@ window.highlightPDFElements = function(elementIds) {
 };
 
 window.initializePDFViewer = function(runId) {
+  console.log('initializePDFViewer called with runId:', runId);
+  console.log('pdfViewer exists:', !!pdfViewer);
+  
   if (!pdfViewer) {
     console.log('PDF viewer not available, waiting for initialization...');
     // Try again after a short delay
     setTimeout(() => {
       if (pdfViewer) {
+        console.log('PDF viewer now available, retrying initialization');
         window.initializePDFViewer(runId);
       } else {
         console.error('PDF viewer still not available after delay');
@@ -437,6 +453,7 @@ window.initializePDFViewer = function(runId) {
     })
     .then(data => {
       console.log('Positioning data received:', data);
+      console.log('Number of sections in positioning data:', data?.sections?.length || 0);
       pdfViewer.loadPositioningData(data);
       console.log('PDF positioning data loaded successfully');
       
