@@ -336,12 +336,26 @@ def run_files(run_id: str):
     if not run_dir.exists():
         return abort(404)
     
-    # Only show files from the 'lx output' folder for processed results
-    # This prevents showing intermediate processing files from chunks folder
-    lx_output_dir = run_dir / "lx output"
     files: list[dict[str, Any]] = []
     
-    if lx_output_dir.exists():
+    # Check for enhanced output first
+    enhanced_output_dir = run_dir / "enhanced_output"
+    if enhanced_output_dir.exists():
+        for p in enhanced_output_dir.rglob("*"):
+            if p.is_file():
+                filename = p.name
+                
+                # Make path relative to run directory for consistency
+                rel = p.relative_to(run_dir)
+                try:
+                    sz = p.stat().st_size
+                except OSError:
+                    sz = 0
+                files.append({"path": str(rel).replace("\\", "/"), "size": sz})
+    
+    # Fallback: check legacy 'lx output' folder for backward compatibility
+    lx_output_dir = run_dir / "lx output"
+    if lx_output_dir.exists() and not enhanced_output_dir.exists():
         for p in lx_output_dir.rglob("*"):
             if p.is_file():
                 filename = p.name
