@@ -13,151 +13,50 @@ Usage:
 import json
 import os
 import sys
-import gc
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import tempfile
 
-# Memory management constants
-MAX_SECTION_SIZE_MB = 50  # Maximum size for a section before chunking
-MAX_CHUNK_SIZE_CHARS = 50000  # Maximum characters per chunk to prevent OOM
-MEMORY_WARNING_THRESHOLD_MB = 1000  # Warn if memory usage exceeds this
-
 # Import LangExtract functionality
 import langextract as lx
 from langextract import factory
-from langextract import providers
-from dotenv import load_dotenv
 
 # Import postprocessing modules
 from postprocessing.extract_tags import extract_tags_from_norms
 from postprocessing.extract_params import extract_parameters_from_norms
 
-
-def setup_langextract_providers():
-    """Setup LangExtract providers and configuration."""
-    load_dotenv()
-    
-    # Ensure provider registry is populated
-    providers.load_builtins_once()
-    providers.load_plugins_once()
-    
-    try:
-        avail = providers.list_providers()
-        print(f"[DEBUG] Providers available: {sorted(list(avail.keys()))}")
-    except Exception as e:
-        print(f"[WARNING] Could not list providers: {e}")
-    
-    # Check for API keys
-    USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1","true","yes"}
-    OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")
-    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-    
-    if USE_OPENROUTER and not OPENROUTER_KEY:
-        print("WARNING: OPENROUTER (OPENAI_API_KEY) key not set – OpenRouter call will fail.", file=sys.stderr)
-    elif not USE_OPENROUTER and not GOOGLE_API_KEY:
-        print("WARNING: GOOGLE_API_KEY not set – direct Gemini call will likely fail.", file=sys.stderr)
-    
-    return USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY
+# Import enhanced extraction utilities
+from enhanced_extraction.memory_utils import (
+    check_memory_usage, 
+    force_garbage_collection,
+    monitor_memory_during_processing,
+    MAX_CHUNK_SIZE_CHARS
+)
+from enhanced_extraction.serialization_utils import (
+    serialize_extraction_for_json,
+    ci_dict,
+    ti_dict,
+    get_alignment_status_value
+)
+from enhanced_extraction.content_chunking import (
+    split_large_content_safe,
+    emergency_chunk_content
+)
+from enhanced_extraction.config import (
+    ExtractionConfig,
+    setup_langextract_providers as setup_providers,
+    should_skip_section_for_extraction,
+    load_prompt_and_examples
+)
 
 
-def get_memory_usage_mb() -> float:
-    """Get current memory usage in MB."""
-    try:
-        import psutil
-        process = psutil.Process(os.getpid())
-        return process.memory_info().rss / 1024 / 1024
-    except ImportError:
-        # Fallback - no memory monitoring
-        return 0.0
+# Legacy function aliases for compatibility
+setup_langextract_providers = setup_providers  # Alias for compatibility
 
+# Remove redundant _serialize_extraction_for_json - use imported serialize_extraction_for_json
 
-def check_memory_usage(operation: str = "") -> None:
-    """Check and log memory usage, warn if high."""
-    memory_mb = get_memory_usage_mb()
-    if memory_mb > MEMORY_WARNING_THRESHOLD_MB:
-        print(f"[WARNING] High memory usage during {operation}: {memory_mb:.1f} MB")
-    else:
-        print(f"[DEBUG] Memory usage during {operation}: {memory_mb:.1f} MB")
-
-
-def force_garbage_collection() -> None:
-    """Force garbage collection to free memory."""
-    gc.collect()
-    print("[DEBUG] Forced garbage collection")
-
-
-def _ci_dict(ci):
-    """Convert CharInterval to JSON-serializable dict"""
-    if not ci:
-        return None
-    # CharInterval has start_pos/end_pos
-    return {
-        "start_pos": getattr(ci, "start_pos", None),
-        "end_pos": getattr(ci, "end_pos", None),
-    }
-
-
-def _ti_dict(ti):
-    """Convert TokenInterval to JSON-serializable dict"""
-    if not ti:
-        return None
-    # TokenInterval has start_index/end_index
-    return {
-        "start_index": getattr(ti, "start_index", None),
-        "end_index": getattr(ti, "end_index", None),
-    }
-
-
-def _get_alignment_status_value(alignment_status):
-    """Extract alignment status value from enum or string"""
-    if alignment_status is None:
-        return None
-    # Handle enum objects with .value attribute
-    if hasattr(alignment_status, "value"):
-        return alignment_status.value
-    # Handle string values directly
-    return alignment_status
-
-
-def _serialize_extraction_for_json(extraction):
-    """Convert extraction object to JSON-serializable dict"""
-    if extraction is None:
-        return None
-    
-    attributes = getattr(extraction, "attributes", {})
-    if attributes is None:
-        attributes = {}
-    if not isinstance(attributes, dict):
-        attributes = {}
-    
-    # Make sure attributes themselves are JSON serializable
-    serializable_attributes = {}
-    for key, value in attributes.items():
-        try:
-            # Test JSON serializability
-            json.dumps(value)
-            serializable_attributes[key] = value
-        except (TypeError, ValueError):
-            # Convert non-serializable objects to string representation
-            serializable_attributes[key] = str(value) if value is not None else None
-    
-    return {
-        "extraction_class": getattr(extraction, "extraction_class", None),
-        "extraction_text": getattr(extraction, "extraction_text", None),
-        "attributes": serializable_attributes,
-        "char_interval": _ci_dict(getattr(extraction, "char_interval", None)),
-        "alignment_status": _get_alignment_status_value(getattr(extraction, "alignment_status", None)),
-        "extraction_index": getattr(extraction, "extraction_index", None),
-        "group_index": getattr(extraction, "group_index", None),
-        "description": getattr(extraction, "description", None),
-        "token_interval": _ti_dict(getattr(extraction, "token_interval", None)),
-    }
-
-
-def estimate_content_size_mb(content: str) -> float:
-    """Estimate memory size of content in MB."""
-    return len(content.encode('utf-8')) / 1024 / 1024
+# Import estimate_content_size_mb from memory_utils
+from enhanced_extraction.memory_utils import estimate_content_size_mb
 
 
 def create_extraction_config(model_id: str = "google/gemini-2.0-flash-exp", temperature: float = 0.15):
@@ -319,7 +218,7 @@ def extract_with_langextract(
                 continue
                 
             # Use serialization function to convert to JSON-safe dict
-            item = _serialize_extraction_for_json(extraction)
+            item = serialize_extraction_for_json(extraction)
             if item is None:
                 continue
                 
