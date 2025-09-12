@@ -244,6 +244,9 @@ class PDFViewer {
     
     console.log(`Found ${elementsToHighlight.length} elements to highlight`);
     
+    // Show visual feedback in PDF viewer status
+    this.showHighlightStatus(elementIds, elementsToHighlight.length, targetPage);
+    
     // Navigate to target page if needed
     if (targetPage !== null && targetPage !== this.currentPage) {
       this.currentPage = targetPage;
@@ -257,7 +260,32 @@ class PDFViewer {
       this.addHighlightsForPage(this.currentPage, elementIds);
     }
   }
-  
+
+  // Show visual feedback about highlighting status
+  showHighlightStatus(elementIds, foundCount, targetPage) {
+    const statusElement = document.querySelector('.pdf-status');
+    if (statusElement) {
+      const elementText = elementIds.length === 1 ? 'element' : 'elements';
+      const foundText = foundCount > 0 ? `Found ${foundCount} positioning data` : 'No positioning data found';
+      const pageText = targetPage !== null ? ` on page ${targetPage}` : '';
+      
+      // Create highlighting indicator
+      statusElement.innerHTML = `
+        <div class="highlighting-status bg-yellow-100 text-yellow-800 px-3 py-2 rounded-md text-sm flex items-center space-x-2">
+          <span class="animate-pulse text-yellow-600">●</span>
+          <span>Highlighting ${elementIds.length} ${elementText} - ${foundText}${pageText}</span>
+        </div>
+      `;
+      
+      // Clear the status after 3 seconds
+      setTimeout(() => {
+        if (statusElement && statusElement.querySelector('.highlighting-status')) {
+          statusElement.innerHTML = 'No PDF';
+        }
+      }, 3000);
+    }
+  }
+
   addHighlightsForPage(pageNum, elementIds) {
     const pageElements = this.pageData.get(pageNum) || [];
     const elementsToHighlight = pageElements.filter(el => 

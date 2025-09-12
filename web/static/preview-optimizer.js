@@ -2912,119 +2912,115 @@ class PreviewOptimizer {
     
     // Enhanced click handler with navigation support
     const handleNodeClick = (e) => {
-      // Check if this was a double-click for navigation
-      if (e.detail === 2) {
-        console.log(`Double-click navigation for node: ${node.id}`);
-        this.navigateToNode(node);
-        return;
-      }
+      // Single click - always trigger PDF highlighting first
+      console.log(`Single-click navigation for node: ${node.id}`);
+      this.navigateToNode(node);
       
-      // Single click - toggle expand/collapse for nodes with children or details
+      // For nodes with children or details, also toggle expand/collapse after a brief delay
       const hasChildren = node.children.length > 0;
       const hasDetails = this.hasNodeDetails(node);
       
       if (hasChildren || hasDetails) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
-        
-        // Toggle expanded state
-        node.isExpanded = !node.isExpanded;
-        
-        // Update indicator with smooth animation
-        indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
-        if (node.isExpanded) {
-          indicator.textContent = '▼';
-          indicator.style.transform = 'rotate(0deg) scale(1)';
-          indicator.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
-        } else {
-          indicator.textContent = '▶';
-          indicator.style.transform = 'rotate(-90deg) scale(0.9)';
-          indicator.style.backgroundColor = 'transparent';
-        }
-        
-        // Toggle details visibility if they exist
-        if (hasDetails) {
-          if (node.isExpanded) {
-            // Expanding details
-            detailsContainer.style.display = 'block';
-            detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-            // Force a reflow
-            detailsContainer.offsetHeight;
-            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
-            detailsContainer.style.opacity = '1';
-            
-            // Remove max-height after animation for dynamic content
-            setTimeout(() => {
-              if (node.isExpanded) {
-                detailsContainer.style.maxHeight = 'none';
-              }
-            }, 300);
-          } else {
-            // Collapsing details
-            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
-            detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-            // Force a reflow
-            detailsContainer.offsetHeight;
-            detailsContainer.style.maxHeight = '0px';
-            detailsContainer.style.opacity = '0';
-            
-            // Hide after animation completes
-            setTimeout(() => {
-              if (!node.isExpanded) { // Check if still collapsed
-                detailsContainer.style.display = 'none';
-              }
-            }, 300);
-          }
-        }
-        
-        // Toggle children visibility if they exist
-        if (hasChildren) {
-          if (node.isExpanded) {
-            // Expanding
-            childrenContainer.style.display = 'block';
-            childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-            // Force a reflow
-            childrenContainer.offsetHeight;
-            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-            childrenContainer.style.opacity = '1';
-            
-            // Remove max-height after animation for dynamic content
-            setTimeout(() => {
-              if (node.isExpanded) {
-                childrenContainer.style.maxHeight = 'none';
-              }
-            }, 300);
-          } else {
-            // Collapsing
-            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-            childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-            // Force a reflow
-            childrenContainer.offsetHeight;
-            childrenContainer.style.maxHeight = '0px';
-            childrenContainer.style.opacity = '0';
-            
-            // Hide after animation completes
-            setTimeout(() => {
-              if (!node.isExpanded) { // Check if still collapsed
-                childrenContainer.style.display = 'none';
-              }
-            }, 300);
-          }
-        }
-        
-        console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
-        
-        // Reset indicator background after a brief moment
+        // Small delay to allow PDF highlighting to process first
         setTimeout(() => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
+          
+          // Toggle expanded state
+          node.isExpanded = !node.isExpanded;
+          
+          // Update indicator with smooth animation
+          indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
           if (node.isExpanded) {
+            indicator.textContent = '▼';
+            indicator.style.transform = 'rotate(0deg) scale(1)';
+            indicator.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+          } else {
+            indicator.textContent = '▶';
+            indicator.style.transform = 'rotate(-90deg) scale(0.9)';
             indicator.style.backgroundColor = 'transparent';
           }
-        }, 200);
-      } else {
-        // Leaf node - navigate on single click
-        console.log(`Single-click navigation for leaf node: ${node.id}`);
-        this.navigateToNode(node);
+          
+          // Toggle details visibility if they exist
+          if (hasDetails) {
+            if (node.isExpanded) {
+              // Expanding details
+              detailsContainer.style.display = 'block';
+              detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+              // Force a reflow
+              detailsContainer.offsetHeight;
+              detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+              detailsContainer.style.opacity = '1';
+              
+              // Remove max-height after animation for dynamic content
+              setTimeout(() => {
+                if (node.isExpanded) {
+                  detailsContainer.style.maxHeight = 'none';
+                }
+              }, 300);
+            } else {
+              // Collapsing details
+              detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+              detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+              // Force a reflow
+              detailsContainer.offsetHeight;
+              detailsContainer.style.maxHeight = '0px';
+              detailsContainer.style.opacity = '0';
+              
+              // Hide after animation completes
+              setTimeout(() => {
+                if (!node.isExpanded) { // Check if still collapsed
+                  detailsContainer.style.display = 'none';
+                }
+              }, 300);
+            }
+          }
+          
+          // Toggle children visibility if they exist
+          if (hasChildren) {
+            if (node.isExpanded) {
+              // Expanding
+              childrenContainer.style.display = 'block';
+              childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+              // Force a reflow
+              childrenContainer.offsetHeight;
+              childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+              childrenContainer.style.opacity = '1';
+              
+              // Remove max-height after animation for dynamic content
+              setTimeout(() => {
+                if (node.isExpanded) {
+                  childrenContainer.style.maxHeight = 'none';
+                }
+              }, 300);
+            } else {
+              // Collapsing
+              childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+              childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+              // Force a reflow
+              childrenContainer.offsetHeight;
+              childrenContainer.style.maxHeight = '0px';
+              childrenContainer.style.opacity = '0';
+              
+              // Hide after animation completes
+              setTimeout(() => {
+                if (!node.isExpanded) { // Check if still collapsed
+                  childrenContainer.style.display = 'none';
+                }
+              }, 300);
+            }
+          }
+          
+          console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
+          
+          // Reset indicator background after a brief moment
+          setTimeout(() => {
+            if (node.isExpanded) {
+              indicator.style.backgroundColor = 'transparent';
+            }
+          }, 200);
+        }, 100); // 100ms delay to allow PDF highlighting to process first
       }
     };
     
