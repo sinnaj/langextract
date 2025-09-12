@@ -211,13 +211,13 @@ def extract_with_langextract(
     prompt: str, 
     examples: List[Any], 
     config: Any,
-    section_metadata: Optional[Dict[str, Any]] = None
+    section_metadata: Optional[Dict[str, Any]] = None,
+    max_char_buffer: int = 5000,
+    extraction_passes: int = 2
 ) -> Optional[Dict[str, Any]]:
     """Extract using LangExtract with error handling."""
     try:
-        # Set up extraction parameters
-        MAX_CHAR_BUFFER = 5000
-        EXTRACTION_PASSES = 2
+        # Use provided extraction parameters
         
         extract_kwargs = dict(
             text_or_documents=text,
@@ -226,8 +226,8 @@ def extract_with_langextract(
             config=config,
             fence_output=False,
             use_schema_constraints=False,
-            max_char_buffer=MAX_CHAR_BUFFER,
-            extraction_passes=EXTRACTION_PASSES,
+            max_char_buffer=max_char_buffer,
+            extraction_passes=extraction_passes,
             resolver_params={
                 "fence_output": False,
                 "format_type": lx.data.FormatType.JSON,
@@ -784,7 +784,7 @@ def generate_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[st
     # Add extractions to their parent sections
     for extraction in extractions:
         extraction_class = extraction.get("extraction_class", "")
-        attributes = extraction.get("attributes", {})
+        attributes = extraction.get("attributes") or {}  # Handle None case
         parent_section_id = attributes.get("parent_section_id") or attributes.get("section_parent_id")
         
         if parent_section_id and parent_section_id in section_nodes:
@@ -898,6 +898,10 @@ def run_enhanced_extraction(
         output_dir = Path("output_runs") / "enhanced_run"
     
     output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create chunks directory for intermediate results (similar to lxRunnerExtraction.py)
+    chunks_dir = output_dir / "chunks"
+    chunks_dir.mkdir(parents=True, exist_ok=True)
     
     print("[INFO] Setting up enhanced extraction pipeline...")
     print(f"[INFO] Processing PDF: {pdf_path}")
@@ -1019,14 +1023,49 @@ def run_enhanced_extraction(
             prompt=prompt,
             examples=examples,
             config=config,
-            section_metadata=section_metadata
+            section_metadata=section_metadata,
+            max_char_buffer=MAX_CHAR_BUFFER,
+            extraction_passes=EXTRACTION_PASSES
         )
         
         if extraction_result and extraction_result.get("extractions"):
             all_extractions.extend(extraction_result["extractions"])
             print(f"[INFO] Extracted {len(extraction_result['extractions'])} items from chunk {i+1}")
+            
+            # Save intermediate extraction results for debugging (similar to lxRunnerExtraction.py)
+            try:
+                chunk_result_path = chunks_dir / f"chunk_{i+1:03d}.json"
+                chunk_result_data = {
+                    "chunk_id": i + 1,
+                    "section_metadata": section_metadata,
+                    "chunk_text": chunk_text,
+                    "extractions": extraction_result["extractions"],
+                    "extraction_count": len(extraction_result["extractions"]),
+                    "char_count": len(chunk_text)
+                }
+                with open(chunk_result_path, 'w', encoding='utf-8') as f:
+                    json.dump(chunk_result_data, f, indent=2, ensure_ascii=False)
+            except Exception as save_err:
+                print(f"[WARNING] Failed to save chunk {i+1} intermediate results: {save_err}")
         else:
             print(f"[WARNING] No extractions from chunk {i+1}")
+            
+            # Save empty chunk result for debugging
+            try:
+                chunk_result_path = chunks_dir / f"chunk_{i+1:03d}.json"
+                chunk_result_data = {
+                    "chunk_id": i + 1,
+                    "section_metadata": section_metadata,
+                    "chunk_text": chunk_text,
+                    "extractions": [],
+                    "extraction_count": 0,
+                    "char_count": len(chunk_text),
+                    "note": "No extractions returned from LangExtract"
+                }
+                with open(chunk_result_path, 'w', encoding='utf-8') as f:
+                    json.dump(chunk_result_data, f, indent=2, ensure_ascii=False)
+            except Exception as save_err:
+                print(f"[WARNING] Failed to save empty chunk {i+1} results: {save_err}")
         
         # Memory management
         if (i + 1) % 5 == 0:
@@ -1103,6 +1142,26 @@ def run_enhanced_extraction(
             "pipeline_info": results_data["pipeline_info"],
             "chunks": chunks_data
         }, f, indent=2, ensure_ascii=False)
+    
+    # Save combined extraction results to chunks directory (similar to lxRunnerExtraction.py)
+    try:
+        combined_results_path = chunks_dir / "combined_results.json"
+        combined_data = {
+            "pipeline_info": results_data["pipeline_info"],
+            "total_sections": len(all_sections),
+            "total_chunks": len(chunks_data),
+            "total_extractions": len(processed_extractions),
+            "sections": all_sections,
+            "extractions": processed_extractions,
+            "derived_tags": derived_tags,
+            "derived_parameters": derived_parameters
+        }
+        with open(combined_results_path, 'w', encoding='utf-8') as f:
+            json.dump(combined_data, f, indent=2, ensure_ascii=False)
+            
+        print(f"[INFO] Intermediate results saved to chunks directory: {chunks_dir}")
+    except Exception as save_err:
+        print(f"[WARNING] Failed to save combined results to chunks directory: {save_err}")
     
     print(f"[SUCCESS] Enhanced extraction pipeline completed!")
     print(f"  - Input PDF: {pdf_path}")
