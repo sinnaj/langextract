@@ -2912,119 +2912,115 @@ class PreviewOptimizer {
     
     // Enhanced click handler with navigation support
     const handleNodeClick = (e) => {
-      // Check if this was a double-click for navigation
-      if (e.detail === 2) {
-        console.log(`Double-click navigation for node: ${node.id}`);
-        this.navigateToNode(node);
-        return;
-      }
+      // Single click - always trigger PDF highlighting first
+      console.log(`Single-click navigation for node: ${node.id}`);
+      this.navigateToNode(node);
       
-      // Single click - toggle expand/collapse for nodes with children or details
+      // For nodes with children or details, also toggle expand/collapse after a brief delay
       const hasChildren = node.children.length > 0;
       const hasDetails = this.hasNodeDetails(node);
       
       if (hasChildren || hasDetails) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
-        
-        // Toggle expanded state
-        node.isExpanded = !node.isExpanded;
-        
-        // Update indicator with smooth animation
-        indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
-        if (node.isExpanded) {
-          indicator.textContent = '▼';
-          indicator.style.transform = 'rotate(0deg) scale(1)';
-          indicator.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
-        } else {
-          indicator.textContent = '▶';
-          indicator.style.transform = 'rotate(-90deg) scale(0.9)';
-          indicator.style.backgroundColor = 'transparent';
-        }
-        
-        // Toggle details visibility if they exist
-        if (hasDetails) {
-          if (node.isExpanded) {
-            // Expanding details
-            detailsContainer.style.display = 'block';
-            detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-            // Force a reflow
-            detailsContainer.offsetHeight;
-            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
-            detailsContainer.style.opacity = '1';
-            
-            // Remove max-height after animation for dynamic content
-            setTimeout(() => {
-              if (node.isExpanded) {
-                detailsContainer.style.maxHeight = 'none';
-              }
-            }, 300);
-          } else {
-            // Collapsing details
-            detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
-            detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-            // Force a reflow
-            detailsContainer.offsetHeight;
-            detailsContainer.style.maxHeight = '0px';
-            detailsContainer.style.opacity = '0';
-            
-            // Hide after animation completes
-            setTimeout(() => {
-              if (!node.isExpanded) { // Check if still collapsed
-                detailsContainer.style.display = 'none';
-              }
-            }, 300);
-          }
-        }
-        
-        // Toggle children visibility if they exist
-        if (hasChildren) {
-          if (node.isExpanded) {
-            // Expanding
-            childrenContainer.style.display = 'block';
-            childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
-            // Force a reflow
-            childrenContainer.offsetHeight;
-            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-            childrenContainer.style.opacity = '1';
-            
-            // Remove max-height after animation for dynamic content
-            setTimeout(() => {
-              if (node.isExpanded) {
-                childrenContainer.style.maxHeight = 'none';
-              }
-            }, 300);
-          } else {
-            // Collapsing
-            childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
-            childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
-            // Force a reflow
-            childrenContainer.offsetHeight;
-            childrenContainer.style.maxHeight = '0px';
-            childrenContainer.style.opacity = '0';
-            
-            // Hide after animation completes
-            setTimeout(() => {
-              if (!node.isExpanded) { // Check if still collapsed
-                childrenContainer.style.display = 'none';
-              }
-            }, 300);
-          }
-        }
-        
-        console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
-        
-        // Reset indicator background after a brief moment
+        // Small delay to allow PDF highlighting to process first
         setTimeout(() => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log(`Toggling node: ${node.id}, has ${node.children.length} children, has details: ${hasDetails}, currently expanded: ${node.isExpanded}`);
+          
+          // Toggle expanded state
+          node.isExpanded = !node.isExpanded;
+          
+          // Update indicator with smooth animation
+          indicator.style.transition = 'transform 0.3s ease-in-out, background-color 0.2s ease-in-out';
           if (node.isExpanded) {
+            indicator.textContent = '▼';
+            indicator.style.transform = 'rotate(0deg) scale(1)';
+            indicator.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+          } else {
+            indicator.textContent = '▶';
+            indicator.style.transform = 'rotate(-90deg) scale(0.9)';
             indicator.style.backgroundColor = 'transparent';
           }
-        }, 200);
-      } else {
-        // Leaf node - navigate on single click
-        console.log(`Single-click navigation for leaf node: ${node.id}`);
-        this.navigateToNode(node);
+          
+          // Toggle details visibility if they exist
+          if (hasDetails) {
+            if (node.isExpanded) {
+              // Expanding details
+              detailsContainer.style.display = 'block';
+              detailsContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+              // Force a reflow
+              detailsContainer.offsetHeight;
+              detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+              detailsContainer.style.opacity = '1';
+              
+              // Remove max-height after animation for dynamic content
+              setTimeout(() => {
+                if (node.isExpanded) {
+                  detailsContainer.style.maxHeight = 'none';
+                }
+              }, 300);
+            } else {
+              // Collapsing details
+              detailsContainer.style.maxHeight = detailsContainer.scrollHeight + 'px';
+              detailsContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+              // Force a reflow
+              detailsContainer.offsetHeight;
+              detailsContainer.style.maxHeight = '0px';
+              detailsContainer.style.opacity = '0';
+              
+              // Hide after animation completes
+              setTimeout(() => {
+                if (!node.isExpanded) { // Check if still collapsed
+                  detailsContainer.style.display = 'none';
+                }
+              }, 300);
+            }
+          }
+          
+          // Toggle children visibility if they exist
+          if (hasChildren) {
+            if (node.isExpanded) {
+              // Expanding
+              childrenContainer.style.display = 'block';
+              childrenContainer.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+              // Force a reflow
+              childrenContainer.offsetHeight;
+              childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+              childrenContainer.style.opacity = '1';
+              
+              // Remove max-height after animation for dynamic content
+              setTimeout(() => {
+                if (node.isExpanded) {
+                  childrenContainer.style.maxHeight = 'none';
+                }
+              }, 300);
+            } else {
+              // Collapsing
+              childrenContainer.style.maxHeight = childrenContainer.scrollHeight + 'px';
+              childrenContainer.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+              // Force a reflow
+              childrenContainer.offsetHeight;
+              childrenContainer.style.maxHeight = '0px';
+              childrenContainer.style.opacity = '0';
+              
+              // Hide after animation completes
+              setTimeout(() => {
+                if (!node.isExpanded) { // Check if still collapsed
+                  childrenContainer.style.display = 'none';
+                }
+              }, 300);
+            }
+          }
+          
+          console.log(`Node ${node.id} is now ${node.isExpanded ? 'expanded' : 'collapsed'}`);
+          
+          // Reset indicator background after a brief moment
+          setTimeout(() => {
+            if (node.isExpanded) {
+              indicator.style.backgroundColor = 'transparent';
+            }
+          }, 200);
+        }, 100); // 100ms delay to allow PDF highlighting to process first
       }
     };
     
@@ -3070,6 +3066,9 @@ class PreviewOptimizer {
   navigateToNode(node) {
     console.log(`Navigating to node: ${node.id} (${node.type})`);
     
+    // Trigger PDF highlighting for the selected node
+    this.highlightNodeInPDF(node);
+    
     // Check if we're in multi-column preview mode (2 or 3 columns)
     const columnInfo = this.getColumnInfo();
     if (columnInfo.columnCount < 2) {
@@ -3106,6 +3105,85 @@ class PreviewOptimizer {
     
     // Highlight the selected node
     this.highlightNodeSelection(node);
+  }
+
+  highlightNodeInPDF(node) {
+    console.log(`Highlighting node in PDF: ${node.id} (${node.type})`);
+    
+    // Get the element ID to highlight based on node type
+    let elementId = null;
+    
+    if (node.extraction && node.extraction.attributes && node.extraction.attributes.id) {
+      elementId = node.extraction.attributes.id;
+    } else {
+      // Fallback to node ID
+      elementId = node.id;
+    }
+    
+    console.log(`Using extraction ID for PDF highlighting: ${elementId}`);
+    
+    // Ensure PDF viewer is initialized if we have a current run ID
+    if (!window.pdfViewer && window.currentRunId) {
+      console.log('PDF viewer not ready, attempting initialization...');
+      window.initializePDFViewer(window.currentRunId);
+      // Try highlighting again after a short delay
+      setTimeout(() => {
+        if (window.pdfViewer) {
+          this.highlightNodeInPDF(node);
+        } else {
+          console.error('PDF viewer still not available after initialization attempt');
+        }
+      }, 1000);
+      return;
+    }
+    
+    // Trigger PDF highlighting if PDF viewer is available
+    if (window.pdfViewer && window.currentRunId) {
+      try {
+        console.log(`Calling pdfViewer.highlightElements with: [${elementId}]`);
+        window.pdfViewer.highlightElements([elementId]);
+        
+        // If PDF viewer panel is not visible, make it visible
+        this.ensurePDFPanelVisible();
+        
+        console.log(`PDF highlighting triggered for ${elementId}`);
+      } catch (error) {
+        console.error('Error highlighting PDF elements:', error);
+        console.error('Highlight error details:', {
+          elementId: elementId,
+          nodeId: node.id,
+          nodeType: node.type,
+          pdfViewerExists: !!window.pdfViewer,
+          currentRunId: window.currentRunId
+        });
+      }
+    } else {
+      console.log('PDF viewer or currentRunId not available for highlighting');
+      console.log('Debug info:', {
+        pdfViewerExists: !!window.pdfViewer,
+        currentRunId: window.currentRunId,
+        elementId: elementId
+      });
+    }
+  }
+  
+  ensurePDFPanelVisible() {
+    // Check if we're in dual panel mode and PDF panel is visible
+    const panels = document.querySelectorAll('.preview-panel');
+    const pdfPanel = Array.from(panels).find(panel => 
+      panel.textContent.includes('PDF Viewer') || 
+      panel.querySelector('#pdf-canvas')
+    );
+    
+    if (pdfPanel && pdfPanel.classList.contains('hidden')) {
+      // If PDF panel exists but is hidden, try to show it
+      // This depends on the current column layout
+      const currentColumnCount = window.currentColumnCount || 1;
+      if (currentColumnCount >= 2) {
+        pdfPanel.classList.remove('hidden');
+        console.log('Made PDF panel visible for highlighting');
+      }
+    }
   }
 
   getColumnInfo() {
@@ -4426,8 +4504,8 @@ class PreviewOptimizer {
       });
       nodeContent.classList.add('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
 
-      // Navigate to this node across panels
-      this.navigateToNode(item.id, extraction);
+      // Navigate to this node across panels and highlight in PDF
+      this.navigateToNode(item);
     });
 
     nodeContent.appendChild(indicator);

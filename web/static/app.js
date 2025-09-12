@@ -268,6 +268,14 @@
       inputPanel.classList.add('hidden');
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-12');
       columnSwitch.classList.remove('hidden');
+      
+      // Always show 2 panels when input is collapsed (requirement #2)
+      if (currentColumnCount === 1) {
+        currentColumnCount = 2;
+        window.currentColumnCount = currentColumnCount;
+      }
+      updatePreviewPanels();
+      updateColumnButtons();
     } else {
       inputPanel.classList.remove('hidden');
       previewContainer.className = previewContainer.className.replace(/lg:col-span-\d+/, 'lg:col-span-5');
@@ -302,6 +310,19 @@
       
       if (index < currentColumnCount) {
         panel.classList.remove('hidden');
+        
+        // For the second panel, make it a PDF viewer when input is collapsed (requirement #3)
+        if (index === 1 && isInputPanelCollapsed) {
+          panel.setAttribute('data-panel-type', 'pdf');
+          // Update panel title if needed
+          const titleEl = panel.querySelector('h2');
+          if (titleEl && !titleEl.textContent.includes('PDF')) {
+            titleEl.textContent = 'PDF Viewer';
+          }
+        } else {
+          panel.setAttribute('data-panel-type', 'preview');
+        }
+        
         // Adjust height for multiple columns
         const previewEl = panel.querySelector('.preview');
         if (previewEl) {
@@ -331,6 +352,11 @@
     // Sync current run to newly visible panels
     if (currentRunId && newlyVisiblePanels.length > 0) {
       syncRunToNewPanels(newlyVisiblePanels);
+    }
+    
+    // Initialize PDF viewer for panel 2 if it's visible (regardless of input panel state)
+    if (currentColumnCount >= 2 && currentRunId) {
+      initializePDFViewer(currentRunId);
     }
   }
   
@@ -409,6 +435,14 @@
     if (!isInputPanelCollapsed) {
       isInputPanelCollapsed = true;
       updateLayout();
+    }
+    
+    // Initialize PDF viewer if we have a run and are now in multi-column mode
+    if (currentRunId && currentColumnCount >= 2) {
+      // Small delay to ensure panel layout has updated
+      setTimeout(() => {
+        initializePDFViewer(currentRunId);
+      }, 100);
     }
   }
 
@@ -544,6 +578,11 @@
         const panels = document.querySelectorAll('.preview-panel');
         for (let i = 1; i < Math.min(currentColumnCount, panels.length); i++) {
           try { await loadExistingRunResults(runId, i); } catch (e) { console.error(e); }
+        }
+        
+        // Initialize PDF viewer if we have a run ID and are in multi-column mode
+        if (runId && currentColumnCount >= 2) {
+          initializePDFViewer(runId);
         }
       }
       
@@ -1011,4 +1050,163 @@
       button.title = 'Enable Tree View';
     }
   }
+
+  // Tree node selection and PDF highlighting integration
+  function setupTreeNodeSelection() {
+    // Set up event delegation for tree node clicks
+    document.addEventListener('click', handleTreeNodeClick);
+  }
+
+  function handleTreeNodeClick(event) {
+    const target = event.target;
+    
+    // Check if click is on a tree node
+    const treeNode = target.closest('.json-formatter-row, .tree-node-content, [data-tree-id]');
+    if (!treeNode) return;
+    
+    // Prevent default only if we're handling this as a tree selection
+    if (treeNode.querySelector('.json-formatter-key, .tree-item-title')) {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      // Clear previous selections
+      document.querySelectorAll('.tree-node-selected').forEach(node => {
+        node.classList.remove('tree-node-selected');
+      });
+      
+      // Mark current node as selected
+      treeNode.classList.add('tree-node-selected');
+      
+      // Extract element information for PDF highlighting
+      const elementInfo = extractElementInfo(treeNode);
+      if (elementInfo) {
+        console.log('Tree node selected:', elementInfo);
+        
+        // Check PDF highlighting conditions
+        console.log('PDF highlighting conditions:');
+        console.log('- window.highlightPDFElements exists:', !!window.highlightPDFElements);
+        console.log('- isInputPanelCollapsed:', isInputPanelCollapsed);
+        console.log('- currentColumnCount >= 2:', currentColumnCount >= 2);
+        console.log('- pdfViewer exists:', !!window.pdfViewer);
+        
+        // Highlight in PDF (requirement #5)
+        if (window.highlightPDFElements && isInputPanelCollapsed && currentColumnCount >= 2) {
+          console.log('Attempting to highlight PDF elements:', [elementInfo.id]);
+          window.highlightPDFElements([elementInfo.id]);
+        } else {
+          console.log('PDF highlighting skipped due to conditions not met');
+        }
+      } else {
+        console.log('No element info extracted from tree node');
+      }
+    }
+  }
+
+  function extractElementInfo(treeNode) {
+    // Extract element ID and type from the tree node
+    let elementId = null;
+    let elementType = null;
+    
+    console.log('Extracting element info from tree node:', treeNode);
+    
+    // Try to get from data attributes first
+    elementId = treeNode.getAttribute('data-tree-id') || 
+                treeNode.getAttribute('data-element-id');
+    
+    console.log('Element ID from data attributes:', elementId);
+    
+    if (!elementId) {
+      // Try to extract from JSON formatter structure
+      const keyElement = treeNode.querySelector('.json-formatter-key');
+      if (keyElement) {
+        const keyText = keyElement.textContent;
+        console.log('Found key element with text:', keyText);
+        
+        // Look for ID patterns in the key or nearby content
+        if (keyText.includes('_id') || keyText.includes('id')) {
+          // Find the corresponding value
+          const valueElement = treeNode.querySelector('.json-formatter-string');
+          if (valueElement) {
+            elementId = valueElement.textContent.replace(/"/g, '');
+            console.log('Found element ID from JSON value:', elementId);
+          }
+        }
+        
+        // Determine element type from key patterns
+        if (keyText.includes('norm')) {
+          elementType = 'NORM';
+        } else if (keyText.includes('section')) {
+          elementType = 'SECTION';
+        } else if (keyText.includes('tag')) {
+          elementType = 'TAG';
+        } else if (keyText.includes('parameter')) {
+          elementType = 'PARAMETER';
+        }
+        
+        console.log('Detected element type:', elementType);
+      }
+    }
+    
+    // Alternative: traverse up to find parent container with ID information
+    if (!elementId) {
+      let parent = treeNode.parentNode;
+      while (parent && !elementId) {
+        const siblingKeyElements = parent.querySelectorAll('.json-formatter-key');
+        for (const keyEl of siblingKeyElements) {
+          if (keyEl.textContent.includes('_id')) {
+            const valueEl = keyEl.parentNode.querySelector('.json-formatter-string');
+            if (valueEl) {
+              elementId = valueEl.textContent.replace(/"/g, '');
+              break;
+            }
+          }
+        }
+        parent = parent.parentNode;
+        
+        // Don't traverse too far up
+        if (parent && parent.classList.contains('preview')) break;
+      }
+    }
+    
+    if (elementId) {
+      return {
+        id: elementId,
+        type: elementType || 'UNKNOWN',
+        node: treeNode
+      };
+    }
+    
+    return null;
+  }
+
+  // Initialize tree node selection when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    setupTreeNodeSelection();
+  });
+
+  // Extend the existing updatePreviewPanels to include tree selection setup
+  const originalCall = updatePreviewPanels;
+  window.addEventListener('load', () => {
+    // Monitor for changes to tree views and re-setup selection
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          // Check if JSON formatter or tree content was added
+          for (const node of mutation.addedNodes) {
+            if (node.nodeType === Node.ELEMENT_NODE && 
+                (node.classList.contains('json-formatter-row') || 
+                 node.querySelector && node.querySelector('.json-formatter-row'))) {
+              setTimeout(() => setupTreeNodeSelection(), 50);
+              break;
+            }
+          }
+        }
+      });
+    });
+
+    // Observe all preview panels for changes
+    document.querySelectorAll('.preview').forEach(previewEl => {
+      observer.observe(previewEl, { childList: true, subtree: true });
+    });
+  });
 })();

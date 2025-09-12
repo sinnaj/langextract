@@ -524,14 +524,41 @@ def create_chunks_from_toc_and_docling(
         if start_page and end_page:
             context_header += f"**Pages:** {start_page}-{end_page}\n"
         
-        # Create section info
+        # Create section info with positioning data
+        section_positioning = []
+        
+        # Collect positioning data for elements in this section
+        for j in range(section_start_idx, section_end_idx):
+            if j < len(text_elements):
+                elem = text_elements[j]
+                if elem.get('page') and elem.get('charspan_start') is not None:
+                    # Try to find the original text item in docling document to get bbox
+                    elem_positioning = {
+                        'page_no': elem['page'],
+                        'charspan': [elem['charspan_start'], elem.get('charspan_end', elem['charspan_start'])],
+                        'text': elem['text'][:100]  # First 100 chars for reference
+                    }
+                    
+                    # Find bbox information from original docling document
+                    texts = docling_document.get('texts', [])
+                    for text_item in texts:
+                        if (text_item.get('text', '').strip() == elem['text'] and
+                            text_item.get('prov')):
+                            prov = text_item['prov'][0] if text_item['prov'] else {}
+                            if prov.get('bbox'):
+                                elem_positioning['bbox'] = prov['bbox']
+                            break
+                    
+                    section_positioning.append(elem_positioning)
+        
         section_info = {
             "section_name": title,
             "section_level": level,
             "start_page": start_page,
             "end_page": end_page,
             "toc_path": full_path,
-            "section_index": len(chunks)
+            "section_index": len(chunks),
+            "positioning_data": section_positioning[:10]  # Limit to first 10 elements to avoid huge payloads
         }
         
         if len(section_content) <= max_chars:

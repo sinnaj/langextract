@@ -674,6 +674,334 @@ def get_comment_details(comment_id: int):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+# PDF Viewer API endpoints
+
+@app.get("/api/runs/<run_id>/pdf")
+def serve_pdf(run_id: str):
+    """Serve the PDF file for a specific run."""
+    run_dir = OUTPUT_ROOT / run_id
+    if not run_dir.exists():
+        return abort(404, "Run not found")
+    
+    # Look for PDF file in the input directory
+    input_dir = run_dir / "input"
+    if not input_dir.exists():
+        return abort(404, "No input directory found")
+    
+    # Find the first PDF file in the input directory
+    pdf_files = list(input_dir.glob("*.pdf"))
+    if not pdf_files:
+        return abort(404, "No PDF file found for this run")
+    
+    pdf_path = pdf_files[0]  # Use the first PDF found
+    
+    try:
+        return send_file(pdf_path, as_attachment=False, mimetype='application/pdf')
+    except Exception as e:
+        return abort(500, f"Error serving PDF: {str(e)}")
+
+
+@app.get("/api/runs/<run_id>/positioning")
+def get_positioning_data(run_id: str):
+    """Get positioning data for PDF highlighting."""
+    run_dir = OUTPUT_ROOT / run_id
+    if not run_dir.exists():
+        return abort(404, "Run not found")
+    
+    # Look for enhanced output directory
+    enhanced_output_dir = run_dir / "enhanced_output"
+    if not enhanced_output_dir.exists():
+        # Fallback to legacy output location
+        output_dir = run_dir / "lx output"
+        if not output_dir.exists():
+            return jsonify({"sections": []})  # Return empty if no output yet
+        enhanced_output_dir = output_dir
+    
+    # Look for the enhanced extraction results and docling document
+    extraction_results_file = enhanced_output_dir / "enhanced_extraction_results.json"
+    docling_document_file = enhanced_output_dir / "headline_fixed_doclingdocument.json"
+    
+    if not extraction_results_file.exists() or not docling_document_file.exists():
+        # Fallback to old method for compatibility
+        enhanced_output_file = None
+        for pattern in ["enhanced_output.json", "*enhanced*.json", "output*.json"]:
+            files = list(enhanced_output_dir.glob(pattern))
+            if files:
+                enhanced_output_file = files[0]
+                break
+        
+        if enhanced_output_file:
+            try:
+                with open(enhanced_output_file, 'r', encoding='utf-8') as f:
+                    output_data = json.load(f)
+                positioning_data = extract_positioning_from_output(output_data)
+                return jsonify(positioning_data)
+            except Exception as e:
+                print(f"Error loading legacy positioning data: {e}")
+        
+        return jsonify({"sections": []})
+    
+    try:
+        # Load extraction results
+        with open(extraction_results_file, 'r', encoding='utf-8') as f:
+            extraction_data = json.load(f)
+        
+        # Load docling document
+        with open(docling_document_file, 'r', encoding='utf-8') as f:
+            docling_data = json.load(f)
+        
+        # Extract positioning data from the enhanced output and docling document
+        positioning_data = extract_positioning_from_docling(extraction_data, docling_data)
+        return jsonify(positioning_data)
+        
+    except Exception as e:
+        print(f"Error loading positioning data: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"sections": []})
+
+
+def extract_positioning_from_docling(extraction_data, docling_data):
+    """Extract positioning data from enhanced_lx_runner output and docling document."""
+    positioning_data = {"sections": []}
+    
+    # Get extractions from extraction data
+    extractions = extraction_data.get("extractions", [])
+    sections = extraction_data.get("sections", [])
+    
+    # Get text elements from docling document  
+    texts = docling_data.get("texts", [])
+    
+    # Create a mapping from text content to positioning data
+    text_to_position = {}
+    for text_elem in texts:
+        text_content = text_elem.get("text", "").strip()
+        prov = text_elem.get("prov", [])
+        if text_content and prov:
+            # Use the first provenance entry
+            first_prov = prov[0]
+            text_to_position[text_content] = {
+                "page_no": first_prov.get("page_no"),
+                "bbox": first_prov.get("bbox"),
+                "charspan": first_prov.get("charspan")
+            }
+    
+    # Create a section mapping from the sections array (the source of truth)
+    section_id_to_info = {}
+    for section in sections:
+        section_id = section.get("section_id")
+        if section_id:
+            section_id_to_info[section_id] = section
+    
+    print(f"Found {len(section_id_to_info)} sections: {list(section_id_to_info.keys())}")
+    
+    # Create mapping for CHUNK_METADATA to actual sections 
+    chunk_to_section = {}
+    sections_map = {}
+    
+    for extraction in extractions:
+        extraction_class = extraction.get("extraction_class")
+        extraction_text = extraction.get("extraction_text", "").strip()
+        attributes = extraction.get("attributes", {})
+        
+        if extraction_class == "CHUNK_METADATA":
+            # This is a section metadata - map it to actual section
+            chunk_id = attributes.get("id")
+            section_title = None
+            
+            # Extract section title from extraction text (e.g., "Section: 6 Puertas...")
+            for line in extraction_text.split('\n'):
+                if line.startswith('Section:'):
+                    section_title = line.replace('Section:', '').strip()
+                    break
+            
+            if chunk_id and section_title:
+                # Find matching section by title
+                matching_section_id = None
+                for section_id, section_info in section_id_to_info.items():
+                    if section_info.get("section_name", "").strip() == section_title:
+                        matching_section_id = section_id
+                        break
+                
+                if matching_section_id:
+                    print(f"Mapped CHUNK_METADATA {chunk_id} to section {matching_section_id}")
+                    chunk_to_section[chunk_id] = matching_section_id
+                    sections_map[matching_section_id] = {
+                        "section_id": matching_section_id,
+                        "section_name": section_id_to_info[matching_section_id].get("section_name", matching_section_id),
+                        "extraction_text": extraction_text,
+                        "norms": []
+                    }
+                else:
+                    print(f"Could not find matching section for title: {section_title}")
+    
+    # Now process norms using the real section IDs
+    for extraction in extractions:
+        extraction_class = extraction.get("extraction_class")
+        extraction_text = extraction.get("extraction_text", "").strip()
+        attributes = extraction.get("attributes", {})
+        
+        if extraction_class == "NORM":
+            # This is a norm within a section
+            parent_section_id = attributes.get("parent_section_id")
+            norm_id = attributes.get("id")
+            
+            print(f"Processing norm {norm_id} with parent {parent_section_id}")
+            if parent_section_id and parent_section_id in sections_map:
+                norm_data = {
+                    "norm_id": norm_id,
+                    "extraction_text": extraction_text,
+                    "attributes": attributes
+                }
+                sections_map[parent_section_id]["norms"].append(norm_data)
+                print(f"Added norm {norm_id} to section {parent_section_id}")
+            else:
+                print(f"Parent section {parent_section_id} not found for norm {norm_id}. Available sections: {list(sections_map.keys())}")
+    
+    print(f"Mapped {len(sections_map)} sections with {len(text_to_position)} text elements")
+    print(f"Sample docling text elements: {list(text_to_position.keys())[:5]}")
+    if len(text_to_position) > 5:
+        print(f"... and {len(text_to_position) - 5} more elements")
+    
+    # Now map texts to positions using fuzzy matching
+    for section_id, section_data in sections_map.items():
+        # For sections, try to find section headers or content
+        section_text = section_data["extraction_text"]
+        
+        # Extract actual section title from extraction text (skip metadata)
+        section_lines = section_text.split('\n')
+        section_title = None
+        for line in section_lines:
+            if line.startswith('Section:'):
+                section_title = line.replace('Section:', '').strip()
+                break
+        
+        if section_title:
+            section_positioning = find_text_position(section_title, text_to_position)
+            if section_positioning:
+                section_data["positioning"] = section_positioning
+                print(f"Found positioning for section {section_id}: {section_title[:50]}...")
+        
+        # Process norms in this section
+        for norm_data in section_data["norms"]:
+            norm_text = norm_data["extraction_text"]
+            print(f"Trying to find positioning for norm {norm_data['norm_id']} with text: {norm_text[:100]}...")
+            norm_positioning = find_text_position(norm_text, text_to_position)
+            if norm_positioning:
+                norm_data["positioning"] = norm_positioning
+                print(f"Found positioning for norm {norm_data['norm_id']}: {norm_text[:50]}...")
+            else:
+                print(f"No positioning found for norm {norm_data['norm_id']}")
+        
+        positioning_data["sections"].append(section_data)
+    
+    return positioning_data
+
+
+def find_text_position(target_text, text_to_position):
+    """Find the best matching position for target text in the docling document."""
+    target_text = target_text.strip()
+    
+    # First try exact match
+    if target_text in text_to_position:
+        print(f"Exact match found for: {target_text[:50]}...")
+        return text_to_position[target_text]
+    
+    # Try to find by looking for the beginning of the target text
+    # Since extraction text might be longer than individual text elements
+    best_match = None
+    best_score = 0
+    best_match_text = ""
+    
+    for docling_text, position in text_to_position.items():
+        docling_text_clean = docling_text.strip()
+        
+        # Skip very short texts as they may lead to false positives
+        if len(docling_text_clean) < 10:
+            continue
+            
+        # Check if target text starts with or contains this docling text
+        if (docling_text_clean.startswith(target_text[:50]) or 
+            target_text.startswith(docling_text_clean[:50])):
+            # Simple scoring based on length match
+            score = min(len(docling_text_clean), len(target_text)) / max(len(docling_text_clean), len(target_text))
+            if score > best_score:
+                best_score = score
+                best_match = position
+                best_match_text = docling_text_clean
+        
+        # Also check if the docling text is contained within target text
+        elif docling_text_clean in target_text and len(docling_text_clean) > 20:  # Only meaningful matches
+            score = len(docling_text_clean) / len(target_text)
+            if score > best_score:
+                best_score = score
+                best_match = position
+                best_match_text = docling_text_clean
+    
+    # Only return match if it's reasonably good (>30% similarity)
+    if best_match and best_score > 0.3:
+        print(f"Found match (score: {best_score:.2f}) for target: {target_text[:50]}... -> docling: {best_match_text[:50]}...")
+        return best_match
+    else:
+        print(f"No good match found for: {target_text[:50]}... (best score: {best_score:.2f})")
+    
+    return None
+
+
+def extract_positioning_from_output(output_data):
+    """Extract positioning data from enhanced_lx_runner output (legacy method)."""
+    positioning_data = {"sections": []}
+    
+    if not isinstance(output_data, dict):
+        return positioning_data
+    
+    sections = output_data.get("sections", [])
+    for section in sections:
+        section_data = {
+            "section_id": section.get("section_id"),
+            "section_name": section.get("section_name"),
+            "norms": []
+        }
+        
+        # Add section-level positioning if available
+        if section.get("start_page") or section.get("end_page"):
+            section_data["positioning"] = {
+                "page_no": section.get("start_page", 1),
+                "start_page": section.get("start_page"),
+                "end_page": section.get("end_page")
+            }
+        
+        # Process norms within the section
+        norms = section.get("norms", [])
+        for norm in norms:
+            norm_data = {
+                "norm_id": norm.get("norm_id"),
+                "text": norm.get("text")
+            }
+            
+            # For now, use section positioning for norms
+            # In the future, enhanced_lx_runner should provide individual norm positioning
+            if section.get("start_page"):
+                norm_data["positioning"] = {
+                    "page_no": section.get("start_page"),
+                    # These would come from actual Docling positioning data
+                    "bbox": {
+                        "l": 50,   # Default positioning - should be replaced with real data
+                        "t": 700,
+                        "r": 500,
+                        "b": 650,
+                        "coord_origin": "BOTTOMLEFT"
+                    }
+                }
+            
+            section_data["norms"].append(norm_data)
+        
+        positioning_data["sections"].append(section_data)
+    
+    return positioning_data
+
+
 def _is_port_in_use(host: str, port: int) -> bool:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(0.5)
