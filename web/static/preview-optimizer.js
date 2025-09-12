@@ -3070,6 +3070,9 @@ class PreviewOptimizer {
   navigateToNode(node) {
     console.log(`Navigating to node: ${node.id} (${node.type})`);
     
+    // Trigger PDF highlighting for the selected node
+    this.highlightNodeInPDF(node);
+    
     // Check if we're in multi-column preview mode (2 or 3 columns)
     const columnInfo = this.getColumnInfo();
     if (columnInfo.columnCount < 2) {
@@ -3106,6 +3109,57 @@ class PreviewOptimizer {
     
     // Highlight the selected node
     this.highlightNodeSelection(node);
+  }
+
+  highlightNodeInPDF(node) {
+    console.log(`Highlighting node in PDF: ${node.id} (${node.type})`);
+    
+    // Get the element ID to highlight based on node type
+    let elementId = null;
+    
+    if (node.extraction && node.extraction.attributes && node.extraction.attributes.id) {
+      elementId = node.extraction.attributes.id;
+    } else {
+      // Fallback to node ID
+      elementId = node.id;
+    }
+    
+    console.log(`Using extraction ID for PDF highlighting: ${elementId}`);
+    
+    // Trigger PDF highlighting if PDF viewer is available and initialized
+    if (window.pdfViewer && window.currentRunId) {
+      try {
+        window.pdfViewer.highlightElements([elementId]);
+        
+        // If PDF viewer panel is not visible, make it visible
+        this.ensurePDFPanelVisible();
+        
+        console.log(`PDF highlighting triggered for ${elementId}`);
+      } catch (error) {
+        console.error('Error highlighting PDF elements:', error);
+      }
+    } else {
+      console.log('PDF viewer not available or not initialized');
+    }
+  }
+  
+  ensurePDFPanelVisible() {
+    // Check if we're in dual panel mode and PDF panel is visible
+    const panels = document.querySelectorAll('.preview-panel');
+    const pdfPanel = Array.from(panels).find(panel => 
+      panel.textContent.includes('PDF Viewer') || 
+      panel.querySelector('#pdf-canvas')
+    );
+    
+    if (pdfPanel && pdfPanel.classList.contains('hidden')) {
+      // If PDF panel exists but is hidden, try to show it
+      // This depends on the current column layout
+      const currentColumnCount = window.currentColumnCount || 1;
+      if (currentColumnCount >= 2) {
+        pdfPanel.classList.remove('hidden');
+        console.log('Made PDF panel visible for highlighting');
+      }
+    }
   }
 
   getColumnInfo() {
@@ -4426,8 +4480,8 @@ class PreviewOptimizer {
       });
       nodeContent.classList.add('bg-green-100', 'dark:bg-green-800', 'border-green-300', 'dark:border-green-600');
 
-      // Navigate to this node across panels
-      this.navigateToNode(item.id, extraction);
+      // Navigate to this node across panels and highlight in PDF
+      this.navigateToNode(item);
     });
 
     nodeContent.appendChild(indicator);

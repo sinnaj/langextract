@@ -149,24 +149,43 @@ class PDFViewer {
    */
   loadPositioningData(positioningData) {
     this.pageData.clear();
+    this.extractionData = new Map(); // Store extraction mapping
     
-    if (!positioningData || !positioningData.sections) return;
+    if (!positioningData || !positioningData.sections) {
+      console.warn('No positioning data or sections provided');
+      return;
+    }
+    
+    console.log(`Loading positioning data for ${positioningData.sections.length} sections`);
     
     // Process sections and extract positioning data
-    positioningData.sections.forEach(section => {
-      if (section.norms) {
-        section.norms.forEach(norm => {
+    positioningData.sections.forEach((section, sectionIndex) => {
+      console.log(`Processing section ${sectionIndex}: ${section.section_id}`);
+      
+      // Handle section positioning
+      if (section.positioning) {
+        console.log(`Adding section positioning for ${section.section_id}:`, section.positioning);
+        this.addPositionData(section.section_id, section.positioning);
+      } else {
+        console.log(`No positioning data for section ${section.section_id}`);
+      }
+      
+      // Handle norm positioning within sections
+      if (section.norms && section.norms.length > 0) {
+        console.log(`Processing ${section.norms.length} norms in section ${section.section_id}`);
+        section.norms.forEach((norm, normIndex) => {
           if (norm.positioning) {
+            console.log(`Adding norm positioning for ${norm.norm_id}:`, norm.positioning);
             this.addPositionData(norm.norm_id, norm.positioning);
+          } else {
+            console.log(`No positioning data for norm ${norm.norm_id}`);
           }
         });
       }
-      
-      // Also handle direct positioning data on sections
-      if (section.positioning) {
-        this.addPositionData(section.section_id, section.positioning);
-      }
     });
+    
+    console.log(`Positioning data loaded - pages: ${Array.from(this.pageData.keys()).join(', ')}`);
+    console.log(`Total elements with positioning: ${Array.from(this.pageData.values()).reduce((sum, arr) => sum + arr.length, 0)}`);
   }
   
   addPositionData(elementId, positioning) {
@@ -182,39 +201,75 @@ class PDFViewer {
       bbox: positioning.bbox,
       charspan: positioning.charspan
     });
+    
+    // Store in extraction data map for easy lookup
+    if (!this.extractionData) {
+      this.extractionData = new Map();
+    }
+    this.extractionData.set(elementId, positioning);
   }
   
   /**
-   * Highlight elements on the current page
-   * @param {Array} elementIds - IDs of elements to highlight
+   * Highlight elements on PDF based on extraction IDs
+   * @param {Array|String} elementIds - IDs of elements to highlight
    */
   highlightElements(elementIds) {
     this.clearHighlights();
     
-    const pageElements = this.pageData.get(this.currentPage) || [];
+    if (!elementIds) return;
+    
+    // Normalize to array
+    if (typeof elementIds === 'string') {
+      elementIds = [elementIds];
+    }
+    
+    console.log(`Highlighting elements: ${elementIds.join(', ')}`);
+    
+    let targetPage = null;
+    const elementsToHighlight = [];
+    
+    // Find all elements to highlight across all pages
+    for (const [pageNum, elements] of this.pageData) {
+      const pageElements = elements.filter(el => 
+        elementIds.includes(el.elementId)
+      );
+      
+      if (pageElements.length > 0) {
+        if (targetPage === null) {
+          targetPage = pageNum; // Use first page found
+        }
+        elementsToHighlight.push(...pageElements.map(el => ({...el, pageNum})));
+      }
+    }
+    
+    console.log(`Found ${elementsToHighlight.length} elements to highlight`);
+    
+    // Navigate to target page if needed
+    if (targetPage !== null && targetPage !== this.currentPage) {
+      this.currentPage = targetPage;
+      this.updatePageDisplay();
+      this.renderPage(this.currentPage).then(() => {
+        // Add highlights after page is rendered
+        this.addHighlightsForPage(this.currentPage, elementIds);
+      });
+    } else {
+      // Add highlights for current page
+      this.addHighlightsForPage(this.currentPage, elementIds);
+    }
+  }
+  
+  addHighlightsForPage(pageNum, elementIds) {
+    const pageElements = this.pageData.get(pageNum) || [];
     const elementsToHighlight = pageElements.filter(el => 
       elementIds.includes(el.elementId)
     );
     
     elementsToHighlight.forEach(element => {
-      this.addHighlight(element.bbox);
-    });
-    
-    // Navigate to page with highlights if not on current page
-    if (elementsToHighlight.length === 0) {
-      // Find first page with highlighted elements
-      for (const [pageNum, elements] of this.pageData) {
-        const hasHighlightedElements = elements.some(el => 
-          elementIds.includes(el.elementId)
-        );
-        if (hasHighlightedElements && pageNum !== this.currentPage) {
-          this.currentPage = pageNum;
-          this.updatePageDisplay();
-          this.renderPage(this.currentPage);
-          return;
-        }
+      if (element.bbox) {
+        this.addHighlight(element.bbox);
+        console.log(`Added highlight for ${element.elementId} on page ${pageNum}`);
       }
-    }
+    });
   }
   
   addHighlight(bbox) {
@@ -233,7 +288,7 @@ class PDFViewer {
       width: ${canvasBox.width}px;
       height: ${canvasBox.height}px;
       background-color: rgba(255, 255, 0, 0.3);
-      border: 2px solid rgba(255, 200, 0, 0.8);
+      border: 1px solid rgba(255, 255, 0, 0.5);
       pointer-events: none;
       border-radius: 2px;
       z-index: 10;
@@ -316,20 +371,44 @@ window.highlightPDFElements = function(elementIds) {
 };
 
 window.initializePDFViewer = function(runId) {
-  if (!pdfViewer || !runId) return;
+  if (!pdfViewer || !runId) {
+    console.log('PDF viewer or runId not available for initialization');
+    return;
+  }
+  
+  console.log(`Initializing PDF viewer for run: ${runId}`);
   
   // Load PDF file for this run
   const pdfUrl = `/api/runs/${runId}/pdf`;
-  pdfViewer.loadPDF(pdfUrl).then(() => {
-    // Load positioning data
-    fetch(`/api/runs/${runId}/positioning`)
-      .then(response => response.json())
-      .then(data => {
-        pdfViewer.loadPositioningData(data);
-        console.log('PDF positioning data loaded');
-      })
-      .catch(error => {
-        console.error('Failed to load positioning data:', error);
-      });
-  });
+  
+  // First load positioning data, then PDF
+  fetch(`/api/runs/${runId}/positioning`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Loading positioning data:', data);
+      pdfViewer.loadPositioningData(data);
+      console.log('PDF positioning data loaded successfully');
+      
+      // Try to load PDF after positioning data is loaded
+      return pdfViewer.loadPDF(pdfUrl);
+    })
+    .then(() => {
+      console.log('PDF loaded successfully');
+    })
+    .catch(error => {
+      console.error('Failed to initialize PDF viewer:', error);
+      
+      // Even if positioning data fails, try to load PDF
+      if (error.message.includes('positioning')) {
+        console.log('Attempting to load PDF without positioning data');
+        pdfViewer.loadPDF(pdfUrl).catch(pdfError => {
+          console.error('PDF loading also failed:', pdfError);
+        });
+      }
+    });
 };
