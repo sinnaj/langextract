@@ -768,6 +768,7 @@ def extract_positioning_from_docling(extraction_data, docling_data):
     
     # Get extractions from extraction data
     extractions = extraction_data.get("extractions", [])
+    sections = extraction_data.get("sections", [])
     
     # Get text elements from docling document  
     texts = docling_data.get("texts", [])
@@ -786,7 +787,17 @@ def extract_positioning_from_docling(extraction_data, docling_data):
                 "charspan": first_prov.get("charspan")
             }
     
-    # Group extractions by sections
+    # Create a section mapping from the sections array (the source of truth)
+    section_id_to_info = {}
+    for section in sections:
+        section_id = section.get("section_id")
+        if section_id:
+            section_id_to_info[section_id] = section
+    
+    print(f"Found {len(section_id_to_info)} sections: {list(section_id_to_info.keys())}")
+    
+    # Create mapping for CHUNK_METADATA to actual sections 
+    chunk_to_section = {}
     sections_map = {}
     
     for extraction in extractions:
@@ -795,20 +806,48 @@ def extract_positioning_from_docling(extraction_data, docling_data):
         attributes = extraction.get("attributes", {})
         
         if extraction_class == "CHUNK_METADATA":
-            # This is a section
-            section_id = attributes.get("id")
-            if section_id:
-                sections_map[section_id] = {
-                    "section_id": section_id,
-                    "section_name": attributes.get("meta_summary", section_id),
-                    "extraction_text": extraction_text,
-                    "norms": []
-                }
-        elif extraction_class == "NORM":
+            # This is a section metadata - map it to actual section
+            chunk_id = attributes.get("id")
+            section_title = None
+            
+            # Extract section title from extraction text (e.g., "Section: 6 Puertas...")
+            for line in extraction_text.split('\n'):
+                if line.startswith('Section:'):
+                    section_title = line.replace('Section:', '').strip()
+                    break
+            
+            if chunk_id and section_title:
+                # Find matching section by title
+                matching_section_id = None
+                for section_id, section_info in section_id_to_info.items():
+                    if section_info.get("section_name", "").strip() == section_title:
+                        matching_section_id = section_id
+                        break
+                
+                if matching_section_id:
+                    print(f"Mapped CHUNK_METADATA {chunk_id} to section {matching_section_id}")
+                    chunk_to_section[chunk_id] = matching_section_id
+                    sections_map[matching_section_id] = {
+                        "section_id": matching_section_id,
+                        "section_name": section_id_to_info[matching_section_id].get("section_name", matching_section_id),
+                        "extraction_text": extraction_text,
+                        "norms": []
+                    }
+                else:
+                    print(f"Could not find matching section for title: {section_title}")
+    
+    # Now process norms using the real section IDs
+    for extraction in extractions:
+        extraction_class = extraction.get("extraction_class")
+        extraction_text = extraction.get("extraction_text", "").strip()
+        attributes = extraction.get("attributes", {})
+        
+        if extraction_class == "NORM":
             # This is a norm within a section
             parent_section_id = attributes.get("parent_section_id")
             norm_id = attributes.get("id")
             
+            print(f"Processing norm {norm_id} with parent {parent_section_id}")
             if parent_section_id and parent_section_id in sections_map:
                 norm_data = {
                     "norm_id": norm_id,
@@ -816,8 +855,14 @@ def extract_positioning_from_docling(extraction_data, docling_data):
                     "attributes": attributes
                 }
                 sections_map[parent_section_id]["norms"].append(norm_data)
+                print(f"Added norm {norm_id} to section {parent_section_id}")
+            else:
+                print(f"Parent section {parent_section_id} not found for norm {norm_id}. Available sections: {list(sections_map.keys())}")
     
     print(f"Mapped {len(sections_map)} sections with {len(text_to_position)} text elements")
+    print(f"Sample docling text elements: {list(text_to_position.keys())[:5]}")
+    if len(text_to_position) > 5:
+        print(f"... and {len(text_to_position) - 5} more elements")
     
     # Now map texts to positions using fuzzy matching
     for section_id, section_data in sections_map.items():
@@ -841,10 +886,13 @@ def extract_positioning_from_docling(extraction_data, docling_data):
         # Process norms in this section
         for norm_data in section_data["norms"]:
             norm_text = norm_data["extraction_text"]
+            print(f"Trying to find positioning for norm {norm_data['norm_id']} with text: {norm_text[:100]}...")
             norm_positioning = find_text_position(norm_text, text_to_position)
             if norm_positioning:
                 norm_data["positioning"] = norm_positioning
                 print(f"Found positioning for norm {norm_data['norm_id']}: {norm_text[:50]}...")
+            else:
+                print(f"No positioning found for norm {norm_data['norm_id']}")
         
         positioning_data["sections"].append(section_data)
     
