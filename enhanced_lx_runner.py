@@ -87,6 +87,74 @@ def force_garbage_collection() -> None:
     print("[DEBUG] Forced garbage collection")
 
 
+def _ci_dict(ci):
+    """Convert CharInterval to JSON-serializable dict"""
+    if not ci:
+        return None
+    # CharInterval has start_pos/end_pos
+    return {
+        "start_pos": getattr(ci, "start_pos", None),
+        "end_pos": getattr(ci, "end_pos", None),
+    }
+
+
+def _ti_dict(ti):
+    """Convert TokenInterval to JSON-serializable dict"""
+    if not ti:
+        return None
+    # TokenInterval has start_index/end_index
+    return {
+        "start_index": getattr(ti, "start_index", None),
+        "end_index": getattr(ti, "end_index", None),
+    }
+
+
+def _get_alignment_status_value(alignment_status):
+    """Extract alignment status value from enum or string"""
+    if alignment_status is None:
+        return None
+    # Handle enum objects with .value attribute
+    if hasattr(alignment_status, "value"):
+        return alignment_status.value
+    # Handle string values directly
+    return alignment_status
+
+
+def _serialize_extraction_for_json(extraction):
+    """Convert extraction object to JSON-serializable dict"""
+    if extraction is None:
+        return None
+    
+    attributes = getattr(extraction, "attributes", {})
+    if attributes is None:
+        attributes = {}
+    if not isinstance(attributes, dict):
+        attributes = {}
+    
+    # Make sure attributes themselves are JSON serializable
+    serializable_attributes = {}
+    for key, value in attributes.items():
+        try:
+            # Test JSON serializability
+            json.dumps(value)
+            serializable_attributes[key] = value
+        except (TypeError, ValueError):
+            # Convert non-serializable objects to string representation
+            serializable_attributes[key] = str(value) if value is not None else None
+    
+    return {
+        "extraction_class": getattr(extraction, "extraction_class", None),
+        "extraction_text": getattr(extraction, "extraction_text", None),
+        "attributes": serializable_attributes,
+        "char_interval": _ci_dict(getattr(extraction, "char_interval", None)),
+        "alignment_status": _get_alignment_status_value(getattr(extraction, "alignment_status", None)),
+        "extraction_index": getattr(extraction, "extraction_index", None),
+        "group_index": getattr(extraction, "group_index", None),
+        "description": getattr(extraction, "description", None),
+        "token_interval": _ti_dict(getattr(extraction, "token_interval", None)),
+    }
+
+
 def estimate_content_size_mb(content: str) -> float:
     """Estimate memory size of content in MB."""
     return len(content.encode('utf-8')) / 1024 / 1024
@@ -250,11 +318,14 @@ def extract_with_langextract(
             if extraction is None:
                 continue
                 
-            attributes = getattr(extraction, "attributes", {})
-            extraction_class = getattr(extraction, "extraction_class", None)
-            
+            # Use serialization function to convert to JSON-safe dict
+            item = _serialize_extraction_for_json(extraction)
+            if item is None:
+                continue
+                
             # Add section metadata to extraction
-            if section_metadata and attributes:
+            if section_metadata:
+                attributes = item.get("attributes", {})
                 if not isinstance(attributes, dict):
                     attributes = {}
                 else:
@@ -262,18 +333,9 @@ def extract_with_langextract(
                 attributes["parent_section_id"] = section_metadata.get("section_id")
                 attributes["section_name"] = section_metadata.get("section_name")
                 attributes["section_level"] = section_metadata.get("section_level")
+                item["attributes"] = attributes
+                item["section_metadata"] = section_metadata
             
-            item = {
-                "extraction_class": extraction_class,
-                "extraction_text": getattr(extraction, "extraction_text", None),
-                "attributes": attributes,
-                "char_interval": {
-                    "start_pos": getattr(getattr(extraction, "char_interval", None), "start_pos", None),
-                    "end_pos": getattr(getattr(extraction, "char_interval", None), "end_pos", None),
-                } if hasattr(extraction, "char_interval") and extraction.char_interval else None,
-                "alignment_status": getattr(extraction, "alignment_status", None),
-                "section_metadata": section_metadata
-            }
             processed_extractions.append(item)
         
         return {
