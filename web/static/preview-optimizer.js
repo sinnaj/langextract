@@ -2280,6 +2280,8 @@ class PreviewOptimizer {
       hasData: !!data,
       dataType: typeof data,
       dataKeys: data ? Object.keys(data) : [],
+      hasNodeTree: !!(data?.node_tree),
+      nodeTreeType: data?.node_tree ? typeof data.node_tree : 'undefined',
       extractionInfo: {
         hasExtractions: !!(data?.extractions),
         extractionsType: data?.extractions ? typeof data.extractions : 'undefined',
@@ -2293,6 +2295,28 @@ class PreviewOptimizer {
         sectionCount: Array.isArray(data?.sections) ? data.sections.length : 0
       }
     });
+
+    // Check if we have a pre-built node_tree structure from enhanced extraction
+    if (data?.node_tree?.document_tree?.children) {
+      console.log('Found pre-built node_tree structure - using it instead of rebuilding');
+      const preBuiltTree = data.node_tree.document_tree.children;
+      console.log('Pre-built tree structure:', {
+        rootNodeCount: preBuiltTree.length,
+        rootNodes: preBuiltTree.map(n => `${n.id} (${n.children?.length || 0} children)`),
+        totalStats: data.node_tree.statistics || {}
+      });
+      
+      // Convert the pre-built tree to our expected format
+      const convertedRoots = this.convertPreBuiltTreeNodes(preBuiltTree);
+      
+      const endTime = performance.now();
+      console.log(`Pre-built tree conversion completed in ${(endTime - startTime).toFixed(2)}ms`);
+      console.log('Returning converted root nodes:', convertedRoots.length);
+      
+      return convertedRoots;
+    }
+
+    console.log('No pre-built node_tree found - building tree from raw data');
     
     const nodes = new Map();
     const rootNodes = [];
@@ -2539,6 +2563,78 @@ class PreviewOptimizer {
     console.log('Returning root nodes:', rootNodes.length);
     
     return rootNodes;
+  }
+
+  // Convert pre-built tree nodes from retroactive fix format to web interface format
+  convertPreBuiltTreeNodes(nodes) {
+    if (!Array.isArray(nodes)) {
+      console.warn('convertPreBuiltTreeNodes: Expected array, got:', typeof nodes);
+      return [];
+    }
+
+    const convertNode = (node) => {
+      // Convert the node format from retroactive script to web interface format
+      const converted = {
+        id: node.id || 'unknown',
+        title: node.title || node.id || 'Untitled',
+        type: node.type || 'SECTION',
+        parentId: node.parent_id || null,
+        parentType: node.type || 'SECTION',
+        summary: (node.metadata && node.metadata.section_summary) || node.title || '',
+        extractionText: (node.metadata && node.metadata.extraction_text) || '',
+        children: [],
+        isExpanded: false, // Start collapsed
+        level: node.level || 0,
+        attributes: node.metadata || {},
+        extraction: {
+          extraction_class: node.type || 'SECTION',
+          attributes: node.metadata || {},
+          extraction_text: (node.metadata && node.metadata.extraction_text) || ''
+        }
+      };
+
+      // Recursively convert children
+      if (node.children && Array.isArray(node.children)) {
+        converted.children = node.children.map(child => convertNode(child));
+        
+        // Set child levels based on parent level
+        converted.children.forEach(child => {
+          child.level = converted.level + 1;
+          child.parentId = converted.id;
+        });
+      }
+
+      return converted;
+    };
+
+    const rootNodes = nodes.map(node => convertNode(node));
+    
+    console.log(`Converted ${rootNodes.length} pre-built tree nodes:`, {
+      rootCount: rootNodes.length,
+      totalDescendants: this.countTotalDescendants(rootNodes),
+      rootTitles: rootNodes.map(r => r.title?.substring(0, 50) || r.id).slice(0, 10),
+      sampleRootStructure: {
+        id: rootNodes[0]?.id,
+        title: rootNodes[0]?.title,
+        type: rootNodes[0]?.type,
+        childrenCount: rootNodes[0]?.children?.length || 0,
+        hasExtractionChildren: rootNodes[0]?.children?.some(c => c.type !== 'SECTION') || false
+      }
+    });
+
+    return rootNodes;
+  }
+
+  // Helper to count total descendant nodes
+  countTotalDescendants(nodes) {
+    let count = 0;
+    nodes.forEach(node => {
+      count += 1; // Count the node itself
+      if (node.children && node.children.length > 0) {
+        count += this.countTotalDescendants(node.children);
+      }
+    });
+    return count;
   }
 
   // Helper method to extract ID from extraction data
