@@ -927,6 +927,26 @@ def extract_positioning_from_docling(extraction_data, docling_data):
         
         positioning_data["sections"].append(section_data)
     
+    # Final validation and fallback for missing positioning
+    total_norms_processed = 0
+    norms_with_positioning = 0
+    
+    for section_data in positioning_data["sections"]:
+        for norm_data in section_data.get("norms", []):
+            total_norms_processed += 1
+            if "positioning" in norm_data:
+                norms_with_positioning += 1
+            else:
+                # Try fallback: use section positioning if available
+                if "positioning" in section_data:
+                    norm_data["positioning"] = section_data["positioning"].copy()
+                    norm_data["positioning"]["fallback"] = "section_level"
+                    norms_with_positioning += 1
+                    print(f"Applied section-level positioning fallback for norm {norm_data.get('norm_id', 'Unknown')}")
+    
+    positioning_success_rate = norms_with_positioning / total_norms_processed if total_norms_processed > 0 else 0
+    print(f"Final positioning success rate: {norms_with_positioning}/{total_norms_processed} ({positioning_success_rate:.1%})")
+    
     return positioning_data
 
 

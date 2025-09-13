@@ -292,7 +292,7 @@ class PDFViewer {
     // Show visual feedback in PDF viewer status
     this.showHighlightStatus(elementIds, elementsToHighlight.length, targetPage);
     
-    // Navigate to target page if needed
+    // Navigate to target page if needed and different from current page
     if (targetPage !== null && targetPage !== this.currentPage) {
       this.currentPage = targetPage;
       this.updatePageDisplay();
@@ -300,9 +300,12 @@ class PDFViewer {
         // Add highlights after page is rendered
         this.addHighlightsForPage(this.currentPage, elementIds);
       });
-    } else {
-      // Add highlights for current page
+    } else if (targetPage !== null) {
+      // Add highlights for current page (page is already correct)
       this.addHighlightsForPage(this.currentPage, elementIds);
+    } else {
+      // No positioning data found, but still show status
+      console.warn('No elements with positioning data found for highlighting');
     }
   }
 
