@@ -1084,18 +1084,40 @@ def run_enhanced_extraction(
     all_extractions = []
     all_sections = []
     
+    # Build section hierarchy mapping for tree construction
+    def find_parent_section_id(current_level: int, current_index: int, sections_so_far: List[Dict[str, Any]]) -> Optional[str]:
+        """Find the parent section ID based on hierarchy levels."""
+        if current_level <= 1:
+            return None  # Root level sections have no parent
+            
+        # Look backwards to find the most recent section at a higher level (lower number)
+        for j in range(current_index - 1, -1, -1):
+            prev_section = sections_so_far[j]
+            prev_level = prev_section.get("section_level", 1)
+            if prev_level < current_level:
+                return prev_section.get("section_id")
+        
+        return None  # No parent found
+    
     for i, (chunk_text, section_info) in enumerate(chunks):
         print(f"[INFO] Processing chunk {i+1}/{len(chunks)}: {section_info.get('section_name', f'Chunk {i+1}')}")
         
         # Create section metadata for extraction
+        section_id = section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower()
+        section_level = section_info.get("section_level", 1)
+        
+        # Find parent section for proper tree hierarchy
+        parent_section_id = find_parent_section_id(section_level, len(all_sections), all_sections)
+        
         section_metadata = {
-            "section_id": section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower(),
+            "section_id": section_id,
             "section_name": section_info.get("section_name", f"Section {i+1}"),
-            "section_level": section_info.get("section_level", 1),
+            "section_level": section_level,
             "start_page": section_info.get("start_page"),
             "end_page": section_info.get("end_page"),
             "toc_path": section_info.get("toc_path", []),
-            "section_summary": f"Section at level {section_info.get('section_level', 1)}"
+            "section_summary": f"Section at level {section_level}",
+            "parent_section_id": parent_section_id
         }
         
         all_sections.append(section_metadata)
