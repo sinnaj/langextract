@@ -215,7 +215,33 @@ class PDFViewer {
           }
         });
       }
+      
+      // Handle other extractions (CLASSIFICATION, LEGAL_DOCUMENT, PROCEDURE) within sections
+      if (section.other_extractions && section.other_extractions.length > 0) {
+        console.log(`Processing ${section.other_extractions.length} other extractions in section ${section.section_id}`);
+        section.other_extractions.forEach((extraction, extractionIndex) => {
+          if (extraction.positioning) {
+            console.log(`Adding ${extraction.extraction_class} positioning for ${extraction.extraction_id}:`, extraction.positioning);
+            this.addPositionData(extraction.extraction_id, extraction.positioning);
+          } else {
+            console.log(`No positioning data for ${extraction.extraction_class} ${extraction.extraction_id}`);
+          }
+        });
+      }
     });
+    
+    // Handle standalone extractions (those without parent sections)
+    if (positioningData.standalone_extractions && positioningData.standalone_extractions.length > 0) {
+      console.log(`Processing ${positioningData.standalone_extractions.length} standalone extractions`);
+      positioningData.standalone_extractions.forEach((extraction, extractionIndex) => {
+        if (extraction.positioning) {
+          console.log(`Adding standalone ${extraction.extraction_class} positioning for ${extraction.extraction_id}:`, extraction.positioning);
+          this.addPositionData(extraction.extraction_id, extraction.positioning);
+        } else {
+          console.log(`No positioning data for standalone ${extraction.extraction_class} ${extraction.extraction_id}`);
+        }
+      });
+    }
     
     console.log(`Positioning data loaded - pages: ${Array.from(this.pageData.keys()).join(', ')}`);
     console.log(`Total elements with positioning: ${Array.from(this.pageData.values()).reduce((sum, arr) => sum + arr.length, 0)}`);
