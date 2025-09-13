@@ -342,94 +342,151 @@ class PreviewOptimizer {
 
     try {
       const obj = JSON.parse(content);
+      
+      // Check if this is enhanced_extraction_results.json and attempt to load companion node_tree.json
+      const filePath = this.currentFile?.filePath || '';
+      if (filePath.includes('enhanced_extraction_results.json')) {
+        console.log('Detected enhanced_extraction_results.json, attempting to load node_tree.json');
+        this.loadAndMergeNodeTree(obj).then(mergedData => {
+          this.currentJsonData = mergedData;
+          this.completeJsonRendering(mergedData, meta);
+        }).catch(error => {
+          console.log('Could not load node_tree.json, proceeding with original data:', error.message);
+          this.currentJsonData = obj;
+          this.completeJsonRendering(obj, meta);
+        });
+        return;
+      }
+      
       this.currentJsonData = obj; // Store for UBERMODE
       
-      console.log('JSON parsing successful!');
-      console.log('currentJsonData set to:', !!this.currentJsonData);
-      console.log('Object keys:', Object.keys(obj || {}));
+      this.completeJsonRendering(obj, meta);
+    } catch (error) {
+      console.error('JSON parsing error:', error);
+      this.renderTextContent(content, { ...meta, jsonError: true });
+    }
+  }
+  
+  async loadAndMergeNodeTree(originalData) {
+    const filePath = this.currentFile?.filePath || '';
+    const runId = this.currentFile?.runId || '';
+    
+    // Construct the path to node_tree.json (same directory as enhanced_extraction_results.json)
+    const nodeTreePath = filePath.replace('enhanced_extraction_results.json', 'node_tree.json');
+    
+    try {
+      const response = await fetch(`/runs/${runId}/file?path=${encodeURIComponent(nodeTreePath)}`);
+      if (!response.ok) {
+        throw new Error(`Failed to load node_tree.json: ${response.status}`);
+      }
       
-      // Detect file type for better UBERMODE feedback
-      const filePath = this.currentFile?.filePath || 'unknown';
-      const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
-      const isCombinedExtractions = filePath.includes('combined_extractions.json');
+      const nodeTreeContent = await response.text();
+      const nodeTreeData = JSON.parse(nodeTreeContent);
       
-      console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
-      console.log('Current UBERMODE state:', this.uberMode);
-      console.log('File being loaded:', filePath);
-      console.log('File type detection:', { isChunkEvaluations, isCombinedExtractions });
-
-      // Check if UBERMODE is enabled and if this panel should show tree visualization
-      const shouldShowTreeView = this.shouldShowTreeVisualization();
-      console.log('UBERMODE check:', {
-        uberMode: this.uberMode,
-        shouldShowTreeView: shouldShowTreeView,
-        hasJsonData: !!obj,
-        currentJsonData: !!this.currentJsonData,
-        dataStructure: {
-          hasExtractions: !!(obj?.extractions),
-          extractionCount: obj?.extractions?.length || 0,
-          hasSections: !!(obj?.sections),
-          sectionCount: obj?.sections?.length || 0
-        }
+      console.log('Successfully loaded node_tree.json:', {
+        hasDocumentTree: !!(nodeTreeData?.document_tree),
+        hasChildren: !!(nodeTreeData?.document_tree?.children),
+        childCount: nodeTreeData?.document_tree?.children?.length || 0,
+        hasStatistics: !!(nodeTreeData?.statistics)
       });
       
-      if (this.uberMode && shouldShowTreeView) {
-        console.log('UBERMODE is enabled and this panel should show tree view');
-        console.log('Data structure:', {
-          hasExtractions: !!(obj?.extractions),
-          extractionCount: obj?.extractions?.length || 0,
-          hasSections: !!(obj?.sections),
-          sectionCount: obj?.sections?.length || 0
-        });
-        try {
-          console.log('Calling renderUberMode...');
-          this.renderUberMode(obj, meta);
-          return;
-        } catch (error) {
-          console.error('Error in renderUberMode:', error);
-          console.error('Stack trace:', error.stack);
-        }
-      } else if (this.uberMode && !shouldShowTreeView) {
-        console.log('UBERMODE is enabled but this panel should not show tree view');
-      } else if (!this.uberMode) {
-        console.log('UBERMODE is not enabled');
+      // Merge node_tree into the original data
+      const mergedData = {
+        ...originalData,
+        node_tree: nodeTreeData
+      };
+      
+      return mergedData;
+    } catch (error) {
+      console.error('Error loading node_tree.json:', error);
+      throw error;
+    }
+  }
+  
+  completeJsonRendering(obj, meta) {
+    console.log('JSON parsing successful!');
+    console.log('currentJsonData set to:', !!this.currentJsonData);
+    console.log('Object keys:', Object.keys(obj || {}));
+    
+    // Detect file type for better UBERMODE feedback
+    const filePath = this.currentFile?.filePath || 'unknown';
+    const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
+    const isCombinedExtractions = filePath.includes('combined_extractions.json');
+    const isEnhancedExtractions = filePath.includes('enhanced_extraction_results.json');
+    
+    console.log('JSON parsed successfully, data available for UBERMODE:', !!obj);
+    console.log('Current UBERMODE state:', this.uberMode);
+    console.log('File being loaded:', filePath);
+    console.log('File type detection:', { isChunkEvaluations, isCombinedExtractions, isEnhancedExtractions });
+
+    // Check if UBERMODE is enabled and if this panel should show tree visualization
+    const shouldShowTreeView = this.shouldShowTreeVisualization();
+    console.log('UBERMODE check:', {
+      uberMode: this.uberMode,
+      shouldShowTreeView: shouldShowTreeView,
+      hasJsonData: !!obj,
+      currentJsonData: !!this.currentJsonData,
+      dataStructure: {
+        hasExtractions: !!(obj?.extractions),
+        extractionCount: obj?.extractions?.length || 0,
+        hasSections: !!(obj?.sections),
+        sectionCount: obj?.sections?.length || 0,
+        hasNodeTree: !!(obj?.node_tree),
+        nodeTreeChildren: obj?.node_tree?.document_tree?.children?.length || 0
       }
-
-      // Determine rendering strategy based on JSON size and complexity
-      const jsonString = JSON.stringify(obj);
-      const jsonSize = jsonString.length;
-      const jsonDepth = this.calculateJsonDepth(obj);
-      const itemCount = this.countJsonItems(obj);
-
-      console.log(`JSON analysis: size=${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
-
-      // Strategy 1: Very large JSON files - use specialized large JSON renderer
-      if (jsonSize > 2000000 || itemCount > 10000) {
-        console.log('Using large JSON renderer for performance');
-        this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+    });
+    
+    if (this.uberMode && shouldShowTreeView) {
+      console.log('UBERMODE is enabled and this panel should show tree view');
+      console.log('Data structure:', {
+        hasExtractions: !!(obj?.extractions),
+        extractionCount: obj?.extractions?.length || 0,
+        hasSections: !!(obj?.sections),
+        sectionCount: obj?.sections?.length || 0,
+        hasNodeTree: !!(obj?.node_tree),
+        nodeTreeChildren: obj?.node_tree?.document_tree?.children?.length || 0
+      });
+      try {
+        console.log('Calling renderUberMode...');
+        this.renderUberMode(obj, meta);
         return;
+      } catch (error) {
+        console.error('Error in renderUberMode:', error);
+        console.error('Stack trace:', error.stack);
       }
+    } else if (this.uberMode && !shouldShowTreeView) {
+      console.log('UBERMODE is enabled but this panel should not show tree view');
+    } else if (!this.uberMode) {
+      console.log('UBERMODE is not enabled');
+    }
 
-      // Strategy 2: Medium to large JSON - use JSONFormatter with optimizations
-      if (typeof JSONFormatter !== 'undefined' && jsonSize <= 2000000) {
-        this.renderEnhancedJsonObject(obj, meta);
-        return;
-      }
+    // Determine rendering strategy based on JSON size and complexity
+    const jsonString = JSON.stringify(obj);
+    const jsonSize = jsonString.length;
+    const jsonDepth = this.calculateJsonDepth(obj);
+    const itemCount = this.countJsonItems(obj);
 
-      // Strategy 3: Fallback for very large files or when JSONFormatter unavailable
-      if (jsonSize > 500000) {
-        console.log('JSON too large, falling back to text rendering');
-        this.renderTextContent(content, meta, 'json');
-      } else {
-        this.renderEnhancedJson(jsonString, meta);
-      }
-    } catch (e) {
-      console.error('JSON parsing failed for file:', this.currentFile?.filePath);
-      console.error('Parsing error:', e);
-      console.error('Content that failed to parse (first 500 chars):', content.substring(0, 500));
-      console.error('Content length:', content.length);
-      // Invalid JSON, render as text
-      this.renderTextContent(content, meta);
+    console.log(`JSON analysis: size=${this.formatBytes(jsonSize)}, depth=${jsonDepth}, items=${itemCount}`);
+
+    // Strategy 1: Very large JSON files - use specialized large JSON renderer
+    if (jsonSize > 2000000 || itemCount > 10000) {
+      console.log('Using large JSON renderer for performance');
+      this.renderLargeJsonObject(obj, meta, { jsonSize, jsonDepth, itemCount });
+      return;
+    }
+
+    // Strategy 2: Medium to large JSON - use JSONFormatter with optimizations
+    if (typeof JSONFormatter !== 'undefined' && jsonSize <= 2000000) {
+      this.renderEnhancedJsonObject(obj, meta);
+      return;
+    }
+
+    // Strategy 3: Fallback for very large files or when JSONFormatter unavailable
+    if (jsonSize > 500000) {
+      console.log('JSON too large, falling back to text rendering');
+      this.renderTextContent(content, meta, 'json');
+    } else {
+      this.renderEnhancedJson(jsonString, meta);
     }
   }
   
@@ -1520,13 +1577,18 @@ class PreviewOptimizer {
       return false;
     }
 
-    // If we have valid extraction data with combined_extractions.json, always show tree view
-    if (this.currentJsonData && this.currentJsonData.extractions && this.currentFile?.filePath?.includes('combined_extractions.json')) {
-      console.log('Found combined_extractions.json with valid data - enabling tree view');
+    // Check for files that should show tree view
+    const filePath = this.currentFile?.filePath || '';
+    const isValidTreeFile = filePath.includes('combined_extractions.json') || 
+                           filePath.includes('enhanced_extraction_results.json');
+    
+    // If we have valid extraction data with supported files, always show tree view
+    if (this.currentJsonData && isValidTreeFile && (this.currentJsonData.extractions || this.currentJsonData.node_tree)) {
+      console.log(`Found ${filePath.split('/').pop()} with valid data - enabling tree view`);
       return true;
     }
     
-    console.log('shouldShowTreeVisualization: Not combined_extractions.json, checking panel logic');
+    console.log(`shouldShowTreeVisualization: File ${filePath.split('/').pop()} not recognized for tree view, checking panel logic`);
 
     // Get current panel configuration
     const selectedFilePaths = window.selectedFilePaths || [null, null, null];
