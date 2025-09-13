@@ -1318,14 +1318,31 @@
           });
         }
         
-        // Scroll to make visible
-        scrollTreeNodeIntoView(treeNode);
+        // Expand parent nodes FIRST, then scroll (addressing user feedback)
+        console.log('Expanding parent nodes before scrolling...');
+        showToast('Expanding parent nodes and navigating...', 'info', 2000);
         
-        // Expand parent nodes if collapsed
-        expandParentNodes(treeNode);
+        expandParentNodes(treeNode).then(() => {
+          console.log('Parent nodes expanded, now scrolling to target...');
+          
+          // Update toast to indicate successful expansion and scrolling
+          showToast('Parent nodes expanded - scrolling to target', 'success', 1500);
+          
+          // Scroll to make visible after expansion is complete
+          setTimeout(() => {
+            scrollTreeNodeIntoView(treeNode);
+          }, 50); // Small delay to ensure DOM is updated after expansion
+          
+        }).catch(error => {
+          console.warn('Error during parent expansion:', error);
+          // Still try to scroll even if expansion had issues
+          showToast('Parent expansion had issues - attempting scroll', 'error', 2000);
+          setTimeout(() => {
+            scrollTreeNodeIntoView(treeNode);
+          }, 50);
+        });
         
         console.log('✅ Successfully navigated to tree node');
-        showToast('Found and navigated to tree node!', 'success');
         
         // Return the node for further use if needed
         return treeNode;
@@ -1508,6 +1525,10 @@
           block: 'center',
           inline: 'nearest'
         });
+        // Show success toast after scroll
+        setTimeout(() => {
+          showToast('Navigation complete!', 'success', 1500);
+        }, 500);
         return;
       }
       
@@ -1569,9 +1590,10 @@
           previewContainer.style.position = 'relative';
           previewContainer.appendChild(scrollIndicator);
           
-          // Remove indicator after scroll completes
+          // Remove indicator after scroll completes and show success toast
           setTimeout(() => {
             scrollIndicator.style.opacity = '0';
+            showToast('✅ Navigation complete!', 'success', 1500);
             setTimeout(() => {
               if (scrollIndicator.parentNode) {
                 scrollIndicator.parentNode.removeChild(scrollIndicator);
@@ -1581,20 +1603,199 @@
         }
       } else {
         console.log('Node is already visible, no scrolling needed');
+        // Show success toast immediately if no scrolling was needed
+        showToast('✅ Target already visible!', 'success', 1500);
       }
     }
 
     function expandParentNodes(treeNode) {
-      // Find and expand collapsed parent nodes
-      let parent = treeNode.parentNode;
-      while (parent && parent !== document.body) {
-        // Look for JSON formatter toggle buttons
-        const toggle = parent.querySelector('.json-formatter-toggler');
-        if (toggle && parent.classList.contains('json-formatter-closed')) {
-          toggle.click();
-        }
-        parent = parent.parentNode;
+      console.log('=== EXPANDING PARENT NODES ===');
+      console.log('Starting expansion from node:', treeNode);
+      
+      // Add expansion indicator to the preview panel
+      const previewPanel = treeNode.closest('.preview-panel');
+      let expansionIndicator = null;
+      
+      if (previewPanel) {
+        expansionIndicator = document.createElement('div');
+        expansionIndicator.className = 'expansion-indicator';
+        expansionIndicator.textContent = 'Expanding parent nodes...';
+        previewPanel.style.position = 'relative';
+        previewPanel.appendChild(expansionIndicator);
       }
+      
+      // Collect all parent nodes that might need expansion
+      const parentsToExpand = [];
+      let parent = treeNode.parentNode;
+      let depth = 0;
+      
+      while (parent && parent !== document.body && depth < 20) {
+        // Look for various types of collapsible containers
+        const expansionCandidates = [
+          // JSON formatter toggles
+          parent.querySelector('.json-formatter-toggler'),
+          // Tree node toggles
+          parent.querySelector('.tree-toggle'),
+          parent.querySelector('.tree-node-toggle'),
+          // Generic expand/collapse buttons
+          parent.querySelector('[data-toggle="collapse"]'),
+          parent.querySelector('.collapse-toggle'),
+          // Bootstrap or similar framework toggles
+          parent.querySelector('.btn-toggle'),
+          // Custom toggles that might have expand/collapse functionality
+          parent.querySelector('[aria-expanded="false"]'),
+          parent.querySelector('.collapsed'),
+          // Details/summary elements
+          parent.querySelector('summary')
+        ].filter(toggle => toggle !== null);
+        
+        if (expansionCandidates.length > 0) {
+          parentsToExpand.push({
+            parent: parent,
+            toggles: expansionCandidates,
+            depth: depth
+          });
+          console.log(`Found expandable parent at depth ${depth}:`, parent, 'with toggles:', expansionCandidates);
+        }
+        
+        // Also check if the parent itself is a collapsible element
+        if (parent.classList.contains('json-formatter-closed') ||
+            parent.classList.contains('collapsed') ||
+            parent.getAttribute('aria-expanded') === 'false' ||
+            (parent.tagName === 'DETAILS' && !parent.hasAttribute('open'))) {
+          
+          // Look for the toggle within this element or as the element itself
+          let toggleElement = null;
+          if (parent.tagName === 'DETAILS') {
+            toggleElement = parent; // Details element itself is clickable
+          } else if (parent.classList.contains('json-formatter-closed')) {
+            toggleElement = parent.querySelector('.json-formatter-toggler');
+          } else {
+            // Look for any clickable element that might expand this parent
+            toggleElement = parent.querySelector('[role="button"], button, .clickable, .toggle') ||
+                          (parent.onclick ? parent : null);
+          }
+          
+          if (toggleElement && !parentsToExpand.some(p => p.parent === parent)) {
+            parentsToExpand.push({
+              parent: parent,
+              toggles: [toggleElement],
+              depth: depth,
+              isParentItself: true
+            });
+            console.log(`Found collapsible parent element at depth ${depth}:`, parent);
+          }
+        }
+        
+        parent = parent.parentNode;
+        depth++;
+      }
+      
+      console.log(`Found ${parentsToExpand.length} parents that may need expansion`);
+      
+      // Expand parents from outermost to innermost (reverse order)
+      parentsToExpand.reverse();
+      
+      let expandedCount = 0;
+      const expandPromises = [];
+      
+      for (const parentInfo of parentsToExpand) {
+        console.log(`Processing parent at depth ${parentInfo.depth}:`, parentInfo.parent);
+        
+        // Add visual feedback class
+        parentInfo.parent.classList.add('expanding-parent');
+        
+        for (const toggle of parentInfo.toggles) {
+          try {
+            // Check if expansion is actually needed
+            const needsExpansion = (
+              parentInfo.parent.classList.contains('json-formatter-closed') ||
+              parentInfo.parent.classList.contains('collapsed') ||
+              parentInfo.parent.getAttribute('aria-expanded') === 'false' ||
+              (parentInfo.parent.tagName === 'DETAILS' && !parentInfo.parent.hasAttribute('open')) ||
+              toggle.getAttribute('aria-expanded') === 'false'
+            );
+            
+            if (needsExpansion) {
+              console.log(`Expanding parent via toggle:`, toggle);
+              
+              // Create a promise for this expansion to handle timing
+              const expandPromise = new Promise((resolve) => {
+                // Try different expansion methods
+                if (toggle.click) {
+                  toggle.click();
+                } else if (toggle.dispatchEvent) {
+                  toggle.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+                } else if (parentInfo.parent.tagName === 'DETAILS') {
+                  parentInfo.parent.setAttribute('open', '');
+                }
+                
+                // Small delay to allow DOM updates, then remove visual feedback
+                setTimeout(() => {
+                  parentInfo.parent.classList.remove('expanding-parent');
+                  resolve();
+                }, 50);
+              });
+              
+              expandPromises.push(expandPromise);
+              expandedCount++;
+            } else {
+              console.log(`Parent already expanded:`, parentInfo.parent);
+              // Remove visual feedback immediately if no expansion was needed
+              parentInfo.parent.classList.remove('expanding-parent');
+            }
+          } catch (error) {
+            console.warn('Error expanding parent node:', error, toggle);
+            // Remove visual feedback on error
+            parentInfo.parent.classList.remove('expanding-parent');
+          }
+        }
+      }
+      
+      console.log(`Initiated expansion of ${expandedCount} parent nodes`);
+      
+      // Return a promise that resolves when all expansions are complete
+      return Promise.all(expandPromises).then(() => {
+        console.log(`Successfully expanded ${expandedCount} parent nodes`);
+        
+        // Remove expansion indicator
+        if (expansionIndicator && expansionIndicator.parentNode) {
+          expansionIndicator.style.opacity = '0';
+          setTimeout(() => {
+            if (expansionIndicator.parentNode) {
+              expansionIndicator.parentNode.removeChild(expansionIndicator);
+            }
+          }, 300);
+        }
+        
+        // Ensure all visual feedback classes are removed
+        document.querySelectorAll('.expanding-parent').forEach(el => {
+          el.classList.remove('expanding-parent');
+        });
+        
+        // Add a small additional delay to ensure all DOM updates are complete
+        return new Promise(resolve => setTimeout(resolve, 100));
+      }).catch(error => {
+        console.warn('Some parent expansions failed:', error);
+        
+        // Clean up on error
+        if (expansionIndicator && expansionIndicator.parentNode) {
+          expansionIndicator.style.opacity = '0';
+          setTimeout(() => {
+            if (expansionIndicator.parentNode) {
+              expansionIndicator.parentNode.removeChild(expansionIndicator);
+            }
+          }, 300);
+        }
+        
+        // Remove any remaining visual feedback classes
+        document.querySelectorAll('.expanding-parent').forEach(el => {
+          el.classList.remove('expanding-parent');
+        });
+        
+        // Even if some expansions failed, continue with a small delay
+        return new Promise(resolve => setTimeout(resolve, 100));
+      });
     }
 
     // Make functions globally available
