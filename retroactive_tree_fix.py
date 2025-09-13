@@ -53,7 +53,8 @@ def get_extraction_title(extraction: Dict[str, Any]) -> str:
 def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, Any]], tags: List[Dict[str, Any]], parameters: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Build hierarchical node tree from sections and extractions, matching enhanced_lx_runner.py format."""
     
-    print(f"[DEBUG] Building tree from {len(sections)} sections, {len(extractions)} extractions")
+    print(f"[DEBUG] ========== BUILDING TREE ==========")
+    print(f"[DEBUG] Input: {len(sections)} sections, {len(extractions)} extractions, {len(tags)} tags, {len(parameters)} parameters")
     
     # Create section hierarchy
     section_nodes = {}
@@ -61,35 +62,44 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
     section_ids = []
     duplicate_count = 0
     
+    print(f"[DEBUG] ========== SECTION PROCESSING ==========")
+    
     # Build section hierarchy
     for i, section in enumerate(sections):
         section_id = section.get("section_id", section.get("section_name", ""))
+        section_name = section.get("section_name", "Unnamed Section")
+        section_level = section.get("section_level", 1)
+        parent_section_id = section.get("parent_section_id")
+        
         original_section_id = section_id  # Store original before potential modification
         section_ids.append(section_id)
         
-        # Debug section processing - show progress every 10 sections to avoid spam
-        if i < 20 or i % 10 == 0 or i >= len(sections) - 5:
-            print(f"[DEBUG] Processing section {i+1}/{len(sections)}: '{section_id}' (level {section.get('section_level', 1)})")
+        # Show details for all sections (truncated for readability)
+        if i < 20 or section_level <= 2:  # Show first 20 and all level 1-2 sections
+            print(f"[DEBUG] Section {i+1:3d}: ID='{section_id}' | Name='{section_name[:50]}...' | Level={section_level} | Parent='{parent_section_id or 'None'}'")
+        elif i % 20 == 0:  # Show every 20th after that
+            print(f"[DEBUG] Section {i+1:3d}: ID='{section_id}' | Level={section_level} | Parent='{parent_section_id or 'None'}' (every 20th)")
         
         # Check for duplicate IDs and handle them
         if section_id in section_nodes:
             duplicate_count += 1
             section_id = f"{section_id}_duplicate_{duplicate_count}"
-            print(f"[WARNING] Duplicate section ID '{original_section_id}' found at index {i}! Creating unique ID: '{section_id}'")
+            print(f"[WARNING] DUPLICATE SECTION ID FIXED: '{original_section_id}' -> '{section_id}'")
         
         section_node = {
             "id": section_id,
-            "title": section.get("section_name", "Unnamed Section"),
+            "title": section_name,
             "type": "SECTION",
-            "level": section.get("section_level", 1),
-            "parent_id": section.get("parent_section_id"),
+            "level": section_level,
+            "parent_id": parent_section_id,
             "children": [],
             "metadata": {
                 "start_page": section.get("start_page"),
                 "end_page": section.get("end_page"),
                 "toc_path": section.get("toc_path", []),
                 "section_summary": section.get("section_summary", ""),
-                "extraction_count": 0
+                "extraction_count": 0,
+                "original_section_index": i
             }
         }
         section_nodes[section_id] = section_node
@@ -98,35 +108,55 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
         if section_id != original_section_id:
             section["section_id"] = section_id
     
-    print(f"[DEBUG] Created {len(section_nodes)} unique section nodes from {len(sections)} sections")
-    if duplicate_count > 0:
-        print(f"[WARNING] Fixed {duplicate_count} duplicate section IDs")
-    print(f"[DEBUG] Section IDs: {list(section_nodes.keys())[:10]}{'...' if len(section_nodes) > 10 else ''}")
+    print(f"[DEBUG] Section processing complete: {len(section_nodes)} unique nodes, {duplicate_count} duplicates fixed")
+    
+    print(f"[DEBUG] ========== PARENT-CHILD RELATIONSHIPS ==========")
     
     # Build parent-child relationships for sections
     children_added = 0
     root_added = 0
+    orphaned_sections = []
+    parent_not_found = []
+    
     for section_id, section_node in section_nodes.items():
         parent_id = section_node.get("parent_id")
+        
         if parent_id and parent_id in section_nodes:
-            section_nodes[parent_id]["children"].append(section_node)
+            # Valid parent found - add as child
+            parent_node = section_nodes[parent_id]
+            parent_node["children"].append(section_node)
             children_added += 1
-            if children_added <= 5:  # Only show first 5 to avoid spam
-                print(f"[DEBUG] Added section '{section_id}' as child of '{parent_id}'")
-        else:
+            if children_added <= 10:  # Show first 10 relationships
+                print(f"[DEBUG] CHILD: '{section_id}' -> parent: '{parent_id}' (level {section_node['level']})")
+        elif parent_id:
+            # Parent specified but not found
+            parent_not_found.append((section_id, parent_id))
             root_sections.append(section_node)
             root_added += 1
-            if root_added <= 5:  # Only show first 5 to avoid spam
-                print(f"[DEBUG] Added section '{section_id}' as root section (parent_id: {parent_id})")
+            if root_added <= 10:
+                print(f"[DEBUG] ORPHAN->ROOT: '{section_id}' (missing parent: '{parent_id}') (level {section_node['level']})")
+        else:
+            # No parent specified - true root
+            root_sections.append(section_node)
+            root_added += 1
+            if root_added <= 10:
+                print(f"[DEBUG] ROOT: '{section_id}' (level {section_node['level']})")
     
-    print(f"[DEBUG] Created {len(root_sections)} root sections, {children_added} child sections")
+    print(f"[DEBUG] Relationships built: {children_added} children, {root_added} roots")
+    if parent_not_found:
+        print(f"[WARNING] {len(parent_not_found)} sections have missing parents:")
+        for child_id, missing_parent in parent_not_found[:5]:  # Show first 5
+            print(f"[WARNING]   '{child_id}' -> missing parent: '{missing_parent}'")
+    
+    print(f"[DEBUG] ========== EXTRACTION MAPPING ==========")
     
     # Add extractions to their parent sections
     extractions_matched = 0
     extractions_orphaned = 0
     parent_section_ids_seen = set()
+    extraction_parent_mapping = {}
     
-    print(f"[DEBUG] Mapping {len(extractions)} extractions to sections...")
+    print(f"[DEBUG] Processing {len(extractions)} extractions...")
     
     for i, extraction in enumerate(extractions):
         extraction_class = extraction.get("extraction_class", "")
@@ -134,9 +164,16 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
         parent_section_id = attributes.get("parent_section_id") or attributes.get("section_parent_id")
         parent_section_ids_seen.add(parent_section_id)
         
-        # Show sample extraction mapping
-        if i < 5:
-            print(f"[DEBUG] Extraction {i+1}: {extraction_class} -> parent_section_id='{parent_section_id}'")
+        # Track which extractions map to which parents
+        if parent_section_id not in extraction_parent_mapping:
+            extraction_parent_mapping[parent_section_id] = []
+        extraction_parent_mapping[parent_section_id].append(extraction_class)
+        
+        # Show detailed mapping for first few extractions
+        if i < 10:
+            print(f"[DEBUG] Extraction {i+1:3d}: {extraction_class:15s} -> parent: '{parent_section_id or 'None'}'")
+        elif i % 100 == 0:  # Every 100th after that
+            print(f"[DEBUG] Extraction {i+1:3d}: {extraction_class:15s} -> parent: '{parent_section_id or 'None'}' (every 100th)")
         
         if parent_section_id and parent_section_id in section_nodes:
             section_node = section_nodes[parent_section_id]
@@ -162,20 +199,40 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
             extractions_matched += 1
         else:
             extractions_orphaned += 1
-            if extractions_orphaned <= 5:  # Only show first 5 to avoid spam
-                print(f"[DEBUG] Orphaned extraction: {extraction_class} with parent_section_id='{parent_section_id}' (not found in sections)")
+            if extractions_orphaned <= 10:  # Show first 10 orphaned
+                print(f"[DEBUG] ORPHANED: {extraction_class} (parent '{parent_section_id}' not found in sections)")
     
-    print(f"[DEBUG] Matched {extractions_matched} extractions to sections, {extractions_orphaned} orphaned")
-    print(f"[DEBUG] Unique parent section IDs in extractions: {len(parent_section_ids_seen)}")
-    print(f"[DEBUG] Sample parent section IDs from extractions: {list(parent_section_ids_seen)[:10]}")
+    print(f"[DEBUG] Extraction mapping complete: {extractions_matched} matched, {extractions_orphaned} orphaned")
+    print(f"[DEBUG] Unique parent IDs seen in extractions: {len(parent_section_ids_seen)}")
     
+    print(f"[DEBUG] ========== PARENT ID ANALYSIS ==========")
+    # Analyze parent ID mapping
+    valid_parents = []
+    missing_parents = []
+    for parent_id in parent_section_ids_seen:
+        if parent_id and parent_id in section_nodes:
+            valid_parents.append(parent_id)
+        elif parent_id:
+            missing_parents.append(parent_id)
+    
+    print(f"[DEBUG] Parent ID analysis:")
+    print(f"[DEBUG]   Valid parents: {len(valid_parents)}")
+    print(f"[DEBUG]   Missing parents: {len(missing_parents)}")
+    if missing_parents:
+        print(f"[DEBUG] Missing parent IDs: {missing_parents[:10]}{'...' if len(missing_parents) > 10 else ''}")
+    
+    print(f"[DEBUG] ========== SECTION EXTRACTION COUNTS ==========")
     # Show sections with extraction counts
-    sections_with_extractions = [(sid, node["metadata"]["extraction_count"]) 
+    sections_with_extractions = [(sid, node["metadata"]["extraction_count"], node["level"]) 
                                 for sid, node in section_nodes.items() 
                                 if node["metadata"]["extraction_count"] > 0]
-    print(f"[DEBUG] Sections with extractions: {len(sections_with_extractions)}")
-    for sid, count in sections_with_extractions[:10]:  # Show first 10
-        print(f"[DEBUG]   Section '{sid}': {count} extractions")
+    sections_with_extractions.sort(key=lambda x: -x[1])  # Sort by extraction count descending
+    
+    print(f"[DEBUG] Sections with extractions: {len(sections_with_extractions)} out of {len(section_nodes)}")
+    for i, (sid, count, level) in enumerate(sections_with_extractions[:15]):  # Show top 15
+        print(f"[DEBUG]   {i+1:2d}. '{sid}' (level {level}): {count} extractions")
+    
+    print(f"[DEBUG] ========== FINAL TREE VALIDATION ==========")
     
     # Create final tree structure matching enhanced_lx_runner.py format
     tree_structure = {
@@ -188,7 +245,17 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
                 "total_extractions": len(extractions),
                 "total_tags": len(tags),
                 "total_parameters": len(parameters),
-                "processing_method": "docling_toc_based_enhanced_extraction"
+                "processing_method": "docling_toc_based_enhanced_extraction",
+                "tree_build_stats": {
+                    "sections_processed": len(sections),
+                    "section_nodes_created": len(section_nodes),
+                    "root_sections": len(root_sections),
+                    "duplicates_fixed": duplicate_count,
+                    "parent_child_relationships": children_added,
+                    "extractions_matched": extractions_matched,
+                    "extractions_orphaned": extractions_orphaned,
+                    "sections_with_extractions": len(sections_with_extractions)
+                }
             }
         },
         "statistics": {
@@ -200,19 +267,28 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
         }
     }
     
-    # Final validation
-    print(f"[DEBUG] Final tree structure:")
-    print(f"[DEBUG]   Root sections: {len(root_sections)}")
-    print(f"[DEBUG]   Total sections in nodes dict: {len(section_nodes)}")
+    # Final validation and debug output
     total_extractions_in_tree = sum(node["metadata"]["extraction_count"] for node in section_nodes.values())
-    print(f"[DEBUG]   Total extractions in tree: {total_extractions_in_tree}")
     
-    # Show root section details
-    print(f"[DEBUG] Root sections details:")
-    for i, root in enumerate(root_sections[:5]):  # Show first 5
+    print(f"[DEBUG] Final validation:")
+    print(f"[DEBUG]   Total sections in tree: {len(section_nodes)}")
+    print(f"[DEBUG]   Root sections: {len(root_sections)}")
+    print(f"[DEBUG]   Total extractions placed in tree: {total_extractions_in_tree}")
+    print(f"[DEBUG]   Total original extractions: {len(extractions)}")
+    print(f"[DEBUG]   Extraction placement success rate: {(total_extractions_in_tree/len(extractions)*100):.1f}%" if extractions else "N/A")
+    
+    # Show detailed breakdown of root sections
+    print(f"[DEBUG] Root section breakdown:")
+    for i, root in enumerate(root_sections[:10]):  # Show first 10 roots
         child_count = len(root.get("children", []))
         extraction_count = root.get("metadata", {}).get("extraction_count", 0)
-        print(f"[DEBUG]   Root {i+1}: '{root.get('id')}' - {child_count} children, {extraction_count} extractions")
+        level = root.get("level", 0)
+        print(f"[DEBUG]   Root {i+1:2d}: '{root.get('id')}' (level {level}) - {child_count} children, {extraction_count} extractions")
+    
+    if len(root_sections) > 10:
+        print(f"[DEBUG]   ... and {len(root_sections) - 10} more root sections")
+    
+    print(f"[DEBUG] ========== TREE BUILD COMPLETE ==========")
     
     return tree_structure
 
