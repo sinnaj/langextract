@@ -801,9 +801,18 @@ def extract_positioning_from_docling(extraction_data, docling_data):
     
     print(f"Found {len(section_id_to_info)} sections: {list(section_id_to_info.keys())}")
     
-    # Create mapping for CHUNK_METADATA to actual sections 
-    chunk_to_section = {}
+    # Initialize sections_map with all sections first
     sections_map = {}
+    for section_id, section_info in section_id_to_info.items():
+        sections_map[section_id] = {
+            "section_id": section_id,
+            "section_name": section_info.get("section_name", section_id),
+            "extraction_text": "",  # Will be populated if CHUNK_METADATA exists
+            "norms": []
+        }
+    
+    # Map CHUNK_METADATA to sections and add metadata
+    chunk_to_section = {}
     
     for extraction in extractions:
         extraction_class = extraction.get("extraction_class")
@@ -829,15 +838,11 @@ def extract_positioning_from_docling(extraction_data, docling_data):
                         matching_section_id = section_id
                         break
                 
-                if matching_section_id:
+                if matching_section_id and matching_section_id in sections_map:
                     print(f"Mapped CHUNK_METADATA {chunk_id} to section {matching_section_id}")
                     chunk_to_section[chunk_id] = matching_section_id
-                    sections_map[matching_section_id] = {
-                        "section_id": matching_section_id,
-                        "section_name": section_id_to_info[matching_section_id].get("section_name", matching_section_id),
-                        "extraction_text": extraction_text,
-                        "norms": []
-                    }
+                    # Update with metadata
+                    sections_map[matching_section_id]["extraction_text"] = extraction_text
                 else:
                     print(f"Could not find matching section for title: {section_title}")
     
@@ -871,33 +876,54 @@ def extract_positioning_from_docling(extraction_data, docling_data):
     
     # Now map texts to positions using fuzzy matching
     for section_id, section_data in sections_map.items():
+        print(f"Processing section {section_id} for positioning...")
+        
         # For sections, try to find section headers or content
         section_text = section_data["extraction_text"]
+        section_name = section_data["section_name"]
         
-        # Extract actual section title from extraction text (skip metadata)
-        section_lines = section_text.split('\n')
-        section_title = None
-        for line in section_lines:
-            if line.startswith('Section:'):
-                section_title = line.replace('Section:', '').strip()
-                break
+        # If no CHUNK_METADATA extraction text, use section name
+        if not section_text and section_name:
+            section_text = section_name
         
-        if section_title:
-            section_positioning = find_text_position(section_title, text_to_position)
-            if section_positioning:
-                section_data["positioning"] = section_positioning
-                print(f"Found positioning for section {section_id}: {section_title[:50]}...")
+        if section_text:
+            # Extract actual section title from extraction text (skip metadata)
+            section_title = None
+            if section_text.startswith("Section:"):
+                section_lines = section_text.split('\n')
+                for line in section_lines:
+                    if line.startswith('Section:'):
+                        section_title = line.replace('Section:', '').strip()
+                        break
+            else:
+                # Use the section name directly
+                section_title = section_name
+            
+            if section_title:
+                section_positioning = find_text_position(section_title, text_to_position)
+                if section_positioning:
+                    section_data["positioning"] = section_positioning
+                    print(f"Found positioning for section {section_id}: {section_title[:50]}...")
+                else:
+                    print(f"No positioning found for section {section_id}: {section_title[:50]}...")
+        else:
+            print(f"No text available for section {section_id} positioning")
         
         # Process norms in this section
         for norm_data in section_data["norms"]:
             norm_text = norm_data["extraction_text"]
-            print(f"Trying to find positioning for norm {norm_data['norm_id']} with text: {norm_text[:100]}...")
-            norm_positioning = find_text_position(norm_text, text_to_position)
-            if norm_positioning:
-                norm_data["positioning"] = norm_positioning
-                print(f"Found positioning for norm {norm_data['norm_id']}: {norm_text[:50]}...")
+            norm_id = norm_data["norm_id"]
+            print(f"Trying to find positioning for norm {norm_id} with text: {norm_text[:100]}...")
+            
+            if norm_text:
+                norm_positioning = find_text_position(norm_text, text_to_position)
+                if norm_positioning:
+                    norm_data["positioning"] = norm_positioning
+                    print(f"Found positioning for norm {norm_id}: {norm_text[:50]}...")
+                else:
+                    print(f"No positioning found for norm {norm_id}")
             else:
-                print(f"No positioning found for norm {norm_data['norm_id']}")
+                print(f"No text available for norm {norm_id}")
         
         positioning_data["sections"].append(section_data)
     
@@ -908,13 +934,15 @@ def find_text_position(target_text, text_to_position):
     """Find the best matching position for target text in the docling document."""
     target_text = target_text.strip()
     
+    if not target_text:
+        return None
+    
     # First try exact match
     if target_text in text_to_position:
         print(f"Exact match found for: {target_text[:50]}...")
         return text_to_position[target_text]
     
-    # Try to find by looking for the beginning of the target text
-    # Since extraction text might be longer than individual text elements
+    # Try substring matching (both ways)
     best_match = None
     best_score = 0
     best_match_text = ""
@@ -923,29 +951,56 @@ def find_text_position(target_text, text_to_position):
         docling_text_clean = docling_text.strip()
         
         # Skip very short texts as they may lead to false positives
-        if len(docling_text_clean) < 10:
+        if len(docling_text_clean) < 3:
             continue
+        
+        # Check for substring matches
+        if len(target_text) >= 10 and len(docling_text_clean) >= 10:
+            # Check if one is a substring of the other
+            if docling_text_clean in target_text:
+                score = len(docling_text_clean) / len(target_text)
+                if score > best_score and score > 0.3:
+                    best_score = score
+                    best_match = position
+                    best_match_text = docling_text_clean
+                    continue
             
+            if target_text in docling_text_clean:
+                score = len(target_text) / len(docling_text_clean)
+                if score > best_score and score > 0.3:
+                    best_score = score
+                    best_match = position
+                    best_match_text = docling_text_clean
+                    continue
+        
         # Check if target text starts with or contains this docling text
-        if (docling_text_clean.startswith(target_text[:50]) or 
-            target_text.startswith(docling_text_clean[:50])):
+        if (len(docling_text_clean) >= 20 and 
+            (docling_text_clean.startswith(target_text[:50]) or 
+             target_text.startswith(docling_text_clean[:50]))):
             # Simple scoring based on length match
             score = min(len(docling_text_clean), len(target_text)) / max(len(docling_text_clean), len(target_text))
-            if score > best_score:
+            if score > best_score and score > 0.2:
                 best_score = score
                 best_match = position
                 best_match_text = docling_text_clean
         
-        # Also check if the docling text is contained within target text
-        elif docling_text_clean in target_text and len(docling_text_clean) > 20:  # Only meaningful matches
-            score = len(docling_text_clean) / len(target_text)
-            if score > best_score:
-                best_score = score
-                best_match = position
-                best_match_text = docling_text_clean
+        # Also check word-based similarity for shorter texts
+        elif len(target_text) >= 20:
+            target_words = set(target_text.lower().split())
+            docling_words = set(docling_text_clean.lower().split())
+            
+            if target_words and docling_words:
+                overlap = len(target_words & docling_words)
+                union = len(target_words | docling_words)
+                jaccard_score = overlap / union if union > 0 else 0
+                
+                if jaccard_score > best_score and jaccard_score > 0.3:
+                    best_score = jaccard_score
+                    best_match = position
+                    best_match_text = docling_text_clean
     
-    # Only return match if it's reasonably good (>30% similarity)
-    if best_match and best_score > 0.3:
+    # Only return match if it's reasonably good
+    if best_match and best_score > 0.2:
         print(f"Found match (score: {best_score:.2f}) for target: {target_text[:50]}... -> docling: {best_match_text[:50]}...")
         return best_match
     else:
