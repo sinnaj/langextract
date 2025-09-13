@@ -12,6 +12,61 @@ from pathlib import Path
 from .data_models import EnhancedSection, make_deterministic_id, normalize_text_for_id
 
 
+def convert_table_to_markdown(table_data: Dict[str, Any]) -> str:
+    """Convert Docling table data to markdown format.
+    
+    Args:
+        table_data: Table data from DoclingDocument with 'table_cells' structure
+        
+    Returns:
+        Markdown representation of the table
+    """
+    table_cells = table_data.get('table_cells', [])
+    if not table_cells:
+        return ""
+    
+    # Group cells by row and column indices
+    rows = {}
+    max_col = 0
+    max_row = 0
+    
+    for cell in table_cells:
+        row_start = cell.get('start_row_offset_idx', 0)
+        col_start = cell.get('start_col_offset_idx', 0)
+        text = cell.get('text', '').strip()
+        
+        if row_start not in rows:
+            rows[row_start] = {}
+        
+        rows[row_start][col_start] = text
+        max_col = max(max_col, col_start)
+        max_row = max(max_row, row_start)
+    
+    # Build markdown table
+    markdown_lines = []
+    
+    for row_idx in range(max_row + 1):
+        if row_idx not in rows:
+            continue
+            
+        row_cells = []
+        for col_idx in range(max_col + 1):
+            cell_text = rows[row_idx].get(col_idx, '')
+            # Clean up cell text and escape markdown special characters
+            cell_text = cell_text.replace('|', '\\|').replace('\n', ' ')
+            row_cells.append(cell_text)
+        
+        # Create markdown table row
+        markdown_lines.append('| ' + ' | '.join(row_cells) + ' |')
+        
+        # Add header separator after first row
+        if row_idx == 0:
+            separator = '| ' + ' | '.join(['---'] * (max_col + 1)) + ' |'
+            markdown_lines.append(separator)
+    
+    return '\n'.join(markdown_lines)
+
+
 def create_enhanced_sections_from_toc(
     toc_data: List[Dict[str, Any]],
     docling_document: Dict[str, Any]
@@ -98,7 +153,7 @@ def extract_section_content(
         docling_document: Docling document with structured content
         
     Returns:
-        Section content as markdown text
+        Section content as markdown text including tables converted to markdown
     """
     if not section.start_page or not section.end_page:
         return ""
@@ -121,6 +176,26 @@ def extract_section_content(
             
             if element_text.strip():
                 content_parts.append(element_text)
+    
+    # Extract tables that fall within the section's page range
+    tables = docling_document.get('tables', [])
+    for table in tables:
+        # Check if table falls within section page range
+        table_page = None
+        prov_data = table.get('prov', [])
+        if prov_data:
+            table_page = prov_data[0].get('page_no')
+        
+        if (table_page and 
+            table_page >= section.start_page and 
+            table_page <= section.end_page):
+            
+            # Convert table to markdown
+            table_data = table.get('data', {})
+            if table_data:
+                table_markdown = convert_table_to_markdown(table_data)
+                if table_markdown:
+                    content_parts.append(f"\n{table_markdown}\n")
     
     return '\n'.join(content_parts)
 

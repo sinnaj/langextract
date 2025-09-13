@@ -198,10 +198,48 @@ def _update_children_parent(target_parent_id: str, old_parent_ids: List[str],
         old_parent_ids: List of old parent IDs whose children should be reassigned
         evaluations: List of all evaluations to search for children
     """
+    # Verify target parent exists in evaluations
+    target_exists = any(chunk.section_metadata.section_id == target_parent_id 
+                       for chunk, _ in evaluations)
+    
+    if not target_exists:
+        # If target parent doesn't exist, skip the update to prevent inconsistent state
+        return
+    
     for chunk, _ in evaluations:
         if chunk.section_metadata.parent_section_id in old_parent_ids:
             # Update the parent reference
             chunk.section_metadata.parent_section_id = target_parent_id
+
+
+def _cleanup_orphaned_children(
+    evaluations: List[Tuple[SectionChunk, ChunkEvaluation]]
+) -> List[str]:
+    """Clean up children that point to non-existent parents.
+    
+    Args:
+        evaluations: List of all evaluations
+        
+    Returns:
+        List of log messages about orphaned children fixed
+    """
+    # Get all valid section IDs
+    valid_section_ids = {chunk.section_metadata.section_id for chunk, _ in evaluations}
+    
+    cleanup_log = []
+    for chunk, _ in evaluations:
+        parent_id = chunk.section_metadata.parent_section_id
+        
+        # Skip if no parent or parent is valid
+        if not parent_id or parent_id in valid_section_ids:
+            continue
+            
+        # Parent doesn't exist - set to None or find alternative parent
+        chunk.section_metadata.parent_section_id = None
+        cleanup_log.append(f"Orphaned section {chunk.section_metadata.section_id} "
+                          f"({chunk.section_metadata.section_name}) - removed invalid parent {parent_id}")
+    
+    return cleanup_log
 
 
 def post_process_section_evaluations(
@@ -233,6 +271,10 @@ def post_process_section_evaluations(
         final_evaluations = filtered_evaluations
         merged_sections = []
         processing_log.append("No repeating section names found")
+    
+    # Step 3: Clean up any orphaned children
+    cleanup_log = _cleanup_orphaned_children(final_evaluations)
+    processing_log.extend(cleanup_log)
     
     return PostProcessingResult(
         processed_evaluations=final_evaluations,
