@@ -348,6 +348,14 @@ class PreviewOptimizer {
       if (filePath.includes('enhanced_extraction_results.json')) {
         console.log('Detected enhanced_extraction_results.json, attempting to load node_tree.json');
         this.loadAndMergeNodeTree(obj).then(mergedData => {
+          console.log('[TREE DEBUG] Successfully merged node_tree data:', {
+            hasNodeTree: !!(mergedData?.node_tree),
+            hasDocumentTree: !!(mergedData?.node_tree?.document_tree),
+            hasChildren: !!(mergedData?.node_tree?.document_tree?.children),
+            childCount: mergedData?.node_tree?.document_tree?.children?.length || 0,
+            originalDataKeys: Object.keys(obj || {}),
+            mergedDataKeys: Object.keys(mergedData || {})
+          });
           this.currentJsonData = mergedData;
           this.completeJsonRendering(mergedData, meta);
         }).catch(error => {
@@ -1641,6 +1649,14 @@ class PreviewOptimizer {
   toggleUberMode() {
     this.uberMode = !this.uberMode;
     
+    console.log('[TREE DEBUG] toggleUberMode called:', {
+      newUberModeState: this.uberMode,
+      hasCurrentJsonData: !!this.currentJsonData,
+      currentDataKeys: this.currentJsonData ? Object.keys(this.currentJsonData) : [],
+      hasNodeTree: !!(this.currentJsonData?.node_tree),
+      currentFilePath: this.currentFile?.filePath
+    });
+    
     // Update stats visibility
     this.updateStatsVisibility();
     
@@ -1652,6 +1668,10 @@ class PreviewOptimizer {
       const shouldShowTreeView = this.shouldShowTreeVisualization();
       
       if (this.uberMode && shouldShowTreeView) {
+        console.log('[TREE DEBUG] Rendering UBERMODE with current data:', {
+          hasNodeTree: !!(this.currentJsonData?.node_tree),
+          dataStructure: this.currentJsonData ? Object.keys(this.currentJsonData) : []
+        });
         this.renderUberMode(this.currentJsonData, { size: 0, truncated: false });
       } else {
         // Re-render with normal JSON view
@@ -1679,13 +1699,19 @@ class PreviewOptimizer {
   }
 
   renderUberMode(jsonData, meta) {
-    console.log('renderUberMode called with:', {
+    console.log('[TREE DEBUG] renderUberMode called with:', {
       jsonData: !!jsonData,
       meta: meta,
       dataKeys: Object.keys(jsonData || {}),
       extractionCount: jsonData?.extractions?.length || 0,
       sectionCount: jsonData?.sections?.length || 0,
-      documentMetadata: jsonData?.document_metadata || 'none'
+      documentMetadata: jsonData?.document_metadata || 'none',
+      hasNodeTree: !!(jsonData?.node_tree),
+      nodeTreeStructure: jsonData?.node_tree ? {
+        hasDocumentTree: !!(jsonData.node_tree.document_tree),
+        hasChildren: !!(jsonData.node_tree.document_tree?.children),
+        childCount: jsonData.node_tree.document_tree?.children?.length || 0
+      } : null
     });
     
     // Detect file type and validate for UBERMODE
