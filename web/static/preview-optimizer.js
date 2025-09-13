@@ -1082,7 +1082,7 @@ class PreviewOptimizer {
   // JSON preference storage helpers
   getJsonPreference(key, defaultValue) {
     try {
-      const stored = localStorage.getItem(`langextract_json_${key}`);
+      const stored = localStorage.getItem(`arqio_json_${key}`);
       return stored !== null ? JSON.parse(stored) : defaultValue;
     } catch (e) {
       return defaultValue;
@@ -1091,7 +1091,7 @@ class PreviewOptimizer {
 
   setJsonPreference(key, value) {
     try {
-      localStorage.setItem(`langextract_json_${key}`, JSON.stringify(value));
+      localStorage.setItem(`arqio_json_${key}`, JSON.stringify(value));
     } catch (e) {
       console.warn('Failed to save JSON preference:', e);
     }
