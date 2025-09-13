@@ -68,7 +68,9 @@ class PreviewOptimizer {
       }
       
       // Special handling for UBERMODE-critical files - load completely to avoid JSON parsing issues
-      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || filePath.includes('chunk_evaluations.json');
+      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || 
+                                   filePath.includes('chunk_evaluations.json') || 
+                                   filePath.includes('enhanced_extraction_results.json');
       const shouldLoadCompletely = isUberModeCriticalFile && fileSize <= 10000000; // Up to 10MB for UBERMODE files
       
       console.log('File loading strategy:', {
