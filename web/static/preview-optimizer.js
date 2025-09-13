@@ -68,7 +68,9 @@ class PreviewOptimizer {
       }
       
       // Special handling for UBERMODE-critical files - load completely to avoid JSON parsing issues
-      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || filePath.includes('chunk_evaluations.json');
+      const isUberModeCriticalFile = filePath.includes('combined_extractions.json') || 
+                                   filePath.includes('chunk_evaluations.json') || 
+                                   filePath.includes('enhanced_extraction_results.json');
       const shouldLoadCompletely = isUberModeCriticalFile && fileSize <= 10000000; // Up to 10MB for UBERMODE files
       
       console.log('File loading strategy:', {
@@ -2080,8 +2082,67 @@ class PreviewOptimizer {
       return data;
     }
     
+    // Handle node_tree.json format with document_tree structure
+    if (data && data.document_tree && data.document_tree.children) {
+      console.log('Converting node_tree.json format to normalized format');
+      return this.convertNodeTreeToNormalizedFormat(data.document_tree);
+    }
+    
     // Handle legacy format or other structures - return as-is if no extractions found
     return data;
+  }
+
+  // Convert node_tree.json format to normalized format
+  convertNodeTreeToNormalizedFormat(documentTree) {
+    const sections = [];
+    const extractions = [];
+    
+    // Recursively traverse the tree and extract sections and extractions
+    const traverseNode = (node, depth = 0) => {
+      console.log(`Processing node: ${node.id} (${node.type}) at depth ${depth}`);
+      
+      if (node.type === 'SECTION') {
+        // Create section entry
+        const section = {
+          section_id: node.id,
+          section_name: node.title,
+          section_level: node.level || depth,
+          parent_section: node.parent_id,
+          section_summary: `Section at level ${node.level || depth}`,
+          extraction_text: node.metadata?.extraction_text || ''
+        };
+        sections.push(section);
+        console.log(`Added section: ${node.id}`);
+      } else if (node.type && node.type !== 'DOCUMENT') {
+        // Create extraction entry for non-section nodes
+        const extraction = {
+          extraction_class: node.type,
+          extraction_text: node.metadata?.extraction_text || node.title || '',
+          attributes: {
+            id: node.id,
+            parent_section_id: node.parent_id,
+            ...node.metadata?.attributes || {}
+          }
+        };
+        extractions.push(extraction);
+        console.log(`Added extraction: ${node.id} (${node.type})`);
+      }
+      
+      // Recursively process children
+      if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(child => traverseNode(child, depth + 1));
+      }
+    };
+    
+    // Start traversal from document root
+    traverseNode(documentTree);
+    
+    console.log(`Converted node_tree format: ${sections.length} sections, ${extractions.length} extractions`);
+    
+    return {
+      sections: sections,
+      extractions: extractions
+    };
   }
 
   // Get all available entity types from the data
@@ -2318,24 +2379,47 @@ class PreviewOptimizer {
         const shouldIncludeSections = !this.treeFilterState || !this.treeFilterState.activeFilters || !this.treeFilterState.activeFilters.has('SECTION');
         
         if (shouldIncludeSections) {
-          normalizedData.sections.forEach(section => {
+          // Process sections directly without creating duplicates from toc_path
+          // Store original section order for proper document ordering
+          normalizedData.sections.forEach((section, index) => {
             if (section.section_id) {
+              // Build parent hierarchy from toc_path if available
+              let parentId = null;
+              if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
+                // Look for existing parent section in the sections array first
+                const parentName = section.toc_path[0];
+                const existingParent = normalizedData.sections.find(s => 
+                  s.section_name === parentName || s.section_title === parentName
+                );
+                if (existingParent) {
+                  parentId = existingParent.section_id;
+                } else {
+                  // Create synthetic parent ID only if no real parent exists
+                  parentId = parentName.toLowerCase()
+                    .replace(/\s+/g, '_')
+                    .replace(/[^\w_]/g, '');
+                }
+              } else {
+                parentId = section.parent_section || null;
+              }
+              
               const nodeData = {
                 id: section.section_id,
                 title: section.section_name || section.section_title || section.extraction_text || section.section_id,
                 type: 'SECTION',
-                parentId: section.parent_section || null,
+                parentId: parentId,
                 parentType: 'SECTION',
                 summary: section.section_summary || '',
                 extractionText: section.extraction_text || '',
                 children: [],
                 isExpanded: false, // Sections start collapsed
-                level: 0,
+                level: section.section_level || 0,
+                documentOrder: index, // Preserve original document order
                 attributes: section,
-                extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
+                extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text || '' }
               };
               nodes.set(section.section_id, nodeData);
-              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
+              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}", parent: ${parentId || 'ROOT'}, level: ${nodeData.level}, order: ${index}`);
             }
           });
         } else {
@@ -2418,8 +2502,9 @@ class PreviewOptimizer {
         }
       }
       
+      // Store original extraction order for proper document ordering
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
-      relevant.forEach(extraction => {
+      relevant.forEach((extraction, index) => {
         const nodeId = this.getNodeId(extraction);
         if (!nodeId) {
           console.warn('Skipping extraction without ID:', extraction);
@@ -2438,12 +2523,13 @@ class PreviewOptimizer {
           children: [],
           isExpanded: false, // Start collapsed for better UX
           level: 0, // Will be set during tree building
+          documentOrder: index, // Preserve original document order
           attributes: attrs,
           extraction: extraction // Store the full extraction for reference
         };
         
         nodes.set(nodeId, nodeData);
-        console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
+        console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}, order: ${index}`);
       });
       
       // Create synthetic root nodes only if needed and sections array is not available
@@ -2459,25 +2545,27 @@ class PreviewOptimizer {
         }
       });
       
-      // Create synthetic nodes for missing parents
+      // Create synthetic nodes for missing parents with appropriate ordering
+      let syntheticOrder = -1000; // Place synthetic nodes before real nodes
       missingParents.forEach(parentId => {
         const syntheticNode = {
           id: parentId,
-          title: `[Dropped Section] ${parentId}`,
+          title: `[Missing Section] ${parentId}`,
           type: 'SECTION',
           parentId: null, // Make synthetic nodes root-level
           parentType: 'SECTION',
-          summary: 'This section was dropped during processing but is referenced by child sections.',
+          summary: 'This section was not found in the processed sections but is referenced by child sections.',
           extractionText: '',
           children: [],
           isExpanded: false, // Synthetic parent nodes start collapsed
           level: 0,
-          attributes: { section_id: parentId, section_name: `[Dropped Section] ${parentId}`, synthetic: true },
+          documentOrder: syntheticOrder--, // Synthetic nodes get negative order
+          attributes: { section_id: parentId, section_name: `[Missing Section] ${parentId}`, synthetic: true },
           extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
         };
         nodes.set(parentId, syntheticNode);
         rootNodes.push(syntheticNode); // Add synthetic parents to root nodes
-        console.log(`Created synthetic parent node: ${parentId}`);
+        console.log(`Created synthetic parent node: ${parentId} with order: ${syntheticNode.documentOrder}`);
       });
 
       // Second pass: build parent-child relationships
@@ -2505,11 +2593,30 @@ class PreviewOptimizer {
         console.warn(`Found ${orphanCount} orphaned nodes that were promoted to root level`);
       }
       
-      // Sort children by ID for consistent ordering (following section_tree_visualizer.py)
+      // Sort children by document order for proper document structure
       nodes.forEach(node => {
-        node.children.sort((a, b) => a.id.localeCompare(b.id));
+        node.children.sort((a, b) => {
+          // Primary sort: document order (if available)
+          const orderA = a.documentOrder !== undefined ? a.documentOrder : 999999;
+          const orderB = b.documentOrder !== undefined ? b.documentOrder : 999999;
+          if (orderA !== orderB) {
+            return orderA - orderB;
+          }
+          // Fallback to ID comparison for consistency
+          return a.id.localeCompare(b.id);
+        });
       });
-      rootNodes.sort((a, b) => a.id.localeCompare(b.id));
+      
+      rootNodes.sort((a, b) => {
+        // Primary sort: document order (if available)
+        const orderA = a.documentOrder !== undefined ? a.documentOrder : 999999;
+        const orderB = b.documentOrder !== undefined ? b.documentOrder : 999999;
+        if (orderA !== orderB) {
+          return orderA - orderB;
+        }
+        // Fallback to ID comparison for consistency
+        return a.id.localeCompare(b.id);
+      });
       
       // Start with all nodes collapsed by default
       rootNodes.forEach(root => {
@@ -2524,6 +2631,20 @@ class PreviewOptimizer {
       
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
+      
+      // Additional debugging for the issue
+      if (rootNodes.length === 1) {
+        console.warn('⚠️ POTENTIAL ISSUE: Only 1 root node found. This might indicate a tree building problem.');
+        console.warn('Single root node details:', {
+          id: rootNodes[0].id,
+          title: rootNodes[0].title,
+          type: rootNodes[0].type,
+          childCount: rootNodes[0].children.length,
+          parentId: rootNodes[0].parentId
+        });
+      } else if (rootNodes.length > 100) {
+        console.log(`✅ SUCCESS: Found ${rootNodes.length} root nodes, tree looks healthy`);
+      }
     } else {
       console.warn('No valid extraction data found for tree building');
       console.warn('Normalized data check failed:', {
@@ -2558,12 +2679,12 @@ class PreviewOptimizer {
         const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
         if (idMatch) {
           baseId = idMatch[1];
-        }
-        
-        // Alternative patterns
-        const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
-        if (idMatch2) {
-          baseId = idMatch2[1];
+        } else {
+          // Alternative patterns with double quotes
+          const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
+          if (idMatch2) {
+            baseId = idMatch2[1];
+          }
         }
       } catch (error) {
         console.warn('Error parsing extraction_text for ID:', error);
@@ -2575,11 +2696,9 @@ class PreviewOptimizer {
       baseId = extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
     }
     
-    // Make the ID unique by combining with parent section and extraction index to avoid conflicts
-    // This is crucial because the same base ID can appear in multiple sections
-    const parentId = attrs.parent_section_id || extraction.section_parent_id || 'unknown';
-    const extractionIndex = extraction.extraction_index || 0;
-    return `${baseId}__${parentId}__${extractionIndex}`;
+    // Use the base ID directly - it should be unique in enhanced_extraction_results.json format
+    // No need for composite IDs since the enhanced pipeline generates unique IDs
+    return baseId;
   }
 
   // Helper method to determine parent ID following section_tree_visualizer.py patterns

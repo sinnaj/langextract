@@ -345,13 +345,18 @@ def run_files(run_id: str):
             if p.is_file():
                 filename = p.name
                 
-                # Make path relative to run directory for consistency
+                # Filter out chunks folder files as requested
+                # Skip any files inside the chunks subfolder
                 rel = p.relative_to(run_dir)
+                rel_str = str(rel).replace("\\", "/")
+                if "/chunks/" in rel_str or rel_str.startswith("enhanced_output/chunks/"):
+                    continue  # Skip chunk files
+                
                 try:
                     sz = p.stat().st_size
                 except OSError:
                     sz = 0
-                files.append({"path": str(rel).replace("\\", "/"), "size": sz})
+                files.append({"path": rel_str, "size": sz})
     
     # Fallback: check legacy 'lx output' folder for backward compatibility
     lx_output_dir = run_dir / "lx output"
