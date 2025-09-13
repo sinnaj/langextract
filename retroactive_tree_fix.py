@@ -53,13 +53,25 @@ def get_extraction_title(extraction: Dict[str, Any]) -> str:
 def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, Any]], tags: List[Dict[str, Any]], parameters: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Build hierarchical node tree from sections and extractions, matching enhanced_lx_runner.py format."""
     
+    print(f"[DEBUG] Building tree from {len(sections)} sections, {len(extractions)} extractions")
+    
     # Create section hierarchy
     section_nodes = {}
     root_sections = []
+    section_ids = []
     
     # Build section hierarchy
-    for section in sections:
+    for i, section in enumerate(sections):
         section_id = section.get("section_id", section.get("section_name", ""))
+        section_ids.append(section_id)
+        
+        # Debug section processing
+        print(f"[DEBUG] Processing section {i+1}/{len(sections)}: '{section_id}' (level {section.get('section_level', 1)})")
+        
+        # Check for duplicate IDs
+        if section_id in section_nodes:
+            print(f"[WARNING] Duplicate section ID detected: '{section_id}' - this will overwrite the previous section!")
+        
         section_node = {
             "id": section_id,
             "title": section.get("section_name", "Unnamed Section"),
@@ -77,15 +89,25 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
         }
         section_nodes[section_id] = section_node
     
+    print(f"[DEBUG] Created {len(section_nodes)} unique section nodes from {len(sections)} sections")
+    print(f"[DEBUG] Section IDs: {section_ids[:5]}{'...' if len(section_ids) > 5 else ''}")
+    
     # Build parent-child relationships for sections
     for section_id, section_node in section_nodes.items():
         parent_id = section_node.get("parent_id")
         if parent_id and parent_id in section_nodes:
             section_nodes[parent_id]["children"].append(section_node)
+            print(f"[DEBUG] Added section '{section_id}' as child of '{parent_id}'")
         else:
             root_sections.append(section_node)
+            print(f"[DEBUG] Added section '{section_id}' as root section (parent_id: {parent_id})")
+    
+    print(f"[DEBUG] Created {len(root_sections)} root sections")
     
     # Add extractions to their parent sections
+    extractions_matched = 0
+    extractions_orphaned = 0
+    
     for extraction in extractions:
         extraction_class = extraction.get("extraction_class", "")
         attributes = extraction.get("attributes") or {}  # Handle None case
@@ -112,6 +134,13 @@ def build_node_tree(sections: List[Dict[str, Any]], extractions: List[Dict[str, 
             
             section_node["children"].append(extraction_node)
             section_node["metadata"]["extraction_count"] += 1
+            extractions_matched += 1
+        else:
+            extractions_orphaned += 1
+            if extractions_orphaned <= 5:  # Only show first 5 to avoid spam
+                print(f"[DEBUG] Orphaned extraction: {extraction_class} with parent_section_id='{parent_section_id}' (not found in sections)")
+    
+    print(f"[DEBUG] Matched {extractions_matched} extractions to sections, {extractions_orphaned} orphaned")
     
     # Create final tree structure matching enhanced_lx_runner.py format
     tree_structure = {
@@ -156,6 +185,22 @@ def fix_extraction_results_file(file_path: Path) -> bool:
     extractions = data.get("extractions", [])
     tags = data.get("tags", [])
     parameters = data.get("parameters", [])
+    
+    print(f"[DEBUG] Loaded {len(sections)} sections, {len(extractions)} extractions, {len(tags)} tags, {len(parameters)} parameters")
+    
+    # Debug first few sections
+    for i, section in enumerate(sections[:3]):  # Show first 3 sections
+        section_id = section.get("section_id", section.get("section_name", ""))
+        section_name = section.get("section_name", "")
+        section_level = section.get("section_level", 1)
+        print(f"[DEBUG] Section {i+1}: ID='{section_id}', Name='{section_name}', Level={section_level}")
+    
+    # Debug first few extractions  
+    for i, extraction in enumerate(extractions[:3]):  # Show first 3 extractions
+        extraction_class = extraction.get("extraction_class", "")
+        attributes = extraction.get("attributes") or {}
+        parent_section_id = attributes.get("parent_section_id") or attributes.get("section_parent_id")
+        print(f"[DEBUG] Extraction {i+1}: Class='{extraction_class}', Parent='{parent_section_id}'")
     
     # Check if sections already have parent_section_id
     sections_updated = 0
