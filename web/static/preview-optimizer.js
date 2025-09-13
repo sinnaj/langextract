@@ -2379,24 +2379,81 @@ class PreviewOptimizer {
         const shouldIncludeSections = !this.treeFilterState || !this.treeFilterState.activeFilters || !this.treeFilterState.activeFilters.has('SECTION');
         
         if (shouldIncludeSections) {
+          // Create a map to track parent sections from toc_path
+          const parentSections = new Map();
+          
+          // First pass: create parent sections from toc_path
+          normalizedData.sections.forEach(section => {
+            if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
+              const parentName = section.toc_path[0]; // First item is parent
+              // Create a parent section ID from the parent name
+              const parentId = parentName.toLowerCase()
+                .replace(/\s+/g, '_')
+                .replace(/[^\w_]/g, '');
+              
+              if (!parentSections.has(parentId)) {
+                parentSections.set(parentId, {
+                  section_id: parentId,
+                  section_name: parentName,
+                  section_level: 1, // Parent level
+                  section_summary: `Parent section: ${parentName}`,
+                  toc_path: [parentName],
+                  extraction_text: parentName
+                });
+              }
+            }
+          });
+          
+          // Add parent sections to nodes first
+          parentSections.forEach(parentSection => {
+            const nodeData = {
+              id: parentSection.section_id,
+              title: parentSection.section_name,
+              type: 'SECTION',
+              parentId: null, // Parent sections are root level
+              parentType: null,
+              summary: parentSection.section_summary,
+              extractionText: parentSection.extraction_text || '',
+              children: [],
+              isExpanded: false, // Parent sections start collapsed
+              level: 0, // Root level
+              attributes: parentSection,
+              extraction: { extraction_class: 'SECTION', attributes: parentSection, extraction_text: parentSection.extraction_text || '' }
+            };
+            nodes.set(parentSection.section_id, nodeData);
+            console.log(`Added parent section node: ${parentSection.section_id} -> title: "${nodeData.title}"`);
+          });
+          
+          // Second pass: add child sections with proper parent relationships
           normalizedData.sections.forEach(section => {
             if (section.section_id) {
+              // Build parent hierarchy from toc_path if available
+              let parentId = null;
+              if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
+                const parentName = section.toc_path[0];
+                parentId = parentName.toLowerCase()
+                  .replace(/\s+/g, '_')
+                  .replace(/[^\w_]/g, '');
+              } else {
+                parentId = section.parent_section || null;
+              }
+              
               const nodeData = {
                 id: section.section_id,
                 title: section.section_name || section.section_title || section.extraction_text || section.section_id,
                 type: 'SECTION',
-                parentId: section.parent_section || null,
+                parentId: parentId,
                 parentType: 'SECTION',
                 summary: section.section_summary || '',
                 extractionText: section.extraction_text || '',
                 children: [],
                 isExpanded: false, // Sections start collapsed
-                level: 0,
+                level: section.section_level || 0,
                 attributes: section,
-                extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text }
+                extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text || '' }
               };
               nodes.set(section.section_id, nodeData);
-              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}"`);
+              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}", parent: ${parentId || 'ROOT'}, level: ${nodeData.level}`);
             }
           });
         } else {
@@ -2620,13 +2677,8 @@ class PreviewOptimizer {
   getNodeId(extraction) {
     const attrs = extraction.attributes || {};
     
-    // First try to get ID from attributes - use it directly if it exists and looks like a UUID or unique ID
+    // First try to get ID from attributes
     let baseId = attrs.id;
-    
-    // If we have a proper UUID or unique identifier, use it directly
-    if (baseId && (baseId.includes('-') || baseId.length > 10)) {
-      return baseId;
-    }
     
     // Try to parse ID from extraction_text (Python dict format) if no ID in attributes
     if (!baseId && extraction.extraction_text) {
@@ -2638,19 +2690,11 @@ class PreviewOptimizer {
         const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
         if (idMatch) {
           baseId = idMatch[1];
-          // If parsed ID looks like a UUID, use it directly
-          if (baseId.includes('-') || baseId.length > 10) {
-            return baseId;
-          }
-        }
-        
-        // Alternative patterns
-        const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
-        if (idMatch2) {
-          baseId = idMatch2[1];
-          // If parsed ID looks like a UUID, use it directly
-          if (baseId.includes('-') || baseId.length > 10) {
-            return baseId;
+        } else {
+          // Alternative patterns with double quotes
+          const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
+          if (idMatch2) {
+            baseId = idMatch2[1];
           }
         }
       } catch (error) {
@@ -2663,11 +2707,9 @@ class PreviewOptimizer {
       baseId = extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
     }
     
-    // Only create composite IDs for non-unique base IDs (shorter IDs that might conflict)
-    // Make the ID unique by combining with parent section and extraction index to avoid conflicts
-    const parentId = attrs.parent_section_id || extraction.section_parent_id || 'unknown';
-    const extractionIndex = extraction.extraction_index || 0;
-    return `${baseId}__${parentId}__${extractionIndex}`;
+    // Use the base ID directly - it should be unique in enhanced_extraction_results.json format
+    // No need for composite IDs since the enhanced pipeline generates unique IDs
+    return baseId;
   }
 
   // Helper method to determine parent ID following section_tree_visualizer.py patterns

@@ -123,16 +123,24 @@ class PDFViewer {
   updateOverlayPosition() {
     if (!this.canvas || !this.highlightOverlay) return;
     
-    // Get canvas offset from container
-    const offset = this.getCanvasOffset();
+    // Get canvas position relative to the viewport
+    const canvasRect = this.canvas.getBoundingClientRect();
+    const containerRect = this.highlightOverlay.parentElement.getBoundingClientRect();
+    
+    // Calculate position relative to container
+    const offsetLeft = canvasRect.left - containerRect.left;
+    const offsetTop = canvasRect.top - containerRect.top;
     
     // Position overlay to match canvas exactly
-    this.highlightOverlay.style.left = `${offset.left}px`;
-    this.highlightOverlay.style.top = `${offset.top}px`;
+    this.highlightOverlay.style.left = `${offsetLeft}px`;
+    this.highlightOverlay.style.top = `${offsetTop}px`;
     this.highlightOverlay.style.width = `${this.canvas.width}px`;
     this.highlightOverlay.style.height = `${this.canvas.height}px`;
+    this.highlightOverlay.style.transform = 'none'; // Remove any existing transforms
     
-    console.log(`Overlay positioned at: left=${offset.left}px, top=${offset.top}px, size=${this.canvas.width}x${this.canvas.height}px`);
+    console.log(`Overlay positioned at: left=${offsetLeft}px, top=${offsetTop}px, size=${this.canvas.width}x${this.canvas.height}px`);
+    console.log(`Canvas rect:`, canvasRect);
+    console.log(`Container rect:`, containerRect);
   }
   
   updatePageDisplay() {
@@ -361,7 +369,10 @@ class PDFViewer {
     // PDF uses BOTTOMLEFT origin, canvas uses TOPLEFT
     // bbox: { l, t, r, b, coord_origin }
     
-    const canvasHeight = this.canvas ? this.canvas.height : 0;
+    if (!this.canvas) return { left: 0, top: 0, width: 0, height: 0 };
+    
+    const canvasHeight = this.canvas.height;
+    const canvasWidth = this.canvas.width;
     
     let left = bbox.l * this.scale;
     let right = bbox.r * this.scale;
@@ -371,7 +382,7 @@ class PDFViewer {
       // Convert from bottom-left to top-left origin
       bottom = bbox.b * this.scale;
       top = bbox.t * this.scale;
-      // Flip Y coordinate
+      // Flip Y coordinate for top-left origin
       top = canvasHeight - top;
       bottom = canvasHeight - bottom;
       // Ensure top < bottom for canvas coordinates
@@ -384,14 +395,38 @@ class PDFViewer {
       bottom = bbox.b * this.scale;
     }
     
-    // Since overlay is now positioned to match canvas exactly, 
-    // no additional offset needed
-    return {
-      left: Math.min(left, right),
-      top: Math.min(top, bottom),
+    // Get the canvas wrapper padding to account for centering
+    const canvasWrapper = this.canvas.parentElement;
+    let offsetLeft = 0;
+    let offsetTop = 0;
+    
+    if (canvasWrapper) {
+      const wrapperStyle = window.getComputedStyle(canvasWrapper);
+      const wrapperPadding = parseInt(wrapperStyle.paddingLeft) || 0;
+      const wrapperRect = canvasWrapper.getBoundingClientRect();
+      const canvasRect = this.canvas.getBoundingClientRect();
+      
+      // Calculate offset due to centering within wrapper
+      offsetLeft = canvasRect.left - wrapperRect.left;
+      offsetTop = canvasRect.top - wrapperRect.top;
+    }
+    
+    const result = {
+      left: Math.min(left, right) + offsetLeft,
+      top: Math.min(top, bottom) + offsetTop,
       width: Math.abs(right - left),
       height: Math.abs(bottom - top)
     };
+    
+    console.log(`PDF coord conversion:`, {
+      bbox,
+      canvasSize: `${canvasWidth}x${canvasHeight}`,
+      scale: this.scale,
+      offset: `${offsetLeft}px,${offsetTop}px`,
+      result
+    });
+    
+    return result;
   }
   
   /**
