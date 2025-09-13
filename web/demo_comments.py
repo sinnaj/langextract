@@ -13,7 +13,7 @@ from comments_db import CommentsDB, Comment
 
 def demo_commenting_system():
     """Demonstrate the commenting system with various file types and scenarios."""
-    print("🎯 LangExtract Comments System Demo")
+    print("🎯 Arqio Extraction Comments System Demo")
     print("=" * 50)
     
     # Initialize database

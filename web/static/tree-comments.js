@@ -120,7 +120,7 @@
     }
 
     getCurrentUser() {
-      let user = localStorage.getItem('langextract_user');
+      let user = localStorage.getItem('arqio_user');
       if (!user) {
         user = this.promptForUserName();
       }
@@ -130,7 +130,7 @@
     promptForUserName() {
       const name = prompt('Please enter your name for commenting:');
       if (name && name.trim()) {
-        localStorage.setItem('langextract_user', name.trim());
+        localStorage.setItem('arqio_user', name.trim());
         return name.trim();
       }
       return 'Anonymous';

@@ -43,7 +43,7 @@ def _run_enhanced_extraction(run_dir: Path, payload: dict):
         results = run_enhanced_extraction(
             pdf_path=pdf_path,
             output_dir=output_dir,
-            # Pass LangExtract configuration parameters from payload
+            # Pass Arqio Extraction configuration parameters from payload
             MODEL_ID=payload.get("MODEL_ID", "google/gemini-2.0-flash-exp"),
             MODEL_TEMPERATURE=float(payload.get("MODEL_TEMPERATURE", 0.15)),
             MAX_NORMS_PER_5K=int(payload.get("MAX_NORMS_PER_5K", 10)),
