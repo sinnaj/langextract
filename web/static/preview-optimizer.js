@@ -2379,61 +2379,26 @@ class PreviewOptimizer {
         const shouldIncludeSections = !this.treeFilterState || !this.treeFilterState.activeFilters || !this.treeFilterState.activeFilters.has('SECTION');
         
         if (shouldIncludeSections) {
-          // Create a map to track parent sections from toc_path
-          const parentSections = new Map();
-          
-          // First pass: create parent sections from toc_path
-          normalizedData.sections.forEach(section => {
-            if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
-              const parentName = section.toc_path[0]; // First item is parent
-              // Create a parent section ID from the parent name
-              const parentId = parentName.toLowerCase()
-                .replace(/\s+/g, '_')
-                .replace(/[^\w_]/g, '');
-              
-              if (!parentSections.has(parentId)) {
-                parentSections.set(parentId, {
-                  section_id: parentId,
-                  section_name: parentName,
-                  section_level: 1, // Parent level
-                  section_summary: `Parent section: ${parentName}`,
-                  toc_path: [parentName],
-                  extraction_text: parentName
-                });
-              }
-            }
-          });
-          
-          // Add parent sections to nodes first
-          parentSections.forEach(parentSection => {
-            const nodeData = {
-              id: parentSection.section_id,
-              title: parentSection.section_name,
-              type: 'SECTION',
-              parentId: null, // Parent sections are root level
-              parentType: null,
-              summary: parentSection.section_summary,
-              extractionText: parentSection.extraction_text || '',
-              children: [],
-              isExpanded: false, // Parent sections start collapsed
-              level: 0, // Root level
-              attributes: parentSection,
-              extraction: { extraction_class: 'SECTION', attributes: parentSection, extraction_text: parentSection.extraction_text || '' }
-            };
-            nodes.set(parentSection.section_id, nodeData);
-            console.log(`Added parent section node: ${parentSection.section_id} -> title: "${nodeData.title}"`);
-          });
-          
-          // Second pass: add child sections with proper parent relationships
-          normalizedData.sections.forEach(section => {
+          // Process sections directly without creating duplicates from toc_path
+          // Store original section order for proper document ordering
+          normalizedData.sections.forEach((section, index) => {
             if (section.section_id) {
               // Build parent hierarchy from toc_path if available
               let parentId = null;
               if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
+                // Look for existing parent section in the sections array first
                 const parentName = section.toc_path[0];
-                parentId = parentName.toLowerCase()
-                  .replace(/\s+/g, '_')
-                  .replace(/[^\w_]/g, '');
+                const existingParent = normalizedData.sections.find(s => 
+                  s.section_name === parentName || s.section_title === parentName
+                );
+                if (existingParent) {
+                  parentId = existingParent.section_id;
+                } else {
+                  // Create synthetic parent ID only if no real parent exists
+                  parentId = parentName.toLowerCase()
+                    .replace(/\s+/g, '_')
+                    .replace(/[^\w_]/g, '');
+                }
               } else {
                 parentId = section.parent_section || null;
               }
@@ -2449,11 +2414,12 @@ class PreviewOptimizer {
                 children: [],
                 isExpanded: false, // Sections start collapsed
                 level: section.section_level || 0,
+                documentOrder: index, // Preserve original document order
                 attributes: section,
                 extraction: { extraction_class: 'SECTION', attributes: section, extraction_text: section.extraction_text || '' }
               };
               nodes.set(section.section_id, nodeData);
-              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}", parent: ${parentId || 'ROOT'}, level: ${nodeData.level}`);
+              console.log(`Added section node: ${section.section_id} -> title: "${nodeData.title}", parent: ${parentId || 'ROOT'}, level: ${nodeData.level}, order: ${index}`);
             }
           });
         } else {
@@ -2536,8 +2502,9 @@ class PreviewOptimizer {
         }
       }
       
+      // Store original extraction order for proper document ordering
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
-      relevant.forEach(extraction => {
+      relevant.forEach((extraction, index) => {
         const nodeId = this.getNodeId(extraction);
         if (!nodeId) {
           console.warn('Skipping extraction without ID:', extraction);
@@ -2556,12 +2523,13 @@ class PreviewOptimizer {
           children: [],
           isExpanded: false, // Start collapsed for better UX
           level: 0, // Will be set during tree building
+          documentOrder: index, // Preserve original document order
           attributes: attrs,
           extraction: extraction // Store the full extraction for reference
         };
         
         nodes.set(nodeId, nodeData);
-        console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}`);
+        console.log(`Created node: ${nodeId} (${nodeData.type}) -> parent: ${nodeData.parentId || 'ROOT'}, order: ${index}`);
       });
       
       // Create synthetic root nodes only if needed and sections array is not available
@@ -2577,25 +2545,27 @@ class PreviewOptimizer {
         }
       });
       
-      // Create synthetic nodes for missing parents
+      // Create synthetic nodes for missing parents with appropriate ordering
+      let syntheticOrder = -1000; // Place synthetic nodes before real nodes
       missingParents.forEach(parentId => {
         const syntheticNode = {
           id: parentId,
-          title: `[Dropped Section] ${parentId}`,
+          title: `[Missing Section] ${parentId}`,
           type: 'SECTION',
           parentId: null, // Make synthetic nodes root-level
           parentType: 'SECTION',
-          summary: 'This section was dropped during processing but is referenced by child sections.',
+          summary: 'This section was not found in the processed sections but is referenced by child sections.',
           extractionText: '',
           children: [],
           isExpanded: false, // Synthetic parent nodes start collapsed
           level: 0,
-          attributes: { section_id: parentId, section_name: `[Dropped Section] ${parentId}`, synthetic: true },
+          documentOrder: syntheticOrder--, // Synthetic nodes get negative order
+          attributes: { section_id: parentId, section_name: `[Missing Section] ${parentId}`, synthetic: true },
           extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
         };
         nodes.set(parentId, syntheticNode);
         rootNodes.push(syntheticNode); // Add synthetic parents to root nodes
-        console.log(`Created synthetic parent node: ${parentId}`);
+        console.log(`Created synthetic parent node: ${parentId} with order: ${syntheticNode.documentOrder}`);
       });
 
       // Second pass: build parent-child relationships
@@ -2623,11 +2593,30 @@ class PreviewOptimizer {
         console.warn(`Found ${orphanCount} orphaned nodes that were promoted to root level`);
       }
       
-      // Sort children by ID for consistent ordering (following section_tree_visualizer.py)
+      // Sort children by document order for proper document structure
       nodes.forEach(node => {
-        node.children.sort((a, b) => a.id.localeCompare(b.id));
+        node.children.sort((a, b) => {
+          // Primary sort: document order (if available)
+          const orderA = a.documentOrder !== undefined ? a.documentOrder : 999999;
+          const orderB = b.documentOrder !== undefined ? b.documentOrder : 999999;
+          if (orderA !== orderB) {
+            return orderA - orderB;
+          }
+          // Fallback to ID comparison for consistency
+          return a.id.localeCompare(b.id);
+        });
       });
-      rootNodes.sort((a, b) => a.id.localeCompare(b.id));
+      
+      rootNodes.sort((a, b) => {
+        // Primary sort: document order (if available)
+        const orderA = a.documentOrder !== undefined ? a.documentOrder : 999999;
+        const orderB = b.documentOrder !== undefined ? b.documentOrder : 999999;
+        if (orderA !== orderB) {
+          return orderA - orderB;
+        }
+        // Fallback to ID comparison for consistency
+        return a.id.localeCompare(b.id);
+      });
       
       // Start with all nodes collapsed by default
       rootNodes.forEach(root => {
