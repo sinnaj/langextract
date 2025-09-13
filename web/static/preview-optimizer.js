@@ -2591,7 +2591,7 @@ class PreviewOptimizer {
       });
       
       // Create synthetic nodes for missing parents with appropriate ordering
-      let syntheticOrder = -1000; // Place synthetic nodes before real nodes
+      let syntheticOrder = 1000000; // Place synthetic nodes after real nodes
       missingParents.forEach(parentId => {
         const syntheticNode = {
           id: parentId,
@@ -2604,7 +2604,7 @@ class PreviewOptimizer {
           children: [],
           isExpanded: false, // Synthetic parent nodes start collapsed
           level: 0,
-          documentOrder: syntheticOrder--, // Synthetic nodes get negative order
+          documentOrder: syntheticOrder++, // Synthetic nodes get high order to appear at bottom
           attributes: { section_id: parentId, section_name: `[Missing Section] ${parentId}`, synthetic: true },
           extraction: { extraction_class: 'SECTION', attributes: { synthetic: true }, extraction_text: '' }
         };

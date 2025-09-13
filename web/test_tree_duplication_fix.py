@@ -177,7 +177,7 @@ def simulate_tree_building(data, active_filters=None):
                 'type': 'SECTION',
                 'parent_id': None,
                 'children': [],
-                'document_order': -1000,
+                'document_order': 1000000,
                 'source': 'synthetic'
             }
             nodes[parent_id] = synthetic_node
