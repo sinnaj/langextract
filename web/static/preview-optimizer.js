@@ -416,6 +416,9 @@ class PreviewOptimizer {
     console.log('currentJsonData set to:', !!this.currentJsonData);
     console.log('Object keys:', Object.keys(obj || {}));
     
+    // Ensure currentJsonData is always updated with the latest data (including merged node_tree)
+    this.currentJsonData = obj;
+    
     // Detect file type for better UBERMODE feedback
     const filePath = this.currentFile?.filePath || 'unknown';
     const isChunkEvaluations = filePath.includes('chunk_evaluations.json');
@@ -426,6 +429,13 @@ class PreviewOptimizer {
     console.log('Current UBERMODE state:', this.uberMode);
     console.log('File being loaded:', filePath);
     console.log('File type detection:', { isChunkEvaluations, isCombinedExtractions, isEnhancedExtractions });
+
+    // Auto-enable UBERMODE for enhanced extractions with node_tree
+    if (isEnhancedExtractions && obj?.node_tree?.document_tree?.children) {
+      console.log('[TREE DEBUG] Auto-enabling UBERMODE for enhanced extraction with node_tree');
+      this.uberMode = true;
+      this.updateStatsVisibility();
+    }
 
     // Check if UBERMODE is enabled and if this panel should show tree visualization
     const shouldShowTreeView = this.shouldShowTreeVisualization();
@@ -448,6 +458,28 @@ class PreviewOptimizer {
       console.log('UBERMODE is enabled and this panel should show tree view');
       console.log('Data structure:', {
         hasExtractions: !!(obj?.extractions),
+        extractionCount: obj?.extractions?.length || 0,
+        hasSections: !!(obj?.sections),
+        sectionCount: obj?.sections?.length || 0,
+        hasChunkEvaluations: !!(obj?.chunk_evaluations),
+        chunkEvaluationCount: obj?.chunk_evaluations?.length || 0,
+        hasNodeTree: !!(obj?.node_tree),
+        nodeTreeChildren: obj?.node_tree?.document_tree?.children?.length || 0
+      });
+      
+      try {
+        console.log('Calling renderUberMode...');
+        this.renderUberMode(obj, meta);
+        return;
+      } catch (error) {
+        console.error('Error in renderUberMode:', error);
+        console.error('Stack trace:', error.stack);
+      }
+    } else if (this.uberMode && !shouldShowTreeView) {
+      console.log('UBERMODE is enabled but this panel should not show tree view');
+    } else if (!this.uberMode) {
+      console.log('UBERMODE is not enabled');
+    }
         extractionCount: obj?.extractions?.length || 0,
         hasSections: !!(obj?.sections),
         sectionCount: obj?.sections?.length || 0,
@@ -2653,6 +2685,20 @@ class PreviewOptimizer {
     console.log('Returning root nodes:', rootNodes.length);
     
     return rootNodes;
+  }
+
+  // Helper function to count total descendants in tree
+  countTotalDescendants(nodes) {
+    if (!nodes || !Array.isArray(nodes)) return 0;
+    
+    let count = 0;
+    nodes.forEach(node => {
+      count += 1; // Count this node
+      if (node.children && node.children.length > 0) {
+        count += this.countTotalDescendants(node.children); // Count descendants
+      }
+    });
+    return count;
   }
 
   // Convert pre-built tree nodes from retroactive fix format to web interface format
