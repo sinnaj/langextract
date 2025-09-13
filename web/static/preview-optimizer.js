@@ -2510,6 +2510,8 @@ class PreviewOptimizer {
       
       // Store original extraction order for proper document ordering
       // First pass: create all nodes (following section_tree_visualizer.py pattern)
+      let normMoveCount = 0; // Track NORM moves during deduplication
+      
       relevant.forEach((extraction, index) => {
         const nodeId = this.getNodeId(extraction);
         if (!nodeId) {
@@ -2537,6 +2539,16 @@ class PreviewOptimizer {
             existingNode.parentId = newParent;
             existingNode.documentOrder = index; // Update document order too
             existingNode.extraction = extraction; // Update with potentially better extraction data
+            
+            // Clear the level since it will be recalculated in second pass
+            existingNode.level = 0;
+            
+            // Track NORM movements for debugging
+            if (existingNode.type === 'NORM') {
+              normMoveCount++;
+              console.warn(`   📋 NORM MOVED: ${existingNode.id} from ${existingParent} → ${newParent}`);
+            }
+            
             return;
           } else {
             console.warn(`   ✋ KEEPING: Current location ${existingParent} is better than ${newParent}`);
@@ -2608,12 +2620,21 @@ class PreviewOptimizer {
       });
       
       let orphanCount = 0;
+      let normParentStats = { found: 0, missing: 0, moved: normMoveCount };
+      
       nodes.forEach(node => {
         if (node.parentId && nodes.has(node.parentId)) {
           const parent = nodes.get(node.parentId);
           parent.children.push(node);
           node.level = parent.level + 1;
-          console.log(`Linked ${node.id} as child of ${parent.id} (level ${node.level})`);
+          
+          // Track NORM parent assignments for debugging
+          if (node.type === 'NORM') {
+            normParentStats.found++;
+            console.log(`✅ NORM ${node.id} correctly assigned to parent ${parent.id} (${parent.type})`);
+          } else {
+            console.log(`Linked ${node.id} as child of ${parent.id} (level ${node.level})`);
+          }
         } else if (!node.attributes?.synthetic) { // Don't double-add synthetic nodes
           // Node has no valid parent, make it a root
           rootNodes.push(node);
@@ -2621,11 +2642,28 @@ class PreviewOptimizer {
           if (node.parentId) {
             console.warn(`Node ${node.id} has parent ${node.parentId} but parent not found - making it root`);
             orphanCount++;
+            
+            // Track orphaned NORMs specifically
+            if (node.type === 'NORM') {
+              normParentStats.missing++;
+              console.error(`❌ ORPHANED NORM: ${node.id} expected parent ${node.parentId} but parent not found`);
+              // Log available parent IDs to help debug
+              const availableParents = Array.from(nodes.keys()).filter(id => id !== node.id).slice(0, 10);
+              console.error(`   Available parent IDs (sample): ${availableParents.join(', ')}`);
+            }
           } else {
             console.log(`Node ${node.id} is a root node`);
           }
         }
       });
+      
+      // Log NORM parent assignment statistics
+      if (normParentStats.found > 0 || normParentStats.missing > 0) {
+        console.log(`📊 NORM Parent Assignment Stats: ` +
+                   `✅ ${normParentStats.found} found correct parents, ` +
+                   `❌ ${normParentStats.missing} missing parents, ` +
+                   `🔄 ${normParentStats.moved} moved during deduplication`);
+      }
       
       if (orphanCount > 0) {
         console.warn(`Found ${orphanCount} orphaned nodes that were promoted to root level`);
@@ -2747,13 +2785,31 @@ class PreviewOptimizer {
     // First try to get parent from attributes
     let parentId = attrs.parent_section_id || attrs.parent_id;
     
+    // If not found, try additional common parent field names
+    if (!parentId) {
+      parentId = attrs.parent || attrs.section_parent_id || attrs.parent_section;
+    }
+    
     // If not found, try to parse from extraction_text
     if (!parentId && extraction.extraction_text) {
       try {
         const pythonDictStr = extraction.extraction_text;
-        const parentMatch = pythonDictStr.match(/'parent_section_id':\s*'([^']+)'/);
-        if (parentMatch) {
-          parentId = parentMatch[1];
+        // Try multiple patterns for parent identification
+        const patterns = [
+          /'parent_section_id':\s*'([^']+)'/,
+          /'parent_id':\s*'([^']+)'/,
+          /'parent':\s*'([^']+)'/,
+          /"parent_section_id":\s*"([^"]+)"/,
+          /"parent_id":\s*"([^"]+)"/,
+          /"parent":\s*"([^"]+)"/
+        ];
+        
+        for (const pattern of patterns) {
+          const match = pythonDictStr.match(pattern);
+          if (match) {
+            parentId = match[1];
+            break;
+          }
         }
       } catch (error) {
         console.warn('Error parsing extraction_text for parent ID:', error);
@@ -2763,6 +2819,13 @@ class PreviewOptimizer {
     // Fall back to section_parent_id
     if (!parentId) {
       parentId = extraction.section_parent_id;
+    }
+    
+    // Log parent ID detection for debugging (especially for NORMs)
+    if (type === 'NORM') {
+      const nodeId = this.getNodeId(extraction);
+      console.log(`Parent detection for NORM ${nodeId}: found parentId="${parentId || 'none'}" from extraction with attrs:`, 
+                  Object.keys(attrs).filter(k => k.toLowerCase().includes('parent')));
     }
     
     return parentId;
@@ -4462,6 +4525,7 @@ class PreviewOptimizer {
   // Calculate section specificity score (higher = more specific)
   calculateSectionSpecificity(section, node) {
     let score = 0;
+    let sectionKeywords = []; // Initialize outside the if block
     
     // Higher section level = more specific (deeper nesting)
     const sectionLevel = section.section_level || section.level || 0;
@@ -4478,7 +4542,7 @@ class PreviewOptimizer {
       const sectionNameLower = sectionName.toLowerCase();
       
       // Split section name into keywords
-      const sectionKeywords = sectionNameLower
+      sectionKeywords = sectionNameLower
         .split(/[\s\-_\(\)]+/)
         .filter(word => word.length > 3); // Only consider meaningful words
       
