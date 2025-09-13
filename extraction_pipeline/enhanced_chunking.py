@@ -70,7 +70,7 @@ def create_enhanced_sections_from_toc(
         docling_document: Docling document with corrected headlines
         
     Returns:
-        List of EnhancedSection objects
+        List of EnhancedSection objects including both ToC sections and table sections
     """
     sections = []
     section_index = 0
@@ -103,7 +103,8 @@ def create_enhanced_sections_from_toc(
             section_level=level,
             section_index=section_index,
             parent_section_id=parent_section_id,
-            end_page=end_page
+            end_page=end_page,
+            section_type="Headline"
         )
         
         sections.append(section)
@@ -131,6 +132,10 @@ def create_enhanced_sections_from_toc(
     for root_node in toc_data:
         process_toc_node(root_node, [])
     
+    # Add table sections
+    table_sections = create_table_sections_from_docling(docling_document, sections, section_index)
+    sections.extend(table_sections)
+    
     return sections
 
 
@@ -147,10 +152,16 @@ def extract_section_content(
         _cached_pages: Optional pre-computed page elements cache for performance
         
     Returns:
-        Section content as markdown text including tables converted to markdown
+        Section content as markdown text. For table sections, returns only the table 
+        markdown. For regular sections, returns text content excluding tables 
+        (since tables now have their own sections).
     """
     if not section.start_page or not section.end_page:
         return ""
+    
+    # Handle table sections specially - return only the table content
+    if section.section_type == "Table":
+        return extract_table_content_for_section(section, docling_document)
     
     content_parts = []
     
@@ -175,26 +186,119 @@ def extract_section_content(
             if element_text:
                 content_parts.append(element_text)
     
-    # Optimize table extraction with pre-filtering
-    tables = docling_document.get('tables', [])
-    page_range = set(range(section.start_page, section.end_page + 1))
+    # For regular sections, we no longer include tables since they have their own sections
+    # This is a change from the previous behavior where tables were included in regular sections
     
+    return '\n'.join(content_parts)
+
+
+def extract_table_content_for_section(
+    table_section: EnhancedSection,
+    docling_document: Dict[str, Any]
+) -> str:
+    """Extract table content for a table section.
+    
+    Args:
+        table_section: Table section
+        docling_document: Docling document with table data
+        
+    Returns:
+        Markdown representation of the table
+    """
+    tables = docling_document.get('tables', [])
+    
+    # Find the table for this table section based on page and section index
+    # Table sections are created in order, so we can match by page and index
+    table_counter = 1
     for table in tables:
-        # Quick page range check first
         table_page = None
         prov_data = table.get('prov', [])
         if prov_data:
             table_page = prov_data[0].get('page_no')
         
-        if table_page and table_page in page_range:
-            # Convert table to markdown using optimized function
-            table_data = table.get('data', {})
-            if table_data:
-                table_markdown = convert_table_to_markdown(table_data)
-                if table_markdown:
-                    content_parts.append(f"\n{table_markdown}\n")
+        if table_page == table_section.start_page:
+            # Check if this is the right table by matching the section name
+            if table_section.section_name == f"Table {table_counter}":
+                table_data = table.get('data', {})
+                if table_data:
+                    return convert_table_to_markdown(table_data)
+            table_counter += 1
     
-    return '\n'.join(content_parts)
+    return ""
+
+
+def create_table_sections_from_docling(
+    docling_document: Dict[str, Any], 
+    existing_sections: List[EnhancedSection],
+    starting_section_index: int
+) -> List[EnhancedSection]:
+    """Create table sections from Docling document tables.
+    
+    Args:
+        docling_document: Docling document with table data
+        existing_sections: List of existing sections to find parents
+        starting_section_index: Starting index for new table sections
+        
+    Returns:
+        List of table EnhancedSection objects
+    """
+    table_sections = []
+    tables = docling_document.get('tables', [])
+    section_index = starting_section_index
+    table_counter = 1
+    
+    # Create a mapping of page to section for finding parent sections
+    page_to_section = {}
+    for section in existing_sections:
+        if section.start_page and section.end_page:
+            for page in range(section.start_page, section.end_page + 1):
+                if page not in page_to_section or section.section_level < page_to_section[page].section_level:
+                    page_to_section[page] = section
+    
+    for table in tables:
+        # Get table page from provenance data
+        table_page = None
+        prov_data = table.get('prov', [])
+        if prov_data:
+            table_page = prov_data[0].get('page_no')
+        
+        if not table_page:
+            continue
+            
+        # Find parent section for this table
+        parent_section = page_to_section.get(table_page)
+        if not parent_section:
+            continue
+        
+        # Create table section name
+        table_name = f"Table {table_counter}"
+        
+        # Create ToC path by extending parent's path
+        table_toc_path = parent_section.toc_path + [table_name]
+        
+        # Create table section with deterministic ID
+        title_normalized = normalize_text_for_id(table_name)
+        table_section = EnhancedSection.create_with_id(
+            toc_path=table_toc_path,
+            start_page=table_page,
+            title_normalized=title_normalized,
+            section_name=table_name,
+            section_level=parent_section.section_level + 1,  # One level deeper than parent
+            section_index=section_index,
+            parent_section_id=parent_section.section_id,
+            end_page=table_page,  # Tables are typically on single pages
+            section_type="Table"
+        )
+        
+        # Add table section to parent's sub_section_ids
+        if table_section.section_id not in parent_section.sub_section_ids:
+            parent_section.sub_section_ids.append(table_section.section_id)
+        
+        table_sections.append(table_section)
+        section_index += 1
+        table_counter += 1
+    
+    return table_sections
 
 
 def build_document_caches(docling_document: Dict[str, Any]) -> Tuple[Dict[int, List[Dict[str, Any]]], Dict[str, int], List[Dict[str, Any]]]:
