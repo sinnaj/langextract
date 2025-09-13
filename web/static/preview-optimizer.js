@@ -2080,8 +2080,67 @@ class PreviewOptimizer {
       return data;
     }
     
+    // Handle node_tree.json format with document_tree structure
+    if (data && data.document_tree && data.document_tree.children) {
+      console.log('Converting node_tree.json format to normalized format');
+      return this.convertNodeTreeToNormalizedFormat(data.document_tree);
+    }
+    
     // Handle legacy format or other structures - return as-is if no extractions found
     return data;
+  }
+
+  // Convert node_tree.json format to normalized format
+  convertNodeTreeToNormalizedFormat(documentTree) {
+    const sections = [];
+    const extractions = [];
+    
+    // Recursively traverse the tree and extract sections and extractions
+    const traverseNode = (node, depth = 0) => {
+      console.log(`Processing node: ${node.id} (${node.type}) at depth ${depth}`);
+      
+      if (node.type === 'SECTION') {
+        // Create section entry
+        const section = {
+          section_id: node.id,
+          section_name: node.title,
+          section_level: node.level || depth,
+          parent_section: node.parent_id,
+          section_summary: `Section at level ${node.level || depth}`,
+          extraction_text: node.metadata?.extraction_text || ''
+        };
+        sections.push(section);
+        console.log(`Added section: ${node.id}`);
+      } else if (node.type && node.type !== 'DOCUMENT') {
+        // Create extraction entry for non-section nodes
+        const extraction = {
+          extraction_class: node.type,
+          extraction_text: node.metadata?.extraction_text || node.title || '',
+          attributes: {
+            id: node.id,
+            parent_section_id: node.parent_id,
+            ...node.metadata?.attributes || {}
+          }
+        };
+        extractions.push(extraction);
+        console.log(`Added extraction: ${node.id} (${node.type})`);
+      }
+      
+      // Recursively process children
+      if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(child => traverseNode(child, depth + 1));
+      }
+    };
+    
+    // Start traversal from document root
+    traverseNode(documentTree);
+    
+    console.log(`Converted node_tree format: ${sections.length} sections, ${extractions.length} extractions`);
+    
+    return {
+      sections: sections,
+      extractions: extractions
+    };
   }
 
   // Get all available entity types from the data
