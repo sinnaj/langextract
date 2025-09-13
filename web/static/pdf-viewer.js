@@ -139,8 +139,6 @@ class PDFViewer {
     this.highlightOverlay.style.transform = 'none'; // Remove any existing transforms
     
     console.log(`Overlay positioned at: left=${offsetLeft}px, top=${offsetTop}px, size=${this.canvas.width}x${this.canvas.height}px`);
-    console.log(`Canvas rect:`, canvasRect);
-    console.log(`Container rect:`, containerRect);
   }
   
   updatePageDisplay() {
@@ -395,25 +393,11 @@ class PDFViewer {
       bottom = bbox.b * this.scale;
     }
     
-    // Get the canvas wrapper padding to account for centering
-    const canvasWrapper = this.canvas.parentElement;
-    let offsetLeft = 0;
-    let offsetTop = 0;
-    
-    if (canvasWrapper) {
-      const wrapperStyle = window.getComputedStyle(canvasWrapper);
-      const wrapperPadding = parseInt(wrapperStyle.paddingLeft) || 0;
-      const wrapperRect = canvasWrapper.getBoundingClientRect();
-      const canvasRect = this.canvas.getBoundingClientRect();
-      
-      // Calculate offset due to centering within wrapper
-      offsetLeft = canvasRect.left - wrapperRect.left;
-      offsetTop = canvasRect.top - wrapperRect.top;
-    }
-    
+    // Since the overlay is positioned to match the canvas exactly,
+    // we don't need additional offset calculations here
     const result = {
-      left: Math.min(left, right) + offsetLeft,
-      top: Math.min(top, bottom) + offsetTop,
+      left: Math.min(left, right),
+      top: Math.min(top, bottom),
       width: Math.abs(right - left),
       height: Math.abs(bottom - top)
     };
@@ -422,7 +406,6 @@ class PDFViewer {
       bbox,
       canvasSize: `${canvasWidth}x${canvasHeight}`,
       scale: this.scale,
-      offset: `${offsetLeft}px,${offsetTop}px`,
       result
     });
     
