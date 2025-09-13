@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LangExtract - Mode Selection</title>
+  <!-- Tailwind via CDN with local fallback -->
+  <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
+  <style>
+    .tile-button {
+      transition: all 0.3s ease;
+    }
+    .tile-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 min-h-screen text-gray-900 dark:text-gray-100">
+    <div class="min-h-screen flex items-center justify-center p-6">
+      <div class="max-w-4xl w-full">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+            LangExtract
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Choose your workflow to get started
+          </p>
+        </div>
+
+        <!-- Mode Selection Tiles -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- New Run Tile -->
+          <div class="tile-button bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer group">
+            <div class="text-center" onclick="selectMode('new-run')">
+              <div class="mb-6">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full mb-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
+                  <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  New Run
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  Start a new extraction run with the full LangExtract Workshop Runner. Configure your settings, upload documents, and monitor the extraction process in real-time.
+                </p>
+              </div>
+              <div class="flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                <span class="text-sm font-medium">Get Started</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Open Existing Run Tile -->
+          <div class="tile-button bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer group">
+            <div class="text-center" onclick="selectMode('existing-run')">
+              <div class="mb-6">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full mb-4 group-hover:bg-green-200 dark:group-hover:bg-green-800 transition-colors">
+                  <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2V5a2 2 0 012-2h14a2 2 0 012 2v2"></path>
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                  Open Existing Run
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  Review and analyze results from previous extraction runs. Browse through the tree structure, view PDFs with annotations, and add comments to specific elements.
+                </p>
+              </div>
+              <div class="flex items-center justify-center text-green-600 dark:text-green-400 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors">
+                <span class="text-sm font-medium">Browse Results</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12">
+          <p class="text-gray-500 dark:text-gray-400">
+            LangExtract Workshop Runner - Version 2.0
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function selectMode(mode) {
+        if (mode === 'new-run') {
+          window.location.href = '/runner?mode=new';
+        } else if (mode === 'existing-run') {
+          window.location.href = '/runner?mode=existing';
+        }
+      }
+
+      // Add keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '1') {
+          selectMode('new-run');
+        } else if (e.key === '2') {
+          selectMode('existing-run');
+        }
+      });
+    </script>
+  </body>
+</html>

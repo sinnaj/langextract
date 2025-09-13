@@ -159,7 +159,15 @@ def list_runs():
 
 @app.get("/")
 def index():
-    return render_template("index.html")
+    return render_template("mode_selection.html")
+
+@app.get("/runner")
+def runner():
+    mode = request.args.get("mode", "new")
+    if mode == "existing":
+        return render_template("runner.html", mode="existing")
+    else:
+        return render_template("runner.html", mode="new")
 
 @app.get("/debug")
 def debug():
