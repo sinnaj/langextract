@@ -58,20 +58,20 @@ def _run_enhanced_extraction(run_dir: Path, payload: dict):
         
         quality_metrics = results["quality_metrics"]
         _print(f"Extraction completed successfully!")
-        _print(f"  - Sections processed: {quality_metrics.total_sections}")
-        _print(f"  - Norms extracted: {quality_metrics.total_norms}")
-        _print(f"  - Anchoring success: {quality_metrics.anchoring_success_rate():.1%}")
-        _print(f"  - Parameter normalization: {quality_metrics.parameter_normalization_coverage:.1%}")
+        _print(f"  - Sections processed: {quality_metrics['total_sections']}")
+        _print(f"  - Norms extracted: {quality_metrics['total_norms']}")
+        _print(f"  - Anchoring success: {quality_metrics['anchoring_success_rate']():.1%}")
+        _print(f"  - Parameter normalization: {quality_metrics['parameter_normalization_coverage']:.1%}")
         
         # Create stats for web UI
         stats = {
             "ok": True,
             "enhanced": True,
-            "total_sections": quality_metrics.total_sections,
-            "total_norms": quality_metrics.total_norms,
-            "anchoring_success_rate": quality_metrics.anchoring_success_rate(),
-            "parameter_normalization_coverage": quality_metrics.parameter_normalization_coverage,
-            "low_confidence_norms": len(quality_metrics.low_confidence_norms),
+            "total_sections": quality_metrics["total_sections"],
+            "total_norms": quality_metrics["total_norms"],
+            "anchoring_success_rate": quality_metrics["anchoring_success_rate"](),
+            "parameter_normalization_coverage": quality_metrics["parameter_normalization_coverage"],
+            "low_confidence_norms": len(quality_metrics.get("low_confidence_norms", [])),
             "ts": time()
         }
         (run_dir / "stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
