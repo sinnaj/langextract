@@ -14,6 +14,7 @@ import json
 import os
 import sys
 import gc
+import time  # Added for performance monitoring
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import tempfile
@@ -22,6 +23,9 @@ import tempfile
 MAX_SECTION_SIZE_MB = 50  # Maximum size for a section before chunking
 MAX_CHUNK_SIZE_CHARS = 50000  # Maximum characters per chunk to prevent OOM
 MEMORY_WARNING_THRESHOLD_MB = 1000  # Warn if memory usage exceeds this
+
+# Performance monitoring 
+PERFORMANCE_TRACKING = {}  # Global dict to track operation timings
 
 # Import LangExtract functionality
 import langextract as lx
@@ -79,6 +83,31 @@ def check_memory_usage(operation: str = "") -> None:
         print(f"[WARNING] High memory usage during {operation}: {memory_mb:.1f} MB")
     else:
         print(f"[DEBUG] Memory usage during {operation}: {memory_mb:.1f} MB")
+
+
+def time_operation(operation_name: str):
+    """Context manager to time operations and track performance."""
+    class TimingContext:
+        def __init__(self, name):
+            self.name = name
+            self.start_time = None
+            
+        def __enter__(self):
+            self.start_time = time.time()
+            print(f"[PERF] Starting {self.name}...")
+            return self
+            
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            elapsed = time.time() - self.start_time
+            PERFORMANCE_TRACKING[self.name] = elapsed
+            print(f"[PERF] {self.name} completed in {elapsed:.2f} seconds")
+    
+    return TimingContext(operation_name)
+
+
+def get_performance_report() -> Dict[str, float]:
+    """Get a summary of all timed operations."""
+    return dict(PERFORMANCE_TRACKING)
 
 
 def force_garbage_collection() -> None:
@@ -355,7 +384,7 @@ def create_chunks_from_toc_and_docling(
     docling_document: Dict[str, Any],
     max_chars: int = 5000
 ) -> List[Tuple[str, Dict[str, Any]]]:
-    """Create chunks based on ToC headlines, treating non-ToC section headers as text body.
+    """Create chunks based on ToC headlines with optimized alignment processing.
     
     This function creates chunks based on ALL ToC entries (all levels). Section headers that are present
     in the Docling Document but not in the ToC are treated as part of the text body.
@@ -417,12 +446,15 @@ def create_chunks_from_toc_and_docling(
     
     print(f"[DEBUG] Found {len(all_toc_sections)} total ToC sections (all levels)")
     
-    # Create a mapping of ToC titles to their positions for quick lookup
+    # OPTIMIZATION 1: Pre-build ToC title lookup cache
     toc_title_to_position = {}
+    toc_title_to_section = {}
     for i, section in enumerate(all_toc_sections):
-        toc_title_to_position[section['title'].lower()] = i
+        title_lower = section['title'].lower()
+        toc_title_to_position[title_lower] = i
+        toc_title_to_section[title_lower] = section
     
-    # Create document-ordered text elements with their positions
+    # OPTIMIZATION 2: Pre-process and sort text elements once
     text_elements = []
     for i, text_item in enumerate(texts):
         # Skip page headers entirely
@@ -443,17 +475,28 @@ def create_chunks_from_toc_and_docling(
                 'charspan_start': charspan_start,
                 'doc_position': i,
                 'is_toc_header': (text_item.get('label') == 'section_header' and 
-                                text_content.lower() in toc_title_to_position)
+                                text_content.lower() in toc_title_to_position),
+                'text_lower': text_content.lower()  # Pre-compute for faster matching
             })
     
-    # Sort text elements by document position (page, then charspan)  
+    # Sort text elements by document position (page, then charspan) once
     text_elements.sort(key=lambda x: (x['page'], x['charspan_start'], x['doc_position']))
     
     print(f"[DEBUG] Processing {len(text_elements)} text elements (excluding page headers)")
     
-    # Process each ToC section to create chunks
+    # OPTIMIZATION 3: Build section boundary index for faster lookups
+    section_boundaries = {}
+    toc_header_positions = {}
+    
+    # Find all ToC header positions in the document
+    for j, elem in enumerate(text_elements):
+        if elem['is_toc_header']:
+            toc_header_positions[elem['text_lower']] = j
+    
+    # Process each ToC section to create chunks with optimized lookup
     for i, section in enumerate(all_toc_sections):
         title = section['title']
+        title_lower = title.lower()
         level = section['level']
         start_page = section['start_page']
         end_page = section['end_page']
@@ -467,41 +510,29 @@ def create_chunks_from_toc_and_docling(
             if get_memory_usage_mb() > MEMORY_WARNING_THRESHOLD_MB:
                 force_garbage_collection()
         
-        # Find the start and end positions for this section's content
-        section_start_idx = None
-        section_end_idx = len(text_elements)  # Default to end of document
-        
-        # Find where this ToC section starts in the document
-        for j, elem in enumerate(text_elements):
-            if elem['is_toc_header'] and elem['text'].lower() == title.lower():
-                section_start_idx = j
-                break
-        
+        # OPTIMIZATION 4: Use pre-built index for fast section start/end lookup
+        section_start_idx = toc_header_positions.get(title_lower)
         if section_start_idx is None:
             print(f"[WARNING] Could not find ToC header '{title}' in document")
             continue
         
         # Find where the next ToC section starts (this section's content ends there)
+        section_end_idx = len(text_elements)  # Default to end of document
+        
+        # OPTIMIZATION 5: Only check subsequent sections for end boundary
         for next_section in all_toc_sections[i+1:]:
-            next_title = next_section['title']
-            for j, elem in enumerate(text_elements[section_start_idx+1:], section_start_idx+1):
-                if elem['is_toc_header'] and elem['text'].lower() == next_title.lower():
-                    section_end_idx = j
-                    break
-            if section_end_idx < len(text_elements):
-                break  # Found the next section
+            next_title_lower = next_section['title'].lower()
+            next_pos = toc_header_positions.get(next_title_lower)
+            if next_pos is not None and next_pos > section_start_idx:
+                section_end_idx = next_pos
+                break
         
         # Collect content between this ToC header and the next ToC header
         section_content_parts = []
         
         for j in range(section_start_idx + 1, section_end_idx):
-            elem = text_elements[j]
-            
-            # Skip the header itself but include all other content (even non-ToC headers)
-            if j == section_start_idx:
-                continue  # Skip the ToC header itself
-                
-            section_content_parts.append(elem['text'])
+            if j < len(text_elements):
+                section_content_parts.append(text_elements[j]['text'])
         
         section_content = '\n'.join(section_content_parts)
         
@@ -524,32 +555,19 @@ def create_chunks_from_toc_and_docling(
         if start_page and end_page:
             context_header += f"**Pages:** {start_page}-{end_page}\n"
         
-        # Create section info with positioning data
+        # OPTIMIZATION 6: Limit positioning data collection to avoid performance issues
         section_positioning = []
+        positioning_sample_size = min(5, section_end_idx - section_start_idx)  # Sample only first 5 elements
         
-        # Collect positioning data for elements in this section
-        for j in range(section_start_idx, section_end_idx):
+        for j in range(section_start_idx, section_start_idx + positioning_sample_size):
             if j < len(text_elements):
                 elem = text_elements[j]
                 if elem.get('page') and elem.get('charspan_start') is not None:
-                    # Try to find the original text item in docling document to get bbox
-                    elem_positioning = {
+                    section_positioning.append({
                         'page_no': elem['page'],
                         'charspan': [elem['charspan_start'], elem.get('charspan_end', elem['charspan_start'])],
                         'text': elem['text'][:100]  # First 100 chars for reference
-                    }
-                    
-                    # Find bbox information from original docling document
-                    texts = docling_document.get('texts', [])
-                    for text_item in texts:
-                        if (text_item.get('text', '').strip() == elem['text'] and
-                            text_item.get('prov')):
-                            prov = text_item['prov'][0] if text_item['prov'] else {}
-                            if prov.get('bbox'):
-                                elem_positioning['bbox'] = prov['bbox']
-                            break
-                    
-                    section_positioning.append(elem_positioning)
+                    })
         
         section_info = {
             "section_name": title,
@@ -558,7 +576,7 @@ def create_chunks_from_toc_and_docling(
             "end_page": end_page,
             "toc_path": full_path,
             "section_index": len(chunks),
-            "positioning_data": section_positioning[:10]  # Limit to first 10 elements to avoid huge payloads
+            "positioning_data": section_positioning  # Limited sample for performance
         }
         
         if len(section_content) <= max_chars:
@@ -584,6 +602,7 @@ def create_chunks_from_toc_and_docling(
         if (i + 1) % 20 == 0:
             force_garbage_collection()
     
+    print(f"[INFO] Chunk creation optimization complete. Created {len(chunks)} chunks.")
     return chunks
 
 
@@ -1069,7 +1088,8 @@ def run_enhanced_extraction(
     print("[INFO] Creating ToC-based chunks (non-ToC headers treated as text body)...")
     check_memory_usage("before chunking")
     
-    chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=max_chunk_chars)
+    with time_operation("chunk_creation_and_alignment"):
+        chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=max_chunk_chars)
     
     print(f"[INFO] Created {len(chunks)} chunks for processing")
     check_memory_usage("after chunking")
@@ -1182,7 +1202,8 @@ def run_enhanced_extraction(
             "total_sections": len(all_sections),
             "total_extractions": len(processed_extractions),
             "total_tags": len(derived_tags),
-            "total_parameters": len(derived_parameters)
+            "total_parameters": len(derived_parameters),
+            "performance_metrics": get_performance_report()  # Add performance tracking
         },
         "sections": all_sections,
         "extractions": processed_extractions,
