@@ -1,0 +1,66 @@
+{
+  "chunk_id": 84,
+  "section_metadata": {
+    "section_id": "uso_residencial_público",
+    "section_name": "Uso Residencial Público",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Residencial Público"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Residencial Público\n**Path:** Anejo SI A Terminología → Uso Residencial Público\n**Level:** 2\n**Pages:** 51-51\n\nEdificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular de la actividad diferente del conjunto de los ocupantes y que puede disponer de servicios comunes, tales como limpieza, comedor, lavandería, locales para reuniones y espectáculos, deportes, etc. Incluye a los hoteles, hostales, residencias, pensiones, apartamentos turísticos, etc.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular de la actividad diferente del conjunto de los ocupantes y que puede disponer de servicios comunes, tales como limpieza, comedor, lavandería, locales para reuniones y espectáculos, deportes, etc. Incluye a los hoteles, hostales, residencias, pensiones, apartamentos turísticos, etc.",
+      "attributes": {
+        "id": "1e7e2311-2045-420d-824f-2191c7809930",
+        "parent_section_id": "uso_residencial_público",
+        "classification_type": "USAGE",
+        "classification_name": "PUBLIC.RESIDENTIAL",
+        "classification_value": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL'",
+        "classification_description": "Building or establishment intended to provide temporary accommodation, managed by an activity owner different from the occupants, and which may have common services such as cleaning, dining, laundry, meeting and entertainment rooms, sports, etc. Includes hotels, hostels, residences, guesthouses, tourist apartments, etc.",
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 448,
+          "visual_refs": []
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "Uso Residencial Público",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 126,
+        "end_pos": 506
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 33,
+        "end_index": 103
+      },
+      "section_metadata": {
+        "section_id": "uso_residencial_público",
+        "section_name": "Uso Residencial Público",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Residencial Público"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 506
+}

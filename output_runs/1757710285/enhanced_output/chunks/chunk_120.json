@@ -1,0 +1,247 @@
+{
+  "chunk_id": 120,
+  "section_metadata": {
+    "section_id": "e.3.3_soportes",
+    "section_name": "E.3.3 Soportes",
+    "section_level": 3,
+    "start_page": 78,
+    "end_page": 78,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+      "E.3.3 Soportes"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.3.3 Soportes\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.3 Reglas simplificadas para el análisis de elementos estructurales → E.3.3 Soportes\n**Level:** 3\n**Pages:** 78-78\n\n1 Cuando pueda producirse el fallo del arriostramiento del soporte durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de pandeo el soporte sin arriostramientos.\n2 En estructuras arriostradas y si el sector de incendio no abarca más de una planta, puede tomarse como longitud de pandeo la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando pueda producirse el fallo del arriostramiento del soporte durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de pandeo el soporte sin arriostramientos.",
+      "attributes": {
+        "id": "27814283-1627-44f2-9114-110051168172",
+        "parent_section_id": "e.3.3_soportes",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When bracing failure of the support can occur during the required fire exposure time, the unbraced support must be considered for buckling effects.",
+        "applies_if": "SUPPORT.BRACING.FAILURE_POSSIBLE_DURING_FIRE_EXPOSURE == TRUE",
+        "satisfied_if": "SUPPORT.BUCKLING.CONSIDERED_UNBRACED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "SUPPORT.BRACING",
+          "FIRE.EXPOSURE",
+          "SUPPORT.BUCKLING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 249,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 218,
+        "end_pos": 405
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 86
+      },
+      "section_metadata": {
+        "section_id": "e.3.3_soportes",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.3 Soportes"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En estructuras arriostradas y si el sector de incendio no abarca más de una planta, puede tomarse como longitud de pandeo la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "e.3.3_soportes",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In braced structures and if the fire sector does not cover more than one floor, the buckling length can be taken as half the height between intermediate floors, or 0.7 of the height of the last floor.",
+        "applies_if": "STRUCTURE.TYPE == 'BRACED' AND FIRE.SECTOR.FLOOR_COUNT <= 1",
+        "satisfied_if": "SUPPORT.BUCKLING.LENGTH == (FLOOR.HEIGHT.INTERMEDIATE / 2) ; OR SUPPORT.BUCKLING.LENGTH == (FLOOR.HEIGHT.LAST * 0.7)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "STRUCTURE.BRACED",
+          "FIRE.SECTOR",
+          "SUPPORT.BUCKLING.LENGTH",
+          "FLOOR.HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 250,
+          "span_char_end": 435,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.SECTOR.FLOOR_COUNT <= 1",
+          "SUPPORT.BUCKLING.LENGTH = FLOOR.HEIGHT.INTERMEDIATE / 2",
+          "SUPPORT.BUCKLING.LENGTH = FLOOR.HEIGHT.LAST * 0.7"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 408,
+        "end_pos": 621
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 87,
+        "end_index": 134
+      },
+      "section_metadata": {
+        "section_id": "e.3.3_soportes",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.3 Soportes"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Anejo SI E Resistencia al fuego de las estructuras de madera → E.3 Reglas simplificadas para el análisis de elementos estructurales → E.3.3 Soportes",
+      "attributes": {
+        "id": "e3c1a2b3-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+        "meta_summary": "Simplified rules for the analysis of structural elements, specifically supports, regarding fire resistance in timber structures.",
+        "meta_applies_if": "STRUCTURE.MATERIAL == 'TIMBER'",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e.3.3_soportes",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 36,
+        "end_pos": 184
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 12,
+        "end_index": 44
+      },
+      "section_metadata": {
+        "section_id": "e.3.3_soportes",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.3 Soportes"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 621
+}

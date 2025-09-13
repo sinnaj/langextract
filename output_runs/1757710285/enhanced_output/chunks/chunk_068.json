@@ -1,0 +1,127 @@
+{
+  "chunk_id": 68,
+  "section_metadata": {
+    "section_id": "salida_de_emergencia",
+    "section_name": "Salida de emergencia",
+    "section_level": 2,
+    "start_page": 48,
+    "end_page": 48,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Salida de emergencia"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Salida de emergencia\n**Path:** Anejo SI A Terminología → Salida de emergencia\n**Level:** 2\n**Pages:** 48-48\n\nSalida de planta, de edificio o de recinto prevista para ser utilizada exclusivamente en caso de emergencia y que está señalizada de acuerdo con ello.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Salida de planta, de edificio o de recinto prevista para ser utilizada exclusivamente en caso de emergencia y que está señalizada de acuerdo con ello.",
+      "attributes": {
+        "id": "e0029b20-111c-4395-927e-39933580562e",
+        "meta_summary": "Definition of an emergency exit.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "salida_de_emergencia",
+        "section_name": "Salida de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 120,
+        "end_pos": 270
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 59
+      },
+      "section_metadata": {
+        "section_id": "salida_de_emergencia",
+        "section_name": "Salida de emergencia",
+        "section_level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Salida de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Salida de emergencia",
+      "attributes": {
+        "id": "e0029b20-111c-4395-927e-39933580562e",
+        "parent_section_id": "salida_de_emergencia",
+        "classification_name": "Salida de emergencia",
+        "classification_type": "EMERGENCY.EXIT",
+        "description": "Exit from a floor, building, or enclosure intended to be used exclusively in case of emergency and marked accordingly.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "EMERGENCY.EXIT",
+          "EXIT.FLOOR",
+          "EXIT.BUILDING",
+          "EXIT.ENCLOSURE",
+          "SIGNAGE.EMERGENCY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Salida de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 31
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "salida_de_emergencia",
+        "section_name": "Salida de emergencia",
+        "section_level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Salida de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 270
+}

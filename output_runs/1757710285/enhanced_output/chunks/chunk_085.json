@@ -1,0 +1,66 @@
+{
+  "chunk_id": 85,
+  "section_metadata": {
+    "section_id": "uso_residencial_vivienda",
+    "section_name": "Uso Residencial Vivienda",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Residencial Vivienda"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Residencial Vivienda\n**Path:** Anejo SI A Terminología → Uso Residencial Vivienda\n**Level:** 2\n**Pages:** 51-51\n\nEdificio o zona destinada a alojamiento permanente, cualquiera que sea el tipo de edificio: vivienda unifamiliar, edificio de pisos o de apartamentos, etc.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio o zona destinada a alojamiento permanente, cualquiera que sea el tipo de edificio: vivienda unifamiliar, edificio de pisos o de apartamentos, etc.",
+      "attributes": {
+        "id": "1e72322c-a719-4842-892f-14194c502b41",
+        "parent_section_id": "uso_residencial_vivienda",
+        "classification_type": "USAGE",
+        "classification_name": "RESIDENTIAL.HOUSING",
+        "classification_value": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING'",
+        "classification_description": "Building or area intended for permanent accommodation, regardless of the type of building: single-family home, apartment building, etc.",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 161,
+          "visual_refs": []
+        },
+        "section_name": "Uso Residencial Vivienda",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 128,
+        "end_pos": 283
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 57
+      },
+      "section_metadata": {
+        "section_id": "uso_residencial_vivienda",
+        "section_name": "Uso Residencial Vivienda",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Residencial Vivienda"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 283
+}

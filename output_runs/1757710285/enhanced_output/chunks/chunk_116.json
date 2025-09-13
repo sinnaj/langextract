@@ -1,0 +1,131 @@
+{
+  "chunk_id": 116,
+  "section_metadata": {
+    "section_id": "e.2.3.1_madera_sin_protección",
+    "section_name": "E.2.3.1 Madera sin protección",
+    "section_level": 4,
+    "start_page": 74,
+    "end_page": 74,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.1 Madera sin protección"
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.2.3.1 Madera sin protección\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.1 Madera sin protección\n**Level:** 4\n**Pages:** 74-74\n\n1 Para maderas sin protección, la velocidad de carbonización nominal de cálculo, n, se considerará constante durante todo el tiempo de exposición al fuego y su valor se determinará de acuerdo con la tabla E.1.\nTabla E.1. Velocidad de carbonización nominal de cálculo, n, de maderas sin protección\n(E.2)\n74",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Para maderas sin protección, la velocidad de carbonización nominal de cálculo, n, se considerará constante durante todo el tiempo de exposición al fuego y su valor se determinará de acuerdo con la tabla E.1.",
+      "attributes": {
+        "id": "e444391e-b816-433b-857e-346513410651",
+        "meta_summary": "Specifies the nominal charring rate for unprotected timber in fire exposure.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e.2.3.1_madera_sin_protección",
+        "section_name": "E.2.3.1 Madera sin protección",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 265,
+        "end_pos": 475
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 133
+      },
+      "section_metadata": {
+        "section_id": "e.2.3.1_madera_sin_protección",
+        "section_name": "E.2.3.1 Madera sin protección",
+        "section_level": 4,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "Para maderas sin protección, la velocidad de carbonización nominal de cálculo, n, se considerará constante durante todo el tiempo de exposición al fuego y su valor se determinará de acuerdo con la tabla E.1.",
+      "attributes": {
+        "id": "229f383e-913a-4416-848e-206587630718",
+        "parent_section_id": "e.2.3.1_madera_sin_protección",
+        "Procedure": "The nominal charring rate, n, for unprotected timber shall be considered constant throughout the fire exposure time and its value shall be determined according to Table E.1.",
+        "target_reference": [
+          "Table E.1. Velocidad de carbonización nominal de cálculo, n, de maderas sin protección"
+        ],
+        "Tags": [
+          "TIMBER.FIRE.RESISTANCE",
+          "CHARRING.RATE",
+          "FIRE.EXPOSURE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 184,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.1 Madera sin protección",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 267,
+        "end_pos": 475
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 133
+      },
+      "section_metadata": {
+        "section_id": "e.2.3.1_madera_sin_protección",
+        "section_name": "E.2.3.1 Madera sin protección",
+        "section_level": 4,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 572
+}

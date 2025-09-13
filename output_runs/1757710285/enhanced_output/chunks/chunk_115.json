@@ -1,0 +1,175 @@
+{
+  "chunk_id": 115,
+  "section_metadata": {
+    "section_id": "e.2.2_profundidad_carbonizada",
+    "section_name": "E.2.2 Profundidad carbonizada",
+    "section_level": 3,
+    "start_page": 74,
+    "end_page": 74,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.2 Profundidad carbonizada"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.2.2 Profundidad carbonizada\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.2 Profundidad carbonizada\n**Level:** 3\n**Pages:** 74-74\n\n1 Se considerará que se produce carbonización en todas las superficies de madera o de productos derivados de la madera expuestos al fuego y, en el caso de elementos protegidos, cuando ésta se inicie durante el tiempo de exposición al fuego especificado.\n2 La profundidad carbonizada nominal de cálculo en una dirección, dchar,n, entendida como la distancia entre la superficie exterior de la sección inicial y la línea que define el frente de carbonización para un tiempo de exposición al fuego determinado, que incluye el efecto del redondeo de las aristas, se determina según la expresión siguiente:\nsiendo:\nß n velocidad de carbonización nominal. Se determinará de acuerdo con E.2.3;\nt tiempo de exposición al fuego.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Se considerará que se produce carbonización en todas las superficies de madera o de productos derivados de la madera expuestos al fuego y, en el caso de elementos protegidos, cuando ésta se inicie durante el tiempo de exposición al fuego especificado.\n2 La profundidad carbonizada nominal de cálculo en una dirección, dchar,n, entendida como la distancia entre la superficie exterior de la sección inicial y la línea que define el frente de carbonización para un tiempo de exposición al fuego determinado, que incluye el efecto del redondeo de las aristas, se determina según la expresión siguiente:\nsiendo:\nß n velocidad de carbonización nominal. Se determinará de acuerdo con E.2.3;\nt tiempo de exposición al fuego.",
+      "attributes": {
+        "id": "e2e2-1-2",
+        "meta_summary": "Defines charring depth in timber structures exposed to fire, including protected elements and calculation method.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e.2.2_profundidad_carbonizada",
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 211,
+        "end_pos": 930
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 216
+      },
+      "section_metadata": {
+        "section_id": "e.2.2_profundidad_carbonizada",
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.2 Profundidad carbonizada"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Se considerará que se produce carbonización en todas las superficies de madera o de productos derivados de la madera expuestos al fuego y, en el caso de elementos protegidos, cuando ésta se inicie durante el tiempo de exposición al fuego especificado.",
+      "attributes": {
+        "id": "e2e2-1",
+        "parent_section_id": "e.2.2_profundidad_carbonizada",
+        "Procedure": "Charring is considered to occur on all wood or wood-product surfaces exposed to fire, and for protected elements, when it begins during the specified fire exposure time.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.EXPOSURE",
+          "TIMBER.STRUCTURES",
+          "CHARRING.DEPTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 213,
+        "end_pos": 464
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 56,
+        "end_index": 106
+      },
+      "section_metadata": {
+        "section_id": "e.2.2_profundidad_carbonizada",
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.2 Profundidad carbonizada"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "La profundidad carbonizada nominal de cálculo en una dirección, dchar,n, entendida como la distancia entre la superficie exterior de la sección inicial y la línea que define el frente de carbonización para un tiempo de exposición al fuego determinado, que incluye el efecto del redondeo de las aristas, se determina según la expresión siguiente: siendo: ß n velocidad de carbonización nominal. Se determinará de acuerdo con E.2.3; t tiempo de exposición al fuego.",
+      "attributes": {
+        "id": "e2e2-2",
+        "parent_section_id": "e.2.2_profundidad_carbonizada",
+        "Procedure": "The nominal charring depth for calculation in one direction, dchar,n, defined as the distance between the initial section's outer surface and the charring front line for a given fire exposure time, including edge rounding effect, is determined by the following expression: where ß n is the nominal charring rate (determined according to E.2.3) and t is the fire exposure time.",
+        "target_reference": [
+          "E.2.3"
+        ],
+        "Tags": [
+          "FIRE.EXPOSURE",
+          "TIMBER.STRUCTURES",
+          "CHARRING.DEPTH",
+          "CALCULATION.METHOD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 467,
+        "end_pos": 930
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 107,
+        "end_index": 216
+      },
+      "section_metadata": {
+        "section_id": "e.2.2_profundidad_carbonizada",
+        "section_name": "E.2.2 Profundidad carbonizada",
+        "section_level": 3,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.2 Profundidad carbonizada"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 930
+}

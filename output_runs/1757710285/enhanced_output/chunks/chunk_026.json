@@ -1,0 +1,1103 @@
+{
+  "chunk_id": 26,
+  "section_metadata": {
+    "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+    "section_name": "1 Dotación de instalaciones de protección contra incendios",
+    "section_level": 2,
+    "start_page": 32,
+    "end_page": 34,
+    "toc_path": [
+      "Sección SI 4 Instalaciones de protección contra incendios",
+      "1 Dotación de instalaciones de protección contra incendios"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 1 Dotación de instalaciones de protección contra incendios\n**Path:** Sección SI 4 Instalaciones de protección contra incendios → 1 Dotación de instalaciones de protección contra incendios\n**Level:** 2\n**Pages:** 32-34\n\n1 Los edificios deben disponer de los equipos e instalaciones de protección contra incendios que se indican en la tabla 1.1. El diseño, la ejecución, la puesta en funcionamiento y el mantenimiento de dichas instalaciones, así como sus materiales, componentes y equipos, deben cumplir lo establecido en el \"Reglamento de Instalaciones de Protección contra Incendios\", en sus disposiciones complementarias y en cualquier otra reglamentación específica que le sea de aplicación. La puesta en servicio de estas instalaciones se realizará conforme a lo indicado en el citado reglamento .\nLos locales de riesgo especial, así como aquellas zonas cuyo uso previsto sea diferente y subsidiario del principal del edificio o del establecimiento en el que estén integradas y que, conforme a la tabla 1.1 del Capítulo 1 de la Sección 1 de este DB, deban constituir un sector de incendio diferente, deben disponer de la dotación de instalaciones que se indica para cada local de riesgo especial, así como para cada zona, en función de su uso previsto , pero en ningún caso será inferior a la exigida con carácter general para el uso principal del edificio o del establecimiento .\nTabla 1.1. Dotación de instalaciones de protección contra incendios\nUso previsto del edificio o establecimiento\nCondiciones\nInstalación\n32\n33\n34\n(1) Un extintor en el exterior del local o de la zona y próximo a la puerta de acceso, el cual podrá servir simultáneamente a varios locales o zonas. En el interior del local o de la zona se instalarán además los extintores necesarios para que el recorrido real hasta alguno de ellos, incluido el situado en el exterior, no sea mayor que 15 m en locales y zonas de riesgo especial medio o bajo, o que 10 m en locales o zonas de riesgo especial alto.\n(2) Los equipos serán de tipo 45 mm, excepto en edificios de uso Residencial Vivienda, en lo que serán de tipo 25 mm.\n(3) Para el cómputo de la dotación que se establece se pueden considerar los hidrantes que se encuentran en la vía pública a menos de 100 m de la fachada accesible del edificio. Los hidrantes que se instalen pueden estar conectados a la red pública de suministro de agua.\n(4) Para la determinación de la potencia instalada sólo se considerarán los aparatos directamente destinados a la preparación de alimentos y susceptibles de provocar ignición. Las freidoras y las sartenes basculantes se computarán a razón de 1 kW por cada litro de capacidad, independientemente de la potencia que tengan. La protección aportada por la instalación automática cubrirá los aparatos antes citados y la eficacia del sistema debe quedar asegurada teniendo en cuenta la actuación del sistema de extracción de humos.\n(5) Los municipios pueden sustituir esta condición por la de una instalación de bocas de incendio equipadas cuando, por el emplazamiento de un edificio o por el nivel de dotación de los servicios públicos de extinción existentes, no quede garantizada la utilidad de la instalación de columna seca.\n(6) El sistema de alarma transmitirá señales visuales además de acústicas. Las señales visuales serán perceptibles incluso en el interior de viviendas accesibles para personas con discapacidad auditiva (ver definición en el Anejo SUA A del DB SUA).\n(7) Los equipos serán de tipo 25 mm.\n(8) El sistema dispondrá al menos de detectores de incendio.\n(9) La condición de disponer detectores automáticos térmicos puede sustituirse por una instalación automática de extinción no exigida.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Los edificios deben disponer de los equipos e instalaciones de protección contra incendios que se indican en la tabla 1.1. El diseño, la ejecución, la puesta en funcionamiento y el mantenimiento de dichas instalaciones, así como sus materiales, componentes y equipos, deben cumplir lo establecido en el \"Reglamento de Instalaciones de Protección contra Incendios\", en sus disposiciones complementarias y en cualquier otra reglamentación específica que le sea de aplicación. La puesta en servicio de estas instalaciones se realizará conforme a lo indicado en el citado reglamento .\nLos locales de riesgo especial, así como aquellas zonas cuyo uso previsto sea diferente y subsidiario del principal del edificio o del establecimiento en el que estén integradas y que, conforme a la tabla 1.1 del Capítulo 1 de la Sección 1 de este DB, deban constituir un sector de incendio diferente, deben disponer de la dotación de instalaciones que se indica para cada local de riesgo especial, así como para cada zona, en función de su uso previsto , pero en ningún caso será inferior a la exigida con carácter general para el uso principal del edificio o del establecimiento .",
+      "attributes": {
+        "id": "c01a9b2b-1a2b-4c3d-8e9f-0123456789ab",
+        "meta_summary": "Buildings must have fire protection equipment and installations as specified in Table 1.1, complying with the 'Reglamento de Instalaciones de Protección contra Incendios' and other applicable regulations. Special risk areas and zones with subsidiary uses must have specific installations, not less than those required for the main use.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Reglamento de Instalaciones de Protección contra Incendios"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 230,
+        "end_pos": 1395
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 53,
+        "end_index": 295
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los edificios deben disponer de los equipos e instalaciones de protección contra incendios que se indican en la tabla 1.1.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Buildings must have fire protection equipment and installations as indicated in Table 1.1.",
+        "applies_if": "TRUE",
+        "satisfied_if": "BUILDING.FIRE_PROTECTION.EQUIPMENT.HAS_TABLE_1_1_INSTALLATIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.PROTECTION.EQUIPMENT",
+          "FIRE.PROTECTION.INSTALLATIONS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 108,
+          "span_char_end": 196,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 232,
+        "end_pos": 354
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 54,
+        "end_index": 79
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El diseño, la ejecución, la puesta en funcionamiento y el mantenimiento de dichas instalaciones, así como sus materiales, componentes y equipos, deben cumplir lo establecido en el \"Reglamento de Instalaciones de Protección contra Incendios\", en sus disposiciones complementarias y en cualquier otra reglamentación específica que le sea de aplicación. La puesta en servicio de estas instalaciones se realizará conforme a lo indicado en el citado reglamento .",
+      "attributes": {
+        "id": "f1e2d3c4-b5a6-9876-5432-10fedcba9876",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The design, execution, commissioning, and maintenance of fire protection installations, including their materials, components, and equipment, must comply with the 'Reglamento de Instalaciones de Protección contra Incendios' and other applicable specific regulations. Commissioning must follow the cited regulation.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE_PROTECTION.INSTALLATION.DESIGN.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.EXECUTION.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.COMMISSIONING.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.MAINTENANCE.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.MATERIALS.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.COMPONENTS.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios') AND FIRE_PROTECTION.INSTALLATION.EQUIPMENT.COMPLIES_WITH('Reglamento de Instalaciones de Protección contra Incendios')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.PROTECTION.INSTALLATIONS",
+          "FIRE.PROTECTION.DESIGN",
+          "FIRE.PROTECTION.EXECUTION",
+          "FIRE.PROTECTION.COMMISSIONING",
+          "FIRE.PROTECTION.MAINTENANCE",
+          "FIRE.PROTECTION.MATERIALS",
+          "FIRE.PROTECTION.COMPONENTS",
+          "FIRE.PROTECTION.EQUIPMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION",
+          "OPERATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 197,
+          "span_char_end": 567,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 355,
+        "end_pos": 812
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 79,
+        "end_index": 168
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los locales de riesgo especial, así como aquellas zonas cuyo uso previsto sea diferente y subsidiario del principal del edificio o del establecimiento en el que estén integradas y que, conforme a la tabla 1.1 del Capítulo 1 de la Sección 1 de este DB, deban constituir un sector de incendio diferente, deben disponer de la dotación de instalaciones que se indica para cada local de riesgo especial, así como para cada zona, en función de su uso previsto , pero en ningún caso será inferior a la exigida con carácter general para el uso principal del edificio o del establecimiento .",
+      "attributes": {
+        "id": "0a1b2c3d-4e5f-6789-0123-456789abcdef",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Special risk premises and zones with different and subsidiary uses, which must constitute a separate fire sector according to Table 1.1 of Chapter 1, Section 1 of this DB, must have the installations indicated for each special risk premise and zone, based on their intended use, but never less than generally required for the main use of the building or establishment.",
+        "applies_if": "AREA.RISK_LEVEL == 'SPECIAL' OR (AREA.USAGE != BUILDING.USAGE AND AREA.IS_FIRE_SECTOR == TRUE)",
+        "satisfied_if": "AREA.FIRE_PROTECTION.INSTALLATIONS.HAS_SPECIFIC_DOTATION == TRUE AND AREA.FIRE_PROTECTION.INSTALLATIONS.DOTATION >= BUILDING.FIRE_PROTECTION.INSTALLATIONS.GENERAL_DOTATION",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.PROTECTION.INSTALLATIONS",
+          "AREA.RISK_LEVEL",
+          "AREA.USAGE",
+          "BUILDING.USAGE",
+          "FIRE.SECTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 568,
+          "span_char_end": 1008,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 813,
+        "end_pos": 1395
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 168,
+        "end_index": 295
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Un extintor en el exterior del local o de la zona y próximo a la puerta de acceso, el cual podrá servir simultáneamente a varios locales o zonas. En el interior del local o de la zona se instalarán además los extintores necesarios para que el recorrido real hasta alguno de ellos, incluido el situado en el exterior, no sea mayor que 15 m en locales y zonas de riesgo especial medio o bajo, o que 10 m en locales o zonas de riesgo especial alto.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7890-abcd-ef0123456789",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One extinguisher must be placed outside the premises or zone, near the access door, and can serve multiple premises or zones. Inside, additional extinguishers must be installed so that the actual travel distance to any extinguisher (including the exterior one) does not exceed 15m in medium or low special risk premises/zones, or 10m in high special risk premises/zones.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EXTINGUISHER.COUNT >= 1 AND EXTINGUISHER.LOCATION == 'OUTSIDE.NEAR_ACCESS_DOOR' AND (AREA.RISK_LEVEL IN ['MEDIUM', 'LOW'] AND TRAVEL_DISTANCE.TO_EXTINGUISHER <= 15) OR (AREA.RISK_LEVEL == 'HIGH' AND TRAVEL_DISTANCE.TO_EXTINGUISHER <= 10)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EXTINGUISHER",
+          "AREA.RISK_LEVEL",
+          "TRAVEL.DISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1043,
+          "span_char_end": 1406,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "TRAVEL_DISTANCE.TO_EXTINGUISHER <= 15 m",
+          "TRAVEL_DISTANCE.TO_EXTINGUISHER <= 10 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(1) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1545,
+        "end_pos": 1990
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 327,
+        "end_index": 428
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los equipos serán de tipo 45 mm, excepto en edificios de uso Residencial Vivienda, en lo que serán de tipo 25 mm.",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8901-2345-67890abcdef0",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipment must be of 45 mm type, except in residential housing buildings, where it must be of 25 mm type.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND EQUIPMENT.TYPE == '25 mm') OR (BUILDING.USAGE != 'RESIDENTIAL.HOUSING' AND EQUIPMENT.TYPE == '45 mm')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EQUIPMENT.TYPE",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1407,
+          "span_char_end": 1521,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EQUIPMENT.TYPE == 45 mm",
+          "EQUIPMENT.TYPE == 25 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(2) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1995,
+        "end_pos": 2108
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 431,
+        "end_index": 460
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para el cómputo de la dotación que se establece se pueden considerar los hidrantes que se encuentran en la vía pública a menos de 100 m de la fachada accesible del edificio. Los hidrantes que se instalen pueden estar conectados a la red pública de suministro de agua.",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9012-3456-7890abcdef01",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For the calculation of the required provision, hydrants located on public roads less than 100m from the accessible facade of the building can be considered. Installed hydrants may be connected to the public water supply network.",
+        "applies_if": "TRUE",
+        "satisfied_if": "HYDRANT.LOCATION == 'PUBLIC_ROAD' AND HYDRANT.DISTANCE_TO_BUILDING_ACCESSIBLE_FACADE < 100 AND HYDRANT.IS_CONNECTED_TO_PUBLIC_WATER_SUPPLY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.HYDRANT",
+          "DISTANCE.TO_BUILDING",
+          "WATER.SUPPLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1522,
+          "span_char_end": 1757,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "HYDRANT.DISTANCE_TO_BUILDING_ACCESSIBLE_FACADE < 100 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(3) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2113,
+        "end_pos": 2380
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 463,
+        "end_index": 523
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para la determinación de la potencia instalada sólo se considerarán los aparatos directamente destinados a la preparación de alimentos y susceptibles de provocar ignición. Las freidoras y las sartenes basculantes se computarán a razón de 1 kW por cada litro de capacidad, independientemente de la potencia que tengan. La protección aportada por la instalación automática cubrirá los aparatos antes citados y la eficacia del sistema debe quedar asegurada teniendo en cuenta la actuación del sistema de extracción de humos.",
+      "attributes": {
+        "id": "4d5e6f7a-8b9c-0123-4567-890abcdef012",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For determining installed power, only appliances directly intended for food preparation and capable of causing ignition will be considered. Fryers and tilting pans will be calculated at 1 kW per liter of capacity, regardless of their actual power. The protection provided by the automatic installation must cover the aforementioned appliances, and the system's effectiveness must be ensured, considering the operation of the smoke extraction system.",
+        "applies_if": "TRUE",
+        "satisfied_if": "INSTALLED_POWER.CALCULATION.CONSIDERS_FOOD_PREP_IGNITION_APPLIANCES == TRUE AND (APPLIANCE.TYPE == 'FRYER' OR APPLIANCE.TYPE == 'TILTING_PAN') AND APPLIANCE.POWER_CALCULATION == (APPLIANCE.CAPACITY_LITERS * 1) AND AUTOMATIC_INSTALLATION.PROTECTION.COVERS_APPLIANCES == TRUE AND SMOKE_EXTRACTION_SYSTEM.EFFECTIVENESS_ENSURED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "INSTALLED.POWER",
+          "FOOD.PREPARATION.APPLIANCES",
+          "IGNITION.RISK",
+          "FRYER",
+          "TILTING.PAN",
+          "AUTOMATIC.INSTALLATION",
+          "SMOKE.EXTRACTION.SYSTEM"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1758,
+          "span_char_end": 2208,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "APPLIANCE.POWER_CALCULATION == 1 kW_per_liter"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(4) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2385,
+        "end_pos": 2906
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 526,
+        "end_index": 634
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los municipios pueden sustituir esta condición por la de una instalación de bocas de incendio equipadas cuando, por el emplazamiento de un edificio o por el nivel de dotación de los servicios públicos de extinción existentes, no quede garantizada la utilidad de la instalación de columna seca.",
+      "attributes": {
+        "id": "5e6f7a8b-9c01-2345-6789-0abcdef01234",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Municipalities may replace this condition with an equipped fire hydrant installation when, due to the building's location or the level of existing public fire services, the utility of a dry riser installation is not guaranteed.",
+        "applies_if": "TRUE",
+        "satisfied_if": "MUNICIPALITY.REPLACES_DRY_RISER_WITH_EQUIPPED_FIRE_HYDRANT_INSTALLATION == TRUE AND (BUILDING.LOCATION.PREVENTS_DRY_RISER_UTILITY == TRUE OR PUBLIC_FIRE_SERVICES.DOTATION_LEVEL.PREVENTS_DRY_RISER_UTILITY == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.HYDRANT.EQUIPPED",
+          "DRY.RISER.INSTALLATION",
+          "BUILDING.LOCATION",
+          "PUBLIC.FIRE.SERVICES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2209,
+          "span_char_end": 2529,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(5) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2911,
+        "end_pos": 3204
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 637,
+        "end_index": 699
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El sistema de alarma transmitirá señales visuales además de acústicas. Las señales visuales serán perceptibles incluso en el interior de viviendas accesibles para personas con discapacidad auditiva (ver definición en el Anejo SUA A del DB SUA).",
+      "attributes": {
+        "id": "6f7a8b9c-0123-4567-890a-bcdef0123456",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The alarm system must transmit visual as well as acoustic signals. Visual signals must be perceptible even inside accessible dwellings for people with hearing disabilities (see definition in Annex SUA A of DB SUA).",
+        "applies_if": "TRUE",
+        "satisfied_if": "ALARM_SYSTEM.TRANSMITS_VISUAL_SIGNALS == TRUE AND ALARM_SYSTEM.TRANSMITS_ACOUSTIC_SIGNALS == TRUE AND VISUAL_SIGNALS.PERCEPTIBLE_IN_ACCESSIBLE_DWELLINGS_FOR_HEARING_IMPAIRED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.ALARM.SYSTEM",
+          "VISUAL.SIGNALS",
+          "ACOUSTIC.SIGNALS",
+          "ACCESSIBLE.DWELLINGS",
+          "HEARING.DISABILITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2530,
+          "span_char_end": 2800,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(6) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3209,
+        "end_pos": 3453
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 702,
+        "end_index": 755
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los equipos serán de tipo 25 mm.",
+      "attributes": {
+        "id": "7a8b9c01-2345-6789-0abc-def012345678",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipment must be of 25 mm type.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EQUIPMENT.TYPE == '25 mm'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.EQUIPMENT.TYPE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2801,
+          "span_char_end": 2830,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EQUIPMENT.TYPE == 25 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(7) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3458,
+        "end_pos": 3490
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 758,
+        "end_index": 768
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El sistema dispondrá al menos de detectores de incendio.",
+      "attributes": {
+        "id": "8b9c0123-4567-890a-bcde-f01234567890",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The system must have at least fire detectors.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE_DETECTORS.COUNT >= 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTORS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2831,
+          "span_char_end": 2883,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(8) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3495,
+        "end_pos": 3551
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 771,
+        "end_index": 782
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La condición de disponer detectores automáticos térmicos puede sustituirse por una instalación automática de extinción no exigida.",
+      "attributes": {
+        "id": "9c012345-6789-0abc-def0-1234567890ab",
+        "parent_section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The requirement for automatic thermal detectors can be replaced by a non-mandatory automatic extinguishing installation.",
+        "applies_if": "TRUE",
+        "satisfied_if": "AUTOMATIC_THERMAL_DETECTORS.INSTALLED == TRUE ; OR AUTOMATIC_EXTINGUISHING_INSTALLATION.INSTALLED == TRUE AND AUTOMATIC_EXTINGUISHING_INSTALLATION.IS_NOT_MANDATORY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "AUTOMATIC.THERMAL.DETECTORS",
+          "AUTOMATIC.EXTINGUISHING.INSTALLATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2884,
+          "span_char_end": 2993,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "(9) footnote",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3556,
+        "end_pos": 3686
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 785,
+        "end_index": 815
+      },
+      "section_metadata": {
+        "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
+        "section_name": "1 Dotación de instalaciones de protección contra incendios",
+        "section_level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 13,
+  "char_count": 3686
+}

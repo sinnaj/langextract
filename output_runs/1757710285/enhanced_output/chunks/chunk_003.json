@@ -1,0 +1,2537 @@
+{
+  "chunk_id": 3,
+  "section_metadata": {
+    "section_id": "iii_criterios_generales_de_aplicación",
+    "section_name": "III Criterios generales de aplicación",
+    "section_level": 2,
+    "start_page": 4,
+    "end_page": 5,
+    "toc_path": [
+      "Introducción",
+      "III Criterios generales de aplicación"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: III Criterios generales de aplicación\n**Path:** Introducción → III Criterios generales de aplicación\n**Level:** 2\n**Pages:** 4-5\n\nPueden utilizarse otras soluciones diferentes a las contenidas en este DB, en cuyo caso deberá seguirse el procedimiento establecido en el artículo 5 del CTE y deberá documentarse en el proyecto el cumplimiento de las exigencias básicas. Cuando la aplicación de este DB en obras en edificios protegidos sea incompatible con su grado de protección, se podrán aplicar aquellas soluciones alternativas que permitan la mayor adecuación posible, desde los puntos de vista técnico y económico, de las condiciones de seguridad en caso de incendio. En la documentación final de la obra deberá quedar constancia de aquellas limitaciones al uso del edificio que puedan ser necesarias como consecuencia del grado final de adecuación alcanzado y que deban ser tenidas en cuenta por los titulares de las actividades.\nCuando se cita una disposición reglamentaria en este DB debe entenderse que se hace referencia a la versión vigente en el momento en el que se aplica el mismo. Cuando se cita una norma UNE, UNE-EN o UNE -EN ISO debe entenderse que se hace referencia a la versión que se indica, aun cuando exista una versión posterior, salvo en el caso de normas armonizadas UNE-EN que sean transposición de normas EN cuyas referencias hayan sido publicadas en el Diario Oficial de la Unión Europea, en el marco de la aplicación del Reglamento (UE) nº 305/2011 del Parlamento Europeo y del Consejo, de 9 de marzo de 2011, por el que se establecen condiciones armonizadas para la comercialización de productos de construcción, y se deroga la Directiva 89/106/CEE del Consejo, en cuyo caso la cita se deberá relacionar con la última Comunicación de la Comisión que incluya dicha referencia. En el caso de normas de métodos de ensayo referenciadas en las normas armonizadas, debe aplicarse la versión incluida en las normas armonizadas UNE -EN citadas anteriormente.\n(1) En particular, debe tenerse en cuenta que en este Código Técnico las exigencias relacionadas con la seguridad de las personas al desplazarse por el edificio (tanto en circunstancias normales como en situaciones de emergencia) se vinculan al requisito básico \"Seguridad de utilización\". Por ello, las soluciones aplicables a los elementos de circulación (pasillos, escaleras, rampas, etc.) así como a la iluminación normal y al alumbrado de emergencia figuran en el DB SU.\n4\nLas normas recogidas en este DB podrán ser sustituidas por otras de las utilizadas en cualquiera de los otros Estados miembros de la Unión Europea, o que sean parte del Acuerdo sobre el Espacio Económico Europeo, y en aquellos estados que tengan un acuerdo de asociación aduanera con la Unión Europea, siempre que se demuestre que poseen especificaciones técnicas equivalentes.\nEn edificios que deban tener un plan de emergencia conforme a la reglamentación vigente, éste preverá procedimientos para la evacuación de las personas con discapacidad en situaciones de emergencia.\nA efectos de este DB deben tenerse en cuenta los siguientes criterios de aplicación:\n1 En aquellas zonas destinadas a albergar personas bajo régimen de privación de libertad o con limitaciones psíquicas no se deben aplicar las condiciones que sean incompatibles con dichas circunstancias. En su lugar, se deben aplicar otras condiciones alternativas, justificando su validez técnica y siempre que se cumplan las exigencias de este requisito básico.\n2 Los edificios, establecimientos o zonas cuyo uso previsto no se encuentre entre los definidos en el Anejo SI A de este DB deberán cumplir, salvo indicación en otro sentido, las condiciones particulares del uso al que mejor puedan asimilarse .\n3 A los edificios, establecimientos o zonas de los mismos cuyos ocupantes precisen, en su mayoría, ayuda para evacuar el edificio (residencias geriátricas o de personas discapacitadas, centros de educación especial, etc.) se les debe aplicar las condiciones específicas del uso Hospitalario .\n4 A los edificios, establecimientos o zonas de uso sanitario o asistencial de carácter ambulatorio se les debe aplicar las condiciones particulares del uso Administrativo.\n5 En los edificios, establecimientos o zonas de uso Almacén el cumplimiento de las exigencias básicas de seguridad en caso de incendio se realizará aplicando la tabla 1.1. \"Condiciones de compartimentación en sectores de incendio\" de la Sección SI 1 de este Documento Básico y la caracterización y los requisitos constructivos y dotacionales establecidos en los anexos I, II, III y IV del Reglamento de Seguridad en caso de incendio en los establecimientos industriales (RSCIEI).\nNo obstante, la ocupación de estos edificios, establecimientos y zonas se calculará de acuerdo con la densidad de ocupación asignada por la tabla 2.1 \"Densidades de ocupación\", de la Sección SI 3 de este Documento Básico al uso archivos, almacenes.\n6 Los establecimientos cuya actividad sea el servicio de alquiler de trasteros y almacenes se consideran de uso Almacén a los efectos de aplicación de este Documento Básico. En todo caso, los sectores o áreas de incendio de estos establecimientos se clasificarán como áreas o sectores con nivel de riesgo intrínseco (NRI) medio, subnivel 5, siempre que tengan una altura de almacenamiento igual o inferior a 3 metros y como áreas o sectores con nivel de riesgo intrínseco (NRI) alto en caso de que su altura de almacenamiento sea superior a 3 metros, debiendo en ese caso calcularse su subnivel de acuerdo con lo establecido en RSCIEI.\n7 A los efectos de la aplicación de este Documento Básico las áreas públicas de venta integradas en los establecimientos de uso Comercial donde el público se autoabastece de productos no se consideran zonas de uso Almacén sino zonas de uso Comercial independientemente de su carga de fuego total. Tampoco se consideran zonas de uso Almacén las áreas de archivo de documentos abiertas integradas dentro de las oficinas en los establecimientos de uso Administrativo, independientemente de su carga de fuego total. No obstante, en el supuesto de que estas zonas, tanto las de uso Comercial como las de uso Administrativo, tengan una carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI igual o superior a tres millones de megajulios y una altura de almacenamiento superior a 5,00 metros, el cumplimiento de las exigencias básicas de seguridad en caso de incendio se realizará aplicando las exigencias que este Documento Básico establezca para estas zonas de acuerdo con su uso, y además las condiciones derivadas de la caracterización y los requisitos constructivos y dotacionales establecidos en los anexos I, II, III y IV del RSCIEI siempre que estas condiciones sean más exigentes que las derivadas de la aplicación de este Documento Básico.\n8 Cuando un cambio de uso afecte únicamente a parte de un edificio o de un establecimiento , este DB se debe aplicar a dicha parte, así como a los medios de evacuación que la sirvan y que conduzcan hasta el espacio exterior seguro, estén o no situados en ella. Como excepción a lo anterior, cuando en edificios de uso Residencial Vivienda existentes se trate de transformar en dicho uso zonas destina-\n5\ndas a cualquier otro, no es preciso aplicar este DB a los elementos comunes de evacuación del edificio.\n9 En las obras de reforma en las que se mantenga el uso, este DB debe aplicarse a los elementos del edificio modificados por la reforma , siempre que ello suponga una mayor adecuación a las condiciones de seguridad establecidas en este DB.\n10 Si la reforma altera la ocupación o su distribución con respecto a los elementos de evacuación, la aplicación de este DB debe afectar también a éstos. Si la reforma afecta a elementos constructivos que deban servir de soporte a las instalaciones de protección contra incendios, o a zonas por las que discurren sus componentes, dichas instalaciones deben adecuarse a lo establecido en este DB.\n11 En todo caso, las obras de reforma no podrán menoscabar las condiciones de seguridad preexistentes, cuando éstas sean menos estrictas que las contempladas en este DB.\nIV Condiciones particulares para el cumplimiento del DB-SI\n1 La aplicación de los procedimientos de este DB se llevará a cabo de acuerdo con las condiciones particulares que en el mismo se establecen y con las condiciones generales para el cumplimiento del CTE, las condiciones del proyecto, las condiciones en la ejecución de las obras y las condiciones del edificio que figuran en los artículos 5, 6, 7 y 8 respectivamente de la parte I del CTE.\nV Condiciones de comportamiento ante el fuego de los productos de construcción y de los elementos constructivos\n1 Este DB establece las condiciones de reacción al fuego y de resistencia al fuego de los elementos constructivos conforme a las nuevas clasificaciones europeas establecidas mediante el Real Decreto842/2013 de 31 de octubre y a las normas de ensayo y clasificación que allí se indican.\nNo obstante, cuando las normas de ensayo y clasificación del elemento constructivo considerado según su resistencia al fuego no estén aún disponibles en el momento de realizar el ensayo, dicha clasificación se podrá seguir determinando y acreditando conforme a las anteriores normas UNE, hasta que tenga lugar dicha disponibilidad.\n2 El Anejo G refleja, con carácter informativo, el conjunto de normas de clasificación, de ensayo y de producto más directamente relacionadas con la aplicación de este DB.\n3 Los sistemas de cierre automático de las puertas resistentes al fuego deben consistir en un dispositivo conforme a la norma UNE -EN 1154:2003 \"Herrajes para la edificación. Dispositivos de cierre controlado de puertas. Requisitos y métodos de ensayo\". Las puertas de dos hojas deben estar además equipadas con un dispositivo de coordinación de dichas hojas conforme a la norma UNE-EN 1158:2003 \"Herrajes para la edificación. Dispositivos de coordinación de puertas. Requisitos y métodos de ensayo\".\n4 Las puertas previstas para permanecer habitualmente en posición abierta deben disponer de un dispositivo conforme con la norma UNE-EN 1155:2003 \"Herrajes para la edificación. Dispositivos de retención electromagnética para puertas batientes. Requisitos y métodos de ensayo\".\n5 La utilización en las obras de sistemas complejos y no convencionales (por ejemplo, los sistemas de compartimentación de incendios que integran un elemento separador, una motorización, elementos guía, un sistema de detección, un suministro eléctrico, un sistema automático de enfriamiento mediante agua, etc.) debe ampararse, de acuerdo con el artículo 5.2 del CTE, en una certificación de la idoneidad técnica que verifique todas aquellos componentes y características del sistema que sean críticos para que este cumpla la función que le sea exigible. Dichas certificaciones podrán inscribirse en el Registro General del CTE para su general conocimiento, conforme a lo establecido en su artículo 4, punto 4.\n6",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Pueden utilizarse otras soluciones diferentes a las contenidas en este DB, en cuyo caso deberá seguirse el procedimiento establecido en el artículo 5 del CTE y deberá documentarse en el proyecto el cumplimiento de las exigencias básicas. Cuando la aplicación de este DB en obras en edificios protegidos sea incompatible con su grado de protección, se podrán aplicar aquellas soluciones alternativas que permitan la mayor adecuación posible, desde los puntos de vista técnico y económico, de las condiciones de seguridad en caso de incendio. En la documentación final de la obra deberá quedar constancia de aquellas limitaciones al uso del edificio que puedan ser necesarias como consecuencia del grado final de adecuación alcanzado y que deban ser tenidas en cuenta por los titulares de las actividades.\nCuando se cita una disposición reglamentaria en este DB debe entenderse que se hace referencia a la versión vigente en el momento en el que se aplica el mismo. Cuando se cita una norma UNE, UNE-EN o UNE -EN ISO debe entenderse que se hace referencia a la versión que se indica, aun cuando exista una versión posterior, salvo en el caso de normas armonizadas UNE-EN que sean transposición de normas EN cuyas referencias hayan sido publicadas en el Diario Oficial de la Unión Europea, en el marco de la aplicación del Reglamento (UE) nº 305/2011 del Parlamento Europeo y del Consejo, de 9 de marzo de 2011, por el que se establecen condiciones armonizadas para la comercialización de productos de construcción, y se deroga la Directiva 89/106/CEE del Consejo, en cuyo caso la cita se deberá relacionar con la última Comunicación de la Comisión que incluya dicha referencia. En el caso de normas de métodos de ensayo referenciadas en las normas armonizadas, debe aplicarse la versión incluida en las normas armonizadas UNE -EN citadas anteriormente.\n(1) En particular, debe tenerse en cuenta que en este Código Técnico las exigencias relacionadas con la seguridad de las personas al desplazarse por el edificio (tanto en circunstancias normales como en situaciones de emergencia) se vinculan al requisito básico \"Seguridad de utilización\". Por ello, las soluciones aplicables a los elementos de circulación (pasillos, escaleras, rampas, etc.) así como a la iluminación normal y al alumbrado de emergencia figuran en el DB SU.\n4\nLas normas recogidas en este DB podrán ser sustituidas por otras de las utilizadas en cualquiera de los otros Estados miembros de la Unión Europea, o que sean parte del Acuerdo sobre el Espacio Económico Europeo, y en aquellos estados que tengan un acuerdo de asociación aduanera con la Unión Europea, siempre que se demuestre que poseen especificaciones técnicas equivalentes.\nEn edificios que deban tener un plan de emergencia conforme a la reglamentación vigente, éste preverá procedimientos para la evacuación de las personas con discapacidad en situaciones de emergencia.\nA efectos de este DB deben tenerse en cuenta los siguientes criterios de aplicación:\n1 En aquellas zonas destinadas a albergar personas bajo régimen de privación de libertad o con limitaciones psíquicas no se deben aplicar las condiciones que sean incompatibles con dichas circunstancias. En su lugar, se deben aplicar otras condiciones alternativas, justificando su validez técnica y siempre que se cumplan las exigencias de este requisito básico.\n2 Los edificios, establecimientos o zonas cuyo uso previsto no se encuentre entre los definidos en el Anejo SI A de este DB deberán cumplir, salvo indicación en otro sentido, las condiciones particulares del uso al que mejor puedan asimilarse .\n3 A los edificios, establecimientos o zonas de los mismos cuyos ocupantes precisen, en su mayoría, ayuda para evacuar el edificio (residencias geriátricas o de personas discapacitadas, centros de educación especial, etc.) se les debe aplicar las condiciones específicas del uso Hospitalario .\n4 A los edificios, establecimientos o zonas de uso sanitario o asistencial de carácter ambulatorio se les debe aplicar las condiciones particulares del uso Administrativo.\n5 En los edificios, establecimientos o zonas de uso Almacén el cumplimiento de las exigencias básicas de seguridad en caso de incendio se realizará aplicando la tabla 1.1. \"Condiciones de compartimentación en sectores de incendio\" de la Sección SI 1 de este Documento Básico y la caracterización y los requisitos constructivos y dotacionales establecidos en los anexos I, II, III y IV del Reglamento de Seguridad en caso de incendio en los establecimientos industriales (RSCIEI).\nNo obstante, la ocupación de estos edificios, establecimientos y zonas se calculará de acuerdo con la densidad de ocupación asignada por la tabla 2.1 \"Densidades de ocupación\", de la Sección SI 3 de este Documento Básico al uso archivos, almacenes.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "General criteria for the application of the Basic Document (DB), including alternative solutions, references to regulations and standards, and specific application rules for different building usages and occupants.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "CTE",
+          "Reglamento (UE) nº 305/2011",
+          "Directiva 89/106/CEE",
+          "RSCIEI"
+        ],
+        "referenced_documents_sections": [
+          "CTE.ARTICLE.5",
+          "DB.SI.A",
+          "DB.SI.1.TABLE.1.1",
+          "DB.SI.3.TABLE.2.1",
+          "RSCIEI.ANNEX.I",
+          "RSCIEI.ANNEX.II",
+          "RSCIEI.ANNEX.III",
+          "RSCIEI.ANNEX.IV"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 141,
+        "end_pos": 4934
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 34,
+        "end_index": 1006
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pueden utilizarse otras soluciones diferentes a las contenidas en este DB, en cuyo caso deberá seguirse el procedimiento establecido en el artículo 5 del CTE y deberá documentarse en el proyecto el cumplimiento de las exigencias básicas.",
+      "attributes": {
+        "id": "1e7a57a0-2216-4357-9304-419163234479",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Alternative solutions to those contained in this DB may be used, in which case the procedure established in Article 5 of the CTE must be followed and compliance with the basic requirements must be documented in the project.",
+        "applies_if": "SOLUTION.TYPE == 'ALTERNATIVE'",
+        "satisfied_if": "PROCEDURE.CTE.ARTICLE.5.FOLLOWED == TRUE AND PROJECT.DOCUMENTATION.BASIC_REQUIREMENTS.COMPLIANCE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM",
+            "AMPLIACION_ESTRUCTURA",
+            "LEGALISATION"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.7,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SOLUTION.ALTERNATIVE",
+          "CTE.ARTICLE.5",
+          "PROJECT.DOCUMENTATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1,
+          "span_char_end": 229,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 141,
+        "end_pos": 378
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 34,
+        "end_index": 79
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando la aplicación de este DB en obras en edificios protegidos sea incompatible con su grado de protección, se podrán aplicar aquellas soluciones alternativas que permitan la mayor adecuación posible, desde los puntos de vista técnico y económico, de las condiciones de seguridad en caso de incendio. En la documentación final de la obra deberá quedar constancia de aquellas limitaciones al uso del edificio que puedan ser necesarias como consecuencia del grado final de adecuación alcanzado y que deban ser tenidas en cuenta por los titulares de las actividades.",
+      "attributes": {
+        "id": "11107521-4192-411a-8280-532130726197",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the application of this DB in works on protected buildings is incompatible with their degree of protection, alternative solutions that allow the greatest possible adaptation, from a technical and economic point of view, of fire safety conditions may be applied. The final documentation of the work must record any limitations on the use of the building that may be necessary as a consequence of the final degree of adaptation achieved and that must be taken into account by the owners of the activities.",
+        "applies_if": "BUILDING.PROTECTED == TRUE AND DB.APPLICATION.INCOMPATIBLE_WITH_PROTECTION == TRUE",
+        "satisfied_if": "SOLUTION.ALTERNATIVE.APPLIED == TRUE AND SOLUTION.ALTERNATIVE.TECHNICAL_ECONOMIC_SUITABILITY == TRUE AND FIRE_SAFETY.CONDITIONS.ADAPTED == TRUE AND FINAL_WORK.DOCUMENTATION.LIMITATIONS_RECORDED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "BUILDING.PROTECTED",
+          "DB.APPLICATION",
+          "SOLUTION.ALTERNATIVE",
+          "FIRE_SAFETY",
+          "FINAL_WORK.DOCUMENTATION",
+          "BUILDING.USE.LIMITATIONS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION",
+          "OPERATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 230,
+          "span_char_end": 699,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 379,
+        "end_pos": 944
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 79,
+        "end_index": 190
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando se cita una disposición reglamentaria en este DB debe entenderse que se hace referencia a la versión vigente en el momento en el que se aplica el mismo.",
+      "attributes": {
+        "id": "21323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When a regulatory provision is cited in this DB, it must be understood that reference is made to the version in force at the time it is applied.",
+        "applies_if": "REGULATORY_PROVISION.CITED == TRUE",
+        "satisfied_if": "REGULATORY_PROVISION.VERSION == 'IN_FORCE_AT_APPLICATION_TIME'",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM",
+            "AMPLIACION_ESTRUCTURA",
+            "LEGALISATION"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "REGULATORY_PROVISION",
+          "VERSION.CONTROL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 700,
+          "span_char_end": 851,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 945,
+        "end_pos": 1104
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 190,
+        "end_index": 224
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando se cita una norma UNE, UNE-EN o UNE -EN ISO debe entenderse que se hace referencia a la versión que se indica, aun cuando exista una versión posterior, salvo en el caso de normas armonizadas UNE-EN que sean transposición de normas EN cuyas referencias hayan sido publicadas en el Diario Oficial de la Unión Europea, en el marco de la aplicación del Reglamento (UE) nº 305/2011 del Parlamento Europeo y del Consejo, de 9 de marzo de 2011, por el que se establecen condiciones armonizadas para la comercialización de productos de construcción, y se deroga la Directiva 89/106/CEE del Consejo, en cuyo caso la cita se deberá relacionar con la última Comunicación de la Comisión que incluya dicha referencia. En el caso de normas de métodos de ensayo referenciadas en las normas armonizadas, debe aplicarse la versión incluida en las normas armonizadas UNE -EN citadas anteriormente.",
+      "attributes": {
+        "id": "13123315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When a UNE, UNE-EN or UNE-EN ISO standard is cited, it must be understood that reference is made to the version indicated, even if a later version exists, except in the case of harmonized UNE-EN standards that are a transposition of EN standards whose references have been published in the Official Journal of the European Union, within the framework of the application of Regulation (EU) No 305/2011, in which case the citation must be related to the latest Commission Communication that includes said reference. In the case of test method standards referenced in harmonized standards, the version included in the aforementioned harmonized UNE-EN standards must be applied.",
+        "applies_if": "STANDARD.CITED.TYPE IN ['UNE', 'UNE-EN', 'UNE-EN ISO']",
+        "satisfied_if": "STANDARD.VERSION == 'INDICATED_VERSION' OR (STANDARD.TYPE == 'HARMONIZED_UNE-EN' AND STANDARD.VERSION == 'LATEST_COMMISSION_COMMUNICATION_VERSION') OR (STANDARD.TYPE == 'TEST_METHOD' AND STANDARD.VERSION == 'INCLUDED_IN_HARMONIZED_UNE-EN')",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM",
+            "AMPLIACION_ESTRUCTURA",
+            "LEGALISATION"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STANDARD.REFERENCE",
+          "VERSION.CONTROL",
+          "REGULATION.EU.305_2011",
+          "DIRECTIVE.89_106_CEE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 852,
+          "span_char_end": 1780,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1105,
+        "end_pos": 1991
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 224,
+        "end_index": 415
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las normas recogidas en este DB podrán ser sustituidas por otras de las utilizadas en cualquiera de los otros Estados miembros de la Unión Europea, o que sean parte del Acuerdo sobre el Espacio Económico Europeo, y en aquellos estados que tengan un acuerdo de asociación aduanera con la Unión Europea, siempre que se demuestre que poseen especificaciones técnicas equivalentes.",
+      "attributes": {
+        "id": "31323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The standards included in this DB may be replaced by others used in any other Member State of the European Union, or that are part of the Agreement on the European Economic Area, and in those states that have a customs association agreement with the European Union, provided that it is demonstrated that they possess equivalent technical specifications.",
+        "applies_if": "STANDARD.REPLACEMENT.PROPOSED == TRUE",
+        "satisfied_if": "STANDARD.REPLACEMENT.ORIGIN IN ['EU_MEMBER_STATE', 'EEA_MEMBER_STATE', 'CUSTOMS_ASSOCIATION_STATE'] AND STANDARD.REPLACEMENT.TECHNICAL_SPECIFICATIONS.EQUIVALENT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM",
+            "AMPLIACION_ESTRUCTURA",
+            "LEGALISATION"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STANDARD.REPLACEMENT",
+          "EU.LAW",
+          "EEA.LAW",
+          "CUSTOMS.ASSOCIATION.AGREEMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1968,
+          "span_char_end": 2346,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2470,
+        "end_pos": 2847
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 516,
+        "end_index": 592
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En edificios que deban tener un plan de emergencia conforme a la reglamentación vigente, éste preverá procedimientos para la evacuación de las personas con discapacidad en situaciones de emergencia.",
+      "attributes": {
+        "id": "41323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 0,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In buildings that must have an emergency plan in accordance with current regulations, this plan must include procedures for the evacuation of people with disabilities in emergency situations.",
+        "applies_if": "BUILDING.EMERGENCY_PLAN.REQUIRED == TRUE",
+        "satisfied_if": "EMERGENCY_PLAN.INCLUDES.DISABLED_PERSONS_EVACUATION_PROCEDURES == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "EMERGENCY_PLAN",
+          "DISABLED_PERSONS",
+          "EVACUATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "OPERATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2347,
+          "span_char_end": 2529,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2848,
+        "end_pos": 3046
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 592,
+        "end_index": 629
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En aquellas zonas destinadas a albergar personas bajo régimen de privación de libertad o con limitaciones psíquicas no se deben aplicar las condiciones que sean incompatibles con dichas circunstancias. En su lugar, se deben aplicar otras condiciones alternativas, justificando su validez técnica y siempre que se cumplan las exigencias de este requisito básico.",
+      "attributes": {
+        "id": "51323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Conditions incompatible with the circumstances of persons deprived of liberty or with mental limitations must not be applied in areas intended to house them. Instead, alternative conditions must be applied, justifying their technical validity and always complying with the basic requirements.",
+        "applies_if": "ZONE.USAGE == 'DETENTION' OR ZONE.OCCUPANTS.MENTAL_LIMITATIONS == TRUE",
+        "satisfied_if": "CONDITIONS.INCOMPATIBLE_WITH_CIRCUMSTANCES == FALSE AND ALTERNATIVE_CONDITIONS.APPLIED == TRUE AND ALTERNATIVE_CONDITIONS.TECHNICAL_VALIDITY_JUSTIFIED == TRUE AND BASIC_REQUIREMENTS.COMPLIED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "ZONE.USAGE.DETENTION",
+          "OCCUPANTS.MENTAL_LIMITATIONS",
+          "ALTERNATIVE_CONDITIONS",
+          "BASIC_REQUIREMENTS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2603,
+          "span_char_end": 2989,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3134,
+        "end_pos": 3495
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 647,
+        "end_index": 714
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los edificios, establecimientos o zonas cuyo uso previsto no se encuentre entre los definidos en el Anejo SI A de este DB deberán cumplir, salvo indicación en otro sentido, las condiciones particulares del uso al que mejor puedan asimilarse .",
+      "attributes": {
+        "id": "61323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Buildings, establishments or areas whose intended use is not among those defined in Annex SI A of this DB must comply, unless otherwise indicated, with the particular conditions of the use to which they can best be assimilated.",
+        "applies_if": "BUILDING.USAGE.NOT_DEFINED_IN_DB_SI_A == TRUE",
+        "satisfied_if": "BUILDING.USAGE.COMPLIES_WITH_ASSIMILATED_USAGE_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE",
+          "DB.SI.A",
+          "USAGE.ASSIMILATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2990,
+          "span_char_end": 3266,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3498,
+        "end_pos": 3740
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 715,
+        "end_index": 762
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A los edificios, establecimientos o zonas de los mismos cuyos ocupantes precisen, en su mayoría, ayuda para evacuar el edificio (residencias geriátricas o de personas discapacitadas, centros de educación especial, etc.) se les debe aplicar las condiciones específicas del uso Hospitalario .",
+      "attributes": {
+        "id": "71323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Buildings, establishments or areas whose occupants mostly require assistance to evacuate the building (geriatric residences or residences for people with disabilities, special education centers, etc.) must apply the specific conditions of Hospital use.",
+        "applies_if": "BUILDING.OCCUPANTS.MAJORITY_NEED_EVACUATION_ASSISTANCE == TRUE",
+        "satisfied_if": "BUILDING.USAGE.APPLIES_HOSPITAL_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.EDUCATION",
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "OCCUPANTS.EVACUATION_ASSISTANCE",
+          "BUILDING.USAGE.HOSPITAL",
+          "GERIATRIC_RESIDENCE",
+          "DISABLED_PERSONS_RESIDENCE",
+          "SPECIAL_EDUCATION_CENTER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3267,
+          "span_char_end": 3624,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3743,
+        "end_pos": 4033
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 763,
+        "end_index": 820
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A los edificios, establecimientos o zonas de uso sanitario o asistencial de carácter ambulatorio se les debe aplicar las condiciones particulares del uso Administrativo.",
+      "attributes": {
+        "id": "81323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Buildings, establishments or areas for outpatient health or care use must apply the particular conditions of Administrative use.",
+        "applies_if": "BUILDING.USAGE IN ['HEALTHCARE.OUTPATIENT', 'ASSISTANCE.OUTPATIENT']",
+        "satisfied_if": "BUILDING.USAGE.APPLIES_ADMINISTRATIVE_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.HEALTHCARE.OUTPATIENT",
+          "BUILDING.USAGE.ASSISTANCE.OUTPATIENT",
+          "BUILDING.USAGE.ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3625,
+          "span_char_end": 3817,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4036,
+        "end_pos": 4205
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 821,
+        "end_index": 849
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los edificios, establecimientos o zonas de uso Almacén el cumplimiento de las exigencias básicas de seguridad en caso de incendio se realizará aplicando la tabla 1.1. \"Condiciones de compartimentación en sectores de incendio\" de la Sección SI 1 de este Documento Básico y la caracterización y los requisitos constructivos y dotacionales establecidos en los anexos I, II, III y IV del Reglamento de Seguridad en caso de incendio en los establecimientos industriales (RSCIEI).",
+      "attributes": {
+        "id": "91323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In buildings, establishments or areas for warehouse use, compliance with the basic fire safety requirements will be carried out by applying table 1.1. \"Conditions for compartmentalization in fire sectors\" of Section SI 1 of this Basic Document and the characterization and constructive and endowment requirements established in Annexes I, II, III and IV of the Fire Safety Regulations in industrial establishments (RSCIEI).",
+        "applies_if": "BUILDING.USAGE == 'STORAGE'",
+        "satisfied_if": "DB.SI.1.TABLE.1.1.APPLIED == TRUE AND RSCIEI.ANNEXES.I_II_III_IV.APPLIED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "STORAGE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.STORAGE",
+          "FIRE_SAFETY",
+          "COMPARTMENTALIZATION",
+          "DB.SI.1.TABLE.1.1",
+          "RSCIEI.ANNEXES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3818,
+          "span_char_end": 4434,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4208,
+        "end_pos": 4685
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 850,
+        "end_index": 947
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No obstante, la ocupación de estos edificios, establecimientos y zonas se calculará de acuerdo con la densidad de ocupación asignada por la tabla 2.1 \"Densidades de ocupación\", de la Sección SI 3 de este Documento Básico al uso archivos, almacenes.",
+      "attributes": {
+        "id": "101323315-181f-4592-824a-71190209592f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "However, the occupancy of these buildings, establishments and areas will be calculated according to the occupancy density assigned by table 2.1 \"Occupancy Densities\", of Section SI 3 of this Basic Document for archive and warehouse use.",
+        "applies_if": "BUILDING.USAGE IN ['STORAGE', 'ARCHIVE']",
+        "satisfied_if": "OCCUPANCY.CALCULATED_ACCORDING_TO_DB.SI.3.TABLE.2.1 == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "STORAGE"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.STORAGE",
+          "BUILDING.USAGE.ARCHIVE",
+          "OCCUPANCY.CALCULATION",
+          "DB.SI.3.TABLE.2.1"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 4435,
+          "span_char_end": 4725,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4686,
+        "end_pos": 4934
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 947,
+        "end_index": 1006
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Reglamento (UE) nº 305/2011 del Parlamento Europeo y del Consejo, de 9 de marzo de 2011, por el que se establecen condiciones armonizadas para la comercialización de productos de construcción, y se deroga la Directiva 89/106/CEE del Consejo",
+      "attributes": {
+        "id": "reglamento_ue_305_2011",
+        "type": "REGULATION",
+        "jurisdiction": "EU",
+        "title": "Reglamento (UE) nº 305/2011 del Parlamento Europeo y del Consejo, de 9 de marzo de 2011, por el que se establecen condiciones armonizadas para la comercialización de productos de construcción, y se deroga la Directiva 89/106/CEE del Consejo",
+        "code": "UE 305/2011",
+        "year": 2011,
+        "date": "2011-03-09",
+        "article": null,
+        "section": null,
+        "annex": null,
+        "part": null,
+        "chapter": null,
+        "sub_chapter": null,
+        "paragraph": null,
+        "sub_paragraph": null,
+        "url": null,
+        "notes": "Establishes harmonized conditions for the marketing of construction products and repeals Directive 89/106/EEC.",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1461,
+        "end_pos": 1701
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 306,
+        "end_index": 354
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Directiva 89/106/CEE del Consejo",
+      "attributes": {
+        "id": "directiva_89_106_cee",
+        "type": "DIRECTIVE",
+        "jurisdiction": "EU",
+        "title": "Directiva 89/106/CEE del Consejo",
+        "code": "89/106/CEE",
+        "year": 1989,
+        "date": null,
+        "article": null,
+        "section": null,
+        "annex": null,
+        "part": null,
+        "chapter": null,
+        "sub_chapter": null,
+        "paragraph": null,
+        "sub_paragraph": null,
+        "url": null,
+        "notes": "Repealed by Regulation (EU) No 305/2011.",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1669,
+        "end_pos": 1701
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 350,
+        "end_index": 354
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Reglamento de Seguridad en caso de incendio en los establecimientos industriales (RSCIEI)",
+      "attributes": {
+        "id": "rsciei",
+        "type": "REGULATION",
+        "jurisdiction": "ES",
+        "title": "Reglamento de Seguridad en caso de incendio en los establecimientos industriales",
+        "code": "RSCIEI",
+        "year": null,
+        "date": null,
+        "article": null,
+        "section": null,
+        "annex": "I, II, III, IV",
+        "part": null,
+        "chapter": null,
+        "sub_chapter": null,
+        "paragraph": null,
+        "sub_paragraph": null,
+        "url": null,
+        "notes": "Referenced for characterization and constructive/endowment requirements in warehouse use buildings.",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4591,
+        "end_pos": 4683
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": {
+        "start_index": 932,
+        "end_index": 946
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "6 Los establecimientos cuya actividad sea el servicio de alquiler de trasteros y almacenes se consideran de uso Almacén a los efectos de aplicación de este Documento Básico. En todo caso, los sectores o áreas de incendio de estos establecimientos se clasificarán como áreas o sectores con nivel de riesgo intrínseco (NRI) medio, subnivel 5, siempre que tengan una altura de almacenamiento igual o inferior a 3 metros y como áreas o sectores con nivel de riesgo intrínseco (NRI) alto en caso de que su altura de almacenamiento sea superior a 3 metros, debiendo en ese caso calcularse su subnivel de acuerdo con lo establecido en RSCIEI.",
+      "attributes": {
+        "id": "6a9b4c8d-1e2f-4a3b-8c7d-0e9f1a2b3c4d",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Establishments whose activity is the rental of storage rooms and warehouses are considered to be of 'Storage' use for the purposes of this Basic Document. In any case, the fire sectors or areas of these establishments will be classified as areas or sectors with an intrinsic risk level (IRL) of medium, sub-level 5, provided that they have a storage height equal to or less than 3 meters, and as areas or sectors with a high intrinsic risk level (IRL) if their storage height is greater than 3 meters, in which case their sub-level must be calculated in accordance with the provisions of RSCIEI.",
+        "applies_if": "ESTABLISHMENT.ACTIVITY == 'RENTAL.STORAGE.ROOMS.AND.WAREHOUSES'",
+        "satisfied_if": "(AREA.STORAGE.HEIGHT <= 3 AND AREA.FIRE.IRL == 'MEDIUM' AND AREA.FIRE.IRL.SUBLEVEL == 5); OR (AREA.STORAGE.HEIGHT > 3 AND AREA.FIRE.IRL == 'HIGH' AND AREA.FIRE.IRL.SUBLEVEL == RSCIEI.CALCULATED_SUBLEVEL)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "STORAGE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ESTABLISHMENT.ACTIVITY.RENTAL.STORAGE.ROOMS.AND.WAREHOUSES",
+          "AREA.STORAGE.HEIGHT",
+          "AREA.FIRE.IRL",
+          "AREA.FIRE.IRL.SUBLEVEL",
+          "RSCIEI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.STORAGE.HEIGHT <= 3 meters",
+          "AREA.STORAGE.HEIGHT > 3 meters"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4935,
+        "end_pos": 5570
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1006,
+        "end_index": 1138
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "7 A los efectos de la aplicación de este Documento Básico las áreas públicas de venta integradas en los establecimientos de uso Comercial donde el público se autoabastece de productos no se consideran zonas de uso Almacén sino zonas de uso Comercial independientemente de su carga de fuego total. Tampoco se consideran zonas de uso Almacén las áreas de archivo de documentos abiertas integradas dentro de las oficinas en los establecimientos de uso Administrativo, independientemente de su carga de fuego total. No obstante, en el supuesto de que estas zonas, tanto las de uso Comercial como las de uso Administrativo, tengan una carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI igual o superior a tres millones de megajulios y una altura de almacenamiento superior a 5,00 metros, el cumplimiento de las exigencias básicas de seguridad en caso de incendio se realizará aplicando las exigencias que este Documento Básico establezca para estas zonas de acuerdo con su uso, y además las condiciones derivadas de la caracterización y los requisitos constructivos y dotacionales establecidos en los anexos I, II, III y IV del RSCIEI siempre que estas condiciones sean más exigentes que las derivadas de la aplicación de este Documento Básico.",
+      "attributes": {
+        "id": "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 7,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Public sales areas integrated into commercial establishments where the public self-supplies products are not considered 'Storage' use areas but 'Commercial' use areas, regardless of their total fire load. Open document archive areas integrated within offices in administrative establishments are also not considered 'Storage' use areas, regardless of their total fire load. However, if these areas, both commercial and administrative, have a total weighted and corrected fire load (QT), calculated according to Annex I of the RSCIEI, equal to or greater than three million megajoules and a storage height greater than 5.00 meters, compliance with the basic fire safety requirements will be carried out by applying the requirements established by this Basic Document for these areas according to their use, and also the conditions derived from the characterization and the constructive and endowment requirements established in Annexes I, II, III and IV of the RSCIEI, provided that these conditions are more demanding than those derived from the application of this Basic Document.",
+        "applies_if": "(\n                        (AREA.USAGE == 'PUBLIC.COMMERCIAL' AND ESTABLISHMENT.USAGE == 'COMMERCIAL' AND AREA.FUNCTION == 'SELF_SERVICE_SALES') OR\n                        (AREA.USAGE == 'OFFICE.ARCHIVE' AND ESTABLISHMENT.USAGE == 'ADMINISTRATIVE')\n                    ) AND (\n                        AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 AND AREA.STORAGE.HEIGHT > 5.00\n                    )",
+        "satisfied_if": "COMPLIANCE.DB_SI.REQUIREMENTS == TRUE AND COMPLIANCE.RSCIEI.ANNEXES_I_II_III_IV.REQUIREMENTS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "AREA.USAGE.PUBLIC.COMMERCIAL",
+          "ESTABLISHMENT.USAGE.COMMERCIAL",
+          "AREA.FUNCTION.SELF_SERVICE_SALES",
+          "AREA.USAGE.OFFICE.ARCHIVE",
+          "ESTABLISHMENT.USAGE.ADMINISTRATIVE",
+          "AREA.FIRE.LOAD_TOTAL_CORRECTED",
+          "AREA.STORAGE.HEIGHT",
+          "RSCIEI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 megajoules",
+          "AREA.STORAGE.HEIGHT > 5.00 meters"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 5571,
+        "end_pos": 6846
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 1138,
+        "end_index": 1390
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "8 Cuando un cambio de uso afecte únicamente a parte de un edificio o de un establecimiento , este DB se debe aplicar a dicha parte, así como a los medios de evacuación que la sirvan y que conduzcan hasta el espacio exterior seguro, estén o no situados en ella. Como excepción a lo anterior, cuando en edificios de uso Residencial Vivienda existentes se trate de transformar en dicho uso zonas destina-das a cualquier otro, no es preciso aplicar este DB a los elementos comunes de evacuación del edificio.",
+      "attributes": {
+        "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 8,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When a change of use affects only part of a building or establishment, this Basic Document must be applied to that part, as well as to the evacuation means that serve it and lead to the safe exterior space, whether or not they are located in it. As an exception to the above, when in existing residential housing buildings, areas intended for any other use are to be transformed into residential use, it is not necessary to apply this Basic Document to the common evacuation elements of the building.",
+        "applies_if": "PROJECT.TYPE == 'USAGE.CHANGE.PARTIAL'",
+        "satisfied_if": "DB_SI.APPLIES_TO.PARTIAL_CHANGE_OF_USE == TRUE AND DB_SI.APPLIES_TO.EVACUATION_MEANS_SERVING_PART == TRUE",
+        "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND PROJECT.TYPE == 'USAGE.CHANGE.PARTIAL' AND PARTIAL_CHANGE_OF_USE.FROM_ANY_TO_RESIDENTIAL == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "USAGE.CHANGE.PARTIAL"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PROJECT.TYPE.USAGE.CHANGE.PARTIAL",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "EVACUATION.MEANS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 6847,
+        "end_pos": 7248
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 1390,
+        "end_index": 1475
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "9 En las obras de reforma en las que se mantenga el uso, este DB debe aplicarse a los elementos del edificio modificados por la reforma , siempre que ello suponga una mayor adecuación a las condiciones de seguridad establecidas en este DB.",
+      "attributes": {
+        "id": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 9,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In renovation works where the use is maintained, this Basic Document must be applied to the elements of the building modified by the renovation, provided that this implies a greater adaptation to the safety conditions established in this Basic Document.",
+        "applies_if": "PROJECT.TYPE == 'REFORM' AND BUILDING.USAGE.IS_MAINTAINED == TRUE",
+        "satisfied_if": "MODIFIED.BUILDING.ELEMENTS.COMPLY_WITH.DB_SI_SAFETY_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PROJECT.TYPE.REFORM",
+          "BUILDING.USAGE.IS_MAINTAINED",
+          "BUILDING.ELEMENTS.MODIFIED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 7355,
+        "end_pos": 7594
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 1498,
+        "end_index": 1545
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "10 Si la reforma altera la ocupación o su distribución con respecto a los elementos de evacuación, la aplicación de este DB debe afectar también a éstos. Si la reforma afecta a elementos constructivos que deban servir de soporte a las instalaciones de protección contra incendios, o a zonas por las que discurren sus componentes, dichas instalaciones deben adecuarse a lo establecido en este DB.",
+      "attributes": {
+        "id": "a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 10,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the renovation alters the occupancy or its distribution with respect to the evacuation elements, the application of this Basic Document must also affect these. If the renovation affects constructive elements that must serve as support for fire protection installations, or areas through which their components run, said installations must comply with the provisions of this Basic Document.",
+        "applies_if": "PROJECT.TYPE == 'REFORM' AND (REFORM.ALTERS.OCCUPANCY == TRUE OR REFORM.ALTERS.OCCUPANCY_DISTRIBUTION_RELATED_TO_EVACUATION == TRUE OR REFORM.AFFECTS.CONSTRUCTIVE_ELEMENTS_SUPPORTING_FIRE_PROTECTION_INSTALLATIONS == TRUE OR REFORM.AFFECTS.AREAS_WHERE_FIRE_PROTECTION_COMPONENTS_RUN == TRUE)",
+        "satisfied_if": "EVACUATION.ELEMENTS.COMPLY_WITH.DB_SI == TRUE AND FIRE.PROTECTION.INSTALLATIONS.COMPLY_WITH.DB_SI == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PROJECT.TYPE.REFORM",
+          "OCCUPANCY",
+          "EVACUATION.ELEMENTS",
+          "FIRE.PROTECTION.INSTALLATIONS",
+          "CONSTRUCTIVE.ELEMENTS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 7595,
+        "end_pos": 7990
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 1545,
+        "end_index": 1628
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11 En todo caso, las obras de reforma no podrán menoscabar las condiciones de seguridad preexistentes, cuando éstas sean menos estrictas que las contempladas en este DB.",
+      "attributes": {
+        "id": "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 11,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "In any case, renovation works may not impair pre-existing safety conditions, when these are less strict than those contemplated in this Basic Document.",
+        "applies_if": "PROJECT.TYPE == 'REFORM'",
+        "satisfied_if": "PRE_EXISTING.SAFETY.CONDITIONS.ARE_NOT_IMPAIRED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PROJECT.TYPE.REFORM",
+          "SAFETY.CONDITIONS.PRE_EXISTING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 7991,
+        "end_pos": 8160
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 1628,
+        "end_index": 1661
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Los sistemas de cierre automático de las puertas resistentes al fuego deben consistir en un dispositivo conforme a la norma UNE -EN 1154:2003 \"Herrajes para la edificación. Dispositivos de cierre controlado de puertas. Requisitos y métodos de ensayo\".",
+      "attributes": {
+        "id": "c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Automatic closing systems for fire-resistant doors must consist of a device conforming to standard UNE-EN 1154:2003 \"Building hardware. Controlled door closing devices. Requirements and test methods\".",
+        "applies_if": "DOOR.TYPE == 'FIRE_RESISTANT' AND DOOR.HAS.AUTOMATIC_CLOSING_SYSTEM == TRUE",
+        "satisfied_if": "DOOR.AUTOMATIC_CLOSING_SYSTEM.COMPLIES_WITH.UNE_EN_1154_2003 == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.FIRE_RESISTANT",
+          "DOOR.AUTOMATIC_CLOSING_SYSTEM",
+          "UNE_EN_1154_2003"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 9511,
+        "end_pos": 9764
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 1927,
+        "end_index": 1979
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "1 La aplicación de los procedimientos de este DB se llevará a cabo de acuerdo con las condiciones particulares que en el mismo se establecen y con las condiciones generales para el cumplimiento del CTE, las condiciones del proyecto, las condiciones en la ejecución de las obras y las condiciones del edificio que figuran en los artículos 5, 6, 7 y 8 respectivamente de la parte I del CTE.",
+      "attributes": {
+        "id": "d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 1,
+        "procedure_statement": "The application of the procedures of this Basic Document will be carried out in accordance with the particular conditions established therein and with the general conditions for compliance with the CTE, the project conditions, the conditions for the execution of the works, and the building conditions set forth in articles 5, 6, 7, and 8 respectively of Part I of the CTE.",
+        "target_reference": [],
+        "tags": [
+          "DB_SI.APPLICATION",
+          "CTE.COMPLIANCE",
+          "PROJECT.CONDITIONS",
+          "WORK.EXECUTION.CONDITIONS",
+          "BUILDING.CONDITIONS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 8220,
+        "end_pos": 8608
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 1671,
+        "end_index": 1752
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "1 Este DB establece las condiciones de reacción al fuego y de resistencia al fuego de los elementos constructivos conforme a las nuevas clasificaciones europeas establecidas mediante el Real Decreto842/2013 de 31 de octubre y a las normas de ensayo y clasificación que allí se indican. No obstante, cuando las normas de ensayo y clasificación del elemento constructivo considerado según su resistencia al fuego no estén aún disponibles en el momento de realizar el ensayo, dicha clasificación se podrá seguir determinando y acreditando conforme a las anteriores normas UNE, hasta que tenga lugar dicha disponibilidad.",
+      "attributes": {
+        "id": "e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 1,
+        "procedure_statement": "This Basic Document establishes the conditions for fire reaction and fire resistance of constructive elements in accordance with the new European classifications established by Royal Decree 842/2013 of October 31 and the testing and classification standards indicated therein. However, when the testing and classification standards for the constructive element considered according to its fire resistance are not yet available at the time of testing, said classification may continue to be determined and accredited in accordance with previous UNE standards, until such availability occurs.",
+        "target_reference": [],
+        "tags": [
+          "FIRE.REACTION",
+          "FIRE.RESISTANCE",
+          "CONSTRUCTIVE.ELEMENTS",
+          "EUROPEAN.CLASSIFICATIONS",
+          "TESTING.STANDARDS",
+          "CLASSIFICATION.STANDARDS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 8721,
+        "end_pos": 9338
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 1771,
+        "end_index": 1887
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto842/2013 de 31 de octubre",
+      "attributes": {
+        "id": "f5a6b7c8-d9e0-f1a2-b3c4-d5e6f7a8b9c0",
+        "title": "Real Decreto842/2013 de 31 de octubre",
+        "type": "REAL_DECRETO",
+        "year": 2013,
+        "date": "2013-10-31",
+        "jurisdiction": "ES",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "sub_part": null,
+        "url": null,
+        "notes": "Establishes new European classifications for fire reaction and resistance of constructive elements.",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 8907,
+        "end_pos": 8944
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 1801,
+        "end_index": 1807
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE -EN 1154:2003 \"Herrajes para la edificación. Dispositivos de cierre controlado de puertas. Requisitos y métodos de ensayo\"",
+      "attributes": {
+        "id": "a6b7c8d9-e0f1-a2b3-c4d5-e6f7a8b9c0d1",
+        "title": "Herrajes para la edificación. Dispositivos de cierre controlado de puertas. Requisitos y métodos de ensayo",
+        "type": "STANDARD",
+        "year": 2003,
+        "date": null,
+        "jurisdiction": "ES",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "sub_part": null,
+        "code": "UNE-EN 1154:2003",
+        "url": null,
+        "notes": "Standard for automatic closing systems for fire-resistant doors.",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 9637,
+        "end_pos": 9762
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 1950,
+        "end_index": 1978
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las puertas de dos hojas deben estar además equipadas con un dispositivo de coordinación de dichas hojas conforme a la norma UNE-EN 1158:2003 \"Herrajes para la edificación. Dispositivos de coordinación de puertas. Requisitos y métodos de ensayo\".",
+      "attributes": {
+        "id": "e3b6103e-1011-477c-a49e-b9b550228723",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Two-leaf doors must also be equipped with a leaf coordination device in accordance with standard UNE-EN 1158:2003 \"Building hardware. Door coordinating devices. Requirements and test methods\".",
+        "applies_if": "DOOR.TYPE == 'TWO_LEAF'",
+        "satisfied_if": "DOOR.HAS_COORDINATION_DEVICE == TRUE AND DOOR.COORDINATION_DEVICE.COMPLIES_WITH_STANDARD == 'UNE-EN 1158:2003'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.TWO_LEAF",
+          "DOOR.COORDINATION_DEVICE",
+          "STANDARD.UNE-EN_1158_2003"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 9765,
+        "end_pos": 10011
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1979,
+        "end_index": 2034
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las puertas previstas para permanecer habitualmente en posición abierta deben disponer de un dispositivo conforme con la norma UNE-EN 1155:2003 \"Herrajes para la edificación. Dispositivos de retención electromagnética para puertas batientes. Requisitos y métodos de ensayo\".",
+      "attributes": {
+        "id": "21e4277a-2454-4f24-918d-47631336423c",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Doors intended to remain habitually in the open position must have a device in accordance with standard UNE-EN 1155:2003 \"Building hardware. Electromagnetically held-open devices for swing doors. Requirements and test methods\".",
+        "applies_if": "DOOR.INTENDED_TO_REMAIN_OPEN == TRUE",
+        "satisfied_if": "DOOR.HAS_ELECTROMAGNETIC_HOLD_OPEN_DEVICE == TRUE AND DOOR.ELECTROMAGNETIC_HOLD_OPEN_DEVICE.COMPLIES_WITH_STANDARD == 'UNE-EN 1155:2003'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "DOOR.INTENDED_TO_REMAIN_OPEN",
+          "DOOR.ELECTROMAGNETIC_HOLD_OPEN_DEVICE",
+          "STANDARD.UNE-EN_1155_2003"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 10014,
+        "end_pos": 10288
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 2035,
+        "end_index": 2089
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La utilización en las obras de sistemas complejos y no convencionales (por ejemplo, los sistemas de compartimentación de incendios que integran un elemento separador, una motorización, elementos guía, un sistema de detección, un suministro eléctrico, un sistema automático de enfriamiento mediante agua, etc.) debe ampararse, de acuerdo con el artículo 5.2 del CTE, en una certificación de la idoneidad técnica que verifique todas aquellos componentes y características del sistema que sean críticos para que este cumpla la función que le sea exigible. Dichas certificaciones podrán inscribirse en el Registro General del CTE para su general conocimiento, conforme a lo establecido en su artículo 4, punto 4.",
+      "attributes": {
+        "id": "7009411d-6169-4286-9214-5f82218f272a",
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The use of complex and unconventional systems in construction works must be supported by a technical suitability certification that verifies all critical components and characteristics of the system to ensure it fulfills its required function.",
+        "applies_if": "SYSTEM.TYPE IN ['COMPLEX', 'UNCONVENTIONAL'] AND SYSTEM.FUNCTION == 'FIRE_COMPARTMENTATION'",
+        "satisfied_if": "SYSTEM.HAS_TECHNICAL_SUITABILITY_CERTIFICATION == TRUE AND SYSTEM.CERTIFICATION.VERIFIES_CRITICAL_COMPONENTS == TRUE AND SYSTEM.CERTIFICATION.VERIFIES_CRITICAL_CHARACTERISTICS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SYSTEM.TYPE.COMPLEX",
+          "SYSTEM.TYPE.UNCONVENTIONAL",
+          "SYSTEM.FUNCTION.FIRE_COMPARTMENTATION",
+          "SYSTEM.TECHNICAL_SUITABILITY_CERTIFICATION",
+          "CTE.ARTICLE.5.2",
+          "CTE.ARTICLE.4.4"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Certifications may be registered in the General Register of the CTE for general knowledge, as established in its article 4, point 4.",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 10291,
+        "end_pos": 10999
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 2090,
+        "end_index": 2243
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1158:2003 \"Herrajes para la edificación. Dispositivos de coordinación de puertas. Requisitos y métodos de ensayo\"",
+      "attributes": {
+        "id": "1158-2003",
+        "title": "Herrajes para la edificación. Dispositivos de coordinación de puertas. Requisitos y métodos de ensayo",
+        "year": "2003",
+        "code": "UNE-EN 1158",
+        "type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "url": null,
+        "notes": null,
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 9890,
+        "end_pos": 10159
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 2004,
+        "end_index": 2062
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1155:2003 \"Herrajes para la edificación. Dispositivos de retención electromagnética para puertas batientes. Requisitos y métodos de ensayo\"",
+      "attributes": {
+        "id": "1155-2003",
+        "title": "Herrajes para la edificación. Dispositivos de retención electromagnética para puertas batientes. Requisitos y métodos de ensayo",
+        "year": "2003",
+        "code": "UNE-EN 1155",
+        "type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "url": null,
+        "notes": null,
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 10135,
+        "end_pos": 10286
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 2054,
+        "end_index": 2088
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "CTE",
+      "attributes": {
+        "id": "CTE",
+        "title": "Código Técnico de la Edificación",
+        "year": null,
+        "code": "CTE",
+        "type": "REGULATION",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": "5.2",
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "url": null,
+        "notes": null,
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 10652,
+        "end_pos": 10655
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 2170,
+        "end_index": 2171
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "CTE",
+      "attributes": {
+        "id": "CTE_ART_4_4",
+        "title": "Código Técnico de la Edificación",
+        "year": null,
+        "code": "CTE",
+        "type": "REGULATION",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": "4",
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": "4",
+        "url": null,
+        "notes": null,
+        "parent_section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 10652,
+        "end_pos": 10655
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 2170,
+        "end_index": 2171
+      },
+      "section_metadata": {
+        "section_id": "iii_criterios_generales_de_aplicación",
+        "section_name": "III Criterios generales de aplicación",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "toc_path": [
+          "Introducción",
+          "III Criterios generales de aplicación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 34,
+  "char_count": 11001
+}

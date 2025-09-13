@@ -1,0 +1,486 @@
+{
+  "chunk_id": 44,
+  "section_metadata": {
+    "section_id": "ascensor_de_emergencia",
+    "section_name": "Ascensor de emergencia",
+    "section_level": 2,
+    "start_page": 42,
+    "end_page": 42,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Ascensor de emergencia"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Ascensor de emergencia\n**Path:** Anejo SI A Terminología → Ascensor de emergencia\n**Level:** 2\n**Pages:** 42-42\n\nSus características serán las siguientes:\n-En cada planta, tendrá acceso desde el recinto de una escalera protegida o desde el vestíbulo de independencia de una escalera especialmente protegida a través de una puerta E30. Si el acceso se produce desde el recinto de una escalera especialmente protegida, no será necesario disponer dicha puerta E30.\n-Tendrá como mínimo una capacidad de carga de 630 kg, unas dimensiones de cabina de 1,10 m x 1,40 m, una anchura de paso de 1,00 m y una velocidad tal que permita realizar todo su recorrido en menos de 60 s.\n-En uso Hospitalario , las dimensiones de la planta de la cabina serán 1,20 m x 2,10 m, como mínimo.\n-Será accesible según lo establecido en el DB SUA y estará próximo, en cada planta, a una zona de refugio , cuando ésta exista .\n-En la planta de acceso al edificio se dispondrá un pulsador junto a los mandos del ascensor, bajo una tapa de vidrio, con la inscripción \"USO EXCLUSIVO BOMBEROS\". La activación del pulsador debe provocar el envío del ascensor a la planta de acceso y permitir su maniobra exclusivamente desde la cabina.\n-En caso de fallo del abastecimiento normal, la alimentación eléctrica al ascensor pasará a realizarse de forma automática desde una fuente propia de energía que disponga de una autonomía de 1 h como mínimo.\n-El número necesario de ascensores de emergencia se determinará en función de la previsión de ocupantes en la totalidad del edificio, a razón de un ascensor de emergencia accesible por cada mil ocupantes o fracción .\n42",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En cada planta, tendrá acceso desde el recinto de una escalera protegida o desde el vestíbulo de independencia de una escalera especialmente protegida a través de una puerta E30. Si el acceso se produce desde el recinto de una escalera especialmente protegida, no será necesario disponer dicha puerta E30.",
+      "attributes": {
+        "id": "e0231934-2e67-422f-897b-99933118949f",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must have access from a protected staircase enclosure or from the independence vestibule of a specially protected staircase through an E30 door.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "(ELEVATOR.ACCESS.LOCATION == 'PROTECTED_STAIRCASE_ENCLOSURE' AND DOOR.TYPE == 'E30') OR (ELEVATOR.ACCESS.LOCATION == 'SPECIALLY_PROTECTED_STAIRCASE_INDEPENDENCE_VESTIBULE' AND DOOR.TYPE == 'E30') OR (ELEVATOR.ACCESS.LOCATION == 'SPECIALLY_PROTECTED_STAIRCASE_ENCLOSURE' AND DOOR.TYPE == 'NONE')",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "ELEVATOR.ACCESS.LOCATION",
+          "DOOR.TYPE.E30"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 102,
+          "span_char_end": 349,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 167,
+        "end_pos": 472
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 40,
+        "end_index": 101
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tendrá como mínimo una capacidad de carga de 630 kg, unas dimensiones de cabina de 1,10 m x 1,40 m, una anchura de paso de 1,00 m y una velocidad tal que permita realizar todo su recorrido en menos de 60 s.",
+      "attributes": {
+        "id": "291e0a2b-232f-4122-8356-914972230113",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must have a minimum load capacity of 630 kg, cabin dimensions of 1.10 m x 1.40 m, a passage width of 1.00 m, and a speed that allows it to complete its entire travel in less than 60 seconds.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "ELEVATOR.LOAD_CAPACITY >= 630 AND ELEVATOR.CABIN.DIMENSION.LENGTH >= 1.40 AND ELEVATOR.CABIN.DIMENSION.WIDTH >= 1.10 AND ELEVATOR.PASSAGE.WIDTH >= 1.00 AND ELEVATOR.TRAVEL_TIME <= 60",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "ELEVATOR.LOAD_CAPACITY",
+          "ELEVATOR.CABIN.DIMENSION.LENGTH",
+          "ELEVATOR.CABIN.DIMENSION.WIDTH",
+          "ELEVATOR.PASSAGE.WIDTH",
+          "ELEVATOR.TRAVEL_TIME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 351,
+          "span_char_end": 579,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.LOAD_CAPACITY >= 630 kg",
+          "ELEVATOR.CABIN.DIMENSION.LENGTH >= 1.40 m",
+          "ELEVATOR.CABIN.DIMENSION.WIDTH >= 1.10 m",
+          "ELEVATOR.PASSAGE.WIDTH >= 1.00 m",
+          "ELEVATOR.TRAVEL_TIME <= 60 s"
+        ],
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 474,
+        "end_pos": 680
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 102,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uso Hospitalario , las dimensiones de la planta de la cabina serán 1,20 m x 2,10 m, como mínimo.",
+      "attributes": {
+        "id": "23d57860-231a-463c-9743-43187211100f",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For hospital use, emergency elevator cabin dimensions must be at least 1.20 m x 2.10 m.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY' AND BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "satisfied_if": "ELEVATOR.CABIN.DIMENSION.LENGTH >= 2.10 AND ELEVATOR.CABIN.DIMENSION.WIDTH >= 1.20",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "ELEVATOR.CABIN.DIMENSION.LENGTH",
+          "ELEVATOR.CABIN.DIMENSION.WIDTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 581,
+          "span_char_end": 688,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.CABIN.DIMENSION.LENGTH >= 2.10 m",
+          "ELEVATOR.CABIN.DIMENSION.WIDTH >= 1.20 m"
+        ],
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 682,
+        "end_pos": 781
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 157,
+        "end_index": 187
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Será accesible según lo establecido en el DB SUA y estará próximo, en cada planta, a una zona de refugio , cuando ésta exista .",
+      "attributes": {
+        "id": "e229341d-0453-434b-8120-79810313333f",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must be accessible as established in DB SUA and be close to a refuge area on each floor, if one exists.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "ELEVATOR.ACCESSIBILITY == 'DB_SUA_COMPLIANT' AND (NOT HAS(REFUGE_AREA) OR ELEVATOR.LOCATION.ADJACENT_TO('REFUGE_AREA'))",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "ELEVATOR.ACCESSIBILITY",
+          "REFUGE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 690,
+          "span_char_end": 839,
+          "visual_refs": []
+        },
+        "referenced_documents": [
+          "DB SUA"
+        ],
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 783,
+        "end_pos": 910
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 188,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En la planta de acceso al edificio se dispondrá un pulsador junto a los mandos del ascensor, bajo una tapa de vidrio, con la inscripción \"USO EXCLUSIVO BOMBEROS\". La activación del pulsador debe provocar el envío del ascensor a la planta de acceso y permitir su maniobra exclusivamente desde la cabina.",
+      "attributes": {
+        "id": "11223344-5566-7788-9900-aabbccddeeff",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "On the building access floor, a button with the inscription \"USO EXCLUSIVO BOMBEROS\" (FIREMEN EXCLUSIVE USE) must be placed next to the elevator controls, under a glass cover. Activating the button must send the elevator to the access floor and allow its operation exclusively from the cabin.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "ELEVATOR.ACCESS_FLOOR.BUTTON.EXISTS == TRUE AND ELEVATOR.ACCESS_FLOOR.BUTTON.LABEL == 'USO EXCLUSIVO BOMBEROS' AND ELEVATOR.ACCESS_FLOOR.BUTTON.COVER == 'GLASS' AND ELEVATOR.ACCESS_FLOOR.BUTTON.ACTIVATION.EFFECT == 'SEND_TO_ACCESS_FLOOR' AND ELEVATOR.OPERATION.LOCATION == 'CABIN_ONLY'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "ELEVATOR.ACCESS_FLOOR.BUTTON",
+          "ELEVATOR.OPERATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 841,
+          "span_char_end": 1160,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 912,
+        "end_pos": 1214
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 223,
+        "end_index": 286
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En caso de fallo del abastecimiento normal, la alimentación eléctrica al ascensor pasará a realizarse de forma automática desde una fuente propia de energía que disponga de una autonomía de 1 h como mínimo.",
+      "attributes": {
+        "id": "00112233-4455-6677-8899-aabbccddeeff",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In case of normal power supply failure, the electrical supply to the emergency elevator must automatically switch to an independent power source with a minimum autonomy of 1 hour.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "ELEVATOR.POWER_SUPPLY.FAILURE_MODE == 'AUTOMATIC_SWITCH_TO_INDEPENDENT_SOURCE' AND ELEVATOR.POWER_SUPPLY.INDEPENDENT_SOURCE.AUTONOMY >= 1",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "ELEVATOR.POWER_SUPPLY.FAILURE_MODE",
+          "ELEVATOR.POWER_SUPPLY.INDEPENDENT_SOURCE.AUTONOMY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1162,
+          "span_char_end": 1391,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.POWER_SUPPLY.INDEPENDENT_SOURCE.AUTONOMY >= 1 h"
+        ],
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1216,
+        "end_pos": 1422
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 287,
+        "end_index": 336
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El número necesario de ascensores de emergencia se determinará en función de la previsión de ocupantes en la totalidad del edificio, a razón de un ascensor de emergencia accesible por cada mil ocupantes o fracción .",
+      "attributes": {
+        "id": "11122233-4445-5566-7778-8899aabbccdd",
+        "parent_section_id": "ascensor_de_emergencia",
+        "paragraph_number": 7,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The required number of emergency elevators must be determined based on the total predicted occupants in the building, at a rate of one accessible emergency elevator per thousand occupants or fraction thereof.",
+        "applies_if": "ELEVATOR.TYPE == 'EMERGENCY'",
+        "satisfied_if": "ELEVATOR.NUMBER >= CEILING(BUILDING.OCCUPANTS / 1000)",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEVATOR.TYPE.EMERGENCY",
+          "BUILDING.OCCUPANTS",
+          "ELEVATOR.NUMBER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1393,
+          "span_char_end": 1607,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.NUMBER >= 1 per 1000 occupants"
+        ],
+        "confidence": 0.95,
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1424,
+        "end_pos": 1639
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 337,
+        "end_index": 385
+      },
+      "section_metadata": {
+        "section_id": "ascensor_de_emergencia",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 7,
+  "char_count": 1642
+}

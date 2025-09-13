@@ -1,0 +1,317 @@
+{
+  "chunk_id": 133,
+  "section_metadata": {
+    "section_id": "e.5.1.3_aislamiento",
+    "section_name": "E.5.1.3 Aislamiento",
+    "section_level": 4,
+    "start_page": 83,
+    "end_page": 83,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.5 Disposiciones constructivas",
+      "E.5.2 Otros elementos",
+      "E.5.1.3 Aislamiento"
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.5.1.3 Aislamiento\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.5 Disposiciones constructivas → E.5.2 Otros elementos → E.5.1.3 Aislamiento\n**Level:** 4\n**Pages:** 83-83\n\n1 Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.\nE.5.2 Otros elementos\n1 Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.\n83\nFigura E.7. Ejemplos de fijaciones para los tableros de protección\na)\nb)\nc)",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.\nE.5.2 Otros elementos\n1 Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.\n83\nFigura E.7. Ejemplos de fijaciones para los tableros de protección\na)\nb)\nc)",
+      "attributes": {
+        "id": "e513_chunk",
+        "meta_summary": "Requirements for fixing insulating layers and boards to timber frames and structural elements to prevent premature failure and ensure fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 213,
+        "end_pos": 1350
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 58,
+        "end_index": 310
+      },
+      "section_metadata": {
+        "section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos",
+          "E.5.1.3 Aislamiento"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.",
+      "attributes": {
+        "id": "e513_norm_1",
+        "parent_section_id": "e.5.1.3_aislamiento",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Insulating material layers or boards considered in the calculation must be fixed to the timber frame to prevent premature failure or detachment.",
+        "applies_if": "MATERIAL.TYPE IN ['INSULATING_LAYER', 'BOARD'] AND MATERIAL.CONSIDERED_IN_CALCULATION == TRUE",
+        "satisfied_if": "MATERIAL.FIXED_TO_TIMBER_FRAME == TRUE AND MATERIAL.PREMATURE_FAILURE_PREVENTED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.INSULATING",
+          "MATERIAL.BOARD",
+          "STRUCTURE.TIMBER_FRAME",
+          "FAILURE.PREMATURE",
+          "DETACHMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 40,
+          "span_char_end": 178,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 215,
+        "end_pos": 396
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 59,
+        "end_index": 94
+      },
+      "section_metadata": {
+        "section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos",
+          "E.5.1.3 Aislamiento"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.",
+      "attributes": {
+        "id": "e513_norm_2",
+        "parent_section_id": "e.5.1.3_aislamiento",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Boards used for structural element protection (beams, supports) must be fixed directly to the element, not to another board. For multi-layer board coverings, each layer must be fixed individually, and joints must be offset by at least 60 mm. The spacing between fasteners must not exceed the lesser of 200 mm or 17 times the board thickness (hp). Fastener length must comply with E.5.1.2, paragraph 2 (Figure E.7 b). Edge distance must not exceed 3 times the board thickness (hp), nor be less than 1.5 times the board thickness or 15 mm, whichever is smaller.",
+        "applies_if": "BOARD.USAGE == 'STRUCTURAL_ELEMENT_PROTECTION' AND STRUCTURAL_ELEMENT.TYPE IN ['BEAM', 'SUPPORT']",
+        "satisfied_if": "BOARD.FIXING.DIRECT_TO_ELEMENT == TRUE AND BOARD.FIXING.NOT_TO_OTHER_BOARD == TRUE AND (BOARD.LAYERS.COUNT > 1 => BOARD.LAYERS.EACH.FIXED_INDIVIDUALLY == TRUE AND BOARD.LAYERS.JOINTS.OFFSET >= 60) AND FASTENER.SPACING <= MIN(200, 17 * BOARD.THICKNESS_HP) AND FASTENER.LENGTH.COMPLIES_WITH_E512_P2 == TRUE AND BOARD.EDGE_DISTANCE <= (3 * BOARD.THICKNESS_HP) AND BOARD.EDGE_DISTANCE >= MIN(1.5 * BOARD.THICKNESS, 15)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BOARD.PROTECTION",
+          "STRUCTURAL_ELEMENT.BEAM",
+          "STRUCTURAL_ELEMENT.SUPPORT",
+          "FASTENER.SPACING",
+          "BOARD.THICKNESS",
+          "BOARD.EDGE_DISTANCE",
+          "BOARD.LAYERS",
+          "JOINT.OFFSET"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 180,
+          "span_char_end": 809,
+          "visual_refs": [
+            "Figura E.7 b)"
+          ]
+        },
+        "extracted_parameters": [
+          "JOINT.OFFSET >= 60 mm",
+          "FASTENER.SPACING <= 200 mm",
+          "FASTENER.SPACING <= 17 * BOARD.THICKNESS_HP",
+          "BOARD.EDGE_DISTANCE <= 3 * BOARD.THICKNESS_HP",
+          "BOARD.EDGE_DISTANCE >= 1.5 * BOARD.THICKNESS",
+          "BOARD.EDGE_DISTANCE >= 15 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Reference to E.5.1.2, paragraph 2 and Figure E.7 b) for fastener length and examples of fixings.",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 421,
+        "end_pos": 1271
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 102,
+        "end_index": 288
+      },
+      "section_metadata": {
+        "section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos",
+          "E.5.1.3 Aislamiento"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "attributes": {
+        "id": "anejo_si_e",
+        "title": "Resistencia al fuego de las estructuras de madera",
+        "doc_code": "Anejo SI E",
+        "year": null,
+        "article": null,
+        "section": "E.5.1.3",
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "page": "83-83",
+        "uri": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 41,
+        "end_pos": 101
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 14,
+        "end_index": 25
+      },
+      "section_metadata": {
+        "section_id": "e.5.1.3_aislamiento",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos",
+          "E.5.1.3 Aislamiento"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1350
+}

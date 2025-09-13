@@ -1,0 +1,73 @@
+{
+  "chunk_id": 5,
+  "section_metadata": {
+    "section_id": "vii_terminología",
+    "section_name": "VII Terminología",
+    "section_level": 2,
+    "start_page": 7,
+    "end_page": 7,
+    "toc_path": [
+      "Introducción",
+      "VII Terminología"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: VII Terminología\n**Path:** Introducción → VII Terminología\n**Level:** 2\n**Pages:** 7-7\n\nA efectos de aplicación de este DB, los términos que figuran en letra cursiva deben utilizarse conforme al significado y a las condiciones que se establecen para cada uno de ellos, bien en el anejo SI A de este DB, cuando se trate de términos relacionados únicamente con el requisito básico \"Seguridad en caso de incendio\", o bien en el Anejo III de la Parte I de este CTE, cuando sean términos de uso común en el conjunto del Código.\n7\nÍndice",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "A efectos de aplicación de este DB, los términos que figuran en letra cursiva deben utilizarse conforme al significado y a las condiciones que se establecen para cada uno de ellos, bien en el anejo SI A de este DB, cuando se trate de términos relacionados únicamente con el requisito básico \"Seguridad en caso de incendio\", o bien en el Anejo III de la Parte I de este CTE, cuando sean términos de uso común en el conjunto del Código.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section defines the terminology used in the document, specifying that italicized terms should be interpreted according to Annex SI A for fire safety terms or Annex III of Part I of the CTE for common terms.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "CTE"
+        ],
+        "referenced_documents_sections": [
+          "CTE.PART_I.ANNEX_III",
+          "DB.SI_A"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "vii_terminología",
+        "section_name": "VII Terminología",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 99,
+        "end_pos": 533
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 28,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "vii_terminología",
+        "section_name": "VII Terminología",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VII Terminología"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 542
+}

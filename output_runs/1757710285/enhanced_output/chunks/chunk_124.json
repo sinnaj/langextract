@@ -1,0 +1,666 @@
+{
+  "chunk_id": 124,
+  "section_metadata": {
+    "section_id": "e.4.2.2_uniones_protegidas",
+    "section_name": "E.4.2.2 Uniones protegidas",
+    "section_level": 4,
+    "start_page": 80,
+    "end_page": 80,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.4 Uniones",
+      "E.4.2 Uniones con piezas laterales de madera",
+      "E.4.2.2 Uniones protegidas"
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.4.2.2 Uniones protegidas\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.4 Uniones → E.4.2 Uniones con piezas laterales de madera → E.4.2.2 Uniones protegidas\n**Level:** 4\n**Pages:** 80-80\n\n1 Cuando la unión se proteja mediante el adosado de tableros de madera o tableros derivados de la madera, debe cumplirse la siguiente condición:\nsiendo:\ntch tiempo en el que inicia la carbonización de acuerdo con E.2.3.2.2;\nt req tiempo requerido para una exposición al fuego normalizado;\ntfi,d tiempo de resistencia al fuego de la unión sin proteger de acuerdo con la tabla E.5, sometida al efecto de cálculo de las acciones en situación de incendio.\n2 En uniones en las que los elementos de fijación están protegidos por tapones o parches encolados, el espesor del parche debe determinarse mediante la expresión E.14, (ver figura E.3).\n3 La protección debe fijarse de tal manera que se evite su fallo prematuro. Cuando la protección se realice mediante tableros derivados de la madera, ésta debe permanecer en su posición hasta que se alcance el tiempo requerido de inicio de la carbonización del elemento protegido (t = tch).\n4 Para la protección de uniones con pernos, la cabeza de los pernos debe protegerse con un elemento de protección de espesor afi según la ecuación E.14 (ver figura E.4).\n5 Cuando la fijación de la protección se realice con clavos o tirafondos deben cumplirse las siguientes condiciones:\nla distancia entre elementos de fijación debe ser de al menos 100 mm a lo largo de los bordes de la pieza y de al menos 300 mm en las líneas interiores (alejadas de los bordes);\nla distancia a los bordes desde los elementos de fijación debe ser al menos igual a la obtenida mediante la ecuación E.14 (ver figura E.3).\n6 La profundidad de penetración en el elemento protegido, de los elementos de fijación de tableros de madera o derivados de la madera, debe ser al menos igual a 6d.\n1 Parches encolados\n2 Protección adicional utilizando tableros\n3 Fijación para la protección adicional con tableros\nFigura E.3. Ejemplos de protecciones adicionales mediante parches encolados y protección mediante tableros derivados de la madera o (la protección de los bordes de las piezas laterales y central no está representada en el dibujo)\n80\nFigura E.4. Ejemplo de protección de la cabeza de un perno.\nE.4.2.3 Reglas complementarias para uniones con placas de acero en el interior\n1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.\nTabla E.6. Anchos de las placas de acero con bordes sin proteger bst\n2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegidas en los casos siguientes, (ver figura E.5):\nEn placas con un espesor no superior a 3 mm, cuando el retranqueo dg sea mayor que 20 mm para una resistencia al fuego R 30, y mayor que 60 mm para una resistencia al fuego R 60.\nEn uniones con filetes encolados o tableros derivados de la madera, cuando el retranqueo dg o el espesor del panel hp, respectivamente, sea mayor que 10 mm para una resistencia al fuego R 30, y mayor que 30 mm para una resistencia al fuego R 60 .\nFigura E.5. Protección de los bordes de las placas de acero (no se muestran las conexiones entre la placa y la madera): a) sin proteger, b) protegidas con retranqueo, c) protegidas con filetes encolados, d) protegidas con tableros.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Cuando la unión se proteja mediante el adosado de tableros de madera o tableros derivados de la madera, debe cumplirse la siguiente condición:\nsiendo:\ntch tiempo en el que inicia la carbonización de acuerdo con E.2.3.2.2;\nt req tiempo requerido para una exposición al fuego normalizado;\ntfi,d tiempo de resistencia al fuego de la unión sin proteger de acuerdo con la tabla E.5, sometida al efecto de cálculo de las acciones en situación de incendio.\n2 En uniones en las que los elementos de fijación están protegidos por tapones o parches encolados, el espesor del parche debe determinarse mediante la expresión E.14, (ver figura E.3).\n3 La protección debe fijarse de tal manera que se evite su fallo prematuro. Cuando la protección se realice mediante tableros derivados de la madera, ésta debe permanecer en su posición hasta que se alcance el tiempo requerido de inicio de la carbonización del elemento protegido (t = tch).\n4 Para la protección de uniones con pernos, la cabeza de los pernos debe protegerse con un elemento de protección de espesor afi según la ecuación E.14 (ver figura E.4).\n5 Cuando la fijación de la protección se realice con clavos o tirafondos deben cumplirse las siguientes condiciones:\nla distancia entre elementos de fijación debe ser de al menos 100 mm a lo largo de los bordes de la pieza y de al menos 300 mm en las líneas interiores (alejadas de los bordes);\nla distancia a los bordes desde los elementos de fijación debe ser al menos igual a la obtenida mediante la ecuación E.14 (ver figura E.3).\n6 La profundidad de penetración en el elemento protegido, de los elementos de fijación de tableros de madera o derivados de la madera, debe ser al menos igual a 6d.\n1 Parches encolados\n2 Protección adicional utilizando tableros\n3 Fijación para la protección adicional con tableros\nFigura E.3. Ejemplos de protecciones adicionales mediante parches encolados y protección mediante tableros derivados de la madera o (la protección de los bordes de las piezas laterales y central no está representada en el dibujo)\n80\nFigura E.4. Ejemplo de protección de la cabeza de un perno.\nE.4.2.3 Reglas complementarias para uniones con placas de acero en el interior\n1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.\nTabla E.6. Anchos de las placas de acero con bordes sin proteger bst\n2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegidas en los casos siguientes, (ver figura E.5):\nEn placas con un espesor no superior a 3 mm, cuando el retranqueo dg sea mayor que 20 mm para una resistencia al fuego R 30, y mayor que 60 mm para una resistencia al fuego R 60.\nEn uniones con filetes encolados o tableros derivados de la madera, cuando el retranqueo dg o el espesor del panel hp, respectivamente, sea mayor que 10 mm para una resistencia al fuego R 30, y mayor que 30 mm para una resistencia al fuego R 60 .\nFigura E.5. Protección de los bordes de las placas de acero (no se muestran las conexiones entre la placa y la madera): a) sin proteger, b) protegidas con retranqueo, c) protegidas con filetes encolados, d) protegidas con tableros.",
+      "attributes": {
+        "id": "e4.2.2-e4.2.3",
+        "meta_summary": "This section details requirements for protected timber connections, including conditions for fire resistance, methods for protecting fasteners and bolts, and specific rules for steel plates within timber connections.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 230,
+        "end_pos": 3567
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 63,
+        "end_index": 815
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando la unión se proteja mediante el adosado de tableros de madera o tableros derivados de la madera, debe cumplirse la siguiente condición:\nsiendo:\ntch tiempo en el que inicia la carbonización de acuerdo con E.2.3.2.2;\nt req tiempo requerido para una exposición al fuego normalizado;\ntfi,d tiempo de resistencia al fuego de la unión sin proteger de acuerdo con la tabla E.5, sometida al efecto de cálculo de las acciones en situación de incendio.",
+      "attributes": {
+        "id": "E.4.2.2.1",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When a timber connection is protected by wood boards or wood-based panels, a specific condition must be met regarding the charring time, required fire exposure time, and unprotected fire resistance time.",
+        "applies_if": "CONNECTION.TYPE == 'TIMBER' AND CONNECTION.PROTECTION.METHOD IN ['WOOD_BOARDS', 'WOOD_BASED_PANELS']",
+        "satisfied_if": "CONNECTION.CHARRING_TIME >= CONNECTION.REQUIRED_FIRE_EXPOSURE_TIME AND CONNECTION.UNPROTECTED_FIRE_RESISTANCE_TIME >= CONNECTION.REQUIRED_FIRE_EXPOSURE_TIME",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CONNECTION.TYPE.TIMBER",
+          "CONNECTION.PROTECTION.METHOD.WOOD_BOARDS",
+          "CONNECTION.PROTECTION.METHOD.WOOD_BASED_PANELS",
+          "CONNECTION.CHARRING_TIME",
+          "CONNECTION.REQUIRED_FIRE_EXPOSURE_TIME",
+          "CONNECTION.UNPROTECTED_FIRE_RESISTANCE_TIME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1,
+          "span_char_end": 328,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The specific condition is not fully detailed in the text, only the variables involved.",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 232,
+        "end_pos": 681
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 64,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uniones en las que los elementos de fijación están protegidos por tapones o parches encolados, el espesor del parche debe determinarse mediante la expresión E.14, (ver figura E.3).",
+      "attributes": {
+        "id": "E.4.2.2.2",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The thickness of the patch for connections where fasteners are protected by glued plugs or patches must be determined using expression E.14.",
+        "applies_if": "CONNECTION.TYPE == 'TIMBER' AND FASTENER.PROTECTION.METHOD IN ['GLUED_PLUGS', 'GLUED_PATCHES']",
+        "satisfied_if": "PATCH.THICKNESS == EXPRESSION.E.14",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CONNECTION.TYPE.TIMBER",
+          "FASTENER.PROTECTION.METHOD.GLUED_PLUGS",
+          "FASTENER.PROTECTION.METHOD.GLUED_PATCHES",
+          "PATCH.THICKNESS",
+          "EXPRESSION.E.14"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 330,
+          "span_char_end": 480,
+          "visual_refs": [
+            "Figura E.3"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 684,
+        "end_pos": 867
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 173,
+        "end_index": 216
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La protección debe fijarse de tal manera que se evite su fallo prematuro. Cuando la protección se realice mediante tableros derivados de la madera, ésta debe permanecer en su posición hasta que se alcance el tiempo requerido de inicio de la carbonización del elemento protegido (t = tch).",
+      "attributes": {
+        "id": "E.4.2.2.3",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Protection must be fixed to prevent premature failure. When protection is provided by wood-based panels, it must remain in place until the required charring initiation time of the protected element is reached.",
+        "applies_if": "CONNECTION.PROTECTION.METHOD IN ['WOOD_BOARDS', 'WOOD_BASED_PANELS']",
+        "satisfied_if": "PROTECTION.FIXING.PREVENTS_PREMATURE_FAILURE == TRUE AND (PROTECTION.METHOD == 'WOOD_BASED_PANELS' -> PROTECTION.REMAINS_IN_PLACE_UNTIL_CHARRING_INITIATION_TIME_REACHED == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CONNECTION.PROTECTION.METHOD.WOOD_BOARDS",
+          "CONNECTION.PROTECTION.METHOD.WOOD_BASED_PANELS",
+          "PROTECTION.FIXING",
+          "PROTECTION.PREMATURE_FAILURE",
+          "PROTECTION.CHARRING_INITIATION_TIME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 482,
+          "span_char_end": 742,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 870,
+        "end_pos": 1158
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 217,
+        "end_index": 278
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para la protección de uniones con pernos, la cabeza de los pernos debe protegerse con un elemento de protección de espesor afi según la ecuación E.14 (ver figura E.4).",
+      "attributes": {
+        "id": "E.4.2.2.4",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For the protection of bolted connections, the bolt heads must be protected with a protective element of thickness 'afi' according to equation E.14.",
+        "applies_if": "CONNECTION.TYPE == 'BOLTED'",
+        "satisfied_if": "BOLT.HEAD.PROTECTION.THICKNESS == EXPRESSION.E.14",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CONNECTION.TYPE.BOLTED",
+          "BOLT.HEAD.PROTECTION.THICKNESS",
+          "EXPRESSION.E.14"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 744,
+          "span_char_end": 900,
+          "visual_refs": [
+            "Figura E.4"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 1161,
+        "end_pos": 1328
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 279,
+        "end_index": 323
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando la fijación de la protección se realice con clavos o tirafondos deben cumplirse las siguientes condiciones:\nla distancia entre elementos de fijación debe ser de al menos 100 mm a lo largo de los bordes de la pieza y de al menos 300 mm en las líneas interiores (alejadas de los bordes);\nla distancia a los bordes desde los elementos de fijación debe ser al menos igual a la obtenida mediante la ecuación E.14 (ver figura E.3).",
+      "attributes": {
+        "id": "E.4.2.2.5",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When protection is fixed with nails or screws, specific conditions for spacing and edge distance must be met.",
+        "applies_if": "PROTECTION.FIXING.METHOD IN ['NAILS', 'SCREWS']",
+        "satisfied_if": "FASTENER.SPACING.ALONG_EDGES >= 100 AND FASTENER.SPACING.INTERIOR_LINES >= 300 AND FASTENER.EDGE_DISTANCE >= EXPRESSION.E.14",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "PROTECTION.FIXING.METHOD.NAILS",
+          "PROTECTION.FIXING.METHOD.SCREWS",
+          "FASTENER.SPACING.ALONG_EDGES",
+          "FASTENER.SPACING.INTERIOR_LINES",
+          "FASTENER.EDGE_DISTANCE",
+          "EXPRESSION.E.14"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 902,
+          "span_char_end": 1275,
+          "visual_refs": [
+            "Figura E.3"
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.SPACING.ALONG_EDGES >= 100 mm",
+          "FASTENER.SPACING.INTERIOR_LINES >= 300 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 1331,
+        "end_pos": 1763
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 324,
+        "end_index": 423
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La profundidad de penetración en el elemento protegido, de los elementos de fijación de tableros de madera o derivados de la madera, debe ser al menos igual a 6d.",
+      "attributes": {
+        "id": "E.4.2.2.6",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The penetration depth of fasteners for wood or wood-based panels into the protected element must be at least 6d.",
+        "applies_if": "FASTENER.TYPE IN ['WOOD_BOARDS', 'WOOD_BASED_PANELS']",
+        "satisfied_if": "FASTENER.PENETRATION_DEPTH >= 6 * FASTENER.DIAMETER",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.WOOD_BOARDS",
+          "FASTENER.TYPE.WOOD_BASED_PANELS",
+          "FASTENER.PENETRATION_DEPTH",
+          "FASTENER.DIAMETER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1277,
+          "span_char_end": 1406,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FASTENER.PENETRATION_DEPTH >= 6d"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 1766,
+        "end_pos": 1928
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 424,
+        "end_index": 461
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.",
+      "attributes": {
+        "id": "E.4.2.3.1",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In connections with steel plates of thickness greater than or equal to 2 mm, located as central pieces, where the steel plate does not protrude from the surface of the timber piece, the width 'bst' of the steel plate must comply with the conditions defined in Table E.6.",
+        "applies_if": "CONNECTION.TYPE == 'TIMBER_STEEL_PLATE' AND STEEL_PLATE.THICKNESS >= 2 AND STEEL_PLATE.POSITION == 'CENTRAL' AND STEEL_PLATE.PROTRUSION == FALSE",
+        "satisfied_if": "STEEL_PLATE.WIDTH == TABLE.E.6.CONDITIONS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER",
+          "MATERIALS.STEEL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CONNECTION.TYPE.TIMBER_STEEL_PLATE",
+          "STEEL_PLATE.THICKNESS",
+          "STEEL_PLATE.POSITION.CENTRAL",
+          "STEEL_PLATE.PROTRUSION",
+          "STEEL_PLATE.WIDTH",
+          "TABLE.E.6.CONDITIONS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1658,
+          "span_char_end": 1908,
+          "visual_refs": [
+            "Tabla E.6"
+          ]
+        },
+        "extracted_parameters": [
+          "STEEL_PLATE.THICKNESS >= 2 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 2419,
+        "end_pos": 2693
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 565,
+        "end_index": 623
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegidas en los casos siguientes, (ver figura E.5):\nEn placas con un espesor no superior a 3 mm, cuando el retranqueo dg sea mayor que 20 mm para una resistencia al fuego R 30, y mayor que 60 mm para una resistencia al fuego R 60.\nEn uniones con filetes encolados o tableros derivados de la madera, cuando el retranqueo dg o el espesor del panel hp, respectivamente, sea mayor que 10 mm para una resistencia al fuego R 30, y mayor que 30 mm para una resistencia al fuego R 60 .",
+      "attributes": {
+        "id": "E.4.2.3.2",
+        "parent_section_id": "e.4.2.2_uniones_protegidas",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Steel plates with a width smaller than the timber pieces can be considered protected under specific conditions related to setback (dg) or panel thickness (hp) for different fire resistance ratings.",
+        "applies_if": "STEEL_PLATE.WIDTH < TIMBER_PIECE.WIDTH",
+        "satisfied_if": "(STEEL_PLATE.THICKNESS <= 3 AND ((STEEL_PLATE.SETBACK_DG > 20 AND FIRE_RESISTANCE == 'R30') OR (STEEL_PLATE.SETBACK_DG > 60 AND FIRE_RESISTANCE == 'R60'))); OR (CONNECTION.TYPE IN ['GLUED_FILLETS', 'WOOD_BASED_PANELS'] AND ((STEEL_PLATE.SETBACK_DG > 10 OR PANEL.THICKNESS_HP > 10) AND FIRE_RESISTANCE == 'R30') OR ((STEEL_PLATE.SETBACK_DG > 30 OR PANEL.THICKNESS_HP > 30) AND FIRE_RESISTANCE == 'R60'))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER",
+          "MATERIALS.STEEL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STEEL_PLATE.WIDTH",
+          "TIMBER_PIECE.WIDTH",
+          "STEEL_PLATE.THICKNESS",
+          "STEEL_PLATE.SETBACK_DG",
+          "FIRE_RESISTANCE.R30",
+          "FIRE_RESISTANCE.R60",
+          "CONNECTION.TYPE.GLUED_FILLETS",
+          "CONNECTION.TYPE.WOOD_BASED_PANELS",
+          "PANEL.THICKNESS_HP"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1910,
+          "span_char_end": 2500,
+          "visual_refs": [
+            "Figura E.5"
+          ]
+        },
+        "extracted_parameters": [
+          "STEEL_PLATE.THICKNESS <= 3 mm",
+          "STEEL_PLATE.SETBACK_DG > 20 mm",
+          "STEEL_PLATE.SETBACK_DG > 60 mm",
+          "STEEL_PLATE.SETBACK_DG > 10 mm",
+          "PANEL.THICKNESS_HP > 10 mm",
+          "STEEL_PLATE.SETBACK_DG > 30 mm",
+          "PANEL.THICKNESS_HP > 30 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4
+      },
+      "char_interval": {
+        "start_pos": 2765,
+        "end_pos": 3335
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 640,
+        "end_index": 762
+      },
+      "section_metadata": {
+        "section_id": "e.4.2.2_uniones_protegidas",
+        "section_name": "E.4.2.2 Uniones protegidas",
+        "section_level": 4,
+        "start_page": 80,
+        "end_page": 80,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.2 Uniones protegidas"
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 9,
+  "char_count": 3567
+}

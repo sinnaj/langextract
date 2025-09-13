@@ -1,0 +1,634 @@
+{
+  "chunk_id": 4,
+  "section_metadata": {
+    "section_id": "vi_laboratorios_de_ensayo",
+    "section_name": "VI Laboratorios de ensayo",
+    "section_level": 2,
+    "start_page": 7,
+    "end_page": 7,
+    "toc_path": [
+      "Introducción",
+      "VI Laboratorios de ensayo"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: VI Laboratorios de ensayo\n**Path:** Introducción → VI Laboratorios de ensayo\n**Level:** 2\n**Pages:** 7-7\n\nLa clasificación, según las características de reacción al fuego o de resistencia al fuego, de los productos de construcción que aún no ostenten el marcado CE o los elementos constructivos, así como los ensayos necesarios para ello deben realizarse por laboratorios acreditados por una entidad oficialmente reconocida conforme al Real Decreto 2200/1995 de 28 de diciembre, modificado por el Real Decreto 411/1997 de 21 de marzo, Real Decreto 338/2010, de 19 de marzo, Real Decreto 1715/2010, de 17 de diciembre, Real Decreto 239/2013, de 5 de abril y Real Decreto 1072/2015, de 27 de noviembre .\nEn la fecha en la que los productos sin marcado CE se suministren a las obras, los certificados de ensayo y clasificación antes citados deberán tener una antigüedad menor que 5 años cuando se refieran a reacción al fuego y menor que 10 años cuando se refieran a resistencia al fuego .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "La clasificación, según las características de reacción al fuego o de resistencia al fuego, de los productos de construcción que aún no ostenten el marcado CE o los elementos constructivos, así como los ensayos necesarios para ello deben realizarse por laboratorios acreditados por una entidad oficialmente reconocida conforme al Real Decreto 2200/1995 de 28 de diciembre, modificado por el Real Decreto 411/1997 de 21 de marzo, Real Decreto 338/2010, de 19 de marzo, Real Decreto 1715/2010, de 17 de diciembre, Real Decreto 239/2013, de 5 de abril y Real Decreto 1072/2015, de 27 de noviembre .\nEn la fecha en la que los productos sin marcado CE se suministren a las obras, los certificados de ensayo y clasificación antes citados deberán tener una antigüedad menor que 5 años cuando se refieran a reacción al fuego y menor que 10 años cuando se refieran a resistencia al fuego .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section outlines the requirements for testing and classification of construction products without CE marking, specifying that tests must be conducted by accredited laboratories and setting validity periods for test certificates related to fire reaction and fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Real Decreto 2200/1995",
+          "Real Decreto 411/1997",
+          "Real Decreto 338/2010",
+          "Real Decreto 1715/2010",
+          "Real Decreto 239/2013",
+          "Real Decreto 1072/2015"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 117,
+        "end_pos": 997
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 28,
+        "end_index": 213
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La clasificación, según las características de reacción al fuego o de resistencia al fuego, de los productos de construcción que aún no ostenten el marcado CE o los elementos constructivos, así como los ensayos necesarios para ello deben realizarse por laboratorios acreditados por una entidad oficialmente reconocida conforme al Real Decreto 2200/1995 de 28 de diciembre, modificado por el Real Decreto 411/1997 de 21 de marzo, Real Decreto 338/2010, de 19 de marzo, Real Decreto 1715/2010, de 17 de diciembre, Real Decreto 239/2013, de 5 de abril y Real Decreto 1072/2015, de 27 de noviembre .",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Classification of construction products without CE marking or constructive elements, based on fire reaction or fire resistance characteristics, and the necessary tests for this, must be carried out by laboratories accredited by an officially recognized entity.",
+        "applies_if": "CONSTRUCTION.PRODUCT.CE_MARKING == FALSE OR CONSTRUCTION.ELEMENT.CE_MARKING == FALSE",
+        "satisfied_if": "TEST.LABORATORY.ACCREDITED == TRUE AND TEST.LABORATORY.OFFICIALLY_RECOGNIZED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONSTRUCTION.PRODUCT.CE_MARKING",
+          "CONSTRUCTION.ELEMENT.CE_MARKING",
+          "TEST.LABORATORY.ACCREDITED",
+          "TEST.LABORATORY.OFFICIALLY_RECOGNIZED",
+          "FIRE.REACTION",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 420,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 117,
+        "end_pos": 712
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 28,
+        "end_index": 148
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En la fecha en la que los productos sin marcado CE se suministren a las obras, los certificados de ensayo y clasificación antes citados deberán tener una antigüedad menor que 5 años cuando se refieran a reacción al fuego y menor que 10 años cuando se refieran a resistencia al fuego .",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When products without CE marking are supplied to construction sites, their test and classification certificates must be less than 5 years old for fire reaction and less than 10 years old for fire resistance.",
+        "applies_if": "CONSTRUCTION.PRODUCT.CE_MARKING == FALSE AND CONSTRUCTION.PRODUCT.SUPPLY_TO_SITE == TRUE",
+        "satisfied_if": "(CERTIFICATE.TYPE == 'FIRE.REACTION' AND CERTIFICATE.AGE < 5) OR (CERTIFICATE.TYPE == 'FIRE.RESISTANCE' AND CERTIFICATE.AGE < 10)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONSTRUCTION.PRODUCT.CE_MARKING",
+          "CONSTRUCTION.PRODUCT.SUPPLY_TO_SITE",
+          "CERTIFICATE.TYPE.FIRE.REACTION",
+          "CERTIFICATE.TYPE.FIRE.RESISTANCE",
+          "CERTIFICATE.AGE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "CONSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 421,
+          "span_char_end": 648,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CERTIFICATE.AGE < 5 years",
+          "CERTIFICATE.AGE < 10 years"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 713,
+        "end_pos": 997
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 148,
+        "end_index": 213
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 2200/1995 de 28 de diciembre",
+      "attributes": {
+        "id": "d1654c1a-39de-46eb-8d75-650bd8054abe",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 2200/1995",
+        "document_type": "Real Decreto",
+        "document_year": "1995",
+        "document_date": "1995-12-28",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 204,
+          "span_char_end": 234,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 447,
+        "end_pos": 488
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 93,
+        "end_index": 100
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 411/1997 de 21 de marzo",
+      "attributes": {
+        "id": "dac48fcd-aa58-4314-8155-30015df904dd",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 411/1997",
+        "document_type": "Real Decreto",
+        "document_year": "1997",
+        "document_date": "1997-03-21",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 250,
+          "span_char_end": 280,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 508,
+        "end_pos": 544
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 104,
+        "end_index": 111
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 338/2010, de 19 de marzo",
+      "attributes": {
+        "id": "e1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 338/2010",
+        "document_type": "Real Decreto",
+        "document_year": "2010",
+        "document_date": "2010-03-19",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 282,
+          "span_char_end": 317,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 546,
+        "end_pos": 583
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 112,
+        "end_index": 120
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 1715/2010, de 17 de diciembre",
+      "attributes": {
+        "id": "f1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 1715/2010",
+        "document_type": "Real Decreto",
+        "document_year": "2010",
+        "document_date": "2010-12-17",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 319,
+          "span_char_end": 359,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 585,
+        "end_pos": 627
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 121,
+        "end_index": 129
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 239/2013, de 5 de abril",
+      "attributes": {
+        "id": "g1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 239/2013",
+        "document_type": "Real Decreto",
+        "document_year": "2013",
+        "document_date": "2013-04-05",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 361,
+          "span_char_end": 395,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 629,
+        "end_pos": 665
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 130,
+        "end_index": 138
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 1072/2015, de 27 de noviembre",
+      "attributes": {
+        "id": "h1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "vi_laboratorios_de_ensayo",
+        "document_title": "Real Decreto 1072/2015",
+        "document_type": "Real Decreto",
+        "document_year": "2015",
+        "document_date": "2015-11-27",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "document_edition": null,
+        "document_issuer": "Spain",
+        "document_status": "ACTIVE",
+        "document_abstract": null,
+        "document_keywords": [
+          "accreditation",
+          "laboratories"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 397,
+          "span_char_end": 438,
+          "visual_refs": []
+        },
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 668,
+        "end_pos": 710
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 139,
+        "end_index": 147
+      },
+      "section_metadata": {
+        "section_id": "vi_laboratorios_de_ensayo",
+        "section_name": "VI Laboratorios de ensayo",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "toc_path": [
+          "Introducción",
+          "VI Laboratorios de ensayo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 9,
+  "char_count": 997
+}

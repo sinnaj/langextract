@@ -1,0 +1,62 @@
+{
+  "chunk_id": 72,
+  "section_metadata": {
+    "section_id": "sector_de_riesgo_mínimo",
+    "section_name": "Sector de riesgo mínimo",
+    "section_level": 2,
+    "start_page": 49,
+    "end_page": 49,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Sector de riesgo mínimo"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Sector de riesgo mínimo\n**Path:** Anejo SI A Terminología → Sector de riesgo mínimo\n**Level:** 2\n**Pages:** 49-49\n\nSector de incendio que cumple las siguientes condiciones:\n-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante .\n-La densidad de carga de fuego no excede de 40 MJ/m 2 en el conjunto del sector, ni de 50 MJ/m 2 en cualquiera de los recintos contenidos en el sector, considerando la carga de fuego aportada, tanto por los elementos constructivos, como por el contenido propio de la actividad.\n-Está separado de cualquier otra zona del edificio que no tenga la consideración de sector de riesgo mínimo mediante elementos cuya resistencia al fuego sea EI 120 y la comunicación con dichas zonas se realiza a través de vestíbulos de independencia .\n-Tiene resuelta la evacuación, desde todos sus puntos, mediante salidas de edificio directas a espacio exterior seguro .",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Sector de riesgo mínimo",
+      "attributes": {
+        "id": "2379366e-c689-482a-9226-57497274092b",
+        "parent_section_id": "sector_de_riesgo_mínimo",
+        "classification_type": "FIRE.SECTOR.TYPE",
+        "classification_name": "MINIMUM_RISK_FIRE_SECTOR",
+        "condition": "FIRE.SECTOR.USAGE == 'CIRCULATION' AND FIRE.SECTOR.IS_BELOW_GRADE == FALSE AND FIRE.LOAD_DENSITY <= 40 AND FIRE.LOAD_DENSITY.ROOM <= 50 AND FIRE.SECTOR.SEPARATION.FIRE_RESISTANCE == 'EI120' AND FIRE.SECTOR.COMMUNICATION.INDEPENDENCE_VESTIBULE == TRUE AND FIRE.SECTOR.EVACUATION.DIRECT_TO_SAFE_EXTERIOR == TRUE",
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 809,
+          "visual_refs": []
+        },
+        "section_name": "Sector de riesgo mínimo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 34
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 9
+      },
+      "section_metadata": {
+        "section_id": "sector_de_riesgo_mínimo",
+        "section_name": "Sector de riesgo mínimo",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sector de riesgo mínimo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 920
+}

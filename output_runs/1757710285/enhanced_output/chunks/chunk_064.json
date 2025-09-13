@@ -1,0 +1,1207 @@
+{
+  "chunk_id": 64,
+  "section_metadata": {
+    "section_id": "recorrido_de_evacuación",
+    "section_name": "Recorrido de evacuación",
+    "section_level": 2,
+    "start_page": 47,
+    "end_page": 47,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Recorrido de evacuación"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Recorrido de evacuación\n**Path:** Anejo SI A Terminología → Recorrido de evacuación\n**Level:** 2\n**Pages:** 47-47\n\nRecorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma planta considerada o en otra, o hasta una salida de edificio. Conforme a ello, una vez alcanzada una salida de planta, la longitud del recorrido posterior no computa a efectos del cumplimiento de los límites a los recorridos de evacuación .\nLa longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos. No se consideran válidos los recorridos por escaleras mecánicas, ni aquellos en los que existan tornos u otros elementos que puedan dificultar el paso. Los recorridos por rampas y pasillos móviles se consideran válidos cuando no sea posible su utilización por personas que trasladen carros para el transporte de objetos y estén provistos de un dispositivo de parada que pueda activarse bien manualmente, o bien automáticamente por un sistema de detección y alarma.\nLos recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar las zonas de riesgo especial definidas en SI 1.2. Un recorrido de evacuación desde zonas habitables puede atravesar una zona de uso Aparcamiento o sus vestíbulos de independencia, únicamente cuando sea un recorrido alternativo a alguno no afectado por dicha circunstancia.\nEn uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de vehículos, o bien por itinerarios peatonales protegidos frente a la invasión de vehículos, conforme se establece en el Apartado 3 del DB-SUA 7 .\nEn establecimientos de uso Comercial cuya superficie construida destinada al público exceda de 400 m 2 , los recorridos de evacuación deben transcurrir, excepto en sus diez primeros metros, por pasillos definidos en proyecto, delimitados por elementos fijos o bien señalizados en el suelo de forma clara y permanente conforme a lo establecido en SI 3 -7.2 y cuyos tramos comprendidos entre otros pasillos transversales no excedan de 20 m.\nEn establecimientos comerciales en los que esté previsto el uso de carros para transporte de productos, los puntos de paso a través de cajas de cobro no pueden considerarse como elementos de la evacuación. En dichos casos se dispondrán salidas intercaladas en la batería de cajas, dimensionadas según se establece en el apartado 4.2 de la Sección SI 3 y separadas de tal forma que no existan más de diez cajas entre dos salidas consecutivas. Cuando la batería cuente con menos de diez cajas, se dispondrán dos salidas, como mínimo, situadas en los extremos de la misma. Cuando cuente con menos de cinco cajas, se dispondrá una salida situada en un extremo de la batería.\nEn los establecimientos en los que no esté previsto el uso de carros, los puntos de paso a través de las cajas podrán considerarse como elementos de evacuación, siempre que su anchura libre sea 0,70m, como mínimo.\nExcepto en el caso de los aparcamientos, de las zonas de ocupación nula y de las zonas ocupadas únicamente por personal de mantenimiento o de control de servicios, no se consideran válidos los recorridos que precisen salvar, en sentido ascendente, una altura mayor que la indicada en la tabla que se incluye a continuación.\n(1) No se limita en zonas de tratamiento intensivo con radioterapia.\n47",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma planta considerada o en otra, o hasta una salida de edificio. Conforme a ello, una vez alcanzada una salida de planta, la longitud del recorrido posterior no computa a efectos del cumplimiento de los límites a los recorridos de evacuación .",
+      "attributes": {
+        "id": "e023412a-3b1a-4c2f-8d9e-1a2b3c4d5e6f",
+        "meta_summary": "Definition of evacuation route and how its length is computed for compliance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 126,
+        "end_pos": 466
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 33,
+        "end_index": 102
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos.",
+      "attributes": {
+        "id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The length of routes through corridors, stairs, and ramps must be measured along their axis.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.MEASUREMENT.METHOD == 'AXIS'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "CORRIDOR",
+          "STAIRS",
+          "RAMPS",
+          "MEASUREMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 467,
+        "end_pos": 568
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 102,
+        "end_index": 124
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No se consideran válidos los recorridos por escaleras mecánicas, ni aquellos en los que existan tornos u otros elementos que puedan dificultar el paso.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890fedcba",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Evacuation routes through escalators or where turnstiles or other elements that may hinder passage exist are not considered valid.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.HAS_ESCALATORS == FALSE AND EVACUATION.ROUTE.HAS_TURNSTILES == FALSE AND EVACUATION.ROUTE.HAS_HINDERING_ELEMENTS == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "ESCALATORS",
+          "TURNSTILES",
+          "OBSTRUCTION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 569,
+        "end_pos": 720
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 124,
+        "end_index": 154
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los recorridos por rampas y pasillos móviles se consideran válidos cuando no sea posible su utilización por personas que trasladen carros para el transporte de objetos y estén provistos de un dispositivo de parada que pueda activarse bien manualmente, o bien automáticamente por un sistema de detección y alarma.",
+      "attributes": {
+        "id": "c2d3e4f5-a6b7-8901-2345-67890abcdef0",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Routes through ramps and moving walkways are considered valid if they cannot be used by people carrying carts for object transport AND are equipped with a stop device that can be activated manually or automatically by a detection and alarm system.",
+        "applies_if": "EVACUATION.ROUTE.TYPE IN ['RAMP', 'MOVING_WALKWAY']",
+        "satisfied_if": "EVACUATION.ROUTE.CAN_BE_USED_BY_CARTS == FALSE AND (EVACUATION.ROUTE.STOP_DEVICE.ACTIVATION_METHOD == 'MANUAL' OR EVACUATION.ROUTE.STOP_DEVICE.ACTIVATION_METHOD == 'AUTOMATIC_DETECTION_ALARM')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "RAMP",
+          "MOVING_WALKWAY",
+          "STOP_DEVICE",
+          "DETECTION_SYSTEM",
+          "ALARM_SYSTEM"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 721,
+        "end_pos": 1033
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 154,
+        "end_index": 217
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar las zonas de riesgo especial definidas en SI 1.2.",
+      "attributes": {
+        "id": "d3e4f5a6-b7c8-9012-3456-7890abcdef12",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Evacuation routes originating in habitable areas or parking areas cannot cross special risk areas defined in SI 1.2.",
+        "applies_if": "EVACUATION.ROUTE.ORIGIN IN ['HABITABLE_AREA', 'PARKING_AREA']",
+        "satisfied_if": "EVACUATION.ROUTE.CROSSES_SPECIAL_RISK_AREA == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "HABITABLE_AREA",
+          "PARKING_AREA",
+          "SPECIAL_RISK_AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Reference to SI 1.2 for definition of special risk areas.",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1034,
+        "end_pos": 1181
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 217,
+        "end_index": 245
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Un recorrido de evacuación desde zonas habitables puede atravesar una zona de uso Aparcamiento o sus vestíbulos de independencia, únicamente cuando sea un recorrido alternativo a alguno no afectado por dicha circunstancia.",
+      "attributes": {
+        "id": "e4f5a6b7-c8d9-0123-4567-890abcdef123",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An evacuation route from habitable areas may cross a parking area or its independence vestibules only when it is an alternative route to one not affected by this circumstance.",
+        "applies_if": "EVACUATION.ROUTE.ORIGIN == 'HABITABLE_AREA' AND (EVACUATION.ROUTE.CROSSES_PARKING_AREA == TRUE OR EVACUATION.ROUTE.CROSSES_PARKING_VESTIBULE == TRUE)",
+        "satisfied_if": "EVACUATION.ROUTE.IS_ALTERNATIVE_ROUTE == TRUE AND EVACUATION.ROUTE.ALTERNATIVE_ROUTE.IS_NOT_AFFECTED_BY_PARKING_CROSSING == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "HABITABLE_AREA",
+          "PARKING_AREA",
+          "INDEPENDENCE_VESTIBULE",
+          "ALTERNATIVE_ROUTE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1182,
+        "end_pos": 1404
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 245,
+        "end_index": 284
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de vehículos, o bien por itinerarios peatonales protegidos frente a la invasión de vehículos, conforme se establece en el Apartado 3 del DB-SUA 7 .",
+      "attributes": {
+        "id": "f5a6b7c8-d9e0-1234-5678-90abcdef1234",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In parking areas, evacuation routes must run along vehicle circulation lanes, or along pedestrian routes protected against vehicle invasion, as established in Section 3 of DB-SUA 7.",
+        "applies_if": "BUILDING.USAGE == 'PARKING'",
+        "satisfied_if": "EVACUATION.ROUTE.LOCATION == 'VEHICLE_CIRCULATION_LANE' OR (EVACUATION.ROUTE.LOCATION == 'PEDESTRIAN_ROUTE' AND PEDESTRIAN_ROUTE.PROTECTION_FROM_VEHICLE_INVASION == TRUE AND COMPLIES_WITH('DB-SUA 7.SECTION.3'))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "PARKING_AREA",
+          "VEHICLE_CIRCULATION_LANE",
+          "PEDESTRIAN_ROUTE",
+          "VEHICLE_INVASION_PROTECTION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Reference to DB-SUA 7, Section 3.",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1405,
+        "end_pos": 1647
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 284,
+        "end_index": 337
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En establecimientos de uso Comercial cuya superficie construida destinada al público exceda de 400 m 2 , los recorridos de evacuación deben transcurrir, excepto en sus diez primeros metros, por pasillos definidos en proyecto, delimitados por elementos fijos o bien señalizados en el suelo de forma clara y permanente conforme a lo establecido en SI 3 -7.2 y cuyos tramos comprendidos entre otros pasillos transversales no excedan de 20 m.",
+      "attributes": {
+        "id": "g6h7i8j9-k0l1-2345-6789-0abcdef12345",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In commercial establishments with a built area for public use exceeding 400 m², evacuation routes, except for their first ten meters, must run through corridors defined in the project, delimited by fixed elements or clearly and permanently marked on the floor according to SI 3-7.2, and whose sections between other transverse corridors do not exceed 20 m.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND BUILDING.AREA.PUBLIC_USE > 400",
+        "satisfied_if": "EVACUATION.ROUTE.FIRST_10M.LOCATION == 'ANY' AND EVACUATION.ROUTE.AFTER_10M.LOCATION == 'PROJECT_DEFINED_CORRIDOR' AND (CORRIDOR.DELIMITATION == 'FIXED_ELEMENTS' OR CORRIDOR.MARKING == 'CLEAR_PERMANENT_FLOOR_MARKING') AND COMPLIES_WITH('SI 3-7.2') AND CORRIDOR.SECTION_LENGTH_BETWEEN_TRANSVERSE_CORRIDORS <= 20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "COMMERCIAL_ESTABLISHMENT",
+          "PUBLIC_AREA",
+          "CORRIDOR",
+          "FIXED_ELEMENTS",
+          "FLOOR_MARKING",
+          "TRANSVERSE_CORRIDOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.PUBLIC_USE > 400 sq_m",
+          "CORRIDOR.SECTION_LENGTH_BETWEEN_TRANSVERSE_CORRIDORS <= 20 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Reference to SI 3-7.2.",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1648,
+        "end_pos": 2086
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 337,
+        "end_index": 420
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En establecimientos comerciales en los que esté previsto el uso de carros para transporte de productos, los puntos de paso a través de cajas de cobro no pueden considerarse como elementos de la evacuación.",
+      "attributes": {
+        "id": "h7i8j9k0-l1m2-3456-7890-abcdef123456",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 5,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "In commercial establishments where the use of carts for product transport is foreseen, passage points through checkout counters cannot be considered as evacuation elements.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL_ESTABLISHMENT.CARTS_FOR_PRODUCTS == TRUE",
+        "satisfied_if": "CHECKOUT_COUNTER.IS_EVACUATION_ELEMENT == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "COMMERCIAL_ESTABLISHMENT",
+          "CARTS",
+          "CHECKOUT_COUNTER",
+          "EVACUATION.ELEMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2087,
+        "end_pos": 2292
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 420,
+        "end_index": 461
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En dichos casos se dispondrán salidas intercaladas en la batería de cajas, dimensionadas según se establece en el apartado 4.2 de la Sección SI 3 y separadas de tal forma que no existan más de diez cajas entre dos salidas consecutivas.",
+      "attributes": {
+        "id": "i8j9k0l1-m2n3-4567-890a-bcdef1234567",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In such cases, interleaved exits must be provided in the checkout counter battery, dimensioned as established in Section 4.2 of SI 3, and separated so that there are no more than ten counters between two consecutive exits.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL_ESTABLISHMENT.CARTS_FOR_PRODUCTS == TRUE",
+        "satisfied_if": "CHECKOUT_COUNTER_BATTERY.HAS_INTERLEAVED_EXITS == TRUE AND EXITS.DIMENSIONED_ACCORDING_TO('SI 3.SECTION.4.2') AND CHECKOUT_COUNTER_BATTERY.MAX_COUNTERS_BETWEEN_EXITS <= 10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "COMMERCIAL_ESTABLISHMENT",
+          "CHECKOUT_COUNTER_BATTERY",
+          "EXIT",
+          "DIMENSIONING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CHECKOUT_COUNTER_BATTERY.MAX_COUNTERS_BETWEEN_EXITS <= 10"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Reference to SI 3, Section 4.2.",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2293,
+        "end_pos": 2528
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 461,
+        "end_index": 516
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando la batería cuente con menos de diez cajas, se dispondrán dos salidas, como mínimo, situadas en los extremos de la misma.",
+      "attributes": {
+        "id": "j9k0l1m2-n3o4-5678-90ab-cdef12345678",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the battery has fewer than ten counters, at least two exits must be provided, located at its ends.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL_ESTABLISHMENT.CARTS_FOR_PRODUCTS == TRUE AND CHECKOUT_COUNTER_BATTERY.NUMBER_OF_COUNTERS < 10",
+        "satisfied_if": "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_EXITS >= 2 AND EXITS.LOCATION == 'ENDS_OF_BATTERY'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "COMMERCIAL_ESTABLISHMENT",
+          "CHECKOUT_COUNTER_BATTERY",
+          "EXIT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_COUNTERS < 10",
+          "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_EXITS >= 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2529,
+        "end_pos": 2656
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 516,
+        "end_index": 548
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando cuente con menos de cinco cajas, se dispondrá una salida situada en un extremo de la batería.",
+      "attributes": {
+        "id": "k0l1m2n3-o4p5-6789-0abc-def123456789",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When it has fewer than five counters, one exit must be provided at one end of the battery.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL_ESTABLISHMENT.CARTS_FOR_PRODUCTS == TRUE AND CHECKOUT_COUNTER_BATTERY.NUMBER_OF_COUNTERS < 5",
+        "satisfied_if": "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_EXITS == 1 AND EXIT.LOCATION == 'ONE_END_OF_BATTERY'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "COMMERCIAL_ESTABLISHMENT",
+          "CHECKOUT_COUNTER_BATTERY",
+          "EXIT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_COUNTERS < 5",
+          "CHECKOUT_COUNTER_BATTERY.NUMBER_OF_EXITS == 1"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2657,
+        "end_pos": 2757
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 548,
+        "end_index": 571
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los establecimientos en los que no esté previsto el uso de carros, los puntos de paso a través de las cajas podrán considerarse como elementos de evacuación, siempre que su anchura libre sea 0,70m, como mínimo.",
+      "attributes": {
+        "id": "l1m2n3o4-p5q6-7890-abcd-ef1234567890",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In establishments where the use of carts is not foreseen, passage points through checkout counters may be considered as evacuation elements, provided their clear width is at least 0.70m.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL_ESTABLISHMENT.CARTS_FOR_PRODUCTS == FALSE",
+        "satisfied_if": "CHECKOUT_COUNTER.IS_EVACUATION_ELEMENT == TRUE AND CHECKOUT_COUNTER.CLEAR_WIDTH >= 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "COMMERCIAL_ESTABLISHMENT",
+          "CHECKOUT_COUNTER",
+          "EVACUATION.ELEMENT",
+          "CLEAR_WIDTH"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CHECKOUT_COUNTER.CLEAR_WIDTH >= 0.70 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2758,
+        "end_pos": 2971
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 571,
+        "end_index": 624
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Excepto en el caso de los aparcamientos, de las zonas de ocupación nula y de las zonas ocupadas únicamente por personal de mantenimiento o de control de servicios, no se consideran válidos los recorridos que precisen salvar, en sentido ascendente, una altura mayor que la indicada en la tabla que se incluye a continuación.",
+      "attributes": {
+        "id": "m2n3o4p5-q6r7-8901-2345-67890abcdef1",
+        "parent_section_id": "recorrido_de_evacuación",
+        "paragraph_number": 7,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Except for parking lots, areas of zero occupancy, and areas occupied only by maintenance or service control personnel, routes that require overcoming an upward height greater than that indicated in the table below are not considered valid.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.UPWARD_HEIGHT <= TABLE.INDICATED_HEIGHT",
+        "exempt_if": "BUILDING.USAGE == 'PARKING' OR AREA.OCCUPANCY == 0 OR AREA.OCCUPANCY_TYPE == 'MAINTENANCE_OR_SERVICE_CONTROL_PERSONNEL'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "UPWARD_HEIGHT",
+          "PARKING_AREA",
+          "ZERO_OCCUPANCY_AREA",
+          "MAINTENANCE_AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Refers to an unspecified table for height limits.",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2972,
+        "end_pos": 3295
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 624,
+        "end_index": 690
+      },
+      "section_metadata": {
+        "section_id": "recorrido_de_evacuación",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 14,
+  "char_count": 3367
+}

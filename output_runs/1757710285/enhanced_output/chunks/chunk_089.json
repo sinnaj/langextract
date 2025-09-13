@@ -1,0 +1,139 @@
+{
+  "chunk_id": 89,
+  "section_metadata": {
+    "section_id": "zona_de_ocupación_nula",
+    "section_name": "Zona de ocupación nula",
+    "section_level": 2,
+    "start_page": 52,
+    "end_page": 52,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Zona de ocupación nula"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Zona de ocupación nula\n**Path:** Anejo SI A Terminología → Zona de ocupación nula\n**Level:** 2\n**Pages:** 52-52\n\nZona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como salas de máquinas y cuartos de instalaciones, locales para material de limpieza, determinados almacenes y archivos, trasteros de viviendas, etc.\nLos puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacuación hasta las salidas de las mismas (cuando además se trate de zonas de riesgo especial) o de la planta, pero no es preciso tomarlos en consideración a efectos de determinar la altura de evacuación de un edificio o el número de ocupantes.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como salas de máquinas y cuartos de instalaciones, locales para material de limpieza, determinados almacenes y archivos, trasteros de viviendas, etc.",
+      "attributes": {
+        "id": "2919970e-1148-4228-9725-78322638848d",
+        "parent_section_id": "zona_de_ocupación_nula",
+        "classification_type": "ZONE.OCCUPANCY",
+        "classification_name": "Zona de ocupación nula",
+        "classification_value": "OCCUPANCY.NONE",
+        "description": "Zone where the presence of people is occasional or for maintenance purposes, such as machine rooms and installation rooms, cleaning material storage rooms, certain warehouses and archives, residential storage rooms, etc.",
+        "applies_if": "TRUE",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 223,
+          "visual_refs": []
+        },
+        "section_name": "Zona de ocupación nula",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 124,
+        "end_pos": 368
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 35,
+        "end_index": 81
+      },
+      "section_metadata": {
+        "section_id": "zona_de_ocupación_nula",
+        "section_name": "Zona de ocupación nula",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de ocupación nula"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacuación hasta las salidas de las mismas (cuando además se trate de zonas de riesgo especial) o de la planta, pero no es preciso tomarlos en consideración a efectos de determinar la altura de evacuación de un edificio o el número de ocupantes.",
+      "attributes": {
+        "id": "e0149021-399c-461d-847c-78322638848d",
+        "parent_section_id": "zona_de_ocupación_nula",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Points in these zones must comply with the limits established for evacuation routes to their exits (when also special risk zones) or to the floor exit.",
+        "applies_if": "ZONE.OCCUPANCY == 'OCCUPANCY.NONE'",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.COMPLIES == TRUE AND (ZONE.RISK == 'SPECIAL' OR EVACUATION.ROUTE.LEADS_TO_FLOOR_EXIT == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ZONE.OCCUPANCY.NONE",
+          "EVACUATION.ROUTE",
+          "ZONE.RISK.SPECIAL",
+          "BUILDING.EVACUATION.HEIGHT",
+          "BUILDING.OCCUPANTS.NUMBER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 224,
+          "span_char_end": 498,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Evacuation height and number of occupants do not need to be considered for these zones.",
+        "section_name": "Zona de ocupación nula",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 369,
+        "end_pos": 708
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "zona_de_ocupación_nula",
+        "section_name": "Zona de ocupación nula",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de ocupación nula"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 708
+}

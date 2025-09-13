@@ -1,0 +1,991 @@
+{
+  "chunk_id": 129,
+  "section_metadata": {
+    "section_id": "e.5.1_muros_y_forjados",
+    "section_name": "E.5.1 Muros y forjados",
+    "section_level": 3,
+    "start_page": 83,
+    "end_page": 83,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.5 Disposiciones constructivas",
+      "E.5.1 Muros y forjados"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.5.1 Muros y forjados\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.5 Disposiciones constructivas → E.5.1 Muros y forjados\n**Level:** 3\n**Pages:** 83-83\n\nE.5.1.1 Dimensiones y separaciones\n1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar los 625 mm\n2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min .\nsiendo:\ntp,min l p\nespesor mínimo del panel en milímetros\nluz del panel (separación entre las piezas del entramado) en milímetros.\n3 En los elementos constructivos con una sola capa en cada lado, los tableros derivados de la madera deberán tener una densidad característica de al menos 350 kg/m 3 .\nE.5.1.2 Detalles de las uniones de los tableros\n1 Los tableros deben fijarse al entramado de madera.\n2 Para los paneles o tableros de madera o derivados de la madera fijados con clavos, la separación máxima entre clavos será de 150 mm. La profundidad mínima de penetración debe ser ocho veces el diámetro del elemento de fijación para tableros portantes y seis veces el diámetro del elemento de fijación para los tableros no portantes. Si los paneles se fijan con tirafondos, la separación máxima será de 250 mm.\n3 Los cantos de los tableros deberán quedar en contacto con una holgura máxima de 1 mm. Deben fijarse al entramado en al menos dos bordes opuestos. En el caso de capas múltiples este requisito se aplica a la capa externa.\n4 En el caso de capas múltiples las juntas de los paneles deben desfasarse al menos 60 mm. Cada panel se fijará de manera individual.\nE.5.1.3 Aislamiento\n1 Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar los 625 mm",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The separation between the axes of framed wall studs and floor joists must not exceed 625 mm.",
+        "applies_if": "TRUE",
+        "satisfied_if": "WALL.STUD.AXIS.SEPARATION <= 625 AND FLOOR.JOIST.AXIS.SEPARATION <= 625",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "WALL.STUD.AXIS.SEPARATION",
+          "FLOOR.JOIST.AXIS.SEPARATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 128,
+          "span_char_end": 226,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "WALL.STUD.AXIS.SEPARATION <= 625 mm",
+          "FLOOR.JOIST.AXIS.SEPARATION <= 625 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 232,
+        "end_pos": 341
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 61,
+        "end_index": 83
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los muros, los paneles individuales deben tener un espesor mínimo tp,min .",
+      "attributes": {
+        "id": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In walls, individual panels must have a minimum thickness tp,min.",
+        "applies_if": "TRUE",
+        "satisfied_if": "WALL.PANEL.THICKNESS >= WALL.PANEL.THICKNESS.MINIMUM",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "WALL.PANEL.THICKNESS",
+          "WALL.PANEL.THICKNESS.MINIMUM"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 227,
+          "span_char_end": 294,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "tp,min is defined as lp (panel span) in millimeters, but the relationship is not explicitly stated as an equation.",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 344,
+        "end_pos": 421
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 84,
+        "end_index": 102
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los elementos constructivos con una sola capa en cada lado, los tableros derivados de la madera deberán tener una densidad característica de al menos 350 kg/m 3 .",
+      "attributes": {
+        "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In construction elements with a single layer on each side, wood-based panels must have a characteristic density of at least 350 kg/m³.",
+        "applies_if": "CONSTRUCTION.ELEMENT.LAYER.COUNT == 1",
+        "satisfied_if": "WOOD.PANEL.DENSITY >= 350",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "CONSTRUCTION.ELEMENT.LAYER.COUNT",
+          "WOOD.PANEL.DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 381,
+          "span_char_end": 508,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "WOOD.PANEL.DENSITY >= 350 kg/m³"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 555,
+        "end_pos": 720
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 138,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los tableros deben fijarse al entramado de madera.",
+      "attributes": {
+        "id": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The panels must be fixed to the timber frame.",
+        "applies_if": "TRUE",
+        "satisfied_if": "PANEL.IS_FIXED_TO_TIMBER_FRAME == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.FIXING",
+          "TIMBER.FRAME"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 546,
+          "span_char_end": 595,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 771,
+        "end_pos": 821
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 187,
+        "end_index": 196
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para los paneles o tableros de madera o derivados de la madera fijados con clavos, la separación máxima entre clavos será de 150 mm.",
+      "attributes": {
+        "id": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "For wood or wood-based panels fixed with nails, the maximum separation between nails must be 150 mm.",
+        "applies_if": "PANEL.MATERIAL IN ['WOOD', 'WOOD.DERIVATIVE'] AND PANEL.FIXING.METHOD == 'NAILS'",
+        "satisfied_if": "NAIL.SEPARATION <= 150",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.MATERIAL",
+          "PANEL.FIXING.METHOD",
+          "NAIL.SEPARATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 596,
+          "span_char_end": 709,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "NAIL.SEPARATION <= 150 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 824,
+        "end_pos": 956
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 197,
+        "end_index": 228
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La profundidad mínima de penetración debe ser ocho veces el diámetro del elemento de fijación para tableros portantes y seis veces el diámetro del elemento de fijación para los tableros no portantes.",
+      "attributes": {
+        "id": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The minimum penetration depth must be eight times the fastener diameter for load-bearing panels and six times the fastener diameter for non-load-bearing panels.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(PANEL.TYPE == 'LOAD_BEARING' AND FASTENER.PENETRATION.DEPTH >= 8 * FASTENER.DIAMETER) OR (PANEL.TYPE == 'NON_LOAD_BEARING' AND FASTENER.PENETRATION.DEPTH >= 6 * FASTENER.DIAMETER)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.TYPE",
+          "FASTENER.PENETRATION.DEPTH",
+          "FASTENER.DIAMETER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 710,
+          "span_char_end": 929,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FASTENER.PENETRATION.DEPTH >= 8 * FASTENER.DIAMETER (load-bearing)",
+          "FASTENER.PENETRATION.DEPTH >= 6 * FASTENER.DIAMETER (non-load-bearing)"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 957,
+        "end_pos": 1156
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 228,
+        "end_index": 273
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si los paneles se fijan con tirafondos, la separación máxima será de 250 mm.",
+      "attributes": {
+        "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "If panels are fixed with screws, the maximum separation must be 250 mm.",
+        "applies_if": "PANEL.FIXING.METHOD == 'SCREWS'",
+        "satisfied_if": "SCREW.SEPARATION <= 250",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.FIXING.METHOD",
+          "SCREW.SEPARATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 930,
+          "span_char_end": 1009,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SCREW.SEPARATION <= 250 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1157,
+        "end_pos": 1233
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 273,
+        "end_index": 294
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los cantos de los tableros deberán quedar en contacto con una holgura máxima de 1 mm.",
+      "attributes": {
+        "id": "8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 3,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The edges of the panels must be in contact with a maximum gap of 1 mm.",
+        "applies_if": "TRUE",
+        "satisfied_if": "PANEL.EDGE.GAP <= 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.EDGE.GAP"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1010,
+          "span_char_end": 1099,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PANEL.EDGE.GAP <= 1 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1236,
+        "end_pos": 1321
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 295,
+        "end_index": 316
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Deben fijarse al entramado en al menos dos bordes opuestos.",
+      "attributes": {
+        "id": "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "They must be fixed to the frame on at least two opposite edges.",
+        "applies_if": "TRUE",
+        "satisfied_if": "PANEL.FIXING.EDGES.OPPOSITE >= 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.FIXING",
+          "TIMBER.FRAME"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1100,
+          "span_char_end": 1168,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PANEL.FIXING.EDGES.OPPOSITE >= 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1322,
+        "end_pos": 1381
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 316,
+        "end_index": 327
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En el caso de capas múltiples este requisito se aplica a la capa externa.",
+      "attributes": {
+        "id": "0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In the case of multiple layers, this requirement applies to the outer layer.",
+        "applies_if": "PANEL.LAYER.COUNT > 1",
+        "satisfied_if": "OUTER.LAYER.FIXING.EDGES.OPPOSITE >= 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.LAYER.COUNT",
+          "OUTER.LAYER.FIXING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1169,
+          "span_char_end": 1241,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1382,
+        "end_pos": 1455
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 327,
+        "end_index": 344
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En el caso de capas múltiples las juntas de los paneles deben desfasarse al menos 60 mm.",
+      "attributes": {
+        "id": "1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In the case of multiple layers, the panel joints must be staggered by at least 60 mm.",
+        "applies_if": "PANEL.LAYER.COUNT > 1",
+        "satisfied_if": "PANEL.JOINT.STAGGER >= 60",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.LAYER.COUNT",
+          "PANEL.JOINT.STAGGER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1242,
+          "span_char_end": 1334,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PANEL.JOINT.STAGGER >= 60 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1458,
+        "end_pos": 1546
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 345,
+        "end_index": 365
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cada panel se fijará de manera individual.",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Each panel must be fixed individually.",
+        "applies_if": "TRUE",
+        "satisfied_if": "PANEL.FIXING.METHOD == 'INDIVIDUAL'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "PANEL.FIXING.METHOD"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1335,
+          "span_char_end": 1374,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1547,
+        "end_pos": 1589
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 365,
+        "end_index": 374
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.",
+      "attributes": {
+        "id": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e",
+        "parent_section_id": "e.5.1_muros_y_forjados",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Layers of insulating materials or panels that are taken into account in the calculation must be fixed to the timber frame in such a way as to prevent premature failure or detachment.",
+        "applies_if": "INSULATING.MATERIAL.LAYER.IS_CONSIDERED_IN_CALCULATION == TRUE OR PANEL.IS_CONSIDERED_IN_CALCULATION == TRUE",
+        "satisfied_if": "INSULATING.MATERIAL.LAYER.FIXING.PREVENTS_PREMATURE_FAILURE == TRUE AND INSULATING.MATERIAL.LAYER.FIXING.PREVENTS_DETACHMENT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.MATERIAL": [
+            "TIMBER"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "INSULATING.MATERIAL.LAYER.FIXING",
+          "PANEL.FIXING",
+          "TIMBER.FRAME",
+          "PREMATURE.FAILURE",
+          "DETACHMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1409,
+          "span_char_end": 1600,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1612,
+        "end_pos": 1793
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 383,
+        "end_index": 418
+      },
+      "section_metadata": {
+        "section_id": "e.5.1_muros_y_forjados",
+        "section_name": "E.5.1 Muros y forjados",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.1 Muros y forjados"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 13,
+  "char_count": 1793
+}

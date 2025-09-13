@@ -1,0 +1,203 @@
+{
+  "chunk_id": 29,
+  "section_metadata": {
+    "section_id": "1.1_aproximación_a_los_edificios",
+    "section_name": "1.1 Aproximación a los edificios",
+    "section_level": 3,
+    "start_page": 36,
+    "end_page": 36,
+    "toc_path": [
+      "Sección SI 5 Intervención de los bomberos",
+      "1 Condiciones de aproximación y entorno( )",
+      "1.1 Aproximación a los edificios"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: 1.1 Aproximación a los edificios\n**Path:** Sección SI 5 Intervención de los bomberos → 1 Condiciones de aproximación y entorno( ) → 1.1 Aproximación a los edificios\n**Level:** 3\n**Pages:** 36-36\n\n1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes:\nanchura mínima libre\n3,5 m;\naltura mínima libre o gálibo 4,5 m;\ncapacidad portante del vial 20 kN/m².\n2 En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que se refiere el apartado 1.2, deben cumplir las condiciones siguientes:\nanchura mínima libre\n3,5 m;\naltura mínima libre o gálibo 4,5 m;\ncapacidad portante del vial 20 kN/m².",
+      "attributes": {
+        "id": "e922119c-0975-4721-a472-88775440787a",
+        "parent_section_id": "1.1_aproximación_a_los_edificios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Access roads for fire department vehicles to maneuvering areas must meet specific conditions.",
+        "applies_if": "TRUE",
+        "satisfied_if": "ROAD.WIDTH >= 3.5 AND ROAD.HEIGHT >= 4.5 AND ROAD.LOAD_CAPACITY >= 20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROAD.WIDTH",
+          "ROAD.HEIGHT",
+          "ROAD.LOAD_CAPACITY",
+          "FIRE.ACCESS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 100,
+          "span_char_end": 221,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ROAD.WIDTH >= 3.5 m",
+          "ROAD.HEIGHT >= 4.5 m",
+          "ROAD.LOAD_CAPACITY >= 20 kN/m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1.1 Aproximación a los edificios",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 207,
+        "end_pos": 477
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 57,
+        "end_index": 125
+      },
+      "section_metadata": {
+        "section_id": "1.1_aproximación_a_los_edificios",
+        "section_name": "1.1 Aproximación a los edificios",
+        "section_level": 3,
+        "start_page": 36,
+        "end_page": 36,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "1 Condiciones de aproximación y entorno( )",
+          "1.1 Aproximación a los edificios"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 En los tramos curvos, el carril de rodadura debe quedar delimitado por la traza de una corona circular cuyos radios mínimos deben ser 5,30 m y 12,50 m, con una anchura libre para circulación de 7,20 m.",
+      "attributes": {
+        "id": "2349767c-1793-4702-8692-747225102509",
+        "parent_section_id": "1.1_aproximación_a_los_edificios",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "On curved sections, the carriageway must be delimited by a circular ring with specific minimum radii and a clear width for circulation.",
+        "applies_if": "ROAD.SECTION.TYPE == 'CURVED'",
+        "satisfied_if": "ROAD.CURVED.INNER_RADIUS >= 5.30 AND ROAD.CURVED.OUTER_RADIUS >= 12.50 AND ROAD.CURVED.WIDTH >= 7.20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROAD.CURVED.INNER_RADIUS",
+          "ROAD.CURVED.OUTER_RADIUS",
+          "ROAD.CURVED.WIDTH",
+          "FIRE.ACCESS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 222,
+          "span_char_end": 379,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ROAD.CURVED.INNER_RADIUS >= 5.30 m",
+          "ROAD.CURVED.OUTER_RADIUS >= 12.50 m",
+          "ROAD.CURVED.WIDTH >= 7.20 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1.1 Aproximación a los edificios",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 478,
+        "end_pos": 681
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 125,
+        "end_index": 176
+      },
+      "section_metadata": {
+        "section_id": "1.1_aproximación_a_los_edificios",
+        "section_name": "1.1 Aproximación a los edificios",
+        "section_level": 3,
+        "start_page": 36,
+        "end_page": 36,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "1 Condiciones de aproximación y entorno( )",
+          "1.1 Aproximación a los edificios"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 681
+}

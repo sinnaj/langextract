@@ -1,0 +1,467 @@
+{
+  "chunk_id": 62,
+  "section_metadata": {
+    "section_id": "pasillo_protegido",
+    "section_name": "Pasillo protegido",
+    "section_level": 2,
+    "start_page": 46,
+    "end_page": 46,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Pasillo protegido"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Pasillo protegido\n**Path:** Anejo SI A Terminología → Pasillo protegido\n**Level:** 2\n**Pages:** 46-46\n\nPasillo que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo. Para ello dicho recinto debe reunir, además de las condiciones de seguridad de utilización exigibles a todo pasillo (véase DB-SU 1 y 2), unas condiciones de seguridad equivalentes a las de una escalera protegida .\nSi su ventilación es mediante ventanas o huecos, su superficie de ventilación debe ser como mínimo 0,2L m², siendo L la longitud del pasillo en m.\nSi la ventilación se lleva a cabo mediante conductos de entrada y de salida de aire, éstos cumplirán las mismas condiciones indicadas para los conductos de las escaleras protegidas. Las rejillas de entrada de aire deben estar situadas en un paramento del pasillo, a una altura menor que 1 m y las de salida en el otro paramento, a una altura mayor que 1,80 m y separadas de las anteriores 10 m como máximo.\nEl pasillo debe tener un trazado continuo que permita circular por él hasta una escalera protegida o especialmente protegida, hasta un sector de riesgo mínimo o bien hasta una salida de edificio .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Pasillo que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo. Para ello dicho recinto debe reunir, además de las condiciones de seguridad de utilización exigibles a todo pasillo (véase DB-SU 1 y 2), unas condiciones de seguridad equivalentes a las de una escalera protegida .\nSi su ventilación es mediante ventanas o huecos, su superficie de ventilación debe ser como mínimo 0,2L m², siendo L la longitud del pasillo en m.\nSi la ventilación se lleva a cabo mediante conductos de entrada y de salida de aire, éstos cumplirán las mismas condiciones indicadas para los conductos de las escaleras protegidas. Las rejillas de entrada de aire deben estar situadas en un paramento del pasillo, a una altura menor que 1 m y las de salida en el otro paramento, a una altura mayor que 1,80 m y separadas de las anteriores 10 m como máximo.\nEl pasillo debe tener un trazado continuo que permita circular por él hasta una escalera protegida o especialmente protegida, hasta un sector de riesgo mínimo o bien hasta una salida de edificio .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Defines the characteristics and safety requirements for a protected corridor in case of fire, including ventilation and continuous path to safety.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB-SU 1",
+          "DB-SU 2"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 114,
+        "end_pos": 1250
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 264
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "Pasillo protegido",
+      "attributes": {
+        "id": "1e2b8c9d-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
+        "parent_section_id": "pasillo_protegido",
+        "classification_type": "DEFINITION",
+        "class_definition": "Corridor that, in case of fire, constitutes a sufficiently safe enclosure to allow occupants to remain in it for a certain time.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "CORRIDOR.PROTECTED",
+          "FIRE.SAFETY"
+        ],
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 28
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pasillo que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo. Para ello dicho recinto debe reunir, además de las condiciones de seguridad de utilización exigibles a todo pasillo (véase DB-SU 1 y 2), unas condiciones de seguridad equivalentes a las de una escalera protegida .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "pasillo_protegido",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A protected corridor must be a sufficiently safe enclosure in case of fire to allow occupants to remain in it for a certain time.",
+        "applies_if": "CORRIDOR.TYPE == 'PROTECTED'",
+        "satisfied_if": "CORRIDOR.SAFETY.FIRE.CAPABILITY == 'SAFE_FOR_OCCUPANCY_FOR_TIME_PERIOD' AND CORRIDOR.SAFETY.USAGE.COMPLIES_WITH_DB_SU_1_2 == TRUE AND CORRIDOR.SAFETY.FIRE.EQUIVALENT_TO_PROTECTED_STAIR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CORRIDOR.PROTECTED",
+          "FIRE.SAFETY",
+          "OCCUPANT.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 114,
+        "end_pos": 499
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 101
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si su ventilación es mediante ventanas o huecos, su superficie de ventilación debe ser como mínimo 0,2L m², siendo L la longitud del pasillo en m.",
+      "attributes": {
+        "id": "d5e6f7a8-b9c0-1d2e-3f4a-5b6c7d8e9f0a",
+        "parent_section_id": "pasillo_protegido",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If ventilation is through windows or openings, the ventilation surface area must be at least 0.2L m², where L is the corridor length in meters.",
+        "applies_if": "CORRIDOR.TYPE == 'PROTECTED' AND CORRIDOR.VENTILATION.TYPE IN ['WINDOWS', 'OPENINGS']",
+        "satisfied_if": "CORRIDOR.VENTILATION.SURFACE_AREA >= (0.2 * CORRIDOR.LENGTH)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "HEALTH",
+          "PROTECTION.INDOOR.AIR"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "CORRIDOR.PROTECTED",
+          "VENTILATION",
+          "WINDOW",
+          "OPENING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CORRIDOR.VENTILATION.SURFACE_AREA >= 0.2 * CORRIDOR.LENGTH"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 500,
+        "end_pos": 646
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 101,
+        "end_index": 139
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la ventilación se lleva a cabo mediante conductos de entrada y de salida de aire, éstos cumplirán las mismas condiciones indicadas para los conductos de las escaleras protegidas. Las rejillas de entrada de aire deben estar situadas en un paramento del pasillo, a una altura menor que 1 m y las de salida en el otro paramento, a una altura mayor que 1,80 m y separadas de las anteriores 10 m como máximo.",
+      "attributes": {
+        "id": "f1a2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c",
+        "parent_section_id": "pasillo_protegido",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If ventilation is carried out by air intake and exhaust ducts, these must comply with the same conditions indicated for protected stair ducts. Air intake grilles must be located on one side of the corridor, at a height less than 1 m, and exhaust grilles on the other side, at a height greater than 1.80 m and separated from the intake grilles by a maximum of 10 m.",
+        "applies_if": "CORRIDOR.TYPE == 'PROTECTED' AND CORRIDOR.VENTILATION.TYPE == 'DUCTS'",
+        "satisfied_if": "CORRIDOR.VENTILATION.DUCTS.COMPLIES_WITH_PROTECTED_STAIR_DUCTS == TRUE AND CORRIDOR.VENTILATION.INTAKE_GRILLE.HEIGHT < 1 AND CORRIDOR.VENTILATION.EXHAUST_GRILLE.HEIGHT > 1.80 AND CORRIDOR.VENTILATION.GRILLES.SEPARATION <= 10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "HEALTH",
+          "PROTECTION.INDOOR.AIR"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 4,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "CORRIDOR.PROTECTED",
+          "VENTILATION",
+          "DUCTS",
+          "AIR.GRILLE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CORRIDOR.VENTILATION.INTAKE_GRILLE.HEIGHT < 1 m",
+          "CORRIDOR.VENTILATION.EXHAUST_GRILLE.HEIGHT > 1.80 m",
+          "CORRIDOR.VENTILATION.GRILLES.SEPARATION <= 10 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 647,
+        "end_pos": 1053
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 139,
+        "end_index": 227
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El pasillo debe tener un trazado continuo que permita circular por él hasta una escalera protegida o especialmente protegida, hasta un sector de riesgo mínimo o bien hasta una salida de edificio .",
+      "attributes": {
+        "id": "c7d8e9f0-a1b2-3c4d-5e6f-7a8b9c0d1e2f",
+        "parent_section_id": "pasillo_protegido",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The corridor must have a continuous path that allows circulation to a protected or specially protected staircase, to a minimum risk sector, or to a building exit.",
+        "applies_if": "CORRIDOR.TYPE == 'PROTECTED'",
+        "satisfied_if": "CORRIDOR.PATH.IS_CONTINUOUS == TRUE AND (CORRIDOR.PATH.LEADS_TO.STAIRCASE.TYPE IN ['PROTECTED', 'SPECIALLY_PROTECTED'] OR CORRIDOR.PATH.LEADS_TO.FIRE_SECTOR.RISK == 'MINIMUM' OR CORRIDOR.PATH.LEADS_TO.BUILDING.EXIT == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CORRIDOR.PROTECTED",
+          "EMERGENCYPATH",
+          "STAIRCASE.PROTECTED",
+          "FIRE.SECTOR.MINIMUM_RISK",
+          "BUILDING.EXIT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Pasillo protegido",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1054,
+        "end_pos": 1250
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 227,
+        "end_index": 264
+      },
+      "section_metadata": {
+        "section_id": "pasillo_protegido",
+        "section_name": "Pasillo protegido",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Pasillo protegido"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 1250
+}

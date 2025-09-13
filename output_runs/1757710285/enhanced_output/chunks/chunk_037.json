@@ -1,0 +1,410 @@
+{
+  "chunk_id": 37,
+  "section_metadata": {
+    "section_id": "4_elementos_estructurales_secundarios",
+    "section_name": "4 Elementos estructurales secundarios",
+    "section_level": 2,
+    "start_page": 40,
+    "end_page": 40,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "4 Elementos estructurales secundarios"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 4 Elementos estructurales secundarios\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 4 Elementos estructurales secundarios\n**Level:** 2\n**Pages:** 40-40\n\n1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar daños a los ocupantes, ni comprometer la estabilidad global de la estructura, la evacuación o la compartimentación en sectores de incendio del edificio, como puede ser el caso de pequeñas entreplantas o de suelos o escaleras de construcción ligera, etc., no precisan cumplir ninguna exigencia de resistencia al fuego .\nNo obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fuego R que se establece en la tabla 3.1 del apartado anterior, debe ser accesible al menos por una escalera que garantice esa misma resistencia o que sea protegida .\n2 Las estructuras sustentantes de cerramientos formados por elementos textiles, tales como carpas, serán R 30, excepto cuando se acredite que el elemento textil, además de ser nivel T2 conforme a la norma UNE -EN 15619:2014 o C -s2,d0, conforme a la UNE-EN 13501-1:2007, según se establece en el Capítulo 4 de la Sección 1 de este DB, presenta, en todas sus capas de cubrición, una perforación de superficie igual o mayor que 20 cm2 tras el ensayo definido en la norma UNE-EN 14115:2002.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar daños a los ocupantes, ni comprometer la estabilidad global de la estructura, la evacuación o la compartimentación en sectores de incendio del edificio, como puede ser el caso de pequeñas entreplantas o de suelos o escaleras de construcción ligera, etc., no precisan cumplir ninguna exigencia de resistencia al fuego .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Structural elements whose collapse due to direct fire action cannot cause harm to occupants, compromise global structural stability, evacuation, or fire sector compartmentalization of the building, do not need to meet any fire resistance requirements.",
+        "applies_if": "TRUE",
+        "satisfied_if": "STRUCTURAL_ELEMENT.COLLAPSE_DUE_TO_FIRE.CAUSES_HARM_TO_OCCUPANTS == FALSE AND STRUCTURAL_ELEMENT.COLLAPSE_DUE_TO_FIRE.COMPROMISES_GLOBAL_STABILITY == FALSE AND STRUCTURAL_ELEMENT.COLLAPSE_DUE_TO_FIRE.COMPROMISES_EVACUATION == FALSE AND STRUCTURAL_ELEMENT.COLLAPSE_DUE_TO_FIRE.COMPROMISES_FIRE_COMPARTMENTALIZATION == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STRUCTURAL_ELEMENT.FIRE_RESISTANCE",
+          "STRUCTURAL_ELEMENT.COLLAPSE",
+          "FIRE.SAFETY",
+          "EVACUATION",
+          "FIRE.COMPARTMENTALIZATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 313,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Examples include small mezzanines, light construction floors or stairs.",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 181,
+        "end_pos": 597
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 36,
+        "end_index": 118
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fuego R que se establece en la tabla 3.1 del apartado anterior, debe ser accesible al menos por una escalera que garantice esa misma resistencia o que sea protegida .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5e",
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Any floor that must guarantee the fire resistance R established in table 3.1 of the previous section must be accessible by at least one staircase that guarantees the same resistance or is protected.",
+        "applies_if": "FLOOR.FIRE_RESISTANCE.REQUIRED == TRUE",
+        "satisfied_if": "STAIRCASE.ACCESSIBLE_TO_FLOOR == TRUE AND (STAIRCASE.FIRE_RESISTANCE == FLOOR.FIRE_RESISTANCE OR STAIRCASE.IS_PROTECTED == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.FIRE_RESISTANCE",
+          "STAIRCASE.FIRE_RESISTANCE",
+          "STAIRCASE.PROTECTED",
+          "ACCESSIBILITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 314,
+          "span_char_end": 526,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Refers to Table 3.1 from a previous section for fire resistance R.",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 598,
+        "end_pos": 860
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 169
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Las estructuras sustentantes de cerramientos formados por elementos textiles, tales como carpas, serán R 30, excepto cuando se acredite que el elemento textil, además de ser nivel T2 conforme a la norma UNE -EN 15619:2014 o C -s2,d0, conforme a la UNE-EN 13501-1:2007, según se establece en el Capítulo 4 de la Sección 1 de este DB, presenta, en todas sus capas de cubrición, una perforación de superficie igual o mayor que 20 cm2 tras el ensayo definido en la norma UNE-EN 14115:2002.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5f",
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Supporting structures for enclosures made of textile elements, such as tents, must have a fire resistance of R 30.",
+        "applies_if": "STRUCTURE.TYPE == 'SUPPORTING' AND ENCLOSURE.MATERIAL == 'TEXTILE'",
+        "satisfied_if": "STRUCTURE.FIRE_RESISTANCE == 'R30'",
+        "exempt_if": "TEXTILE_ELEMENT.LEVEL == 'T2' AND TEXTILE_ELEMENT.PERFORATION_AREA_AFTER_TEST >= 20 AND TEXTILE_ELEMENT.PERFORATION_AREA_AFTER_TEST.UNIT == 'cm2'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STRUCTURE.FIRE_RESISTANCE",
+          "TEXTILE_ELEMENT.FIRE_CLASSIFICATION",
+          "TEXTILE_ELEMENT.PERFORATION_AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 527,
+          "span_char_end": 969,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE.R30",
+          "PERFORATION_AREA >= 20 cm2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Exemption conditions refer to UNE-EN 15619:2014, UNE-EN 13501-1:2007, and UNE-EN 14115:2002 standards.",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 861,
+        "end_pos": 1348
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 169,
+        "end_index": 297
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE -EN 15619:2014",
+      "attributes": {
+        "id": "une-en-15619-2014",
+        "title": "UNE -EN 15619:2014",
+        "type": "STANDARD",
+        "country": "ES",
+        "year": 2014,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "code": null,
+        "uri": null,
+        "source": {
+          "span_char_start": 662,
+          "span_char_end": 680,
+          "visual_refs": []
+        },
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1066,
+        "end_pos": 1084
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 211,
+        "end_index": 217
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE-EN 13501-1:2007",
+      "attributes": {
+        "id": "une-en-13501-1-2007",
+        "title": "UNE-EN 13501-1:2007",
+        "type": "STANDARD",
+        "country": "ES",
+        "year": 2007,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "code": null,
+        "uri": null,
+        "source": {
+          "span_char_start": 709,
+          "span_char_end": 728,
+          "visual_refs": []
+        },
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1111,
+        "end_pos": 1130
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 229,
+        "end_index": 237
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE-EN 14115:2002",
+      "attributes": {
+        "id": "une-en-14115-2002",
+        "title": "UNE-EN 14115:2002",
+        "type": "STANDARD",
+        "country": "ES",
+        "year": 2002,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "code": null,
+        "uri": null,
+        "source": {
+          "span_char_start": 950,
+          "span_char_end": 969,
+          "visual_refs": []
+        },
+        "parent_section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1330,
+        "end_pos": 1347
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 290,
+        "end_index": 296
+      },
+      "section_metadata": {
+        "section_id": "4_elementos_estructurales_secundarios",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 1348
+}

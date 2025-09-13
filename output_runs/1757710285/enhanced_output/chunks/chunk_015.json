@@ -1,0 +1,384 @@
+{
+  "chunk_id": 15,
+  "section_metadata": {
+    "section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+    "section_name": "1 Compatibilidad de los elementos de evacuación",
+    "section_level": 2,
+    "start_page": 22,
+    "end_page": 22,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "1 Compatibilidad de los elementos de evacuación"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 1 Compatibilidad de los elementos de evacuación\n**Path:** Sección SI 3 Evacuación de ocupantes → 1 Compatibilidad de los elementos de evacuación\n**Level:** 2\n**Pages:** 22-22\n\n1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso Docente, Hospitalario , Residencial Público o Administrativo cuya superficie construida sea mayor que 1.500 m2, si están integrados en un edificio cuyo uso previsto principal sea distinto del suyo, deben cumplir las siguientes condiciones:\nsus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en elementos independientes de las zonas comunes del edificio y compartimentados respecto de éste de igual forma que deba estarlo el establecimiento en cuestión, según lo establecido en el capítulo 1 de la Sección 1 de este DB. No obstante, dichos elementos podrán servir como salida de emergencia de otras zonas del edificio ,\nsus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través de un vestíbulo de independencia, siempre que dicho elemento de evacuación esté dimensionado teniendo en cuenta dicha circunstancia.\n2 Como excepción, los establecimientos de uso Pública concurrencia cuya superficie construida total no exceda de 500 m² y estén integrados en centros comerciales podrán tener salidas de uso habitual o salidas de emergencia a las zonas comunes de circulación del centro. Cuando su superficie sea mayor que la indicada, al menos las salidas de emergencia serán independientes respecto de dichas zonas comunes.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso Docente, Hospitalario , Residencial Público o Administrativo cuya superficie construida sea mayor que 1.500 m2, si están integrados en un edificio cuyo uso previsto principal sea distinto del suyo, deben cumplir las siguientes condiciones: sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en elementos independientes de las zonas comunes del edificio y compartimentados respecto de éste de igual forma que deba estarlo el establecimiento en cuestión, según lo establecido en el capítulo 1 de la Sección 1 de este DB.",
+      "attributes": {
+        "id": "2313d11b-6060-4497-8822-07314545025a",
+        "parent_section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Establishments must have their usual exits and routes to the safe exterior space located in independent elements of the common areas of the building and compartmentalized with respect to it in the same way that the establishment in question must be, according to what is established in chapter 1 of Section 1 of this DB.",
+        "applies_if": "(ESTABLISHMENT.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY'] AND ESTABLISHMENT.AREA.SIZE > 0 AND BUILDING.USAGE != ESTABLISHMENT.USAGE) OR (ESTABLISHMENT.USAGE IN ['PUBLIC.EDUCATION', 'PUBLIC.HOSPITAL', 'PUBLIC.RESIDENTIAL', 'ADMINISTRATIVE'] AND ESTABLISHMENT.AREA.SIZE > 1500 AND BUILDING.USAGE != ESTABLISHMENT.USAGE)",
+        "satisfied_if": "EXIT.USUAL.LOCATION.INDEPENDENT_OF_COMMON_AREAS == TRUE AND EXIT.USUAL.COMPARTMENTALIZED_AS_ESTABLISHMENT == TRUE AND ROUTE.TO_SAFE_EXTERIOR.LOCATION.INDEPENDENT_OF_COMMON_AREAS == TRUE AND ROUTE.TO_SAFE_EXTERIOR.COMPARTMENTALIZED_AS_ESTABLISHMENT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ESTABLISHMENT.USAGE.PUBLIC.COMMERCIAL",
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "ESTABLISHMENT.USAGE.PUBLIC.EDUCATION",
+          "ESTABLISHMENT.USAGE.PUBLIC.HOSPITAL",
+          "ESTABLISHMENT.USAGE.PUBLIC.RESIDENTIAL",
+          "ESTABLISHMENT.USAGE.ADMINISTRATIVE",
+          "ESTABLISHMENT.AREA.SIZE",
+          "BUILDING.USAGE",
+          "EXIT.USUAL",
+          "ROUTE.TO_SAFE_EXTERIOR",
+          "COMPARTMENTALIZATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 102,
+          "span_char_end": 646,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.AREA.SIZE > 1500 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 187,
+        "end_pos": 849
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 174
+      },
+      "section_metadata": {
+        "section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No obstante, dichos elementos podrán servir como salida de emergencia de otras zonas del edificio , sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través de un vestíbulo de independencia, siempre que dicho elemento de evacuación esté dimensionado teniendo en cuenta dicha circunstancia.",
+      "attributes": {
+        "id": "4b768132-75d5-412d-963e-32989146522c",
+        "parent_section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency exits may communicate with a common evacuation element of the building through an independence vestibule, provided that said evacuation element is dimensioned taking into account this circumstance.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EXIT.EMERGENCY.COMMUNICATES_WITH_COMMON_EVACUATION_ELEMENT == TRUE AND COMMON_EVACUATION_ELEMENT.DIMENSIONED_FOR_CIRCUMSTANCE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EXIT.EMERGENCY",
+          "EVACUATION.ELEMENT.COMMON",
+          "VESTIBULE.INDEPENDENCE",
+          "DIMENSIONING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 648,
+          "span_char_end": 949,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 850,
+        "end_pos": 1183
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 174,
+        "end_index": 242
+      },
+      "section_metadata": {
+        "section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Como excepción, los establecimientos de uso Pública concurrencia cuya superficie construida total no exceda de 500 m² y estén integrados en centros comerciales podrán tener salidas de uso habitual o salidas de emergencia a las zonas comunes de circulación del centro.",
+      "attributes": {
+        "id": "2313d11b-6060-4497-8822-07314545025b",
+        "parent_section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Establishments for public concurrence use whose total built surface does not exceed 500 m² and are integrated into shopping centers may have usual exits or emergency exits to the common circulation areas of the center.",
+        "applies_if": "ESTABLISHMENT.USAGE == 'PUBLIC.ASSEMBLY' AND ESTABLISHMENT.AREA.SIZE <= 500 AND ESTABLISHMENT.INTEGRATED_IN_SHOPPING_CENTER == TRUE",
+        "satisfied_if": "EXIT.USUAL.COMMUNICATES_WITH_COMMON_CIRCULATION_AREAS == TRUE OR EXIT.EMERGENCY.COMMUNICATES_WITH_COMMON_CIRCULATION_AREAS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "ESTABLISHMENT.AREA.SIZE",
+          "SHOPPING_CENTER",
+          "EXIT.USUAL",
+          "EXIT.EMERGENCY",
+          "COMMON_CIRCULATION_AREAS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 951,
+          "span_char_end": 1243,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.AREA.SIZE <= 500 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1184,
+        "end_pos": 1453
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 242,
+        "end_index": 297
+      },
+      "section_metadata": {
+        "section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando su superficie sea mayor que la indicada, al menos las salidas de emergencia serán independientes respecto de dichas zonas comunes.",
+      "attributes": {
+        "id": "2313d11b-6060-4497-8822-07314545025c",
+        "parent_section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When its surface is greater than indicated, at least the emergency exits will be independent of said common areas.",
+        "applies_if": "ESTABLISHMENT.USAGE == 'PUBLIC.ASSEMBLY' AND ESTABLISHMENT.AREA.SIZE > 500 AND ESTABLISHMENT.INTEGRATED_IN_SHOPPING_CENTER == TRUE",
+        "satisfied_if": "EXIT.EMERGENCY.INDEPENDENT_OF_COMMON_AREAS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "ESTABLISHMENT.AREA.SIZE",
+          "SHOPPING_CENTER",
+          "EXIT.EMERGENCY",
+          "COMMON_AREAS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 1245,
+          "span_char_end": 1373,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.AREA.SIZE > 500 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1454,
+        "end_pos": 1591
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 297,
+        "end_index": 322
+      },
+      "section_metadata": {
+        "section_id": "1_compatibilidad_de_los_elementos_de_evacuación",
+        "section_name": "1 Compatibilidad de los elementos de evacuación",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1591
+}

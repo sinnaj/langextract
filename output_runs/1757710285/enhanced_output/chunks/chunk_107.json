@@ -1,0 +1,474 @@
+{
+  "chunk_id": 107,
+  "section_metadata": {
+    "section_id": "c.3.4_isotermas",
+    "section_name": "C.3.4 Isotermas",
+    "section_level": 3,
+    "start_page": 62,
+    "end_page": 68,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.3  Método simplificado de la isoterma 500",
+      "C.3.4 Isotermas"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: C.3.4 Isotermas\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.3  Método simplificado de la isoterma 500 → C.3.4 Isotermas\n**Level:** 3\n**Pages:** 62-68\n\n1 Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.\n2 Las isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura. Estas isotermas quedan del lado de la seguridad para la mayor parte de tipos de áridos, pero no de forma generalizada para exposiciones a un fuego distinto del normalizado.\n62\nFigura C.3. Isotermas para cuartos de sección de 300 x 160 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\n63\nFigura C.4. Isotermas para cuartos de sección de 600 x 300 mm expuestos por ambas caras\nR\n-\n60\nR\n-\n90\nR\n-\n120\n64\nFigura C.5. Isotermas para cuartos de sección de 800 x 500 mm expuestos por ambas caras\nR\n-\n90\nR\n-\n120\nR\n-\n180\nR\n-\n240\n65\nFigura C.6. Isotermas para cuartos de sección de 300 x 300 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n66\nFigura C.7. Isotermas de un cuarto de sección circular de 300 mm de diámetro expuesta perimetralmente\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n67\nFigura C.8. Distribución de temperaturas en el espesor de secciones planas expuestas por una cara h ≥ 200 mm\nR\n-\n30\n-\nR\n-\n240\n68",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.\n2 Las isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura. Estas isotermas quedan del lado de la seguridad para la mayor parte de tipos de áridos, pero no de forma generalizada para exposiciones a un fuego distinto del normalizado.\n62\nFigura C.3. Isotermas para cuartos de sección de 300 x 160 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\n63\nFigura C.4. Isotermas para cuartos de sección de 600 x 300 mm expuestos por ambas caras\nR\n-\n60\nR\n-\n90\nR\n-\n120\n64\nFigura C.5. Isotermas para cuartos de sección de 800 x 500 mm expuestos por ambas caras\nR\n-\n90\nR\n-\n120\nR\n-\n180\nR\n-\n240\n65\nFigura C.6. Isotermas para cuartos de sección de 300 x 300 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n66\nFigura C.7. Isotermas de un cuarto de sección circular de 300 mm de diámetro expuesta perimetralmente\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n67\nFigura C.8. Distribución de temperaturas en el espesor de secciones planas expuestas por una cara h ≥ 200 mm\nR\n-\n30\n-\nR\n-\n240\n68",
+      "attributes": {
+        "id": "c.3.4_isotermas",
+        "meta_summary": "This section describes the use of isotherms to determine temperatures in reinforced concrete structures exposed to fire, specifically for siliceous aggregate concretes and normalized fire curves. It includes figures illustrating isotherms for various section sizes and fire resistance ratings.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 200,
+        "end_pos": 1465
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 357
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.",
+      "attributes": {
+        "id": "c.3.4_isotermas_procedure_1",
+        "parent_section_id": "c.3.4_isotermas",
+        "Procedure": "Temperatures in a concrete structure exposed to fire can be obtained experimentally or analytically.",
+        "target_reference": [],
+        "Tags": [
+          "CONCRETE.STRUCTURE.TEMPERATURE",
+          "FIRE.EXPOSURE",
+          "EXPERIMENTAL.ANALYSIS",
+          "ANALYTICAL.ANALYSIS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 108,
+          "visual_refs": []
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 202,
+        "end_pos": 318
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 56,
+        "end_index": 78
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Las isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura. Estas isotermas quedan del lado de la seguridad para la mayor parte de tipos de áridos, pero no de forma generalizada para exposiciones a un fuego distinto del normalizado.",
+      "attributes": {
+        "id": "c.3.4_isotermas_procedure_2",
+        "parent_section_id": "c.3.4_isotermas",
+        "Procedure": "Isotherms from the figures in this section can be used to determine temperatures in the cross-section of siliceous aggregate concretes exposed to fire according to the normalized curve until the instant of maximum temperature. These isotherms are on the safe side for most aggregate types, but not generally for exposures to non-normalized fire.",
+        "target_reference": [
+          "Figura C.3",
+          "Figura C.4",
+          "Figura C.5",
+          "Figura C.6",
+          "Figura C.7",
+          "Figura C.8"
+        ],
+        "Tags": [
+          "CONCRETE.STRUCTURE.TEMPERATURE",
+          "FIRE.EXPOSURE",
+          "ISOTHERMS",
+          "SILICEOUS.AGGREGATE.CONCRETE",
+          "NORMALIZED.FIRE.CURVE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 109,
+          "span_char_end": 435,
+          "visual_refs": []
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 321,
+        "end_pos": 732
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 79,
+        "end_index": 158
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Isotermas para cuartos de sección de 300 x 160 mm expuestos por ambas caras",
+      "attributes": {
+        "id": "c.3.4_isotherms_300x160_double_sided",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.RECTANGULAR.300X160MM.DOUBLE_SIDED_EXPOSURE",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 444,
+          "span_char_end": 509,
+          "visual_refs": [
+            "Figura C.3"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 748,
+        "end_pos": 823
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 164,
+        "end_index": 180
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Isotermas para cuartos de sección de 600 x 300 mm expuestos por ambas caras",
+      "attributes": {
+        "id": "c.3.4_isotherms_600x300_double_sided",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.RECTANGULAR.600X300MM.DOUBLE_SIDED_EXPOSURE",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 550,
+          "span_char_end": 615,
+          "visual_refs": [
+            "Figura C.4"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 860,
+        "end_pos": 935
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 195,
+        "end_index": 211
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Isotermas para cuartos de sección de 800 x 500 mm expuestos por ambas caras",
+      "attributes": {
+        "id": "c.3.4_isotherms_800x500_double_sided",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.RECTANGULAR.800X500MM.DOUBLE_SIDED_EXPOSURE",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 656,
+          "span_char_end": 721,
+          "visual_refs": [
+            "Figura C.5"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 973,
+        "end_pos": 1048
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 226,
+        "end_index": 242
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Isotermas para cuartos de sección de 300 x 300 mm expuestos por ambas caras",
+      "attributes": {
+        "id": "c.3.4_isotherms_300x300_double_sided",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.RECTANGULAR.300X300MM.DOUBLE_SIDED_EXPOSURE",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 762,
+          "span_char_end": 827,
+          "visual_refs": [
+            "Figura C.6"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1095,
+        "end_pos": 1170
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 260,
+        "end_index": 276
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Isotermas de un cuarto de sección circular de 300 mm de diámetro expuesta perimetralmente",
+      "attributes": {
+        "id": "c.3.4_isotherms_circular_300mm_perimeter_exposure",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.CIRCULAR.300MM_DIAMETER.PERIMETER_EXPOSURE",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 868,
+          "span_char_end": 947,
+          "visual_refs": [
+            "Figura C.7"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1215,
+        "end_pos": 1304
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 294,
+        "end_index": 312
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Distribución de temperaturas en el espesor de secciones planas expuestas por una cara h ≥ 200 mm",
+      "attributes": {
+        "id": "c.3.4_isotherms_flat_sections_single_sided_h_ge_200mm",
+        "parent_section_id": "c.3.4_isotermas",
+        "classification_type": "STRUCTURAL.ELEMENT.GEOMETRY",
+        "classification_value": "SECTION.FLAT.SINGLE_SIDED_EXPOSURE.THICKNESS_GE_200MM",
+        "applies_to": [
+          "CONCRETE.STRUCTURE.TEMPERATURE.DETERMINATION"
+        ],
+        "source": {
+          "span_char_start": 988,
+          "span_char_end": 1070,
+          "visual_refs": [
+            "Figura C.8"
+          ]
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 1349,
+        "end_pos": 1445
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 330,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "c.3.4_isotermas",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 9,
+  "char_count": 1465
+}

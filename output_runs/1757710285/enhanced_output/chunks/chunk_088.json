@@ -1,0 +1,599 @@
+{
+  "chunk_id": 88,
+  "section_metadata": {
+    "section_id": "vestíbulo_de_independencia",
+    "section_name": "Vestíbulo de independencia",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Vestíbulo de independencia"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Vestíbulo de independencia\n**Path:** Anejo SI A Terminología → Vestíbulo de independencia\n**Level:** 2\n**Pages:** 51-51\n\nRecinto de uso exclusivo para circulación situado entre dos o más recintos o zonas con el fin de aportar una mayor garantía de compartimentación contra incendios y que únicamente puede comunicar con los recintos o zonas a independizar, con aseos de planta y con ascensores. Cumplirán las siguientes condiciones:\n-Sus paredes serán EI 120. Sus puertas de paso entre los recintos o zonas a independizar tendrán la cuarta parte de la resistencia al fuego exigible al elemento compartimentador que separa dichos recintos y al menos EI2 30-C5 .\n-Los vestíbulos de independencia de las escaleras especialmente protegidas dispondrán de protección frente al humo conforme a alguna de las alternativas establecidas para dichas escaleras.\n-Los que sirvan a uno o a varios locales de riesgo especial, según lo establecido en el apartado 2 de la Sección SI 1 , no pueden utilizarse en los recorridos de evacuación de zonas habitables .\n-La distancia mínima entre los contornos de las superficies barridas por las puertas del vestíbulo debe ser al menos 0,50 m.\n-Los vestíbulos de independencia situados en un itinerario accesible (ver definición en el Anejo A del DB SUA) deben poder contener un círculo de diámetro Ø 1,20 m libre de obstáculos y del barrido de las puertas. Cuando el vestíbulo contenga una zona de refugio, dicho círculo tendrá un diámetro Ø 1,50 m y podrá invadir una de las plazas reservadas para usuarios de silla de ruedas . Los mecanis-\n51\nmos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del encuentro en rincón más próximo de la pared que contiene la puerta.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Recinto de uso exclusivo para circulación situado entre dos o más recintos o zonas con el fin de aportar una mayor garantía de compartimentación contra incendios y que únicamente puede comunicar con los recintos o zonas a independizar, con aseos de planta y con ascensores.",
+      "attributes": {
+        "id": "1",
+        "meta_summary": "Defines an independence vestibule as an exclusive circulation space between two or more areas to enhance fire compartmentation, communicating only with the areas to be separated, floor toilets, and elevators.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 132,
+        "end_pos": 405
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 33,
+        "end_index": 89
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sus paredes serán EI 120.",
+      "attributes": {
+        "id": "2",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls of independence vestibules must have a fire resistance of EI 120.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.WALL.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "WALL.FIRE_RESISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "confidence": 1.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 445,
+        "end_pos": 470
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 97,
+        "end_index": 105
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sus puertas de paso entre los recintos o zonas a independizar tendrán la cuarta parte de la resistencia al fuego exigible al elemento compartimentador que separa dichos recintos y al menos EI2 30-C5 .",
+      "attributes": {
+        "id": "3",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Passage doors between areas to be separated by an independence vestibule must have a fire resistance equal to one-fourth of the required fire resistance of the compartmentation element separating those areas, and at least EI2 30-C5.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.FIRE_RESISTANCE == (COMPARTMENTATION.ELEMENT.FIRE_RESISTANCE / 4) AND VESTIBULE.INDEPENDENCE.DOOR.FIRE_RESISTANCE >= 'EI2 30-C5'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.FIRE_RESISTANCE",
+          "COMPARTMENTATION.ELEMENT.FIRE_RESISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI2 30-C5"
+        ],
+        "confidence": 0.9,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 471,
+        "end_pos": 671
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 105,
+        "end_index": 145
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los vestíbulos de independencia de las escaleras especialmente protegidas dispondrán de protección frente al humo conforme a alguna de las alternativas establecidas para dichas escaleras.",
+      "attributes": {
+        "id": "4",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Independence vestibules for specially protected stairs must have smoke protection in accordance with the alternatives established for those stairs.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND STAIR.TYPE == 'SPECIALLY_PROTECTED'",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.SMOKE_PROTECTION == STAIR.SPECIALLY_PROTECTED.SMOKE_PROTECTION_REQUIREMENTS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "STAIR.TYPE.SPECIALLY_PROTECTED",
+          "SMOKE_PROTECTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 673,
+        "end_pos": 860
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 146,
+        "end_index": 178
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los que sirvan a uno o a varios locales de riesgo especial, según lo establecido en el apartado 2 de la Sección SI 1 , no pueden utilizarse en los recorridos de evacuación de zonas habitables .",
+      "attributes": {
+        "id": "5",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Independence vestibules serving one or more special risk premises, as established in Section SI 1, paragraph 2, cannot be used in evacuation routes for habitable areas.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND VESTIBULE.INDEPENDENCE.SERVES_SPECIAL_RISK_PREMISES == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.IS_USED_IN_EVACUATION_ROUTE_FOR_HABITABLE_AREAS == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "SPECIAL_RISK_PREMISES",
+          "EVACUATION.ROUTE",
+          "HABITABLE.AREA"
+        ],
+        "referenced_documents_sections": [
+          "SI.1.2"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 862,
+        "end_pos": 1055
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 179,
+        "end_index": 223
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La distancia mínima entre los contornos de las superficies barridas por las puertas del vestíbulo debe ser al menos 0,50 m.",
+      "attributes": {
+        "id": "6",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The minimum distance between the swept surfaces of the vestibule doors must be at least 0.50 m.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.SWEEP_SURFACE.DISTANCE >= 0.50",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.SWEEP_SURFACE.DISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "DISTANCE: 0.50 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1057,
+        "end_pos": 1180
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 224,
+        "end_index": 252
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los vestíbulos de independencia situados en un itinerario accesible (ver definición en el Anejo A del DB SUA) deben poder contener un círculo de diámetro Ø 1,20 m libre de obstáculos y del barrido de las puertas.",
+      "attributes": {
+        "id": "7",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Independence vestibules located on an accessible route must be able to contain a clear circle of 1.20 m diameter, free of obstacles and door sweeps.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND ROUTE.ACCESSIBLE == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DIAMETER >= 1.20 AND VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.OBSTACLE_FREE == TRUE AND VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DOOR_SWEEP_FREE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "ROUTE.ACCESSIBLE",
+          "CLEAR_CIRCLE.DIAMETER",
+          "OBSTACLE_FREE",
+          "DOOR_SWEEP_FREE"
+        ],
+        "referenced_documents_sections": [
+          "DB.SUA.ANEJO.A"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "DIAMETER: 1.20 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1182,
+        "end_pos": 1394
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 253,
+        "end_index": 305
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando el vestíbulo contenga una zona de refugio, dicho círculo tendrá un diámetro Ø 1,50 m y podrá invadir una de las plazas reservadas para usuarios de silla de ruedas .",
+      "attributes": {
+        "id": "8",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the vestibule contains a refuge area, the clear circle must have a diameter of 1.50 m and may encroach upon one of the spaces reserved for wheelchair users.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND VESTIBULE.INDEPENDENCE.HAS_REFUGE_AREA == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DIAMETER >= 1.50 AND (VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.MAY_INVADE_WHEELCHAIR_SPACE == TRUE OR VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DOES_NOT_INVADE_WHEELCHAIR_SPACE == FALSE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "REFUGE.AREA",
+          "CLEAR_CIRCLE.DIAMETER",
+          "WHEELCHAIR.SPACE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "DIAMETER: 1.50 m"
+        ],
+        "confidence": 0.9,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1395,
+        "end_pos": 1566
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 305,
+        "end_index": 347
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los mecanismos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del encuentro en rincón más próximo de la pared que contiene la puerta.",
+      "attributes": {
+        "id": "9",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Door opening mechanisms in vestibules must be at a minimum distance of 0.30 m from the nearest corner of the wall containing the door.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR.OPENING_MECHANISM) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.OPENING_MECHANISM.DISTANCE_TO_CORNER >= 0.30",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.OPENING_MECHANISM",
+          "DISTANCE_TO_CORNER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "DISTANCE: 0.30 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1567,
+        "end_pos": 1570
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 347,
+        "end_index": 348
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Vestíbulo de independencia",
+      "attributes": {
+        "id": "10",
+        "parent_section_id": "vestíbulo_de_independencia",
+        "classification_type": "DEFINITION",
+        "classification_name": "Vestíbulo de independencia",
+        "classification_value": "Recinto de uso exclusivo para circulación situado entre dos o más recintos o zonas con el fin de aportar una mayor garantía de compartimentación contra incendios y que únicamente puede comunicar con los recintos o zonas a independizar, con aseos de planta y con ascensores.",
+        "source": {
+          "span_char_start": 30,
+          "span_char_end": 309,
+          "visual_refs": []
+        },
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 37
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 8
+      },
+      "section_metadata": {
+        "section_id": "vestíbulo_de_independencia",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 1751
+}

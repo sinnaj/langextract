@@ -1,0 +1,1335 @@
+{
+  "chunk_id": 8,
+  "section_metadata": {
+    "section_id": "2_locales_y_zonas_de_riesgo_especial",
+    "section_name": "2 Locales y zonas de riesgo especial",
+    "section_level": 2,
+    "start_page": 13,
+    "end_page": 15,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "2 Locales y zonas de riesgo especial"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 2 Locales y zonas de riesgo especial\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial\n**Level:** 2\n**Pages:** 13-15\n\n1 Los locales y zonas de riesgo especial integrados en los edificios se clasifican conforme los grados de riesgo alto, medio y bajo según los criterios que se establecen en la tabla 2.1. Los locales y las zonas así clasificados deben cumplir las condiciones que se establecen en la tabla 2.2.\n2 Los locales destinados a albergar instalaciones y equipos regulados por reglamentos específicos, tales como transformadores, maquinaria de aparatos elevadores, calderas, depósitos de combustible, contadores de gas o electricidad, etc. se rigen, además, por las condiciones que se establecen en dichos reglamentos. Las condiciones de ventilación de los locales y de los equipos exigidas por dicha reglamentación deberán solucionarse de forma compatible con las de compartimentación establecidas en este DB.\nA los efectos de este DB se excluyen los equipos situados en las cubiertas de los edificios, aunque estén protegidos mediante elementos de cobertura.\n13\nTabla 2.1 Clasificación de los locales y zonas de riesgo especial integrados en edificios\nUso previsto del edificio o establecimiento\n-\nUso del local o zona\nTamaño del local o zona\nS = superficie construida\nV = volumen construido\nQ T = carga de fuego total ponderada y corregida\n[MJ], calculada según el anexo I del RSCIEI\n14\n(1) En el supuesto de que estos locales tengan más de 500 m 3 y una carga de fuego total ponderada y corregida (QT) , calculada según el anexo I del RSCIEI, igual o superior a 3 x 10 6 MJ, se considerarán zonas de uso Almacén .\n(2) Para la determinación de la potencia instalada sólo se considerarán los aparatos directamente destinados a la preparación de alimentos y susceptibles de provocar ignición. Las freidoras y las sartenes basculantes se computarán a razón de 1 kW por cada litro de capacidad, independientemente de la potencia que tengan. En usos distintos de Hospitalario y Residencial Público no se consideran locales de riesgo especial las cocinas cuyos aparatos estén protegidos con un sistema automático de extinción, aunque incluso en dicho caso les es de aplicación lo que se establece en la nota (3). En el capítulo 1 de la Sección SI4 de este DB, se establece que dicho sistema debe existir cuando la potencia instalada exceda de 50 kW.\n(3) Los sistemas de extracción de los humos de las cocinas que conforme a lo establecido en este DB SI deban clasificarse como local de riesgo especial deben cumplir además las siguientes condiciones especiales:\n-Las campanas deben estar separadas al menos 50 cm de cualquier material que no sea A1.\n-Los conductos deben ser independientes de toda otra extracción o ventilación y exclusivos para cada cocina. Deben disponer de registros para inspección y limpieza en los cambios de dirección con ángulos mayores que 30  y cada 3 m como máximo de tramo horizontal. Los conductos que discurran por el interior del edificio, así como los que discurran por fachadas a menos de 1,50 m de distancia de zonas de la misma que no sean al menos EI 30 o de balcones, terrazas o huecos practicables tendrán una clasificación EI 30.\nNo deben existir compuertas cortafuego en el interior de este tipo de conductos, por lo que su paso a través de elementos de compartimentación de sectores de incendio se debe resolver de la forma que se indica en el apartado 3 de esta Sección.\n-Los filtros deben estar separados de los focos de calor más de 1,20 m si son tipo parrilla o de gas, y más de 0,50 m si son de otros tipos. Deben ser fácilmente accesibles y desmontables para su limpieza, tener una inclinación mayor que 45  y poseer una bandeja de recogida de grasas que conduzca éstas hasta un recipiente cerrado cuya capacidad debe\n15\nser menor que 3 l.\n-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones para aireadores extractores de humos y calor mecánicos.\" y tendrán una clasificación F400 90.\n(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida.\n(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en los que están integrados. Incluye los que comunican con zonas de uso garaje de edificios de vivienda.\n(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación de QS debe realizarse conforme a lo establecido en el anexo I del RSCIEI. Los locales cuya carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI , sea igual o superior a 3 x 10 6 MJ se considerarán zonas de uso Almacén.\nTabla 2.2 Condiciones de las zonas de riesgo especial integradas en edificios(1)\n(1) Las condiciones de reacción al fuego de los elementos constructivos se regulan en la tabla 4.1 del capítulo 4 de esta Sección .\n(2) El tiempo de resistencia al fuego no debe ser menor que el establecido para los sectores de incendio del uso al que sirve el local de riesgo especial, conforme a la tabla 1.2, excepto cuando se encuentre bajo una cubierta no prevista para evacuación y cuyo fallo no suponga riesgo para la estabilidad de otras plantas ni para la compartimentación contra incendios, en cuyo caso puede ser R 30.\nExcepto en los locales destinados a albergar instalaciones y equipos, puede adoptarse como alternativa el tiempo equivalente de exposición al fuego determinado conforme a lo establecido en el apartado 2 del Anejo SI B.\n(3) Cuando el techo separe de una planta superior debe tener al menos la misma resistencia al fuego que se exige a las paredes, pero con la característica REI en lugar de EI, al tratarse de un elemento portante y compartimentador de incendios. En cambio, cuando sea una cubierta no destinada a actividad alguna, ni prevista para ser utilizada en la evacuación, no precisa tener una función de compartimentación de incendios, por lo que sólo debe aportar la resistencia al fuego R que le corresponda como elemento estructural, excepto en las franjas a las que hace referencia el capítulo 2 de la Sección SI 2, en las que dicha resistencia debe ser REI.\n(4) Considerando la acción del fuego en el interior del recinto .\nLa resistencia al fuego del suelo es función del uso al que esté destinada la zona existente en la planta inferior. Véase apartado 3 de la Sección SI 6 de este DB.\n(5) El recorrido por el interior de la zona de riesgo especial debe ser tenido en cuenta en el cómputo de la longitud de los recorridos de evacuación hasta las salidas de planta. Lo anterior no es aplicable al recorrido total desde un garaje de una vivienda unifamiliar hasta una salida de dicha vivienda, el cual no está limitado.\n(6) Podrá aumentarse un 25% cuando la zona esté protegida con una Instalación automática de extinción .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 2 Locales y zonas de riesgo especial\nPath: Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial\nLevel: 2\nPages: 13-15",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section classifies special risk premises and areas within buildings and establishes the conditions they must meet.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 47
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 10
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los locales y zonas de riesgo especial integrados en los edificios se clasifican conforme los grados de riesgo alto, medio y bajo según los criterios que se establecen en la tabla 2.1. Los locales y las zonas así clasificados deben cumplir las condiciones que se establecen en la tabla 2.2.",
+      "attributes": {
+        "id": "a6b7c8d9-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Special risk premises and areas integrated into buildings must be classified according to high, medium, and low risk levels based on criteria in Table 2.1 and must comply with conditions in Table 2.2.",
+        "applies_if": "HAS(BUILDING.SPECIAL_RISK_AREA) == TRUE",
+        "satisfied_if": "BUILDING.SPECIAL_RISK_AREA.CLASSIFICATION IN ['HIGH', 'MEDIUM', 'LOW'] AND BUILDING.SPECIAL_RISK_AREA.COMPLIES_WITH_TABLE_2_2 == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.SPECIAL_RISK_AREA",
+          "BUILDING.SPECIAL_RISK_AREA.CLASSIFICATION",
+          "TABLE.2.1",
+          "TABLE.2.2"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 133,
+          "span_char_end": 352,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 162,
+        "end_pos": 454
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 40,
+        "end_index": 101
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Los locales destinados a albergar instalaciones y equipos regulados por reglamentos específicos, tales como transformadores, maquinaria de aparatos elevadores, calderas, depósitos de combustible, contadores de gas o electricidad, etc. se rigen, además, por las condiciones que se establecen en dichos reglamentos. Las condiciones de ventilación de los locales y de los equipos exigidas por dicha reglamentación deberán solucionarse de forma compatible con las de compartimentación establecidas en este DB.",
+      "attributes": {
+        "id": "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Premises intended to house installations and equipment regulated by specific regulations (e.g., transformers, elevator machinery, boilers, fuel tanks, gas or electricity meters) must also comply with the conditions established in those regulations. Ventilation conditions required by said regulations must be compatible with the compartmentalization conditions established in this DB.",
+        "applies_if": "PREMISES.CONTAINS_REGULATED_INSTALLATIONS == TRUE",
+        "satisfied_if": "PREMISES.COMPLIES_WITH_SPECIFIC_REGULATIONS == TRUE AND PREMISES.VENTILATION.COMPATIBLE_WITH_DB_COMPARTMENTATION == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "PROTECTION.VENTILATION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PREMISES.REGULATED_INSTALLATIONS",
+          "PREMISES.VENTILATION",
+          "DB.COMPARTMENTATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 353,
+          "span_char_end": 743,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 455,
+        "end_pos": 962
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 101,
+        "end_index": 196
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A los efectos de este DB se excluyen los equipos situados en las cubiertas de los edificios, aunque estén protegidos mediante elementos de cobertura.",
+      "attributes": {
+        "id": "c3d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e7f8",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Equipment located on building roofs is excluded from the scope of this DB, even if protected by covering elements.",
+        "applies_if": "EQUIPMENT.LOCATION == 'ROOF'",
+        "satisfied_if": "EQUIPMENT.IS_EXCLUDED_FROM_DB_SCOPE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EQUIPMENT.LOCATION.ROOF",
+          "DB.SCOPE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 744,
+          "span_char_end": 880,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 963,
+        "end_pos": 1112
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 196,
+        "end_index": 224
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(1) En el supuesto de que estos locales tengan más de 500 m 3 y una carga de fuego total ponderada y corregida (QT) , calculada según el anexo I del RSCIEI, igual o superior a 3 x 10 6 MJ, se considerarán zonas de uso Almacén .",
+      "attributes": {
+        "id": "d4e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Premises with a volume greater than 500 m³ and a total weighted and corrected fire load (QT), calculated according to Annex I of RSCIEI, equal to or greater than 3 x 10⁶ MJ, shall be considered storage areas.",
+        "applies_if": "PREMISES.VOLUME > 500 AND PREMISES.FIRE.LOAD_TOTAL_CORRECTED >= 3000000",
+        "satisfied_if": "PREMISES.USAGE == 'STORAGE'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PREMISES.VOLUME",
+          "PREMISES.FIRE.LOAD_TOTAL_CORRECTED",
+          "PREMISES.USAGE.STORAGE",
+          "RSCIEI.ANNEX_I"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1109,
+          "span_char_end": 1362,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PREMISES.VOLUME > 500 m^3",
+          "PREMISES.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1442,
+        "end_pos": 1669
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 293,
+        "end_index": 355
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(2) Para la determinación de la potencia instalada sólo se considerarán los aparatos directamente destinados a la preparación de alimentos y susceptibles de provocar ignición. Las freidoras y las sartenes basculantes se computarán a razón de 1 kW por cada litro de capacidad, independientemente de la potencia que tengan. En usos distintos de Hospitalario y Residencial Público no se consideran locales de riesgo especial las cocinas cuyos aparatos estén protegidos con un sistema automático de extinción, aunque incluso en dicho caso les es de aplicación lo que se establece en la nota (3). En el capítulo 1 de la Sección SI4 de este DB, se establece que dicho sistema debe existir cuando la potencia instalada exceda de 50 kW.",
+      "attributes": {
+        "id": "e5f6a7b8-c9d0-e1f2-a3b4-c5d6e7f8a9b0",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For determining installed power, only appliances directly intended for food preparation and capable of causing ignition shall be considered. Fryers and tilting pans shall be computed at 1 kW per liter of capacity, regardless of their actual power. In uses other than Hospital and Public Residential, kitchens with appliances protected by an automatic extinguishing system are not considered special risk premises, although note (3) still applies. Chapter 1 of Section SI4 of this DB establishes that such a system must exist when the installed power exceeds 50 kW.",
+        "applies_if": "PREMISES.USAGE == 'KITCHEN'",
+        "satisfied_if": "INSTALLED_POWER.CALCULATION_METHOD == 'FOOD_PREPARATION_APPLIANCES_ONLY' AND (FRYERS.POWER_CALCULATION == '1kW_PER_LITER' AND TILTING_PANS.POWER_CALCULATION == '1kW_PER_LITER') AND (PREMISES.USAGE IN ['HOSPITAL', 'PUBLIC.RESIDENTIAL'] OR (PREMISES.USAGE NOT IN ['HOSPITAL', 'PUBLIC.RESIDENTIAL'] AND KITCHEN.APPLIANCES.AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE AND NOTE_3.APPLIES == TRUE)) AND (INSTALLED_POWER > 50 AND AUTOMATIC_EXTINGUISHING_SYSTEM.EXISTS == TRUE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "INSTALLED_POWER",
+          "FOOD_PREPARATION_APPLIANCES",
+          "FRYERS",
+          "TILTING_PANS",
+          "KITCHEN.APPLIANCES.AUTOMATIC_EXTINGUISHING_SYSTEM",
+          "PREMISES.USAGE.HOSPITAL",
+          "PREMISES.USAGE.PUBLIC.RESIDENTIAL",
+          "DB.SI4.CHAPTER_1"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1363,
+          "span_char_end": 2088,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FRYERS.POWER_CALCULATION == '1kW_PER_LITER'",
+          "TILTING_PANS.POWER_CALCULATION == '1kW_PER_LITER'",
+          "INSTALLED_POWER > 50 kW"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1670,
+        "end_pos": 2398
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 355,
+        "end_index": 513
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(3) Los sistemas de extracción de los humos de las cocinas que conforme a lo establecido en este DB SI deban clasificarse como local de riesgo especial deben cumplir además las siguientes condiciones especiales: -Las campanas deben estar separadas al menos 50 cm de cualquier material que no sea A1. -Los conductos deben ser independientes de toda otra extracción o ventilación y exclusivos para cada cocina. Deben disponer de registros para inspección y limpieza en los cambios de dirección con ángulos mayores que 30  y cada 3 m como máximo de tramo horizontal. Los conductos que discurran por el interior del edificio, así como los que discurran por fachadas a menos de 1,50 m de distancia de zonas de la misma que no sean al menos EI 30 o de balcones, terrazas o huecos practicables tendrán una clasificación EI 30. No deben existir compuertas cortafuego en el interior de este tipo de conductos, por lo que su paso a través de elementos de compartimentación de sectores de incendio se debe resolver de la forma que se indica en el apartado 3 de esta Sección. -Los filtros deben estar separados de los focos de calor más de 1,20 m si son tipo parrilla o de gas, y más de 0,50 m si son de otros tipos. Deben ser fácilmente accesibles y desmontables para su limpieza, tener una inclinación mayor que 45  y poseer una bandeja de recogida de grasas que conduzca éstas hasta un recipiente cerrado cuya capacidad debe ser menor que 3 l. -Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones para aireadores extractores de humos y calor mecánicos.\" y tendrán una clasificación F400 90.",
+      "attributes": {
+        "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Kitchen smoke extraction systems classified as special risk premises according to DB SI must comply with specific conditions: hoods separated at least 50 cm from non-A1 materials; ducts independent, exclusive per kitchen, with inspection/cleaning registers at direction changes >30° and every 3m horizontal; ducts inside building or on facades <1.50m from non-EI30 zones/balconies/terraces/openings must be EI30; no fire dampers in ducts, passage through fire sector compartmentalization elements as per Section 3; filters separated >1.20m from grill/gas heat sources, >0.50m from other types, accessible, removable, inclined >45°, with grease collection tray <3L; fans comply with UNE-EN 12101-3:2016 and classified F400 90.",
+        "applies_if": "KITCHEN.SMOKE_EXTRACTION_SYSTEM.CLASSIFICATION == 'SPECIAL_RISK_PREMISES'",
+        "satisfied_if": "HOODS.SEPARATION_FROM_NON_A1_MATERIAL >= 0.50 AND DUCTS.INDEPENDENT == TRUE AND DUCTS.EXCLUSIVE_PER_KITCHEN == TRUE AND DUCTS.HAS_INSPECTION_REGISTERS == TRUE AND DUCTS.INSPECTION_REGISTERS.DIRECTION_CHANGE_ANGLE > 30 AND DUCTS.INSPECTION_REGISTERS.HORIZONTAL_SECTION_MAX_DISTANCE <= 3 AND (DUCTS.LOCATION == 'INTERIOR' OR (DUCTS.LOCATION == 'FACADE' AND DUCTS.DISTANCE_TO_NON_EI30_ZONE < 1.50)) AND DUCTS.FIRE_RESISTANCE == 'EI30' AND FIRE_DAMPERS.EXIST == FALSE AND DUCTS.PASSAGE_THROUGH_COMPARTMENTATION.RESOLVED_AS_PER_SECTION_3 == TRUE AND ((FILTERS.HEAT_SOURCE_TYPE IN ['GRILL', 'GAS'] AND FILTERS.SEPARATION_FROM_HEAT_SOURCE >= 1.20) OR (FILTERS.HEAT_SOURCE_TYPE NOT IN ['GRILL', 'GAS'] AND FILTERS.SEPARATION_FROM_HEAT_SOURCE >= 0.50)) AND FILTERS.ACCESSIBLE == TRUE AND FILTERS.REMOVABLE == TRUE AND FILTERS.INCLINATION > 45 AND FILTERS.HAS_GREASE_COLLECTION_TRAY == TRUE AND GREASE_COLLECTION_TRAY.CAPACITY < 3 AND FANS.COMPLIES_WITH_UNE_EN_12101_3_2016 == TRUE AND FANS.CLASSIFICATION == 'F400 90'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "PROTECTION.VENTILATION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "KITCHEN.SMOKE_EXTRACTION_SYSTEM",
+          "HOODS.SEPARATION",
+          "MATERIAL.A1",
+          "DUCTS.INDEPENDENCE",
+          "DUCTS.INSPECTION_REGISTERS",
+          "DUCTS.FIRE_RESISTANCE.EI30",
+          "FIRE_DAMPERS",
+          "FILTERS.SEPARATION",
+          "FILTERS.ACCESSIBILITY",
+          "FILTERS.INCLINATION",
+          "GREASE_COLLECTION_TRAY.CAPACITY",
+          "FANS.UNE_EN_12101_3_2016",
+          "FANS.CLASSIFICATION.F400_90"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2089,
+          "span_char_end": 3788,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "HOODS.SEPARATION_FROM_NON_A1_MATERIAL >= 0.50 m",
+          "DUCTS.INSPECTION_REGISTERS.DIRECTION_CHANGE_ANGLE > 30 degrees",
+          "DUCTS.INSPECTION_REGISTERS.HORIZONTAL_SECTION_MAX_DISTANCE <= 3 m",
+          "DUCTS.DISTANCE_TO_NON_EI30_ZONE < 1.50 m",
+          "FILTERS.SEPARATION_FROM_HEAT_SOURCE >= 1.20 m",
+          "FILTERS.SEPARATION_FROM_HEAT_SOURCE >= 0.50 m",
+          "FILTERS.INCLINATION > 45 degrees",
+          "GREASE_COLLECTION_TRAY.CAPACITY < 3 l"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2399,
+        "end_pos": 3816
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 513,
+        "end_index": 822
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida.",
+      "attributes": {
+        "id": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 4,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Toilet areas do not count for the purpose of calculating the built surface area.",
+        "applies_if": "AREA.USAGE == 'TOILET'",
+        "satisfied_if": "AREA.IS_EXCLUDED_FROM_BUILT_SURFACE_CALCULATION == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "AREA.USAGE.TOILET",
+          "BUILT_SURFACE_AREA.CALCULATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3789,
+          "span_char_end": 3890,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4033,
+        "end_pos": 4118
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 873,
+        "end_index": 893
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en los que están integrados. Incluye los que comunican con zonas de uso garaje de edificios de vivienda.",
+      "attributes": {
+        "id": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Storage rooms linked to dwellings in the buildings where they are integrated are considered. This includes those communicating with garage areas of residential buildings.",
+        "applies_if": "STORAGE_ROOM.IS_LINKED_TO_DWELLING == TRUE OR STORAGE_ROOM.COMMUNICATES_WITH_GARAGE_AREA_OF_RESIDENTIAL_BUILDING == TRUE",
+        "satisfied_if": "STORAGE_ROOM.IS_CONSIDERED_AS_PART_OF_DWELLING_CONTEXT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STORAGE_ROOM.LINKED_TO_DWELLING",
+          "STORAGE_ROOM.COMMUNICATES_WITH_GARAGE",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3891,
+          "span_char_end": 4099,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4119,
+        "end_pos": 4318
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 893,
+        "end_index": 933
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación de QS debe realizarse conforme a lo establecido en el anexo I del RSCIEI. Los locales cuya carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI , sea igual o superior a 3 x 10 6 MJ se considerarán zonas de uso Almacén.",
+      "attributes": {
+        "id": "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 6,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Public sales areas are not classified as special risk premises. The determination of QS must be carried out in accordance with Annex I of the RSCIEI. Premises whose total weighted and corrected fire load (QT), calculated according to Annex I of the RSCIEI, is equal to or greater than 3 x 10⁶ MJ will be considered storage areas.",
+        "applies_if": "AREA.USAGE == 'PUBLIC.COMMERCIAL'",
+        "satisfied_if": "AREA.IS_NOT_CLASSIFIED_AS_SPECIAL_RISK == TRUE AND QS.DETERMINATION_COMPLIES_WITH_RSCIEI_ANNEX_I == TRUE AND (PREMISES.FIRE.LOAD_TOTAL_CORRECTED < 3000000 OR PREMISES.USAGE == 'STORAGE')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "AREA.USAGE.PUBLIC.COMMERCIAL",
+          "SPECIAL_RISK_PREMISES",
+          "QS.DETERMINATION",
+          "RSCIEI.ANNEX_I",
+          "PREMISES.FIRE.LOAD_TOTAL_CORRECTED",
+          "PREMISES.USAGE.STORAGE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 4100,
+          "span_char_end": 4599,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PREMISES.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4319,
+        "end_pos": 4670
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 933,
+        "end_index": 1016
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 12101-3: 2016 \"Especificaciones para aireadores extractores de humos y calor mecánicos.\"",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+        "title": "Especificaciones para aireadores extractores de humos y calor mecánicos.",
+        "year": "2016",
+        "code": "UNE-EN 12101-3",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "url": null,
+        "doc_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": null,
+        "source": {
+          "span_char_start": 3505,
+          "span_char_end": 3615,
+          "visual_refs": []
+        },
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3900,
+        "end_pos": 3995
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 840,
+        "end_index": 861
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(2) El tiempo de resistencia al fuego no debe ser menor que el establecido para los sectores de incendio del uso al que sirve el local de riesgo especial, conforme a la tabla 1.2, excepto cuando se encuentre bajo una cubierta no prevista para evacuación y cuyo fallo no suponga riesgo para la estabilidad de otras plantas ni para la compartimentación contra incendios, en cuyo caso puede ser R 30.",
+      "attributes": {
+        "id": "2703814b-2525-4222-b236-09062b323b7a",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance time must not be less than that established for the fire sectors of the use served by the special risk premises, in accordance with Table 1.2.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.RESISTANCE.TIME >= FIRE.SECTOR.USAGE.TABLE_1_2.MINIMUM_TIME",
+        "exempt_if": "ROOF.NOT_FOR_EVACUATION == TRUE AND ROOF.FAILURE.NO_RISK_TO_STABILITY == TRUE AND ROOF.FAILURE.NO_RISK_TO_FIRE_COMPARTMENTATION == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE.TIME",
+          "FIRE.SECTOR",
+          "ROOF.EVACUATION",
+          "ROOF.STABILITY",
+          "FIRE.COMPARTMENTATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "FIRE.RESISTANCE.TIME >= R 30"
+        ],
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 4884,
+        "end_pos": 5281
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1067,
+        "end_index": 1149
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Excepto en los locales destinados a albergar instalaciones y equipos, puede adoptarse como alternativa el tiempo equivalente de exposición al fuego determinado conforme a lo establecido en el apartado 2 del Anejo SI B.",
+      "attributes": {
+        "id": "18017006-2581-4927-910c-35711677332f",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "As an alternative, the equivalent fire exposure time determined in accordance with Annex SI B, section 2, may be adopted.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.RESISTANCE.TIME == EQUIVALENT_FIRE_EXPOSURE_TIME.ANNEX_SI_B.SECTION_2",
+        "exempt_if": "PREMISES.USAGE == 'INSTALLATIONS_AND_EQUIPMENT'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE.TIME",
+          "EQUIVALENT_FIRE_EXPOSURE_TIME",
+          "PREMISES.USAGE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "referenced_documents_sections": [
+          "ANEJO.SI.B.SECTION.2"
+        ],
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 5282,
+        "end_pos": 5500
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 1149,
+        "end_index": 1187
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(3) Cuando el techo separe de una planta superior debe tener al menos la misma resistencia al fuego que se exige a las paredes, pero con la característica REI en lugar de EI, al tratarse de un elemento portante y compartimentador de incendios.",
+      "attributes": {
+        "id": "73360408-2710-410a-811c-14811197771f",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the ceiling separates from an upper floor, it must have at least the same fire resistance required for walls, but with the REI characteristic instead of EI, as it is a load-bearing and fire-compartmenting element.",
+        "applies_if": "CEILING.SEPARATES_UPPER_FLOOR == TRUE",
+        "satisfied_if": "CEILING.FIRE.RESISTANCE.CHARACTERISTIC == 'REI' AND CEILING.FIRE.RESISTANCE.TIME >= WALL.FIRE.RESISTANCE.TIME",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CEILING.FIRE.RESISTANCE",
+          "WALL.FIRE.RESISTANCE",
+          "FIRE.COMPARTMENTATION",
+          "STRUCTURAL.ELEMENT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 5501,
+        "end_pos": 5744
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 1187,
+        "end_index": 1237
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En cambio, cuando sea una cubierta no destinada a actividad alguna, ni prevista para ser utilizada en la evacuación, no precisa tener una función de compartimentación de incendios, por lo que sólo debe aportar la resistencia al fuego R que le corresponda como elemento estructural, excepto en las franjas a las que hace referencia el capítulo 2 de la Sección SI 2, en las que dicha resistencia debe ser REI.",
+      "attributes": {
+        "id": "18017006-2581-4927-910c-35711677332f",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When it is a roof not intended for any activity, nor planned to be used for evacuation, it does not need to have a fire compartmentation function, so it only needs to provide the fire resistance R that corresponds to it as a structural element.",
+        "applies_if": "ROOF.NOT_FOR_ACTIVITY == TRUE AND ROOF.NOT_FOR_EVACUATION == TRUE",
+        "satisfied_if": "ROOF.FIRE.RESISTANCE.CHARACTERISTIC == 'R' AND ROOF.FIRE.RESISTANCE.TIME == STRUCTURAL_ELEMENT.FIRE.RESISTANCE.TIME",
+        "exempt_if": "ROOF.STRIP.REFERENCED_IN_SI2_CHAPTER_2 == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ROOF.FIRE.RESISTANCE",
+          "STRUCTURAL.ELEMENT",
+          "FIRE.COMPARTMENTATION",
+          "ROOF.EVACUATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "referenced_documents_sections": [
+          "SI.2.CHAPTER.2"
+        ],
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 5745,
+        "end_pos": 6152
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 1237,
+        "end_index": 1326
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(4) Considerando la acción del fuego en el interior del recinto . La resistencia al fuego del suelo es función del uso al que esté destinada la zona existente en la planta inferior. Véase apartado 3 de la Sección SI 6 de este DB.",
+      "attributes": {
+        "id": "a6121415-4672-4632-911c-223608054abe",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance of the floor is a function of the intended use of the area on the lower floor.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FLOOR.FIRE.RESISTANCE.TIME == FLOOR.LOWER_LEVEL.USAGE.FIRE.RESISTANCE.TIME",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FLOOR.FIRE.RESISTANCE",
+          "FLOOR.USAGE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "referenced_documents_sections": [
+          "SI.6.SECTION.3"
+        ],
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 6153,
+        "end_pos": 6382
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 1326,
+        "end_index": 1383
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(5) El recorrido por el interior de la zona de riesgo especial debe ser tenido en cuenta en el cómputo de la longitud de los recorridos de evacuación hasta las salidas de planta. Lo anterior no es aplicable al recorrido total desde un garaje de una vivienda unifamiliar hasta una salida de dicha vivienda, el cual no está limitado.",
+      "attributes": {
+        "id": "b2360805-4abe-4632-911c-a61214154672",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The path within the special risk area must be taken into account when calculating the length of evacuation routes to the floor exits.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.INCLUDES_SPECIAL_RISK_AREA == TRUE",
+        "exempt_if": "BUILDING.TYPE == 'SINGLE_FAMILY_HOME' AND EVACUATION.ROUTE.FROM == 'GARAGE' AND EVACUATION.ROUTE.TO == 'HOUSE_EXIT'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "SPECIAL.RISK.AREA",
+          "BUILDING.TYPE.SINGLE_FAMILY_HOME",
+          "GARAGE",
+          "HOUSE.EXIT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 6383,
+        "end_pos": 6714
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 1383,
+        "end_index": 1452
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(6) Podrá aumentarse un 25% cuando la zona esté protegida con una Instalación automática de extinción .",
+      "attributes": {
+        "id": "c3471526-5783-4743-922d-b72719165783",
+        "parent_section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "paragraph_number": 6,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "It may be increased by 25% when the area is protected with an automatic extinguishing system.",
+        "applies_if": "AREA.PROTECTED_BY_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE",
+        "satisfied_if": "VALUE.INCREASED_BY_25_PERCENT == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "AUTOMATIC.EXTINGUISHING.SYSTEM",
+          "AREA.PROTECTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 6715,
+        "end_pos": 6818
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 1452,
+        "end_index": 1480
+      },
+      "section_metadata": {
+        "section_id": "2_locales_y_zonas_de_riesgo_especial",
+        "section_name": "2 Locales y zonas de riesgo especial",
+        "section_level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 18,
+  "char_count": 6818
+}

@@ -1,0 +1,68 @@
+{
+  "chunk_id": 138,
+  "section_metadata": {
+    "section_id": "4_puertas,_herrajes_y_dispositivos_de_apertura",
+    "section_name": "4 Puertas, herrajes y dispositivos de apertura",
+    "section_level": 2,
+    "start_page": 91,
+    "end_page": 91,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "4 Puertas, herrajes y dispositivos de apertura"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 4 Puertas, herrajes y dispositivos de apertura\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 4 Puertas, herrajes y dispositivos de apertura\n**Level:** 2\n**Pages:** 91-91\n\n91\n92\n5  Señalización\n6  Otras materias",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "91\n92\n5  Señalización\n6  Otras materias",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section outlines the content of subsequent sections related to signage and other matters, indicating a continuation of the document's structure.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "4_puertas,_herrajes_y_dispositivos_de_apertura",
+        "section_name": "4 Puertas, herrajes y dispositivos de apertura",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 207,
+        "end_pos": 246
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 46,
+        "end_index": 57
+      },
+      "section_metadata": {
+        "section_id": "4_puertas,_herrajes_y_dispositivos_de_apertura",
+        "section_name": "4 Puertas, herrajes y dispositivos de apertura",
+        "section_level": 2,
+        "start_page": 91,
+        "end_page": 91,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "4 Puertas, herrajes y dispositivos de apertura"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 246
+}

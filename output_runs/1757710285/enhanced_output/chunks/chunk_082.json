@@ -1,0 +1,63 @@
+{
+  "chunk_id": 82,
+  "section_metadata": {
+    "section_id": "uso_docente",
+    "section_name": "Uso Docente",
+    "section_level": 2,
+    "start_page": 50,
+    "end_page": 50,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Docente"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Docente\n**Path:** Anejo SI A Terminología → Uso Docente\n**Level:** 2\n**Pages:** 50-50\n\nEdificio, establecimiento o zona destinada a docencia, en cualquiera de sus niveles: escuelas infantiles, centros de enseñanza primaria, secundaria, universitaria o formación profesional. No obstante, los establecimientos docentes que no tengan la característica propia de este uso (básicamente, el predominio de actividades en aulas de elevada densidad de ocupación) deben asimilarse a otros usos.\n50",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio, establecimiento o zona destinada a docencia, en cualquiera de sus niveles: escuelas infantiles, centros de enseñanza primaria, secundaria, universitaria o formación profesional. No obstante, los establecimientos docentes que no tengan la característica propia de este uso (básicamente, el predominio de actividades en aulas de elevada densidad de ocupación) deben asimilarse a otros usos.",
+      "attributes": {
+        "id": "1198592c-6254-4f0f-8975-612660126a0a",
+        "parent_section_id": "uso_docente",
+        "classification_type": "USAGE",
+        "classification_name": "PUBLIC.EDUCATION",
+        "classification_value": "TRUE",
+        "applies_if": "TRUE",
+        "exempt_if": "BUILDING.USAGE.EDUCATION.CHARACTERISTICS.HIGH_OCCUPANCY_CLASSROOMS == FALSE",
+        "notes": "Educational establishments without the typical characteristics of this use (predominance of high-occupancy classroom activities) should be assimilated to other uses.",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "Uso Docente",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 102,
+        "end_pos": 500
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 103
+      },
+      "section_metadata": {
+        "section_id": "uso_docente",
+        "section_name": "Uso Docente",
+        "section_level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Docente"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 503
+}

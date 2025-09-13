@@ -1,0 +1,172 @@
+{
+  "chunk_id": 58,
+  "section_metadata": {
+    "section_id": "fuego_totalmente_desarrollado",
+    "section_name": "Fuego totalmente desarrollado",
+    "section_level": 2,
+    "start_page": 46,
+    "end_page": 46,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Fuego totalmente desarrollado"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Fuego totalmente desarrollado\n**Path:** Anejo SI A Terminología → Fuego totalmente desarrollado\n**Level:** 2\n**Pages:** 46-46\n\nEstado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego (UNE-EN 1991-1-2:2004) .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego (UNE-EN 1991-1-2:2004) .",
+      "attributes": {
+        "id": "f5509939-253c-4402-9964-672151608677",
+        "meta_summary": "Definition of fully developed fire",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "fuego_totalmente_desarrollado",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 138,
+        "end_pos": 274
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 59
+      },
+      "section_metadata": {
+        "section_id": "fuego_totalmente_desarrollado",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "Fuego totalmente desarrollado",
+      "attributes": {
+        "id": "1198533b-17c3-421b-853f-42e171738740",
+        "parent_section_id": "fuego_totalmente_desarrollado",
+        "classification_type": "DEFINITION",
+        "term": "Fuego totalmente desarrollado",
+        "definition": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego.",
+        "source_document": "UNE-EN 1991-1-2:2004",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "confidence": 1.0,
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 40
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "fuego_totalmente_desarrollado",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "4031644e-1282-4521-871d-52055620950b",
+        "parent_section_id": "fuego_totalmente_desarrollado",
+        "document_type": "STANDARD",
+        "title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "code": "UNE-EN 1991-1-2",
+        "year": "2004",
+        "article": null,
+        "section": null,
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "confidence": 0.9,
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 251,
+        "end_pos": 271
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 47,
+        "end_index": 57
+      },
+      "section_metadata": {
+        "section_id": "fuego_totalmente_desarrollado",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 274
+}

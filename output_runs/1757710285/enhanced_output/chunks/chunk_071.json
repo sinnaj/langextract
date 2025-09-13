@@ -1,0 +1,113 @@
+{
+  "chunk_id": 71,
+  "section_metadata": {
+    "section_id": "sector_de_incendio",
+    "section_name": "Sector de incendio",
+    "section_level": 2,
+    "start_page": 49,
+    "end_page": 49,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Sector de incendio"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Sector de incendio\n**Path:** Anejo SI A Terminología → Sector de incendio\n**Level:** 2\n**Pages:** 49-49\n\nEspacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores resistentes al fuego durante un período de tiempo determinado, en el interior del cual se puede confinar (o excluir) el incendio para que no se pueda propagar a (o desde) otra parte del edificio. Los locales de riesgo especial no se consideran sectores de incendio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores resistentes al fuego durante un período de tiempo determinado, en el interior del cual se puede confinar (o excluir) el incendio para que no se pueda propagar a (o desde) otra parte del edificio. Los locales de riesgo especial no se consideran sectores de incendio.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Definition of a fire sector in a building, emphasizing fire resistance and containment to prevent spread.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "sector_de_incendio",
+        "section_name": "Sector de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 116,
+        "end_pos": 480
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 97
+      },
+      "section_metadata": {
+        "section_id": "sector_de_incendio",
+        "section_name": "Sector de incendio",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sector de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Sector de incendio",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "sector_de_incendio",
+        "classification_type": "DEFINITION",
+        "classification_name": "FIRE.SECTOR",
+        "classification_value": "A space in a building separated from other areas by fire-resistant construction elements for a determined period, within which fire can be confined (or excluded) to prevent its spread to (or from) another part of the building.",
+        "applies_if": "TRUE",
+        "exempt_if": "FALSE",
+        "notes": "Special risk premises are not considered fire sectors.",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Sector de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 29
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "sector_de_incendio",
+        "section_name": "Sector de incendio",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sector de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 480
+}

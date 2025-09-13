@@ -1,0 +1,1172 @@
+[
+  {
+    "title": "Introducción",
+    "level": 1,
+    "start_page": 3,
+    "end_page": 7,
+    "children": [
+      {
+        "title": "I Objeto",
+        "level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "children": []
+      },
+      {
+        "title": "II Ámbito de aplicación",
+        "level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "children": []
+      },
+      {
+        "title": "III Criterios generales de aplicación",
+        "level": 2,
+        "start_page": 4,
+        "end_page": 5,
+        "children": []
+      },
+      {
+        "title": "IV  Condiciones particulares para el cumplimiento del DB-SI",
+        "level": 2,
+        "start_page": 6,
+        "end_page": 6,
+        "children": []
+      },
+      {
+        "title": "V  Condiciones de comportamiento ante el fuego de los productos de construcción y de los elementos constructivos",
+        "level": 2,
+        "start_page": 6,
+        "end_page": 6,
+        "children": []
+      },
+      {
+        "title": "VI Laboratorios de ensayo",
+        "level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "children": []
+      },
+      {
+        "title": "VII Terminología",
+        "level": 2,
+        "start_page": 7,
+        "end_page": 7,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Índice",
+    "level": 1,
+    "start_page": 8,
+    "end_page": 9,
+    "children": []
+  },
+  {
+    "title": "Sección SI 1 Propagación interior",
+    "level": 1,
+    "start_page": 10,
+    "end_page": 18,
+    "children": [
+      {
+        "title": "1 Compartimentación en sectores de incendio",
+        "level": 2,
+        "start_page": 10,
+        "end_page": 12,
+        "children": []
+      },
+      {
+        "title": "2 Locales y zonas de riesgo especial",
+        "level": 2,
+        "start_page": 13,
+        "end_page": 15,
+        "children": []
+      },
+      {
+        "title": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "level": 2,
+        "start_page": 16,
+        "end_page": 16,
+        "children": []
+      },
+      {
+        "title": "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+        "level": 2,
+        "start_page": 17,
+        "end_page": 18,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 2 Propagación exterior",
+    "level": 1,
+    "start_page": 19,
+    "end_page": 21,
+    "children": [
+      {
+        "title": "1 Medianerías y fachadas",
+        "level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "children": []
+      },
+      {
+        "title": "2 Cubiertas",
+        "level": 2,
+        "start_page": 20,
+        "end_page": 21,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 3 Evacuación de ocupantes",
+    "level": 1,
+    "start_page": 22,
+    "end_page": 31,
+    "children": [
+      {
+        "title": "1 Compatibilidad de los elementos de evacuación",
+        "level": 2,
+        "start_page": 22,
+        "end_page": 22,
+        "children": []
+      },
+      {
+        "title": "2 Cálculo de la ocupación",
+        "level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "children": []
+      },
+      {
+        "title": "3 Número de salidas y longitud de los recorridos de evacuación",
+        "level": 2,
+        "start_page": 24,
+        "end_page": 24,
+        "children": []
+      },
+      {
+        "title": "4 Dimensionado de los medios de evacuación",
+        "level": 2,
+        "start_page": 25,
+        "end_page": 27,
+        "children": [
+          {
+            "title": "4.1 Criterios para la asignación de los ocupantes",
+            "level": 3,
+            "start_page": 25,
+            "end_page": 25,
+            "children": []
+          },
+          {
+            "title": "4.2 Cálculo",
+            "level": 3,
+            "start_page": 26,
+            "end_page": 27,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "5 Protección de las escaleras",
+        "level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "children": []
+      },
+      {
+        "title": "6 Puertas situadas en recorridos de evacuación",
+        "level": 2,
+        "start_page": 29,
+        "end_page": 29,
+        "children": []
+      },
+      {
+        "title": "7 Señalización de los medios de evacuación",
+        "level": 2,
+        "start_page": 29,
+        "end_page": 29,
+        "children": []
+      },
+      {
+        "title": "8 Control del humo de incendio",
+        "level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "children": []
+      },
+      {
+        "title": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "level": 2,
+        "start_page": 31,
+        "end_page": 31,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 4 Instalaciones de protección contra incendios",
+    "level": 1,
+    "start_page": 32,
+    "end_page": 35,
+    "children": [
+      {
+        "title": "1 Dotación de instalaciones de protección contra incendios",
+        "level": 2,
+        "start_page": 32,
+        "end_page": 34,
+        "children": []
+      },
+      {
+        "title": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "level": 2,
+        "start_page": 35,
+        "end_page": 35,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 5 Intervención de los bomberos",
+    "level": 1,
+    "start_page": 36,
+    "end_page": 37,
+    "children": [
+      {
+        "title": "1 Condiciones de aproximación y entorno( )",
+        "level": 2,
+        "start_page": 36,
+        "end_page": 36,
+        "children": [
+          {
+            "title": "1.1 Aproximación a los edificios",
+            "level": 3,
+            "start_page": 36,
+            "end_page": 36,
+            "children": []
+          },
+          {
+            "title": "1.2 Entorno de los edificios",
+            "level": 3,
+            "start_page": 36,
+            "end_page": 36,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "2 Accesibilidad por fachada",
+        "level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 6 Resistencia al fuego de la estructura",
+    "level": 1,
+    "start_page": 38,
+    "end_page": 41,
+    "children": [
+      {
+        "title": "1 Generalidades",
+        "level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "children": []
+      },
+      {
+        "title": "2 Resistencia al fuego de la estructura",
+        "level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "children": []
+      },
+      {
+        "title": "3 Elementos estructurales principales",
+        "level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "children": []
+      },
+      {
+        "title": "4 Elementos estructurales secundarios",
+        "level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "children": []
+      },
+      {
+        "title": "5 Determinación de los efectos de las acciones durante el incendio",
+        "level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "children": []
+      },
+      {
+        "title": "6 Determinación de la resistencia al fuego",
+        "level": 2,
+        "start_page": 41,
+        "end_page": 41,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Anejo SI A Terminología",
+    "level": 1,
+    "start_page": 42,
+    "end_page": 52,
+    "children": [
+      {
+        "title": "Altura de evacuación",
+        "level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "children": []
+      },
+      {
+        "title": "Aparcamiento abierto",
+        "level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "children": []
+      },
+      {
+        "title": "Ascensor de emergencia",
+        "level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "children": []
+      },
+      {
+        "title": "Atrio",
+        "level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "children": []
+      },
+      {
+        "title": "Caja escénica",
+        "level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "children": []
+      },
+      {
+        "title": "Carga de fuego",
+        "level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "children": []
+      },
+      {
+        "title": "Curva normalizada tiempo-temperatura",
+        "level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "children": []
+      },
+      {
+        "title": "Curvas tiempo-temperatura",
+        "level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "children": []
+      },
+      {
+        "title": "Densidad de carga de fuego",
+        "level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "children": []
+      },
+      {
+        "title": "Densidad de carga de fuego de cálculo",
+        "level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "children": []
+      },
+      {
+        "title": "Escalera abierta al exterior",
+        "level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "children": []
+      },
+      {
+        "title": "Escalera especialmente protegida",
+        "level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "children": []
+      },
+      {
+        "title": "Escalera protegida",
+        "level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "children": []
+      },
+      {
+        "title": "Espacio exterior seguro",
+        "level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "children": []
+      },
+      {
+        "title": "Establecimiento",
+        "level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "children": []
+      },
+      {
+        "title": "Fuego de cálculo",
+        "level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "children": []
+      },
+      {
+        "title": "Fuego totalmente desarrollado",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Fuego localizado",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Modelo informático de dinámica de fluidos",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Origen de evacuación",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Pasillo protegido",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Reacción al fuego",
+        "level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "children": []
+      },
+      {
+        "title": "Recorrido de evacuación",
+        "level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "children": []
+      },
+      {
+        "title": "Recorridos de evacuación alternativos",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Resistencia al fuego",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Salida de edificio",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Salida de emergencia",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Salida de planta",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Sector bajo rasante",
+        "level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "children": []
+      },
+      {
+        "title": "Sector de incendio",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Sector de riesgo mínimo",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Sistema de alarma de incendios",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Sistema de detección de incendios",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Sistema de presión diferencial",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Superficie útil",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Tiempo equivalente de exposición al fuego",
+        "level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "children": []
+      },
+      {
+        "title": "Uso Administrativo",
+        "level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "children": []
+      },
+      {
+        "title": "Uso Almacén",
+        "level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "children": []
+      },
+      {
+        "title": "Uso Aparcamiento",
+        "level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "children": []
+      },
+      {
+        "title": "Uso Comercial",
+        "level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "children": []
+      },
+      {
+        "title": "Uso Docente",
+        "level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "children": []
+      },
+      {
+        "title": "Uso Hospitalario",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Uso Residencial Público",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Uso Residencial Vivienda",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Ventilación forzada",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Ventilación natural",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Vestíbulo de independencia",
+        "level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "children": []
+      },
+      {
+        "title": "Zona de ocupación nula",
+        "level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "children": []
+      },
+      {
+        "title": "Zona de refugio",
+        "level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Anejo B Tiempo equivalente de exposición al fuego",
+    "level": 1,
+    "start_page": 53,
+    "end_page": 56,
+    "children": [
+      {
+        "title": "B.1 Generalidades",
+        "level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "children": []
+      },
+      {
+        "title": "B.2 Curva normalizada tiempo – temperatura",
+        "level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "children": []
+      },
+      {
+        "title": "B.3 Tiempo equivalente de exposición al fuego",
+        "level": 2,
+        "start_page": 53,
+        "end_page": 54,
+        "children": []
+      },
+      {
+        "title": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "children": []
+      },
+      {
+        "title": "B.5 Valor característico de la densidad de carga de fuego( )",
+        "level": 2,
+        "start_page": 56,
+        "end_page": 56,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+    "level": 1,
+    "start_page": 57,
+    "end_page": 68,
+    "children": [
+      {
+        "title": "C.1  Generalidades",
+        "level": 2,
+        "start_page": 57,
+        "end_page": 57,
+        "children": []
+      },
+      {
+        "title": "C.2  Tablas",
+        "level": 2,
+        "start_page": 57,
+        "end_page": 60,
+        "children": [
+          {
+            "title": "C.2.1 Generalidades",
+            "level": 3,
+            "start_page": 57,
+            "end_page": 57,
+            "children": []
+          },
+          {
+            "title": "C.2.2 Soportes y muros",
+            "level": 3,
+            "start_page": 58,
+            "end_page": 58,
+            "children": []
+          },
+          {
+            "title": "C.2.3 Vigas",
+            "level": 3,
+            "start_page": 58,
+            "end_page": 60,
+            "children": [
+              {
+                "title": "C.2.3.1 Vigas con las tres caras expuestas al fuego",
+                "level": 4,
+                "start_page": 59,
+                "end_page": 59,
+                "children": []
+              },
+              {
+                "title": "C.2.3.2 Vigas expuestas en todas sus caras",
+                "level": 4,
+                "start_page": 59,
+                "end_page": 59,
+                "children": []
+              },
+              {
+                "title": "C.2.3.3 Losas macizas",
+                "level": 4,
+                "start_page": 59,
+                "end_page": 59,
+                "children": []
+              },
+              {
+                "title": "C.2.3.4 Forjados bidireccionales",
+                "level": 4,
+                "start_page": 60,
+                "end_page": 60,
+                "children": []
+              },
+              {
+                "title": "C.2.3.5 Forjados unidireccionales",
+                "level": 4,
+                "start_page": 60,
+                "end_page": 60,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "C.3  Método simplificado de la isoterma 500",
+        "level": 2,
+        "start_page": 61,
+        "end_page": 68,
+        "children": [
+          {
+            "title": "C.2.4 Capas protectoras",
+            "level": 3,
+            "start_page": 61,
+            "end_page": 61,
+            "children": []
+          },
+          {
+            "title": "C.3.1 Campo de aplicación",
+            "level": 3,
+            "start_page": 61,
+            "end_page": 61,
+            "children": []
+          },
+          {
+            "title": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+            "level": 3,
+            "start_page": 61,
+            "end_page": 61,
+            "children": []
+          },
+          {
+            "title": "C.3.3 Reducción de las características mecánicas",
+            "level": 3,
+            "start_page": 62,
+            "end_page": 62,
+            "children": []
+          },
+          {
+            "title": "C.3.4 Isotermas",
+            "level": 3,
+            "start_page": 62,
+            "end_page": 68,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Anejo D Resistencia al fuego de los elementos de acero",
+    "level": 1,
+    "start_page": 69,
+    "end_page": 72,
+    "children": [
+      {
+        "title": "D.1 Generalidades",
+        "level": 2,
+        "start_page": 69,
+        "end_page": 69,
+        "children": []
+      },
+      {
+        "title": "D.2 Método simplificado de cálculo",
+        "level": 2,
+        "start_page": 69,
+        "end_page": 71,
+        "children": [
+          {
+            "title": "D.2.1 Vigas y tirantes",
+            "level": 3,
+            "start_page": 69,
+            "end_page": 69,
+            "children": []
+          },
+          {
+            "title": "D.2.2 Soportes",
+            "level": 3,
+            "start_page": 70,
+            "end_page": 70,
+            "children": [
+              {
+                "title": "D.2.2.1 Soportes de estructuras arriostradas",
+                "level": 4,
+                "start_page": 70,
+                "end_page": 70,
+                "children": []
+              }
+            ]
+          },
+          {
+            "title": "D.2.3 Determinación de la temperatura del acero",
+            "level": 3,
+            "start_page": 71,
+            "end_page": 71,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "D.3 Conexiones",
+        "level": 2,
+        "start_page": 72,
+        "end_page": 72,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Anejo SI E Resistencia al fuego de las estructuras de madera",
+    "level": 1,
+    "start_page": 73,
+    "end_page": 84,
+    "children": [
+      {
+        "title": "E.1 Generalidades",
+        "level": 2,
+        "start_page": 73,
+        "end_page": 73,
+        "children": []
+      },
+      {
+        "title": "E.2 Método de la sección reducida",
+        "level": 2,
+        "start_page": 73,
+        "end_page": 77,
+        "children": [
+          {
+            "title": "E.2.1 Generalidades",
+            "level": 3,
+            "start_page": 73,
+            "end_page": 73,
+            "children": []
+          },
+          {
+            "title": "E.2.2 Profundidad carbonizada",
+            "level": 3,
+            "start_page": 74,
+            "end_page": 74,
+            "children": []
+          },
+          {
+            "title": "E.2.3 Velocidad de carbonización nominal de cálculo",
+            "level": 3,
+            "start_page": 74,
+            "end_page": 77,
+            "children": [
+              {
+                "title": "E.2.3.1 Madera sin protección",
+                "level": 4,
+                "start_page": 74,
+                "end_page": 74,
+                "children": []
+              },
+              {
+                "title": "E.2.3.2 Madera con protección",
+                "level": 4,
+                "start_page": 75,
+                "end_page": 77,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+        "level": 2,
+        "start_page": 78,
+        "end_page": 78,
+        "children": [
+          {
+            "title": "E.3.1 Generalidades",
+            "level": 3,
+            "start_page": 78,
+            "end_page": 78,
+            "children": []
+          },
+          {
+            "title": "E.3.2 Vigas",
+            "level": 3,
+            "start_page": 78,
+            "end_page": 78,
+            "children": []
+          },
+          {
+            "title": "E.3.3 Soportes",
+            "level": 3,
+            "start_page": 78,
+            "end_page": 78,
+            "children": []
+          },
+          {
+            "title": "E.3.4 Elementos compuestos con uniones mecánicas",
+            "level": 3,
+            "start_page": 78,
+            "end_page": 78,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "E.4 Uniones",
+        "level": 2,
+        "start_page": 79,
+        "end_page": 82,
+        "children": [
+          {
+            "title": "E.4.1 Generalidades",
+            "level": 3,
+            "start_page": 79,
+            "end_page": 79,
+            "children": []
+          },
+          {
+            "title": "E.4.2 Uniones con piezas laterales de madera",
+            "level": 3,
+            "start_page": 79,
+            "end_page": 80,
+            "children": [
+              {
+                "title": "E.4.2.1 Uniones no protegidas",
+                "level": 4,
+                "start_page": 79,
+                "end_page": 79,
+                "children": []
+              },
+              {
+                "title": "E.4.2.2 Uniones protegidas",
+                "level": 4,
+                "start_page": 80,
+                "end_page": 80,
+                "children": []
+              }
+            ]
+          },
+          {
+            "title": "E.4.3 Uniones con placas de acero al exterior",
+            "level": 3,
+            "start_page": 81,
+            "end_page": 81,
+            "children": [
+              {
+                "title": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+                "level": 4,
+                "start_page": 81,
+                "end_page": 81,
+                "children": []
+              },
+              {
+                "title": "E.4.3.1 Uniones no protegidas",
+                "level": 4,
+                "start_page": 81,
+                "end_page": 81,
+                "children": []
+              }
+            ]
+          },
+          {
+            "title": "E.4.4 Tirafondos sometidos a carga axial",
+            "level": 3,
+            "start_page": 82,
+            "end_page": 82,
+            "children": [
+              {
+                "title": "E.4.3.2 Uniones protegidas",
+                "level": 4,
+                "start_page": 82,
+                "end_page": 82,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "E.5 Disposiciones constructivas",
+        "level": 2,
+        "start_page": 83,
+        "end_page": 83,
+        "children": [
+          {
+            "title": "E.5.1 Muros y forjados",
+            "level": 3,
+            "start_page": 83,
+            "end_page": 83,
+            "children": []
+          },
+          {
+            "title": "E.5.2 Otros elementos",
+            "level": 3,
+            "start_page": 83,
+            "end_page": 83,
+            "children": [
+              {
+                "title": "E.5.1.1 Dimensiones y separaciones",
+                "level": 4,
+                "start_page": 83,
+                "end_page": 83,
+                "children": []
+              },
+              {
+                "title": "E.5.1.2 Detalles de las uniones de los tableros",
+                "level": 4,
+                "start_page": 83,
+                "end_page": 83,
+                "children": []
+              },
+              {
+                "title": "E.5.1.3 Aislamiento",
+                "level": 4,
+                "start_page": 83,
+                "end_page": 83,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "E.6 Adhesivos",
+        "level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Anejo F Resistencia al fuego de los elementos de fábrica",
+    "level": 1,
+    "start_page": 85,
+    "end_page": 85,
+    "children": []
+  },
+  {
+    "title": "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+    "level": 1,
+    "start_page": 86,
+    "end_page": 1000,
+    "children": [
+      {
+        "title": "1 Reacción al fuego",
+        "level": 2,
+        "start_page": 86,
+        "end_page": 86,
+        "children": []
+      },
+      {
+        "title": "2 Resistencia al fuego",
+        "level": 2,
+        "start_page": 87,
+        "end_page": 90,
+        "children": []
+      },
+      {
+        "title": "3 Instalaciones para control del humo y del calor",
+        "level": 2,
+        "start_page": 91,
+        "end_page": 91,
+        "children": []
+      },
+      {
+        "title": "4 Puertas, herrajes y dispositivos de apertura",
+        "level": 2,
+        "start_page": 91,
+        "end_page": 91,
+        "children": []
+      },
+      {
+        "title": "5 Señalización",
+        "level": 2,
+        "start_page": 92,
+        "end_page": 92,
+        "children": []
+      },
+      {
+        "title": "6 Otras materias",
+        "level": 2,
+        "start_page": 92,
+        "end_page": 1000,
+        "children": []
+      }
+    ]
+  }
+]

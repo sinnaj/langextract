@@ -1,0 +1,99 @@
+{
+  "chunk_id": 130,
+  "section_metadata": {
+    "section_id": "e.5.2_otros_elementos",
+    "section_name": "E.5.2 Otros elementos",
+    "section_level": 3,
+    "start_page": 83,
+    "end_page": 83,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.5 Disposiciones constructivas",
+      "E.5.2 Otros elementos"
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.5.2 Otros elementos\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.5 Disposiciones constructivas → E.5.2 Otros elementos\n**Level:** 3\n**Pages:** 83-83\n\n1 Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.\n83\nFigura E.7. Ejemplos de fijaciones para los tableros de protección\na)\nb)\nc)",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.",
+      "attributes": {
+        "id": "e52_1_1",
+        "parent_section_id": "e.5.2_otros_elementos",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Boards used as protection for structural elements such as beams and supports must be fixed to the elements according to the following indications.",
+        "applies_if": "ELEMENT.TYPE IN ['BEAM', 'SUPPORT'] AND ELEMENT.FUNCTION == 'STRUCTURAL' AND BOARD.FUNCTION == 'PROTECTION'",
+        "satisfied_if": "BOARD.ATTACHMENT.METHOD == 'DIRECT' AND BOARD.ATTACHMENT.TARGET != 'OTHER_BOARD' AND (BOARD.LAYER.COUNT > 1 AND BOARD.LAYER.EACH.ATTACHMENT.METHOD == 'INDIVIDUAL' AND BOARD.LAYER.JOINT.OFFSET >= 60) AND BOARD.FASTENER.SPACING <= MIN(200, BOARD.THICKNESS * 17) AND BOARD.FASTENER.LENGTH.COMPLIES_WITH_E512_PARAGRAPH2 AND BOARD.EDGE.DISTANCE <= (BOARD.THICKNESS * 3) AND BOARD.EDGE.DISTANCE >= MIN(BOARD.THICKNESS * 1.5, 15)",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "BOARD.ATTACHMENT",
+          "BOARD.THICKNESS",
+          "BOARD.FASTENER.SPACING",
+          "BOARD.FASTENER.LENGTH",
+          "BOARD.EDGE.DISTANCE",
+          "ELEMENT.TYPE.BEAM",
+          "ELEMENT.TYPE.SUPPORT",
+          "ELEMENT.FUNCTION.STRUCTURAL",
+          "BOARD.FUNCTION.PROTECTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "pages": "83-83",
+          "span_char_start": 0,
+          "span_char_end": 648
+        },
+        "extracted_parameters": [
+          "BOARD.LAYER.JOINT.OFFSET >= 60 mm",
+          "BOARD.FASTENER.SPACING <= 200 mm",
+          "BOARD.FASTENER.SPACING <= BOARD.THICKNESS * 17",
+          "BOARD.EDGE.DISTANCE <= BOARD.THICKNESS * 3",
+          "BOARD.EDGE.DISTANCE >= BOARD.THICKNESS * 1.5",
+          "BOARD.EDGE.DISTANCE >= 15 mm"
+        ],
+        "confidence": 0.95,
+        "section_name": "E.5.2 Otros elementos",
+        "section_level": 3
+      },
+      "char_interval": {
+        "start_pos": 195,
+        "end_pos": 1045
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 235
+      },
+      "section_metadata": {
+        "section_id": "e.5.2_otros_elementos",
+        "section_name": "E.5.2 Otros elementos",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos"
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 1124
+}

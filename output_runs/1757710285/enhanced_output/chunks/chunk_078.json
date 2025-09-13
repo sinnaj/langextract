@@ -1,0 +1,65 @@
+{
+  "chunk_id": 78,
+  "section_metadata": {
+    "section_id": "uso_administrativo",
+    "section_name": "Uso Administrativo",
+    "section_level": 2,
+    "start_page": 50,
+    "end_page": 50,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Administrativo"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Administrativo\n**Path:** Anejo SI A Terminología → Uso Administrativo\n**Level:** 2\n**Pages:** 50-50\n\nEdificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en cualquiera de sus modalidades, como por ejemplo, centros de la administración pública, bancos, despachos profesionales, oficinas, etc.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en cualquiera de sus modalidades, como por ejemplo, centros de la administración pública, bancos, despachos profesionales, oficinas, etc.",
+      "attributes": {
+        "id": "23a1e948-2621-4b13-912b-7334704b2190",
+        "parent_section_id": "uso_administrativo",
+        "classification_type": "USAGE",
+        "classification_name": "ADMINISTRATIVE",
+        "classification_value": "Building, establishment or area where management or service activities of any kind are carried out, such as public administration centers, banks, professional offices, offices, etc.",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 224,
+          "visual_refs": []
+        },
+        "section_name": "Uso Administrativo",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 116,
+        "end_pos": 349
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 74
+      },
+      "section_metadata": {
+        "section_id": "uso_administrativo",
+        "section_name": "Uso Administrativo",
+        "section_level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Administrativo"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 349
+}

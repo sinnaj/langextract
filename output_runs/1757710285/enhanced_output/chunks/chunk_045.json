@@ -1,0 +1,130 @@
+{
+  "chunk_id": 45,
+  "section_metadata": {
+    "section_id": "atrio",
+    "section_name": "Atrio",
+    "section_level": 2,
+    "start_page": 43,
+    "end_page": 43,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Atrio"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Atrio\n**Path:** Anejo SI A Terminología → Atrio\n**Level:** 2\n**Pages:** 43-43\n\nEspacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho espacio mediante huecos, ventanas, balcones, pasillos abiertos, etc. Parte del perímetro del atrio puede también estar formado por muros ciegos o por fachadas del edificio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho espacio mediante huecos, ventanas, balcones, pasillos abiertos, etc. Parte del perímetro del atrio puede también estar formado por muros ciegos o por fachadas del edificio.",
+      "attributes": {
+        "id": "b0821034-7043-4171-9252-073099905977",
+        "meta_summary": "Definition of an Atrium",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "atrio",
+        "section_name": "Atrio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 90,
+        "end_pos": 359
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 25,
+        "end_index": 77
+      },
+      "section_metadata": {
+        "section_id": "atrio",
+        "section_name": "Atrio",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Atrio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Atrio",
+      "attributes": {
+        "id": "67375276-816b-4786-9b16-43224734563a",
+        "parent_section_id": "atrio",
+        "classification_type": "BUILDING.ELEMENT",
+        "class_name": "ATRIUM",
+        "class_definition": "Open space with height equivalent to several building floors communicated with said space through openings, windows, balconies, open corridors, etc. Part of the atrium's perimeter may also be formed by blind walls or building facades.",
+        "relevant_tags": [
+          "ATRIUM",
+          "BUILDING.ELEMENT.ATRIUM",
+          "BUILDING.FLOOR",
+          "OPENING",
+          "WINDOW",
+          "BALCONY",
+          "CORRIDOR.OPEN",
+          "WALL.BLIND",
+          "FACADE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Atrio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 16
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 4
+      },
+      "section_metadata": {
+        "section_id": "atrio",
+        "section_name": "Atrio",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Atrio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 359
+}

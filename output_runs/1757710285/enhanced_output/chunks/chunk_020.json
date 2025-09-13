@@ -1,0 +1,409 @@
+{
+  "chunk_id": 20,
+  "section_metadata": {
+    "section_id": "5_protección_de_las_escaleras",
+    "section_name": "5 Protección de las escaleras",
+    "section_level": 2,
+    "start_page": 28,
+    "end_page": 28,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "5 Protección de las escaleras"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 5 Protección de las escaleras\n**Path:** Sección SI 3 Evacuación de ocupantes → 5 Protección de las escaleras\n**Level:** 2\n**Pages:** 28-28\n\n1 En la tabla 5.1 se indican las condiciones de protección que deben cumplir las escaleras previstas para evacuación.\nTabla 5.1. Protección de las escaleras\n(1) Las escaleras para evacuación descendente y las escaleras para evacuación ascendente cumplirán en todas sus plantas respectivas las condiciones más restrictivas de las correspondientes a los usos de los sectores de incendio con los que comuniquen en dichas plantas. Cuando un establecimiento contenido en un edificio de uso Residencial Vivienda no precise constituir sector de incendio conforme al capítulo 1 de la Sección 1 de este DB, las condiciones exigibles a las escaleras comunes son las correspondientes a dicho uso.\n(2) Las escaleras que comuniquen sectores de incendio diferentes pero cuya altura de evacuación no exceda de la admitida para las escaleras no protegidas, no precisan cumplir las condiciones de las escaleras protegidas, sino únicamente estar compartimentadas de tal forma que a través de ellas se mantenga la compartimentación exigible entre sectores de incendio, siendo admisible la opción de incorporar el ámbito de la propia escalera a uno de los sectores a los que sirve.\n(3) Cuando se trate de un establecimiento con menos de 20 plazas de alojamiento se podrá optar por instalar un sistema de detección y alarma como medida alternativa a la exigencia de escalera protegida .\n28",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 En la tabla 5.1 se indican las condiciones de protección que deben cumplir las escaleras previstas para evacuación.\nTabla 5.1. Protección de las escaleras\n(1) Las escaleras para evacuación descendente y las escaleras para evacuación ascendente cumplirán en todas sus plantas respectivas las condiciones más restrictivas de las correspondientes a los usos de los sectores de incendio con los que comuniquen en dichas plantas. Cuando un establecimiento contenido en un edificio de uso Residencial Vivienda no precise constituir sector de incendio conforme al capítulo 1 de la Sección 1 de este DB, las condiciones exigibles a las escaleras comunes son las correspondientes a dicho uso.\n(2) Las escaleras que comuniquen sectores de incendio diferentes pero cuya altura de evacuación no exceda de la admitida para las escaleras no protegidas, no precisan cumplir las condiciones de las escaleras protegidas, sino únicamente estar compartimentadas de tal forma que a través de ellas se mantenga la compartimentación exigible entre sectores de incendio, siendo admisible la opción de incorporar el ámbito de la propia escalera a uno de los sectores a los que sirve.\n(3) Cuando se trate de un establecimiento con menos de 20 plazas de alojamiento se podrá optar por instalar un sistema de detección y alarma como medida alternativa a la exigencia de escalera protegida .",
+      "attributes": {
+        "id": "5e135111-2a62-426c-8519-612602715003",
+        "meta_summary": "This section outlines the protection conditions for evacuation stairs, including specific requirements for different types of stairs and exemptions based on fire sector communication and establishment characteristics.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 151,
+        "end_pos": 1516
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 307
+      },
+      "section_metadata": {
+        "section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "5 Protección de las escaleras"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las escaleras para evacuación descendente y las escaleras para evacuación ascendente cumplirán en todas sus plantas respectivas las condiciones más restrictivas de las correspondientes a los usos de los sectores de incendio con los que comuniquen en dichas plantas.",
+      "attributes": {
+        "id": "2247291a-7429-4c17-a169-21971777085a",
+        "parent_section_id": "5_protección_de_las_escaleras",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Evacuation stairs (descending and ascending) must comply with the most restrictive conditions corresponding to the uses of the fire sectors they communicate with on each respective floor.",
+        "applies_if": "STAIR.TYPE IN ['EVACUATION.DESCENDING', 'EVACUATION.ASCENDING']",
+        "satisfied_if": "STAIR.COMPLIES_WITH_MOST_RESTRICTIVE_FIRE_SECTOR_USE_CONDITIONS_ON_EACH_FLOOR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIR.TYPE",
+          "FIRE.SECTOR.USE",
+          "FIRE.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 329,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 312,
+        "end_pos": 577
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 129
+      },
+      "section_metadata": {
+        "section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "5 Protección de las escaleras"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando un establecimiento contenido en un edificio de uso Residencial Vivienda no precise constituir sector de incendio conforme al capítulo 1 de la Sección 1 de este DB, las condiciones exigibles a las escaleras comunes son las correspondientes a dicho uso.",
+      "attributes": {
+        "id": "31464798-251a-429a-9e19-0268579d4692",
+        "parent_section_id": "5_protección_de_las_escaleras",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When an establishment within a residential building does not need to constitute a fire sector according to Chapter 1 of Section 1 of this DB, the conditions required for common stairs are those corresponding to the residential use.",
+        "applies_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND ESTABLISHMENT.REQUIRES_FIRE_SECTOR == FALSE",
+        "satisfied_if": "STAIR.COMMON.COMPLIES_WITH_RESIDENTIAL_USE_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "ESTABLISHMENT.FIRE_SECTOR",
+          "STAIR.COMMON",
+          "FIRE.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 331,
+          "span_char_end": 625,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 578,
+        "end_pos": 836
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 129,
+        "end_index": 176
+      },
+      "section_metadata": {
+        "section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "5 Protección de las escaleras"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las escaleras que comuniquen sectores de incendio diferentes pero cuya altura de evacuación no exceda de la admitida para las escaleras no protegidas, no precisan cumplir las condiciones de las escaleras protegidas, sino únicamente estar compartimentadas de tal forma que a través de ellas se mantenga la compartimentación exigible entre sectores de incendio, siendo admisible la opción de incorporar el ámbito de la propia escalera a uno de los sectores a los que sirve.",
+      "attributes": {
+        "id": "402e6417-385c-429a-810a-70678241031c",
+        "parent_section_id": "5_protección_de_las_escaleras",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Stairs communicating different fire sectors, but whose evacuation height does not exceed that allowed for unprotected stairs, do not need to meet the conditions for protected stairs. They only need to be compartmentalized to maintain the required compartmentalization between fire sectors, with the option of incorporating the stair area into one of the sectors it serves.",
+        "applies_if": "STAIR.COMMUNICATES_DIFFERENT_FIRE_SECTORS == TRUE AND STAIR.EVACUATION.HEIGHT <= STAIR.UNPROTECTED.MAX_EVACUATION_HEIGHT",
+        "satisfied_if": "STAIR.COMPARTMENTALIZED_TO_MAINTAIN_FIRE_SECTOR_COMPARTMENTALIZATION == TRUE ; OR STAIR.AREA_INCORPORATED_INTO_ONE_OF_SERVED_FIRE_SECTORS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIR.FIRE_SECTOR_COMMUNICATION",
+          "STAIR.EVACUATION.HEIGHT",
+          "STAIR.COMPARTMENTALIZATION",
+          "FIRE.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 627,
+          "span_char_end": 1032,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 841,
+        "end_pos": 1312
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 179,
+        "end_index": 267
+      },
+      "section_metadata": {
+        "section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "5 Protección de las escaleras"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando se trate de un establecimiento con menos de 20 plazas de alojamiento se podrá optar por instalar un sistema de detección y alarma como medida alternativa a la exigencia de escalera protegida .",
+      "attributes": {
+        "id": "59074a38-f947-418a-9355-66792376999a",
+        "parent_section_id": "5_protección_de_las_escaleras",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For establishments with fewer than 20 lodging places, installing a detection and alarm system may be chosen as an alternative to the requirement for a protected staircase.",
+        "applies_if": "ESTABLISHMENT.LODGING_PLACES < 20",
+        "satisfied_if": "STAIR.PROTECTED == TRUE ; OR FIRE.DETECTION_ALARM_SYSTEM.INSTALLED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ESTABLISHMENT.LODGING_PLACES",
+          "FIRE.DETECTION_ALARM_SYSTEM",
+          "STAIR.PROTECTED",
+          "FIRE.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1034,
+          "span_char_end": 1206,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.LODGING_PLACES < 20"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1317,
+        "end_pos": 1516
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 270,
+        "end_index": 307
+      },
+      "section_metadata": {
+        "section_id": "5_protección_de_las_escaleras",
+        "section_name": "5 Protección de las escaleras",
+        "section_level": 2,
+        "start_page": 28,
+        "end_page": 28,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "5 Protección de las escaleras"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 1519
+}

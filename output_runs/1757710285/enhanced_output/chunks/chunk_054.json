@@ -1,0 +1,775 @@
+{
+  "chunk_id": 54,
+  "section_metadata": {
+    "section_id": "escalera_protegida",
+    "section_name": "Escalera protegida",
+    "section_level": 2,
+    "start_page": 44,
+    "end_page": 44,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Escalera protegida"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Escalera protegida\n**Path:** Anejo SI A Terminología → Escalera protegida\n**Level:** 2\n**Pages:** 44-44\n\nEscalera de trazado continuo desde su inicio hasta su desembarco en planta de salida del edificio que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo. Para ello debe reunir, además de las condiciones de seguridad de utilización exigibles a toda escalera (véase DB-SUA 1-4) las siguientes:\n1 Es un recinto destinado exclusivamente a circulación y compartimentado del resto del edificio mediante elementos separadores EI 120. Si dispone de fachadas, éstas deben cumplir las condiciones establecidas en el capítulo 1 de la Sección SI 2 para limitar el riesgo de transmisión exterior del incendio desde otras zonas del edificio o desde otros edificios.\nEn la planta de salida del edificio las escaleras protegidas o especialmente protegidas para evacuación ascendente pueden carecer de compartimentación . Las previstas para evacuación descendente pueden carecer de compartimentación cuando sea un sector de riesgo mínimo .\n2 El recinto tiene como máximo dos accesos en cada planta, los cuales se realizan a través de puertas EI2 60 -C5 y desde espacios de circulación comunes y sin ocupación propia .\nAdemás de dichos accesos, pueden abrir al recinto de la escalera protegida locales destinados a aseo , así como los ascensores, siempre que las puertas de estos últimos abran, en todas sus plantas, al recinto de la escalera protegida considerada o a un vestíbulo de independencia .\nEn el recinto también pueden existir tapas de registro de patinillos o de conductos para instalaciones, siempre que estas sean EI 60.\n3 En la planta de salida del edificio, la longitud del recorrido desde la puerta de salida del recinto de la escalera, o en su defecto desde el desembarco de la misma, hasta una salida de edificio no debe exceder de 15 m, excepto cuando dicho recorrido se realice por un sector de riesgo mínimo, en cuyo caso\n44\ndicho límite es el que con carácter general se establece para cualquier origen de evacuación de dicho sector.\n4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:\nVentilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie útil de ventilación de al menos 1 m² en cada planta.\nVentilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusivamente para esta función y que cumplen las condiciones siguientes:\n-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto para la entrada como para la salida de aire; cuando se utilicen conductos rectangulares, la relación entre los lados mayor y menor no es mayor que 4;\n-las rejillas tienen una sección útil de igual superficie y relación máxima entre sus lados que el conducto al que están conectadas;\n-en cada planta, la parte superior de las rejillas de entrada de aire está situada a una altura sobre el suelo menor que 1 m y las de salida de aire están enfrentadas a las anteriores y su parte inferior está situada a una altura mayor que 1,80 m.\nSistema de presión diferencial conforme a EN 12101-6:2005 .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Escalera de trazado continuo desde su inicio hasta su desembarco en planta de salida del edificio que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo. Para ello debe reunir, además de las condiciones de seguridad de utilización exigibles a toda escalera (véase DB-SUA 1-4) las siguientes:\n1 Es un recinto destinado exclusivamente a circulación y compartimentado del resto del edificio mediante elementos separadores EI 120. Si dispone de fachadas, éstas deben cumplir las condiciones establecidas en el capítulo 1 de la Sección SI 2 para limitar el riesgo de transmisión exterior del incendio desde otras zonas del edificio o desde otros edificios.\nEn la planta de salida del edificio las escaleras protegidas o especialmente protegidas para evacuación ascendente pueden carecer de compartimentación . Las previstas para evacuación descendente pueden carecer de compartimentación cuando sea un sector de riesgo mínimo .\n2 El recinto tiene como máximo dos accesos en cada planta, los cuales se realizan a través de puertas EI2 60 -C5 y desde espacios de circulación comunes y sin ocupación propia .\nAdemás de dichos accesos, pueden abrir al recinto de la escalera protegida locales destinados a aseo , así como los ascensores, siempre que las puertas de estos últimos abran, en todas sus plantas, al recinto de la escalera protegida considerada o a un vestíbulo de independencia .\nEn el recinto también pueden existir tapas de registro de patinillos o de conductos para instalaciones, siempre que estas sean EI 60.\n3 En la planta de salida del edificio, la longitud del recorrido desde la puerta de salida del recinto de la escalera, o en su defecto desde el desembarco de la misma, hasta una salida de edificio no debe exceder de 15 m, excepto cuando dicho recorrido se realice por un sector de riesgo mínimo, en cuyo caso\n44\ndicho límite es el que con carácter general se establece para cualquier origen de evacuación de dicho sector.\n4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:\nVentilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie útil de ventilación de al menos 1 m² en cada planta.\nVentilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusivamente para esta función y que cumplen las condiciones siguientes:\n-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto para la entrada como para la salida de aire; cuando se utilicen conductos rectangulares, la relación entre los lados mayor y menor no es mayor que 4;\n-las rejillas tienen una sección útil de igual superficie y relación máxima entre sus lados que el conducto al que están conectadas;\n-en cada planta, la parte superior de las rejillas de entrada de aire está situada a una altura sobre el suelo menor que 1 m y las de salida de aire están enfrentadas a las anteriores y su parte inferior está situada a una altura mayor que 1,80 m.\nSistema de presión diferencial conforme a EN 12101-6:2005 .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "meta_summary": "Defines requirements for protected staircases to ensure safety during a fire, including compartmentalization, access, travel distance, and smoke protection.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB-SUA 1-4",
+          "SI 2",
+          "EN 12101-6:2005"
+        ],
+        "referenced_documents_sections": [
+          "DB-SUA 1-4",
+          "SI 2.CHAPTER.1"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 116,
+        "end_pos": 3265
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 684
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "Escalera protegida",
+      "attributes": {
+        "parent_section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 29
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_ATTRIBUTES",
+      "extraction_text": "{'id': 'e1f2g3h4-i5j6-7890-1234-567890abcdef', 'parent_id': 'Anejo SI A Terminología', 'description': 'Escalera de trazado continuo desde su inicio hasta su desembarco en planta de salida del edificio que, en caso de incendio, constituye un recinto suficientemente seguro para permitir que los ocupantes puedan permanecer en el mismo durante un determinado tiempo.', 'applies_if': 'TRUE', 'class_type': 'BUILDING.ELEMENT.STAIRCASE.TYPE', 'properties': {'CONTINUOUS_PATH': 'TRUE', 'FIRE_SAFE_ENCLOSURE': 'TRUE', 'FUNCTION': 'CIRCULATION', 'FIRE_COMPARTMENTED': 'TRUE'}, 'source': {'span_char_start': 30, 'span_char_end': 224, 'visual_refs': [{'page': 44, 'section': 'Escalera protegida'}]}}",
+      "attributes": {
+        "parent_section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Es un recinto destinado exclusivamente a circulación y compartimentado del resto del edificio mediante elementos separadores EI 120. Si dispone de fachadas, éstas deben cumplir las condiciones establecidas en el capítulo 1 de la Sección SI 2 para limitar el riesgo de transmisión exterior del incendio desde otras zonas del edificio o desde otros edificios.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde1",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A protected staircase enclosure must be exclusively for circulation and compartmentalized from the rest of the building with EI 120 separating elements. If it has facades, these must comply with the conditions in Chapter 1 of Section SI 2 to limit the risk of external fire transmission.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "STAIRCASE.ENCLOSURE.FUNCTION == 'CIRCULATION' AND STAIRCASE.ENCLOSURE.COMPARTMENTED_FROM_BUILDING == TRUE AND STAIRCASE.ENCLOSURE.SEPARATING_ELEMENTS.FIRE_RESISTANCE == 'EI 120' AND (NOT HAS(STAIRCASE.ENCLOSURE.FACADES) OR STAIRCASE.ENCLOSURE.FACADES.COMPLY_WITH_SI2_CHAPTER1 == TRUE)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIRCASE.ENCLOSURE.FUNCTION",
+          "STAIRCASE.ENCLOSURE.COMPARTMENTED_FROM_BUILDING",
+          "STAIRCASE.ENCLOSURE.SEPARATING_ELEMENTS.FIRE_RESISTANCE",
+          "STAIRCASE.ENCLOSURE.FACADES",
+          "FIRE.TRANSMISSION.EXTERNAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 225,
+          "span_char_end": 546,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 516,
+        "end_pos": 875
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 105,
+        "end_index": 173
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En la planta de salida del edificio las escaleras protegidas o especialmente protegidas para evacuación ascendente pueden carecer de compartimentación . Las previstas para evacuación descendente pueden carecer de compartimentación cuando sea un sector de riesgo mínimo .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde2",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 1,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "Protected or specially protected staircases for ascending evacuation on the building's exit floor may lack compartmentalization. Those intended for descending evacuation may lack compartmentalization if it is a minimum risk sector.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE IN ['PROTECTED', 'SPECIALLY_PROTECTED'] AND STAIRCASE.LOCATION == 'EXIT_FLOOR'",
+        "satisfied_if": "(STAIRCASE.EVACUATION.DIRECTION == 'ASCENDING' AND STAIRCASE.COMPARTMENTALIZATION == FALSE); OR (STAIRCASE.EVACUATION.DIRECTION == 'DESCENDING' AND FIRE.RISK_SECTOR.TYPE == 'MINIMUM' AND STAIRCASE.COMPARTMENTALIZATION == FALSE)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIRCASE.EVACUATION.DIRECTION",
+          "STAIRCASE.COMPARTMENTALIZATION",
+          "FIRE.RISK_SECTOR.TYPE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 547,
+          "span_char_end": 767,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "confidence": 0.9,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 876,
+        "end_pos": 1146
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 173,
+        "end_index": 221
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 El recinto tiene como máximo dos accesos en cada planta, los cuales se realizan a través de puertas EI2 60 -C5 y desde espacios de circulación comunes y sin ocupación propia .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde3",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The protected staircase enclosure must have a maximum of two accesses per floor, through EI2 60 -C5 doors, from common circulation spaces without their own occupancy.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "STAIRCASE.ENCLOSURE.ACCESS.COUNT <= 2 AND STAIRCASE.ENCLOSURE.ACCESS.DOOR.FIRE_RESISTANCE == 'EI2 60 -C5' AND STAIRCASE.ENCLOSURE.ACCESS.ORIGIN.TYPE == 'COMMON_CIRCULATION_SPACE' AND STAIRCASE.ENCLOSURE.ACCESS.ORIGIN.OCCUPANCY == FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIRCASE.ENCLOSURE.ACCESS.COUNT",
+          "STAIRCASE.ENCLOSURE.ACCESS.DOOR.FIRE_RESISTANCE",
+          "STAIRCASE.ENCLOSURE.ACCESS.ORIGIN.TYPE",
+          "STAIRCASE.ENCLOSURE.ACCESS.ORIGIN.OCCUPANCY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 768,
+          "span_char_end": 940,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "ACCESS.COUNT <= 2",
+          "DOOR.FIRE_RESISTANCE: EI2 60 -C5"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1147,
+        "end_pos": 1324
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 221,
+        "end_index": 266
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Además de dichos accesos, pueden abrir al recinto de la escalera protegida locales destinados a aseo , así como los ascensores, siempre que las puertas de estos últimos abran, en todas sus plantas, al recinto de la escalera protegida considerada o a un vestíbulo de independencia .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde4",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 2,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "In addition to the main accesses, toilet facilities and elevators may open into the protected staircase enclosure, provided that elevator doors open on all floors to the protected staircase enclosure or an independence vestibule.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "(STAIRCASE.ENCLOSURE.HAS_TOILET_FACILITIES == TRUE OR STAIRCASE.ENCLOSURE.HAS_ELEVATORS == TRUE) AND (NOT HAS(STAIRCASE.ENCLOSURE.HAS_ELEVATORS) OR (ELEVATOR.DOOR.OPENS_TO_STAIRCASE_ENCLOSURE == TRUE OR ELEVATOR.DOOR.OPENS_TO_INDEPENDENCE_VESTIBULE == TRUE))",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIRCASE.ENCLOSURE.HAS_TOILET_FACILITIES",
+          "STAIRCASE.ENCLOSURE.HAS_ELEVATORS",
+          "ELEVATOR.DOOR.OPENS_TO_STAIRCASE_ENCLOSURE",
+          "ELEVATOR.DOOR.OPENS_TO_INDEPENDENCE_VESTIBULE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 941,
+          "span_char_end": 1260,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "confidence": 0.9,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1325,
+        "end_pos": 1606
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 266,
+        "end_index": 323
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En el recinto también pueden existir tapas de registro de patinillos o de conductos para instalaciones, siempre que estas sean EI 60.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde5",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 2,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "Access panels for shafts or installation ducts may exist in the enclosure, provided they are EI 60.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "ACCESS_PANEL.FIRE_RESISTANCE == 'EI 60'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ACCESS_PANEL.FIRE_RESISTANCE",
+          "SHAFT.ACCESS_PANEL",
+          "DUCT.ACCESS_PANEL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1261,
+          "span_char_end": 1374,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 60"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1607,
+        "end_pos": 1740
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 323,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 En la planta de salida del edificio, la longitud del recorrido desde la puerta de salida del recinto de la escalera, o en su defecto desde el desembarco de la misma, hasta una salida de edificio no debe exceder de 15 m, excepto cuando dicho recorrido se realice por un sector de riesgo mínimo, en cuyo caso dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dicho sector.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde6",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 3,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "On the building's exit floor, the travel distance from the staircase enclosure exit door (or landing) to a building exit must not exceed 15m.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED' AND STAIRCASE.LOCATION == 'EXIT_FLOOR'",
+        "satisfied_if": "TRAVEL_DISTANCE.STAIRCASE_EXIT_TO_BUILDING_EXIT <= 15",
+        "exempt_if": "TRAVEL_ROUTE.FIRE_RISK_SECTOR.TYPE == 'MINIMUM'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "TRAVEL_DISTANCE.STAIRCASE_EXIT_TO_BUILDING_EXIT",
+          "FIRE.RISK_SECTOR.TYPE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1375,
+          "span_char_end": 1797,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "TRAVEL_DISTANCE <= 15 m"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1741,
+        "end_pos": 2162
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 349,
+        "end_index": 440
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones: Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie útil de ventilación de al menos 1 m² en cada planta.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde7",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The enclosure must have smoke protection through natural ventilation with operable windows or exterior openings providing at least 1 m² of useful ventilation area per floor.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "SMOKE_PROTECTION.TYPE == 'NATURAL_VENTILATION' AND NATURAL_VENTILATION.OPENINGS.TYPE IN ['OPERABLE_WINDOWS', 'EXTERIOR_OPENINGS'] AND NATURAL_VENTILATION.USEFUL_AREA_PER_FLOOR >= 1",
+        "topics": [
+          "SAFETY.FIRE",
+          "HEALTH"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SMOKE_PROTECTION.TYPE",
+          "NATURAL_VENTILATION.OPENINGS.TYPE",
+          "NATURAL_VENTILATION.USEFUL_AREA_PER_FLOOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1798,
+          "span_char_end": 2085,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "VENTILATION.USEFUL_AREA >= 1 m²"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2163,
+        "end_pos": 2407
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 440,
+        "end_index": 490
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusivamente para esta función y que cumplen las condiciones siguientes: -la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto para la entrada como para la salida de aire; cuando se utilicen conductos rectangulares, la relación entre los lados mayor y menor no es mayor que 4; -las rejillas tienen una sección útil de igual superficie y relación máxima entre sus lados que el conducto al que están conectadas; -en cada planta, la parte superior de las rejillas de entrada de aire está situada a una altura sobre el suelo menor que 1 m y las de salida de aire están enfrentadas a las anteriores y su parte inferior está situada a una altura mayor que 1,80 m.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde8",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The enclosure must have smoke protection through ventilation using two independent air intake and exhaust ducts, exclusively for this function, meeting specific conditions for useful section area, rectangular duct aspect ratio, grille useful section and aspect ratio, and grille height placement.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "SMOKE_PROTECTION.TYPE == 'DUCT_VENTILATION' AND DUCT_VENTILATION.DUCTS.COUNT == 2 AND DUCT_VENTILATION.DUCTS.INDEPENDENT == TRUE AND DUCT_VENTILATION.DUCTS.FUNCTION == 'AIR_INTAKE_EXHAUST' AND DUCT_VENTILATION.USEFUL_SECTION_AREA_PER_M3_ENCLOSURE_PER_FLOOR == 50 AND (NOT HAS(DUCT_VENTILATION.DUCTS.RECTANGULAR) OR DUCT_VENTILATION.DUCTS.RECTANGULAR.ASPECT_RATIO <= 4) AND GRILLE.USEFUL_SECTION_AREA == DUCT.USEFUL_SECTION_AREA AND GRILLE.ASPECT_RATIO <= DUCT.ASPECT_RATIO AND AIR_INTAKE_GRILLE.TOP_HEIGHT_FROM_FLOOR < 1 AND AIR_EXHAUST_GRILLE.BOTTOM_HEIGHT_FROM_FLOOR > 1.80 AND AIR_INTAKE_GRILLE.FACING_AIR_EXHAUST_GRILLE == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "HEALTH"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SMOKE_PROTECTION.TYPE",
+          "DUCT_VENTILATION.DUCTS.COUNT",
+          "DUCT_VENTILATION.DUCTS.INDEPENDENT",
+          "DUCT_VENTILATION.DUCTS.FUNCTION",
+          "DUCT_VENTILATION.USEFUL_SECTION_AREA_PER_M3_ENCLOSURE_PER_FLOOR",
+          "DUCT_VENTILATION.DUCTS.RECTANGULAR.ASPECT_RATIO",
+          "GRILLE.USEFUL_SECTION_AREA",
+          "GRILLE.ASPECT_RATIO",
+          "AIR_INTAKE_GRILLE.TOP_HEIGHT_FROM_FLOOR",
+          "AIR_EXHAUST_GRILLE.BOTTOM_HEIGHT_FROM_FLOOR",
+          "AIR_INTAKE_GRILLE.FACING_AIR_EXHAUST_GRILLE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2086,
+          "span_char_end": 2842,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "DUCTS.COUNT: 2",
+          "USEFUL_SECTION_AREA: 50 cm²/m³",
+          "RECTANGULAR_DUCT.ASPECT_RATIO <= 4",
+          "AIR_INTAKE_GRILLE.TOP_HEIGHT < 1 m",
+          "AIR_EXHAUST_GRILLE.BOTTOM_HEIGHT > 1.80 m"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 2408,
+        "end_pos": 3205
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 490,
+        "end_index": 669
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de presión diferencial conforme a EN 12101-6:2005 .",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcde9",
+        "parent_section_id": "escalera_protegida",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The enclosure must have smoke protection through a differential pressure system conforming to EN 12101-6:2005.",
+        "applies_if": "BUILDING.ELEMENT.STAIRCASE.TYPE == 'PROTECTED'",
+        "satisfied_if": "SMOKE_PROTECTION.TYPE == 'DIFFERENTIAL_PRESSURE_SYSTEM' AND DIFFERENTIAL_PRESSURE_SYSTEM.COMPLIES_WITH_EN_12101_6_2005 == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "HEALTH"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SMOKE_PROTECTION.TYPE",
+          "DIFFERENTIAL_PRESSURE_SYSTEM.COMPLIES_WITH_EN_12101_6_2005"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2843,
+          "span_char_end": 2900,
+          "visual_refs": [
+            {
+              "page": 44,
+              "section": "Escalera protegida"
+            }
+          ]
+        },
+        "referenced_documents": [
+          "EN 12101-6:2005"
+        ],
+        "confidence": 0.95,
+        "section_name": "Escalera protegida",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 3206,
+        "end_pos": 3265
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 12,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 669,
+        "end_index": 684
+      },
+      "section_metadata": {
+        "section_id": "escalera_protegida",
+        "section_name": "Escalera protegida",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera protegida"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 12,
+  "char_count": 3265
+}

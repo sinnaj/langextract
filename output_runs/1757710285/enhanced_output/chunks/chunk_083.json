@@ -1,0 +1,148 @@
+{
+  "chunk_id": 83,
+  "section_metadata": {
+    "section_id": "uso_hospitalario",
+    "section_name": "Uso Hospitalario",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Hospitalario"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Hospitalario\n**Path:** Anejo SI A Terminología → Uso Hospitalario\n**Level:** 2\n**Pages:** 51-51\n\nEdificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que está ocupados por personas que, en su mayoría, son incapaces de cuidarse por sí mismas, tales como hospitales, clínicas, sanatorios, residencias geriátricas, etc.\nLas zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambulatorio (despachos médicos, consultas, áreas destinadas al diagnóstico y tratamiento, etc.) así como a los centros con dicho carácter en exclusiva, deben cumplir las condiciones correspondientes al uso Administrativo .",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que está ocupados por personas que, en su mayoría, son incapaces de cuidarse por sí mismas, tales como hospitales, clínicas, sanatorios, residencias geriátricas, etc.",
+      "attributes": {
+        "id": "27018336-391e-4519-862d-058913941320",
+        "parent_section_id": "uso_hospitalario",
+        "classification_type": "USAGE",
+        "classification_name": "HOSPITAL",
+        "classification_value": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "classification_description": "Building or establishment intended for 24-hour healthcare with hospitalization, occupied by people who are mostly unable to care for themselves, such as hospitals, clinics, sanatoriums, geriatric residences, etc.",
+        "source": {
+          "span_char_start": 102,
+          "span_char_end": 353,
+          "visual_refs": []
+        },
+        "section_name": "Uso Hospitalario",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 112,
+        "end_pos": 372
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 27,
+        "end_index": 82
+      },
+      "section_metadata": {
+        "section_id": "uso_hospitalario",
+        "section_name": "Uso Hospitalario",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Hospitalario"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambulatorio (despachos médicos, consultas, áreas destinadas al diagnóstico y tratamiento, etc.) así como a los centros con dicho carácter en exclusiva, deben cumplir las condiciones correspondientes al uso Administrativo .",
+      "attributes": {
+        "id": "5170364d-045a-471e-8484-984402636551",
+        "parent_section_id": "uso_hospitalario",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Zones within hospital buildings or establishments intended for outpatient healthcare (medical offices, consultations, diagnostic and treatment areas, etc.) as well as centers exclusively for such purposes, must comply with the conditions corresponding to Administrative use.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND ZONE.USAGE == 'AMBULATORY_HEALTHCARE'",
+        "satisfied_if": "ZONE.COMPLIES_WITH_ADMINISTRATIVE_USE_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "HEALTH"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "ZONE.USAGE.AMBULATORY_HEALTHCARE",
+          "ZONE.USAGE.ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 355,
+          "span_char_end": 648,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Uso Hospitalario",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 373,
+        "end_pos": 690
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 141
+      },
+      "section_metadata": {
+        "section_id": "uso_hospitalario",
+        "section_name": "Uso Hospitalario",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Hospitalario"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 690
+}

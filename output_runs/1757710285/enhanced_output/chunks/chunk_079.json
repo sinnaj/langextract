@@ -1,0 +1,116 @@
+{
+  "chunk_id": 79,
+  "section_metadata": {
+    "section_id": "uso_almacén",
+    "section_name": "Uso Almacén",
+    "section_level": 2,
+    "start_page": 50,
+    "end_page": 50,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Almacén"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Almacén\n**Path:** Anejo SI A Terminología → Uso Almacén\n**Level:** 2\n**Pages:** 50-50\n\nEdificio o establecimiento destinado de forma principal al almacenamiento de materiales o productos. También se consideran de uso almacén las zonas destinadas de forma principal al almacenamiento de materiales o productos siempre que tengan una carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI, igual o superior a tres millones de megajulios. No obstante, los locales de riesgo especial enunciados en la tabla 2.1 de la Sección SI 1, no se considerarán zonas de uso almacén salvo en las situaciones indicadas en la propia tabla.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio o establecimiento destinado de forma principal al almacenamiento de materiales o productos. También se consideran de uso almacén las zonas destinadas de forma principal al almacenamiento de materiales o productos siempre que tengan una carga de fuego total ponderada y corregida (QT), calculada según el anexo I del RSCIEI, igual o superior a tres millones de megajulios. No obstante, los locales de riesgo especial enunciados en la tabla 2.1 de la Sección SI 1, no se considerarán zonas de uso almacén salvo en las situaciones indicadas en la propia tabla.",
+      "attributes": {
+        "id": "187c32b5-7484-4824-817a-2415d8628373",
+        "parent_section_id": "uso_almacén",
+        "classification_type": "USAGE",
+        "classification_name": "STORAGE",
+        "classification_value": "BUILDING.USAGE == 'STORAGE' OR (AREA.USAGE == 'STORAGE' AND AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000)",
+        "exempt_if": "AREA.IS_SPECIAL_RISK_LOCATION == TRUE AND NOT AREA.IS_SPECIAL_RISK_LOCATION_AS_STORAGE == TRUE",
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 505,
+          "visual_refs": []
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "quality": {
+          "confidence": 0.9,
+          "errors": [],
+          "warnings": []
+        },
+        "section_name": "Uso Almacén",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 102,
+        "end_pos": 668
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 31,
+        "end_index": 144
+      },
+      "section_metadata": {
+        "section_id": "uso_almacén",
+        "section_name": "Uso Almacén",
+        "section_level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Almacén"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal Documents",
+      "extraction_text": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+      "attributes": {
+        "id": "187c32b5-7484-4824-817a-2415d8628373",
+        "parent_section_id": "uso_almacén",
+        "document_name": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+        "document_type": "REGULATION",
+        "document_reference": "RSCIEI",
+        "document_section": "Anexo I",
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 505,
+          "visual_refs": []
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "quality": {
+          "confidence": 0.9,
+          "errors": [],
+          "warnings": []
+        },
+        "section_name": "Uso Almacén",
+        "section_level": 2
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "uso_almacén",
+        "section_name": "Uso Almacén",
+        "section_level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Almacén"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 668
+}

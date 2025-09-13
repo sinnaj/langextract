@@ -1,0 +1,155 @@
+{
+  "chunk_id": 47,
+  "section_metadata": {
+    "section_id": "carga_de_fuego",
+    "section_name": "Carga de fuego",
+    "section_level": 2,
+    "start_page": 43,
+    "end_page": 43,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Carga de fuego"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Carga de fuego\n**Path:** Anejo SI A Terminología → Carga de fuego\n**Level:** 2\n**Pages:** 43-43\n\nSuma de las energías caloríficas que se liberan en la combustión de todos los materiales combustibles existentes en un espacio (contenidos del edificio y elementos constructivos) (UNE-EN 1991-1-2:2004).",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Suma de las energías caloríficas que se liberan en la combustión de todos los materiales combustibles existentes en un espacio (contenidos del edificio y elementos constructivos) (UNE-EN 1991-1-2:2004).",
+      "attributes": {
+        "id": "2704204c-3221-4122-8356-076135246714",
+        "meta_summary": "Definition of fire load",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "carga_de_fuego",
+        "section_name": "Carga de fuego",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 108,
+        "end_pos": 310
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 75
+      },
+      "section_metadata": {
+        "section_id": "carga_de_fuego",
+        "section_name": "Carga de fuego",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Carga de fuego"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Carga de fuego",
+      "attributes": {
+        "id": "1840003c-235b-4835-8687-320512130321",
+        "parent_section_id": "carga_de_fuego",
+        "classification_type": "DEFINITION",
+        "classification_value": "FIRE.LOAD",
+        "classification_definition": "Suma de las energías caloríficas que se liberan en la combustión de todos los materiales combustibles existentes en un espacio (contenidos del edificio y elementos constructivos).",
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "section_name": "Carga de fuego",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 25
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "carga_de_fuego",
+        "section_name": "Carga de fuego",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Carga de fuego"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Documents",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "carga_de_fuego",
+        "doc_type": "STANDARD",
+        "doc_name": "UNE-EN 1991-1-2:2004",
+        "doc_reference": "UNE-EN 1991-1-2:2004",
+        "doc_date": "2004",
+        "doc_part": "1-2",
+        "doc_element": null,
+        "source": {
+          "span_char_start": 184,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "section_name": "Carga de fuego",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 288,
+        "end_pos": 308
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 64,
+        "end_index": 74
+      },
+      "section_metadata": {
+        "section_id": "carga_de_fuego",
+        "section_name": "Carga de fuego",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Carga de fuego"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 310
+}

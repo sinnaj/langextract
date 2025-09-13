@@ -1,0 +1,821 @@
+{
+  "chunk_id": 46,
+  "section_metadata": {
+    "section_id": "caja_escénica",
+    "section_name": "Caja escénica",
+    "section_level": 2,
+    "start_page": 43,
+    "end_page": 43,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Caja escénica"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Caja escénica\n**Path:** Anejo SI A Terminología → Caja escénica\n**Level:** 2\n**Pages:** 43-43\n\nVolumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando un escenario de teatro, sala de ópera, etc. equipado con decorados, tramoyas, mecanismos y foso, de forma que constituye un sector de incendio que cumpla las siguientes condiciones especiales:\n-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en la boca de la escena, la cual se puede cerrar mediante un telón EI 60 de material incombustible cuyo tiempo de cierre no excede de 30 s y puede soportar una presión de 0,4 kN/m 2 en ambos sentidos sin que su funcionamiento se vea afectado.\n-El cierre del telón debe ser automático, pero también debe poder activarse manualmente desde dos puntos, uno situado en el escenario y otro en lugar de acceso seguro, fuera del espacio del escenario. Cuando se ponga en funcionamiento, se debe activar una señal óptica de advertencia en el escenario. Debe disponer de una cortina de agua de activación automática y manual desde el escenario y desde otro punto situado en lugar de acceso seguro.\n-Debe disponer de vestíbulos de independencia en toda comunicación con la sala de espectadores.\n-Encima de la escena sólo deben existir locales técnicos que sirvan para uso directo de la escena.\n-El recorrido de evacuación desde cualquier punto del escenario hasta alguna salida del sector no debe exceder de 25 m y las puertas de salida deben abrir en el sentido de la evacuación.\n-Las pasarelas, galerías o similares existentes para uso de actores o empleados deben disponer de salidas de evacuación.\n-Las pasarelas y escaleras del escenario deben tener una anchura de 0,80 m, como mínimo.\n-La parte superior de la caja escénica debe disponer de un sistema adecuado para la eliminación del humo en caso de incendio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando un escenario de teatro, sala de ópera, etc. equipado con decorados, tramoyas, mecanismos y foso, de forma que constituye un sector de incendio que cumpla las siguientes condiciones especiales:\n-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en la boca de la escena, la cual se puede cerrar mediante un telón EI 60 de material incombustible cuyo tiempo de cierre no excede de 30 s y puede soportar una presión de 0,4 kN/m 2 en ambos sentidos sin que su funcionamiento se vea afectado.\n-El cierre del telón debe ser automático, pero también debe poder activarse manualmente desde dos puntos, uno situado en el escenario y otro en lugar de acceso seguro, fuera del espacio del escenario. Cuando se ponga en funcionamiento, se debe activar una señal óptica de advertencia en el escenario. Debe disponer de una cortina de agua de activación automática y manual desde el escenario y desde otro punto situado en lugar de acceso seguro.\n-Debe disponer de vestíbulos de independencia en toda comunicación con la sala de espectadores.\n-Encima de la escena sólo deben existir locales técnicos que sirvan para uso directo de la escena.\n-El recorrido de evacuación desde cualquier punto del escenario hasta alguna salida del sector no debe exceder de 25 m y las puertas de salida deben abrir en el sentido de la evacuación.\n-Las pasarelas, galerías o similares existentes para uso de actores o empleados deben disponer de salidas de evacuación.\n-Las pasarelas y escaleras del escenario deben tener una anchura de 0,80 m, como mínimo.\n-La parte superior de la caja escénica debe disponer de un sistema adecuado para la eliminación del humo en caso de incendio.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Defines the characteristics and special conditions for a stage box as a fire sector in buildings like theaters or opera houses.",
+        "meta_applies_if": "BUILDING.USAGE IN ['PUBLIC.ASSEMBLY'] AND BUILDING.TYPE == 'THEATER' OR BUILDING.TYPE == 'OPERA_HOUSE'",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 106,
+        "end_pos": 1901
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 31,
+        "end_index": 405
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en la boca de la escena, la cual se puede cerrar mediante un telón EI 60 de material incombustible cuyo tiempo de cierre no excede de 30 s y puede soportar una presión de 0,4 kN/m 2 en ambos sentidos sin que su funcionamiento se vea afectado.",
+      "attributes": {
+        "id": "5221b22e-202d-4217-910c-396564619736",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The stage box must be compartmentalized from the audience hall.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE",
+        "satisfied_if": "STAGE_BOX.COMPARTMENTATION.AUDIENCE_HALL.FIRE_RESISTANCE == 'EI 120' OR (STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.TYPE == 'CURTAIN' AND STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.FIRE_RESISTANCE == 'EI 60' AND STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.MATERIAL == 'INCOMBUSTIBLE' AND STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.CLOSING_TIME <= 30 AND STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.PRESSURE_RESISTANCE >= 0.4)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAGE_BOX",
+          "FIRE.COMPARTMENTATION",
+          "FIRE.RESISTANCE",
+          "CURTAIN",
+          "INCOMBUSTIBLE_MATERIAL",
+          "CLOSING_TIME",
+          "PRESSURE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 218,
+          "span_char_end": 526,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120",
+          "FIRE_RESISTANCE: EI 60",
+          "CLOSING_TIME: 30 s",
+          "PRESSURE_RESISTANCE: 0.4 kN/m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 399,
+        "end_pos": 738
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 84,
+        "end_index": 153
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El cierre del telón debe ser automático, pero también debe poder activarse manualmente desde dos puntos, uno situado en el escenario y otro en lugar de acceso seguro, fuera del espacio del escenario. Cuando se ponga en funcionamiento, se debe activar una señal óptica de advertencia en el escenario. Debe disponer de una cortina de agua de activación automática y manual desde el escenario y desde otro punto situado en lugar de acceso seguro.",
+      "attributes": {
+        "id": "14681604-0348-433e-8977-802521102919",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The curtain closure must be automatic and manually activatable from two points, one on stage and one in a safe access location outside the stage area. An optical warning signal must activate on stage when in operation. An automatic and manual water curtain must be available from the stage and another safe access point.",
+        "applies_if": "STAGE_BOX.OPENING.AUDIENCE_HALL.CLOSURE.TYPE == 'CURTAIN'",
+        "satisfied_if": "CURTAIN.CLOSURE.ACTIVATION.TYPE IN ['AUTOMATIC', 'MANUAL'] AND CURTAIN.CLOSURE.MANUAL_ACTIVATION_POINTS == 2 AND CURTAIN.CLOSURE.MANUAL_ACTIVATION_POINT.1.LOCATION == 'STAGE' AND CURTAIN.CLOSURE.MANUAL_ACTIVATION_POINT.2.LOCATION == 'SAFE_ACCESS_OUTSIDE_STAGE' AND CURTAIN.CLOSURE.ACTIVATION.OPTICAL_WARNING_SIGNAL.LOCATION == 'STAGE' AND WATER_CURTAIN.ACTIVATION.TYPE IN ['AUTOMATIC', 'MANUAL'] AND WATER_CURTAIN.MANUAL_ACTIVATION_POINT.1.LOCATION == 'STAGE' AND WATER_CURTAIN.MANUAL_ACTIVATION_POINT.2.LOCATION == 'SAFE_ACCESS'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CURTAIN.CLOSURE",
+          "AUTOMATIC_ACTIVATION",
+          "MANUAL_ACTIVATION",
+          "OPTICAL_WARNING_SIGNAL",
+          "WATER_CURTAIN",
+          "FIRE.SAFETY.SYSTEMS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 527,
+          "span_char_end": 966,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 740,
+        "end_pos": 1183
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 154,
+        "end_index": 248
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Debe disponer de vestíbulos de independencia en toda comunicación con la sala de espectadores.",
+      "attributes": {
+        "id": "1198f121-7299-4786-8212-2598c1157121",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Independence vestibules must be provided in all communications with the audience hall.",
+        "applies_if": "STAGE_BOX.COMMUNICATION.AUDIENCE_HALL.EXISTS == TRUE",
+        "satisfied_if": "STAGE_BOX.COMMUNICATION.AUDIENCE_HALL.HAS_INDEPENDENCE_VESTIBULES == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "INDEPENDENCE_VESTIBULES",
+          "FIRE.COMPARTMENTATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 967,
+          "span_char_end": 1047,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1185,
+        "end_pos": 1279
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 249,
+        "end_index": 268
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Encima de la escena sólo deben existir locales técnicos que sirvan para uso directo de la escena.",
+      "attributes": {
+        "id": "19602444-2458-450e-8552-001222121212",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Only technical rooms serving the direct use of the stage must exist above the stage.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE",
+        "satisfied_if": "STAGE_BOX.SPACE_ABOVE.USAGE == 'TECHNICAL_ROOM' AND STAGE_BOX.SPACE_ABOVE.TECHNICAL_ROOM.DIRECT_USE_FOR_STAGE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAGE_BOX",
+          "TECHNICAL_ROOMS",
+          "USAGE_RESTRICTION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1048,
+          "span_char_end": 1139,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1281,
+        "end_pos": 1378
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 269,
+        "end_index": 291
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El recorrido de evacuación desde cualquier punto del escenario hasta alguna salida del sector no debe exceder de 25 m y las puertas de salida deben abrir en el sentido de la evacuación.",
+      "attributes": {
+        "id": "22222222-2222-2222-2222-222222222222",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The evacuation route from any point on the stage to an exit of the sector must not exceed 25 m, and exit doors must open in the direction of evacuation.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.STAGE_TO_EXIT <= 25 AND EXIT.DOOR.OPENING_DIRECTION == 'EVACUATION_DIRECTION'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION_ROUTE",
+          "EXIT_DOORS",
+          "FIRE.SAFETY",
+          "STAGE_BOX"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1140,
+          "span_char_end": 1308,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.ROUTE.LENGTH.STAGE_TO_EXIT: 25 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1380,
+        "end_pos": 1565
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 292,
+        "end_index": 330
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las pasarelas, galerías o similares existentes para uso de actores o empleados deben disponer de salidas de evacuación.",
+      "attributes": {
+        "id": "33333333-3333-3333-3333-333333333333",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walkways, galleries, or similar structures for actors or employees must have evacuation exits.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE AND (WALKWAY.EXISTS == TRUE OR GALLERY.EXISTS == TRUE) AND (WALKWAY.USAGE == 'ACTORS_EMPLOYEES' OR GALLERY.USAGE == 'ACTORS_EMPLOYEES')",
+        "satisfied_if": "WALKWAY.HAS_EVACUATION_EXITS == TRUE AND GALLERY.HAS_EVACUATION_EXITS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION_EXITS",
+          "WALKWAYS",
+          "GALLERIES",
+          "STAGE_BOX"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1309,
+          "span_char_end": 1428,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1567,
+        "end_pos": 1686
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 331,
+        "end_index": 355
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las pasarelas y escaleras del escenario deben tener una anchura de 0,80 m, como mínimo.",
+      "attributes": {
+        "id": "44444444-4444-4444-4444-444444444444",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Stage walkways and stairs must have a minimum width of 0.80 m.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE AND (WALKWAY.EXISTS == TRUE OR STAIRS.EXISTS == TRUE) AND (WALKWAY.LOCATION == 'STAGE' OR STAIRS.LOCATION == 'STAGE')",
+        "satisfied_if": "WALKWAY.WIDTH >= 0.80 OR STAIRS.WIDTH >= 0.80",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "WALKWAYS",
+          "STAIRS",
+          "WIDTH",
+          "STAGE_BOX"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1429,
+          "span_char_end": 1515,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "WIDTH: 0.80 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1688,
+        "end_pos": 1775
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 356,
+        "end_index": 377
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La parte superior de la caja escénica debe disponer de un sistema adecuado para la eliminación del humo en caso de incendio.",
+      "attributes": {
+        "id": "55555555-5555-5555-5555-555555555555",
+        "parent_section_id": "caja_escénica",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The upper part of the stage box must have an adequate smoke extraction system in case of fire.",
+        "applies_if": "STAGE_BOX.EXISTS == TRUE",
+        "satisfied_if": "STAGE_BOX.UPPER_PART.HAS_SMOKE_EXTRACTION_SYSTEM == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SMOKE_EXTRACTION_SYSTEM",
+          "FIRE.SAFETY",
+          "STAGE_BOX"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1516,
+          "span_char_end": 1629,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1777,
+        "end_pos": 1901
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 378,
+        "end_index": 405
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Caja escénica",
+      "attributes": {
+        "id": "66666666-6666-6666-6666-666666666666",
+        "parent_section_id": "caja_escénica",
+        "classification_type": "BUILDING_ELEMENT",
+        "classification_name": "STAGE_BOX",
+        "classification_definition": "Built volume extending from its lower level to the roof of a building, forming a theater stage, opera hall, etc., equipped with sets, fly systems, mechanisms, and a pit, thus constituting a fire sector that meets special conditions.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "THEATER",
+          "OPERA_HOUSE",
+          "FIRE.SECTOR",
+          "STAGE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 217,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Caja escénica",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 24
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 7
+      },
+      "section_metadata": {
+        "section_id": "caja_escénica",
+        "section_name": "Caja escénica",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Caja escénica"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 1901
+}
