@@ -2383,6 +2383,12 @@ class PreviewOptimizer {
           // Store original section order for proper document ordering
           normalizedData.sections.forEach((section, index) => {
             if (section.section_id) {
+              // Check for duplicate section IDs (deduplication logic)
+              if (nodes.has(section.section_id)) {
+                console.warn(`⚠️  Duplicate section ID detected: ${section.section_id} already exists. Skipping duplicate section.`);
+                return; // Skip this duplicate
+              }
+              
               // Build parent hierarchy from toc_path if available
               let parentId = null;
               if (section.toc_path && Array.isArray(section.toc_path) && section.toc_path.length > 1) {
@@ -2509,6 +2515,22 @@ class PreviewOptimizer {
         if (!nodeId) {
           console.warn('Skipping extraction without ID:', extraction);
           return;
+        }
+        
+        // Check if this node already exists (deduplication logic)
+        if (nodes.has(nodeId)) {
+          console.warn(`⚠️  Duplicate node ID detected: ${nodeId} (${extraction.extraction_class}) already exists. Skipping duplicate.`);
+          
+          // Log which sections this appears in for debugging
+          const existingNode = nodes.get(nodeId);
+          const existingParent = existingNode.parentId || 'ROOT';
+          const newParent = this.getParentId(extraction) || 'ROOT';
+          
+          if (existingParent !== newParent) {
+            console.warn(`   Existing node in: ${existingParent}, duplicate would be in: ${newParent}`);
+          }
+          
+          return; // Skip this duplicate
         }
         
         const attrs = extraction.attributes || {};
