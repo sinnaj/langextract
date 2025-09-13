@@ -15,6 +15,7 @@ class PDFViewer {
     this.pageData = new Map(); // Store positioning data by page
     
     this.initializeControls();
+    this.initializePDFClickDetection();
   }
   
   initializeControls() {
@@ -28,6 +29,160 @@ class PDFViewer {
     if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => this.zoomOut());
     if (prevPageBtn) prevPageBtn.addEventListener('click', () => this.previousPage());
     if (nextPageBtn) nextPageBtn.addEventListener('click', () => this.nextPage());
+  }
+
+  /**
+   * Initialize PDF click detection for tree navigation feature
+   */
+  initializePDFClickDetection() {
+    if (!this.canvas) return;
+    
+    this.canvas.addEventListener('click', (event) => {
+      this.handlePDFClick(event);
+    });
+    
+    // Change cursor to pointer to indicate clickable
+    this.canvas.style.cursor = 'pointer';
+  }
+
+  /**
+   * Handle clicks on the PDF canvas
+   */
+  handlePDFClick(event) {
+    console.log('PDF clicked at:', event.offsetX, event.offsetY);
+    
+    // If no PDF is loaded, still handle the click to show appropriate message
+    if (!this.pdfDoc) {
+      console.log('No PDF loaded, showing no extraction message');
+      this.handleNoExtractionMatch();
+      return;
+    }
+    
+    // Get click coordinates relative to canvas
+    const canvasRect = this.canvas.getBoundingClientRect();
+    const clickX = event.clientX - canvasRect.left;
+    const clickY = event.clientY - canvasRect.top;
+    
+    // Convert screen coordinates to PDF coordinates
+    const pdfCoords = this.convertCanvasToPDFCoords(clickX, clickY);
+    console.log('PDF coordinates:', pdfCoords);
+    
+    // Check if click intersects with any extraction
+    const matchingExtractions = this.findExtractionsAtPosition(pdfCoords);
+    
+    if (matchingExtractions.length > 0) {
+      console.log('Found extractions at click position:', matchingExtractions);
+      this.handleExtractionMatch(matchingExtractions);
+    } else {
+      console.log('No extractions found at click position');
+      this.handleNoExtractionMatch();
+    }
+  }
+
+  /**
+   * Convert canvas click coordinates to PDF coordinate system
+   */
+  convertCanvasToPDFCoords(canvasX, canvasY) {
+    if (!this.canvas) return { x: 0, y: 0, page: this.currentPage };
+    
+    // Convert from canvas display coordinates to internal coordinates
+    const scaleFactorX = this.canvas.width / this.canvas.getBoundingClientRect().width;
+    const scaleFactorY = this.canvas.height / this.canvas.getBoundingClientRect().height;
+    
+    const internalX = canvasX * scaleFactorX;
+    const internalY = canvasY * scaleFactorY;
+    
+    // Convert from canvas coordinates (TOPLEFT) to PDF coordinates (BOTTOMLEFT)
+    const pdfX = internalX / this.scale;
+    const pdfY = (this.canvas.height - internalY) / this.scale; // Flip Y axis
+    
+    return {
+      x: pdfX,
+      y: pdfY,
+      page: this.currentPage
+    };
+  }
+
+  /**
+   * Find extractions that contain the given position
+   */
+  findExtractionsAtPosition(pdfCoords) {
+    const pageElements = this.pageData.get(pdfCoords.page);
+    if (!pageElements) return [];
+    
+    const matchingExtractions = [];
+    
+    for (const element of pageElements) {
+      if (element.bbox && this.isPointInBoundingBox(pdfCoords, element.bbox)) {
+        matchingExtractions.push(element);
+      }
+    }
+    
+    return matchingExtractions;
+  }
+
+  /**
+   * Check if a point is inside a bounding box
+   */
+  isPointInBoundingBox(point, bbox) {
+    // Handle both BOTTOMLEFT and TOPLEFT coordinate systems
+    let left, right, bottom, top;
+    
+    if (bbox.coord_origin === 'BOTTOMLEFT') {
+      left = bbox.l;
+      right = bbox.r;
+      bottom = bbox.b; // Lower Y value
+      top = bbox.t;    // Higher Y value
+    } else {
+      // Assume TOPLEFT
+      left = bbox.l;
+      right = bbox.r;
+      top = bbox.t;    // Lower Y value  
+      bottom = bbox.b; // Higher Y value
+    }
+    
+    const isInside = point.x >= left && point.x <= right && 
+                     point.y >= bottom && point.y <= top;
+    
+    console.log('Point check:', {
+      point: point,
+      bbox: bbox,
+      bounds: { left, right, bottom, top },
+      isInside: isInside
+    });
+    
+    return isInside;
+  }
+
+  /**
+   * Handle when click matches an extraction - navigate to tree
+   */
+  handleExtractionMatch(extractions) {
+    // Use the first matching extraction
+    const extraction = extractions[0];
+    console.log('Navigating to extraction:', extraction.elementId);
+    
+    // Show success toast
+    if (window.showToast) {
+      window.showToast('Extraction found! Navigating to tree...', 'success');
+    }
+    
+    // Navigate to tree node
+    if (window.navigateToTreeNode) {
+      window.navigateToTreeNode(extraction.elementId);
+    }
+  }
+
+  /**
+   * Handle when click doesn't match any extraction - show error toast
+   */
+  handleNoExtractionMatch() {
+    console.log('No extraction found at click position');
+    
+    // Show error toast as specified in requirements
+    if (window.showToast) {
+      window.showToast('No extraction taken from this part', 'error');
+    }
   }
   
   async loadPDF(pdfUrl) {

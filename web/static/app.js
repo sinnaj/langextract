@@ -1204,6 +1204,169 @@
       });
     });
 
+    // Toast notification system for PDF click feedback
+    function createToastContainer() {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'fixed top-4 right-4 z-50 space-y-2';
+        document.body.appendChild(container);
+      }
+      return container;
+    }
+
+    function showToast(message, type = 'info', duration = 3000) {
+      const container = createToastContainer();
+      
+      const toast = document.createElement('div');
+      toast.className = `
+        px-4 py-2 rounded-lg shadow-lg text-white font-medium
+        transform transition-all duration-300 ease-in-out
+        translate-x-full opacity-0
+        ${type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500'}
+      `;
+      toast.textContent = message;
+      
+      container.appendChild(toast);
+      
+      // Animate in
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-x-full', 'opacity-0');
+      });
+      
+      // Auto remove after duration
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 300);
+      }, duration);
+    }
+
+    function navigateToTreeNode(elementId) {
+      console.log('Attempting to navigate to tree node:', elementId);
+      
+      // Find the tree node with the given element ID
+      const treeNode = findTreeNodeByElementId(elementId);
+      
+      if (treeNode) {
+        console.log('Found tree node for element ID:', elementId);
+        
+        // Clear previous selections
+        document.querySelectorAll('.tree-node-selected').forEach(node => {
+          node.classList.remove('tree-node-selected');
+        });
+        
+        // Mark as selected
+        treeNode.classList.add('tree-node-selected');
+        
+        // Scroll to make visible
+        scrollTreeNodeIntoView(treeNode);
+        
+        // Expand parent nodes if collapsed
+        expandParentNodes(treeNode);
+        
+        console.log('Successfully navigated to tree node');
+      } else {
+        console.log('Tree node not found for element ID:', elementId);
+        showToast('Could not locate tree node', 'error');
+      }
+    }
+
+    function findTreeNodeByElementId(elementId) {
+      // Search through all tree nodes for one containing the element ID
+      const allTreeNodes = document.querySelectorAll('.json-formatter-row, .tree-node-content, [data-tree-id]');
+      
+      for (const node of allTreeNodes) {
+        // Check data attributes first
+        if (node.getAttribute('data-tree-id') === elementId || 
+            node.getAttribute('data-element-id') === elementId) {
+          return node;
+        }
+        
+        // Check JSON formatter values
+        const stringElements = node.querySelectorAll('.json-formatter-string');
+        for (const stringEl of stringElements) {
+          const value = stringEl.textContent.replace(/"/g, '');
+          if (value === elementId) {
+            // Check if this is an ID field
+            const keyElement = node.querySelector('.json-formatter-key');
+            if (keyElement && (keyElement.textContent.includes('_id') || keyElement.textContent.includes('id'))) {
+              return node;
+            }
+          }
+        }
+        
+        // Check if any child text contains the element ID
+        if (node.textContent && node.textContent.includes(elementId)) {
+          // Verify this is actually the ID we're looking for by checking structure
+          const keyElements = node.querySelectorAll('.json-formatter-key');
+          for (const keyEl of keyElements) {
+            const keyText = keyEl.textContent;
+            if ((keyText.includes('_id') || keyText.includes('id')) && 
+                node.textContent.includes(elementId)) {
+              return node;
+            }
+          }
+        }
+      }
+      
+      return null;
+    }
+
+    function scrollTreeNodeIntoView(treeNode) {
+      // Find the containing preview panel
+      const previewPanel = treeNode.closest('.preview');
+      if (previewPanel) {
+        // Try to scroll to the top of the preview panel first
+        previewPanel.scrollTop = 0;
+        
+        // Then scroll the node into view with some offset
+        setTimeout(() => {
+          const nodeRect = treeNode.getBoundingClientRect();
+          const panelRect = previewPanel.getBoundingClientRect();
+          
+          if (nodeRect.top < panelRect.top || nodeRect.bottom > panelRect.bottom) {
+            // Calculate the scroll position to center the node
+            const nodeTop = treeNode.offsetTop;
+            const panelHeight = previewPanel.clientHeight;
+            const scrollTop = Math.max(0, nodeTop - panelHeight / 4); // Show near top of panel
+            
+            previewPanel.scrollTo({
+              top: scrollTop,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      } else {
+        // Fallback to basic scrollIntoView
+        treeNode.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }
+
+    function expandParentNodes(treeNode) {
+      // Find and expand collapsed parent nodes
+      let parent = treeNode.parentNode;
+      while (parent && parent !== document.body) {
+        // Look for JSON formatter toggle buttons
+        const toggle = parent.querySelector('.json-formatter-toggler');
+        if (toggle && parent.classList.contains('json-formatter-closed')) {
+          toggle.click();
+        }
+        parent = parent.parentNode;
+      }
+    }
+
+    // Make functions globally available
+    window.showToast = showToast;
+    window.navigateToTreeNode = navigateToTreeNode;
+
     // Observe all preview panels for changes
     document.querySelectorAll('.preview').forEach(previewEl => {
       observer.observe(previewEl, { childList: true, subtree: true });
