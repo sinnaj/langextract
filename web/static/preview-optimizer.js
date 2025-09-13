@@ -2583,6 +2583,20 @@ class PreviewOptimizer {
       
       console.log(`Built tree with ${rootNodes.length} root nodes and ${nodes.size} total nodes`);
       console.log('Root nodes:', rootNodes.map(r => `${r.id} (${r.children.length} children)`));
+      
+      // Additional debugging for the issue
+      if (rootNodes.length === 1) {
+        console.warn('⚠️ POTENTIAL ISSUE: Only 1 root node found. This might indicate a tree building problem.');
+        console.warn('Single root node details:', {
+          id: rootNodes[0].id,
+          title: rootNodes[0].title,
+          type: rootNodes[0].type,
+          childCount: rootNodes[0].children.length,
+          parentId: rootNodes[0].parentId
+        });
+      } else if (rootNodes.length > 100) {
+        console.log(`✅ SUCCESS: Found ${rootNodes.length} root nodes, tree looks healthy`);
+      }
     } else {
       console.warn('No valid extraction data found for tree building');
       console.warn('Normalized data check failed:', {
@@ -2604,8 +2618,13 @@ class PreviewOptimizer {
   getNodeId(extraction) {
     const attrs = extraction.attributes || {};
     
-    // First try to get ID from attributes
+    // First try to get ID from attributes - use it directly if it exists and looks like a UUID or unique ID
     let baseId = attrs.id;
+    
+    // If we have a proper UUID or unique identifier, use it directly
+    if (baseId && (baseId.includes('-') || baseId.length > 10)) {
+      return baseId;
+    }
     
     // Try to parse ID from extraction_text (Python dict format) if no ID in attributes
     if (!baseId && extraction.extraction_text) {
@@ -2617,12 +2636,20 @@ class PreviewOptimizer {
         const idMatch = pythonDictStr.match(/'id':\s*'([^']+)'/);
         if (idMatch) {
           baseId = idMatch[1];
+          // If parsed ID looks like a UUID, use it directly
+          if (baseId.includes('-') || baseId.length > 10) {
+            return baseId;
+          }
         }
         
         // Alternative patterns
         const idMatch2 = pythonDictStr.match(/"id":\s*"([^"]+)"/);
         if (idMatch2) {
           baseId = idMatch2[1];
+          // If parsed ID looks like a UUID, use it directly
+          if (baseId.includes('-') || baseId.length > 10) {
+            return baseId;
+          }
         }
       } catch (error) {
         console.warn('Error parsing extraction_text for ID:', error);
@@ -2634,8 +2661,8 @@ class PreviewOptimizer {
       baseId = extraction.section_parent_id || `extraction_${extraction.extraction_index || Math.random()}`;
     }
     
+    // Only create composite IDs for non-unique base IDs (shorter IDs that might conflict)
     // Make the ID unique by combining with parent section and extraction index to avoid conflicts
-    // This is crucial because the same base ID can appear in multiple sections
     const parentId = attrs.parent_section_id || extraction.section_parent_id || 'unknown';
     const extractionIndex = extraction.extraction_index || 0;
     return `${baseId}__${parentId}__${extractionIndex}`;
