@@ -21,7 +21,8 @@
         "Sección SI 3 Evacuación de ocupantes",
         "6 Puertas situadas en recorridos de evacuación"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     },
     {
       "section_id": "7_señalización_de_los_medios_de_evacuación",
@@ -33,7 +34,8 @@
         "Sección SI 3 Evacuación de ocupantes",
         "7 Señalización de los medios de evacuación"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     },
     {
       "section_id": "8_control_del_humo_de_incendio",
@@ -45,7 +47,8 @@
         "Sección SI 3 Evacuación de ocupantes",
         "8 Control del humo de incendio"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     },
     {
       "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
@@ -57,7 +60,8 @@
         "Sección SI 3 Evacuación de ocupantes",
         "9 Evacuación de personas con discapacidad en caso de incendio"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     },
     {
       "section_id": "1_dotación_de_instalaciones_de_protección_contra_incendios",
@@ -69,7 +73,8 @@
         "Sección SI 4 Instalaciones de protección contra incendios",
         "1 Dotación de instalaciones de protección contra incendios"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     },
     {
       "section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
@@ -81,7 +86,8 @@
         "Sección SI 4 Instalaciones de protección contra incendios",
         "2 Señalización de las instalaciones manuales de protección contra incendios"
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "parent_section_id": null
     }
   ],
   "extractions": [
