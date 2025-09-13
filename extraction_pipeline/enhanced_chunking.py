@@ -207,8 +207,25 @@ def extract_table_content_for_section(
     """
     tables = docling_document.get('tables', [])
     
-    # Find the table for this table section based on page and section index
-    # Table sections are created in order, so we can match by page and index
+    # Check if we have stored table index
+    if hasattr(table_section, 'table_index'):
+        table_index = table_section.table_index
+        if 0 <= table_index < len(tables):
+            table = tables[table_index]
+            table_data = table.get('data', {})
+            if table_data:
+                return convert_table_to_markdown(table_data)
+    
+    # Fallback: Find table by matching page and table number
+    # Extract table number from section name (e.g., "Table 1" -> 1)
+    import re
+    match = re.search(r'Table (\d+)', table_section.section_name)
+    if not match:
+        return ""
+    
+    target_table_number = int(match.group(1))
+    
+    # Count tables to match the section name
     table_counter = 1
     for table in tables:
         table_page = None
@@ -216,13 +233,11 @@ def extract_table_content_for_section(
         if prov_data:
             table_page = prov_data[0].get('page_no')
         
-        if table_page == table_section.start_page:
-            # Check if this is the right table by matching the section name
-            if table_section.section_name == f"Table {table_counter}":
-                table_data = table.get('data', {})
-                if table_data:
-                    return convert_table_to_markdown(table_data)
-            table_counter += 1
+        if table_counter == target_table_number:
+            table_data = table.get('data', {})
+            if table_data:
+                return convert_table_to_markdown(table_data)
+        table_counter += 1
     
     return ""
 
@@ -255,7 +270,7 @@ def create_table_sections_from_docling(
                 if page not in page_to_section or section.section_level < page_to_section[page].section_level:
                     page_to_section[page] = section
     
-    for table in tables:
+    for table_index, table in enumerate(tables):
         # Get table page from provenance data
         table_page = None
         prov_data = table.get('prov', [])
@@ -270,7 +285,7 @@ def create_table_sections_from_docling(
         if not parent_section:
             continue
         
-        # Create table section name
+        # Create table section name using the global table counter
         table_name = f"Table {table_counter}"
         
         # Create ToC path by extending parent's path
@@ -289,6 +304,9 @@ def create_table_sections_from_docling(
             end_page=table_page,  # Tables are typically on single pages
             section_type="Table"
         )
+        
+        # Store the table index for content extraction
+        table_section.table_index = table_index
         
         # Add table section to parent's sub_section_ids
         if table_section.section_id not in parent_section.sub_section_ids:
