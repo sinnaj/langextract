@@ -1259,6 +1259,21 @@
         console.log(`Panel ${idx}: class="${panel.className}", id="${panel.id}"`);
       });
       
+      // Clear ALL previous selections first to prevent multiple selections
+      console.log('Clearing all previous selections...');
+      const previousSelections = document.querySelectorAll('.tree-node-selected');
+      console.log(`Found ${previousSelections.length} previously selected nodes`);
+      previousSelections.forEach((node, idx) => {
+        console.log(`Clearing selection ${idx}:`, node.tagName, node.className);
+        node.classList.remove('tree-node-selected');
+      });
+      
+      // Verify all selections are cleared
+      const remainingSelections = document.querySelectorAll('.tree-node-selected');
+      if (remainingSelections.length > 0) {
+        console.warn(`Warning: ${remainingSelections.length} selections still remain after clearing`);
+      }
+      
       // Find the tree node with the given element ID
       const treeNode = findTreeNodeByElementId(elementId);
       
@@ -1268,19 +1283,40 @@
           tagName: treeNode.tagName,
           className: treeNode.className,
           id: treeNode.id,
+          hasTreeNodeContent: !!treeNode.querySelector('.tree-node-content'),
+          isJsonFormatterRow: treeNode.classList.contains('json-formatter-row'),
           textContent: treeNode.textContent?.substring(0, 100) + '...'
         });
         
-        // Clear previous selections
-        const previousSelections = document.querySelectorAll('.tree-node-selected');
-        console.log(`Clearing ${previousSelections.length} previous selections`);
-        previousSelections.forEach(node => {
-          node.classList.remove('tree-node-selected');
-        });
+        // Validate this is a reasonable node to select
+        const nodeIsValid = (
+          treeNode.hasAttribute('data-extraction-id') ||
+          treeNode.hasAttribute('data-node-id') ||
+          treeNode.classList.contains('json-formatter-row') ||
+          treeNode.querySelector('.tree-node-content') ||
+          treeNode.classList.contains('tree-node')
+        );
+        
+        if (!nodeIsValid) {
+          console.warn('Warning: Selected node may not be a proper tree node:', treeNode);
+        }
         
         // Mark as selected
         treeNode.classList.add('tree-node-selected');
         console.log('Added tree-node-selected class to node');
+        
+        // Double-check that only this one node is selected
+        const selectedAfter = document.querySelectorAll('.tree-node-selected');
+        console.log(`After selection: ${selectedAfter.length} nodes are selected`);
+        if (selectedAfter.length > 1) {
+          console.warn('Warning: Multiple nodes are selected after navigation!');
+          selectedAfter.forEach((node, idx) => {
+            if (node !== treeNode) {
+              console.warn(`Removing extra selection ${idx}:`, node);
+              node.classList.remove('tree-node-selected');
+            }
+          });
+        }
         
         // Scroll to make visible
         scrollTreeNodeIntoView(treeNode);
@@ -1290,6 +1326,9 @@
         
         console.log('✅ Successfully navigated to tree node');
         showToast('Found and navigated to tree node!', 'success');
+        
+        // Return the node for further use if needed
+        return treeNode;
       } else {
         console.log('❌ Tree node not found for element ID:', elementId);
         console.log('=== TREE NAVIGATION FAILED ===');
@@ -1304,29 +1343,19 @@
         } else {
           showToast(`Element ID "${elementId}" not found in document`, 'error', 5000);
         }
+        
+        return null;
       }
     }
 
     function findTreeNodeByElementId(elementId) {
       console.log('Searching for tree node with element ID:', elementId);
       
-      // First, let's understand what DOM structure we're working with
-      const previewPanels = document.querySelectorAll('.preview-panel');
-      console.log(`Found ${previewPanels.length} preview panels`);
-      
-      // Look for any element that might contain our tree data
-      const jsonViewers = document.querySelectorAll('.json-viewer, [id*="preview"], .preview-content');
-      console.log(`Found ${jsonViewers.length} potential JSON viewers`);
-      
-      // Search through all possible JSONFormatter elements
-      const allPossibleNodes = document.querySelectorAll('*[class*="json-formatter"], *[class*="tree"], .json-viewer *');
-      console.log(`Found ${allPossibleNodes.length} possible JSON formatter nodes`);
-      
-      // More comprehensive search strategies
+      // Search strategies focused on finding the specific tree node, not parent containers
       const searchStrategies = [
-        // Strategy 1: Look for exact data attributes
+        // Strategy 1: Look for exact data attributes on tree nodes
         () => {
-          const nodeWithDataAttr = document.querySelector(`[data-tree-id="${elementId}"], [data-element-id="${elementId}"], [id="${elementId}"]`);
+          const nodeWithDataAttr = document.querySelector(`[data-extraction-id="${elementId}"], [data-node-id="${elementId}"], [data-tree-id="${elementId}"]`);
           if (nodeWithDataAttr) {
             console.log('Found node with data attribute:', nodeWithDataAttr);
             return nodeWithDataAttr;
@@ -1334,33 +1363,25 @@
           return null;
         },
         
-        // Strategy 2: Look through all elements for JSONFormatter structure with ID fields  
+        // Strategy 2: Look for specific JSONFormatter rows containing the ID
         () => {
-          const allElements = document.querySelectorAll('*');
-          for (const element of allElements) {
-            // Check if this element contains the elementId in its text content
-            if (element.textContent && element.textContent.includes(elementId)) {
-              // Look for nearby key elements that indicate this is an ID field
-              const parent = element.closest('*');
-              if (parent) {
-                // Look for key-value pair patterns common in JSONFormatter
-                const keyElement = parent.querySelector('*[class*="key"], *[class*="property"]') || 
-                                 parent.previousElementSibling;
-                
-                if (keyElement) {
-                  const keyText = keyElement.textContent || '';
+          const jsonRows = document.querySelectorAll('.json-formatter-row');
+          for (const row of jsonRows) {
+            // Check if this row contains a string value that matches our element ID
+            const stringElements = row.querySelectorAll('.json-formatter-string');
+            for (const stringEl of stringElements) {
+              const value = stringEl.textContent?.replace(/"/g, '') || '';
+              if (value === elementId) {
+                // Check if the key suggests this is an ID field
+                const keyEl = row.querySelector('.json-formatter-key');
+                if (keyEl) {
+                  const keyText = keyEl.textContent || '';
                   if (keyText.includes('_id') || keyText.includes('id') || keyText.endsWith('Id')) {
-                    console.log('Found ID field match:', keyText, '->', elementId);
-                    return element.closest('*[class*="formatter"], *[class*="row"], *[class*="object"]') || element;
+                    console.log('Found JSONFormatter row for ID field:', keyText, '=', elementId);
+                    // Return the parent object row, not the key-value row
+                    const objectRow = row.closest('.json-formatter-row') || row;
+                    return objectRow;
                   }
-                }
-                
-                // Also check if the element itself indicates it's an ID
-                const elementClass = element.className || '';
-                const elementId_attr = element.id || '';
-                if (elementClass.includes('id') || elementId_attr.includes('id')) {
-                  console.log('Found element with ID-related class/id:', element);
-                  return element;
                 }
               }
             }
@@ -1368,7 +1389,37 @@
           return null;
         },
         
-        // Strategy 3: Text-based search with improved context detection
+        // Strategy 3: Look for tree nodes with tree-node-content that contain the ID
+        () => {
+          const treeNodes = document.querySelectorAll('.tree-node-content');
+          for (const nodeContent of treeNodes) {
+            if (nodeContent.textContent && nodeContent.textContent.includes(elementId)) {
+              // Make sure this is likely an ID field by checking for patterns
+              const text = nodeContent.textContent;
+              if (text.includes('_id') || text.includes('id') || text.match(new RegExp(`\\b${elementId}\\b`))) {
+                console.log('Found tree node content containing element ID:', nodeContent);
+                // Return the parent element that contains this content
+                return nodeContent.closest('[data-extraction-id], [data-node-id], .tree-node') || nodeContent.parentElement;
+              }
+            }
+          }
+          return null;
+        },
+        
+        // Strategy 4: Search for elements that have the specific ID as a data attribute value
+        () => {
+          const allElements = document.querySelectorAll('[data-extraction-id], [data-node-id]');
+          for (const element of allElements) {
+            const extractionId = element.getAttribute('data-extraction-id') || element.getAttribute('data-node-id');
+            if (extractionId === elementId) {
+              console.log('Found element with matching extraction ID attribute:', element);
+              return element;
+            }
+          }
+          return null;
+        },
+        
+        // Strategy 5: Text search but return the most specific element, not containers
         () => {
           const walker = document.createTreeWalker(
             document.body,
@@ -1382,45 +1433,39 @@
             }
           );
           
+          const candidates = [];
           let textNode;
           while (textNode = walker.nextNode()) {
-            // Check if this text node is part of an ID field
-            let parent = textNode.parentElement;
-            let depth = 0;
-            
-            while (parent && depth < 5) {
-              // Look for siblings or nearby elements that suggest this is an ID field
-              const siblings = Array.from(parent.parentElement?.children || []);
-              const hasIdContext = siblings.some(sibling => {
-                const text = sibling.textContent || '';
-                return text.includes('_id') || text.includes('id') || text.includes('Id');
-              });
+            // Only consider text nodes that have the exact element ID (not just containing it)
+            if (textNode.textContent.trim() === `"${elementId}"` || textNode.textContent.trim() === elementId) {
+              let parent = textNode.parentElement;
+              let depth = 0;
               
-              if (hasIdContext) {
-                console.log('Found text node with ID context:', textNode.textContent, 'in parent:', parent);
-                return parent;
+              // Find the smallest reasonable container
+              while (parent && depth < 3) {
+                // Prefer elements that look like tree nodes or JSON formatter rows
+                if (parent.classList.contains('json-formatter-row') || 
+                    parent.classList.contains('tree-node') ||
+                    parent.hasAttribute('data-extraction-id') ||
+                    parent.hasAttribute('data-node-id')) {
+                  candidates.push({ element: parent, depth, textNode });
+                  break;
+                }
+                parent = parent.parentElement;
+                depth++;
               }
-              
-              parent = parent.parentElement;
-              depth++;
             }
           }
-          return null;
-        },
-        
-        // Strategy 4: Fallback - find any element containing the ID and hope it's relevant
-        () => {
-          const elements = document.querySelectorAll('*');
-          for (const element of elements) {
-            const text = element.textContent || '';
-            const innerHTML = element.innerHTML || '';
-            
-            if ((text.includes(elementId) || innerHTML.includes(elementId)) && 
-                element.children.length > 0) { // Prefer container elements
-              console.log('Fallback: Found element containing elementId:', element);
-              return element;
-            }
+          
+          // Return the candidate with the smallest depth (most specific)
+          if (candidates.length > 0) {
+            const bestCandidate = candidates.reduce((best, current) => 
+              current.depth < best.depth ? current : best
+            );
+            console.log('Found best text-based candidate:', bestCandidate.element);
+            return bestCandidate.element;
           }
+          
           return null;
         }
       ];
@@ -1431,53 +1476,111 @@
         const result = searchStrategies[i]();
         if (result) {
           console.log(`Strategy ${i + 1} succeeded:`, result);
-          return result;
+          
+          // Validate that we found a specific node, not a broad container
+          const hasTreeNodeContent = result.querySelector('.tree-node-content');
+          const isTreeNodeItself = result.classList.contains('tree-node') || result.hasAttribute('data-extraction-id');
+          const isJsonFormatterRow = result.classList.contains('json-formatter-row');
+          
+          if (hasTreeNodeContent || isTreeNodeItself || isJsonFormatterRow) {
+            console.log('Validated: Found specific tree node or JSON formatter row');
+            return result;
+          } else {
+            console.log('Warning: Found element may be too broad, continuing search...');
+            // Continue to next strategy instead of returning potentially broad container
+          }
         }
       }
       
       console.log('All search strategies failed for element ID:', elementId);
-      
-      // Debug: log some information about what's available
-      const allText = document.body.textContent || '';
-      if (allText.includes(elementId)) {
-        console.log('Element ID exists in document text, but could not locate container element');
-      } else {
-        console.log('Element ID not found in document text at all');
-      }
-      
       return null;
     }
 
     function scrollTreeNodeIntoView(treeNode) {
+      console.log('Scrolling tree node into view:', treeNode);
+      
       // Find the containing preview panel
       const previewPanel = treeNode.closest('.preview');
-      if (previewPanel) {
-        // Try to scroll to the top of the preview panel first
-        previewPanel.scrollTop = 0;
-        
-        // Then scroll the node into view with some offset
-        setTimeout(() => {
-          const nodeRect = treeNode.getBoundingClientRect();
-          const panelRect = previewPanel.getBoundingClientRect();
-          
-          if (nodeRect.top < panelRect.top || nodeRect.bottom > panelRect.bottom) {
-            // Calculate the scroll position to center the node
-            const nodeTop = treeNode.offsetTop;
-            const panelHeight = previewPanel.clientHeight;
-            const scrollTop = Math.max(0, nodeTop - panelHeight / 4); // Show near top of panel
-            
-            previewPanel.scrollTo({
-              top: scrollTop,
-              behavior: 'smooth'
-            });
-          }
-        }, 100);
-      } else {
-        // Fallback to basic scrollIntoView
+      if (!previewPanel) {
+        console.log('No preview panel found, using fallback scroll');
         treeNode.scrollIntoView({ 
           behavior: 'smooth', 
-          block: 'start' 
+          block: 'center',
+          inline: 'nearest'
         });
+        return;
+      }
+      
+      console.log('Found preview panel:', previewPanel);
+      
+      // Calculate positions
+      const nodeRect = treeNode.getBoundingClientRect();
+      const panelRect = previewPanel.getBoundingClientRect();
+      
+      console.log('Node rect:', nodeRect);
+      console.log('Panel rect:', panelRect);
+      
+      // Check if node is already visible in the panel
+      const nodeTop = nodeRect.top - panelRect.top;
+      const nodeBottom = nodeRect.bottom - panelRect.top;
+      const panelHeight = panelRect.height;
+      
+      console.log('Visibility check:', {
+        nodeTop,
+        nodeBottom,
+        panelHeight,
+        isVisible: nodeTop >= 0 && nodeBottom <= panelHeight
+      });
+      
+      // If node is not visible or is too close to the edges, scroll it into view
+      if (nodeTop < 50 || nodeBottom > panelHeight - 50) {
+        // Calculate the ideal scroll position to center the node in the panel
+        const nodeOffsetTop = treeNode.offsetTop;
+        const idealScrollTop = Math.max(0, nodeOffsetTop - (panelHeight / 3)); // Position in upper third
+        
+        console.log('Scrolling to position:', idealScrollTop);
+        
+        previewPanel.scrollTo({
+          top: idealScrollTop,
+          behavior: 'smooth'
+        });
+        
+        // Add a visual indicator that scrolling is happening
+        const scrollIndicator = document.createElement('div');
+        scrollIndicator.className = 'scroll-indicator';
+        scrollIndicator.style.cssText = `
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(59, 130, 246, 0.9);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          z-index: 1000;
+          pointer-events: none;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        `;
+        scrollIndicator.textContent = 'Scrolling to selection...';
+        
+        const previewContainer = previewPanel.closest('.preview-panel');
+        if (previewContainer) {
+          previewContainer.style.position = 'relative';
+          previewContainer.appendChild(scrollIndicator);
+          
+          // Remove indicator after scroll completes
+          setTimeout(() => {
+            scrollIndicator.style.opacity = '0';
+            setTimeout(() => {
+              if (scrollIndicator.parentNode) {
+                scrollIndicator.parentNode.removeChild(scrollIndicator);
+              }
+            }, 300);
+          }, 1000);
+        }
+      } else {
+        console.log('Node is already visible, no scrolling needed');
       }
     }
 
