@@ -2275,8 +2275,8 @@ class PreviewOptimizer {
 
   buildDocumentTree(data) {
     const startTime = performance.now();
-    console.log('Building document tree...');
-    console.log('Raw input data:', {
+    console.log('[TREE DEBUG] ========== BUILD DOCUMENT TREE START ==========');
+    console.log('[TREE DEBUG] Raw input data:', {
       hasData: !!data,
       dataType: typeof data,
       dataKeys: data ? Object.keys(data) : [],
@@ -2298,25 +2298,27 @@ class PreviewOptimizer {
 
     // Check if we have a pre-built node_tree structure from enhanced extraction
     if (data?.node_tree?.document_tree?.children) {
-      console.log('Found pre-built node_tree structure - using it instead of rebuilding');
+      console.log('[TREE DEBUG] *** FOUND PRE-BUILT NODE TREE - USING IT ***');
       const preBuiltTree = data.node_tree.document_tree.children;
-      console.log('Pre-built tree structure:', {
+      console.log('[TREE DEBUG] Pre-built tree structure:', {
         rootNodeCount: preBuiltTree.length,
         rootNodes: preBuiltTree.map(n => `${n.id} (${n.children?.length || 0} children)`),
         totalStats: data.node_tree.statistics || {}
       });
       
       // Convert the pre-built tree to our expected format
+      console.log('[TREE DEBUG] Converting pre-built tree...');
       const convertedRoots = this.convertPreBuiltTreeNodes(preBuiltTree);
       
       const endTime = performance.now();
-      console.log(`Pre-built tree conversion completed in ${(endTime - startTime).toFixed(2)}ms`);
-      console.log('Returning converted root nodes:', convertedRoots.length);
+      console.log(`[TREE DEBUG] Pre-built tree conversion completed in ${(endTime - startTime).toFixed(2)}ms`);
+      console.log(`[TREE DEBUG] Returning ${convertedRoots.length} converted root nodes`);
+      console.log('[TREE DEBUG] ========== BUILD DOCUMENT TREE END (PRE-BUILT) ==========');
       
       return convertedRoots;
     }
 
-    console.log('No pre-built node_tree found - building tree from raw data');
+    console.log('[TREE DEBUG] *** NO PRE-BUILT NODE TREE - BUILDING FROM RAW DATA ***');
     
     const nodes = new Map();
     const rootNodes = [];
@@ -2572,7 +2574,13 @@ class PreviewOptimizer {
       return [];
     }
 
-    const convertNode = (node) => {
+    console.log(`[TREE DEBUG] Starting conversion of ${nodes.length} pre-built tree nodes`);
+
+    const convertNode = (node, depth = 0) => {
+      if (depth === 0) {
+        console.log(`[TREE DEBUG] Converting root node: ${node.id} (${node.title})`);
+      }
+      
       // Convert the node format from retroactive script to web interface format
       const converted = {
         id: node.id || 'unknown',
@@ -2595,7 +2603,7 @@ class PreviewOptimizer {
 
       // Recursively convert children
       if (node.children && Array.isArray(node.children)) {
-        converted.children = node.children.map(child => convertNode(child));
+        converted.children = node.children.map(child => convertNode(child, depth + 1));
         
         // Set child levels based on parent level
         converted.children.forEach(child => {
@@ -2609,10 +2617,11 @@ class PreviewOptimizer {
 
     const rootNodes = nodes.map(node => convertNode(node));
     
-    console.log(`Converted ${rootNodes.length} pre-built tree nodes:`, {
+    console.log(`[TREE DEBUG] Conversion complete. ${rootNodes.length} root nodes created:`, {
       rootCount: rootNodes.length,
       totalDescendants: this.countTotalDescendants(rootNodes),
-      rootTitles: rootNodes.map(r => r.title?.substring(0, 50) || r.id).slice(0, 10),
+      rootTitles: rootNodes.map(r => r.title?.substring(0, 50) || r.id),
+      allRootIds: rootNodes.map(r => r.id),
       sampleRootStructure: {
         id: rootNodes[0]?.id,
         title: rootNodes[0]?.title,
@@ -2864,17 +2873,27 @@ class PreviewOptimizer {
 
   renderDocumentTree(container, nodes) {
     const startTime = performance.now();
-    console.log(`Rendering tree with ${nodes.length} root nodes...`);
+    console.log(`[TREE DEBUG] renderDocumentTree called with ${nodes.length} root nodes`);
+    console.log(`[TREE DEBUG] Root node IDs:`, nodes.map(n => n.id));
     
-    nodes.forEach(node => {
+    if (!nodes || nodes.length === 0) {
+      console.warn('[TREE DEBUG] No nodes to render!');
+      return;
+    }
+    
+    nodes.forEach((node, index) => {
+      console.log(`[TREE DEBUG] Rendering root node ${index + 1}/${nodes.length}: ${node.id} (${node.title})`);
       this.renderDocumentNode(container, node, 0);
     });
     
     const endTime = performance.now();
-    console.log(`Tree rendering completed in ${(endTime - startTime).toFixed(2)}ms`);
+    console.log(`[TREE DEBUG] Tree rendering completed in ${(endTime - startTime).toFixed(2)}ms`);
+    console.log(`[TREE DEBUG] Final DOM child count in container:`, container.children.length);
   }
 
   renderDocumentNode(container, node, level) {
+    console.log(`[TREE DEBUG] renderDocumentNode: ${node.id} (level ${level})`);
+    
     const indent = level * 20;
     const nodeElement = document.createElement('div');
     nodeElement.className = 'tree-node';
@@ -3156,6 +3175,7 @@ class PreviewOptimizer {
     }
     
     container.appendChild(nodeElement);
+    console.log(`[TREE DEBUG] renderDocumentNode COMPLETE: ${node.id} added to container (container now has ${container.children.length} children)`);
   }
 
   // Navigation Methods for Tree Node Clicking
