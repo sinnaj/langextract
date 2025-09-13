@@ -123,7 +123,7 @@ class PDFViewer {
   updateOverlayPosition() {
     if (!this.canvas || !this.highlightOverlay) return;
     
-    // Get canvas position relative to the viewport
+    // Get canvas dimensions and position
     const canvasRect = this.canvas.getBoundingClientRect();
     const containerRect = this.highlightOverlay.parentElement.getBoundingClientRect();
     
@@ -132,13 +132,22 @@ class PDFViewer {
     const offsetTop = canvasRect.top - containerRect.top;
     
     // Position overlay to match canvas exactly
+    // Use the canvas's display size (in CSS pixels) not the internal resolution
+    this.highlightOverlay.style.position = 'absolute';
     this.highlightOverlay.style.left = `${offsetLeft}px`;
     this.highlightOverlay.style.top = `${offsetTop}px`;
-    this.highlightOverlay.style.width = `${this.canvas.width}px`;
-    this.highlightOverlay.style.height = `${this.canvas.height}px`;
+    this.highlightOverlay.style.width = `${canvasRect.width}px`;
+    this.highlightOverlay.style.height = `${canvasRect.height}px`;
+    this.highlightOverlay.style.pointerEvents = 'none'; // Ensure highlights don't interfere with interactions
+    this.highlightOverlay.style.zIndex = '10';
     this.highlightOverlay.style.transform = 'none'; // Remove any existing transforms
     
-    console.log(`Overlay positioned at: left=${offsetLeft}px, top=${offsetTop}px, size=${this.canvas.width}x${this.canvas.height}px`);
+    console.log(`Overlay positioned:`, {
+      canvas_display_size: `${canvasRect.width}x${canvasRect.height}px`,
+      canvas_internal_size: `${this.canvas.width}x${this.canvas.height}px`,
+      position: `left=${offsetLeft}px, top=${offsetTop}px`,
+      scale_factor: canvasRect.width / this.canvas.width
+    });
   }
   
   updatePageDisplay() {
@@ -283,7 +292,7 @@ class PDFViewer {
     // Show visual feedback in PDF viewer status
     this.showHighlightStatus(elementIds, elementsToHighlight.length, targetPage);
     
-    // Navigate to target page if needed
+    // Navigate to target page if needed and different from current page
     if (targetPage !== null && targetPage !== this.currentPage) {
       this.currentPage = targetPage;
       this.updatePageDisplay();
@@ -291,9 +300,12 @@ class PDFViewer {
         // Add highlights after page is rendered
         this.addHighlightsForPage(this.currentPage, elementIds);
       });
-    } else {
-      // Add highlights for current page
+    } else if (targetPage !== null) {
+      // Add highlights for current page (page is already correct)
       this.addHighlightsForPage(this.currentPage, elementIds);
+    } else {
+      // No positioning data found, but still show status
+      console.warn('No elements with positioning data found for highlighting');
     }
   }
 
@@ -342,24 +354,49 @@ class PDFViewer {
     // Convert PDF coordinates to canvas coordinates
     const canvasBox = this.convertPDFToCanvasCoords(bbox);
     
+    // Account for display scaling (CSS size vs internal canvas size)
+    const canvasRect = this.canvas.getBoundingClientRect();
+    const displayScale = canvasRect.width / this.canvas.width;
+    
+    // Apply display scaling to the highlight coordinates
+    const displayBox = {
+      left: canvasBox.left * displayScale,
+      top: canvasBox.top * displayScale,
+      width: canvasBox.width * displayScale,
+      height: canvasBox.height * displayScale
+    };
+    
     // Create highlight rectangle
     const highlight = document.createElement('div');
     highlight.className = 'pdf-highlight';
     highlight.style.cssText = `
       position: absolute;
-      left: ${canvasBox.left}px;
-      top: ${canvasBox.top}px;
-      width: ${canvasBox.width}px;
-      height: ${canvasBox.height}px;
+      left: ${displayBox.left}px;
+      top: ${displayBox.top}px;
+      width: ${displayBox.width}px;
+      height: ${displayBox.height}px;
       background-color: rgba(255, 255, 0, 0.3);
-      border: 1px solid rgba(255, 255, 0, 0.5);
+      border: 1px solid rgba(255, 255, 0, 0.7);
       pointer-events: none;
       border-radius: 2px;
       z-index: 10;
+      box-sizing: border-box;
     `;
+    
+    console.log('Adding highlight:', {
+      pdf_bbox: bbox,
+      canvas_coords: canvasBox,
+      display_scale: displayScale,
+      final_display_coords: displayBox
+    });
     
     this.highlightOverlay.appendChild(highlight);
     this.currentHighlights.push(highlight);
+    
+    // Verify the highlight is visible
+    if (displayBox.width <= 0 || displayBox.height <= 0) {
+      console.warn('Highlight has invalid dimensions:', displayBox);
+    }
   }
   
   convertPDFToCanvasCoords(bbox) {
@@ -372,41 +409,58 @@ class PDFViewer {
     const canvasHeight = this.canvas.height;
     const canvasWidth = this.canvas.width;
     
-    let left = bbox.l * this.scale;
-    let right = bbox.r * this.scale;
-    let top, bottom;
+    let left, right, top, bottom;
     
     if (bbox.coord_origin === 'BOTTOMLEFT') {
-      // Convert from bottom-left to top-left origin
-      bottom = bbox.b * this.scale;
-      top = bbox.t * this.scale;
-      // Flip Y coordinate for top-left origin
-      top = canvasHeight - top;
-      bottom = canvasHeight - bottom;
-      // Ensure top < bottom for canvas coordinates
-      if (top > bottom) {
-        [top, bottom] = [bottom, top];
-      }
+      // In BOTTOMLEFT system: 
+      // - 't' (top) is the upper Y coordinate (larger value)
+      // - 'b' (bottom) is the lower Y coordinate (smaller value)
+      // - So t > b is correct in BOTTOMLEFT
+      
+      // Apply scale to coordinates
+      left = bbox.l * this.scale;
+      right = bbox.r * this.scale;
+      
+      // Convert Y coordinates from BOTTOMLEFT to TOPLEFT
+      // In BOTTOMLEFT: t=719, b=653 means top is at 719, bottom at 653
+      // In TOPLEFT: we need to flip these relative to canvas height
+      const pdfTop = bbox.t * this.scale;    // Higher Y value in PDF
+      const pdfBottom = bbox.b * this.scale; // Lower Y value in PDF
+      
+      // Convert to canvas TOPLEFT coordinates
+      top = canvasHeight - pdfTop;       // Canvas top = canvas_height - pdf_top
+      bottom = canvasHeight - pdfBottom; // Canvas bottom = canvas_height - pdf_bottom
+      
     } else {
-      // Assume top-left origin
+      // Assume TOPLEFT origin (same as canvas)
+      left = bbox.l * this.scale;
+      right = bbox.r * this.scale;
       top = bbox.t * this.scale;
       bottom = bbox.b * this.scale;
     }
     
-    // Since the overlay is positioned to match the canvas exactly,
-    // we don't need additional offset calculations here
+    // Ensure left < right and top < bottom for proper rectangle
+    if (left > right) [left, right] = [right, left];
+    if (top > bottom) [top, bottom] = [bottom, top];
+    
     const result = {
-      left: Math.min(left, right),
-      top: Math.min(top, bottom),
-      width: Math.abs(right - left),
-      height: Math.abs(bottom - top)
+      left: left,
+      top: top,
+      width: right - left,
+      height: bottom - top
     };
     
     console.log(`PDF coord conversion:`, {
-      bbox,
+      original_bbox: bbox,
       canvasSize: `${canvasWidth}x${canvasHeight}`,
       scale: this.scale,
-      result
+      result,
+      debug: {
+        pdf_coords: bbox.coord_origin === 'BOTTOMLEFT' ? 
+          `PDF: l=${bbox.l}, t=${bbox.t}, r=${bbox.r}, b=${bbox.b}` :
+          `PDF: l=${bbox.l}, t=${bbox.t}, r=${bbox.r}, b=${bbox.b}`,
+        canvas_coords: `Canvas: left=${result.left.toFixed(1)}, top=${result.top.toFixed(1)}, width=${result.width.toFixed(1)}, height=${result.height.toFixed(1)}`
+      }
     });
     
     return result;
