@@ -12,6 +12,53 @@ from pathlib import Path
 from .data_models import EnhancedSection, make_deterministic_id, normalize_text_for_id
 
 
+def convert_table_to_markdown(table_data: Dict[str, Any]) -> str:
+    """Convert Docling table data to markdown format with optimized performance.
+    
+    Args:
+        table_data: Table data from DoclingDocument with 'table_cells' structure
+        
+    Returns:
+        Markdown representation of the table
+    """
+    table_cells = table_data.get('table_cells', [])
+    if not table_cells:
+        return ""
+    
+    # Pre-compute dimensions and optimize cell processing
+    max_col = max((cell.get('start_col_offset_idx', 0) for cell in table_cells), default=0)
+    max_row = max((cell.get('start_row_offset_idx', 0) for cell in table_cells), default=0)
+    
+    # Initialize grid with empty strings for better performance
+    grid = [[''] * (max_col + 1) for _ in range(max_row + 1)]
+    
+    # Batch process all cells in single pass
+    for cell in table_cells:
+        row_idx = cell.get('start_row_offset_idx', 0)
+        col_idx = cell.get('start_col_offset_idx', 0)
+        text = cell.get('text', '').strip()
+        
+        # Optimize text cleaning - combine operations
+        text = text.replace('|', '\\|').replace('\n', ' ')
+        grid[row_idx][col_idx] = text
+    
+    # Build markdown table with pre-allocated list
+    markdown_lines = []
+    
+    # Generate header separator once
+    separator = '| ' + ' | '.join(['---'] * (max_col + 1)) + ' |'
+    
+    for row_idx in range(max_row + 1):
+        # Use join directly on the row for better performance
+        markdown_lines.append('| ' + ' | '.join(grid[row_idx]) + ' |')
+        
+        # Add header separator after first row
+        if row_idx == 0:
+            markdown_lines.append(separator)
+    
+    return '\n'.join(markdown_lines)
+
+
 def create_enhanced_sections_from_toc(
     toc_data: List[Dict[str, Any]],
     docling_document: Dict[str, Any]
@@ -89,48 +136,122 @@ def create_enhanced_sections_from_toc(
 
 def extract_section_content(
     section: EnhancedSection,
-    docling_document: Dict[str, Any]
+    docling_document: Dict[str, Any],
+    _cached_pages: Dict[int, List[Dict[str, Any]]] = None
 ) -> str:
-    """Extract content for a section from Docling document.
+    """Extract content for a section from Docling document with caching optimization.
     
     Args:
         section: Enhanced section with page boundaries
         docling_document: Docling document with structured content
+        _cached_pages: Optional pre-computed page elements cache for performance
         
     Returns:
-        Section content as markdown text
+        Section content as markdown text including tables converted to markdown
     """
     if not section.start_page or not section.end_page:
         return ""
     
     content_parts = []
     
+    # Use cached page elements if available, otherwise build cache
+    if _cached_pages is None:
+        pages = docling_document.get('pages', [])
+        page_elements_cache = {}
+        for page_data in pages:
+            page_num = page_data.get('page', 1)
+            page_elements_cache[page_num] = page_data.get('elements', [])
+    else:
+        page_elements_cache = _cached_pages
+    
     # Extract content from pages in section interval
-    pages = docling_document.get('pages', [])
-    for page_data in pages:
-        page_num = page_data.get('page', 1)
-        
-        if page_num < section.start_page or page_num > section.end_page:
+    for page_num in range(section.start_page, section.end_page + 1):
+        if page_num not in page_elements_cache:
             continue
             
-        # Extract text elements from this page
-        elements = page_data.get('elements', [])
-        for element in elements:
-            element_type = element.get('type', '')
-            element_text = element.get('text', '')
-            
-            if element_text.strip():
+        # Process elements from cached page data
+        for element in page_elements_cache[page_num]:
+            element_text = element.get('text', '').strip()
+            if element_text:
                 content_parts.append(element_text)
+    
+    # Optimize table extraction with pre-filtering
+    tables = docling_document.get('tables', [])
+    page_range = set(range(section.start_page, section.end_page + 1))
+    
+    for table in tables:
+        # Quick page range check first
+        table_page = None
+        prov_data = table.get('prov', [])
+        if prov_data:
+            table_page = prov_data[0].get('page_no')
+        
+        if table_page and table_page in page_range:
+            # Convert table to markdown using optimized function
+            table_data = table.get('data', {})
+            if table_data:
+                table_markdown = convert_table_to_markdown(table_data)
+                if table_markdown:
+                    content_parts.append(f"\n{table_markdown}\n")
     
     return '\n'.join(content_parts)
 
 
-def create_section_chunks_with_context(
+def build_document_caches(docling_document: Dict[str, Any]) -> Tuple[Dict[int, List[Dict[str, Any]]], Dict[str, int], List[Dict[str, Any]]]:
+    """Build optimized caches for document processing to improve alignment performance.
+    
+    Args:
+        docling_document: Docling document with structured content
+        
+    Returns:
+        Tuple of (page_elements_cache, header_lookup_cache, sorted_headers_cache)
+    """
+    # Cache 1: Page elements indexed by page number
+    pages = docling_document.get('pages', [])
+    page_elements_cache = {}
+    for page_data in pages:
+        page_num = page_data.get('page', 1)
+        page_elements_cache[page_num] = page_data.get('elements', [])
+    
+    # Cache 2: Header title -> page number lookup for fast section alignment
+    header_lookup_cache = {}
+    sorted_headers_cache = []
+    
+    for page_data in pages:
+        page_num = page_data.get('page', 1)
+        elements = page_data.get('elements', [])
+        
+        for element in elements:
+            element_type = element.get('type', '')
+            element_text = element.get('text', '').strip()
+            
+            if (element_type.lower().startswith('heading') or 'header' in element_type.lower()) and element_text:
+                header_key = element_text.lower()
+                # Store the first occurrence for faster lookups
+                if header_key not in header_lookup_cache:
+                    header_lookup_cache[header_key] = page_num
+                
+                sorted_headers_cache.append({
+                    'text': element_text,
+                    'page': page_num,
+                    'level': element.get('level', 1),
+                    'element_type': element_type
+                })
+    
+    # Sort headers by page and level for efficient traversal
+    sorted_headers_cache.sort(key=lambda x: (x['page'], x['level']))
+    
+    print(f"[DEBUG] Built document caches: {len(page_elements_cache)} pages, {len(header_lookup_cache)} headers")
+    
+    return page_elements_cache, header_lookup_cache, sorted_headers_cache
+
+
+def create_section_chunks_with_context_optimized(
     sections: List[EnhancedSection],
     docling_document: Dict[str, Any],
     max_chars: int = 5000
 ) -> List[Tuple[str, EnhancedSection]]:
-    """Create chunks from sections with context headers.
+    """Create chunks from sections with context headers using optimized caching.
     
     If a section is very large, split by page windows inside the section interval
     with 5-10% sentence overlap.
@@ -145,8 +266,11 @@ def create_section_chunks_with_context(
     """
     chunks = []
     
+    # Build caches once for all sections to improve performance
+    page_elements_cache, _, _ = build_document_caches(docling_document)
+    
     for section in sections:
-        content = extract_section_content(section, docling_document)
+        content = extract_section_content(section, docling_document, page_elements_cache)
         
         if not content.strip():
             continue
@@ -274,7 +398,7 @@ def validate_section_alignment(
     sections: List[EnhancedSection],
     docling_document: Dict[str, Any]
 ) -> List[str]:
-    """Validate section alignment with Docling document after headline fixes.
+    """Validate section alignment with Docling document after headline fixes using optimized lookup.
     
     Args:
         sections: List of enhanced sections
@@ -285,19 +409,32 @@ def validate_section_alignment(
     """
     warnings = []
     
-    # Extract section headers from Docling document
-    docling_headers = extract_headers_from_docling(docling_document)
+    # Build optimized header lookup cache once
+    _, header_lookup_cache, sorted_headers = build_document_caches(docling_document)
     
     for section in sections:
         if not section.start_page or not section.end_page:
             warnings.append(f"Section '{section.section_name}' has no page range")
             continue
         
-        # Check if section header page is within its ToC interval
+        # Fast lookup using pre-built cache
+        section_name_lower = section.section_name.strip().lower()
+        header_page = header_lookup_cache.get(section_name_lower)
+        
+        if header_page and section.start_page <= header_page <= section.end_page:
+            # Header found within section page range - valid alignment
+            continue
+        
+        # More detailed search if quick lookup failed
         header_found = False
-        for header in docling_headers:
-            if (header['text'].strip().lower() == section.section_name.strip().lower() and
-                section.start_page <= header['page'] <= section.end_page):
+        for header in sorted_headers:
+            # Skip headers outside the section's page range for efficiency
+            if header['page'] < section.start_page:
+                continue
+            if header['page'] > section.end_page:
+                break
+                
+            if header['text'].strip().lower() == section_name_lower:
                 header_found = True
                 break
         
