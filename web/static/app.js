@@ -1247,21 +1247,40 @@
     }
 
     function navigateToTreeNode(elementId) {
+      console.log('=== TREE NAVIGATION DEBUG ===');
       console.log('Attempting to navigate to tree node:', elementId);
+      console.log('Current document title:', document.title);
+      console.log('Number of elements in document:', document.querySelectorAll('*').length);
+      
+      // Debug: Check if we have any preview panels
+      const previewPanels = document.querySelectorAll('.preview-panel');
+      console.log(`Found ${previewPanels.length} preview panels`);
+      previewPanels.forEach((panel, idx) => {
+        console.log(`Panel ${idx}: class="${panel.className}", id="${panel.id}"`);
+      });
       
       // Find the tree node with the given element ID
       const treeNode = findTreeNodeByElementId(elementId);
       
       if (treeNode) {
-        console.log('Found tree node for element ID:', elementId);
+        console.log('✅ Successfully found tree node for element ID:', elementId);
+        console.log('Tree node details:', {
+          tagName: treeNode.tagName,
+          className: treeNode.className,
+          id: treeNode.id,
+          textContent: treeNode.textContent?.substring(0, 100) + '...'
+        });
         
         // Clear previous selections
-        document.querySelectorAll('.tree-node-selected').forEach(node => {
+        const previousSelections = document.querySelectorAll('.tree-node-selected');
+        console.log(`Clearing ${previousSelections.length} previous selections`);
+        previousSelections.forEach(node => {
           node.classList.remove('tree-node-selected');
         });
         
         // Mark as selected
         treeNode.classList.add('tree-node-selected');
+        console.log('Added tree-node-selected class to node');
         
         // Scroll to make visible
         scrollTreeNodeIntoView(treeNode);
@@ -1269,49 +1288,161 @@
         // Expand parent nodes if collapsed
         expandParentNodes(treeNode);
         
-        console.log('Successfully navigated to tree node');
+        console.log('✅ Successfully navigated to tree node');
+        showToast('Found and navigated to tree node!', 'success');
       } else {
-        console.log('Tree node not found for element ID:', elementId);
-        showToast('Could not locate tree node', 'error');
+        console.log('❌ Tree node not found for element ID:', elementId);
+        console.log('=== TREE NAVIGATION FAILED ===');
+        
+        // Additional debugging
+        const bodyText = document.body.textContent || '';
+        const elementIdInDoc = bodyText.includes(elementId);
+        console.log('Element ID exists in document text:', elementIdInDoc);
+        
+        if (elementIdInDoc) {
+          showToast(`Element ID "${elementId}" found in document but could not locate tree node`, 'error', 5000);
+        } else {
+          showToast(`Element ID "${elementId}" not found in document`, 'error', 5000);
+        }
       }
     }
 
     function findTreeNodeByElementId(elementId) {
-      // Search through all tree nodes for one containing the element ID
-      const allTreeNodes = document.querySelectorAll('.json-formatter-row, .tree-node-content, [data-tree-id]');
+      console.log('Searching for tree node with element ID:', elementId);
       
-      for (const node of allTreeNodes) {
-        // Check data attributes first
-        if (node.getAttribute('data-tree-id') === elementId || 
-            node.getAttribute('data-element-id') === elementId) {
-          return node;
-        }
+      // First, let's understand what DOM structure we're working with
+      const previewPanels = document.querySelectorAll('.preview-panel');
+      console.log(`Found ${previewPanels.length} preview panels`);
+      
+      // Look for any element that might contain our tree data
+      const jsonViewers = document.querySelectorAll('.json-viewer, [id*="preview"], .preview-content');
+      console.log(`Found ${jsonViewers.length} potential JSON viewers`);
+      
+      // Search through all possible JSONFormatter elements
+      const allPossibleNodes = document.querySelectorAll('*[class*="json-formatter"], *[class*="tree"], .json-viewer *');
+      console.log(`Found ${allPossibleNodes.length} possible JSON formatter nodes`);
+      
+      // More comprehensive search strategies
+      const searchStrategies = [
+        // Strategy 1: Look for exact data attributes
+        () => {
+          const nodeWithDataAttr = document.querySelector(`[data-tree-id="${elementId}"], [data-element-id="${elementId}"], [id="${elementId}"]`);
+          if (nodeWithDataAttr) {
+            console.log('Found node with data attribute:', nodeWithDataAttr);
+            return nodeWithDataAttr;
+          }
+          return null;
+        },
         
-        // Check JSON formatter values
-        const stringElements = node.querySelectorAll('.json-formatter-string');
-        for (const stringEl of stringElements) {
-          const value = stringEl.textContent.replace(/"/g, '');
-          if (value === elementId) {
-            // Check if this is an ID field
-            const keyElement = node.querySelector('.json-formatter-key');
-            if (keyElement && (keyElement.textContent.includes('_id') || keyElement.textContent.includes('id'))) {
-              return node;
+        // Strategy 2: Look through all elements for JSONFormatter structure with ID fields  
+        () => {
+          const allElements = document.querySelectorAll('*');
+          for (const element of allElements) {
+            // Check if this element contains the elementId in its text content
+            if (element.textContent && element.textContent.includes(elementId)) {
+              // Look for nearby key elements that indicate this is an ID field
+              const parent = element.closest('*');
+              if (parent) {
+                // Look for key-value pair patterns common in JSONFormatter
+                const keyElement = parent.querySelector('*[class*="key"], *[class*="property"]') || 
+                                 parent.previousElementSibling;
+                
+                if (keyElement) {
+                  const keyText = keyElement.textContent || '';
+                  if (keyText.includes('_id') || keyText.includes('id') || keyText.endsWith('Id')) {
+                    console.log('Found ID field match:', keyText, '->', elementId);
+                    return element.closest('*[class*="formatter"], *[class*="row"], *[class*="object"]') || element;
+                  }
+                }
+                
+                // Also check if the element itself indicates it's an ID
+                const elementClass = element.className || '';
+                const elementId_attr = element.id || '';
+                if (elementClass.includes('id') || elementId_attr.includes('id')) {
+                  console.log('Found element with ID-related class/id:', element);
+                  return element;
+                }
+              }
             }
           }
-        }
+          return null;
+        },
         
-        // Check if any child text contains the element ID
-        if (node.textContent && node.textContent.includes(elementId)) {
-          // Verify this is actually the ID we're looking for by checking structure
-          const keyElements = node.querySelectorAll('.json-formatter-key');
-          for (const keyEl of keyElements) {
-            const keyText = keyEl.textContent;
-            if ((keyText.includes('_id') || keyText.includes('id')) && 
-                node.textContent.includes(elementId)) {
-              return node;
+        // Strategy 3: Text-based search with improved context detection
+        () => {
+          const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+              acceptNode: function(node) {
+                return node.textContent && node.textContent.includes(elementId) 
+                  ? NodeFilter.FILTER_ACCEPT 
+                  : NodeFilter.FILTER_REJECT;
+              }
+            }
+          );
+          
+          let textNode;
+          while (textNode = walker.nextNode()) {
+            // Check if this text node is part of an ID field
+            let parent = textNode.parentElement;
+            let depth = 0;
+            
+            while (parent && depth < 5) {
+              // Look for siblings or nearby elements that suggest this is an ID field
+              const siblings = Array.from(parent.parentElement?.children || []);
+              const hasIdContext = siblings.some(sibling => {
+                const text = sibling.textContent || '';
+                return text.includes('_id') || text.includes('id') || text.includes('Id');
+              });
+              
+              if (hasIdContext) {
+                console.log('Found text node with ID context:', textNode.textContent, 'in parent:', parent);
+                return parent;
+              }
+              
+              parent = parent.parentElement;
+              depth++;
             }
           }
+          return null;
+        },
+        
+        // Strategy 4: Fallback - find any element containing the ID and hope it's relevant
+        () => {
+          const elements = document.querySelectorAll('*');
+          for (const element of elements) {
+            const text = element.textContent || '';
+            const innerHTML = element.innerHTML || '';
+            
+            if ((text.includes(elementId) || innerHTML.includes(elementId)) && 
+                element.children.length > 0) { // Prefer container elements
+              console.log('Fallback: Found element containing elementId:', element);
+              return element;
+            }
+          }
+          return null;
         }
+      ];
+      
+      // Try each strategy in order
+      for (let i = 0; i < searchStrategies.length; i++) {
+        console.log(`Trying search strategy ${i + 1}...`);
+        const result = searchStrategies[i]();
+        if (result) {
+          console.log(`Strategy ${i + 1} succeeded:`, result);
+          return result;
+        }
+      }
+      
+      console.log('All search strategies failed for element ID:', elementId);
+      
+      // Debug: log some information about what's available
+      const allText = document.body.textContent || '';
+      if (allText.includes(elementId)) {
+        console.log('Element ID exists in document text, but could not locate container element');
+      } else {
+        console.log('Element ID not found in document text at all');
       }
       
       return null;
@@ -1366,6 +1497,29 @@
     // Make functions globally available
     window.showToast = showToast;
     window.navigateToTreeNode = navigateToTreeNode;
+    window.findTreeNodeByElementId = findTreeNodeByElementId; // For debugging
+    
+    // Debug function to test tree navigation
+    window.testTreeNavigation = function(elementId) {
+      console.log('=== TESTING TREE NAVIGATION ===');
+      console.log('Test element ID:', elementId || 'No element ID provided');
+      
+      if (!elementId) {
+        // Try to find some element IDs in the current document
+        const bodyText = document.body.textContent || '';
+        const idMatches = bodyText.match(/[0-9a-f]{16}/g); // Look for hex IDs like in the example
+        if (idMatches && idMatches.length > 0) {
+          console.log('Found potential element IDs in document:', idMatches.slice(0, 5));
+          elementId = idMatches[0];
+          console.log('Using first found ID for test:', elementId);
+        } else {
+          console.log('No element IDs found in document');
+          return;
+        }
+      }
+      
+      navigateToTreeNode(elementId);
+    };
 
     // Observe all preview panels for changes
     document.querySelectorAll('.preview').forEach(previewEl => {
