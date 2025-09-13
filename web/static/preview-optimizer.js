@@ -2517,20 +2517,31 @@ class PreviewOptimizer {
           return;
         }
         
-        // Check if this node already exists (deduplication logic)
+        // Check if this node already exists (smart deduplication logic)
         if (nodes.has(nodeId)) {
-          console.warn(`⚠️  Duplicate node ID detected: ${nodeId} (${extraction.extraction_class}) already exists. Skipping duplicate.`);
-          
-          // Log which sections this appears in for debugging
           const existingNode = nodes.get(nodeId);
           const existingParent = existingNode.parentId || 'ROOT';
           const newParent = this.getParentId(extraction) || 'ROOT';
           
-          if (existingParent !== newParent) {
-            console.warn(`   Existing node in: ${existingParent}, duplicate would be in: ${newParent}`);
-          }
+          console.warn(`⚠️  Duplicate node ID detected: ${nodeId} (${extraction.extraction_class})`);
+          console.warn(`   Existing location: ${existingParent}, new location: ${newParent}`);
           
-          return; // Skip this duplicate
+          // Smart parent selection: choose the more specific/relevant parent
+          const shouldReplaceExisting = this.shouldReplaceWithNewParent(
+            existingNode, extraction, existingParent, newParent, normalizedData
+          );
+          
+          if (shouldReplaceExisting) {
+            console.warn(`   🔄 REPLACING: Moving node from ${existingParent} to ${newParent} (better location)`);
+            // Update the existing node with better parent information
+            existingNode.parentId = newParent;
+            existingNode.documentOrder = index; // Update document order too
+            existingNode.extraction = extraction; // Update with potentially better extraction data
+            return;
+          } else {
+            console.warn(`   ✋ KEEPING: Current location ${existingParent} is better than ${newParent}`);
+            return; // Keep existing node as is
+          }
         }
         
         const attrs = extraction.attributes || {};
@@ -2591,6 +2602,11 @@ class PreviewOptimizer {
       });
 
       // Second pass: build parent-child relationships
+      // First, clear all children arrays in case we moved any nodes during deduplication
+      nodes.forEach(node => {
+        node.children = [];
+      });
+      
       let orphanCount = 0;
       nodes.forEach(node => {
         if (node.parentId && nodes.has(node.parentId)) {
@@ -4351,6 +4367,148 @@ class PreviewOptimizer {
         card.classList.remove('border-blue-500', 'ring-2', 'ring-blue-200');
       }
     });
+  }
+
+  // Smart parent selection for deduplication
+  shouldReplaceWithNewParent(existingNode, newExtraction, existingParent, newParent, normalizedData) {
+    // If parents are the same, no need to replace
+    if (existingParent === newParent) {
+      return false;
+    }
+    
+    // If existing parent is ROOT and new parent is specific, prefer new parent
+    if (existingParent === 'ROOT' && newParent !== 'ROOT') {
+      console.log(`   Smart selection: Preferring specific parent ${newParent} over ROOT`);
+      return true;
+    }
+    
+    // If new parent is ROOT and existing parent is specific, keep existing
+    if (newParent === 'ROOT' && existingParent !== 'ROOT') {
+      console.log(`   Smart selection: Keeping specific parent ${existingParent} over ROOT`);
+      return false;
+    }
+    
+    // Get section information for both parents
+    const existingParentSection = this.getSectionInfo(existingParent, normalizedData);
+    const newParentSection = this.getSectionInfo(newParent, normalizedData);
+    
+    // If we have section info for both, compare specificity
+    if (existingParentSection && newParentSection) {
+      const existingSpecificity = this.calculateSectionSpecificity(existingParentSection, existingNode);
+      const newSpecificity = this.calculateSectionSpecificity(newParentSection, existingNode);
+      
+      if (newSpecificity > existingSpecificity) {
+        console.log(`   Smart selection: New parent ${newParent} is more specific (${newSpecificity} vs ${existingSpecificity})`);
+        return true;
+      } else {
+        console.log(`   Smart selection: Existing parent ${existingParent} is more specific (${existingSpecificity} vs ${newSpecificity})`);
+        return false;
+      }
+    }
+    
+    // If only new parent has section info, prefer it
+    if (!existingParentSection && newParentSection) {
+      console.log(`   Smart selection: New parent ${newParent} has section info, existing doesn't`);
+      return true;
+    }
+    
+    // If only existing parent has section info, keep it
+    if (existingParentSection && !newParentSection) {
+      console.log(`   Smart selection: Existing parent ${existingParent} has section info, new doesn't`);
+      return false;
+    }
+    
+    // Fallback: prefer the parent that appears later in document order (assuming refinement)
+    const existingOrder = existingNode.documentOrder || 0;
+    const newOrder = newExtraction.document_order || 0;
+    
+    if (newOrder > existingOrder) {
+      console.log(`   Smart selection: New occurrence appears later in document (${newOrder} vs ${existingOrder})`);
+      return true;
+    }
+    
+    console.log(`   Smart selection: Keeping existing (default - first occurrence wins)`);
+    return false;
+  }
+  
+  // Get section information for a parent ID
+  getSectionInfo(parentId, normalizedData) {
+    if (!parentId || parentId === 'ROOT' || !normalizedData) {
+      return null;
+    }
+    
+    // Look in sections array first
+    if (normalizedData.sections) {
+      const section = normalizedData.sections.find(s => s.section_id === parentId);
+      if (section) {
+        return section;
+      }
+    }
+    
+    // Look in extractions for section-type extractions
+    if (normalizedData.extractions) {
+      const sectionExtraction = normalizedData.extractions.find(e => 
+        e.extraction_class === 'SECTION' && 
+        (e.attributes?.id === parentId || e.attributes?.section_id === parentId)
+      );
+      if (sectionExtraction) {
+        return sectionExtraction.attributes || sectionExtraction;
+      }
+    }
+    
+    return null;
+  }
+  
+  // Calculate section specificity score (higher = more specific)
+  calculateSectionSpecificity(section, node) {
+    let score = 0;
+    
+    // Higher section level = more specific (deeper nesting)
+    const sectionLevel = section.section_level || section.level || 0;
+    score += sectionLevel * 10;
+    
+    // Longer section names are typically more specific
+    const sectionName = section.section_name || section.section_title || section.title || '';
+    score += Math.min(sectionName.length / 10, 5); // Cap at 5 points
+    
+    // Check for keyword matches between section name and node content
+    if (node && node.extraction) {
+      const nodeText = (node.extraction.extraction_text || '').toLowerCase();
+      const normStatement = (node.extraction.attributes?.norm_statement || '').toLowerCase();
+      const sectionNameLower = sectionName.toLowerCase();
+      
+      // Split section name into keywords
+      const sectionKeywords = sectionNameLower
+        .split(/[\s\-_\(\)]+/)
+        .filter(word => word.length > 3); // Only consider meaningful words
+      
+      // Count keyword matches
+      let keywordMatches = 0;
+      sectionKeywords.forEach(keyword => {
+        if (nodeText.includes(keyword) || normStatement.includes(keyword)) {
+          keywordMatches++;
+        }
+      });
+      
+      score += keywordMatches * 5; // 5 points per keyword match
+    }
+    
+    // Bonus for specific section types/patterns
+    if (sectionName.toLowerCase().includes('fire')) score += 3;
+    if (sectionName.toLowerCase().includes('emergency')) score += 3;
+    if (sectionName.toLowerCase().includes('safety')) score += 3;
+    if (sectionName.toLowerCase().includes('door')) score += 3;
+    if (sectionName.toLowerCase().includes('evacuation')) score += 3;
+    if (sectionName.toLowerCase().includes('requirement')) score += 2;
+    if (sectionName.toLowerCase().includes('specification')) score += 2;
+    
+    // Penalty for generic sections
+    if (sectionName.toLowerCase().includes('general')) score -= 5;
+    if (sectionName.toLowerCase().includes('introduction')) score -= 5;
+    if (sectionName.toLowerCase().includes('overview')) score -= 3;
+    
+    console.log(`   Specificity score for "${sectionName}": ${score} (level: ${sectionLevel}, keywords: ${sectionKeywords.length})`);
+    return score;
   }
 
   // Apply the current filter to this panel specifically
