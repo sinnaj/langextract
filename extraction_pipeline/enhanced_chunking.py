@@ -199,17 +199,126 @@ def create_enhanced_sections_from_toc(
     return sections
 
 
+def find_section_boundaries_in_document(
+    sections: List[EnhancedSection],
+    docling_document: Dict[str, Any]
+) -> Dict[str, Dict[str, Any]]:
+    """Find precise content boundaries for sections based on section headers in document.
+    
+    This addresses the issue where sections with overlapping page ranges get duplicate content.
+    Instead of using page ranges, we find section headers in the document and extract
+    content between consecutive section headers.
+    
+    Args:
+        sections: List of enhanced sections
+        docling_document: Docling document with structured content
+        
+    Returns:
+        Dictionary mapping section_id to content boundaries info
+    """
+    texts = docling_document.get('texts', [])
+    if not texts:
+        return {}
+    
+    # Create a list of all text items with their positions for boundary detection
+    text_items_with_positions = []
+    for i, text_item in enumerate(texts):
+        text_content = text_item.get('text', '').strip()
+        prov_data = text_item.get('prov', [])
+        page_no = prov_data[0].get('page_no') if prov_data else None
+        charspan_start = prov_data[0].get('charspan', [0, 0])[0] if prov_data else i
+        
+        text_items_with_positions.append({
+            'index': i,
+            'text': text_content,
+            'page_no': page_no,
+            'charspan_start': charspan_start,
+            'is_section_header': text_item.get('label') == 'section_header'
+        })
+    
+    # Sort by page and charspan for proper document order
+    text_items_with_positions.sort(key=lambda x: (x['page_no'] or 0, x['charspan_start']))
+    
+    # Find section header positions in the document
+    section_boundaries = {}
+    section_header_positions = {}
+    
+    # Match section names to header positions
+    for section in sections:
+        if section.section_type == "Table":
+            continue  # Skip table sections for header-based boundary detection
+            
+        section_name = section.section_name.strip()
+        section_name_normalized = section_name.lower()
+        
+        # Find the header position for this section
+        header_position = None
+        for pos, item in enumerate(text_items_with_positions):
+            if (item['is_section_header'] and 
+                item['text'].lower().strip() == section_name_normalized):
+                header_position = pos
+                break
+        
+        section_header_positions[section.section_id] = {
+            'position': header_position,
+            'section': section,
+            'header_text': section_name
+        }
+    
+    # Assign content boundaries based on consecutive header positions
+    sorted_sections = sorted(section_header_positions.items(), 
+                           key=lambda x: x[1]['position'] if x[1]['position'] is not None else float('inf'))
+    
+    for i, (section_id, section_info) in enumerate(sorted_sections):
+        header_pos = section_info['position']
+        if header_pos is None:
+            # Fallback to page-based if header not found
+            section = section_info['section']
+            section_boundaries[section_id] = {
+                'start_index': None,
+                'end_index': None,
+                'use_page_fallback': True,
+                'start_page': section.start_page,
+                'end_page': section.end_page
+            }
+            continue
+        
+        # Determine content end position (start of next section or document end)
+        next_header_pos = None
+        if i + 1 < len(sorted_sections):
+            next_section_id, next_section_info = sorted_sections[i + 1]
+            next_header_pos = next_section_info['position']
+        
+        end_index = next_header_pos if next_header_pos is not None else len(text_items_with_positions)
+        
+        section_boundaries[section_id] = {
+            'start_index': header_pos + 1,  # Start after the header
+            'end_index': end_index,
+            'use_page_fallback': False,
+            'header_position': header_pos
+        }
+    
+    return section_boundaries, text_items_with_positions
+
+
 def extract_section_content(
     section: EnhancedSection,
     docling_document: Dict[str, Any],
-    _cached_pages: Dict[int, List[Dict[str, Any]]] = None
+    _cached_pages: Dict[int, List[Dict[str, Any]]] = None,
+    _section_boundaries: Dict[str, Dict[str, Any]] = None,
+    _text_items: List[Dict[str, Any]] = None
 ) -> str:
-    """Extract content for a section from Docling document with caching optimization.
+    """Extract content for a section from Docling document with precise boundary detection.
+    
+    This version uses section header boundaries instead of page ranges to prevent
+    content overlap between sections with the same page range.
     
     Args:
         section: Enhanced section with page boundaries
         docling_document: Docling document with structured content
         _cached_pages: Optional pre-computed page elements cache for performance
+        _section_boundaries: Optional pre-computed section boundaries
+        _text_items: Optional pre-computed text items with positions
         
     Returns:
         Section content as markdown text. For table sections, returns only the table 
@@ -225,13 +334,38 @@ def extract_section_content(
     
     content_parts = []
     
-    # For real docling documents, content is in 'texts' array with provenance data
+    # For real docling documents, use boundary-based extraction to prevent overlap
     texts = docling_document.get('texts', [])
     
-    if texts:
-        # Extract content from texts with page-based filtering
+    if texts and _section_boundaries and _text_items:
+        # Use pre-computed boundaries for precise content extraction
+        boundary_info = _section_boundaries.get(section.section_id)
+        
+        if boundary_info:
+            if boundary_info.get('use_page_fallback'):
+                # Fallback to page-based filtering for sections without clear headers
+                for text_item in texts:
+                    prov_data = text_item.get('prov', [])
+                    if prov_data and isinstance(prov_data, list):
+                        text_page = prov_data[0].get('page_no')
+                        if (text_page and 
+                            boundary_info['start_page'] <= text_page <= boundary_info['end_page']):
+                            text_content = text_item.get('text', '').strip()
+                            if text_content:
+                                content_parts.append(text_content)
+            else:
+                # Use precise boundaries based on section headers
+                start_idx = boundary_info['start_index']
+                end_idx = boundary_info['end_index']
+                
+                for i in range(start_idx, end_idx):
+                    if i < len(_text_items):
+                        text_content = _text_items[i]['text']
+                        if text_content:
+                            content_parts.append(text_content)
+    elif texts:
+        # Fallback: Use simple page-based filtering
         for text_item in texts:
-            # Get page number from provenance data
             prov_data = text_item.get('prov', [])
             if prov_data and isinstance(prov_data, list):
                 text_page = prov_data[0].get('page_no')
@@ -488,7 +622,10 @@ def create_section_chunks_with_context_optimized(
     docling_document: Dict[str, Any],
     max_chars: int = 5000
 ) -> List[Tuple[str, EnhancedSection]]:
-    """Create chunks from sections with context headers using optimized caching.
+    """Create chunks from sections with context headers using optimized caching and precise boundaries.
+    
+    This version uses section header boundaries to prevent content overlap between sections
+    that share the same page ranges, addressing the duplicate extraction issue.
     
     If a section is very large, split by page windows inside the section interval
     with 5-10% sentence overlap.
@@ -506,8 +643,19 @@ def create_section_chunks_with_context_optimized(
     # Build caches once for all sections to improve performance
     page_elements_cache, _, _ = build_document_caches(docling_document)
     
+    # Build section boundaries to prevent content overlap between sections with same page ranges
+    print("[DEBUG] Computing section boundaries to prevent content overlap...")
+    section_boundaries, text_items = find_section_boundaries_in_document(sections, docling_document)
+    print(f"[DEBUG] Found boundaries for {len(section_boundaries)} sections")
+    
     for section in sections:
-        content = extract_section_content(section, docling_document, page_elements_cache)
+        content = extract_section_content(
+            section, 
+            docling_document, 
+            page_elements_cache,
+            section_boundaries,
+            text_items
+        )
         
         if not content.strip():
             continue
