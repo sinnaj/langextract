@@ -27,6 +27,7 @@ import itertools
 import json
 import operator
 import re
+import time
 from pathlib import Path
 from typing import Final
 
@@ -39,6 +40,11 @@ from langextract.core import schema
 from langextract.core import tokenizer
 
 _FUZZY_ALIGNMENT_MIN_THRESHOLD = 0.75
+
+# Performance optimization constants
+_MAX_FUZZY_SOURCE_TOKENS = 10000  # Skip fuzzy alignment for chunks larger than this
+_MAX_FUZZY_WINDOW_SIZE = 1000     # Limit fuzzy alignment window size
+_FUZZY_QUICK_REJECT_THRESHOLD = 0.1  # Quick reject if token overlap is less than this
 
 ALIGNMENT_PARAM_KEYS: Final[frozenset[str]] = frozenset({
     "enable_fuzzy_alignment",
@@ -1032,9 +1038,19 @@ class WordAligner:
 
     best_ratio = 0.0
     best_span: tuple[int, int] | None = None  # (start_idx, window_size)
+    found_excellent_match = False  # Flag for early termination
 
     len_e = len(extraction_tokens)
-    max_window = len(source_tokens)
+    max_window = min(len(source_tokens), _MAX_FUZZY_WINDOW_SIZE)  # Performance limit
+    
+    # Performance optimization: Skip if source is too large relative to extraction
+    if len(source_tokens) > len_e * 50:  # Arbitrary threshold
+        logging.debug(
+            "Skipping fuzzy alignment for extraction %r - source text too large "
+            "(%d tokens) relative to extraction (%d tokens)",
+            extraction.extraction_text, len(source_tokens), len_e
+        )
+        return None
 
     extraction_counts = collections.Counter(extraction_tokens_norm)
     min_overlap = int(len_e * fuzzy_alignment_threshold)
@@ -1052,6 +1068,11 @@ class WordAligner:
       )
 
       for start_idx in range(len(source_tokens) - window_size + 1):
+        # Performance optimization: Quick reject if overlap is too low
+        overlap_ratio = (extraction_counts & window_counts).total() / len_e
+        if overlap_ratio < _FUZZY_QUICK_REJECT_THRESHOLD:
+          continue  # Skip expensive sequence matching
+          
         # Optimization: check if enough overlapping tokens exist before expensive
         # sequence matching. This is an upper bound on the match count.
         if (extraction_counts & window_counts).total() >= min_overlap:
@@ -1065,6 +1086,14 @@ class WordAligner:
           if ratio > best_ratio:
             best_ratio = ratio
             best_span = (start_idx, window_size)
+            # Early termination if we found a very good match
+            if ratio > 0.95:
+              logging.debug(
+                  "Early termination: found excellent match (ratio=%.3f) for %r",
+                  ratio, extraction.extraction_text
+              )
+              found_excellent_match = True
+              break
 
         # Slide the window to the right
         if start_idx + window_size < len(source_tokens):
@@ -1080,6 +1109,10 @@ class WordAligner:
           window_deque.append(new_token)
           new_token_norm = _normalize_token(new_token)
           window_counts[new_token_norm] += 1
+      
+      # Break outer loop if we found an excellent match
+      if found_excellent_match:
+        break
 
     if best_span and best_ratio >= fuzzy_alignment_threshold:
       start_idx, window_size = best_span
@@ -1158,6 +1191,15 @@ class WordAligner:
       return []
 
     source_tokens = list(_tokenize_with_lowercase(source_text))
+    
+    # Performance optimization: Skip fuzzy alignment for very large chunks
+    if len(source_tokens) > _MAX_FUZZY_SOURCE_TOKENS:
+        logging.warning(
+            "Source text is very large (%d tokens). Disabling fuzzy alignment "
+            "to improve performance. Only exact matches will be found.",
+            len(source_tokens)
+        )
+        enable_fuzzy_alignment = False
 
     delim_len = len(list(_tokenize_with_lowercase(delim)))
     if delim_len != 1:
@@ -1269,11 +1311,18 @@ class WordAligner:
 
     # Apply fuzzy alignment to remaining extractions
     if enable_fuzzy_alignment and unaligned_extractions:
-      logging.debug(
-          "Starting fuzzy alignment for %d unaligned extractions",
-          len(unaligned_extractions),
+      logging.info(
+          "Starting fuzzy alignment for %d unaligned extractions (source has %d tokens)",
+          len(unaligned_extractions), len(source_tokens)
       )
-      for extraction in unaligned_extractions:
+      fuzzy_start_time = time.time()
+      for i, extraction in enumerate(unaligned_extractions):
+        if i % 5 == 0 and i > 0:  # Log progress every 5 extractions
+          elapsed = time.time() - fuzzy_start_time
+          logging.debug(
+              "Fuzzy alignment progress: %d/%d extractions (%.2fs elapsed)",
+              i, len(unaligned_extractions), elapsed
+          )
         aligned_extraction = self._fuzzy_align_extraction(
             extraction,
             source_tokens,
@@ -1288,6 +1337,14 @@ class WordAligner:
               "Fuzzy alignment successful for extraction: %s",
               extraction.extraction_text,
           )
+      
+      fuzzy_elapsed = time.time() - fuzzy_start_time
+      logging.info(
+          "Fuzzy alignment completed in %.2fs (%d/%d successful)",
+          fuzzy_elapsed, 
+          sum(1 for e in unaligned_extractions if e.token_interval is not None),
+          len(unaligned_extractions)
+      )
 
     for extraction, group_index in index_to_extraction_group.values():
       aligned_extraction_groups[group_index].append(extraction)
