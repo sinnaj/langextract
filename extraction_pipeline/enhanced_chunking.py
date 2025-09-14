@@ -218,7 +218,7 @@ def find_section_boundaries_in_document(
     """
     texts = docling_document.get('texts', [])
     if not texts:
-        return {}
+        return {}, []
     
     # Create a list of all text items with their positions for boundary detection
     text_items_with_positions = []
