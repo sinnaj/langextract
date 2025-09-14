@@ -347,11 +347,12 @@ def create_table_sections_from_docling(
     table_counter = 1
     
     # Create a mapping of page to section for finding parent sections
+    # We want the most specific (highest level) section that contains each page
     page_to_section = {}
     for section in existing_sections:
         if section.start_page and section.end_page:
             for page in range(section.start_page, section.end_page + 1):
-                if page not in page_to_section or section.section_level < page_to_section[page].section_level:
+                if page not in page_to_section or section.section_level > page_to_section[page].section_level:
                     page_to_section[page] = section
     
     for table_index, table in enumerate(tables):
