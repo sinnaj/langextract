@@ -824,18 +824,125 @@ def emergency_split_sentence(sentence: str, max_chars: int) -> List[str]:
     return chunks
 
 
+def deduplicate_extractions(extractions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Remove duplicate extractions with the same text but different parent sections.
+    
+    Deduplication strategy:
+    - For identical extraction texts, keep the one from the most specific section (highest level)
+    - For table extractions, keep all (tables can have legitimate duplicates)
+    - Log duplicate removals for transparency
+    
+    Args:
+        extractions: List of extraction dictionaries
+        
+    Returns:
+        List of deduplicated extractions
+    """
+    if not extractions:
+        return []
+        
+    # Group extractions by text content and context
+    extractions_by_text = {}
+    duplicates_removed = []
+    
+    for extraction in extractions:
+        if not extraction:
+            continue
+            
+        text = extraction.get("extraction_text", "").strip()
+        if not text:
+            continue
+            
+        extraction_class = extraction.get("extraction_class", "")
+        
+        # Skip deduplication for non-text metadata extractions
+        if extraction_class in ["TABLE_METADATA", "CHUNK_METADATA"]:
+            continue
+            
+        # For table extractions, include parent section ID in the key to avoid over-deduplication
+        parent_id = extraction.get("attributes", {}).get("parent_section_id", "")
+        section_type = extraction.get("attributes", {}).get("section_type", "")
+        
+        if section_type == "Table":
+            # For table sections, only deduplicate if from exactly the same table section
+            key = f"{text}||{parent_id}"
+        else:
+            # For regular sections, deduplicate across all sections
+            key = text
+            
+        if key not in extractions_by_text:
+            extractions_by_text[key] = []
+        extractions_by_text[key].append(extraction)
+    
+    # Deduplicate each group
+    deduplicated = []
+    
+    for text, extraction_group in extractions_by_text.items():
+        if len(extraction_group) == 1:
+            # No duplicates, keep as is
+            deduplicated.extend(extraction_group)
+        else:
+            # Multiple extractions with same text - keep most specific (highest section level)
+            # or if same level, keep first one encountered
+            
+            # Sort by preference: Table sections first, then highest section level, then by parent ID for consistency
+            sorted_group = sorted(extraction_group, key=lambda e: (
+                e.get("attributes", {}).get("section_type", "") != "Table",  # Table sections first (False < True)
+                -e.get("attributes", {}).get("section_level", 0),  # Higher level first (negative for reverse)
+                e.get("attributes", {}).get("parent_section_id", "")  # Consistent tie-breaking
+            ))
+            
+            # Keep the most specific one
+            best_extraction = sorted_group[0]
+            deduplicated.append(best_extraction)
+            
+            # Log the duplicates being removed
+            removed_extractions = sorted_group[1:]
+            duplicates_removed.extend(removed_extractions)
+            
+            parent_info = best_extraction.get("attributes", {})
+            best_parent = parent_info.get("section_name", "Unknown")
+            best_level = parent_info.get("section_level", 0)
+            best_type = parent_info.get("section_type", "Unknown")
+            
+            print(f"[DEDUP] Kept extraction from section '{best_parent}' (Level {best_level}, {best_type})")
+            print(f"[DEDUP] Removed {len(removed_extractions)} duplicate(s) for text: {text[:80]}...")
+            
+            for removed in removed_extractions:
+                removed_parent_info = removed.get("attributes", {})
+                removed_parent = removed_parent_info.get("section_name", "Unknown")
+                removed_level = removed_parent_info.get("section_level", 0)
+                removed_type = removed_parent_info.get("section_type", "Unknown")
+                print(f"[DEDUP]   - Removed from section '{removed_parent}' (Level {removed_level}, {removed_type})")
+    
+    # Add non-text-based extractions (metadata, etc.)
+    for extraction in extractions:
+        if not extraction:
+            continue
+            
+        extraction_class = extraction.get("extraction_class", "")
+        if extraction_class in ["TABLE_METADATA", "CHUNK_METADATA"]:
+            deduplicated.append(extraction)
+    
+    print(f"[DEDUP] Deduplication summary: {len(extractions)} -> {len(deduplicated)} extractions ({len(duplicates_removed)} duplicates removed)")
+    
+    return deduplicated
+
+
 def process_extractions_with_postprocessing(extractions: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
     """Process extractions and derive tags and parameters from norms."""
-    all_extractions = []
+    # First deduplicate extractions to remove content overlap issues
+    print("[INFO] Deduplicating extractions...")
+    deduplicated_extractions = deduplicate_extractions(extractions)
+    
+    all_extractions = deduplicated_extractions
     all_tags = []
     all_parameters = []
     
     # Collect norms for postprocessing
     norms_to_process = []
     
-    for extraction in extractions:
-        all_extractions.append(extraction)
-        
+    for extraction in all_extractions:
         if extraction.get("extraction_class") == "NORM":
             attributes = extraction.get("attributes", {})
             if attributes:
