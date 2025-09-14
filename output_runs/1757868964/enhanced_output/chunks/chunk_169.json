@@ -1,0 +1,506 @@
+{
+  "chunk_id": 169,
+  "section_metadata": {
+    "section_id": "9d59e7e215dacba3",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 75,
+    "end_page": 75,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.2 Madera con protección",
+      "Table 1"
+    ],
+    "parent_section_id": "7d9417b26f90cdd3",
+    "positioning_data": [
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 90.49723052978516,
+          "t": 778.7013969421387,
+          "r": 539.9539794921875,
+          "b": 674.81787109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.2 Madera con protección → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Con, Protección, Table\n**Pages:** 75-75\n\n\n| Frondosas |  |\n| --- | --- |\n| Madera maciza o laminada encolada de frondosas con densidad característica de 290 kg/m3 (1) | 0,70 |\n| Madera maciza o laminada encolada de frondosas con densidad característica  450 kg/m 3 | 0,55 |\n| Madera microlaminada |  |\n| Con una densidad característica  480 kg/m 3 | 0,70 |",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': 'e0237976-138d-472d-949e-149020275811', 'parent_section_id': 'e0237976-138d-472d-949e-149020275811', 'classification_type': 'MATERIAL.WOOD.HARDWOOD', 'classification_name': 'Frondosas', 'applies_if': 'TRUE', 'classification_values': [{'value': 'SOLID_OR_GLUED_LAMINATED_WOOD', 'description': 'Madera maciza o laminada encolada de frondosas con densidad característica de 290 kg/m3 (1)', 'attributes': {'DENSITY.CHARACTERISTIC': '290 kg/m3'}}, {'value': 'SOLID_OR_GLUED_LAMINATED_WOOD', 'description': 'Madera maciza o laminada encolada de frondosas con densidad característica >= 450 kg/m3', 'attributes': {'DENSITY.CHARACTERISTIC': '>= 450 kg/m3'}}], 'location_scope': {'COUNTRY': 'ES'}, 'source': {'span_char_start': 121, 'span_char_end': 376, 'visual_refs': []}, 'confidence': 0.95}",
+      "attributes": {
+        "parent_section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 75,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': 'e0237976-138d-472d-949e-149020275811', 'parent_section_id': 'e0237976-138d-472d-949e-149020275811', 'classification_type': 'MATERIAL.WOOD.MICROLAMINATED', 'classification_name': 'Madera microlaminada', 'applies_if': 'TRUE', 'classification_values': [{'value': 'MICROLAMINATED_WOOD', 'description': 'Con una densidad característica >= 480 kg/m3', 'attributes': {'DENSITY.CHARACTERISTIC': '>= 480 kg/m3'}}], 'location_scope': {'COUNTRY': 'ES'}, 'source': {'span_char_start': 377, 'span_char_end': 449, 'visual_refs': []}, 'confidence': 0.95}",
+      "attributes": {
+        "parent_section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 75,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "e0237976-138d-472d-949e-149020275811",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for solid or glued laminated hardwood with a characteristic density of 290 kg/m3 must be 0.70 mm/min.",
+        "applies_if": "MATERIAL.WOOD.TYPE == 'SOLID_OR_GLUED_LAMINATED_WOOD' AND MATERIAL.WOOD.DENSITY.CHARACTERISTIC == 290",
+        "satisfied_if": "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.WOOD.HARDWOOD",
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 121,
+          "span_char_end": 376,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC == 290 kg/m3",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.70 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 75,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "e0237976-138d-472d-949e-149020275811",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for solid or glued laminated hardwood with a characteristic density greater than or equal to 450 kg/m3 must be 0.55 mm/min.",
+        "applies_if": "MATERIAL.WOOD.TYPE == 'SOLID_OR_GLUED_LAMINATED_WOOD' AND MATERIAL.WOOD.DENSITY.CHARACTERISTIC >= 450",
+        "satisfied_if": "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.55",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.WOOD.HARDWOOD",
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 121,
+          "span_char_end": 376,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC >= 450 kg/m3",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.55 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 75,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "e0237976-138d-472d-949e-149020275811",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for microlaminated wood with a characteristic density greater than or equal to 480 kg/m3 must be 0.70 mm/min.",
+        "applies_if": "MATERIAL.WOOD.TYPE == 'MICROLAMINATED_WOOD' AND MATERIAL.WOOD.DENSITY.CHARACTERISTIC >= 480",
+        "satisfied_if": "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.WOOD.MICROLAMINATED",
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 377,
+          "span_char_end": 449,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MATERIAL.WOOD.DENSITY.CHARACTERISTIC >= 480 kg/m3",
+          "MATERIAL.WOOD.CHARRING_RATE.NOMINAL == 0.70 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 75,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 719
+}

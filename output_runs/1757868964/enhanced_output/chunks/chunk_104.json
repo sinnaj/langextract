@@ -1,0 +1,283 @@
+{
+  "chunk_id": 104,
+  "section_metadata": {
+    "section_id": "c007cb85e0259cfd",
+    "section_name": "Uso Administrativo",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 50,
+    "end_page": 50,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Administrativo"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 50,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 768.9913330078125,
+          "r": 162.18756103515625,
+          "b": 761.7504272460938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Administrativo"
+      },
+      {
+        "page_no": 50,
+        "charspan": [
+          0,
+          233
+        ],
+        "bbox": {
+          "l": 71.2926025390625,
+          "t": 747.630859375,
+          "r": 538.3080444335938,
+          "b": 715.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en c"
+      },
+      {
+        "page_no": 50,
+        "charspan": [
+          0,
+          11
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 688.11083984375,
+          "r": 133.45858764648438,
+          "b": 680.7504272460938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Almacén"
+      },
+      {
+        "page_no": 50,
+        "charspan": [
+          0,
+          566
+        ],
+        "bbox": {
+          "l": 71.17308044433594,
+          "t": 666.630859375,
+          "r": 538.473388671875,
+          "b": 599.7778930664062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado de forma principal al almacenamiento de materiales o productos."
+      },
+      {
+        "page_no": 50,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 572.5213623046875,
+          "r": 158.82107543945312,
+          "b": 563.4378662109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Aparcamiento"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Administrativo\n**Path:** Anejo SI A Terminología → Uso Administrativo\n**Level:** 2\n**Tags:** Terminología, Uso, Administrativo\n**Pages:** 50-50\n\n\nEdificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en cualquiera de sus modalidades, como por ejemplo, centros de la administración pública, bancos, despachos profesionales, oficinas, etc.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': 'e7223403-122e-407b-810a-2895698b671a', 'parent_section_id': '7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d', 'classification_type': 'USAGE', 'classification_name': 'ADMINISTRATIVE', 'classification_value': 'Edificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en cualquiera de sus modalidades, como por ejemplo, centros de la administración pública, bancos, despachos profesionales, oficinas, etc.', 'applies_if': 'TRUE', 'location_scope': {'COUNTRY': 'ES'}, 'source': {'span_char_start': 10, 'span_char_end': 204, 'visual_refs': []}, 'quality': {'confidence': 1.0, 'uncertainty': 0.0, 'errors': [], 'warnings': []}}",
+      "attributes": {
+        "parent_section_id": "c007cb85e0259cfd",
+        "section_name": "Uso Administrativo",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 162.18756103515625,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Administrativo"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 71.2926025390625,
+              "t": 747.630859375,
+              "r": 538.3080444335938,
+              "b": 715.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en c"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 688.11083984375,
+              "r": 133.45858764648438,
+              "b": 680.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Almacén"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 666.630859375,
+              "r": 538.473388671875,
+              "b": 599.7778930664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado de forma principal al almacenamiento de materiales o productos."
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 572.5213623046875,
+              "r": 158.82107543945312,
+              "b": 563.4378662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Aparcamiento"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "c007cb85e0259cfd",
+        "section_name": "Uso Administrativo",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 50,
+        "end_page": 50,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Administrativo"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 162.18756103515625,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Administrativo"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 71.2926025390625,
+              "t": 747.630859375,
+              "r": 538.3080444335938,
+              "b": 715.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio, establecimiento o zona en el que se desarrollan actividades de gestión o de servicios en c"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 688.11083984375,
+              "r": 133.45858764648438,
+              "b": 680.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Almacén"
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 666.630859375,
+              "r": 538.473388671875,
+              "b": 599.7778930664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado de forma principal al almacenamiento de materiales o productos."
+          },
+          {
+            "page_no": 50,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 572.5213623046875,
+              "r": 158.82107543945312,
+              "b": 563.4378662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Aparcamiento"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 394
+}

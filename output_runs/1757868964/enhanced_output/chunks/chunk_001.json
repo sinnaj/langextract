@@ -1,0 +1,2492 @@
+{
+  "chunk_id": 1,
+  "section_metadata": {
+    "section_id": "fa09c7d5c06b6313",
+    "section_name": "I Objeto",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 3,
+    "end_page": 3,
+    "toc_path": [
+      "Introducción",
+      "I Objeto"
+    ],
+    "parent_section_id": "0ec9c0e66768fb12",
+    "positioning_data": [
+      {
+        "page_no": 3,
+        "charspan": [
+          0,
+          12
+        ],
+        "bbox": {
+          "l": 72.16799926757812,
+          "t": 743.5240478515625,
+          "r": 178.76400756835938,
+          "b": 730.2220458984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Introducción"
+      },
+      {
+        "page_no": 3,
+        "charspan": [
+          0,
+          8
+        ],
+        "bbox": {
+          "l": 71.89871978759766,
+          "t": 690.6011352539062,
+          "r": 150.29299926757812,
+          "b": 677.4456176757812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "I Objeto"
+      },
+      {
+        "page_no": 3,
+        "charspan": [
+          0,
+          459
+        ],
+        "bbox": {
+          "l": 71.03363800048828,
+          "t": 665.1908569335938,
+          "r": 538.62890625,
+          "b": 609.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+      },
+      {
+        "page_no": 3,
+        "charspan": [
+          0,
+          146
+        ],
+        "bbox": {
+          "l": 71.17308044433594,
+          "t": 592.6012573242188,
+          "r": 538.18115234375,
+          "b": 571.7083740234375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+      },
+      {
+        "page_no": 3,
+        "charspan": [
+          0,
+          69
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 554.160888671875,
+          "r": 401.51348876953125,
+          "b": 544.828369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: I Objeto\n**Path:** Introducción → I Objeto\n**Level:** 2\n**Tags:** Introducción, Objeto\n**Pages:** 3-3\n\n\nEste Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico \"Seguridad en caso de incendio\".\nTanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 de la Parte 1 de este CTE y son los siguientes:\nArtículo 11. Exigencias básicas de seguridad en caso de incendio (SI)\n1 El objetivo del requisito básico \"Seguridad en caso de incendio\" consiste en reducir a límites aceptables el riesgo de que los usuarios de un edificio sufran daños derivados de un incendio de origen accidental, como consecuencia de las características de su proyecto, construcción, uso y mantenimiento.\n2 Para satisfacer este objetivo, los edificios se proyectarán, construirán, mantendrán y utilizarán de forma que, en caso de incendio, se cumplan las exigencias básicas que se establecen en los apartados siguientes.\n3 El Documento Básico DB -SI especifica parámetros objetivos y procedimientos cuyo cumplimiento asegura la satisfacción de las exigencias básicas y la superación de los niveles mínimos de calidad propios del requisito básico de seguridad en caso de incendio, excepto en el caso de los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicación el \"Reglamento de seguridad contra incendios en los establecimientos industriales\", en los cuales las exigencias básicas se cumplen mediante dicha aplicación.\n11.1 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el interior del edificio.\n11.2 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el exterior, tanto en el edificio considerado como a otros edificios.\n11.3 Exigencia básica SI\nEl edificio dispondrá de los medios de evacuación adecuados para que los ocupantes puedan abandonarlo o alcanzar un lugar seguro dentro del mismo en condiciones de seguridad.\n11.4 Exigencia básica SI\nEl edificio dispondrá de los equipos e instalaciones adecuados para hacer posible la detección, el control y la extinción del incendio, así como la transmisión de la alarma a los ocupantes.\n11.5 Exigencia básica SI\nSe facilitará la intervención de los equipos de rescate y de extinción de incendios.\n11.6 Exigencia básica SI\nLa estructura portante mantendrá su resistencia al fuego durante el tiempo necesario para que puedan\n3\nDocumento Básico SI Seguridad en caso de Incendio INTRODUCCIÓN\ncumplirse las anteriores exigencias básicas.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir las exigencias básicas de seguridad en caso de incendio. Las secciones de este DB se corresponden con las exigencias básicas SI 1 a SI 6. La correcta aplicación de cada Sección supone el cumplimiento de la exigencia básica correspondiente. La correcta aplicación del conjunto del DB supone que se satisface el requisito básico \"Seguridad en caso de incendio\".\nTanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 de la Parte 1 de este CTE y son los siguientes:\nArtículo 11. Exigencias básicas de seguridad en caso de incendio (SI)\n1 El objetivo del requisito básico \"Seguridad en caso de incendio\" consiste en reducir a límites aceptables el riesgo de que los usuarios de un edificio sufran daños derivados de un incendio de origen accidental, como consecuencia de las características de su proyecto, construcción, uso y mantenimiento.\n2 Para satisfacer este objetivo, los edificios se proyectarán, construirán, mantendrán y utilizarán de forma que, en caso de incendio, se cumplan las exigencias básicas que se establecen en los apartados siguientes.\n3 El Documento Básico DB -SI especifica parámetros objetivos y procedimientos cuyo cumplimiento asegura la satisfacción de las exigencias básicas y la superación de los niveles mínimos de calidad propios del requisito básico de seguridad en caso de incendio, excepto en el caso de los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicación el \"Reglamento de seguridad contra incendios en los establecimientos industriales\", en los cuales las exigencias básicas se cumplen mediante dicha aplicación.\n11.1 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el interior del edificio.\n11.2 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el exterior, tanto en el edificio considerado como a otros edificios.\n11.3 Exigencia básica SI\nEl edificio dispondrá de los medios de evacuación adecuados para que los ocupantes puedan abandonarlo o alcanzar un lugar seguro dentro del mismo en condiciones de seguridad.\n11.4 Exigencia básica SI\nEl edificio dispondrá de los equipos e instalaciones adecuados para hacer posible la detección, el control y la extinción del incendio, así como la transmisión de la alarma a los ocupantes.\n11.5 Exigencia básica SI\nSe facilitará la intervención de los equipos de rescate y de extinción de incendios.\n11.6 Exigencia básica SI\nLa estructura portante mantendrá su resistencia al fuego durante el tiempo necesario para que puedan\n3\nDocumento Básico SI Seguridad en caso de Incendio INTRODUCCIÓN\ncumplirse las anteriores exigencias básicas.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This Basic Document (DB) aims to establish rules and procedures to meet the basic fire safety requirements. The sections of this DB correspond to basic requirements SI 1 to SI 6. The correct application of each Section implies compliance with the corresponding basic requirement. The correct application of the entire DB implies that the basic requirement \"Fire Safety\" is satisfied.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "BUILDING.USAGE == 'INDUSTRIAL' OR ESTABLISHMENT.USAGE == 'INDUSTRIAL' OR ZONE.USAGE == 'INDUSTRIAL'",
+        "referenced_documents": [
+          "CTE",
+          "Reglamento de seguridad contra incendios en los establecimientos industriales"
+        ],
+        "referenced_documents_sections": [
+          "CTE.ARTICLE.11.PART.1"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 115,
+        "end_pos": 2857
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 32,
+        "end_index": 617
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 El objetivo del requisito básico \"Seguridad en caso de incendio\" consiste en reducir a límites aceptables el riesgo de que los usuarios de un edificio sufran daños derivados de un incendio de origen accidental, como consecuencia de las características de su proyecto, construcción, uso y mantenimiento.",
+      "attributes": {
+        "id": "e0a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The objective of the basic requirement \"Fire Safety\" is to reduce to acceptable limits the risk of building users suffering damage from an accidental fire, as a result of the characteristics of its design, construction, use and maintenance.",
+        "applies_if": "TRUE",
+        "satisfied_if": "RISK.FIRE.ACCIDENTAL.DAMAGE.USERS <= 'ACCEPTABLE_LIMITS'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SAFETY",
+          "RISK.REDUCTION",
+          "BUILDING.USERS",
+          "ACCIDENTAL.FIRE",
+          "PROJECT.CHARACTERISTICS",
+          "CONSTRUCTION.CHARACTERISTICS",
+          "USE.CHARACTERISTICS",
+          "MAINTENANCE.CHARACTERISTICS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 298,
+          "span_char_end": 598,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 787,
+        "end_pos": 1079
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 176,
+        "end_index": 239
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Para satisfacer este objetivo, los edificios se proyectarán, construirán, mantendrán y utilizarán de forma que, en caso de incendio, se cumplan las exigencias básicas que se establecen en los apartados siguientes.",
+      "attributes": {
+        "id": "f2a3b4c5-d6e7-f8a9-b0c1-d2e3f4a5b6c7",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "To satisfy this objective, buildings must be designed, constructed, maintained and used in such a way that, in case of fire, the basic requirements established in the following sections are met.",
+        "applies_if": "TRUE",
+        "satisfied_if": "BUILDING.DESIGN.COMPLIES_WITH_FIRE_SAFETY_REQUIREMENTS AND BUILDING.CONSTRUCTION.COMPLIES_WITH_FIRE_SAFETY_REQUIREMENTS AND BUILDING.MAINTENANCE.COMPLIES_WITH_FIRE_SAFETY_REQUIREMENTS AND BUILDING.USE.COMPLIES_WITH_FIRE_SAFETY_REQUIREMENTS",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.DESIGN",
+          "BUILDING.CONSTRUCTION",
+          "BUILDING.MAINTENANCE",
+          "BUILDING.USE",
+          "FIRE.SAFETY.REQUIREMENTS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [
+          "DESIGN",
+          "CONSTRUCTION",
+          "MAINTENANCE",
+          "USE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 600,
+          "span_char_end": 799,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1082,
+        "end_pos": 1300
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 240,
+        "end_index": 288
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 El Documento Básico DB -SI especifica parámetros objetivos y procedimientos cuyo cumplimiento asegura la satisfacción de las exigencias básicas y la superación de los niveles mínimos de calidad propios del requisito básico de seguridad en caso de incendio, excepto en el caso de los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicación el \"Reglamento de seguridad contra incendios en los establecimientos industriales\", en los cuales las exigencias básicas se cumplen mediante dicha aplicación.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Basic Document DB-SI specifies objective parameters and procedures whose compliance ensures the satisfaction of basic requirements and the exceeding of minimum quality levels inherent to the basic fire safety requirement.",
+        "applies_if": "TRUE",
+        "satisfied_if": "DB_SI.PARAMETERS.COMPLIED AND DB_SI.PROCEDURES.COMPLIED",
+        "exempt_if": "BUILDING.USAGE == 'INDUSTRIAL' OR ESTABLISHMENT.USAGE == 'INDUSTRIAL' OR ZONE.USAGE == 'INDUSTRIAL'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "DB_SI",
+          "FIRE.SAFETY",
+          "OBJECTIVE.PARAMETERS",
+          "PROCEDURES",
+          "MINIMUM.QUALITY.LEVELS",
+          "BUILDING.USAGE.INDUSTRIAL",
+          "ESTABLISHMENT.USAGE.INDUSTRIAL",
+          "ZONE.USAGE.INDUSTRIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 801,
+          "span_char_end": 1269,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Exemption applies if 'Reglamento de seguridad contra incendios en los establecimientos industriales' is applicable.",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1284,
+        "end_pos": 1824
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 285,
+        "end_index": 391
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.1 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el interior del edificio.",
+      "attributes": {
+        "id": "e1f2a3b4-c5d6-e7f8-a9b0-c1d2e3f4a5b6",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The risk of fire spreading inside the building will be limited.",
+        "applies_if": "TRUE",
+        "satisfied_if": "RISK.FIRE.SPREAD.INTERIOR == 'LIMITED'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SPREAD",
+          "INTERIOR.BUILDING",
+          "RISK.LIMITATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1271,
+          "span_char_end": 1353,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1797,
+        "end_pos": 1946
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 385,
+        "end_index": 420
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.2 Exigencia básica SI\nSe limitará el riesgo de propagación del incendio por el exterior, tanto en el edificio considerado como a otros edificios.",
+      "attributes": {
+        "id": "c1d2e3f4-a5b6-c7d8-e9f0-a1b2c3d4e5f6",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The risk of fire spreading externally will be limited, both in the building considered and to other buildings.",
+        "applies_if": "TRUE",
+        "satisfied_if": "RISK.FIRE.SPREAD.EXTERIOR == 'LIMITED'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SPREAD",
+          "EXTERIOR.BUILDING",
+          "RISK.LIMITATION",
+          "ADJACENT.BUILDINGS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1355,
+          "span_char_end": 1493,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1946,
+        "end_pos": 2095
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 420,
+        "end_index": 453
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.3 Exigencia básica SI\nEl edificio dispondrá de los medios de evacuación adecuados para que los ocupantes puedan abandonarlo o alcanzar un lugar seguro dentro del mismo en condiciones de seguridad.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d7",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The building must have adequate evacuation means so that occupants can leave it or reach a safe place within it under safe conditions.",
+        "applies_if": "TRUE",
+        "satisfied_if": "BUILDING.EVACUATION.MEANS == 'ADEQUATE' AND OCCUPANTS.CAN_EVACUATE_SAFELY",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.MEANS",
+          "OCCUPANT.SAFETY",
+          "SAFE.PLACE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1495,
+          "span_char_end": 1699,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2095,
+        "end_pos": 2295
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 453,
+        "end_index": 492
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.4 Exigencia básica SI\nEl edificio dispondrá de los equipos e instalaciones adecuados para hacer posible la detección, el control y la extinción del incendio, así como la transmisión de la alarma a los ocupantes.",
+      "attributes": {
+        "id": "b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The building must have adequate equipment and installations to enable fire detection, control, and extinction, as well as alarm transmission to occupants.",
+        "applies_if": "TRUE",
+        "satisfied_if": "BUILDING.FIRE.DETECTION.EQUIPMENT == 'ADEQUATE' AND BUILDING.FIRE.CONTROL.EQUIPMENT == 'ADEQUATE' AND BUILDING.FIRE.EXTINCTION.EQUIPMENT == 'ADEQUATE' AND BUILDING.ALARM.TRANSMISSION.SYSTEM == 'ADEQUATE'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.DETECTION",
+          "FIRE.CONTROL",
+          "FIRE.EXTINCTION",
+          "ALARM.SYSTEMS",
+          "OCCUPANT.NOTIFICATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1701,
+          "span_char_end": 1943,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2286,
+        "end_pos": 2500
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 491,
+        "end_index": 541
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.5 Exigencia básica SI\nSe facilitará la intervención de los equipos de rescate y de extinción de incendios.",
+      "attributes": {
+        "id": "c1d2e3f4-a5b6-c7d8-e9f0-a1b2c3d4e5f7",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The intervention of rescue and fire extinguishing teams will be facilitated.",
+        "applies_if": "TRUE",
+        "satisfied_if": "RESCUE.TEAMS.INTERVENTION.FACILITATED AND FIRE.EXTINGUISHING.TEAMS.INTERVENTION.FACILITATED",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "RESCUE.TEAMS",
+          "FIRE.EXTINGUISHING.TEAMS",
+          "INTERVENTION.FACILITATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1945,
+          "span_char_end": 2049,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2510,
+        "end_pos": 2620
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 542,
+        "end_index": 570
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "11.6 Exigencia básica SI\nLa estructura portante mantendrá su resistencia al fuego durante el tiempo necesario para que puedan\n3\nDocumento Básico SI Seguridad en caso de Incendio INTRODUCCIÓN\ncumplirse las anteriores exigencias básicas.",
+      "attributes": {
+        "id": "d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6",
+        "parent_section_id": "fa09c7d5c06b6313",
+        "paragraph_number": 11.6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The load-bearing structure must maintain its fire resistance for the time necessary to meet the previous basic requirements.",
+        "applies_if": "TRUE",
+        "satisfied_if": "STRUCTURAL.ELEMENT.FIRE_RESISTANCE.DURATION >= 'REQUIRED_TIME_FOR_BASIC_REQUIREMENTS'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LOAD_BEARING.STRUCTURE",
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.INTEGRITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2051,
+          "span_char_end": 2269,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "I Objeto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2611,
+        "end_pos": 2851
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 569,
+        "end_index": 615
+      },
+      "section_metadata": {
+        "section_id": "fa09c7d5c06b6313",
+        "section_name": "I Objeto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Introducción",
+          "I Objeto"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              12
+            ],
+            "bbox": {
+              "l": 72.16799926757812,
+              "t": 743.5240478515625,
+              "r": 178.76400756835938,
+              "b": 730.2220458984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Introducción"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              8
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 690.6011352539062,
+              "r": 150.29299926757812,
+              "b": 677.4456176757812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "I Objeto"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              459
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 665.1908569335938,
+              "r": 538.62890625,
+              "b": 609.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este Documento Básico (DB) tiene por objeto establecer reglas y procedimientos que permiten cumplir "
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.17308044433594,
+              "t": 592.6012573242188,
+              "r": 538.18115234375,
+              "b": 571.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tanto el objetivo del requisito básico como las exigencias básicas se establecen en el artículo 11 d"
+          },
+          {
+            "page_no": 3,
+            "charspan": [
+              0,
+              69
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 554.160888671875,
+              "r": 401.51348876953125,
+              "b": 544.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 2857
+}

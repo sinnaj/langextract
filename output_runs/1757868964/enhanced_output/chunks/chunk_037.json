@@ -1,0 +1,500 @@
+{
+  "chunk_id": 37,
+  "section_metadata": {
+    "section_id": "3f36dba2b39c5b72",
+    "section_name": "Tabla 4.1",
+    "section_type": "Table",
+    "section_level": 4,
+    "start_page": 27,
+    "end_page": 27,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "4 Dimensionado de los medios de evacuación",
+      "4.2 Cálculo",
+      "Tabla 4.1"
+    ],
+    "parent_section_id": "f51ad3b89d2ac4b7",
+    "positioning_data": [
+      {
+        "page_no": 27,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 80.30641174316406,
+          "t": 413.61590576171875,
+          "r": 545.2892456054688,
+          "b": 92.3135986328125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 4.1"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: Tabla 4.1\n**Path:** Sección SI 3 Evacuación de ocupantes → 4 Dimensionado de los medios de evacuación → 4.2 Cálculo → Tabla 4.1\n**Level:** 4\n**Tags:** SI3, Evacuación, Ocupantes, Dimensionado, Los, Medios, Evacuación, Cálculo, Tabla\n**Pages:** 27-27\n\n\n| Anchura de la  escalera en m | Escalera no protegida |  | Escalera protegida (evacuación descendente o ascen\u0002 dente)(1) |  |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | Evacuación  ascendente(2) | Evacuación  descendente | Nº de plantas |  |  |  |  |  |\n|  |  |  | 2 | 4 | 6 | 8 | 10 | cada planta más |\n| 1,00 | 132 | 160 | 224 | 288 | 352 | 416 | 480 | +32 |\n| 1,10 | 145 | 176 | 248 | 320 | 392 | 464 | 536 | +36 |\n| 1,20 | 158 | 192 | 274 | 356 | 438 | 520 | 602 | +41 |\n| 1,30 | 171 | 208 | 302 | 396 | 490 | 584 | 678 | +47 |\n| 1,40 | 184 | 224 | 328 | 432 | 536 | 640 | 744 | +52 |\n| 1,50 | 198 | 240 | 356 | 472 | 588 | 704 | 820 | +58 |\n| 1,60 | 211 | 256 | 384 | 512 | 640 | 768 | 896 | +64 |\n| 1,70 | 224 | 272 | 414 | 556 | 698 | 840 | 982 | +71 |\n| 1,80 | 237 | 288 | 442 | 596 | 750 | 904 | 1058 | +77 |\n| 1,90 | 250 | 304 | 472 | 640 | 808 | 976 | 1144 | +84 |\n| 2,00 | 264 | 320 | 504 | 688 | 872 | 1056 | 1240 | +92 |\n| 2,10 | 277 | 336 | 534 | 732 | 930 | 1128 | 1326 | +99 |\n| 2,20 | 290 | 352 | 566 | 780 | 994 | 1208 | 1422 | +107 |\n| 2,30 | 303 | 368 | 598 | 828 | 1058 | 1288 | 1518 | +115 |\n| 2,40 | 316 | 384 | 630 | 876 | 1122 | 1368 | 1614 | +123 |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "## Section: Tabla 4.1\n**Path:** Sección SI 3 Evacuación de ocupantes → 4 Dimensionado de los medios de evacuación → 4.2 Cálculo → Tabla 4.1\n**Level:** 4\n**Tags:** SI3, Evacuación, Ocupantes, Dimensionado, Los, Medios, Evacuación, Cálculo, Tabla\n**Pages:** 27-27\n\n\n| Anchura de la  escalera en m | Escalera no protegida |  | Escalera protegida (evacuación descendente o ascen dente)(1) |  |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | Evacuación  ascendente(2) | Evacuación  descendente | Nº de plantas |  |  |  |  |  |\n|  |  |  | 2 | 4 | 6 | 8 | 10 | cada planta más |\n| 1,00 | 132 | 160 | 224 | 288 | 352 | 416 | 480 | +32 |\n| 1,10 | 145 | 176 | 248 | 320 | 392 | 464 | 536 | +36 |\n| 1,20 | 158 | 192 | 274 | 356 | 438 | 520 | 602 | +41 |\n| 1,30 | 171 | 208 | 302 | 396 | 490 | 584 | 678 | +47 |\n| 1,40 | 184 | 224 | 328 | 432 | 536 | 640 | 744 | +52 |\n| 1,50 | 198 | 240 | 356 | 472 | 588 | 704 | 820 | +58 |\n| 1,60 | 211 | 256 | 384 | 512 | 640 | 768 | 896 | +64 |\n| 1,70 | 224 | 272 | 414 | 556 | 698 | 840 | 982 | +71 |\n| 1,80 | 237 | 288 | 442 | 596 | 750 | 904 | 1058 | +77 |\n| 1,90 | 250 | 304 | 472 | 640 | 808 | 976 | 1144 | +84 |\n| 2,00 | 264 | 320 | 504 | 688 | 872 | 1056 | 1240 | +92 |\n| 2,10 | 277 | 336 | 534 | 732 | 930 | 1128 | 1326 | +99 |\n| 2,20 | 290 | 352 | 566 | 780 | 994 | 1208 | 1422 | +107 |\n| 2,30 | 303 | 368 | 598 | 828 | 1058 | 1288 | 1518 | +115 |\n| 2,40 | 316 | 384 | 630 | 876 | 1122 | 1368 | 1614 | +123 |",
+      "attributes": {
+        "id": "f2923019-338b-4977-9818-726427303031",
+        "meta_summary": "This section provides a table (Table 4.1) for dimensioning evacuation means, specifically stair capacity based on width and number of floors, differentiating between unprotected and protected stairs for ascending and descending evacuation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "3f36dba2b39c5b72",
+        "section_name": "Tabla 4.1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 1467
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 505
+      },
+      "section_metadata": {
+        "section_id": "3f36dba2b39c5b72",
+        "section_name": "Tabla 4.1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 27,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Tabla 4.1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "The capacity of an unprotected stair for ascending evacuation is determined by its width.",
+      "attributes": {
+        "id": "e43b179d-3465-4f7f-8561-395781682701",
+        "parent_section_id": "3f36dba2b39c5b72",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The capacity of an unprotected stair for ascending evacuation must comply with the values specified in Table 4.1.",
+        "applies_if": "STAIR.TYPE == 'UNPROTECTED' AND EVACUATION.DIRECTION == 'ASCENDING'",
+        "satisfied_if": "(\nSTAIR.WIDTH == 1.00 AND STAIR.CAPACITY == 132\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.CAPACITY == 145\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.CAPACITY == 158\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.CAPACITY == 171\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.CAPACITY == 184\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.CAPACITY == 198\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.CAPACITY == 211\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.CAPACITY == 224\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.CAPACITY == 237\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.CAPACITY == 250\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.CAPACITY == 264\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.CAPACITY == 277\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.CAPACITY == 290\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.CAPACITY == 303\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.CAPACITY == 316\n)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIR.TYPE.UNPROTECTED",
+          "EVACUATION.DIRECTION.ASCENDING",
+          "STAIR.WIDTH",
+          "STAIR.CAPACITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 4.1"
+          ]
+        },
+        "extracted_parameters": [
+          "STAIR.WIDTH",
+          "STAIR.CAPACITY"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Values are directly from Table 4.1 for 'Escalera no protegida' and 'Evacuación ascendente(2)'",
+        "section_name": "Tabla 4.1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3f36dba2b39c5b72",
+        "section_name": "Tabla 4.1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 27,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Tabla 4.1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "The capacity of an unprotected stair for descending evacuation is determined by its width.",
+      "attributes": {
+        "id": "11986423-8888-4666-9999-123456789012",
+        "parent_section_id": "3f36dba2b39c5b72",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The capacity of an unprotected stair for descending evacuation must comply with the values specified in Table 4.1.",
+        "applies_if": "STAIR.TYPE == 'UNPROTECTED' AND EVACUATION.DIRECTION == 'DESCENDING'",
+        "satisfied_if": "(\nSTAIR.WIDTH == 1.00 AND STAIR.CAPACITY == 160\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.CAPACITY == 176\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.CAPACITY == 192\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.CAPACITY == 208\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.CAPACITY == 224\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.CAPACITY == 240\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.CAPACITY == 256\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.CAPACITY == 272\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.CAPACITY == 288\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.CAPACITY == 304\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.CAPACITY == 320\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.CAPACITY == 336\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.CAPACITY == 352\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.CAPACITY == 368\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.CAPACITY == 384\n)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIR.TYPE.UNPROTECTED",
+          "EVACUATION.DIRECTION.DESCENDING",
+          "STAIR.WIDTH",
+          "STAIR.CAPACITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 4.1"
+          ]
+        },
+        "extracted_parameters": [
+          "STAIR.WIDTH",
+          "STAIR.CAPACITY"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Values are directly from Table 4.1 for 'Escalera no protegida' and 'Evacuación descendente'",
+        "section_name": "Tabla 4.1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3f36dba2b39c5b72",
+        "section_name": "Tabla 4.1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 27,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Tabla 4.1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "The capacity of a protected stair for evacuation (descending or ascending) is determined by its width and the number of floors.",
+      "attributes": {
+        "id": "c34d567e-9012-4f5f-6789-abcdef012345",
+        "parent_section_id": "3f36dba2b39c5b72",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The capacity of a protected stair for evacuation (descending or ascending) must comply with the values specified in Table 4.1.",
+        "applies_if": "STAIR.TYPE == 'PROTECTED' AND (EVACUATION.DIRECTION == 'DESCENDING' OR EVACUATION.DIRECTION == 'ASCENDING')",
+        "satisfied_if": "(\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 224\n) OR (\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 288\n) OR (\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 352\n) OR (\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 416\n) OR (\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 480\n) OR (\nSTAIR.WIDTH == 1.00 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (480 + (STAIR.NUMBER_OF_FLOORS - 10) * 32))\n; OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 248\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 320\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 392\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 464\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 536\n) OR (\nSTAIR.WIDTH == 1.10 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (536 + (STAIR.NUMBER_OF_FLOORS - 10) * 36))\n; OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 274\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 356\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 438\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 520\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 602\n) OR (\nSTAIR.WIDTH == 1.20 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (602 + (STAIR.NUMBER_OF_FLOORS - 10) * 41))\n; OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 302\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 396\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 490\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 584\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 678\n) OR (\nSTAIR.WIDTH == 1.30 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (678 + (STAIR.NUMBER_OF_FLOORS - 10) * 47))\n; OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 328\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 432\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 536\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 640\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 744\n) OR (\nSTAIR.WIDTH == 1.40 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (744 + (STAIR.NUMBER_OF_FLOORS - 10) * 52))\n; OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 356\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 472\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 588\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 704\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 820\n) OR (\nSTAIR.WIDTH == 1.50 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (820 + (STAIR.NUMBER_OF_FLOORS - 10) * 58))\n; OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 384\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 512\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 640\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 768\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 896\n) OR (\nSTAIR.WIDTH == 1.60 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (896 + (STAIR.NUMBER_OF_FLOORS - 10) * 64))\n; OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 414\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 556\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 698\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 840\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 982\n) OR (\nSTAIR.WIDTH == 1.70 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (982 + (STAIR.NUMBER_OF_FLOORS - 10) * 71))\n; OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 442\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 596\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 750\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 904\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1058\n) OR (\nSTAIR.WIDTH == 1.80 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1058 + (STAIR.NUMBER_OF_FLOORS - 10) * 77))\n; OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 472\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 640\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 808\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 976\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1144\n) OR (\nSTAIR.WIDTH == 1.90 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1144 + (STAIR.NUMBER_OF_FLOORS - 10) * 84))\n; OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 504\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 688\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 872\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 1056\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1240\n) OR (\nSTAIR.WIDTH == 2.00 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1240 + (STAIR.NUMBER_OF_FLOORS - 10) * 92))\n; OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 534\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 732\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 930\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 1128\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1326\n) OR (\nSTAIR.WIDTH == 2.10 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1326 + (STAIR.NUMBER_OF_FLOORS - 10) * 99))\n; OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 566\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 780\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 994\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 1208\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1422\n) OR (\nSTAIR.WIDTH == 2.20 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1422 + (STAIR.NUMBER_OF_FLOORS - 10) * 107))\n; OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 598\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 828\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 1058\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 1288\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1518\n) OR (\nSTAIR.WIDTH == 2.30 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1518 + (STAIR.NUMBER_OF_FLOORS - 10) * 115))\n; OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS == 2 AND STAIR.CAPACITY == 630\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS == 4 AND STAIR.CAPACITY == 876\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS == 6 AND STAIR.CAPACITY == 1122\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS == 8 AND STAIR.CAPACITY == 1368\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS == 10 AND STAIR.CAPACITY == 1614\n) OR (\nSTAIR.WIDTH == 2.40 AND STAIR.NUMBER_OF_FLOORS > 10 AND STAIR.CAPACITY == (1614 + (STAIR.NUMBER_OF_FLOORS - 10) * 123))\n",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIR.TYPE.PROTECTED",
+          "EVACUATION.DIRECTION.DESCENDING",
+          "EVACUATION.DIRECTION.ASCENDING",
+          "STAIR.WIDTH",
+          "STAIR.NUMBER_OF_FLOORS",
+          "STAIR.CAPACITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 4.1"
+          ]
+        },
+        "extracted_parameters": [
+          "STAIR.WIDTH",
+          "STAIR.NUMBER_OF_FLOORS",
+          "STAIR.CAPACITY"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Values are directly from Table 4.1 for 'Escalera protegida (evacuación descendente o ascendente)(1)'. The '+X' values for 'cada planta más' are interpreted as an increment for each floor beyond 10 floors.",
+        "section_name": "Tabla 4.1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3f36dba2b39c5b72",
+        "section_name": "Tabla 4.1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 27,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Tabla 4.1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 4.1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1469
+}

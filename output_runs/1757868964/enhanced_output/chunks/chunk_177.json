@@ -1,0 +1,921 @@
+{
+  "chunk_id": 177,
+  "section_metadata": {
+    "section_id": "b3cff89cbf874ae0",
+    "section_name": "E.4.2.1 Uniones no protegidas",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 79,
+    "end_page": 79,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.4 Uniones",
+      "E.4.2 Uniones con piezas laterales de madera",
+      "E.4.2.1 Uniones no protegidas"
+    ],
+    "parent_section_id": "ff30c52be18e2e93",
+    "positioning_data": [
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          31
+        ],
+        "bbox": {
+          "l": 237.23899841308594,
+          "t": 769.3720092773438,
+          "r": 372.02801513671875,
+          "b": 762.7210083007812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla E.4. Factor de conversión"
+      },
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          11
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 666.7147827148438,
+          "r": 160.87136840820312,
+          "b": 656.465576171875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.4 Uniones"
+      },
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          19
+        ],
+        "bbox": {
+          "l": 71.81999969482422,
+          "t": 631.0360107421875,
+          "r": 188.46798706054688,
+          "b": 622.16796875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.4.1 Generalidades"
+      },
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          405
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 609.5512084960938,
+          "r": 538.3079223632812,
+          "b": 554.2979125976562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+      },
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          115
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 546.0411987304688,
+          "r": 537.7535400390625,
+          "b": 525.268310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.4.2.1 Uniones no protegidas\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.4 Uniones → E.4.2 Uniones con piezas laterales de madera → E.4.2.1 Uniones no protegidas\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Uniones, Uniones, Con, Piezas, Laterales, Madera, Uniones, Protegidas\n**Pages:** 79-79\n\n\n1 Mediante la tabla E.5 puede obtenerse la resistencia al fuego de uniones no protegidas entre madera y madera, cuyas separaciones, distancias entre elementos de fijación y espesor de la pieza lateral cumplan los requisitos mínimos definidos en el capítulo 8 del DB-SE-M.\nTabla E.5. Resistencia al fuego de uniones no protegidas con piezas laterales de madera\n(1)\nd es el diámetro de la clavija\n(2) t 1 es el espesor de la pieza lateral\n2 En uniones realizadas con pasadores, clavos o tirafondos en los que la cabeza no sobresalga de la superficie de la pieza, pueden considerarse resistencias al fuego superiores a las indicados en la tabla E.5 si se incrementa el espesor, la longitud y el ancho de las piezas laterales, así como las distancias a la testa y a los bordes desde los elementos de fijación, una cantidad afi, definida por la siguiente expresión:\nsiendo:\nn velocidad de carbonización nominal de cálculo de la madera según tabla E.1.\nkflux coeficiente que tiene en cuenta el incremento del flujo de calor a través del elemento de fijación. Puede tomarse igual a 1,5.\nt req tiempo requerido de resistencia al fuego, en minutos. Esta formulación no es válida resistencias al fuego superiores a 30 minutos\n79\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\ntfi,d tiempo de resistencia al fuego de la unión no protegida de acuerdo con la tabla E.5.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Mediante la tabla E.5 puede obtenerse la resistencia al fuego de uniones no protegidas entre madera y madera, cuyas separaciones, distancias entre elementos de fijación y espesor de la pieza lateral cumplan los requisitos mínimos definidos en el capítulo 8 del DB-SE-M.\nTabla E.5. Resistencia al fuego de uniones no protegidas con piezas laterales de madera\n(1)\nd es el diámetro de la clavija\n(2) t 1 es el espesor de la pieza lateral",
+      "attributes": {
+        "id": "e421_1",
+        "meta_summary": "Provides a method to determine the fire resistance of unprotected wood-to-wood connections using Table E.5, provided certain minimum requirements from DB-SE-M Chapter 8 are met.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB-SE-M"
+        ],
+        "referenced_documents_sections": [
+          "DB-SE-M.CHAPTER.8"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 363,
+        "end_pos": 799
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 93,
+        "end_index": 192
+      },
+      "section_metadata": {
+        "section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas"
+        ],
+        "parent_section_id": "ff30c52be18e2e93",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Mediante la tabla E.5 puede obtenerse la resistencia al fuego de uniones no protegidas entre madera y madera, cuyas separaciones, distancias entre elementos de fijación y espesor de la pieza lateral cumplan los requisitos mínimos definidos en el capítulo 8 del DB-SE-M.",
+      "attributes": {
+        "id": "e421_proc_1",
+        "parent_section_id": "b3cff89cbf874ae0",
+        "Procedure": "To obtain the fire resistance of unprotected wood-to-wood connections, use Table E.5, provided that the separations, distances between fastening elements, and side piece thickness meet the minimum requirements defined in Chapter 8 of DB-SE-M.",
+        "target_reference": [
+          "Table E.5"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.CONNECTIONS",
+          "UNPROTECTED.CONNECTIONS",
+          "CALCULATION.METHOD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 358,
+        "end_pos": 632
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 92,
+        "end_index": 149
+      },
+      "section_metadata": {
+        "section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas"
+        ],
+        "parent_section_id": "ff30c52be18e2e93",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "2 En uniones realizadas con pasadores, clavos o tirafondos en los que la cabeza no sobresalga de la superficie de la pieza, pueden considerarse resistencias al fuego superiores a las indicados en la tabla E.5 si se incrementa el espesor, la longitud y el ancho de las piezas laterales, así como las distancias a la testa y a los bordes desde los elementos de fijación, una cantidad afi, definida por la siguiente expresión:\nsiendo:\nn velocidad de carbonización nominal de cálculo de la madera según tabla E.1.\nkflux coeficiente que tiene en cuenta el incremento del flujo de calor a través del elemento de fijación. Puede tomarse igual a 1,5.\nt req tiempo requerido de resistencia al fuego, en minutos. Esta formulación no es válida resistencias al fuego superiores a 30 minutos\n79\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\ntfi,d tiempo de resistencia al fuego de la unión no protegida de acuerdo con la tabla E.5.",
+      "attributes": {
+        "id": "e421_2",
+        "meta_summary": "Describes how to achieve higher fire resistance for unprotected connections (pins, nails, screws) by increasing the dimensions of side pieces and distances from fasteners, using a specific formula, but limited to fire resistances not exceeding 30 minutes.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FIRE.RESISTANCE.REQUIRED > 30",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 800,
+        "end_pos": 1772
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 192,
+        "end_index": 408
+      },
+      "section_metadata": {
+        "section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas"
+        ],
+        "parent_section_id": "ff30c52be18e2e93",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En uniones realizadas con pasadores, clavos o tirafondos en los que la cabeza no sobresalga de la superficie de la pieza, pueden considerarse resistencias al fuego superiores a las indicados en la tabla E.5 si se incrementa el espesor, la longitud y el ancho de las piezas laterales, así como las distancias a la testa y a los bordes desde los elementos de fijación, una cantidad afi, definida por la siguiente expresión:\nsiendo:\nn velocidad de carbonización nominal de cálculo de la madera según tabla E.1.\nkflux coeficiente que tiene en cuenta el incremento del flujo de calor a través del elemento de fijación. Puede tomarse igual a 1,5.\nt req tiempo requerido de resistencia al fuego, en minutos. Esta formulación no es válida resistencias al fuego superiores a 30 minutos\ntfi,d tiempo de resistencia al fuego de la unión no protegida de acuerdo con la tabla E.5.",
+      "attributes": {
+        "id": "e421_proc_2",
+        "parent_section_id": "b3cff89cbf874ae0",
+        "Procedure": "For connections made with pins, nails, or screws where the head does not protrude from the surface of the piece, higher fire resistances than those indicated in Table E.5 can be considered if the thickness, length, and width of the side pieces are increased, as well as the distances to the end and edges from the fastening elements, by an amount 'afi', defined by the given expression. The expression uses 'βn' (nominal charring rate from Table E.1), 'kflux' (heat flux increase coefficient, taken as 1.5), 't req' (required fire resistance time in minutes), and 'tfi,d' (unprotected connection fire resistance time from Table E.5). This formulation is not valid for fire resistances exceeding 30 minutes.",
+        "target_reference": [
+          "Table E.5",
+          "Table E.1"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.CONNECTIONS",
+          "UNPROTECTED.CONNECTIONS",
+          "CALCULATION.METHOD",
+          "DESIGN.PARAMETERS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 802,
+        "end_pos": 1743
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 193,
+        "end_index": 399
+      },
+      "section_metadata": {
+        "section_id": "b3cff89cbf874ae0",
+        "section_name": "E.4.2.1 Uniones no protegidas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas"
+        ],
+        "parent_section_id": "ff30c52be18e2e93",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 237.23899841308594,
+              "t": 769.3720092773438,
+              "r": 372.02801513671875,
+              "b": 762.7210083007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.4. Factor de conversión"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              11
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 666.7147827148438,
+              "r": 160.87136840820312,
+              "b": 656.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4 Uniones"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 631.0360107421875,
+              "r": 188.46798706054688,
+              "b": 622.16796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.1 Generalidades"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              405
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 609.5512084960938,
+              "r": 538.3079223632812,
+              "b": 554.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este apartado se tratan las uniones entre elementos expuestos a la acción representada por la c"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              115
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 546.0411987304688,
+              "r": 537.7535400390625,
+              "b": 525.268310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1772
+}

@@ -1,0 +1,341 @@
+{
+  "chunk_id": 186,
+  "section_metadata": {
+    "section_id": "a01073223ad0166b",
+    "section_name": "E.5.2 Otros elementos",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 83,
+    "end_page": 83,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.5 Disposiciones constructivas",
+      "E.5.2 Otros elementos"
+    ],
+    "parent_section_id": "8d9ccdda59e2ff48",
+    "positioning_data": [
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          31
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 768.1925659179688,
+          "r": 295.5711364746094,
+          "b": 755.3881225585938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5 Disposiciones constructivas"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          22
+        ],
+        "bbox": {
+          "l": 71.81999969482422,
+          "t": 732.43603515625,
+          "r": 202.2919921875,
+          "b": 721.1920166015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5.1 Muros y forjados"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          34
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 704.1012573242188,
+          "r": 243.05096435546875,
+          "b": 694.8583374023438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5.1.1 Dimensiones y separaciones"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          111
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 684.5108642578125,
+          "r": 538.4279174804688,
+          "b": 663.7678833007812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          79
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 655.5111694335938,
+          "r": 425.6928405761719,
+          "b": 646.3678588867188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.5.2 Otros elementos\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.5 Disposiciones constructivas → E.5.2 Otros elementos\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Disposiciones, Constructivas, Otros, Elementos\n**Pages:** 83-83\n\n\n1 Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.\n83\nDocumento Básico SI en caso de Incendio\nAnejo E. Resistencia al fuego de las estructuras de madera\nFigura E.7. Ejemplos de fijaciones para los tableros de protección\na)\nb)\nc)",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los tableros utilizados como protección de elementos estructurales tales como vigas y soportes deben fijarse a los elementos de acuerdo con las indicaciones siguientes. Los tableros deben fijarse directamente al elemento y no a otro tablero. En los revestimientos consistentes en múltiples capas de tableros, cada capa debe fijarse individualmente, y las juntas deben desfasarse al menos 60 mm. La separación entre los elementos de fijación no debe ser mayor que el menor de los valores siguientes: 200 mm. o 17 veces el espesor del tablero hp. En relación a la longitud del elemento de fijación, se aplicará lo indicado en el párrafo 2 del apartado E.5.1.2., véase figura E.7 b). La distancia al borde no debe ser mayor que 3 veces el espesor del tablero hp, ni menor que 1,5 veces el espesor del tablero ó 15 mm., eligiendo el menor valor de ambos.",
+      "attributes": {
+        "id": "e52_1_norm_1",
+        "parent_section_id": "a01073223ad0166b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Boards used as protection for structural elements such as beams and supports must be fixed to the elements according to the following indications. Boards must be fixed directly to the element and not to another board. In multi-layer board coverings, each layer must be fixed individually, and joints must be offset by at least 60 mm. The separation between fixing elements must not be greater than the lesser of the following values: 200 mm or 17 times the thickness of the board (hp). Regarding the length of the fixing element, what is indicated in paragraph 2 of section E.5.1.2 must be applied, see figure E.7 b). The distance to the edge must not be greater than 3 times the thickness of the board (hp), nor less than 1.5 times the thickness of the board or 15 mm, choosing the lesser of both values.",
+        "applies_if": "STRUCTURAL_ELEMENT.TYPE IN ['BEAM', 'SUPPORT'] AND BOARD.USAGE == 'PROTECTION'",
+        "satisfied_if": "BOARD.FIXING.METHOD == 'DIRECT_TO_ELEMENT' AND BOARD.FIXING.METHOD != 'TO_OTHER_BOARD' AND (BOARD.LAYER.COUNT > 1 => BOARD.LAYER.EACH.FIXING.METHOD == 'INDIVIDUAL' AND BOARD.JOINT.OFFSET >= 60) AND BOARD.FIXING_ELEMENT.SEPARATION <= MIN(200, 17 * BOARD.THICKNESS) AND BOARD.FIXING_ELEMENT.LENGTH.COMPLIES_WITH('E.5.1.2.PARAGRAPH.2') AND BOARD.EDGE.DISTANCE <= (3 * BOARD.THICKNESS) AND BOARD.EDGE.DISTANCE >= MIN(1.5 * BOARD.THICKNESS, 15)",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "relevant_tags": [
+          "STRUCTURAL_ELEMENT.TYPE.BEAM",
+          "STRUCTURAL_ELEMENT.TYPE.SUPPORT",
+          "BOARD.USAGE.PROTECTION",
+          "BOARD.FIXING.METHOD",
+          "BOARD.LAYER.COUNT",
+          "BOARD.JOINT.OFFSET",
+          "BOARD.FIXING_ELEMENT.SEPARATION",
+          "BOARD.THICKNESS",
+          "BOARD.FIXING_ELEMENT.LENGTH",
+          "BOARD.EDGE.DISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 801,
+          "visual_refs": [
+            "Figure E.7 b)"
+          ]
+        },
+        "extracted_parameters": [
+          "BOARD.JOINT.OFFSET >= 60 mm",
+          "BOARD.FIXING_ELEMENT.SEPARATION <= 200 mm",
+          "BOARD.FIXING_ELEMENT.SEPARATION <= 17 * BOARD.THICKNESS",
+          "BOARD.EDGE.DISTANCE <= 3 * BOARD.THICKNESS",
+          "BOARD.EDGE.DISTANCE >= 1.5 * BOARD.THICKNESS",
+          "BOARD.EDGE.DISTANCE >= 15 mm"
+        ],
+        "confidence": 0.95,
+        "section_name": "E.5.2 Otros elementos",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.1925659179688,
+              "r": 295.5711364746094,
+              "b": 755.3881225585938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5 Disposiciones constructivas"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 732.43603515625,
+              "r": 202.2919921875,
+              "b": 721.1920166015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1 Muros y forjados"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 704.1012573242188,
+              "r": 243.05096435546875,
+              "b": 694.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1.1 Dimensiones y separaciones"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              111
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 684.5108642578125,
+              "r": 538.4279174804688,
+              "b": 663.7678833007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              79
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 655.5111694335938,
+              "r": 425.6928405761719,
+              "b": 646.3678588867188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 299,
+        "end_pos": 1149
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 69,
+        "end_index": 255
+      },
+      "section_metadata": {
+        "section_id": "a01073223ad0166b",
+        "section_name": "E.5.2 Otros elementos",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos"
+        ],
+        "parent_section_id": "8d9ccdda59e2ff48",
+        "positioning_data": [
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.1925659179688,
+              "r": 295.5711364746094,
+              "b": 755.3881225585938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5 Disposiciones constructivas"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 732.43603515625,
+              "r": 202.2919921875,
+              "b": 721.1920166015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1 Muros y forjados"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 704.1012573242188,
+              "r": 243.05096435546875,
+              "b": 694.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1.1 Dimensiones y separaciones"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              111
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 684.5108642578125,
+              "r": 538.4279174804688,
+              "b": 663.7678833007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              79
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 655.5111694335938,
+              "r": 425.6928405761719,
+              "b": 646.3678588867188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 1327
+}

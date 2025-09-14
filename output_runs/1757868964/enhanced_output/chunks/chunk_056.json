@@ -1,0 +1,1862 @@
+{
+  "chunk_id": 56,
+  "section_metadata": {
+    "section_id": "c2b78b23fc28e35b",
+    "section_name": "2 Accesibilidad por fachada",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 37,
+    "end_page": 37,
+    "toc_path": [
+      "Sección SI 5 Intervención de los bomberos",
+      "2 Accesibilidad por fachada"
+    ],
+    "parent_section_id": "6e34e6faab005b13",
+    "positioning_data": [
+      {
+        "page_no": 37,
+        "charspan": [
+          0,
+          336
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 768.78125,
+          "r": 538.3079223632812,
+          "b": 725.2078857421875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+      },
+      {
+        "page_no": 37,
+        "charspan": [
+          0,
+          216
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 716.9108276367188,
+          "r": 537.7659912109375,
+          "b": 686.5104370117188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+      },
+      {
+        "page_no": 37,
+        "charspan": [
+          0,
+          170
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 676.4708862304688,
+          "r": 537.6913452148438,
+          "b": 657.5904541015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+      },
+      {
+        "page_no": 37,
+        "charspan": [
+          0,
+          109
+        ],
+        "bbox": {
+          "l": 71.32247924804688,
+          "t": 647.4308471679688,
+          "r": 538.3079223632812,
+          "b": 626.5783081054688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+      },
+      {
+        "page_no": 37,
+        "charspan": [
+          0,
+          251
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 618.3908081054688,
+          "r": 538.3079223632812,
+          "b": 585.9883422851562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 2 Accesibilidad por fachada\n**Path:** Sección SI 5 Intervención de los bomberos → 2 Accesibilidad por fachada\n**Level:** 2\n**Tags:** SI5, Intervención, Los, Bomberos, Accesibilidad, Por, Fachada\n**Pages:** 37-37\n\n\n1 Las fachadas a las que se hace referencia en el apartado 1.2 deben disponer de huecos que permitan el acceso desde el exterior al personal del servicio de extinción de incendios. Dichos huecos deben cumplir las condiciones siguientes:\nFacilitar el acceso a cada una de las plantas del edificio, de forma que la altura del alféizar respecto del nivel de la planta a la que accede no sea mayor que 1,20 m;\nSus dimensiones horizontal y vertical deben ser, al menos, 0,80 m y 1,20 m respectivamente. La distancia máxima entre los ejes verticales de dos huecos consecutivos no debe exceder de 25 m, medida sobre la fachada;\nNo se deben instalar en fachada elementos que impidan o dificulten la accesibilidad al interior del edificio a través de dichos huecos, a excepción de los elementos de seguridad situados en los huecos de las plantas cuya altura de evacuación no exceda de 9 m.\n2 Los aparcamientos robotizados dispondrán, en cada sector de incendios en que estén compartimentados, de una vía compartimentada con elementos EI 120 y puertas EI2 60-C5 que permita el acceso de los bomberos hasta cada nivel existente, así como de un sistema mecánico de extracción de humo capaz realizar 3 renovaciones/hora .\n37\nDocumento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura\nSección SI 6 Resistencia al fuego de la estructura",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las fachadas a las que se hace referencia en el apartado 1.2 deben disponer de huecos que permitan el acceso desde el exterior al personal del servicio de extinción de incendios.",
+      "attributes": {
+        "id": "e023247d-0820-4354-8260-2974558e2448",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Facades referenced in section 1.2 must have openings that allow access from the exterior for fire extinguishing service personnel.",
+        "applies_if": "HAS(FACADE.OPENING)",
+        "satisfied_if": "FACADE.OPENING.ALLOWS_EXTERNAL_ACCESS_FOR_FIRE_PERSONNEL == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FACADE.OPENING",
+          "FIRE.ACCESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 121,
+          "span_char_end": 260,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 227,
+        "end_pos": 405
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 56,
+        "end_index": 92
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Dichos huecos deben cumplir las condiciones siguientes: Facilitar el acceso a cada una de las plantas del edificio, de forma que la altura del alféizar respecto del nivel de la planta a la que accede no sea mayor que 1,20 m;",
+      "attributes": {
+        "id": "27017c60-848e-4911-857c-25547432822a",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Openings must facilitate access to each floor of the building, such that the sill height relative to the floor level it accesses is not greater than 1.20 m.",
+        "applies_if": "HAS(FACADE.OPENING)",
+        "satisfied_if": "FACADE.OPENING.SILL_HEIGHT_TO_FLOOR_LEVEL <= 1.20",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FACADE.OPENING",
+          "SILL.HEIGHT",
+          "FLOOR.LEVEL",
+          "FIRE.ACCESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 262,
+          "span_char_end": 427,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "extracted_parameters": [
+          "FACADE.OPENING.SILL_HEIGHT_TO_FLOOR_LEVEL <= 1.20 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 406,
+        "end_pos": 630
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 92,
+        "end_index": 140
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sus dimensiones horizontal y vertical deben ser, al menos, 0,80 m y 1,20 m respectivamente.",
+      "attributes": {
+        "id": "22934141-2679-450f-9038-067223b7b43a",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The horizontal and vertical dimensions of the openings must be at least 0.80 m and 1.20 m respectively.",
+        "applies_if": "HAS(FACADE.OPENING)",
+        "satisfied_if": "FACADE.OPENING.DIMENSION.HORIZONTAL >= 0.80 AND FACADE.OPENING.DIMENSION.VERTICAL >= 1.20",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FACADE.OPENING",
+          "DIMENSION.HORIZONTAL",
+          "DIMENSION.VERTICAL",
+          "FIRE.ACCESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 429,
+          "span_char_end": 526,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "extracted_parameters": [
+          "FACADE.OPENING.DIMENSION.HORIZONTAL >= 0.80 m",
+          "FACADE.OPENING.DIMENSION.VERTICAL >= 1.20 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 631,
+        "end_pos": 722
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 140,
+        "end_index": 162
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La distancia máxima entre los ejes verticales de dos huecos consecutivos no debe exceder de 25 m, medida sobre la fachada;",
+      "attributes": {
+        "id": "5524855f-8647-488d-a419-79250009403f",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum distance between the vertical axes of two consecutive openings must not exceed 25 m, measured on the facade.",
+        "applies_if": "HAS(FACADE.OPENING) AND FACADE.OPENING.COUNT >= 2",
+        "satisfied_if": "FACADE.OPENING.DISTANCE.VERTICAL_AXIS.MAX <= 25",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FACADE.OPENING",
+          "DISTANCE.VERTICAL_AXIS",
+          "FIRE.ACCESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 528,
+          "span_char_end": 643,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "extracted_parameters": [
+          "FACADE.OPENING.DISTANCE.VERTICAL_AXIS.MAX <= 25 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 723,
+        "end_pos": 845
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 162,
+        "end_index": 187
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No se deben instalar en fachada elementos que impidan o dificulten la accesibilidad al interior del edificio a través de dichos huecos, a excepción de los elementos de seguridad situados en los huecos de las plantas cuya altura de evacuación no exceda de 9 m.",
+      "attributes": {
+        "id": "4020a108-723a-446a-8526-78531061917f",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Elements that impede or hinder accessibility to the interior of the building through these openings must not be installed on the facade.",
+        "applies_if": "HAS(FACADE.OPENING)",
+        "satisfied_if": "FACADE.OPENING.OBSTRUCTION_ELEMENTS.PRESENCE == FALSE",
+        "exempt_if": "FACADE.OPENING.OBSTRUCTION_ELEMENTS.TYPE == 'SECURITY' AND FLOOR.EVACUATION_HEIGHT <= 9",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FACADE.OPENING",
+          "OBSTRUCTION.ELEMENTS",
+          "FIRE.ACCESS",
+          "EVACUATION.HEIGHT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 645,
+          "span_char_end": 894,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "extracted_parameters": [
+          "FLOOR.EVACUATION_HEIGHT <= 9 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 846,
+        "end_pos": 1105
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 187,
+        "end_index": 240
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los aparcamientos robotizados dispondrán, en cada sector de incendios en que estén compartimentados, de una vía compartimentada con elementos EI 120 y puertas EI2 60-C5 que permita el acceso de los bomberos hasta cada nivel existente, así como de un sistema mecánico de extracción de humo capaz realizar 3 renovaciones/hora .",
+      "attributes": {
+        "id": "2916964c-6238-4221-8289-54854581297e",
+        "parent_section_id": "c2b78b23fc28e35b",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Robotic car parks must have, in each fire sector in which they are compartmentalized, a compartmentalized route with EI 120 elements and EI2 60-C5 doors that allows access for firefighters to each existing level, as well as a mechanical smoke extraction system capable of performing 3 air changes per hour.",
+        "applies_if": "USAGE == 'PARKING' AND PARKING.TYPE == 'ROBOTIZED'",
+        "satisfied_if": "FIRE_SECTOR.COMPARTMENTED_ROUTE.HAS_EI120_ELEMENTS == TRUE AND FIRE_SECTOR.COMPARTMENTED_ROUTE.HAS_EI2_60_C5_DOORS == TRUE AND FIRE_SECTOR.COMPARTMENTED_ROUTE.ALLOWS_FIREFIGHTER_ACCESS_TO_ALL_LEVELS == TRUE AND SMOKE_EXTRACTION_SYSTEM.MECHANICAL.AIR_CHANGES_PER_HOUR >= 3",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "USAGE": [
+            "PARKING"
+          ]
+        },
+        "relevant_tags": [
+          "PARKING.ROBOTIZED",
+          "FIRE.SECTOR",
+          "COMPARTMENTED.ROUTE",
+          "FIRE.RESISTANCE.EI120",
+          "FIRE.RESISTANCE.EI2_60_C5",
+          "FIREFIGHTER.ACCESS",
+          "SMOKE.EXTRACTION.SYSTEM.MECHANICAL",
+          "AIR.CHANGES.PER.HOUR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 896,
+          "span_char_end": 1206,
+          "visual_refs": [
+            "Pages: 37-37"
+          ]
+        },
+        "extracted_parameters": [
+          "SMOKE_EXTRACTION_SYSTEM.MECHANICAL.AIR_CHANGES_PER_HOUR >= 3"
+        ],
+        "confidence": 1.0,
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1108,
+        "end_pos": 1433
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 241,
+        "end_index": 310
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 2 Accesibilidad por fachada\nPath: Sección SI 5 Intervención de los bomberos → 2 Accesibilidad por fachada\nLevel: 2\nTags: SI5, Intervención, Los, Bomberos, Accesibilidad, Por, Fachada\nPages: 37-37",
+      "attributes": {
+        "id": "2 Accesibilidad por fachada",
+        "meta_summary": "This section details the requirements for facade openings to ensure accessibility for fire extinguishing services and specific provisions for robotic car parks.",
+        "meta_applies_if": "TRUE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [
+          "Sección SI 5 Intervención de los bomberos"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "quality": {
+          "confidence": 0.9,
+          "errors": [],
+          "warnings": []
+        },
+        "parent_section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 222
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 55
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Documento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura\nSección SI 6 Resistencia al fuego de la estructura",
+      "attributes": {
+        "id": "Sección SI 6 Resistencia al fuego de la estructura",
+        "meta_summary": "This section refers to the basic document SI on fire safety, specifically addressing the fire resistance of structures.",
+        "meta_applies_if": "TRUE",
+        "referenced_documents": [
+          "Documento Básico SI en caso de Incendio"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "quality": {
+          "confidence": 0.9,
+          "errors": [],
+          "warnings": []
+        },
+        "parent_section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1437,
+        "end_pos": 1571
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 311,
+        "end_index": 340
+      },
+      "section_metadata": {
+        "section_id": "c2b78b23fc28e35b",
+        "section_name": "2 Accesibilidad por fachada",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 37,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos",
+          "2 Accesibilidad por fachada"
+        ],
+        "parent_section_id": "6e34e6faab005b13",
+        "positioning_data": [
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              336
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.78125,
+              "r": 538.3079223632812,
+              "b": 725.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 El espacio de maniobra debe mantenerse libre de mobiliario urbano, arbolado, jardines, mojones u o"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.9108276367188,
+              "r": 537.7659912109375,
+              "b": 686.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En el caso de que el edificio esté equipado con columna seca debe haber acceso para un equipo de b"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 676.4708862304688,
+              "r": 537.6913452148438,
+              "b": 657.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "5 En las vías de acceso sin salida de más de 20 m de largo se dispondrá de un espacio suficiente par"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 647.4308471679688,
+              "r": 538.3079223632812,
+              "b": 626.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 En zonas edificadas limítrofes o interiores a áreas forestales, deben cumplirse las condiciones si"
+          },
+          {
+            "page_no": 37,
+            "charspan": [
+              0,
+              251
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 618.3908081054688,
+              "r": 538.3079223632812,
+              "b": 585.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 1571
+}

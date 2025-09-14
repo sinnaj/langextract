@@ -1,0 +1,515 @@
+{
+  "chunk_id": 70,
+  "section_metadata": {
+    "section_id": "7d61210bef1620fc",
+    "section_name": "Atrio",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 43,
+    "end_page": 43,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Atrio"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 43,
+        "charspan": [
+          0,
+          5
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 768.9913330078125,
+          "r": 93.8221206665039,
+          "b": 761.7504272460938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Atrio"
+      },
+      {
+        "page_no": 43,
+        "charspan": [
+          0,
+          269
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 747.5108642578125,
+          "r": 537.9454345703125,
+          "b": 715.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho esp"
+      },
+      {
+        "page_no": 43,
+        "charspan": [
+          0,
+          13
+        ],
+        "bbox": {
+          "l": 71.41211700439453,
+          "t": 688.11083984375,
+          "r": 136.60032653808594,
+          "b": 678.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Caja escénica"
+      },
+      {
+        "page_no": 43,
+        "charspan": [
+          0,
+          291
+        ],
+        "bbox": {
+          "l": 70.98384094238281,
+          "t": 666.5108642578125,
+          "r": 538.2219848632812,
+          "b": 634.1383666992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando u"
+      },
+      {
+        "page_no": 43,
+        "charspan": [
+          0,
+          340
+        ],
+        "bbox": {
+          "l": 71.2627182006836,
+          "t": 618.78125,
+          "r": 538.427978515625,
+          "b": 575.1778564453125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Atrio\n**Path:** Anejo SI A Terminología → Atrio\n**Level:** 2\n**Tags:** Terminología, Atrio\n**Pages:** 43-43\n\n\nEspacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho espacio mediante huecos, ventanas, balcones, pasillos abiertos, etc. Parte del perímetro del atrio puede también estar formado por muros ciegos o por fachadas del edificio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho espacio mediante huecos, ventanas, balcones, pasillos abiertos, etc. Parte del perímetro del atrio puede también estar formado por muros ciegos o por fachadas del edificio.",
+      "attributes": {
+        "id": "e7041793-1817-485e-9a99-526466981881",
+        "meta_summary": "Definition of an Atrium",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "7d61210bef1620fc",
+        "section_name": "Atrio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              5
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 768.9913330078125,
+              "r": 93.8221206665039,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Atrio"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              269
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9454345703125,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho esp"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 136.60032653808594,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Caja escénica"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              291
+            ],
+            "bbox": {
+              "l": 70.98384094238281,
+              "t": 666.5108642578125,
+              "r": 538.2219848632812,
+              "b": 634.1383666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando u"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 618.78125,
+              "r": 538.427978515625,
+              "b": 575.1778564453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 121,
+        "end_pos": 390
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 33,
+        "end_index": 85
+      },
+      "section_metadata": {
+        "section_id": "7d61210bef1620fc",
+        "section_name": "Atrio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Atrio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              5
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 768.9913330078125,
+              "r": 93.8221206665039,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Atrio"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              269
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9454345703125,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho esp"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 136.60032653808594,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Caja escénica"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              291
+            ],
+            "bbox": {
+              "l": 70.98384094238281,
+              "t": 666.5108642578125,
+              "r": 538.2219848632812,
+              "b": 634.1383666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando u"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 618.78125,
+              "r": 538.427978515625,
+              "b": 575.1778564453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "ATRIUM",
+      "attributes": {
+        "id": "27083162-416b-4720-8025-103323098520",
+        "parent_section_id": "7d61210bef1620fc",
+        "classification_type": "DEFINITION",
+        "class_definition": "Open space with a height equivalent to several floors of the building communicated with said space through openings, windows, balconies, open corridors, etc. Part of the atrium's perimeter may also be formed by blind walls or building facades.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "BUILDING.SPACE.ATRIUM",
+          "BUILDING.ELEMENT.OPENING",
+          "BUILDING.ELEMENT.WINDOW",
+          "BUILDING.ELEMENT.BALCONY",
+          "BUILDING.ELEMENT.CORRIDOR.OPEN",
+          "BUILDING.ELEMENT.WALL.BLIND",
+          "BUILDING.ELEMENT.FACADE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Atrio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              5
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 768.9913330078125,
+              "r": 93.8221206665039,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Atrio"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              269
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9454345703125,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho esp"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 136.60032653808594,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Caja escénica"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              291
+            ],
+            "bbox": {
+              "l": 70.98384094238281,
+              "t": 666.5108642578125,
+              "r": 538.2219848632812,
+              "b": 634.1383666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando u"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 618.78125,
+              "r": 538.427978515625,
+              "b": 575.1778564453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7d61210bef1620fc",
+        "section_name": "Atrio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 43,
+        "end_page": 43,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Atrio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              5
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 768.9913330078125,
+              "r": 93.8221206665039,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Atrio"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              269
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9454345703125,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio diáfano con altura equivalente a la de varias plantas del edificio comunicadas con dicho esp"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 136.60032653808594,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Caja escénica"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              291
+            ],
+            "bbox": {
+              "l": 70.98384094238281,
+              "t": 666.5108642578125,
+              "r": 538.2219848632812,
+              "b": 634.1383666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Volumen construido que abarca desde su nivel inferior hasta la cubierta de un edificio conformando u"
+          },
+          {
+            "page_no": 43,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 618.78125,
+              "r": 538.427978515625,
+              "b": 575.1778564453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 390
+}

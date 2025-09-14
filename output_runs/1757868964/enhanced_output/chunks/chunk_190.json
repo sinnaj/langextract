@@ -1,0 +1,1587 @@
+{
+  "chunk_id": 190,
+  "section_metadata": {
+    "section_id": "ac6d95e238c95223",
+    "section_name": "E.6 Adhesivos",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 84,
+    "end_page": 84,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.6 Adhesivos"
+    ],
+    "parent_section_id": "7ff0daefe4139592",
+    "positioning_data": [
+      {
+        "page_no": 84,
+        "charspan": [
+          0,
+          66
+        ],
+        "bbox": {
+          "l": 164.60598754882812,
+          "t": 674.2119750976562,
+          "r": 444.9880065917969,
+          "b": 665.7789916992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+      },
+      {
+        "page_no": 84,
+        "charspan": [
+          0,
+          2
+        ],
+        "bbox": {
+          "l": 177.5494384765625,
+          "t": 688.5131225585938,
+          "r": 184.08792114257812,
+          "b": 680.9796142578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "a)"
+      },
+      {
+        "page_no": 84,
+        "charspan": [
+          0,
+          2
+        ],
+        "bbox": {
+          "l": 284.13262939453125,
+          "t": 688.5131225585938,
+          "r": 290.43792724609375,
+          "b": 680.9796142578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "b)"
+      },
+      {
+        "page_no": 84,
+        "charspan": [
+          0,
+          2
+        ],
+        "bbox": {
+          "l": 390.3835754394531,
+          "t": 688.5131225585938,
+          "r": 396.5378723144531,
+          "b": 680.9796142578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "c)"
+      },
+      {
+        "page_no": 84,
+        "charspan": [
+          0,
+          13
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 627.7147827148438,
+          "r": 176.31536865234375,
+          "b": 617.465576171875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.6 Adhesivos"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: E.6 Adhesivos\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.6 Adhesivos\n**Level:** 2\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Adhesivos\n**Pages:** 84-84\n\n\n1 Los adhesivos para uso estructural deben producir uniones con resistencia y durabilidad tales que la integridad del encolado se mantenga durante el periodo de resistencia al fuego exigido.\n2 Para el encolado de madera con madera, madera con productos derivados de la madera o productos derivados de la madera con productos derivados de la madera, deberán utilizarse adhesivos de tipo fenol -formaldehído y aminoplásticos de tipo 1 de acuerdo con la norma UNE EN 301:2018 y adhesivos para tablero contrachapado y madera microlaminada de acuerdo con la norma UNE EN 3141:2007 y UNE EN 314-2:1994 .\n3 Para el encolado de barras de acero, la temperatura de reblandecimiento del adhesivo deberá determinarse experimentalmente.\n84\nDocumento Básico SI en caso de Incendio Anejo F. Resistencia al fuego de los elementos de fábrica",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los adhesivos para uso estructural deben producir uniones con resistencia y durabilidad tales que la integridad del encolado se mantenga durante el periodo de resistencia al fuego exigido.",
+      "attributes": {
+        "id": "e6a1-1",
+        "parent_section_id": "ac6d95e238c95223",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Adhesives for structural use must produce joints with resistance and durability such that the integrity of the bond is maintained during the required fire resistance period.",
+        "applies_if": "ADHESIVE.USAGE == 'STRUCTURAL'",
+        "satisfied_if": "ADHESIVE.JOINT.RESISTANCE.FIRE == TRUE AND ADHESIVE.JOINT.DURABILITY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ADHESIVE.USAGE.STRUCTURAL",
+          "ADHESIVE.JOINT.RESISTANCE.FIRE",
+          "ADHESIVE.JOINT.DURABILITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 269,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 205,
+        "end_pos": 399
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 79
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Para el encolado de madera con madera, madera con productos derivados de la madera o productos derivados de la madera con productos derivados de la madera, deberán utilizarse adhesivos de tipo fenol -formaldehído y aminoplásticos de tipo 1 de acuerdo con la norma UNE EN 301:2018 y adhesivos para tablero contrachapado y madera microlaminada de acuerdo con la norma UNE EN 3141:2007 y UNE EN 314-2:1994 .",
+      "attributes": {
+        "id": "e6a1-2",
+        "parent_section_id": "ac6d95e238c95223",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For bonding wood to wood, wood to wood-based products, or wood-based products to wood-based products, phenol-formaldehyde and aminoplastic type 1 adhesives must be used in accordance with UNE EN 301:2018, and adhesives for plywood and microlaminated wood in accordance with UNE EN 3141:2007 and UNE EN 314-2:1994.",
+        "applies_if": "BONDING.MATERIAL.TYPE IN ['WOOD.TO.WOOD', 'WOOD.TO.WOOD_DERIVATIVE', 'WOOD_DERIVATIVE.TO.WOOD_DERIVATIVE']",
+        "satisfied_if": "ADHESIVE.TYPE IN ['PHENOL_FORMALDEHYDE', 'AMINOPLASTIC.TYPE_1'] AND ADHESIVE.COMPLIES_WITH.UNE_EN_301_2018 == TRUE AND ADHESIVE.COMPLIES_WITH.UNE_EN_3141_2007 == TRUE AND ADHESIVE.COMPLIES_WITH.UNE_EN_314_2_1994 == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "BONDING.MATERIAL.TYPE.WOOD.TO.WOOD",
+          "BONDING.MATERIAL.TYPE.WOOD.TO.WOOD_DERIVATIVE",
+          "BONDING.MATERIAL.TYPE.WOOD_DERIVATIVE.TO.WOOD_DERIVATIVE",
+          "ADHESIVE.TYPE.PHENOL_FORMALDEHYDE",
+          "ADHESIVE.TYPE.AMINOPLASTIC.TYPE_1",
+          "ADHESIVE.COMPLIANCE.UNE_EN_301_2018",
+          "ADHESIVE.COMPLIANCE.UNE_EN_3141_2007",
+          "ADHESIVE.COMPLIANCE.UNE_EN_314_2_1994"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 270,
+          "span_char_end": 606,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 383,
+        "end_pos": 799
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 76,
+        "end_index": 161
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Para el encolado de barras de acero, la temperatura de reblandecimiento del adhesivo deberá determinarse experimentalmente.",
+      "attributes": {
+        "id": "e6a1-3",
+        "parent_section_id": "ac6d95e238c95223",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For bonding steel bars, the softening temperature of the adhesive must be determined experimentally.",
+        "applies_if": "BONDING.MATERIAL.TYPE == 'STEEL.BARS'",
+        "satisfied_if": "ADHESIVE.SOFTENING_TEMPERATURE.DETERMINED_EXPERIMENTALLY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "BONDING.MATERIAL.TYPE.STEEL.BARS",
+          "ADHESIVE.SOFTENING_TEMPERATURE.EXPERIMENTAL_DETERMINATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 607,
+          "span_char_end": 718,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 808,
+        "end_pos": 933
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 165,
+        "end_index": 185
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal Documents",
+      "extraction_text": "UNE EN 301:2018",
+      "attributes": {
+        "id": "une_en_301_2018",
+        "parent_section_id": "ac6d95e238c95223",
+        "title": "Adhesives, phenolic and aminoplastic, for load-bearing timber structures - Classification and performance requirements",
+        "year": "2018",
+        "type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "articles": [],
+        "sections": [],
+        "uri": null,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 25,
+        "end_pos": 682
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 7,
+        "end_index": 138
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal Documents",
+      "extraction_text": "UNE EN 3141:2007",
+      "attributes": {
+        "id": "une_en_3141_2007",
+        "parent_section_id": "ac6d95e238c95223",
+        "title": "Plywood - Bonding quality - Part 1: Test methods",
+        "year": "2007",
+        "type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "articles": [],
+        "sections": [],
+        "uri": null,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 102,
+        "end_pos": 785
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 25,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal Documents",
+      "extraction_text": "UNE EN 314-2:1994",
+      "attributes": {
+        "id": "une_en_314_2_1994",
+        "parent_section_id": "ac6d95e238c95223",
+        "title": "Plywood - Bonding quality - Part 2: Requirements",
+        "year": "1994",
+        "type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "articles": [],
+        "sections": [],
+        "uri": null,
+        "notes": "",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 641,
+        "end_pos": 805
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 127,
+        "end_index": 164
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "# Section: E.6 Adhesivos\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.6 Adhesivos\n**Level:** 2\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Adhesivos\n**Pages:** 84-84\n\n\n1 Los adhesivos para uso estructural deben producir uniones con resistencia y durabilidad tales que la integridad del encolado se mantenga durante el periodo de resistencia al fuego exigido.\n2 Para el encolado de madera con madera, madera con productos derivados de la madera o productos derivados de la madera con productos derivados de la madera, deberán utilizarse adhesivos de tipo fenol -formaldehído y aminoplásticos de tipo 1 de acuerdo con la norma UNE EN 301:2018 y adhesivos para tablero contrachapado y madera microlaminada de acuerdo con la norma UNE EN 3141:2007 y UNE EN 314-2:1994 .\n3 Para el encolado de barras de acero, la temperatura de reblandecimiento del adhesivo deberá determinarse experimentalmente.\n84\nDocumento Básico SI en caso de Incendio Anejo F. Resistencia al fuego de los elementos de fábrica",
+      "attributes": {
+        "id": "e6",
+        "meta_summary": "This section specifies requirements for adhesives used in structural timber elements to ensure fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE EN 301:2018",
+          "UNE EN 3141:2007",
+          "UNE EN 314-2:1994"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 1034
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 208
+      },
+      "section_metadata": {
+        "section_id": "ac6d95e238c95223",
+        "section_name": "E.6 Adhesivos",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 84,
+        "end_page": 84,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.6 Adhesivos"
+        ],
+        "parent_section_id": "7ff0daefe4139592",
+        "positioning_data": [
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              66
+            ],
+            "bbox": {
+              "l": 164.60598754882812,
+              "t": 674.2119750976562,
+              "r": 444.9880065917969,
+              "b": 665.7789916992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.7. Ejemplos de fijaciones para los tableros de protección"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 177.5494384765625,
+              "t": 688.5131225585938,
+              "r": 184.08792114257812,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "a)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 284.13262939453125,
+              "t": 688.5131225585938,
+              "r": 290.43792724609375,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "b)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 390.3835754394531,
+              "t": 688.5131225585938,
+              "r": 396.5378723144531,
+              "b": 680.9796142578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "c)"
+          },
+          {
+            "page_no": 84,
+            "charspan": [
+              0,
+              13
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 627.7147827148438,
+              "r": 176.31536865234375,
+              "b": 617.465576171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.6 Adhesivos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 7,
+  "char_count": 1034
+}

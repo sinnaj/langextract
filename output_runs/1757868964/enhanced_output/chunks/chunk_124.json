@@ -1,0 +1,105 @@
+{
+  "chunk_id": 124,
+  "section_metadata": {
+    "section_id": "a7f9d40932de3f58",
+    "section_name": "Table 2",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 55,
+    "end_page": 55,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.4 Valor de cálculo de la densidad de carga de fuego",
+      "Table 2"
+    ],
+    "parent_section_id": "057b0e30394bb34a",
+    "positioning_data": [
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 76.46607208251953,
+          "t": 254.39532470703125,
+          "r": 531.8516845703125,
+          "b": 147.04541015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 2"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 2\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.4 Valor de cálculo de la densidad de carga de fuego → Table 2\n**Level:** 3\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Cálculo, Densidad, Carga, Fuego, Table\n**Pages:** 55-55\n\n\n| Actividad | Riesgo de iniciación \r  |\n| --- | --- |\n| Vivienda, Administrativo, Residencial, Docente | 1,00 |\n| Comercial, Aparcamiento, Hospitalario ,  Pública concurrencia | 1,25 |\n| Locales de riesgo especial bajo | 1,25 |\n| Locales de riesgo especial medio | 1,40 |\n| Locales de riesgo especial alto | 1,60 |",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': '1', 'parent_section_id': None, 'classification_type': 'FIRE_INITIATION_RISK', 'classification_name': 'Riesgo de iniciación δ', 'classification_values': [{'value': '1.00', 'applies_if': \"BUILDING.USAGE IN ['RESIDENTIAL.HOUSING', 'ADMINISTRATIVE', 'RESIDENTIAL', 'PUBLIC.EDUCATION']\"}, {'value': '1.25', 'applies_if': \"BUILDING.USAGE IN ['PUBLIC.COMMERCIAL', 'PARKING', 'PUBLIC.HOSPITAL', 'PUBLIC.ASSEMBLY'] OR ROOM.RISK_LEVEL == 'LOW'\"}, {'value': '1.40', 'applies_if': \"ROOM.RISK_LEVEL == 'MEDIUM'\"}, {'value': '1.60', 'applies_if': \"ROOM.RISK_LEVEL == 'HIGH'\"}], 'source': {'span_char_start': 0, 'span_char_end': 401, 'visual_refs': [{'page': 55, 'order': 1}]}, 'location_scope': {'COUNTRY': 'ES'}, 'quality': {'confidence': 0.9, 'uncertainty': 0.05, 'errors': [], 'warnings': []}}",
+      "attributes": {
+        "parent_section_id": "a7f9d40932de3f58",
+        "section_name": "Table 2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "a7f9d40932de3f58",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego",
+          "Table 2"
+        ],
+        "parent_section_id": "057b0e30394bb34a",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 588
+}

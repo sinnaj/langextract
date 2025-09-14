@@ -1,0 +1,526 @@
+{
+  "chunk_id": 12,
+  "section_metadata": {
+    "section_id": "e0167bd6e7f613a8",
+    "section_name": "Tabla 1.2",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 12,
+    "end_page": 12,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "1 Compartimentación en sectores de incendio",
+      "Tabla 1.2"
+    ],
+    "parent_section_id": "3446818cb693b4e0",
+    "positioning_data": [
+      {
+        "page_no": 12,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 67.62844848632812,
+          "t": 771.0216903686523,
+          "r": 541.25537109375,
+          "b": 450.2623291015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 1.2"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 1.2\n**Path:** Sección SI 1 Propagación interior → 1 Compartimentación en sectores de incendio → Tabla 1.2\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Compartimentación, Sectores, Incendio, Tabla\n**Pages:** 12-12\n\n\n| Hospitalario | -  Las plantas con zonas de hospitalización o con unidades especiales (quirófanos,  UVI, etc.) deben estar compartimentadas al menos en dos sectores de incendio, ca\u0002 da uno de ellos con una superficie construida que no exceda de 1.500 m 2  y con es\u0002 pacio suficiente para albergar a los pacientes de uno de los sectores contiguos .  Se  exceptúa de lo anterior aquellas plantas cuya superficie construida no exceda de  1.500 m2, que tengan salidas directas al espacio exterior seguro y cuyos recorridos  de evacuación hasta ellas no excedan de 25 m . -  En otras zonas del edificio, la superficie construida de cada sector de incendio no  debe exceder de 2.500 m2 . |\n| --- | --- |\n| Pública Concurrencia | -  La superficie construida de cada sector de incendio no debe exceder de 2.500 m 2 ,  excepto en los casos contemplados en los guiones siguientes. |\n|  | -  Los espacios destinados a público sentado en asientos fijos en cines, teatros, audito\u0002 rios, salas para congresos, etc., así como los museos, los espacios para culto reli\u0002 gioso y los recintos polideportivos, feriales y similares pueden constituir un sector de  incendio de superficie construida mayor de 2.500 m 2  siempre que: |\n|  | a)  estén compartimentados respecto de otras zonas mediante elementos EI 120; |\n|  | b)  tengan resuelta la evacuación mediante salidas de planta que comuniquen con  un sector de riesgo mínimo a través de vestíbulos de independencia, o bien me\u0002 diante salidas de edificio; |\n|  | c)  los materiales de revestimiento sean B-s1 , d0 en paredes y techos y BFL-s1 en  suelos; |\n|  | d)  la densidad de la carga de fuego debida a los materiales de revestimiento y al  mobiliario fijo no exceda de 200 MJ/m 2  y |\n|  | -  Las cajas escénicas deben constituir un sector de incendio diferenciado . |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las plantas con zonas de hospitalización o con unidades especiales (quirófanos, UVI, etc.) deben estar compartimentadas al menos en dos sectores de incendio, cada uno de ellos con una superficie construida que no exceda de 1.500 m2 y con espacio suficiente para albergar a los pacientes de uno de los sectores contiguos.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "e0167bd6e7f613a8",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Hospitalization areas or special units (operating rooms, ICUs, etc.) must be compartmentalized into at least two fire sectors, each with a constructed area not exceeding 1,500 m2 and with sufficient space to accommodate patients from an adjacent sector.",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL'",
+        "satisfied_if": "PLANT.HAS_HOSPITALIZATION_AREA == TRUE AND PLANT.FIRE_SECTOR.COUNT >= 2 AND PLANT.FIRE_SECTOR.AREA <= 1500 AND PLANT.FIRE_SECTOR.HAS_SUFFICIENT_SPACE_FOR_ADJACENT_PATIENTS == TRUE",
+        "exempt_if": "PLANT.AREA <= 1500 AND PLANT.HAS_DIRECT_EXTERNAL_EXITS == TRUE AND PLANT.EVACUATION_ROUTES.LENGTH <= 25",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.HOSPITAL",
+          "PLANT.HOSPITALIZATION_AREA",
+          "PLANT.SPECIAL_UNITS",
+          "PLANT.FIRE_SECTOR.COUNT",
+          "PLANT.FIRE_SECTOR.AREA",
+          "PLANT.FIRE_SECTOR.SPACE_FOR_PATIENTS",
+          "PLANT.DIRECT_EXTERNAL_EXITS",
+          "PLANT.EVACUATION_ROUTES.LENGTH"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PLANT.FIRE_SECTOR.COUNT >= 2",
+          "PLANT.FIRE_SECTOR.AREA <= 1500 sq_m",
+          "PLANT.AREA <= 1500 sq_m",
+          "PLANT.EVACUATION_ROUTES.LENGTH <= 25 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 258,
+        "end_pos": 416
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 68,
+        "end_index": 100
+      },
+      "section_metadata": {
+        "section_id": "e0167bd6e7f613a8",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 12,
+        "end_page": 12,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En otras zonas del edificio, la superficie construida de cada sector de incendio no debe exceder de 2.500 m2.",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "e0167bd6e7f613a8",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In other areas of the building, the constructed area of each fire sector must not exceed 2,500 m2.",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND NOT PLANT.HAS_HOSPITALIZATION_AREA == TRUE AND NOT PLANT.HAS_SPECIAL_UNITS == TRUE",
+        "satisfied_if": "FIRE_SECTOR.AREA <= 2500",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.HOSPITAL",
+          "FIRE_SECTOR.AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.AREA <= 2500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 809,
+        "end_pos": 920
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 182,
+        "end_index": 206
+      },
+      "section_metadata": {
+        "section_id": "e0167bd6e7f613a8",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 12,
+        "end_page": 12,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La superficie construida de cada sector de incendio no debe exceder de 2.500 m2, excepto en los casos contemplados en los guiones siguientes.",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+        "parent_section_id": "e0167bd6e7f613a8",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The constructed area of each fire sector must not exceed 2,500 m2, except in the cases specified below.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY'",
+        "satisfied_if": "FIRE_SECTOR.AREA <= 2500",
+        "exempt_if": "PUBLIC_ASSEMBLY.HAS_FIXED_SEATING == TRUE AND FIRE_SECTOR.AREA > 2500 AND FIRE_SECTOR.COMPARTMENTED_WITH_OTHER_AREAS_BY_EI120 == TRUE AND FIRE_SECTOR.EVACUATION_RESOLVED_BY_MINIMUM_RISK_SECTOR_OR_BUILDING_EXITS == TRUE AND FIRE_SECTOR.WALL_CEILING_MATERIAL_CLASS == 'B-s1,d0' AND FIRE_SECTOR.FLOOR_MATERIAL_CLASS == 'BFL-s1' AND FIRE_SECTOR.FIRE_LOAD_DENSITY <= 200",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+          "FIRE_SECTOR.AREA",
+          "PUBLIC_ASSEMBLY.FIXED_SEATING",
+          "FIRE_SECTOR.COMPARTMENTATION.EI120",
+          "FIRE_SECTOR.EVACUATION",
+          "FIRE_SECTOR.MATERIAL.WALL_CEILING.CLASS",
+          "FIRE_SECTOR.MATERIAL.FLOOR.CLASS",
+          "FIRE_SECTOR.FIRE_LOAD_DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.AREA <= 2500 sq_m",
+          "FIRE_SECTOR.FIRE_LOAD_DENSITY <= 200 MJ/m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 965,
+        "end_pos": 1109
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 219,
+        "end_index": 247
+      },
+      "section_metadata": {
+        "section_id": "e0167bd6e7f613a8",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 12,
+        "end_page": 12,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las cajas escénicas deben constituir un sector de incendio diferenciado.",
+      "attributes": {
+        "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f90",
+        "parent_section_id": "e0167bd6e7f613a8",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Stage boxes must constitute a differentiated fire sector.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.HAS_STAGE_BOX == TRUE",
+        "satisfied_if": "STAGE_BOX.IS_DIFFERENTIATED_FIRE_SECTOR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+          "STAGE_BOX"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1972,
+        "end_pos": 2045
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 442,
+        "end_index": 455
+      },
+      "section_metadata": {
+        "section_id": "e0167bd6e7f613a8",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 12,
+        "end_page": 12,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 12,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.62844848632812,
+              "t": 771.0216903686523,
+              "r": 541.25537109375,
+              "b": 450.2623291015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 2047
+}

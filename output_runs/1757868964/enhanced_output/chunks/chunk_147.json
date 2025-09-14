@@ -1,0 +1,1270 @@
+{
+  "chunk_id": 147,
+  "section_metadata": {
+    "section_id": "8dd75f4833752430",
+    "section_name": "C.2.4 Capas protectoras",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 61,
+    "end_page": 61,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.3  Método simplificado de la isoterma 500",
+      "C.2.4 Capas protectoras"
+    ],
+    "parent_section_id": "8d62547fda7476ee",
+    "positioning_data": [
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          183
+        ],
+        "bbox": {
+          "l": 88.98336029052734,
+          "t": 768.870849609375,
+          "r": 538.0538330078125,
+          "b": 748.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          216
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 739.9508666992188,
+          "r": 537.6117553710938,
+          "b": 709.5504150390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          761
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 699.3908081054688,
+          "r": 538.4279174804688,
+          "b": 609.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.50800323486328,
+          "t": 589.0060424804688,
+          "r": 207.75601196289062,
+          "b": 577.9180297851562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.2.4 Capas protectoras"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          240
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 567.7208862304688,
+          "r": 538.12744140625,
+          "b": 537.1904907226562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: C.2.4 Capas protectoras\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.3  Método simplificado de la isoterma 500 → C.2.4 Capas protectoras\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Método, Simplificado, Isoterma, Capas, Protectoras\n**Pages:** 61-61\n\n\n1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cuya contribución a la resistencia al fuego del elemento estructural protegido se determinará de acuerdo con la norma UNE -EN 13381 -3: 2016 .\n2 Los revestimientos con mortero de yeso pueden considerarse como espesores adicionales de hormigón equivalentes a 1,8 veces su espesor real. Cuando estén aplicados en techos, para valores no mayores que R 120 se recomienda que su puesta en obra se realice por proyección y para valores mayores que R 120 su aportación solo puede justificarse mediante ensayo.\nC.3 Método simplificado de la isoterma 500",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cuya contribución a la resistencia al fuego del elemento estructural protegido se determinará de acuerdo con la norma UNE -EN 13381 -3: 2016 .",
+      "attributes": {
+        "id": "76421946-8809-4467-8854-47754326573c",
+        "parent_section_id": "8dd75f4833752430",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The required fire resistance can be achieved by applying protective layers.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.RESISTANCE.ACHIEVED_BY_PROTECTIVE_LAYERS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "PROTECTIVE.LAYERS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 156,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 334,
+        "end_pos": 574
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 132
+      },
+      "section_metadata": {
+        "section_id": "8dd75f4833752430",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.2.4 Capas protectoras"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Los revestimientos con mortero de yeso pueden considerarse como espesores adicionales de hormigón equivalentes a 1,8 veces su espesor real. Cuando estén aplicados en techos, para valores no mayores que R 120 se recomienda que su puesta en obra se realice por proyección y para valores mayores que R 120 su aportación solo puede justificarse mediante ensayo.",
+      "attributes": {
+        "id": "06059489-322e-4091-8898-842261271110",
+        "parent_section_id": "8dd75f4833752430",
+        "paragraph_number": 2,
+        "obligation_type": "RECOMMENDATION",
+        "norm_statement": "Gypsum mortar coatings can be considered as additional concrete thicknesses equivalent to 1.8 times their actual thickness.",
+        "applies_if": "COATING.MATERIAL == 'GYPSUM.MORTAR'",
+        "satisfied_if": "COATING.THICKNESS.EQUIVALENT_CONCRETE == COATING.THICKNESS.ACTUAL * 1.8",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.6,
+          "likelihood": 0.6,
+          "impact": 0.5
+        },
+        "relevant_tags": [
+          "COATING.MATERIAL.GYPSUM.MORTAR",
+          "CONCRETE.THICKNESS",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 157,
+          "span_char_end": 444,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "COATING.THICKNESS.EQUIVALENT_CONCRETE = 1.8 * COATING.THICKNESS.ACTUAL"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.85,
+        "uncertainty": 0.15,
+        "notes": "",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 575,
+        "end_pos": 934
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 132,
+        "end_index": 203
+      },
+      "section_metadata": {
+        "section_id": "8dd75f4833752430",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.2.4 Capas protectoras"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Los revestimientos con mortero de yeso pueden considerarse como espesores adicionales de hormigón equivalentes a 1,8 veces su espesor real. Cuando estén aplicados en techos, para valores no mayores que R 120 se recomienda que su puesta en obra se realice por proyección y para valores mayores que R 120 su aportación solo puede justificarse mediante ensayo.",
+      "attributes": {
+        "id": "402f0674-8840-496a-8531-18d270381640",
+        "parent_section_id": "8dd75f4833752430",
+        "paragraph_number": 2,
+        "obligation_type": "RECOMMENDATION",
+        "norm_statement": "When gypsum mortar coatings are applied to ceilings, for values not greater than R 120, their installation by projection is recommended.",
+        "applies_if": "COATING.MATERIAL == 'GYPSUM.MORTAR' AND LOCATION == 'CEILING' AND FIRE.RESISTANCE.R <= 120",
+        "satisfied_if": "INSTALLATION.METHOD == 'PROJECTION'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.6,
+          "likelihood": 0.6,
+          "impact": 0.5
+        },
+        "relevant_tags": [
+          "COATING.MATERIAL.GYPSUM.MORTAR",
+          "LOCATION.CEILING",
+          "FIRE.RESISTANCE.R"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 157,
+          "span_char_end": 444,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.RESISTANCE.R <= 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.85,
+        "uncertainty": 0.15,
+        "notes": "",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 566,
+        "end_pos": 917
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 129,
+        "end_index": 200
+      },
+      "section_metadata": {
+        "section_id": "8dd75f4833752430",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.2.4 Capas protectoras"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Los revestimientos con mortero de yeso pueden considerarse como espesores adicionales de hormigón equivalentes a 1,8 veces su espesor real. Cuando estén aplicados en techos, para valores no mayores que R 120 se recomienda que su puesta en obra se realice por proyección y para valores mayores que R 120 su aportación solo puede justificarse mediante ensayo.",
+      "attributes": {
+        "id": "27083070-5203-455b-8217-024513735160",
+        "parent_section_id": "8dd75f4833752430",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When gypsum mortar coatings are applied to ceilings, for values greater than R 120, their contribution can only be justified by testing.",
+        "applies_if": "COATING.MATERIAL == 'GYPSUM.MORTAR' AND LOCATION == 'CEILING' AND FIRE.RESISTANCE.R > 120",
+        "satisfied_if": "COATING.CONTRIBUTION.JUSTIFIED_BY_TESTING == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "COATING.MATERIAL.GYPSUM.MORTAR",
+          "LOCATION.CEILING",
+          "FIRE.RESISTANCE.R",
+          "TESTING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 157,
+          "span_char_end": 444,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.RESISTANCE.R > 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.85,
+        "uncertainty": 0.15,
+        "notes": "",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 566,
+        "end_pos": 917
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 129,
+        "end_index": 200
+      },
+      "section_metadata": {
+        "section_id": "8dd75f4833752430",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.2.4 Capas protectoras"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE -EN 13381 -3: 2016",
+      "attributes": {
+        "id": "92186419-5838-433d-8692-232152062590",
+        "parent_section_id": "8dd75f4833752430",
+        "title": "UNE -EN 13381 -3: 2016",
+        "type": "STANDARD",
+        "year": "2016",
+        "country": "ES",
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "subpart": null,
+        "code": "EN 13381-3",
+        "uri": null,
+        "source": {
+          "span_char_start": 128,
+          "span_char_end": 156,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "C.2.4 Capas protectoras",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 370,
+        "end_pos": 572
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 91,
+        "end_index": 131
+      },
+      "section_metadata": {
+        "section_id": "8dd75f4833752430",
+        "section_name": "C.2.4 Capas protectoras",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.2.4 Capas protectoras"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 977
+}

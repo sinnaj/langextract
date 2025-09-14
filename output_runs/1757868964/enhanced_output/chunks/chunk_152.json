@@ -1,0 +1,742 @@
+{
+  "chunk_id": 152,
+  "section_metadata": {
+    "section_id": "256e0b9eafa04cae",
+    "section_name": "C.3.4 Isotermas",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 62,
+    "end_page": 68,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.3  Método simplificado de la isoterma 500",
+      "C.3.4 Isotermas"
+    ],
+    "parent_section_id": "8d62547fda7476ee",
+    "positioning_data": [
+      {
+        "page_no": 62,
+        "charspan": [
+          0,
+          295
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 768.7911987304688,
+          "r": 538.427978515625,
+          "b": 725.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+      },
+      {
+        "page_no": 62,
+        "charspan": [
+          0,
+          48
+        ],
+        "bbox": {
+          "l": 71.50800323486328,
+          "t": 704.5960083007812,
+          "r": 356.4739990234375,
+          "b": 695.7279663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.3.3 Reducción de las características mecánicas"
+      },
+      {
+        "page_no": 62,
+        "charspan": [
+          0,
+          171
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 683.0708618164062,
+          "r": 537.7809448242188,
+          "b": 662.327880859375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+      },
+      {
+        "page_no": 62,
+        "charspan": [
+          0,
+          65
+        ],
+        "bbox": {
+          "l": 165.92898559570312,
+          "t": 647.572021484375,
+          "r": 443.6050109863281,
+          "b": 639.2560424804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+      },
+      {
+        "page_no": 62,
+        "charspan": [
+          0,
+          15
+        ],
+        "bbox": {
+          "l": 71.50800323486328,
+          "t": 533.68603515625,
+          "r": 162.45199584960938,
+          "b": 524.8179931640625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.3.4 Isotermas"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: C.3.4 Isotermas\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.3  Método simplificado de la isoterma 500 → C.3.4 Isotermas\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Método, Simplificado, Isoterma, Isotermas\n**Pages:** 62-68\n\n\n1 Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.\n2 Las isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura. Estas isotermas quedan del lado de la seguridad para la mayor parte de tipos de áridos, pero no de forma generalizada para exposiciones a un fuego distinto del normalizado.\n62\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.3. Isotermas para cuartos de sección de 300 x 160 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\n63\nDocumento Básico SI en caso de Incendio\nAnejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.4. Isotermas para cuartos de sección de 600 x 300 mm expuestos por ambas caras\nR\n-\n60\nR\n-\n90\nR\n-\n120\n64\nDocumento Básico SI en caso de Incendio\nAnejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.5. Isotermas para cuartos de sección de 800 x 500 mm expuestos por ambas caras\nR\n-\n90\nR\n-\n120\nR\n-\n180\nR\n-\n240\n65\nDocumento Básico SI en caso de Incendio\nAnejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.6. Isotermas para cuartos de sección de 300 x 300 mm expuestos por ambas caras\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n66\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.7. Isotermas de un cuarto de sección circular de 300 mm de diámetro expuesta perimetralmente\nR\n-\n30\nR\n-\n60\nR\n-\n90\nR\n-\n120\n67\nDocumento Básico SI en caso de Incendio\nAnejo C. Resistencia al fuego de las estructuras de hormigón armado\nFigura C.8. Distribución de temperaturas en el espesor de secciones planas expuestas por una cara h ≥ 200 mm\nR\n-\n30\n-\nR\n-\n240\n68\nDocumento Básico SI en caso de Incendio Anejo D. Resistencia al fuego de los elementos de acero",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.\nLas isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura. Estas isotermas quedan del lado de la seguridad para la mayor parte de tipos de áridos, pero no de forma generalizada para exposiciones a un fuego distinto del normalizado.",
+      "attributes": {
+        "id": "c3d4e5f6-7890-1234-5678-90abcdef1234",
+        "meta_summary": "Describes methods for determining temperatures in concrete structures exposed to fire, specifically mentioning the use of isotherms for siliceous aggregate concretes under standardized fire curves.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "256e0b9eafa04cae",
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 311,
+        "end_pos": 427
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 104
+      },
+      "section_metadata": {
+        "section_id": "256e0b9eafa04cae",
+        "section_name": "C.3.4 Isotermas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Las temperaturas en una estructura de hormigón expuesta al fuego pueden obtenerse de forma experimental o analítica.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "256e0b9eafa04cae",
+        "Procedure": "Temperatures in a concrete structure exposed to fire can be obtained experimentally or analytically.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "CONCRETE.STRUCTURES",
+          "TEMPERATURE.DETERMINATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 100,
+          "span_char_end": 182,
+          "visual_refs": []
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 278,
+        "end_pos": 426
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 73,
+        "end_index": 103
+      },
+      "section_metadata": {
+        "section_id": "256e0b9eafa04cae",
+        "section_name": "C.3.4 Isotermas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Las isotermas de las figuras de este apartado pueden utilizarse para determinar las temperaturas en la sección recta con hormigones de áridos silíceos y expuestas a fuego según la curva normalizada hasta el instante de máxima temperatura.",
+      "attributes": {
+        "id": "b2c3d4e5-f678-9012-3456-7890abcdef12",
+        "parent_section_id": "256e0b9eafa04cae",
+        "Procedure": "Isotherms from the figures in this section can be used to determine temperatures in the cross-section of siliceous aggregate concretes exposed to fire according to the standardized curve until the moment of maximum temperature.",
+        "target_reference": [
+          "Figura C.3",
+          "Figura C.4",
+          "Figura C.5",
+          "Figura C.6",
+          "Figura C.7",
+          "Figura C.8"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "CONCRETE.STRUCTURES",
+          "TEMPERATURE.DETERMINATION",
+          "ISOTHERMS",
+          "SILICEOUS.AGGREGATES",
+          "STANDARDIZED.FIRE.CURVE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 183,
+          "span_char_end": 425,
+          "visual_refs": []
+        },
+        "section_name": "C.3.4 Isotermas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 426,
+        "end_pos": 655
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 103,
+        "end_index": 150
+      },
+      "section_metadata": {
+        "section_id": "256e0b9eafa04cae",
+        "section_name": "C.3.4 Isotermas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 62,
+        "end_page": 68,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.4 Isotermas"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              295
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.427978515625,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimie"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              48
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 704.5960083007812,
+              "r": 356.4739990234375,
+              "b": 695.7279663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.3 Reducción de las características mecánicas"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              171
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 683.0708618164062,
+              "r": 537.7809448242188,
+              "b": 662.327880859375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia de los materiales se reduce, en función de la temperatura que se alcance en cada pu"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              65
+            ],
+            "bbox": {
+              "l": 165.92898559570312,
+              "t": 647.572021484375,
+              "r": 443.6050109863281,
+              "b": 639.2560424804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.7 Reducción relativa de la resistencia con la temperatura"
+          },
+          {
+            "page_no": 62,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 533.68603515625,
+              "r": 162.45199584960938,
+              "b": 524.8179931640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.3.4 Isotermas"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 2318
+}

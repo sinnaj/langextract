@@ -1,0 +1,519 @@
+{
+  "chunk_id": 195,
+  "section_metadata": {
+    "section_id": "a71e3c0f350c7496",
+    "section_name": "1 Reacción al fuego",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 86,
+    "end_page": 86,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "1 Reacción al fuego"
+    ],
+    "parent_section_id": "c695898be7779318",
+    "positioning_data": [
+      {
+        "page_no": 86,
+        "charspan": [
+          0,
+          58
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 743.8389282226562,
+          "r": 531.8446044921875,
+          "b": 713.66845703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo SI G Normas relacionadas con la aplicación del DB SI"
+      },
+      {
+        "page_no": 86,
+        "charspan": [
+          0,
+          19
+        ],
+        "bbox": {
+          "l": 71.73084259033203,
+          "t": 697.2308959960938,
+          "r": 173.80270385742188,
+          "b": 687.8983764648438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Reacción al fuego"
+      },
+      {
+        "page_no": 86,
+        "charspan": [
+          0,
+          36
+        ],
+        "bbox": {
+          "l": 71.19300079345703,
+          "t": 679.7108764648438,
+          "r": 257.0882263183594,
+          "b": 670.3783569335938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Resistencia al fuego y Eurocódigos"
+      },
+      {
+        "page_no": 86,
+        "charspan": [
+          0,
+          68
+        ],
+        "bbox": {
+          "l": 71.32247924804688,
+          "t": 662.1908569335938,
+          "r": 401.9664611816406,
+          "b": 652.8583374023438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Instalaciones para control del humo y del calor (Especificaciones)"
+      },
+      {
+        "page_no": 86,
+        "charspan": [
+          0,
+          71
+        ],
+        "bbox": {
+          "l": 71.13323974609375,
+          "t": 644.6708984375,
+          "r": 414.3467102050781,
+          "b": 635.33837890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 1 Reacción al fuego\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 1 Reacción al fuego\n**Level:** 2\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Reacción, Fuego\n**Pages:** 86-86\n\n\n86\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n87\n2  Resistencia al fuego\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n88\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n89\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n90\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\nUNE -EN 15269 -20:2010\nParte 20: Control de humos para conjuntos de puertas pivotantes y batientes de madera, acero y elementos de puertas acristaladas con marco metálico.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "86\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n87\n2  Resistencia al fuego\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n88\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n89\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n90\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\nUNE -EN 15269 -20:2010\nParte 20: Control de humos para conjuntos de puertas pivotantes y batientes de madera, acero y elementos de puertas acristaladas con marco metálico.",
+      "attributes": {
+        "id": "a4918731-011e-451e-9271-224443048827",
+        "meta_summary": "This section references standards related to fire reaction and fire resistance, specifically mentioning a standard for smoke control in door assemblies.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB SI"
+        ],
+        "referenced_documents_sections": [
+          "Anejo SI G"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "a71e3c0f350c7496",
+        "section_name": "1 Reacción al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              58
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 531.8446044921875,
+              "b": 713.66845703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI G Normas relacionadas con la aplicación del DB SI"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.73084259033203,
+              "t": 697.2308959960938,
+              "r": 173.80270385742188,
+              "b": 687.8983764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Reacción al fuego"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.19300079345703,
+              "t": 679.7108764648438,
+              "r": 257.0882263183594,
+              "b": 670.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Resistencia al fuego y Eurocódigos"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 662.1908569335938,
+              "r": 401.9664611816406,
+              "b": 652.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Instalaciones para control del humo y del calor (Especificaciones)"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              71
+            ],
+            "bbox": {
+              "l": 71.13323974609375,
+              "t": 644.6708984375,
+              "r": 414.3467102050781,
+              "b": 635.33837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 224,
+        "end_pos": 919
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 62,
+        "end_index": 217
+      },
+      "section_metadata": {
+        "section_id": "a71e3c0f350c7496",
+        "section_name": "1 Reacción al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 86,
+        "end_page": 86,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "1 Reacción al fuego"
+        ],
+        "parent_section_id": "c695898be7779318",
+        "positioning_data": [
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              58
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 531.8446044921875,
+              "b": 713.66845703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI G Normas relacionadas con la aplicación del DB SI"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.73084259033203,
+              "t": 697.2308959960938,
+              "r": 173.80270385742188,
+              "b": 687.8983764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Reacción al fuego"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.19300079345703,
+              "t": 679.7108764648438,
+              "r": 257.0882263183594,
+              "b": 670.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Resistencia al fuego y Eurocódigos"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 662.1908569335938,
+              "r": 401.9664611816406,
+              "b": 652.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Instalaciones para control del humo y del calor (Especificaciones)"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              71
+            ],
+            "bbox": {
+              "l": 71.13323974609375,
+              "t": 644.6708984375,
+              "r": 414.3467102050781,
+              "b": 635.33837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE -EN 15269 -20:2010 Parte 20: Control de humos para conjuntos de puertas pivotantes y batientes de madera, acero y elementos de puertas acristaladas con marco metálico.",
+      "attributes": {
+        "id": "3195033d-886a-4933-8742-835002492144",
+        "parent_section_id": "a71e3c0f350c7496",
+        "document_name": "UNE-EN 15269-20:2010",
+        "document_type": "STANDARD",
+        "document_title": "Parte 20: Control de humos para conjuntos de puertas pivotantes y batientes de madera, acero y elementos de puertas acristaladas con marco metálico.",
+        "document_year": 2010,
+        "document_article": null,
+        "document_section": "Parte 20",
+        "document_url": null,
+        "document_edition": null,
+        "document_origin": "EUROPEAN_STANDARD",
+        "document_status": "ACTIVE",
+        "document_topic": "SAFETY.FIRE",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "1 Reacción al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              58
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 531.8446044921875,
+              "b": 713.66845703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI G Normas relacionadas con la aplicación del DB SI"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.73084259033203,
+              "t": 697.2308959960938,
+              "r": 173.80270385742188,
+              "b": 687.8983764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Reacción al fuego"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.19300079345703,
+              "t": 679.7108764648438,
+              "r": 257.0882263183594,
+              "b": 670.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Resistencia al fuego y Eurocódigos"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 662.1908569335938,
+              "r": 401.9664611816406,
+              "b": 652.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Instalaciones para control del humo y del calor (Especificaciones)"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              71
+            ],
+            "bbox": {
+              "l": 71.13323974609375,
+              "t": 644.6708984375,
+              "r": 414.3467102050781,
+              "b": 635.33837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 635,
+        "end_pos": 918
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 153,
+        "end_index": 216
+      },
+      "section_metadata": {
+        "section_id": "a71e3c0f350c7496",
+        "section_name": "1 Reacción al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 86,
+        "end_page": 86,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "1 Reacción al fuego"
+        ],
+        "parent_section_id": "c695898be7779318",
+        "positioning_data": [
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              58
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 531.8446044921875,
+              "b": 713.66845703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI G Normas relacionadas con la aplicación del DB SI"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.73084259033203,
+              "t": 697.2308959960938,
+              "r": 173.80270385742188,
+              "b": 687.8983764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Reacción al fuego"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.19300079345703,
+              "t": 679.7108764648438,
+              "r": 257.0882263183594,
+              "b": 670.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Resistencia al fuego y Eurocódigos"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 662.1908569335938,
+              "r": 401.9664611816406,
+              "b": 652.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Instalaciones para control del humo y del calor (Especificaciones)"
+          },
+          {
+            "page_no": 86,
+            "charspan": [
+              0,
+              71
+            ],
+            "bbox": {
+              "l": 71.13323974609375,
+              "t": 644.6708984375,
+              "r": 414.3467102050781,
+              "b": 635.33837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 919
+}

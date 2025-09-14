@@ -1,0 +1,439 @@
+{
+  "chunk_id": 127,
+  "section_metadata": {
+    "section_id": "36b3c41edea680c7",
+    "section_name": "Table 2",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 56,
+    "end_page": 56,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.5 Valor característico de la densidad de carga de fuego( )",
+      "Table 2"
+    ],
+    "parent_section_id": "199c18d1f2a4ab44",
+    "positioning_data": [
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 89.27896118164062,
+          "t": 618.0703735351562,
+          "r": 549.1047973632812,
+          "b": 512.6739196777344,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 2"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 2\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.5 Valor característico de la densidad de carga de fuego( ) → Table 2\n**Level:** 3\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Característico, Densidad, Carga, Fuego, Table\n**Pages:** 56-56\n\n\n| Altura de evacuación | c   |\n| --- | --- |\n| Edificios con altura de evacuación descendente de más de 28 m o ascendente de más  de una planta. | 2,0 |\n| Edificios con altura de evacuación descendente entre 15 y 28 m o ascendente hasta 2,8  m. Aparcamientos bajo otros usos. | 1,5 |\n| Edificios con altura de evacuación descendente de menos 15 m o de uso Aparcamiento exclusivo | 1,0 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Edificios con altura de evacuación descendente de más de 28 m o ascendente de más  de una planta.",
+      "attributes": {
+        "id": "e7225114-118c-4217-9154-15b94e022934",
+        "parent_section_id": "36b3c41edea680c7",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The characteristic value of the fire load density (c δ) must be 2.0 for buildings with a descending evacuation height of more than 28 m or an ascending evacuation height of more than one floor.",
+        "applies_if": "BUILDING.EVACUATION.HEIGHT.DESCENDING > 28 OR BUILDING.EVACUATION.HEIGHT.ASCENDING > 1",
+        "satisfied_if": "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 2.0",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING",
+          "BUILDING.EVACUATION.HEIGHT.ASCENDING",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "page": 56,
+              "table": "Table 2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING > 28 m",
+          "BUILDING.EVACUATION.HEIGHT.ASCENDING > 1 floor",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 2.0"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Table 2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 335,
+        "end_pos": 432
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 90,
+        "end_index": 115
+      },
+      "section_metadata": {
+        "section_id": "36b3c41edea680c7",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 56,
+        "end_page": 56,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.5 Valor característico de la densidad de carga de fuego( )",
+          "Table 2"
+        ],
+        "parent_section_id": "199c18d1f2a4ab44",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Edificios con altura de evacuación descendente entre 15 y 28 m o ascendente hasta 2,8  m. Aparcamientos bajo otros usos.",
+      "attributes": {
+        "id": "22452373-1f19-4848-8422-26344274944d",
+        "parent_section_id": "36b3c41edea680c7",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The characteristic value of the fire load density (c δ) must be 1.5 for buildings with a descending evacuation height between 15 m and 28 m, or an ascending evacuation height up to 2.8 m, or for parking lots under other uses.",
+        "applies_if": "(BUILDING.EVACUATION.HEIGHT.DESCENDING >= 15 AND BUILDING.EVACUATION.HEIGHT.DESCENDING <= 28) OR BUILDING.EVACUATION.HEIGHT.ASCENDING <= 2.8 OR BUILDING.USAGE == 'PARKING' AND BUILDING.USAGE.LOCATION == 'UNDER_OTHER_USES'",
+        "satisfied_if": "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 1.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING",
+          "BUILDING.EVACUATION.HEIGHT.ASCENDING",
+          "BUILDING.USAGE.PARKING",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "page": 56,
+              "table": "Table 2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING >= 15 m",
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING <= 28 m",
+          "BUILDING.EVACUATION.HEIGHT.ASCENDING <= 2.8 m",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 1.5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Table 2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 443,
+        "end_pos": 563
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 121,
+        "end_index": 147
+      },
+      "section_metadata": {
+        "section_id": "36b3c41edea680c7",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 56,
+        "end_page": 56,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.5 Valor característico de la densidad de carga de fuego( )",
+          "Table 2"
+        ],
+        "parent_section_id": "199c18d1f2a4ab44",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Edificios con altura de evacuación descendente de menos 15 m o de uso Aparcamiento exclusivo",
+      "attributes": {
+        "id": "060d4133-1496-4171-876e-82607106822b",
+        "parent_section_id": "36b3c41edea680c7",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The characteristic value of the fire load density (c δ) must be 1.0 for buildings with a descending evacuation height of less than 15 m or for buildings exclusively used as parking.",
+        "applies_if": "BUILDING.EVACUATION.HEIGHT.DESCENDING < 15 OR BUILDING.USAGE == 'PARKING.EXCLUSIVE'",
+        "satisfied_if": "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 1.0",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING",
+          "BUILDING.USAGE.PARKING.EXCLUSIVE",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "page": 56,
+              "table": "Table 2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT.DESCENDING < 15 m",
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC_VALUE == 1.0"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Table 2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 574,
+        "end_pos": 666
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 153,
+        "end_index": 170
+      },
+      "section_metadata": {
+        "section_id": "36b3c41edea680c7",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 56,
+        "end_page": 56,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.5 Valor característico de la densidad de carga de fuego( )",
+          "Table 2"
+        ],
+        "parent_section_id": "199c18d1f2a4ab44",
+        "positioning_data": [
+          {
+            "page_no": 56,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.27896118164062,
+              "t": 618.0703735351562,
+              "r": 549.1047973632812,
+              "b": 512.6739196777344,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 674
+}

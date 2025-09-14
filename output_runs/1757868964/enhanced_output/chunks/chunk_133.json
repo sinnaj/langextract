@@ -1,0 +1,512 @@
+{
+  "chunk_id": 133,
+  "section_metadata": {
+    "section_id": "8ce4e094ed84c95e",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 4,
+    "start_page": 57,
+    "end_page": 57,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.1 Generalidades",
+      "Table 1"
+    ],
+    "parent_section_id": "efffb8e5db8fba5d",
+    "positioning_data": [
+      {
+        "page_no": 57,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 115.59110260009766,
+          "t": 239.6463623046875,
+          "r": 543.2342529296875,
+          "b": 131.9449462890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.1 Generalidades → Table 1\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Generalidades, Table\n**Pages:** 57-57\n\n\n|  | Acero de armar |  | Acero de pretensar |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- |\n| fi | Vigas(1) y  losas (forja\u0002 dos) | Resto de los  casos | Vigas(1) y losas (forjados) |  | Resto de los casos |  |\n|  |  |  | Barras | Alambres | Barras | Alambres |\n| \r 0,4 | +5 |  | - 5 | - 10 |  |  |\n| 0,5 | 0 | 0 | -10 | -15 | - 10 | - 15 |\n| 0,6 | -5 |  | -15 | -20 |  |  |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 1\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.1 Generalidades → Table 1\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Generalidades, Table\n**Pages:** 57-57\n\n|  | Acero de armar |  | Acero de pretensar |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- |\n| fi | Vigas(1) y  losas (forja dos) | Resto de los  casos | Vigas(1) y losas (forjados) |  | Resto de los casos |  |\n|  |  |  | Barras | Alambres | Barras | Alambres |\n|  0,4 | +5 |  | - 5 | - 10 |  |  |\n| 0,5 | 0 | 0 | -10 | -15 | - 10 | - 15 |\n| 0,6 | -5 |  | -15 | -20 |  |  |",
+      "attributes": {
+        "id": "c2049e21-081b-4171-801b-507c30e2133f",
+        "meta_summary": "Table 1 provides values related to fire resistance for reinforced concrete structures, specifically for rebar and prestressing steel in beams, slabs, and other cases, based on the μfi factor.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "8ce4e094ed84c95e",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 401
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 110
+      },
+      "section_metadata": {
+        "section_id": "8ce4e094ed84c95e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 57,
+        "end_page": 57,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.1 Generalidades",
+          "Table 1"
+        ],
+        "parent_section_id": "efffb8e5db8fba5d",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "| fi | Vigas(1) y  losas (forja dos) | Resto de los  casos | Vigas(1) y losas (forjados) |  | Resto de los casos |  |\n|  |  |  | Barras | Alambres | Barras | Alambres |\n|  0,4 | +5 |  | - 5 | - 10 |  |  |",
+      "attributes": {
+        "id": "84880536-161b-44b4-821e-128267253507",
+        "parent_section_id": "8ce4e094ed84c95e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the μfi factor is less than or equal to 0.4, specific values for rebar and prestressing steel must be applied for fire resistance in beams, slabs, and other cases.",
+        "applies_if": "CONCRETE.STRUCTURE.FIRE_RESISTANCE.MU_FI <= 0.4",
+        "satisfied_if": "(\n                        (STEEL.TYPE == 'REBAR' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND VALUE == 5) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'BAR' AND VALUE == -5) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'WIRE' AND VALUE == -10)\n                    )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONCRETE.STRUCTURE",
+          "FIRE.RESISTANCE",
+          "STEEL.REBAR",
+          "STEEL.PRESTRESSING",
+          "ELEMENT.BEAM",
+          "ELEMENT.SLAB",
+          "MU_FI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MU_FI <= 0.4",
+          "VALUE == 5",
+          "VALUE == -5",
+          "VALUE == -10"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table implies values for 'Resto de los casos' for rebar and prestressing steel, but these are not explicitly provided for μfi <= 0.4. The table also has empty cells for 'Resto de los casos' for prestressing steel bars and wires when μfi <= 0.4.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 361,
+        "end_pos": 569
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 95,
+        "end_index": 163
+      },
+      "section_metadata": {
+        "section_id": "8ce4e094ed84c95e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 57,
+        "end_page": 57,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.1 Generalidades",
+          "Table 1"
+        ],
+        "parent_section_id": "efffb8e5db8fba5d",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "| fi | Vigas(1) y  losas (forja dos) | Resto de los  casos | Vigas(1) y losas (forjados) |  | Resto de los casos |  |\n|  |  |  | Barras | Alambres | Barras | Alambres |\n| 0,5 | 0 | 0 | -10 | -15 | - 10 | - 15 |",
+      "attributes": {
+        "id": "e6740632-4752-4767-8973-214436521577",
+        "parent_section_id": "8ce4e094ed84c95e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the μfi factor is 0.5, specific values for rebar and prestressing steel must be applied for fire resistance in beams, slabs, and other cases.",
+        "applies_if": "CONCRETE.STRUCTURE.FIRE_RESISTANCE.MU_FI == 0.5",
+        "satisfied_if": "(\n                        (STEEL.TYPE == 'REBAR' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND VALUE == 0) OR\n                        (STEEL.TYPE == 'REBAR' AND ELEMENT.TYPE == 'OTHER' AND VALUE == 0) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'BAR' AND VALUE == -10) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'WIRE' AND VALUE == -15) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE == 'OTHER' AND STEEL.FORM == 'BAR' AND VALUE == -10) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE == 'OTHER' AND STEEL.FORM == 'WIRE' AND VALUE == -15)\n                    )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONCRETE.STRUCTURE",
+          "FIRE.RESISTANCE",
+          "STEEL.REBAR",
+          "STEEL.PRESTRESSING",
+          "ELEMENT.BEAM",
+          "ELEMENT.SLAB",
+          "MU_FI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MU_FI == 0.5",
+          "VALUE == 0",
+          "VALUE == -10",
+          "VALUE == -15"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 369,
+        "end_pos": 612
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 98,
+        "end_index": 184
+      },
+      "section_metadata": {
+        "section_id": "8ce4e094ed84c95e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 57,
+        "end_page": 57,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.1 Generalidades",
+          "Table 1"
+        ],
+        "parent_section_id": "efffb8e5db8fba5d",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "| fi | Vigas(1) y  losas (forja dos) | Resto de los  casos | Vigas(1) y losas (forjados) |  | Resto de los casos |  |\n|  |  |  | Barras | Alambres | Barras | Alambres |\n| 0,6 | -5 |  | -15 | -20 |  |  |",
+      "attributes": {
+        "id": "67375268-232d-4235-905c-30910411311b",
+        "parent_section_id": "8ce4e094ed84c95e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the μfi factor is 0.6, specific values for rebar and prestressing steel must be applied for fire resistance in beams, slabs, and other cases.",
+        "applies_if": "CONCRETE.STRUCTURE.FIRE_RESISTANCE.MU_FI == 0.6",
+        "satisfied_if": "(\n                        (STEEL.TYPE == 'REBAR' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND VALUE == -5) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'BAR' AND VALUE == -15) OR\n                        (STEEL.TYPE == 'PRESTRESSING_STEEL' AND ELEMENT.TYPE IN ['BEAM', 'SLAB'] AND STEEL.FORM == 'WIRE' AND VALUE == -20)\n                    )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONCRETE.STRUCTURE",
+          "FIRE.RESISTANCE",
+          "STEEL.REBAR",
+          "STEEL.PRESTRESSING",
+          "ELEMENT.BEAM",
+          "ELEMENT.SLAB",
+          "MU_FI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MU_FI == 0.6",
+          "VALUE == -5",
+          "VALUE == -15",
+          "VALUE == -20"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table implies values for 'Resto de los casos' for rebar and prestressing steel, but these are not explicitly provided for μfi == 0.6. The table also has empty cells for 'Resto de los casos' for prestressing steel bars and wires when μfi == 0.6.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 369,
+        "end_pos": 619
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 98,
+        "end_index": 187
+      },
+      "section_metadata": {
+        "section_id": "8ce4e094ed84c95e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 57,
+        "end_page": 57,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.1 Generalidades",
+          "Table 1"
+        ],
+        "parent_section_id": "efffb8e5db8fba5d",
+        "positioning_data": [
+          {
+            "page_no": 57,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 115.59110260009766,
+              "t": 239.6463623046875,
+              "r": 543.2342529296875,
+              "b": 131.9449462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 653
+}

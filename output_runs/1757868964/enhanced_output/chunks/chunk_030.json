@@ -1,0 +1,3512 @@
+{
+  "chunk_id": 30,
+  "section_metadata": {
+    "section_id": "ff87069e4e1093cf",
+    "section_name": "Tabla 2.1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 23,
+    "end_page": 23,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "2 Cálculo de la ocupación",
+      "Tabla 2.1"
+    ],
+    "parent_section_id": "ca716d8284186de5",
+    "positioning_data": [
+      {
+        "page_no": 23,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.53072357177734,
+          "t": 782.2006683349609,
+          "r": 539.3204956054688,
+          "b": 79.9422607421875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 2.1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 2.1\n**Path:** Sección SI 3 Evacuación de ocupantes → 2 Cálculo de la ocupación → Tabla 2.1\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Cálculo, Ocupación, Tabla\n**Pages:** 23-23\n\n\n| Residencial  Vivienda | Plantas de vivienda | 20 |\n| --- | --- | --- |\n| Residencial  Público | Zonas de alojamiento | 20 |\n|  | Salones de uso múltiple | 1 |\n|  | Vestíbulos generales y zonas generales de uso público en plantas de sótano,  baja y entreplanta | 2 |\n| Aparcamiento(2) | Vinculado a una actividad sujeta a horarios: comercial, espectáculos, oficina, etc. | 15 |\n|  | En otros casos, incluidos los estacionamientos de vehículos destinados al servicio de transporte de personas y transporte de mercancías | 40 |\n| Administrativo | Plantas o zonas de oficinas | 10 |\n|  | Vestíbulos generales y zonas de uso público | 2 |\n| Docente | Conjunto de la planta o del edificio | 10 |\n|  | Locales diferentes de aulas, como laboratorios, talleres, gimnasios, salas de  dibujo, etc. | 5 |\n|  | Aulas (excepto de escuelas infantiles) | 1,5 |\n|  | Aulas de escuelas infantiles y salas de lectura de bibliotecas | 2 |\n| Hospitalario | Salas de espera | 2 |\n|  | Zonas de hospitalización | 15 |\n|  | Servicios ambulatorios y de diagnóstico | 10 |\n|  | Zonas destinadas a tratamiento a pacientes internados | 20 |\n| Comercial | En establecimientos comerciales: |  |\n|  | áreas de ventas en plantas de sótano, baja y entreplanta | 2 |\n|  | áreas de ventas en plantas diferentes de las anteriores | 3 |\n|  | En zonas comunes de centros comerciales: |  |\n|  | mercados y galerías de alimentación | 2 |\n|  | plantas de sótano, baja y entreplanta o en cualquier otra con acceso desde  el espacio exterior | 3 |\n|  | plantas diferentes de las anteriores | 5 |\n|  | En áreas de venta en las que no sea previsible gran afluencia de público, tales  como exposición y venta de muebles, vehículos, etc . | 5 |\n| Pública concu\u0002 rrencia | Zonas destinadas a espectadores sentados: |  |\n|  | con asientos definidos en el proyecto | 1pers/asiento |\n|  | sin asientos definidos en el proyecto | 0,5 |\n|  | Zonas de espectadores de pie | 0,25 |\n|  | Zonas de público en discotecas | 0,5 |\n|  | Zonas de público de pie, en bares, cafeterías, etc. | 1 |\n|  | Zonas de público en gimnasios: |  |\n|  | con aparatos | 5 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Plantas de vivienda",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940251",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Residencial Vivienda' in 'Plantas de vivienda' must be 20.",
+        "applies_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND AREA.TYPE == 'PLANTAS.DE.VIVIENDA'",
+        "satisfied_if": "AREA.OCCUPANCY == 20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 20"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 230,
+        "end_pos": 249
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 70,
+        "end_index": 73
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de alojamiento",
+      "attributes": {
+        "id": "1110037a-428a-4467-8321-72990616147d",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Residencial Público' in 'Zonas de alojamiento' must be 20.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL' AND AREA.TYPE == 'ZONAS.DE.ALOJAMIENTO'",
+        "satisfied_if": "AREA.OCCUPANCY == 20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.RESIDENTIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 20"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 302,
+        "end_pos": 322
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 89,
+        "end_index": 92
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Salones de uso múltiple",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940252",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Residencial Público' in 'Salones de uso múltiple' must be 1.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL' AND AREA.TYPE == 'SALONES.DE.USO.MULTIPLE'",
+        "satisfied_if": "AREA.OCCUPANCY == 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.RESIDENTIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 1"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 335,
+        "end_pos": 358
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 97,
+        "end_index": 103
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Vestíbulos generales y zonas generales de uso público en plantas de sótano,  baja y entreplanta",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940253",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Residencial Público' in 'Vestíbulos generales y zonas generales de uso público en plantas de sótano, baja y entreplanta' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL' AND AREA.TYPE == 'VESTIBULOS.GENERALES.Y.ZONAS.GENERALES.DE.USO.PUBLICO.EN.PLANTAS.DE.SOTANO.BAJA.Y.ENTREPLANTA'",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.RESIDENTIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.RESIDENTIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 370,
+        "end_pos": 465
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 108,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Vinculado a una actividad sujeta a horarios: comercial, espectáculos, oficina, etc.",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940254",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Aparcamiento' linked to a scheduled activity (commercial, shows, office, etc.) must be 15.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND AREA.TYPE == 'VINCULADO.A.UNA.ACTIVIDAD.SUJETA.A.HORARIOS'",
+        "satisfied_if": "AREA.OCCUPANCY == 15",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PARKING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 15"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 492,
+        "end_pos": 575
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 139,
+        "end_index": 157
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En otros casos, incluidos los estacionamientos de vehículos destinados al servicio de transporte de personas y transporte de mercancías",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940255",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Aparcamiento' in other cases, including vehicle parking for passenger and goods transport services, must be 40.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND AREA.TYPE == 'OTROS.CASOS.ESTACIONAMIENTOS.VEHICULOS'",
+        "satisfied_if": "AREA.OCCUPANCY == 40",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PARKING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 40"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 588,
+        "end_pos": 723
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 162,
+        "end_index": 186
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Plantas o zonas de oficinas",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940256",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Administrativo' in 'Plantas o zonas de oficinas' must be 10.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND AREA.TYPE == 'PLANTAS.O.ZONAS.DE.OFICINAS'",
+        "satisfied_if": "AREA.OCCUPANCY == 10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 10"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 750,
+        "end_pos": 777
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 192,
+        "end_index": 197
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Vestíbulos generales y zonas de uso público",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940257",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Administrativo' in 'Vestíbulos generales y zonas de uso público' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND AREA.TYPE == 'VESTIBULOS.GENERALES.Y.ZONAS.DE.USO.PUBLICO'",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 790,
+        "end_pos": 833
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 202,
+        "end_index": 213
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Conjunto de la planta o del edificio",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940258",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Docente' in 'Conjunto de la planta o del edificio' must be 10.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.EDUCATION' AND AREA.TYPE == 'CONJUNTO.DE.LA.PLANTA.O.DEL.EDIFICIO'",
+        "satisfied_if": "AREA.OCCUPANCY == 10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.EDUCATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 10"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 852,
+        "end_pos": 888
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 219,
+        "end_index": 226
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Locales diferentes de aulas, como laboratorios, talleres, gimnasios, salas de  dibujo, etc.",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940259",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Docente' in 'Locales diferentes de aulas, como laboratorios, talleres, gimnasios, salas de dibujo, etc.' must be 5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.EDUCATION' AND AREA.TYPE == 'LOCALES.DIFERENTES.DE.AULAS'",
+        "satisfied_if": "AREA.OCCUPANCY == 5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.EDUCATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 901,
+        "end_pos": 992
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 231,
+        "end_index": 249
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Aulas (excepto de escuelas infantiles)",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940260",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Docente' in 'Aulas (excepto de escuelas infantiles)' must be 1.5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.EDUCATION' AND AREA.TYPE == 'AULAS' AND AREA.SUBTYPE != 'ESCUELAS.INFANTILES'",
+        "satisfied_if": "AREA.OCCUPANCY == 1.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.EDUCATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 1.5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1004,
+        "end_pos": 1042
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 254,
+        "end_index": 261
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Aulas de escuelas infantiles y salas de lectura de bibliotecas",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940261",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Docente' in 'Aulas de escuelas infantiles y salas de lectura de bibliotecas' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.EDUCATION' AND (AREA.TYPE == 'AULAS.DE.ESCUELAS.INFANTILES' OR AREA.TYPE == 'SALAS.DE.LECTURA.DE.BIBLIOTECAS')",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.EDUCATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1056,
+        "end_pos": 1118
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 268,
+        "end_index": 278
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Salas de espera",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940262",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Hospitalario' in 'Salas de espera' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.TYPE == 'SALAS.DE.ESPERA'",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1142,
+        "end_pos": 1157
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 284,
+        "end_index": 287
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de hospitalización",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940263",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Hospitalario' in 'Zonas de hospitalización' must be 15.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.TYPE == 'ZONAS.DE.HOSPITALIZACION'",
+        "satisfied_if": "AREA.OCCUPANCY == 15",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 15"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1169,
+        "end_pos": 1193
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 292,
+        "end_index": 297
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Servicios ambulatorios y de diagnóstico",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940264",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Hospitalario' in 'Servicios ambulatorios y de diagnóstico' must be 10.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.TYPE == 'SERVICIOS.AMBULATORIOS.Y.DE.DIAGNOSTICO'",
+        "satisfied_if": "AREA.OCCUPANCY == 10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 10"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1206,
+        "end_pos": 1245
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 302,
+        "end_index": 309
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas destinadas a tratamiento a pacientes internados",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940265",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Hospitalario' in 'Zonas destinadas a tratamiento a pacientes internados' must be 20.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND AREA.TYPE == 'ZONAS.DESTINADAS.A.TRATAMIENTO.A.PACIENTES.INTERNADOS'",
+        "satisfied_if": "AREA.OCCUPANCY == 20",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 20"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1258,
+        "end_pos": 1311
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": {
+        "start_index": 314,
+        "end_index": 321
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "áreas de ventas en plantas de sótano, baja y entreplanta",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940266",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'áreas de ventas en plantas de sótano, baja y entreplanta' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'AREAS.DE.VENTAS.EN.PLANTAS.DE.SOTANO.BAJA.Y.ENTREPLANTA'",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1376,
+        "end_pos": 1432
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": {
+        "start_index": 335,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "áreas de ventas en plantas diferentes de las anteriores",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940267",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'áreas de ventas en plantas diferentes de las anteriores' must be 3.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'AREAS.DE.VENTAS.EN.PLANTAS.DIFERENTES.DE.LAS.ANTERIORES'",
+        "satisfied_if": "AREA.OCCUPANCY == 3",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 3"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1444,
+        "end_pos": 1499
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 18,
+      "group_index": 17,
+      "description": null,
+      "token_interval": {
+        "start_index": 354,
+        "end_index": 364
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "mercados y galerías de alimentación",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940268",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'mercados y galerías de alimentación' must be 2.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'MERCADOS.Y.GALERIAS.DE.ALIMENTACION'",
+        "satisfied_if": "AREA.OCCUPANCY == 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1562,
+        "end_pos": 1597
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 19,
+      "group_index": 18,
+      "description": null,
+      "token_interval": {
+        "start_index": 380,
+        "end_index": 389
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "plantas de sótano, baja y entreplanta o en cualquier otra con acceso desde  el espacio exterior",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940269",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'plantas de sótano, baja y entreplanta o en cualquier otra con acceso desde el espacio exterior' must be 3.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'PLANTAS.DE.SOTANO.BAJA.Y.ENTREPLANTA.O.CON.ACCESO.DESDE.EL.ESPACIO.EXTERIOR'",
+        "satisfied_if": "AREA.OCCUPANCY == 3",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 3"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1609,
+        "end_pos": 1704
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 20,
+      "group_index": 19,
+      "description": null,
+      "token_interval": {
+        "start_index": 394,
+        "end_index": 413
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "plantas diferentes de las anteriores",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940270",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'plantas diferentes de las anteriores' must be 5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'PLANTAS.DIFERENTES.DE.LAS.ANTERIORES'",
+        "satisfied_if": "AREA.OCCUPANCY == 5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1716,
+        "end_pos": 1752
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 21,
+      "group_index": 20,
+      "description": null,
+      "token_interval": {
+        "start_index": 418,
+        "end_index": 423
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En áreas de venta en las que no sea previsible gran afluencia de público, tales  como exposición y venta de muebles, vehículos, etc .",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940271",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Comercial' in 'áreas de venta en las que no sea previsible gran afluencia de público, tales como exposición y venta de muebles, vehículos, etc .' must be 5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND AREA.TYPE == 'AREAS.DE.VENTA.BAJA.AFLUENCIA.PUBLICO'",
+        "satisfied_if": "AREA.OCCUPANCY == 5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.COMMERCIAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1764,
+        "end_pos": 1897
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 22,
+      "group_index": 21,
+      "description": null,
+      "token_interval": {
+        "start_index": 428,
+        "end_index": 462
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "con asientos definidos en el proyecto",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940272",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas destinadas a espectadores sentados' with defined seats must be 1 person per seat.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DESTINADAS.A.ESPECTADORES.SENTADOS' AND SEATING.TYPE == 'DEFINED'",
+        "satisfied_if": "AREA.OCCUPANCY == 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 1"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1983,
+        "end_pos": 2020
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 23,
+      "group_index": 22,
+      "description": null,
+      "token_interval": {
+        "start_index": 483,
+        "end_index": 489
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "sin asientos definidos en el proyecto",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940273",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas destinadas a espectadores sentados' without defined seats must be 0.5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DESTINADAS.A.ESPECTADORES.SENTADOS' AND SEATING.TYPE == 'UNDEFINED'",
+        "satisfied_if": "AREA.OCCUPANCY == 0.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 0.5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2044,
+        "end_pos": 2081
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 24,
+      "group_index": 23,
+      "description": null,
+      "token_interval": {
+        "start_index": 494,
+        "end_index": 500
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de espectadores de pie",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940274",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas de espectadores de pie' must be 0.25.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DE.ESPECTADORES.DE.PIE'",
+        "satisfied_if": "AREA.OCCUPANCY == 0.25",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 0.25"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2095,
+        "end_pos": 2123
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 25,
+      "group_index": 24,
+      "description": null,
+      "token_interval": {
+        "start_index": 507,
+        "end_index": 512
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de público en discotecas",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940275",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas de público en discotecas' must be 0.5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DE.PUBLICO.EN.DISCOTECAS'",
+        "satisfied_if": "AREA.OCCUPANCY == 0.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 0.5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2138,
+        "end_pos": 2168
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 26,
+      "group_index": 25,
+      "description": null,
+      "token_interval": {
+        "start_index": 519,
+        "end_index": 526
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de público de pie, en bares, cafeterías, etc.",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940276",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas de público de pie, en bares, cafeterías, etc.' must be 1.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DE.PUBLICO.DE.PIE.EN.BARES.CAFETERIAS.ETC'",
+        "satisfied_if": "AREA.OCCUPANCY == 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 1"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2182,
+        "end_pos": 2233
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 27,
+      "group_index": 26,
+      "description": null,
+      "token_interval": {
+        "start_index": 533,
+        "end_index": 550
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "con aparatos",
+      "attributes": {
+        "id": "27878831-2917-4348-9366-020586940277",
+        "parent_section_id": "ff87069e4e1093cf",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupancy for 'Pública concurrencia' in 'Zonas de público en gimnasios' with equipment must be 5.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.TYPE == 'ZONAS.DE.PUBLICO.EN.GIMNASIOS' AND EQUIPMENT.TYPE == 'APARATOS'",
+        "satisfied_if": "AREA.OCCUPANCY == 5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "PUBLIC.ASSEMBLY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY == 5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2286,
+        "end_pos": 2298
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 28,
+      "group_index": 27,
+      "description": null,
+      "token_interval": {
+        "start_index": 567,
+        "end_index": 569
+      },
+      "section_metadata": {
+        "section_id": "ff87069e4e1093cf",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 28,
+  "char_count": 2304
+}

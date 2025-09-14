@@ -1,0 +1,719 @@
+{
+  "chunk_id": 82,
+  "section_metadata": {
+    "section_id": "edf2ceaedf294645",
+    "section_name": "Fuego de cálculo",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 45,
+    "end_page": 45,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Fuego de cálculo"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          109
+        ],
+        "bbox": {
+          "l": 89.13275909423828,
+          "t": 768.9111938476562,
+          "r": 538.4305419921875,
+          "b": 749.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          91
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 739.9508666992188,
+          "r": 485.75885009765625,
+          "b": 730.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          155
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 722.5508422851562,
+          "r": 538.4280395507812,
+          "b": 701.6878662109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          170
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 693.3908081054688,
+          "r": 538.1710205078125,
+          "b": 672.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          248
+        ],
+        "bbox": {
+          "l": 108.4587173461914,
+          "t": 664.879150390625,
+          "r": 538.4276733398438,
+          "b": 632.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Fuego de cálculo\n**Path:** Anejo SI A Terminología → Fuego de cálculo\n**Level:** 2\n**Tags:** Terminología, Fuego, Cálculo\n**Pages:** 45-45\n\n\nDesarrollo de fuego específico adoptado a efectos de cálculo (UNE-EN 1991-1-2:2004) .\n45\nDocumento Básico SI en caso de Incendio Anejo A. Terminología",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Desarrollo de fuego específico adoptado a efectos de cálculo (UNE-EN 1991-1-2:2004) .",
+      "attributes": {
+        "id": "f51276a6-0158-4712-921d-93871587841b",
+        "meta_summary": "Definition of 'Fuego de cálculo' (Design Fire) as per UNE-EN 1991-1-2:2004.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE-EN 1991-1-2:2004"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "edf2ceaedf294645",
+        "section_name": "Fuego de cálculo",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 152,
+        "end_pos": 237
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 71
+      },
+      "section_metadata": {
+        "section_id": "edf2ceaedf294645",
+        "section_name": "Fuego de cálculo",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego de cálculo"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Terminología, Fuego, Cálculo",
+      "attributes": {
+        "id": "67890abc-def0-1234-5678-90abcdef1234",
+        "parent_section_id": "edf2ceaedf294645",
+        "classification_type": "TOPIC",
+        "classification_name": "Terminología",
+        "classification_value": "Fuego de cálculo",
+        "applies_if": "TRUE",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Fuego de cálculo",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 290,
+        "end_pos": 302
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 84,
+        "end_index": 87
+      },
+      "section_metadata": {
+        "section_id": "edf2ceaedf294645",
+        "section_name": "Fuego de cálculo",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego de cálculo"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Documents",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "edf2ceaedf294645",
+        "document_name": "UNE-EN 1991-1-2:2004",
+        "document_type": "STANDARD",
+        "document_reference": "UNE-EN 1991-1-2:2004",
+        "document_date": "2004",
+        "document_article": null,
+        "document_section": null,
+        "document_chapter": null,
+        "document_part": "1-2",
+        "document_title": "Eurocode 1: Actions on structures - Part 1-2: General actions - Actions on structures exposed to fire",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Fuego de cálculo",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 152,
+        "end_pos": 234
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 69
+      },
+      "section_metadata": {
+        "section_id": "edf2ceaedf294645",
+        "section_name": "Fuego de cálculo",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego de cálculo"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 302
+}

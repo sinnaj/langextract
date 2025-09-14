@@ -1,0 +1,1746 @@
+{
+  "chunk_id": 200,
+  "section_metadata": {
+    "section_id": "7af0d10c659248c8",
+    "section_name": "Table 3",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 89,
+    "end_page": 89,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "2 Resistencia al fuego",
+      "Table 3"
+    ],
+    "parent_section_id": "728cbdb1f6ca9dbc",
+    "positioning_data": [
+      {
+        "page_no": 89,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.712890625,
+          "t": 774.5824661254883,
+          "r": 541.0430297851562,
+          "b": 69.370849609375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 3"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 3\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 2 Resistencia al fuego → Table 3\n**Level:** 3\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Resistencia, Fuego, Table\n**Pages:** 89-89\n\n\n| *UNE - EN 1991 - 1 - 2:2019 | Eurocódigo 1: Acciones en estructuras. Parte 1-2: Acciones gene\u0002 rales. Acciones en estructuras expuestas al fuego. |\n| --- | --- |\n| UNE - EN 1992 - 1 - 2:2011 | Eurocódigo 2: Proyecto de estructuras de hormigón. Parte 1-2:  Reglas generales. Proyecto de estructuras sometidas al fuego |\n| UNE - EN 1993 - 1 - 2:2016 | Eurocódigo 3: Proyecto de estructuras de acero. Parte 1-2: Reglas  generales. Proyecto de estructuras sometidas al fuego |\n| UNE - EN 1994 - 1 - 2:2016 | Eurocódigo 4: Proyecto de estructuras mixtas de hormigón y ace\u0002 ro. Parte 1 - 2: Reglas generales. Proyecto de estructuras someti\u0002 das al fuego |\n| UNE - EN 1995 - 1 - 2:2016 | Eurocódigo 5: Proyecto de estructuras de madera. Parte 1-2: Re\u0002 glas generales. Proyecto de estructuras sometidas al fuego. |\n| UNE - EN 1996 - 1 - 2:2011 | Eurocódigo 6: Proyecto de estructuras de fábrica. Parte 1-2: Re\u0002 glas generales. Proyecto de estructuras sometidas al fuego. |\n| UNE - EN 1999 - 1 - 2:2007(ratificada) | Eurocódigo 9: Proyecto de estructuras de aluminio. Parte 1-2:  Cálculo de estructuras expuestas al fuego. |\n| UNE - EN 13381 | Métodos de ensayo para determinar la contribución a la resis\u0002 tencia al fuego de los elementos estructurales |\n| UNE - EN 13381 - 1:2016 | Parte 1: Membranas protectoras horizontales. |\n| UNE - EN 13381 - 2:2016 | Parte 2: Membranas protectoras verticales. |\n| *UNE - EN 13381 - 3:2016 | Parte 3: Protección aplicada a elementos de hormigón. |\n| UNE - EN 13381 - 4:2014 | Parte 4: Protección pasiva aplicada a elementos de acero. |\n| UNE - EN 13381 - 5:2016 | Parte 5: Protección aplicada a elementos mixtos de hormigón /  chapa de acero perfilada. |\n| UNE - EN 13381 - 6:2014 | Parte 6: Protección aplicada a pilares huecos de acero rellenos de  hormigón. |\n| UNE - ENV 13381 - 7:2006 EX | Parte 7: Protección aplicada a vigas de madera. |\n| UNE - EN 13381 - 8:2015 | Parte 8: Protección reactiva aplicada a los elementos de acero. |\n| UNE - EN 13381 - 9:2016 | Parte 9: Sistemas de protección contra el fuego aplicados a vigas  de acero con aberturas en el alma. |\n| UNE - EN 13501 | Clasificación de los productos de construcción y de los ele\u0002 mentos constructivos en función de su comportamiento ante  el fuego |\n| UNE - EN 13501 - 2:2019 | Parte 2: Clasificación a partir de datos obtenidos de los ensayos  de resistencia al fuego, excluidas las instalaciones de ventilación. |\n| UNE - EN 13501 - 3:2007+A1:2010 | Parte 3: Clasificación a partir de datos obtenidos en los ensayos  de resistencia al fuego de productos y elementos utilizados en las |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 3\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 2 Resistencia al fuego → Table 3\n**Level:** 3\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Resistencia, Fuego, Table\n**Pages:** 89-89\n\n\n| *UNE - EN 1991 - 1 - 2:2019 | Eurocódigo 1: Acciones en estructuras. Parte 1-2: Acciones gene rales. Acciones en estructuras expuestas al fuego. |\n| --- | --- |\n| UNE - EN 1992 - 1 - 2:2011 | Eurocódigo 2: Proyecto de estructuras de hormigón. Parte 1-2:  Reglas generales. Proyecto de estructuras sometidas al fuego |\n| UNE - EN 1993 - 1 - 2:2016 | Eurocódigo 3: Proyecto de estructuras de acero. Parte 1-2: Reglas  generales. Proyecto de estructuras sometidas al fuego |\n| UNE - EN 1994 - 1 - 2:2016 | Eurocódigo 4: Proyecto de estructuras mixtas de hormigón y ace ro. Parte 1 - 2: Reglas generales. Proyecto de estructuras someti das al fuego |\n| UNE - EN 1995 - 1 - 2:2016 | Eurocódigo 5: Proyecto de estructuras de madera. Parte 1-2: Re glas generales. Proyecto de estructuras sometidas al fuego. |\n| UNE - EN 1996 - 1 - 2:2011 | Eurocódigo 6: Proyecto de estructuras de fábrica. Parte 1-2: Re glas generales. Proyecto de estructuras sometidas al fuego. |\n| UNE - EN 1999 - 1 - 2:2007(ratificada) | Eurocódigo 9: Proyecto de estructuras de aluminio. Parte 1-2:  Cálculo de estructuras expuestas al fuego. |\n| UNE - EN 13381 | Métodos de ensayo para determinar la contribución a la resis tencia al fuego de los elementos estructurales |\n| UNE - EN 13381 - 1:2016 | Parte 1: Membranas protectoras horizontales. |\n| UNE - EN 13381 - 2:2016 | Parte 2: Membranas protectoras verticales. |\n| *UNE - EN 13381 - 3:2016 | Parte 3: Protección aplicada a elementos de hormigón. |\n| UNE - EN 13381 - 4:2014 | Parte 4: Protección pasiva aplicada a elementos de acero. |\n| UNE - EN 13381 - 5:2016 | Parte 5: Protección aplicada a elementos mixtos de hormigón /  chapa de acero perfilada. |\n| UNE - EN 13381 - 6:2014 | Parte 6: Protección aplicada a pilares huecos de acero rellenos de  hormigón. |\n| UNE - ENV 13381 - 7:2006 EX | Parte 7: Protección aplicada a vigas de madera. |\n| UNE - EN 13381 - 8:2015 | Parte 8: Protección reactiva aplicada a los elementos de acero. |\n| UNE - EN 13381 - 9:2016 | Parte 9: Sistemas de protección contra el fuego aplicados a vigas  de acero con aberturas en el alma. |\n| UNE - EN 13501 | Clasificación de los productos de construcción y de los ele mentos constructivos en función de su comportamiento ante  el fuego |\n| UNE - EN 13501 - 2:2019 | Parte 2: Clasificación a partir de datos obtenidos de los ensayos  de resistencia al fuego, excluidas las instalaciones de ventilación. |\n| UNE - EN 13501 - 3:2007+A1:2010 | Parte 3: Clasificación a partir de datos obtenidos en los ensayos  de resistencia al fuego de productos y elementos utilizados en las",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section lists various UNE-EN standards related to fire resistance of structures and building elements, including Eurocodes for different materials and test methods for fire protection.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 330
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 88
+      },
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1991 - 1 - 2:2019",
+      "attributes": {
+        "id": "1",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 1: Acciones en estructuras. Parte 1-2: Acciones generales. Acciones en estructuras expuestas al fuego.",
+        "doc_code": "UNE-EN 1991-1-2",
+        "doc_year": "2019",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1992 - 1 - 2:2011",
+      "attributes": {
+        "id": "2",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 2: Proyecto de estructuras de hormigón. Parte 1-2: Reglas generales. Proyecto de estructuras sometidas al fuego",
+        "doc_code": "UNE-EN 1992-1-2",
+        "doc_year": "2011",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1993 - 1 - 2:2016",
+      "attributes": {
+        "id": "3",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 3: Proyecto de estructuras de acero. Parte 1-2: Reglas generales. Proyecto de estructuras sometidas al fuego",
+        "doc_code": "UNE-EN 1993-1-2",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1994 - 1 - 2:2016",
+      "attributes": {
+        "id": "4",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 4: Proyecto de estructuras mixtas de hormigón y acero. Parte 1 - 2: Reglas generales. Proyecto de estructuras sometidas al fuego",
+        "doc_code": "UNE-EN 1994-1-2",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1995 - 1 - 2:2016",
+      "attributes": {
+        "id": "5",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 5: Proyecto de estructuras de madera. Parte 1-2: Reglas generales. Proyecto de estructuras sometidas al fuego.",
+        "doc_code": "UNE-EN 1995-1-2",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1996 - 1 - 2:2011",
+      "attributes": {
+        "id": "6",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 6: Proyecto de estructuras de fábrica. Parte 1-2: Reglas generales. Proyecto de estructuras sometidas al fuego.",
+        "doc_code": "UNE-EN 1996-1-2",
+        "doc_year": "2011",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 1999 - 1 - 2:2007(ratificada)",
+      "attributes": {
+        "id": "7",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Eurocódigo 9: Proyecto de estructuras de aluminio. Parte 1-2: Cálculo de estructuras expuestas al fuego.",
+        "doc_code": "UNE-EN 1999-1-2",
+        "doc_year": "2007",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381",
+      "attributes": {
+        "id": "8",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Métodos de ensayo para determinar la contribución a la resistencia al fuego de los elementos estructurales",
+        "doc_code": "UNE-EN 13381",
+        "doc_year": null,
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 1:2016",
+      "attributes": {
+        "id": "9",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 1: Membranas protectoras horizontales.",
+        "doc_code": "UNE-EN 13381-1",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 2:2016",
+      "attributes": {
+        "id": "10",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 2: Membranas protectoras verticales.",
+        "doc_code": "UNE-EN 13381-2",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 3:2016",
+      "attributes": {
+        "id": "11",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 3: Protección aplicada a elementos de hormigón.",
+        "doc_code": "UNE-EN 13381-3",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 4:2014",
+      "attributes": {
+        "id": "12",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 4: Protección pasiva aplicada a elementos de acero.",
+        "doc_code": "UNE-EN 13381-4",
+        "doc_year": "2014",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 5:2016",
+      "attributes": {
+        "id": "13",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 5: Protección aplicada a elementos mixtos de hormigón / chapa de acero perfilada.",
+        "doc_code": "UNE-EN 13381-5",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 6:2014",
+      "attributes": {
+        "id": "14",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 6: Protección aplicada a pilares huecos de acero rellenos de hormigón.",
+        "doc_code": "UNE-EN 13381-6",
+        "doc_year": "2014",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - ENV 13381 - 7:2006 EX",
+      "attributes": {
+        "id": "15",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 7: Protección aplicada a vigas de madera.",
+        "doc_code": "UNE-ENV 13381-7",
+        "doc_year": "2006",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 8:2015",
+      "attributes": {
+        "id": "16",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 8: Protección reactiva aplicada a los elementos de acero.",
+        "doc_code": "UNE-EN 13381-8",
+        "doc_year": "2015",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13381 - 9:2016",
+      "attributes": {
+        "id": "17",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 9: Sistemas de protección contra el fuego aplicados a vigas de acero con aberturas en el alma.",
+        "doc_code": "UNE-EN 13381-9",
+        "doc_year": "2016",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 18,
+      "group_index": 17,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13501",
+      "attributes": {
+        "id": "18",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Clasificación de los productos de construcción y de los elementos constructivos en función de su comportamiento ante el fuego",
+        "doc_code": "UNE-EN 13501",
+        "doc_year": null,
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 19,
+      "group_index": 18,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13501 - 2:2019",
+      "attributes": {
+        "id": "19",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 2: Clasificación a partir de datos obtenidos de los ensayos de resistencia al fuego, excluidas las instalaciones de ventilación.",
+        "doc_code": "UNE-EN 13501-2",
+        "doc_year": "2019",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 20,
+      "group_index": 19,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13501 - 3:2007+A1:2010",
+      "attributes": {
+        "id": "20",
+        "parent_section_id": "7af0d10c659248c8",
+        "doc_type": "STANDARD",
+        "doc_title": "Parte 3: Clasificación a partir de datos obtenidos en los ensayos de resistencia al fuego de productos y elementos utilizados en las",
+        "doc_code": "UNE-EN 13501-3",
+        "doc_year": "2007",
+        "doc_article": null,
+        "doc_element": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 21,
+      "group_index": 20,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "7af0d10c659248c8",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 89,
+        "end_page": 89,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 3"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 89,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.712890625,
+              "t": 774.5824661254883,
+              "r": 541.0430297851562,
+              "b": 69.370849609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 21,
+  "char_count": 2826
+}

@@ -1,0 +1,305 @@
+{
+  "chunk_id": 140,
+  "section_metadata": {
+    "section_id": "182634ed023e0661",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 59,
+    "end_page": 59,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.3 Vigas",
+      "C.2.3.1 Vigas con las tres caras expuestas al fuego",
+      "Table 1"
+    ],
+    "parent_section_id": "a9a58b8cd2ff0c2e",
+    "positioning_data": [
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 88.09429931640625,
+          "t": 602.6247863769531,
+          "r": 542.9130859375,
+          "b": 452.0377502441406,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.3 Vigas → C.2.3.1 Vigas con las tres caras expuestas al fuego → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Vigas, Vigas, Con, Las, Tres, Caras, Expuestas, Fuego, Table\n**Pages:** 59-59\n\n\n| Resistencia al fuego  normalizado | Dimensión mínima bmín / Distancia mínima equivalente al eje am (mm) |  |  |  | Anchura mínima(2) del alma b0,mín (mm) |\n| --- | --- | --- | --- | --- | --- |\n|  | Opción 1 | Opción 2 | Opción 3 | Opción 4 |  |\n| R 30 | 80 / 20 | 120 / 15 | 200 / 10 | - | 80 |\n| R 60 | 100 / 30 | 150 / 25 | 200 / 20 | - | 100 |\n| R 90 | 150 / 40 | 200 / 35 | 250 / 30 | 400 / 25 | 100 |\n| R 120 | 200 / 50 | 250 / 45 | 300 / 40 | 500 / 35 | 120 |\n| R 180 | 300 / 75 | 350 / 65 | 400 / 60 | 600 / 50 | 140 |\n| R 240 | 400 / 75 | 500 / 70 | 700 / 60 | - | 160 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "1e7c9f80-0062-432a-9293-68532219e273",
+        "parent_section_id": "182634ed023e0661",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Concrete beams with three faces exposed to fire must meet minimum dimensions for fire resistance.",
+        "applies_if": "CONSTRUCTION.ELEMENT.TYPE == 'BEAM' AND CONSTRUCTION.ELEMENT.MATERIAL == 'REINFORCED_CONCRETE' AND CONSTRUCTION.ELEMENT.EXPOSURE.FIRE.FACES == 3",
+        "satisfied_if": "FIRE.RESISTANCE.R == 30 AND BEAM.DIMENSION.MIN.B >= 80 AND BEAM.DISTANCE.MIN.A >= 20 ; OR FIRE.RESISTANCE.R == 30 AND BEAM.DIMENSION.MIN.B >= 120 AND BEAM.DISTANCE.MIN.A >= 15 ; OR FIRE.RESISTANCE.R == 30 AND BEAM.DIMENSION.MIN.B >= 200 AND BEAM.DISTANCE.MIN.A >= 10 ; OR FIRE.RESISTANCE.R == 60 AND BEAM.DIMENSION.MIN.B >= 100 AND BEAM.DISTANCE.MIN.A >= 30 ; OR FIRE.RESISTANCE.R == 60 AND BEAM.DIMENSION.MIN.B >= 150 AND BEAM.DISTANCE.MIN.A >= 25 ; OR FIRE.RESISTANCE.R == 60 AND BEAM.DIMENSION.MIN.B >= 200 AND BEAM.DISTANCE.MIN.A >= 20 ; OR FIRE.RESISTANCE.R == 90 AND BEAM.DIMENSION.MIN.B >= 150 AND BEAM.DISTANCE.MIN.A >= 40 ; OR FIRE.RESISTANCE.R == 90 AND BEAM.DIMENSION.MIN.B >= 200 AND BEAM.DISTANCE.MIN.A >= 35 ; OR FIRE.RESISTANCE.R == 90 AND BEAM.DIMENSION.MIN.B >= 250 AND BEAM.DISTANCE.MIN.A >= 30 ; OR FIRE.RESISTANCE.R == 90 AND BEAM.DIMENSION.MIN.B >= 400 AND BEAM.DISTANCE.MIN.A >= 25 ; OR FIRE.RESISTANCE.R == 120 AND BEAM.DIMENSION.MIN.B >= 200 AND BEAM.DISTANCE.MIN.A >= 50 ; OR FIRE.RESISTANCE.R == 120 AND BEAM.DIMENSION.MIN.B >= 250 AND BEAM.DISTANCE.MIN.A >= 45 ; OR FIRE.RESISTANCE.R == 120 AND BEAM.DIMENSION.MIN.B >= 300 AND BEAM.DISTANCE.MIN.A >= 40 ; OR FIRE.RESISTANCE.R == 120 AND BEAM.DIMENSION.MIN.B >= 500 AND BEAM.DISTANCE.MIN.A >= 35 ; OR FIRE.RESISTANCE.R == 180 AND BEAM.DIMENSION.MIN.B >= 300 AND BEAM.DISTANCE.MIN.A >= 75 ; OR FIRE.RESISTANCE.R == 180 AND BEAM.DIMENSION.MIN.B >= 350 AND BEAM.DISTANCE.MIN.A >= 65 ; OR FIRE.RESISTANCE.R == 180 AND BEAM.DIMENSION.MIN.B >= 400 AND BEAM.DISTANCE.MIN.A >= 60 ; OR FIRE.RESISTANCE.R == 180 AND BEAM.DIMENSION.MIN.B >= 600 AND BEAM.DISTANCE.MIN.A >= 50 ; OR FIRE.RESISTANCE.R == 240 AND BEAM.DIMENSION.MIN.B >= 400 AND BEAM.DISTANCE.MIN.A >= 75 ; OR FIRE.RESISTANCE.R == 240 AND BEAM.DIMENSION.MIN.B >= 500 AND BEAM.DISTANCE.MIN.A >= 70 ; OR FIRE.RESISTANCE.R == 240 AND BEAM.DIMENSION.MIN.B >= 700 AND BEAM.DISTANCE.MIN.A >= 60",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BEAM.DIMENSION.MIN.B",
+          "BEAM.DISTANCE.MIN.A",
+          "BEAM.WEB.WIDTH.MIN",
+          "FIRE.RESISTANCE.R"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE.RESISTANCE.R",
+          "BEAM.DIMENSION.MIN.B",
+          "BEAM.DISTANCE.MIN.A"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This norm is derived from the table for beams with three faces exposed to fire. Each row represents a different fire resistance rating with multiple options for minimum dimensions and distances.",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.09429931640625,
+              "t": 602.6247863769531,
+              "r": 542.9130859375,
+              "b": 452.0377502441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "182634ed023e0661",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.1 Vigas con las tres caras expuestas al fuego",
+          "Table 1"
+        ],
+        "parent_section_id": "a9a58b8cd2ff0c2e",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.09429931640625,
+              "t": 602.6247863769531,
+              "r": 542.9130859375,
+              "b": 452.0377502441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "2e7c9f80-0062-432a-9293-68532219e273",
+        "parent_section_id": "182634ed023e0661",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Concrete beams with three faces exposed to fire must meet minimum web width for fire resistance.",
+        "applies_if": "CONSTRUCTION.ELEMENT.TYPE == 'BEAM' AND CONSTRUCTION.ELEMENT.MATERIAL == 'REINFORCED_CONCRETE' AND CONSTRUCTION.ELEMENT.EXPOSURE.FIRE.FACES == 3",
+        "satisfied_if": "FIRE.RESISTANCE.R == 30 AND BEAM.WEB.WIDTH.MIN >= 80 ; OR FIRE.RESISTANCE.R == 60 AND BEAM.WEB.WIDTH.MIN >= 100 ; OR FIRE.RESISTANCE.R == 90 AND BEAM.WEB.WIDTH.MIN >= 100 ; OR FIRE.RESISTANCE.R == 120 AND BEAM.WEB.WIDTH.MIN >= 120 ; OR FIRE.RESISTANCE.R == 180 AND BEAM.WEB.WIDTH.MIN >= 140 ; OR FIRE.RESISTANCE.R == 240 AND BEAM.WEB.WIDTH.MIN >= 160",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BEAM.WEB.WIDTH.MIN",
+          "FIRE.RESISTANCE.R"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE.RESISTANCE.R",
+          "BEAM.WEB.WIDTH.MIN"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This norm is derived from the table for beams with three faces exposed to fire, specifically for minimum web width.",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.09429931640625,
+              "t": 602.6247863769531,
+              "r": 542.9130859375,
+              "b": 452.0377502441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 181,
+        "end_pos": 188
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 51,
+        "end_index": 53
+      },
+      "section_metadata": {
+        "section_id": "182634ed023e0661",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.1 Vigas con las tres caras expuestas al fuego",
+          "Table 1"
+        ],
+        "parent_section_id": "a9a58b8cd2ff0c2e",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.09429931640625,
+              "t": 602.6247863769531,
+              "r": 542.9130859375,
+              "b": 452.0377502441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 937
+}

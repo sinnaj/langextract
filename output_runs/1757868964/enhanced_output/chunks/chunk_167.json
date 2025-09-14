@@ -1,0 +1,298 @@
+{
+  "chunk_id": 167,
+  "section_metadata": {
+    "section_id": "6e9a160cc1870ed7",
+    "section_name": "Table 2",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 74,
+    "end_page": 74,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.1 Madera sin protección",
+      "Table 2"
+    ],
+    "parent_section_id": "9ad54027d2b390f3",
+    "positioning_data": [
+      {
+        "page_no": 74,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 89.23796081542969,
+          "t": 181.43896484375,
+          "r": 539.3683471679688,
+          "b": 78.1934814453125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 2"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 2\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.1 Madera sin protección → Table 2\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Sin, Protección, Table\n**Pages:** 74-74\n\n\n|  | n (mm/min) |\n| --- | --- |\n| Coníferas y haya |  |\n| Madera laminada encolada con densidad característica  290 kg/m 3 | 0,70 |\n| Madera maciza con densidad característica  290 kg/m 3 | 0,80 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Madera laminada encolada con densidad característica ≥ 290 kg/m 3",
+      "attributes": {
+        "id": "27043811-0e30-413f-8461-125c136f4296",
+        "parent_section_id": "6e9a160cc1870ed7",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for glued laminated timber with a characteristic density of 290 kg/m³ or greater is 0.70 mm/min.",
+        "applies_if": "TIMBER.TYPE == 'GLUED_LAMINATED' AND TIMBER.DENSITY.CHARACTERISTIC >= 290",
+        "satisfied_if": "TIMBER.CHARRING_RATE.NOMINAL == 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "TIMBER.TYPE",
+          "TIMBER.DENSITY.CHARACTERISTIC",
+          "TIMBER.CHARRING_RATE.NOMINAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 165,
+          "span_char_end": 240,
+          "visual_refs": [
+            {
+              "page": 74,
+              "section": "Table 2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "TIMBER.DENSITY.CHARACTERISTIC >= 290 kg/m^3",
+          "TIMBER.CHARRING_RATE.NOMINAL == 0.70 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Table 2",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 462,
+        "end_pos": 514
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 136,
+        "end_index": 144
+      },
+      "section_metadata": {
+        "section_id": "6e9a160cc1870ed7",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección",
+          "Table 2"
+        ],
+        "parent_section_id": "9ad54027d2b390f3",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Madera maciza con densidad característica ≥ 290 kg/m 3",
+      "attributes": {
+        "id": "22247343-2222-4222-8222-222222222222",
+        "parent_section_id": "6e9a160cc1870ed7",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for solid timber with a characteristic density of 290 kg/m³ or greater is 0.80 mm/min.",
+        "applies_if": "TIMBER.TYPE == 'SOLID' AND TIMBER.DENSITY.CHARACTERISTIC >= 290",
+        "satisfied_if": "TIMBER.CHARRING_RATE.NOMINAL == 0.80",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "TIMBER.TYPE",
+          "TIMBER.DENSITY.CHARACTERISTIC",
+          "TIMBER.CHARRING_RATE.NOMINAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 241,
+          "span_char_end": 308,
+          "visual_refs": [
+            {
+              "page": 74,
+              "section": "Table 2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "TIMBER.DENSITY.CHARACTERISTIC >= 290 kg/m^3",
+          "TIMBER.CHARRING_RATE.NOMINAL == 0.80 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Table 2",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 539,
+        "end_pos": 580
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 154,
+        "end_index": 161
+      },
+      "section_metadata": {
+        "section_id": "6e9a160cc1870ed7",
+        "section_name": "Table 2",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección",
+          "Table 2"
+        ],
+        "parent_section_id": "9ad54027d2b390f3",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 2"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 602
+}

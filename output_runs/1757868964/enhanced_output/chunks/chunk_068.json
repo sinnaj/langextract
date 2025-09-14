@@ -1,0 +1,283 @@
+{
+  "chunk_id": 68,
+  "section_metadata": {
+    "section_id": "12fe0f855072929d",
+    "section_name": "Aparcamiento abierto",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 42,
+    "end_page": 42,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Aparcamiento abierto"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 743.8389282226562,
+          "r": 276.9940185546875,
+          "b": 728.8843994140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo SI A Terminología"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          413
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 713.5508422851562,
+          "r": 538.0985107421875,
+          "b": 669.6583251953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          212
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 652.5908203125,
+          "r": 538.3079223632812,
+          "b": 622.1904296875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          20
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 593.160888671875,
+          "r": 170.70095825195312,
+          "b": 585.8004760742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Altura de evacuación"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          271
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 571.680908203125,
+          "r": 538.5882568359375,
+          "b": 539.4179077148438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Aparcamiento abierto\n**Path:** Anejo SI A Terminología → Aparcamiento abierto\n**Level:** 2\n**Tags:** Terminología, Aparcamiento, Abierto\n**Pages:** 42-42\n\n\nEs aquel que cumple las siguientes condiciones:\nSus fachadas presentan en cada planta un área total permanentemente abierta al exterior no inferior a 1/20 de su superficie construida, de la cual al menos 1/40 está distribuida de manera uniforme entre las dos paredes opuestas que se encuentren a menor distancia;\nLa distancia desde el borde superior de las aberturas hasta el techo no excede de 0,5 metros.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': '1', 'parent_section_id': None, 'classification_type': 'BUILDING.TYPE', 'classification_name': 'OPEN_PARKING', 'applies_if': 'TRUE', 'conditions': ['FACADE.OPENING.AREA >= (BUILDING.AREA.CONSTRUCTED / 20)', 'FACADE.OPENING.AREA.DISTRIBUTED_UNIFORMLY_OPPOSITE_WALLS >= (BUILDING.AREA.CONSTRUCTED / 40)', 'OPENING.TOP_EDGE.DISTANCE_TO_CEILING <= 0.5'], 'location_scope': {'COUNTRY': 'ES', 'STATES': [], 'PROVINCES': [], 'REGIONS': [], 'COMMUNES': [], 'ZONES': [], 'GEO_CODES': []}, 'source': {'span_char_start': 102, 'span_char_end': 444, 'visual_refs': []}, 'confidence': 0.95, 'uncertainty': 0.05}",
+      "attributes": {
+        "parent_section_id": "12fe0f855072929d",
+        "section_name": "Aparcamiento abierto",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "12fe0f855072929d",
+        "section_name": "Aparcamiento abierto",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Aparcamiento abierto"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 573
+}

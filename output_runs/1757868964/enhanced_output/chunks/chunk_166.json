@@ -1,0 +1,109 @@
+{
+  "chunk_id": 166,
+  "section_metadata": {
+    "section_id": "192da7db13085e4a",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 74,
+    "end_page": 74,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.1 Madera sin protección",
+      "Table 1"
+    ],
+    "parent_section_id": "9ad54027d2b390f3",
+    "positioning_data": [
+      {
+        "page_no": 74,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 107.0527114868164,
+          "t": 731.9522323608398,
+          "r": 538.4041137695312,
+          "b": 628.9975891113281,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.1 Madera sin protección → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Sin, Protección, Table\n**Pages:** 74-74\n\n\n| para: madera maciza | kfi = 1,25 |\n| --- | --- |\n| madera laminada encolada | kfi = 1,15 |\n| tableros derivados de la madera | kfi = 1,15 |\n| madera microlaminada (LVL) | kfi = 1,10 |\n| uniones con elementos laterales de madera y tableros derivados de la madera | kfi = 1,15 |\n| uniones con placas de acero externas | kfi = 1,05 |",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': 'e3057e96-3b95-460d-8313-7509f0290933', 'parent_section_id': 'e8387127-1472-4f3b-8255-081912532431', 'classification_type': 'MATERIAL.FIRE_RESISTANCE.FACTOR', 'classification_name': 'kfi_factor_for_wood_products', 'classification_values': [{'value': '1.25', 'applies_if': \"MATERIAL.TYPE == 'SOLID_WOOD'\"}, {'value': '1.15', 'applies_if': \"MATERIAL.TYPE == 'GLUED_LAMINATED_WOOD'\"}, {'value': '1.15', 'applies_if': \"MATERIAL.TYPE == 'WOOD_BASED_PANELS'\"}, {'value': '1.10', 'applies_if': \"MATERIAL.TYPE == 'LAMINATED_VENEER_LUMBER'\"}, {'value': '1.15', 'applies_if': \"MATERIAL.TYPE == 'JOINTS_WITH_WOOD_SIDE_ELEMENTS_AND_WOOD_BASED_PANELS'\"}, {'value': '1.05', 'applies_if': \"MATERIAL.TYPE == 'JOINTS_WITH_EXTERNAL_STEEL_PLATES'\"}], 'topics': ['SAFETY.FIRE', 'SAFETY.STRUCTURAL'], 'location_scope': {'COUNTRY': 'ES'}, 'source': {'span_char_start': 204, 'span_char_end': 648, 'visual_refs': [{'page': 74, 'section_id': 'Table 1'}]}, 'confidence': 1.0}",
+      "attributes": {
+        "parent_section_id": "192da7db13085e4a",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "192da7db13085e4a",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección",
+          "Table 1"
+        ],
+        "parent_section_id": "9ad54027d2b390f3",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 735
+}

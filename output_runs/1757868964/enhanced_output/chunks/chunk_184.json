@@ -1,0 +1,1390 @@
+{
+  "chunk_id": 184,
+  "section_metadata": {
+    "section_id": "e5c1b0dac77f07d6",
+    "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 82,
+    "end_page": 82,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.4 Uniones",
+      "E.4.4 Tirafondos sometidos a carga axial"
+    ],
+    "parent_section_id": "a7f6c6bda61041ea",
+    "positioning_data": [
+      {
+        "page_no": 82,
+        "charspan": [
+          0,
+          183
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 768.870849609375,
+          "r": 538.4280395507812,
+          "b": 748.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+      },
+      {
+        "page_no": 82,
+        "charspan": [
+          0,
+          26
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 733.021240234375,
+          "r": 199.0875244140625,
+          "b": 723.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.4.3.2 Uniones protegidas"
+      },
+      {
+        "page_no": 82,
+        "charspan": [
+          0,
+          250
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 713.3511962890625,
+          "r": 538.3079223632812,
+          "b": 681.8663330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+      },
+      {
+        "page_no": 82,
+        "charspan": [
+          0,
+          40
+        ],
+        "bbox": {
+          "l": 71.81999969482422,
+          "t": 660.5560302734375,
+          "r": 306.2479553222656,
+          "b": 649.31201171875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.4.4 Tirafondos sometidos a carga axial"
+      },
+      {
+        "page_no": 82,
+        "charspan": [
+          0,
+          178
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 639.15087890625,
+          "r": 537.8775634765625,
+          "b": 618.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.4.4 Tirafondos sometidos a carga axial\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.4 Uniones → E.4.4 Tirafondos sometidos a carga axial\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Uniones, Tirafondos, Sometidos, Carga, Axial\n**Pages:** 82-82\n\n\n1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos a carga axial que se encuentren protegidos de la exposición directa al fuego.\n2 La capacidad resistente en situación de incendio se obtiene multiplicando la capacidad resistente en situación normal de temperatura (según DB-SE-M) por un coeficiente de reducción, denominado factor de conversión, cuyo valor se determina según las expresiones siguientes.\n3 Para las uniones del tipo de las representadas en la figura E.6 con:\nsiendo d1, d2 y d3 distancias en mm,\nEl factor de conversión  se define mediante las ecuaciones siguientes:\nsiendo:\nd1 recubrimiento lateral en mm, figura E.11.\ntfi,d tiempo requerido de resistencia al fuego en minutos.\n4 El factor de conversión  para recubrimientos laterales d2 = d1 y d3  d1 + 20 mm puede calcularse mediante las ecuaciones E.16 a E.21, sustituyendo tfi,d por 1,25·tfi,d .\nFigura E.6. Sección transversal y definición de distancias.\n82\nDocumento Básico SI en caso de Incendio\nAnejo E. Resistencia al fuego de las estructuras de madera",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos a carga axial que se encuentren protegidos de la exposición directa al fuego.\n2 La capacidad resistente en situación de incendio se obtiene multiplicando la capacidad resistente en situación normal de temperatura (según DB-SE-M) por un coeficiente de reducción, denominado factor de conversión, cuyo valor se determina según las expresiones siguientes.\n3 Para las uniones del tipo de las representadas en la figura E.6 con:\nsiendo d1, d2 y d3 distancias en mm,\nEl factor de conversión  se define mediante las ecuaciones siguientes:\nsiendo:\nd1 recubrimiento lateral en mm, figura E.11.\ntfi,d tiempo requerido de resistencia al fuego en minutos.\n4 El factor de conversión  para recubrimientos laterales d2 = d1 y d3  d1 + 20 mm puede calcularse mediante las ecuaciones E.16 a E.21, sustituyendo tfi,d por 1,25·tfi,d .\nFigura E.6. Sección transversal y definición de distancias.\n82\nDocumento Básico SI en caso de Incendio\nAnejo E. Resistencia al fuego de las estructuras de madera",
+      "attributes": {
+        "id": "5d6cc979-3933-4d50-b095-41d82e36b84e",
+        "meta_summary": "This section specifies the calculation of the resistance capacity of lag screws subjected to axial load in fire situations, applicable only when protected from direct fire exposure.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 313,
+        "end_pos": 1394
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 75,
+        "end_index": 327
+      },
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos a carga axial que se encuentren protegidos de la exposición directa al fuego.",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The specifications in this section are only applicable to lag screws subjected to axial load that are protected from direct fire exposure.",
+        "applies_if": "LAG_SCREW.LOAD.TYPE == 'AXIAL'",
+        "satisfied_if": "LAG_SCREW.FIRE.EXPOSURE.PROTECTED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LAG_SCREW",
+          "LOAD.AXIAL",
+          "FIRE.EXPOSURE",
+          "PROTECTION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 146,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 308,
+        "end_pos": 490
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 74,
+        "end_index": 109
+      },
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "2 La capacidad resistente en situación de incendio se obtiene multiplicando la capacidad resistente en situación normal de temperatura (según DB-SE-M) por un coeficiente de reducción, denominado factor de conversión, cuyo valor se determina según las expresiones siguientes.",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "procedure_statement": "The resistance capacity in a fire situation is obtained by multiplying the resistance capacity in a normal temperature situation (according to DB-SE-M) by a reduction coefficient, called the conversion factor, whose value is determined according to the following expressions.",
+        "target_reference": [],
+        "tags": [
+          "FIRE.RESISTANCE.CALCULATION",
+          "CONVERSION.FACTOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 147,
+          "span_char_end": 353,
+          "visual_refs": []
+        },
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 485,
+        "end_pos": 754
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 108,
+        "end_index": 167
+      },
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "3 Para las uniones del tipo de las representadas en la figura E.6 con:\nsiendo d1, d2 y d3 distancias en mm,\nEl factor de conversión  se define mediante las ecuaciones siguientes:\nsiendo:\nd1 recubrimiento lateral en mm, figura E.11.\ntfi,d tiempo requerido de resistencia al fuego en minutos.",
+      "attributes": {
+        "id": "d1654c1a-39de-46eb-8d75-650bd8054abe",
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "procedure_statement": "For connections of the type represented in Figure E.6, where d1, d2, and d3 are distances in mm, the conversion factor η is defined by the following equations, where d1 is the lateral cover in mm (Figure E.11) and tfi,d is the required fire resistance time in minutes.",
+        "target_reference": [
+          "Figure E.6",
+          "Figure E.11"
+        ],
+        "tags": [
+          "CONVERSION.FACTOR.CALCULATION",
+          "FIRE.RESISTANCE.TIME",
+          "DIMENSIONS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 354,
+          "span_char_end": 579,
+          "visual_refs": []
+        },
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 743,
+        "end_pos": 1046
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 166,
+        "end_index": 236
+      },
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "4 El factor de conversión  para recubrimientos laterales d2 = d1 y d3  d1 + 20 mm puede calcularse mediante las ecuaciones E.16 a E.21, sustituyendo tfi,d por 1,25·tfi,d .",
+      "attributes": {
+        "id": "dac48fcd-aa58-4314-8155-30015df904dd",
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "procedure_statement": "The conversion factor η for lateral covers d2 = d1 and d3 ≥ d1 + 20 mm can be calculated using equations E.16 to E.21, substituting tfi,d with 1.25·tfi,d.",
+        "target_reference": [
+          "Equations E.16 to E.21"
+        ],
+        "tags": [
+          "CONVERSION.FACTOR.CALCULATION",
+          "FIRE.RESISTANCE.TIME.MODIFICATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 580,
+          "span_char_end": 728,
+          "visual_refs": []
+        },
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1050,
+        "end_pos": 1229
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 237,
+        "end_index": 288
+      },
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "DB-SE-M",
+      "attributes": {
+        "id": "e1f2g3h4-i5j6-k7l8-m9n0-o1p2q3r4s5t6",
+        "title": "Documento Básico de Seguridad Estructural - Madera",
+        "year": null,
+        "code": "DB-SE-M",
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "annex": null,
+        "url": null,
+        "jurisdiction": "ES",
+        "doc_type": "REGULATION",
+        "source": {
+          "span_char_start": 258,
+          "span_char_end": 265,
+          "visual_refs": []
+        },
+        "parent_section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "e5c1b0dac77f07d6",
+        "section_name": "E.4.4 Tirafondos sometidos a carga axial",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 82,
+        "end_page": 82,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.4 Tirafondos sometidos a carga axial"
+        ],
+        "parent_section_id": "a7f6c6bda61041ea",
+        "positioning_data": [
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.870849609375,
+              "r": 538.4280395507812,
+              "b": 748.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 A los efectos del cálculo del factor de forma definido en el anejo D de este Documento, las superf"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 733.021240234375,
+              "r": 199.0875244140625,
+              "b": 723.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.3.2 Uniones protegidas"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              250
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 713.3511962890625,
+              "r": 538.3079223632812,
+              "b": 681.8663330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las placas de acero utilizadas como piezas laterales pueden considerarse protegidas si están total"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              40
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 660.5560302734375,
+              "r": 306.2479553222656,
+              "b": 649.31201171875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.4 Tirafondos sometidos a carga axial"
+          },
+          {
+            "page_no": 82,
+            "charspan": [
+              0,
+              178
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 639.15087890625,
+              "r": 537.8775634765625,
+              "b": 618.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 1394
+}

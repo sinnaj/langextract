@@ -1,0 +1,2249 @@
+{
+  "chunk_id": 139,
+  "section_metadata": {
+    "section_id": "19ea90218f972a04",
+    "section_name": "C.2.3.3 Losas macizas",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 59,
+    "end_page": 59,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.3 Vigas",
+      "C.2.3.3 Losas macizas"
+    ],
+    "parent_section_id": "f4b6cdbba7db63b5",
+    "positioning_data": [
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          256
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 742.4708862304688,
+          "r": 538.4276123046875,
+          "b": 710.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+      },
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          51
+        ],
+        "bbox": {
+          "l": 71.41211700439453,
+          "t": 688.11083984375,
+          "r": 312.53875732421875,
+          "b": 678.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+      },
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          237
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 666.5108642578125,
+          "r": 538.0565185546875,
+          "b": 635.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+      },
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          53
+        ],
+        "bbox": {
+          "l": 193.19898986816406,
+          "t": 613.1079711914062,
+          "r": 416.2359924316406,
+          "b": 603.8590087890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+      },
+      {
+        "page_no": 59,
+        "charspan": [
+          0,
+          88
+        ],
+        "bbox": {
+          "l": 93.69144439697266,
+          "t": 448.2191162109375,
+          "r": 412.3490905761719,
+          "b": 439.86962890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: C.2.3.3 Losas macizas\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.3 Vigas → C.2.3.3 Losas macizas\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Vigas, Losas, Macizas\n**Pages:** 59-59\n\n\n1 Mediante la tabla C.4 puede obtenerse la resistencia al fuego de las secciones de las losas macizas, referida a la distancia mínima equivalente al eje de la armadura inferior traccionada. Si la losa debe cumplir una función de compartimentación de incendios (criterios R, E e I) su espesor deberá ser al menos el que se establece en la tabla, pero cuando se requiera únicamente una función resistente (criterio R) basta con que el espesor sea el necesario para cumplir con los requisitos del proyecto a temperatura ambiente. A estos efectos, podrá considerarse como espesor el solado o cualquier otro elemento que mantenga su función aislante durante todo el periodo de resistencia al fuego .\nTabla C.4. Losas macizas\n59\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\n(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores.\n(2) I x y\r\n I y son las luces de la losa, siendo I y  I x .\n2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la armadura de negativos deberá prolongarse un 33% de la longitud del tramo con una cuantía no inferior a un 25% de la requerida en extremos sustentados.\n3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el 20% de la armadura superior sobre soportes deberá prolongarse a lo largo de todo el tramo.\n4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidireccionales.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Mediante la tabla C.4 puede obtenerse la resistencia al fuego de las secciones de las losas macizas, referida a la distancia mínima equivalente al eje de la armadura inferior traccionada. Si la losa debe cumplir una función de compartimentación de incendios (criterios R, E e I) su espesor deberá ser al menos el que se establece en la tabla, pero cuando se requiera únicamente una función resistente (criterio R) basta con que el espesor sea el necesario para cumplir con los requisitos del proyecto a temperatura ambiente. A estos efectos, podrá considerarse como espesor el solado o cualquier otro elemento que mantenga su función aislante durante todo el periodo de resistencia al fuego .",
+      "attributes": {
+        "id": "c.2.3.3.1",
+        "meta_summary": "This section provides guidelines for determining the fire resistance of solid slabs, differentiating between fire compartmentation and structural resistance functions.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 291,
+        "end_pos": 985
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 225
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si la losa debe cumplir una función de compartimentación de incendios (criterios R, E e I) su espesor deberá ser al menos el que se establece en la tabla",
+      "attributes": {
+        "id": "c.2.3.3.1.norm.1",
+        "parent_section_id": "19ea90218f972a04",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the slab must fulfill a fire compartmentation function (criteria R, E, and I), its thickness must be at least that established in the table.",
+        "applies_if": "SLAB.FUNCTION.FIRE_COMPARTMENTATION == TRUE AND SLAB.FIRE_RESISTANCE_CRITERIA IN ['R', 'E', 'I']",
+        "satisfied_if": "SLAB.THICKNESS >= TABLE.C.4.MINIMUM_THICKNESS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SLAB.THICKNESS",
+          "SLAB.FUNCTION.FIRE_COMPARTMENTATION",
+          "SLAB.FIRE_RESISTANCE_CRITERIA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 133,
+          "span_char_end": 224,
+          "visual_refs": []
+        },
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1031,
+        "end_pos": 1033
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 237,
+        "end_index": 238
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "cuando se requiera únicamente una función resistente (criterio R) basta con que el espesor sea el necesario para cumplir con los requisitos del proyecto a temperatura ambiente.",
+      "attributes": {
+        "id": "c.2.3.3.1.norm.2",
+        "parent_section_id": "19ea90218f972a04",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When only a structural resistance function is required (criterion R), the thickness must be sufficient to meet project requirements at ambient temperature.",
+        "applies_if": "SLAB.FUNCTION.STRUCTURAL_RESISTANCE == TRUE AND SLAB.FIRE_RESISTANCE_CRITERIA == 'R' AND SLAB.FUNCTION.FIRE_COMPARTMENTATION == FALSE",
+        "satisfied_if": "SLAB.THICKNESS >= PROJECT.REQUIREMENTS.AMBIENT_TEMPERATURE_THICKNESS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SLAB.THICKNESS",
+          "SLAB.FUNCTION.STRUCTURAL_RESISTANCE",
+          "SLAB.FIRE_RESISTANCE_CRITERIA",
+          "PROJECT.REQUIREMENTS.AMBIENT_TEMPERATURE_THICKNESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 229,
+          "span_char_end": 376,
+          "visual_refs": []
+        },
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 291,
+        "end_pos": 816
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 193
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la armadura de negativos deberá prolongarse un 33% de la longitud del tramo con una cuantía no inferior a un 25% de la requerida en extremos sustentados.",
+      "attributes": {
+        "id": "c.2.3.3.2.norm.1",
+        "parent_section_id": "19ea90218f972a04",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For solid slabs on linear supports and in cases of fire resistance R 90 or greater, the negative reinforcement must be extended by 33% of the span length with a quantity not less than 25% of that required at supported ends.",
+        "applies_if": "SLAB.TYPE == 'SOLID' AND SLAB.SUPPORT.TYPE == 'LINEAR' AND SLAB.FIRE_RESISTANCE_R >= 90",
+        "satisfied_if": "REINFORCEMENT.NEGATIVE.EXTENSION >= (0.33 * SPAN.LENGTH) AND REINFORCEMENT.NEGATIVE.QUANTITY >= (0.25 * REINFORCEMENT.REQUIRED_AT_SUPPORTED_ENDS)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SLAB.TYPE",
+          "SLAB.SUPPORT.TYPE",
+          "SLAB.FIRE_RESISTANCE_R",
+          "REINFORCEMENT.NEGATIVE.EXTENSION",
+          "SPAN.LENGTH",
+          "REINFORCEMENT.NEGATIVE.QUANTITY",
+          "REINFORCEMENT.REQUIRED_AT_SUPPORTED_ENDS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 659,
+          "span_char_end": 863,
+          "visual_refs": []
+        },
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1274,
+        "end_pos": 1521
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 293,
+        "end_index": 345
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el 20% de la armadura superior sobre soportes deberá prolongarse a lo largo de todo el tramo.",
+      "attributes": {
+        "id": "c.2.3.3.3.norm.1",
+        "parent_section_id": "19ea90218f972a04",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For solid slabs on point supports and in cases of fire resistance R 90 or greater, 20% of the upper reinforcement over supports must be extended along the entire span.",
+        "applies_if": "SLAB.TYPE == 'SOLID' AND SLAB.SUPPORT.TYPE == 'POINT' AND SLAB.FIRE_RESISTANCE_R >= 90",
+        "satisfied_if": "REINFORCEMENT.UPPER.OVER_SUPPORTS.EXTENSION_PERCENTAGE >= 0.20 AND REINFORCEMENT.UPPER.OVER_SUPPORTS.EXTENSION_LENGTH == SPAN.LENGTH",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "SLAB.TYPE",
+          "SLAB.SUPPORT.TYPE",
+          "SLAB.FIRE_RESISTANCE_R",
+          "REINFORCEMENT.UPPER.OVER_SUPPORTS.EXTENSION_PERCENTAGE",
+          "SPAN.LENGTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 867,
+          "span_char_end": 1046,
+          "visual_refs": []
+        },
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1524,
+        "end_pos": 1712
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 346,
+        "end_index": 385
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidireccionales.",
+      "attributes": {
+        "id": "c.2.3.3.4.norm.1",
+        "parent_section_id": "19ea90218f972a04",
+        "paragraph_number": 4,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "Flat beams with lateral thickenings greater than 10cm can be assimilated to one-way slabs.",
+        "applies_if": "BEAM.TYPE == 'FLAT' AND BEAM.LATERAL_THICKENING > 10",
+        "satisfied_if": "BEAM.ASSIMILATED_TO == 'ONE_WAY_SLAB'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "BEAM.TYPE",
+          "BEAM.LATERAL_THICKENING",
+          "BEAM.ASSIMILATED_TO"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1050,
+          "span_char_end": 1148,
+          "visual_refs": []
+        },
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1715,
+        "end_pos": 1817
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 386,
+        "end_index": 403
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Mediante la tabla C.4 puede obtenerse la resistencia al fuego de las secciones de las losas macizas, referida a la distancia mínima equivalente al eje de la armadura inferior traccionada.",
+      "attributes": {
+        "id": "c.2.3.3.1.proc.1",
+        "parent_section_id": "19ea90218f972a04",
+        "procedure_statement": "The fire resistance of solid slab sections can be obtained using Table C.4, referenced to the minimum equivalent distance to the axis of the tensioned bottom reinforcement.",
+        "target_reference": [
+          "Table C.4. Losas macizas"
+        ],
+        "tags": [
+          "FIRE.RESISTANCE.CALCULATION",
+          "SLAB.SOLID"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2,
+          "span_char_end": 131,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 291,
+        "end_pos": 479
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 121
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "A estos efectos, podrá considerarse como espesor el solado o cualquier otro elemento que mantenga su función aislante durante todo el periodo de resistencia al fuego .",
+      "attributes": {
+        "id": "c.2.3.3.1.proc.2",
+        "parent_section_id": "19ea90218f972a04",
+        "procedure_statement": "For these purposes, the flooring or any other element that maintains its insulating function throughout the fire resistance period may be considered as thickness.",
+        "target_reference": [],
+        "tags": [
+          "SLAB.THICKNESS.CALCULATION",
+          "FIRE.RESISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 377,
+          "span_char_end": 544,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 794,
+        "end_pos": 983
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 190,
+        "end_index": 224
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Losas macizas",
+      "attributes": {
+        "id": "c.2.3.3.classification.1",
+        "parent_section_id": "19ea90218f972a04",
+        "classification_type": "BUILDING.ELEMENT.TYPE",
+        "classification_value": "SLAB.SOLID",
+        "applies_if": "TRUE",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 59,
+          "span_char_end": 71,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Vigas planas con macizados laterales mayores que 10cm",
+      "attributes": {
+        "id": "c.2.3.3.classification.2",
+        "parent_section_id": "19ea90218f972a04",
+        "classification_type": "BUILDING.ELEMENT.TYPE",
+        "classification_value": "BEAM.FLAT.LATERAL_THICKENING_GT_10CM",
+        "applies_if": "BEAM.TYPE == 'FLAT' AND BEAM.LATERAL_THICKENING > 10",
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1050,
+          "span_char_end": 1099,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1227,
+        "end_pos": 1772
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 278,
+        "end_index": 396
+      },
+      "section_metadata": {
+        "section_id": "19ea90218f972a04",
+        "section_name": "C.2.3.3 Losas macizas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 59,
+        "end_page": 59,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.3 Losas macizas"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              256
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 742.4708862304688,
+              "r": 538.4276123046875,
+              "b": 710.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca co"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 71.41211700439453,
+              "t": 688.11083984375,
+              "r": 312.53875732421875,
+              "b": 678.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.3.1 Vigas con las tres caras expuestas al fuego"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              237
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 666.5108642578125,
+              "r": 538.0565185546875,
+              "b": 635.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Mediante la tabla C.3 puede obtenerse la resistencia al fuego de las secciones de vigas sustentadas "
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 193.19898986816406,
+              "t": 613.1079711914062,
+              "r": 416.2359924316406,
+              "b": 603.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla C.3. Vigas con tres caras expuestas al fuego(1)"
+          },
+          {
+            "page_no": 59,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 448.2191162109375,
+              "r": 412.3490905761719,
+              "b": 439.86962890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 1817
+}

@@ -1,0 +1,1913 @@
+{
+  "chunk_id": 156,
+  "section_metadata": {
+    "section_id": "a45665279d8a1a14",
+    "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 70,
+    "end_page": 70,
+    "toc_path": [
+      "Anejo D Resistencia al fuego de los elementos de acero",
+      "D.2 Método simplificado de cálculo",
+      "D.2.2 Soportes",
+      "D.2.2.1 Soportes de estructuras arriostradas"
+    ],
+    "parent_section_id": "8796b1723c6412c0",
+    "positioning_data": [
+      {
+        "page_no": 70,
+        "charspan": [
+          0,
+          72
+        ],
+        "bbox": {
+          "l": 157.7689971923828,
+          "t": 759.4539794921875,
+          "r": 451.3299865722656,
+          "b": 750.2589721679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+      },
+      {
+        "page_no": 70,
+        "charspan": [
+          0,
+          34
+        ],
+        "bbox": {
+          "l": 94.89144134521484,
+          "t": 200.84912109375,
+          "r": 212.70689392089844,
+          "b": 194.09156799316406,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(1) Perfiles de acero sin revestir"
+      },
+      {
+        "page_no": 70,
+        "charspan": [
+          0,
+          14
+        ],
+        "bbox": {
+          "l": 71.80799865722656,
+          "t": 174.47598266601562,
+          "r": 157.77200317382812,
+          "b": 163.3879852294922,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "D.2.2 Soportes"
+      },
+      {
+        "page_no": 70,
+        "charspan": [
+          0,
+          44
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 146.1108856201172,
+          "r": 281.451416015625,
+          "b": 136.9078369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "D.2.2.1 Soportes de estructuras arriostradas"
+      },
+      {
+        "page_no": 70,
+        "charspan": [
+          0,
+          272
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 126.5508804321289,
+          "r": 538.3076782226562,
+          "b": 94.27835845947266,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: D.2.2.1 Soportes de estructuras arriostradas\n**Path:** Anejo D Resistencia al fuego de los elementos de acero → D.2 Método simplificado de cálculo → D.2.2 Soportes → D.2.2.1 Soportes de estructuras arriostradas\n**Level:** 4\n**Tags:** Resistencia, Fuego, Los, Elementos, Acero, Método, Simplificado, Cálculo, Soportes, Soportes, Estructuras, Arriostradas\n**Pages:** 70-70\n\n\n1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fuego, se puede considerar del lado de la seguridad que la resistencia al fuego del soporte es, al menos igual a la resistencia al fuego correspondiente al elemento de fábrica.\n70\nDocumento Básico SI en caso de Incendio\nAnejo D. Resistencia al fuego de los elementos de acero\n2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en las que la sección del soporte se haya determinado adoptando como longitud de pandeo al menos el 0,7 de la altura entre plantas, la resistencia al fuego puede determinarse mediante la tabla D.1.\n3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cálculo considerando pandeo de un elemento sometido a flexocompresión puede verificarse, a partir de las solicitaciones obtenidas de la combinación de acciones en caso de incendio, mediante las expresiones generales de DB-SE-A usando los valores modificados dados a continuación:\nel límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2\ncomo longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca más de una planta, la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.\ncomo curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el plano de pandeo.\nla esbeltez reducida se incrementará multiplicándola por el coeficiente k ,  de la tabla D.2\nTabla D.2 Valores de los parámetros mecánicos del acero en función de la temperatura",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fuego, se puede considerar del lado de la seguridad que la resistencia al fuego del soporte es, al menos igual a la resistencia al fuego correspondiente al elemento de fábrica.\n70\nDocumento Básico SI en caso de Incendio\nAnejo D. Resistencia al fuego de los elementos de acero\n2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en las que la sección del soporte se haya determinado adoptando como longitud de pandeo al menos el 0,7 de la altura entre plantas, la resistencia al fuego puede determinarse mediante la tabla D.1.\n3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cálculo considerando pandeo de un elemento sometido a flexocompresión puede verificarse, a partir de las solicitaciones obtenidas de la combinación de acciones en caso de incendio, mediante las expresiones generales de DB-SE-A usando los valores modificados dados a continuación:\nel límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2\ncomo longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca más de una planta, la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.\ncomo curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el plano de pandeo.\nla esbeltez reducida se incrementará multiplicándola por el coeficiente k ,  de la tabla D.2\nTabla D.2 Valores de los parámetros mecánicos del acero en función de la temperatura",
+      "attributes": {
+        "id": "d.2.2.1",
+        "meta_summary": "This section describes methods for determining the fire resistance of steel supports in braced structures, including considerations for encased supports and calculation methods for flexo-compressed elements.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB-SE-A"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 384,
+        "end_pos": 2022
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 98,
+        "end_index": 454
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fuego, se puede considerar del lado de la seguridad que la resistencia al fuego del soporte es, al menos igual a la resistencia al fuego correspondiente al elemento de fábrica.",
+      "attributes": {
+        "id": "d.2.2.1.1",
+        "parent_section_id": "a45665279d8a1a14",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For steel supports encased with masonry elements on all fire-exposed sides, the fire resistance of the support can be considered, for safety, to be at least equal to the fire resistance of the masonry element.",
+        "applies_if": "SUPPORT.MATERIAL == 'STEEL' AND SUPPORT.ENCASEMENT.MATERIAL == 'MASONRY' AND SUPPORT.ENCASEMENT.COVERAGE == 'ALL_EXPOSED_SIDES'",
+        "satisfied_if": "SUPPORT.FIRE_RESISTANCE >= MASONRY_ELEMENT.FIRE_RESISTANCE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STEEL",
+          "MASONRY",
+          "FIRE.RESISTANCE",
+          "SUPPORT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 378,
+        "end_pos": 650
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 96,
+        "end_index": 149
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en las que la sección del soporte se haya determinado adoptando como longitud de pandeo al menos el 0,7 de la altura entre plantas, la resistencia al fuego puede determinarse mediante la tabla D.1.",
+      "attributes": {
+        "id": "d.2.2.1.2",
+        "parent_section_id": "a45665279d8a1a14",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For braced structures where each sector does not cover more than one floor and the support section has been determined by adopting a buckling length of at least 0.7 times the height between floors, fire resistance can be determined using Table D.1.",
+        "applies_if": "STRUCTURE.TYPE == 'BRACED' AND FIRE_SECTOR.FLOOR_COUNT <= 1 AND SUPPORT.BUCKLING_LENGTH >= (0.7 * FLOOR.HEIGHT_BETWEEN)",
+        "satisfied_if": "FIRE_RESISTANCE.DETERMINED_BY == 'TABLE.D.1'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STRUCTURE.BRACED",
+          "FIRE.SECTOR",
+          "SUPPORT",
+          "BUCKLING.LENGTH",
+          "FLOOR.HEIGHT",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 205,
+          "span_char_end": 486,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.FLOOR_COUNT <= 1",
+          "SUPPORT.BUCKLING_LENGTH >= 0.7 * FLOOR.HEIGHT_BETWEEN"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 737,
+        "end_pos": 1045
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 169,
+        "end_index": 232
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cálculo considerando pandeo de un elemento sometido a flexocompresión puede verificarse, a partir de las solicitaciones obtenidas de la combinación de acciones en caso de incendio, mediante las expresiones generales de DB-SE-A usando los valores modificados dados a continuación:\nel límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2\ncomo longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca más de una planta, la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.\ncomo curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el plano de pandeo.\nla esbeltez reducida se incrementará multiplicándola por el coeficiente k ,  de la tabla D.2",
+      "attributes": {
+        "id": "d.2.2.1.3",
+        "parent_section_id": "a45665279d8a1a14",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For non-thin-walled supports (classes 1, 2, or 3), the design resistant capacity considering buckling of a flexo-compressed element can be verified using the general expressions of DB-SE-A with modified values, based on the solicitations obtained from the combination of actions in case of fire.",
+        "applies_if": "SUPPORT.WALL.THICKNESS_CLASS IN ['CLASS.1', 'CLASS.2', 'CLASS.3']",
+        "satisfied_if": "DB_SE_A.EXPRESSIONS.VERIFIED_WITH_MODIFIED_VALUES == TRUE AND ELASTIC_LIMIT.REDUCED_BY_COEFFICIENT_KY_THETA == TRUE AND BUCKLING_LENGTH.SET_TO_HALF_INTERMEDIATE_FLOOR_HEIGHT_OR_0_7_LAST_FLOOR_HEIGHT_FOR_BRACED_STRUCTURES_AND_SINGLE_FLOOR_FIRE_SECTOR == TRUE AND BUCKLING_CURVE.USED == 'CURVE.C' AND REDUCED_SLENDERNESS.INCREASED_BY_COEFFICIENT_KL_THETA == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SUPPORT",
+          "WALL.THICKNESS",
+          "BUCKLING",
+          "FLEXO_COMPRESSION",
+          "FIRE.SCENARIO",
+          "ELASTIC.LIMIT",
+          "BUCKLING.LENGTH",
+          "BUCKLING.CURVE",
+          "SLENDERNESS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 487,
+          "span_char_end": 1146,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SUPPORT.WALL.THICKNESS_CLASS IN ['CLASS.1', 'CLASS.2', 'CLASS.3']",
+          "BUCKLING_LENGTH == 0.5 * FLOOR.HEIGHT_BETWEEN_INTERMEDIATE OR BUCKLING_LENGTH == 0.7 * FLOOR.HEIGHT_LAST"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1007,
+        "end_pos": 1916
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 226,
+        "end_index": 423
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2",
+      "attributes": {
+        "id": "d.2.2.1.3.procedure.1",
+        "parent_section_id": "a45665279d8a1a14",
+        "procedure_statement": "The elastic limit shall be reduced by multiplying it by the coefficient ky,θ from Table D.2.",
+        "target_reference": [
+          "Table D.2 Valores de los parámetros mecánicos del acero en función de la temperatura"
+        ],
+        "tags": [
+          "ELASTIC.LIMIT.CALCULATION",
+          "FIRE.RESISTANCE.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 802,
+          "span_char_end": 890,
+          "visual_refs": []
+        },
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1267,
+        "end_pos": 1512
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 279,
+        "end_index": 335
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca más de una planta, la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.",
+      "attributes": {
+        "id": "d.2.2.1.3.procedure.2",
+        "parent_section_id": "a45665279d8a1a14",
+        "procedure_statement": "The buckling length shall be taken, in braced structures and if the fire sector does not cover more than one floor, as half the height between intermediate floors, or 0.7 times the height of the last floor.",
+        "target_reference": [],
+        "tags": [
+          "BUCKLING.LENGTH.CALCULATION",
+          "FIRE.RESISTANCE.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 891,
+          "span_char_end": 1083,
+          "visual_refs": []
+        },
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1511,
+        "end_pos": 1716
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 334,
+        "end_index": 382
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el plano de pandeo.",
+      "attributes": {
+        "id": "d.2.2.1.3.procedure.3",
+        "parent_section_id": "a45665279d8a1a14",
+        "procedure_statement": "Buckling curve 'c' shall be used, regardless of the type of cross-section or buckling plane.",
+        "target_reference": [],
+        "tags": [
+          "BUCKLING.CURVE.SELECTION",
+          "FIRE.RESISTANCE.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1084,
+          "span_char_end": 1146,
+          "visual_refs": []
+        },
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1710,
+        "end_pos": 1841
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 380,
+        "end_index": 409
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "la esbeltez reducida se incrementará multiplicándola por el coeficiente k ,  de la tabla D.2",
+      "attributes": {
+        "id": "d.2.2.1.3.procedure.4",
+        "parent_section_id": "a45665279d8a1a14",
+        "procedure_statement": "The reduced slenderness shall be increased by multiplying it by the coefficient kλ,θ from Table D.2.",
+        "target_reference": [
+          "Table D.2 Valores de los parámetros mecánicos del acero en función de la temperatura"
+        ],
+        "tags": [
+          "SLENDERNESS.CALCULATION",
+          "FIRE.RESISTANCE.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1147,
+          "span_char_end": 1227,
+          "visual_refs": []
+        },
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1730,
+        "end_pos": 1936
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 385,
+        "end_index": 431
+      },
+      "section_metadata": {
+        "section_id": "a45665279d8a1a14",
+        "section_name": "D.2.2.1 Soportes de estructuras arriostradas",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 70,
+        "end_page": 70,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.2 Soportes",
+          "D.2.2.1 Soportes de estructuras arriostradas"
+        ],
+        "parent_section_id": "8796b1723c6412c0",
+        "positioning_data": [
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              72
+            ],
+            "bbox": {
+              "l": 157.7689971923828,
+              "t": 759.4539794921875,
+              "r": 451.3299865722656,
+              "b": 750.2589721679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 94.89144134521484,
+              "t": 200.84912109375,
+              "r": 212.70689392089844,
+              "b": 194.09156799316406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Perfiles de acero sin revestir"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              14
+            ],
+            "bbox": {
+              "l": 71.80799865722656,
+              "t": 174.47598266601562,
+              "r": 157.77200317382812,
+              "b": 163.3879852294922,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2 Soportes"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 146.1108856201172,
+              "r": 281.451416015625,
+              "b": 136.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.2.2.1 Soportes de estructuras arriostradas"
+          },
+          {
+            "page_no": 70,
+            "charspan": [
+              0,
+              272
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 126.5508804321289,
+              "r": 538.3076782226562,
+              "b": 94.27835845947266,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 2022
+}

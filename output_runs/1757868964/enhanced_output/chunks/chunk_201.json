@@ -1,0 +1,1658 @@
+{
+  "chunk_id": 201,
+  "section_metadata": {
+    "section_id": "0254658e6bc89ac3",
+    "section_name": "Table 4",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 90,
+    "end_page": 90,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "2 Resistencia al fuego",
+      "Table 4"
+    ],
+    "parent_section_id": "728cbdb1f6ca9dbc",
+    "positioning_data": [
+      {
+        "page_no": 90,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.84580993652344,
+          "t": 771.130973815918,
+          "r": 541.6893920898438,
+          "b": 68.76324462890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 4"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 4\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 2 Resistencia al fuego → Table 4\n**Level:** 3\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Resistencia, Fuego, Table\n**Pages:** 90-90\n\n\n|  | instalaciones de servicio de los edificios: conductos y compuertas  resistentes al fuego. |\n| --- | --- |\n| *UNE - EN 13501 - 4:2007+A1:2010 | Parte 4: Clasificación a partir de datos obtenidos en ensayos de  resistencia al fuego de componentes de sistemas de control de  humo. |\n| UNE - EN 14135:2005 | Recubrimientos. Determinación de la capacidad de protección  contra el fuego. |\n| UNE - EN 15080 | Extensión de la aplicación de los resultados de los ensayos  de resistencia al fuego |\n| UNE - EN 15080 - 8:2011 | Parte 8: Vigas. |\n| UNE - EN 15080 - 12:2011 | Parte 12: Muros portantes de albañilería. |\n| UNE - EN 15254 | Extensión de la aplicación de los resultados de los ensayos  de resistencia al fuego. Paredes no portantes |\n| UNE - EN 15254 - 2:2010 | Parte 2: Tabiques de fábrica y de paneles de yeso |\n| UNE - EN 15254 - 4:2019 | Parte 4: Elementos de construcción vidriados. |\n| UNE - EN 15254 - 5:2010 | Parte 5: Construcción con paneles sándwich metálicos. |\n| UNE - EN 15254 - 6:2015 | Parte 6: Fachadas ligeras. |\n| UNE - EN 15254 - 7:2013 | Parte 7: Paneles sándwich metálicos para construcción. |\n| UNE - EN 15269 | Extensión de la aplicación de los resultados de ensayo de  resistencia al fuego y/o control de humos para puertas, per\u0002 sianas y ventanas practicables, incluyendo sus herrajes para  la edificación |\n| UNE - EN 15269 - 1:2011 | Parte 1: Requisitos generales. |\n| UNE - EN 15269 - 2:2016 | Parte 2: Resistencia al fuego de conjuntos de puertas pivotantes y  batientes de acero. |\n| UNE - EN 15269 - 3:2016 | Parte 3: Resistencia al fuego de conjuntos de puertas de madera  pivotantes y batientes y ventanas practicables con estructura de  madera. |\n| UNE - EN 15269 - 5:2016+A1:2017 | Parte 5: Resistencia al fuego de conjuntos de puertas acristaladas  pivotantes y batientes con marco metálico y ventanas practicables  con marco metálico. |\n| UNE - EN 15269 - 7:2011 | Parte 7: Resistencia al fuego de conjuntos de puertas deslizantes  de acero. |\n| UNE - EN 15269 - 10:2015 | Parte 10: Resistencia al fuego de conjuntos de puertas/persianas  enrollables de acero. |\n| UNE - EN15269 - 11:2018+AC:2019 | Parte 11: Resistencia al fuego para cortinas de tela operables. |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "## Section: Table 4\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 2 Resistencia al fuego → Table 4\n**Level:** 3\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Resistencia, Fuego, Table\n**Pages:** 90-90\n\n\n|  | instalaciones de servicio de los edificios: conductos y compuertas  resistentes al fuego. |\n| --- | --- |\n| *UNE - EN 13501 - 4:2007+A1:2010 | Parte 4: Clasificación a partir de datos obtenidos en ensayos de  resistencia al fuego de componentes de sistemas de control de  humo. |\n| UNE - EN 14135:2005 | Recubrimientos. Determinación de la capacidad de protección  contra el fuego. |\n| UNE - EN 15080 | Extensión de la aplicación de los resultados de los ensayos  de resistencia al fuego |\n| UNE - EN 15080 - 8:2011 | Parte 8: Vigas. |\n| UNE - EN 15080 - 12:2011 | Parte 12: Muros portantes de albañilería. |\n| UNE - EN 15254 | Extensión de la aplicación de los resultados de los ensayos  de resistencia al fuego. Paredes no portantes |\n| UNE - EN 15254 - 2:2010 | Parte 2: Tabiques de fábrica y de paneles de yeso |\n| UNE - EN 15254 - 4:2019 | Parte 4: Elementos de construcción vidriados. |\n| UNE - EN 15254 - 5:2010 | Parte 5: Construcción con paneles sándwich metálicos. |\n| UNE - EN 15254 - 6:2015 | Parte 6: Fachadas ligeras. |\n| UNE - EN 15254 - 7:2013 | Parte 7: Paneles sándwich metálicos para construcción. |\n| UNE - EN 15269 | Extensión de la aplicación de los resultados de ensayo de  resistencia al fuego y/o control de humos para puertas, per­ sianas y ventanas practicables, incluyendo sus herrajes para  la edificación |\n| UNE - EN 15269 - 1:2011 | Parte 1: Requisitos generales. |\n| UNE - EN 15269 - 2:2016 | Parte 2: Resistencia al fuego de conjuntos de puertas pivotantes y  batientes de acero. |\n| UNE - EN 15269 - 3:2016 | Parte 3: Resistencia al fuego de conjuntos de puertas de madera  pivotantes y batientes y ventanas practicables con estructura de  madera. |\n| UNE - EN 15269 - 5:2016+A1:2017 | Parte 5: Resistencia al fuego de conjuntos de puertas acristaladas  pivotantes y batientes con marco metálico y ventanas practicables  con marco metálico. |\n| UNE - EN 15269 - 7:2011 | Parte 7: Resistencia al fuego de conjuntos de puertas deslizantes  de acero. |\n| UNE - EN 15269 - 10:2015 | Parte 10: Resistencia al fuego de conjuntos de puertas/persianas  enrollables de acero. |\n| UNE - EN15269 - 11:2018+AC:2019 | Parte 11: Resistencia al fuego para cortinas de tela operables. |",
+      "attributes": {
+        "id": "table_4_fire_resistance_standards",
+        "meta_summary": "This section lists various UNE-EN standards related to fire resistance testing and classification for building components, including ducts, dampers, coatings, beams, masonry walls, glazed elements, sandwich panels, facades, doors, shutters, and operable fabric curtains.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 2445
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 601
+      },
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 13501 - 4:2007+A1:2010",
+      "attributes": {
+        "id": "UNE_EN_13501_4_2007_A1_2010",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 4: Clasificación a partir de datos obtenidos en ensayos de resistencia al fuego de componentes de sistemas de control de humo.",
+        "type": "STANDARD",
+        "code": "UNE-EN 13501-4",
+        "year": "2007",
+        "amendment": "A1:2010",
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 171,
+        "end_pos": 380
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 96
+      },
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 14135:2005",
+      "attributes": {
+        "id": "UNE_EN_14135_2005",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Recubrimientos. Determinación de la capacidad de protección contra el fuego.",
+        "type": "STANDARD",
+        "code": "UNE-EN 14135",
+        "year": "2005",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15080",
+      "attributes": {
+        "id": "UNE_EN_15080",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Extensión de la aplicación de los resultados de los ensayos de resistencia al fuego",
+        "type": "STANDARD",
+        "code": "UNE-EN 15080",
+        "year": null,
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15080 - 8:2011",
+      "attributes": {
+        "id": "UNE_EN_15080_8_2011",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 8: Vigas.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15080-8",
+        "year": "2011",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15080 - 12:2011",
+      "attributes": {
+        "id": "UNE_EN_15080_12_2011",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 12: Muros portantes de albañilería.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15080-12",
+        "year": "2011",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254",
+      "attributes": {
+        "id": "UNE_EN_15254",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Extensión de la aplicación de los resultados de los ensayos de resistencia al fuego. Paredes no portantes",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254",
+        "year": null,
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254 - 2:2010",
+      "attributes": {
+        "id": "UNE_EN_15254_2_2010",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 2: Tabiques de fábrica y de paneles de yeso",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254-2",
+        "year": "2010",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254 - 4:2019",
+      "attributes": {
+        "id": "UNE_EN_15254_4_2019",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 4: Elementos de construcción vidriados.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254-4",
+        "year": "2019",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254 - 5:2010",
+      "attributes": {
+        "id": "UNE_EN_15254_5_2010",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 5: Construcción con paneles sándwich metálicos.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254-5",
+        "year": "2010",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254 - 6:2015",
+      "attributes": {
+        "id": "UNE_EN_15254_6_2015",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 6: Fachadas ligeras.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254-6",
+        "year": "2015",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15254 - 7:2013",
+      "attributes": {
+        "id": "UNE_EN_15254_7_2013",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 7: Paneles sándwich metálicos para construcción.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15254-7",
+        "year": "2013",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269",
+      "attributes": {
+        "id": "UNE_EN_15269",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Extensión de la aplicación de los resultados de ensayo de resistencia al fuego y/o control de humos para puertas, persianas y ventanas practicables, incluyendo sus herrajes para la edificación",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269",
+        "year": null,
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 1:2011",
+      "attributes": {
+        "id": "UNE_EN_15269_1_2011",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 1: Requisitos generales.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-1",
+        "year": "2011",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 2:2016",
+      "attributes": {
+        "id": "UNE_EN_15269_2_2016",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 2: Resistencia al fuego de conjuntos de puertas pivotantes y batientes de acero.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-2",
+        "year": "2016",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 3:2016",
+      "attributes": {
+        "id": "UNE_EN_15269_3_2016",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 3: Resistencia al fuego de conjuntos de puertas de madera pivotantes y batientes y ventanas practicables con estructura de madera.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-3",
+        "year": "2016",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 5:2016+A1:2017",
+      "attributes": {
+        "id": "UNE_EN_15269_5_2016_A1_2017",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 5: Resistencia al fuego de conjuntos de puertas acristaladas pivotantes y batientes con marco metálico y ventanas practicables con marco metálico.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-5",
+        "year": "2016",
+        "amendment": "A1:2017",
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1666,
+        "end_pos": 1958
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": {
+        "start_index": 429,
+        "end_index": 494
+      },
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 7:2011",
+      "attributes": {
+        "id": "UNE_EN_15269_7_2011",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 7: Resistencia al fuego de conjuntos de puertas deslizantes de acero.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-7",
+        "year": "2011",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 18,
+      "group_index": 17,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN 15269 - 10:2015",
+      "attributes": {
+        "id": "UNE_EN_15269_10_2015",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 10: Resistencia al fuego de conjuntos de puertas/persianas enrollables de acero.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-10",
+        "year": "2015",
+        "amendment": null,
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 19,
+      "group_index": 18,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE - EN15269 - 11:2018+AC:2019",
+      "attributes": {
+        "id": "UNE_EN_15269_11_2018_AC_2019",
+        "parent_section_id": "0254658e6bc89ac3",
+        "title": "Parte 11: Resistencia al fuego para cortinas de tela operables.",
+        "type": "STANDARD",
+        "code": "UNE-EN 15269-11",
+        "year": "2018",
+        "amendment": "AC:2019",
+        "article": null,
+        "section": null,
+        "sub_section": null,
+        "topic": "SAFETY.FIRE",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Table 4",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 20,
+      "group_index": 19,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "0254658e6bc89ac3",
+        "section_name": "Table 4",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 90,
+        "end_page": 90,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "2 Resistencia al fuego",
+          "Table 4"
+        ],
+        "parent_section_id": "728cbdb1f6ca9dbc",
+        "positioning_data": [
+          {
+            "page_no": 90,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.84580993652344,
+              "t": 771.130973815918,
+              "r": 541.6893920898438,
+              "b": 68.76324462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 4"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 20,
+  "char_count": 2445
+}

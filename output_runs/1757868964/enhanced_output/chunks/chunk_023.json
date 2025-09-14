@@ -1,0 +1,248 @@
+{
+  "chunk_id": 23,
+  "section_metadata": {
+    "section_id": "91d3125b3ae47d07",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 19,
+    "end_page": 19,
+    "toc_path": [
+      "Sección SI 2 Propagación exterior",
+      "1 Medianerías y fachadas",
+      "Table 1"
+    ],
+    "parent_section_id": "eae7b7d5b91e23d5",
+    "positioning_data": [
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 88.81045532226562,
+          "t": 436.4697570800781,
+          "r": 539.0743408203125,
+          "b": 400.6470031738281,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 2 Propagación exterior → 1 Medianerías y fachadas → Table 1\n**Level:** 3\n**Tags:** SI2, Propagación, Exterior, Medianerías, Fachadas, Table\n**Pages:** 19-19\n\n\n| α | 0º(1) | 45º | 60º | 90º | 135º | 180º |\n| --- | --- | --- | --- | --- | --- | --- |\n| d (m) | 3,00 | 2,75 | 2,50 | 2,00 | 1,25 | 0,50 |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This table provides values for 'd' (distance in meters) at different angles 'α' (degrees), likely related to exterior fire propagation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "91d3125b3ae47d07",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.81045532226562,
+              "t": 436.4697570800781,
+              "r": 539.0743408203125,
+              "b": 400.6470031738281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "91d3125b3ae47d07",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas",
+          "Table 1"
+        ],
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.81045532226562,
+              "t": 436.4697570800781,
+              "r": 539.0743408203125,
+              "b": 400.6470031738281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "11111111-2222-3333-4444-555555555555",
+        "parent_section_id": "91d3125b3ae47d07",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The distance 'd' must correspond to the specified values for each angle 'α'.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(ANGLE.ALPHA == 0 AND DISTANCE.D == 3.00) OR (ANGLE.ALPHA == 45 AND DISTANCE.D == 2.75) OR (ANGLE.ALPHA == 60 AND DISTANCE.D == 2.50) OR (ANGLE.ALPHA == 90 AND DISTANCE.D == 2.00) OR (ANGLE.ALPHA == 135 AND DISTANCE.D == 1.25) OR (ANGLE.ALPHA == 180 AND DISTANCE.D == 0.50)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FIRE.PROPAGATION",
+          "EXTERIOR.WALLS",
+          "FACADES",
+          "DISTANCE",
+          "ANGLE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ANGLE.ALPHA",
+          "DISTANCE.D"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "This norm defines specific distance requirements based on angles, likely for fire safety in exterior propagation.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.81045532226562,
+              "t": 436.4697570800781,
+              "r": 539.0743408203125,
+              "b": 400.6470031738281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 92,
+        "end_pos": 99
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 25,
+        "end_index": 27
+      },
+      "section_metadata": {
+        "section_id": "91d3125b3ae47d07",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas",
+          "Table 1"
+        ],
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.81045532226562,
+              "t": 436.4697570800781,
+              "r": 539.0743408203125,
+              "b": 400.6470031738281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 340
+}

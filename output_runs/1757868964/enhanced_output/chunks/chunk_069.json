@@ -1,0 +1,2014 @@
+{
+  "chunk_id": 69,
+  "section_metadata": {
+    "section_id": "cbafabec838e77a0",
+    "section_name": "Ascensor de emergencia",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 42,
+    "end_page": 42,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Ascensor de emergencia"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 743.8389282226562,
+          "r": 276.9940185546875,
+          "b": 728.8843994140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo SI A Terminología"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          413
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 713.5508422851562,
+          "r": 538.0985107421875,
+          "b": 669.6583251953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          212
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 652.5908203125,
+          "r": 538.3079223632812,
+          "b": 622.1904296875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          20
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 593.160888671875,
+          "r": 170.70095825195312,
+          "b": 585.8004760742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Altura de evacuación"
+      },
+      {
+        "page_no": 42,
+        "charspan": [
+          0,
+          271
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 571.680908203125,
+          "r": 538.5882568359375,
+          "b": 539.4179077148438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Ascensor de emergencia\n**Path:** Anejo SI A Terminología → Ascensor de emergencia\n**Level:** 2\n**Tags:** Terminología, Ascensor, Emergencia\n**Pages:** 42-42\n\n\nSus características serán las siguientes:\n-En cada planta, tendrá acceso desde el recinto de una escalera protegida o desde el vestíbulo de independencia de una escalera especialmente protegida a través de una puerta E30. Si el acceso se produce desde el recinto de una escalera especialmente protegida, no será necesario disponer dicha puerta E30.\n-Tendrá como mínimo una capacidad de carga de 630 kg, unas dimensiones de cabina de 1,10 m x 1,40 m, una anchura de paso de 1,00 m y una velocidad tal que permita realizar todo su recorrido en menos de 60 s.\n-En uso Hospitalario , las dimensiones de la planta de la cabina serán 1,20 m x 2,10 m, como mínimo.\n-Será accesible según lo establecido en el DB SUA y estará próximo, en cada planta, a una zona de refugio , cuando ésta exista .\n-En la planta de acceso al edificio se dispondrá un pulsador junto a los mandos del ascensor, bajo una tapa de vidrio, con la inscripción \"USO EXCLUSIVO BOMBEROS\". La activación del pulsador debe provocar el envío del ascensor a la planta de acceso y permitir su maniobra exclusivamente desde la cabina.\n-En caso de fallo del abastecimiento normal, la alimentación eléctrica al ascensor pasará a realizarse de forma automática desde una fuente propia de energía que disponga de una autonomía de 1 h como mínimo.\n-El número necesario de ascensores de emergencia se determinará en función de la previsión de ocupantes en la totalidad del edificio, a razón de un ascensor de emergencia accesible por cada mil ocupantes o fracción .\n42\nDocumento Básico SI en caso de Incendio Anejo A. Terminología",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Sus características serán las siguientes:\n-En cada planta, tendrá acceso desde el recinto de una escalera protegida o desde el vestíbulo de independencia de una escalera especialmente protegida a través de una puerta E30. Si el acceso se produce desde el recinto de una escalera especialmente protegida, no será necesario disponer dicha puerta E30.\n-Tendrá como mínimo una capacidad de carga de 630 kg, unas dimensiones de cabina de 1,10 m x 1,40 m, una anchura de paso de 1,00 m y una velocidad tal que permita realizar todo su recorrido en menos de 60 s.\n-En uso Hospitalario , las dimensiones de la planta de la cabina serán 1,20 m x 2,10 m, como mínimo.\n-Será accesible según lo establecido en el DB SUA y estará próximo, en cada planta, a una zona de refugio , cuando ésta exista .\n-En la planta de acceso al edificio se dispondrá un pulsador junto a los mandos del ascensor, bajo una tapa de vidrio, con la inscripción \"USO EXCLUSIVO BOMBEROS\". La activación del pulsador debe provocar el envío del ascensor a la planta de acceso y permitir su maniobra exclusivamente desde la cabina.\n-En caso de fallo del abastecimiento normal, la alimentación eléctrica al ascensor pasará a realizarse de forma automática desde una fuente propia de energía que disponga de una autonomía de 1 h como mínimo.\n-El número necesario de ascensores de emergencia se determinará en función de la previsión de ocupantes en la totalidad del edificio, a razón de un ascensor de emergencia accesible por cada mil ocupantes o fracción .\n42\nDocumento Básico SI en caso de Incendio Anejo A. Terminología",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "meta_summary": "Defines characteristics and requirements for emergency elevators, including access, dimensions, capacity, speed, accessibility, controls, power supply, and quantity based on occupancy.",
+        "meta_applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB SUA"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 170,
+        "end_pos": 1750
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 39,
+        "end_index": 411
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En cada planta, tendrá acceso desde el recinto de una escalera protegida o desde el vestíbulo de independencia de una escalera especialmente protegida a través de una puerta E30. Si el acceso se produce desde el recinto de una escalera especialmente protegida, no será necesario disponer dicha puerta E30.",
+      "attributes": {
+        "id": "e1f2g3h4-i5j6-k7l8-m9n0-o1p2q3r4s5t6",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevator access at each floor must be from a protected staircase enclosure or an independence vestibule of a specially protected staircase via an E30 door.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.ACCESS.FROM_PROTECTED_STAIRCASE == TRUE AND DOOR.TYPE == 'E30'; OR ELEVATOR.EMERGENCY.ACCESS.FROM_SPECIALLY_PROTECTED_STAIRCASE == TRUE",
+        "exempt_if": "ELEVATOR.EMERGENCY.ACCESS.FROM_SPECIALLY_PROTECTED_STAIRCASE == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "STAIRCASE.PROTECTED",
+          "STAIRCASE.SPECIALLY_PROTECTED",
+          "DOOR.TYPE.E30",
+          "VESTIBULE.INDEPENDENCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 200,
+        "end_pos": 513
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 47,
+        "end_index": 108
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tendrá como mínimo una capacidad de carga de 630 kg, unas dimensiones de cabina de 1,10 m x 1,40 m, una anchura de paso de 1,00 m y una velocidad tal que permita realizar todo su recorrido en menos de 60 s.",
+      "attributes": {
+        "id": "f2g3h4i5-j6k7-l8m9-n0o1-p2q3r4s5t6u7",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must have a minimum load capacity of 630 kg, cabin dimensions of 1.10 m x 1.40 m, a passage width of 1.00 m, and a speed allowing travel of its entire route in less than 60 seconds.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.LOAD_CAPACITY >= 630 AND ELEVATOR.EMERGENCY.CABIN.DIMENSION.LENGTH >= 1.10 AND ELEVATOR.EMERGENCY.CABIN.DIMENSION.WIDTH >= 1.40 AND ELEVATOR.EMERGENCY.PASSAGE.WIDTH >= 1.00 AND ELEVATOR.EMERGENCY.TRAVEL_TIME <= 60",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "ELEVATOR.CAPACITY",
+          "ELEVATOR.DIMENSIONS",
+          "ELEVATOR.SPEED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.EMERGENCY.LOAD_CAPACITY >= 630 kg",
+          "ELEVATOR.EMERGENCY.CABIN.DIMENSION.LENGTH >= 1.10 m",
+          "ELEVATOR.EMERGENCY.CABIN.DIMENSION.WIDTH >= 1.40 m",
+          "ELEVATOR.EMERGENCY.PASSAGE.WIDTH >= 1.00 m",
+          "ELEVATOR.EMERGENCY.TRAVEL_TIME <= 60 s"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 517,
+        "end_pos": 723
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 110,
+        "end_index": 164
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uso Hospitalario , las dimensiones de la planta de la cabina serán 1,20 m x 2,10 m, como mínimo.",
+      "attributes": {
+        "id": "g3h4i5j6-k7l8-m9n0-o1p2-q3r4s5t6u7v8",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For hospital use, emergency elevator cabin floor dimensions must be at least 1.20 m x 2.10 m.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY) AND BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "satisfied_if": "ELEVATOR.EMERGENCY.CABIN.DIMENSION.LENGTH >= 1.20 AND ELEVATOR.EMERGENCY.CABIN.DIMENSION.WIDTH >= 2.10",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "ELEVATOR.DIMENSIONS",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.EMERGENCY.CABIN.DIMENSION.LENGTH >= 1.20 m",
+          "ELEVATOR.EMERGENCY.CABIN.DIMENSION.WIDTH >= 2.10 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 727,
+        "end_pos": 826
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 166,
+        "end_index": 196
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Será accesible según lo establecido en el DB SUA y estará próximo, en cada planta, a una zona de refugio , cuando ésta exista .",
+      "attributes": {
+        "id": "h4i5j6k7-l8m9-n0o1-p2q3-r4s5t6u7v8w9",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must be accessible as established in DB SUA and located near a refuge area on each floor, if one exists.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.ACCESSIBLE == TRUE AND (NOT HAS(REFUGE_AREA) OR ELEVATOR.EMERGENCY.LOCATION.ADJACENT_TO('REFUGE_AREA'))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "ACCESSIBILITY",
+          "REFUGE_AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 828,
+        "end_pos": 954
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 197,
+        "end_index": 231
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En la planta de acceso al edificio se dispondrá un pulsador junto a los mandos del ascensor, bajo una tapa de vidrio, con la inscripción \"USO EXCLUSIVO BOMBEROS\". La activación del pulsador debe provocar el envío del ascensor a la planta de acceso y permitir su maniobra exclusivamente desde la cabina.",
+      "attributes": {
+        "id": "i5j6k7l8-m9n0-o1p2-q3r4-s5t6u7v8w9x0",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "At the building's access floor, a button with 'USO EXCLUSIVO BOMBEROS' (FIRE DEPARTMENT EXCLUSIVE USE) inscription, under a glass cover, must be placed next to the elevator controls. Activating the button must send the elevator to the access floor and allow its operation exclusively from the cabin.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.CONTROL.BUTTON.FIRE_DEPARTMENT.PRESENT == TRUE AND ELEVATOR.EMERGENCY.CONTROL.BUTTON.FIRE_DEPARTMENT.LABEL == 'USO EXCLUSIVO BOMBEROS' AND ELEVATOR.EMERGENCY.CONTROL.BUTTON.FIRE_DEPARTMENT.COVER.TYPE == 'GLASS' AND ELEVATOR.EMERGENCY.CONTROL.BUTTON.FIRE_DEPARTMENT.ACTIVATION.SENDS_TO_ACCESS_FLOOR == TRUE AND ELEVATOR.EMERGENCY.CONTROL.BUTTON.FIRE_DEPARTMENT.ACTIVATION.CABIN_EXCLUSIVE_OPERATION == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "ELEVATOR.CONTROL",
+          "FIRE_DEPARTMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 948,
+        "end_pos": 1249
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 230,
+        "end_index": 293
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En caso de fallo del abastecimiento normal, la alimentación eléctrica al ascensor pasará a realizarse de forma automática desde una fuente propia de energía que disponga de una autonomía de 1 h como mínimo.",
+      "attributes": {
+        "id": "j6k7l8m9-n0o1-p2q3-r4s5-t6u7v8w9x0y1",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In case of normal power supply failure, the emergency elevator's electrical power must automatically switch to its own energy source with a minimum autonomy of 1 hour.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.POWER_SUPPLY.FAILURE_MODE == 'AUTOMATIC_SWITCH_TO_OWN_SOURCE' AND ELEVATOR.EMERGENCY.POWER_SUPPLY.OWN_SOURCE.AUTONOMY >= 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "POWER_SUPPLY",
+          "ELECTRICAL_SYSTEM"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ELEVATOR.EMERGENCY.POWER_SUPPLY.OWN_SOURCE.AUTONOMY >= 1 h"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1259,
+        "end_pos": 1463
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 295,
+        "end_index": 344
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "El número necesario de ascensores de emergencia se determinará en función de la previsión de ocupantes en la totalidad del edificio, a razón de un ascensor de emergencia accesible por cada mil ocupantes o fracción .",
+      "attributes": {
+        "id": "k7l8m9n0-o1p2-q3r4-s5t6-u7v8w9x0y1z2",
+        "parent_section_id": "cbafabec838e77a0",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The required number of emergency elevators must be determined based on the total building occupancy, at a rate of one accessible emergency elevator per thousand occupants or fraction thereof.",
+        "applies_if": "HAS(ELEVATOR.EMERGENCY)",
+        "satisfied_if": "ELEVATOR.EMERGENCY.COUNT >= CEILING(BUILDING.OCCUPANCY / 1000)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "ELEVATOR.EMERGENCY",
+          "BUILDING.OCCUPANCY",
+          "ELEVATOR.COUNT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.OCCUPANCY / 1000"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Ascensor de emergencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1467,
+        "end_pos": 1682
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 345,
+        "end_index": 393
+      },
+      "section_metadata": {
+        "section_id": "cbafabec838e77a0",
+        "section_name": "Ascensor de emergencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 42,
+        "end_page": 42,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Ascensor de emergencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 276.9940185546875,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI A Terminología"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 713.5508422851562,
+              "r": 538.0985107421875,
+              "b": 669.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "A efectos de aplicación del DB-SI, los términos que figuran en letra cursiva deben utilizarse confor"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              212
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 652.5908203125,
+              "r": 538.3079223632812,
+              "b": 622.1904296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando el significado asignado a un término en este Anexo sea igual al establecido en una norma EN o"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 593.160888671875,
+              "r": 170.70095825195312,
+              "b": 585.8004760742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Altura de evacuación"
+          },
+          {
+            "page_no": 42,
+            "charspan": [
+              0,
+              271
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 571.680908203125,
+              "r": 538.5882568359375,
+              "b": 539.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 1750
+}

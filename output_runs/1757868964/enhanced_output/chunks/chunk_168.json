@@ -1,0 +1,3868 @@
+{
+  "chunk_id": 168,
+  "section_metadata": {
+    "section_id": "7d9417b26f90cdd3",
+    "section_name": "E.2.3.2 Madera con protección",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 75,
+    "end_page": 77,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.2 Madera con protección"
+    ],
+    "parent_section_id": "4bacd7c3a96b3af4",
+    "positioning_data": [
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          29
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 662.7908325195312,
+          "r": 214.88409423828125,
+          "b": 653.5878295898438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.2.3.2 Madera con protección"
+      },
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 636.2708740234375,
+          "r": 184.5758056640625,
+          "b": 628.9104614257812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.2.3.2.1 Generalidades"
+      },
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          196
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 616.5908203125,
+          "r": 538.1525268554688,
+          "b": 595.7083740234375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+      },
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          736
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 587.640869140625,
+          "r": 538.4279174804688,
+          "b": 497.8979187011719,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+      },
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          1000
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 489.6008605957031,
+          "r": 538.427978515625,
+          "b": 365.3979187011719,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.2.3.2 Madera con protección\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.2 Madera con protección\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Con, Protección\n**Pages:** 75-77\n\n\nE.2.3.2.1 Generalidades\n1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cálculo varia durante el tiempo de exposición al fuego, debiendo considerarse los siguientes casos:\nSi el inicio de la carbonización del elemento se produce por el fallo de la protección deben considerarse las siguientes fases. El inicio de la carbonización se retrasa hasta el momento en que se produce el fallo de la protección, tf. A partir de este momento debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.\nSi el inicio de la carbonización del elemento se produce antes del fallo de la protección deben considerarse las siguientes fases. Una primera fase hasta el momento en que se inicia la carbonización del elemento, tch. A partir de este momento y hasta que se produzca el fallo de la protección, tf, debe considerarse una velocidad de carbonización nominal igual a la establecida en la tabla E.1 para madera sin protección multiplicada por un coeficiente reductor k2, función del tipo de protección. A partir de este momento, debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.\nCuando el elemento esté protegido con mantas de lana de roca con un espesor mayor o igual a 20 mm. y una densidad mayor o igual a 26 kg/m 3 que se mantengan con cohesión hasta 1000 ºC, los valores de k2 pueden tomarse de la tabla E.2 Para espesores comprendidos entre 20 y 45mm puede interpolarse linealmente.\nTabla E.2. Valores de k2 para madera protegida por mantas de lana de roca\nSi el elemento se protege con una única capa de placas de yeso de tipo F, el factor de corrección k2 viene dado por la expresión:\nk2=1 -0,018hp (E.3)\nsiendo h p el espesor en milímetros de la capa de yeso.\nLa expresión (E.3) es válida para protecciones compuestas de por capas de yeso, siempre que la exterior sea de tipo F y la interior de tipo A o H.\n75\nDocumento Básico SI en caso de Incendio\nAnejo E. Resistencia al fuego de las estructuras de madera\nFigura E.2. Ejemplos de paneles utilizados como revestimientos de protección contra el fuego\n2 Salvo para los casos que se establecen en este Documento o para aquellos en que se disponga de información suficiente, el tiempo para el que se produce el inicio de la carbonización tch del elemento, el tiempo para el que se produce el fallo del revestimiento de protección contra el fuego u otros materiales de protección tf, así como las velocidades de carbonización en las diferentes fases, deben determinarse experimentalmente.\n3 Debe tenerse en cuenta en el inicio de la carbonización y, cuando proceda, en la velocidad de carbonización antes del fallo de la protección, el efecto de las juntas del revestimiento con holguras no rellenas mayores de 2mm.\nE.2.3.2.2 Inicio de la carbonización\n1 En el caso de revestimientos de protección consistentes en una o varias capas de tableros derivados de la madera o tableros de madera maciza, el tiempo de inicio de carbonización tch del elemento protegido, en minutos, puede obtenerse mediante la siguiente expresión:\nsiendo:\nh p espesor del tablero, en caso de varias capas el espesor total, [mm];\nß0 velocidad de carbonización básica de cálculo (ver tabla E.3);\nTabla E.3. Velocidad de carbonización básica de cálculo, 0, de tableros de protección\nLos valores se aplican para densidad característica de 450 kg/m 3 y para un espesor del tablero de 20 mm. Para valores diferentes de la densidad característica k y del espesor h p del tablero, la velocidad de carbonización básica de cálculo se determina mediante la siguiente expresión:\nsiendo:\n76\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\ndonde:\nk densidad característica en kg/m 3\nh p espesor del tablero en mm\n2 En el caso de muros o forjados formados por tableros unidos a un entramado de madera (ver figura E.2 c), el tiempo de inicio de carbonización tch de los elementos del entramado protegido puede obtenerse mediante la siguiente expresión:\nsiendo:\nh p espesor del tablero, en caso de varias capas el espesor total, [mm];\nß0 velocidad de carbonización básica de cálculo (ver tabla E.3) .\n3 Para los casos de elementos protegidos mediante mantas de lana de roca, que cumplan las especificaciones del párrafo 1 b) del apartado E.2.3.2.1, el tiempo para el que se produce el inicio de la carbonización tch, puede obtenerse de la siguiente expresión:\nsiendo:\nhins espesor del material aislante en milímetros;\nins densidad del material aislante en kg/m 3 .\n4 En el caso de elementos protegidos con una capa de paneles de yeso de tipo A, F o H, situados lejos de juntas entre paneles, o en las cercanías de juntas selladas o con aperturas menores de 2 mm, el tiempo de inicio de la carbonización, tch , en minutos, se obtiene de la expresión:\nSi el elemento protegido se encuentra cerca de juntas sin sellar, de espesor mayor de 2 mm, tch debe calcularse según la expresión:\n5 En el caso de revestimientos compuestos por dos capas de paneles de yeso, se pueden emplear las expresiones (E.10) y (E.11) siempre que las dos capas permanezcan unidas y su fallo se produzca de manera simultánea. La cercanía a las juntas entre paneles se evaluará en la capa exterior.\nE.2.3.2.3 Tiempos de fallo de revestimientos de protección\n1 El fallo del revestimiento de protección contra el fuego puede ocurrir por los siguiente motivos:\ncarbonización o degradación mecánica del material del revestimiento;\ninsuficiente longitud de penetración de los elementos de fijación en la zona no carbonizada de la madera;\nseparación o distancias inadecuadas de los elementos de fijación.\n2 En el caso de revestimientos de protección contra el fuego mediante tableros derivados de la madera y tableros de madera maciza o placas de yeso de tipo A o H, se considerará como tiempo de fallo del revestimiento, tf, el tiempo para el que se produce el inicio de la carbonización del elemento protegido, tch (ver apartado E.2.3.2.2).\n3 El tiempo de fallo por degradación mecánica del material de los paneles de yeso de tipo F debe determinarse mediante ensayos y será proporcionado por el fabricante.\n4 Para evitar el fallo por insuficiente longitud de penetración de los elementos de fijación en la zona no carbonizada, la, esta longitud será al menos de 10 mm. La longitud requerida del elemento de fijación se determinara mediante la expresión siguiente,\n77\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\nsiendo:\nh p espesor del tablero;\ndchar,n profundidad de carbonización en el elemento de madera.;\nl a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "E.2.3.2.1 Generalidades\n1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cálculo varia durante el tiempo de exposición al fuego, debiendo considerarse los siguientes casos:\nSi el inicio de la carbonización del elemento se produce por el fallo de la protección deben considerarse las siguientes fases. El inicio de la carbonización se retrasa hasta el momento en que se produce el fallo de la protección, tf. A partir de este momento debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.\nSi el inicio de la carbonización del elemento se produce antes del fallo de la protección deben considerarse las siguientes fases. Una primera fase hasta el momento en que se inicia la carbonización del elemento, tch. A partir de este momento y hasta que se produzca el fallo de la protección, tf, debe considerarse una velocidad de carbonización nominal igual a la establecida en la tabla E.1 para madera sin protección multiplicada por un coeficiente reductor k2, función del tipo de protección. A partir de este momento, debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.\nCuando el elemento esté protegido con mantas de lana de roca con un espesor mayor o igual a 20 mm. y una densidad mayor o igual a 26 kg/m 3 que se mantengan con cohesión hasta 1000 ºC, los valores de k2 pueden tomarse de la tabla E.2 Para espesores comprendidos entre 20 y 45mm puede interpolarse linealmente.\nTabla E.2. Valores de k2 para madera protegida por mantas de lana de roca\nSi el elemento se protege con una única capa de placas de yeso de tipo F, el factor de corrección k2 viene dado por la expresión:\nk2=1 -0,018hp (E.3)\nsiendo h p el espesor en milímetros de la capa de yeso.\nLa expresión (E.3) es válida para protecciones compuestas de por capas de yeso, siempre que la exterior sea de tipo F y la interior de tipo A o H.\n75\nDocumento Básico SI en caso de Incendio\nAnejo E. Resistencia al fuego de las estructuras de madera\nFigura E.2. Ejemplos de paneles utilizados como revestimientos de protección contra el fuego\n2 Salvo para los casos que se establecen en este Documento o para aquellos en que se disponga de información suficiente, el tiempo para el que se produce el inicio de la carbonización tch del elemento, el tiempo para el que se produce el fallo del revestimiento de protección contra el fuego u otros materiales de protección tf, así como las velocidades de carbonización en las diferentes fases, deben determinarse experimentalmente.\n3 Debe tenerse en cuenta en el inicio de la carbonización y, cuando proceda, en la velocidad de carbonización antes del fallo de la protección, el efecto de las juntas del revestimiento con holguras no rellenas mayores de 2mm.\nE.2.3.2.2 Inicio de la carbonización\n1 En el caso de revestimientos de protección consistentes en una o varias capas de tableros derivados de la madera o tableros de madera maciza, el tiempo de inicio de carbonización tch del elemento protegido, en minutos, puede obtenerse mediante la siguiente expresión:\nsiendo:\nh p espesor del tablero, en caso de varias capas el espesor total, [mm];\nß0 velocidad de carbonización básica de cálculo (ver tabla E.3);\nTabla E.3. Velocidad de carbonización básica de cálculo, 0, de tableros de protección\nLos valores se aplican para densidad característica de 450 kg/m 3 y para un espesor del tablero de 20 mm. Para valores diferentes de la densidad característica k y del espesor h p del tablero, la velocidad de carbonización básica de cálculo se determina mediante la siguiente expresión:\nsiendo:\n76\nDocumento Básico SI en caso de Incendio Anejo E.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section details the calculation of nominal charring rate for protected timber elements under fire exposure, considering different scenarios based on when charring initiates relative to the protection failure. It also provides methods for determining the k2 reduction coefficient for rock wool blankets and gypsum boards, and outlines experimental determination for charring initiation time and rates.",
+        "meta_applies_if": "ELEMENT.MATERIAL == 'WOOD' AND ELEMENT.PROTECTED_AGAINST_FIRE == TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Documento Básico SI en caso de Incendio",
+          "Anejo E. Resistencia al fuego de las estructuras de madera"
+        ],
+        "referenced_documents_sections": [
+          "E.2.3.2.1",
+          "E.2.3.2.2"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 408,
+        "end_pos": 4841
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 119,
+        "end_index": 1109
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cálculo varia durante el tiempo de exposición al fuego, debiendo considerarse los siguientes casos:\nSi el inicio de la carbonización del elemento se produce por el fallo de la protección deben considerarse las siguientes fases. El inicio de la carbonización se retrasa hasta el momento en que se produce el fallo de la protección, tf. A partir de este momento debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.\nSi el inicio de la carbonización del elemento se produce antes del fallo de la protección deben considerarse las siguientes fases. Una primera fase hasta el momento en que se inicia la carbonización del elemento, tch. A partir de este momento y hasta que se produzca el fallo de la protección, tf, debe considerarse una velocidad de carbonización nominal igual a la establecida en la tabla E.1 para madera sin protección multiplicada por un coeficiente reductor k2, función del tipo de protección. A partir de este momento, debe considerarse una velocidad de carbonización nominal igual al doble de la establecida en la tabla E.1 para madera sin protección, hasta que se alcance una profundidad carbonizada nominal de cálculo igual al menor de los dos valores siguientes: 25mm o la profundidad carbonizada nominal de cálculo de una superficie no protegida. En la fase posterior a dicho instante, se considerará como velocidad de carbonización nominal la correspondiente a la madera sin protección.",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "procedure_description": "Calculation of nominal charring rate for protected timber elements under fire exposure, considering two main scenarios:\n1. If charring initiation occurs due to protection failure (tf): Charring is delayed until tf. After tf, the nominal charring rate is double that of unprotected wood (Table E.1) until a nominal charring depth of 25mm or the unprotected nominal charring depth is reached (whichever is smaller). Subsequently, the rate reverts to that of unprotected wood.\n2. If charring initiation occurs before protection failure (tch): A first phase until tch. From tch until tf, the nominal charring rate is that of unprotected wood (Table E.1) multiplied by a reduction coefficient k2 (function of protection type). After tf, the rate is double that of unprotected wood until a nominal charring depth of 25mm or the unprotected nominal charring depth is reached (whichever is smaller). Subsequently, the rate reverts to that of unprotected wood.",
+        "target_reference": [
+          "Table E.1",
+          "Figure E.2"
+        ],
+        "tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.STRUCTURES",
+          "CHARRING.RATE",
+          "FIRE.PROTECTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 386,
+        "end_pos": 2261
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 111,
+        "end_index": 510
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Cuando el elemento esté protegido con mantas de lana de roca con un espesor mayor o igual a 20 mm. y una densidad mayor o igual a 26 kg/m 3 que se mantengan con cohesión hasta 1000 ºC, los valores de k2 pueden tomarse de la tabla E.2 Para espesores comprendidos entre 20 y 45mm puede interpolarse linealmente.",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "procedure_description": "For elements protected with rock wool blankets with a thickness >= 20 mm and density >= 26 kg/m³ that maintain cohesion up to 1000 °C, k2 values can be taken from Table E.2. Linear interpolation can be used for thicknesses between 20 mm and 45 mm.",
+        "target_reference": [
+          "Table E.2"
+        ],
+        "tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.STRUCTURES",
+          "K2.COEFFICIENT",
+          "ROCK.WOOL.BLANKETS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2357,
+        "end_pos": 2644
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 526,
+        "end_index": 595
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Si el elemento se protege con una única capa de placas de yeso de tipo F, el factor de corrección k2 viene dado por la expresión:\nk2=1 -0,018hp (E.3)\nsiendo h p el espesor en milímetros de la capa de yeso.\nLa expresión (E.3) es válida para protecciones compuestas de por capas de yeso, siempre que la exterior sea de tipo F y la interior de tipo A o H.",
+      "attributes": {
+        "id": "c6d7e8f9-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "procedure_description": "If the element is protected with a single layer of type F gypsum boards, the correction factor k2 is given by the expression: k2 = 1 - 0.018 * hp, where hp is the thickness in millimeters of the gypsum layer. This expression (E.3) is valid for composite gypsum protections, provided the outer layer is type F and the inner layer is type A or H.",
+        "target_reference": [
+          "Expression E.3"
+        ],
+        "tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.STRUCTURES",
+          "K2.COEFFICIENT",
+          "GYPSUM.BOARDS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2722,
+        "end_pos": 3085
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 611,
+        "end_index": 713
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Salvo para los casos que se establecen en este Documento o para aquellos en que se disponga de información suficiente, el tiempo para el que se produce el inicio de la carbonización tch del elemento, el tiempo para el que se produce el fallo del revestimiento de protección contra el fuego u otros materiales de protección tf, así como las velocidades de carbonización en las diferentes fases, deben determinarse experimentalmente.",
+      "attributes": {
+        "id": "d7e8f9a0-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The charring initiation time (tch), fire protection coating failure time (tf), and charring rates in different phases must be determined experimentally.",
+        "applies_if": "NOT (HAS(DOCUMENT.SPECIFIED_CASES) OR HAS(SUFFICIENT_INFORMATION))",
+        "satisfied_if": "CHARRING.INITIATION_TIME.TCH.DETERMINED_EXPERIMENTALLY == TRUE AND FIRE.PROTECTION.FAILURE_TIME.TF.DETERMINED_EXPERIMENTALLY == TRUE AND CHARRING.RATES.DETERMINED_EXPERIMENTALLY == TRUE",
+        "exempt_if": "HAS(DOCUMENT.SPECIFIED_CASES) OR HAS(SUFFICIENT_INFORMATION)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CHARRING.INITIATION_TIME",
+          "FIRE.PROTECTION.FAILURE_TIME",
+          "CHARRING.RATES",
+          "EXPERIMENTAL.DETERMINATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3277,
+        "end_pos": 3688
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 754,
+        "end_index": 840
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Debe tenerse en cuenta en el inicio de la carbonización y, cuando proceda, en la velocidad de carbonización antes del fallo de la protección, el efecto de las juntas del revestimiento con holguras no rellenas mayores de 2mm.",
+      "attributes": {
+        "id": "e8f9a0b1-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The effect of coating joints with unfilled gaps greater than 2mm must be considered in charring initiation and, where applicable, in the charring rate before protection failure.",
+        "applies_if": "COATING.JOINTS.UNFILLED_GAPS > 2 AND (HAS(CHARRING.INITIATION) OR HAS(CHARRING.RATE.BEFORE_PROTECTION_FAILURE))",
+        "satisfied_if": "EFFECT_OF_COATING_JOINTS_CONSIDERED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "CHARRING.INITIATION",
+          "CHARRING.RATE",
+          "COATING.JOINTS",
+          "UNFILLED.GAPS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "COATING.JOINTS.UNFILLED_GAPS > 2 mm"
+        ],
+        "confidence": 0.95,
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3725,
+        "end_pos": 3950
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 843,
+        "end_index": 892
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En el caso de revestimientos de protección consistentes en una o varias capas de tableros derivados de la madera o tableros de madera maciza, el tiempo de inicio de carbonización tch del elemento protegido, en minutos, puede obtenerse mediante la siguiente expresión:\nsiendo:\nh p espesor del tablero, en caso de varias capas el espesor total, [mm];\nß0 velocidad de carbonización básica de cálculo (ver tabla E.3);",
+      "attributes": {
+        "id": "f9a0b1c2-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "procedure_description": "For protective coatings consisting of one or more layers of wood-based panels or solid wood panels, the charring initiation time (tch) of the protected element, in minutes, can be obtained using the provided expression. hp is the total thickness of the board(s) in mm, and β0 is the basic charring rate (see Table E.3).",
+        "target_reference": [
+          "Table E.3"
+        ],
+        "tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.STRUCTURES",
+          "CHARRING.INITIATION_TIME",
+          "WOOD.PANELS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3977,
+        "end_pos": 4400
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 906,
+        "end_index": 999
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Los valores se aplican para densidad característica de 450 kg/m 3 y para un espesor del tablero de 20 mm. Para valores diferentes de la densidad característica k y del espesor h p del tablero, la velocidad de carbonización básica de cálculo se determina mediante la siguiente expresión:",
+      "attributes": {
+        "id": "0a1b2c3d-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "procedure_description": "The values for basic charring rate (β0) apply for a characteristic density of 450 kg/m³ and a board thickness of 20 mm. For different values of characteristic density (ρk) and board thickness (hp), the basic charring rate is determined by the provided expression.",
+        "target_reference": [],
+        "tags": [
+          "FIRE.RESISTANCE",
+          "WOOD.STRUCTURES",
+          "CHARRING.RATE",
+          "WOOD.PANELS",
+          "DENSITY",
+          "THICKNESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 4483,
+        "end_pos": 4778
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 1027,
+        "end_index": 1091
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "2 En el caso de muros o forjados formados por tableros unidos a un entramado de madera (ver figura E.2 c), el tiempo de inicio de carbonización tch de los elementos del entramado protegido puede obtenerse mediante la siguiente expresión: siendo: h p espesor del tablero, en caso de varias capas el espesor total, [mm]; ß0 velocidad de carbonización básica de cálculo (ver tabla E.3) .",
+      "attributes": {
+        "id": "e674933a-675e-4734-9270-134547902e3b",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "Calculate the initial charring time (tch) for protected timber frame elements in walls or floors (Figure E.2 c) using the provided expression, where 'hp' is the total board thickness in mm (if multiple layers) and 'ß0' is the basic charring rate from Table E.3.",
+        "target_reference": [
+          "Figure E.2 c",
+          "Table E.3"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "TIMBER.STRUCTURES",
+          "CHARRING.TIME",
+          "CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 379,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 4966,
+        "end_pos": 5350
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1135,
+        "end_index": 1226
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "3 Para los casos de elementos protegidos mediante mantas de lana de roca, que cumplan las especificaciones del párrafo 1 b) del apartado E.2.3.2.1, el tiempo para el que se produce el inicio de la carbonización tch, puede obtenerse de la siguiente expresión: siendo: hins espesor del material aislante en milímetros; ins densidad del material aislante en kg/m 3 .",
+      "attributes": {
+        "id": "2d504547-4972-4638-8255-a040b3781297",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "Calculate the initial charring time (tch) for elements protected with rock wool blankets (meeting E.2.3.2.1, paragraph 1 b) specifications) using the provided expression, where 'hins' is the insulating material thickness in mm and 'ρins' is the insulating material density in kg/m³.",
+        "target_reference": [
+          "E.2.3.2.1.1.b"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "TIMBER.STRUCTURES",
+          "CHARRING.TIME",
+          "CALCULATION",
+          "INSULATION.ROCK_WOOL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 381,
+          "span_char_end": 645,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 5351,
+        "end_pos": 5715
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 1226,
+        "end_index": 1310
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "4 En el caso de elementos protegidos con una capa de paneles de yeso de tipo A, F o H, situados lejos de juntas entre paneles, o en las cercanías de juntas selladas o con aperturas menores de 2 mm, el tiempo de inicio de la carbonización, tch , en minutos, se obtiene de la expresión: Si el elemento protegido se encuentra cerca de juntas sin sellar, de espesor mayor de 2 mm, tch debe calcularse según la expresión:",
+      "attributes": {
+        "id": "7642646b-252a-4416-834f-015886616421",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "Calculate the initial charring time (tch) in minutes for elements protected with a single layer of type A, F, or H gypsum panels. Use the first expression if panels are far from joints, or near sealed joints or joints with openings less than 2 mm. Use the second expression if the element is near unsealed joints with a thickness greater than 2 mm.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "TIMBER.STRUCTURES",
+          "CHARRING.TIME",
+          "CALCULATION",
+          "GYPSUM.PANELS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 647,
+          "span_char_end": 997,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 5716,
+        "end_pos": 6132
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 1310,
+        "end_index": 1409
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "5 En el caso de revestimientos compuestos por dos capas de paneles de yeso, se pueden emplear las expresiones (E.10) y (E.11) siempre que las dos capas permanezcan unidas y su fallo se produzca de manera simultánea. La cercanía a las juntas entre paneles se evaluará en la capa exterior.",
+      "attributes": {
+        "id": "2711019d-7427-44f3-855c-1960101b0905",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "Expressions (E.10) and (E.11) can be used for two-layer gypsum panel coverings if both layers remain united and fail simultaneously. Joint proximity is evaluated on the outer layer.",
+        "target_reference": [
+          "E.10",
+          "E.11"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "TIMBER.STRUCTURES",
+          "GYPSUM.PANELS",
+          "CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 999,
+          "span_char_end": 1238,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 6133,
+        "end_pos": 6420
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 1409,
+        "end_index": 1475
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "1 El fallo del revestimiento de protección contra el fuego puede ocurrir por los siguiente motivos: carbonización o degradación mecánica del material del revestimiento; insuficiente longitud de penetración de los elementos de fijación en la zona no carbonizada de la madera; separación o distancias inadecuadas de los elementos de fijación.",
+      "attributes": {
+        "id": "41315904-8140-410a-810f-614713e2f099",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "Fire protection covering failure can occur due to: charring or mechanical degradation of the covering material; insufficient penetration length of fasteners into the uncharred wood zone; or inadequate separation or distances of fasteners.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.PROTECTION",
+          "COVERING.FAILURE",
+          "CHARRING",
+          "MECHANICAL.DEGRADATION",
+          "FASTENERS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1279,
+          "span_char_end": 1563,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 6480,
+        "end_pos": 6820
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 1493,
+        "end_index": 1563
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "2 En el caso de revestimientos de protección contra el fuego mediante tableros derivados de la madera y tableros de madera maciza o placas de yeso de tipo A o H, se considerará como tiempo de fallo del revestimiento, tf, el tiempo para el que se produce el inicio de la carbonización del elemento protegido, tch (ver apartado E.2.3.2.2).",
+      "attributes": {
+        "id": "31548232-1b1e-451e-8424-63402434032d",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "For fire protection coverings using wood-based panels, solid wood panels, or type A or H gypsum boards, the covering failure time (tf) is considered to be the initial charring time (tch) of the protected element (see section E.2.3.2.2).",
+        "target_reference": [
+          "E.2.3.2.2"
+        ],
+        "Tags": [
+          "FIRE.PROTECTION",
+          "COVERING.FAILURE",
+          "CHARRING.TIME",
+          "WOOD.PANELS",
+          "GYPSUM.BOARDS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1565,
+          "span_char_end": 1845,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 6821,
+        "end_pos": 7158
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 1563,
+        "end_index": 1641
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "3 El tiempo de fallo por degradación mecánica del material de los paneles de yeso de tipo F debe determinarse mediante ensayos y será proporcionado por el fabricante.",
+      "attributes": {
+        "id": "5a411516-724a-4286-8a03-7186835a9202",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "The failure time due to mechanical degradation of type F gypsum panel material must be determined by testing and provided by the manufacturer.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.PROTECTION",
+          "GYPSUM.PANELS.TYPE.F",
+          "MECHANICAL.DEGRADATION",
+          "TESTING",
+          "MANUFACTURER.DATA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1847,
+          "span_char_end": 2007,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 7159,
+        "end_pos": 7325
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 1641,
+        "end_index": 1675
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "4 Para evitar el fallo por insuficiente longitud de penetración de los elementos de fijación en la zona no carbonizada, la, esta longitud será al menos de 10 mm. La longitud requerida del elemento de fijación se determinara mediante la expresión siguiente, siendo: h p espesor del tablero; dchar,n profundidad de carbonización en el elemento de madera.; l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera.",
+      "attributes": {
+        "id": "23389456-4217-4877-a89e-4a6136125021",
+        "parent_section_id": "7d9417b26f90cdd3",
+        "Procedure": "To prevent failure due to insufficient penetration length of fasteners into the uncharred zone, this length must be at least 10 mm. The required fastener length is determined by the provided expression, where 'hp' is the board thickness, 'dchar,n' is the charring depth in the wood element, and 'la' is the minimum penetration length of the fastener into the uncharred wood zone.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.PROTECTION",
+          "FASTENERS",
+          "PENETRATION.LENGTH",
+          "TIMBER.STRUCTURES",
+          "CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2009,
+          "span_char_end": 2445,
+          "visual_refs": []
+        },
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 7326,
+        "end_pos": 7582
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 1675,
+        "end_index": 1730
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Resistencia al fuego de las estructuras de madera\ndonde:\nk densidad característica en kg/m 3\nh p espesor del tablero en mm",
+      "attributes": {
+        "id": "e2e3f538-406a-484c-b57f-71285025752c",
+        "meta_summary": "This section defines parameters for calculating the fire resistance of timber structures, specifically characteristic density (ρk) and board thickness (hp).",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 4842,
+        "end_pos": 4965
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 1109,
+        "end_index": 1135
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "77\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera",
+      "attributes": {
+        "id": "8067184e-3367-4144-8422-441113525287",
+        "meta_summary": "This chunk is a page number and document title reference for 'Basic Document SI in case of Fire Annex E. Fire resistance of timber structures'.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 7491,
+        "end_pos": 7677
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 1713,
+        "end_index": 1750
+      },
+      "section_metadata": {
+        "section_id": "7d9417b26f90cdd3",
+        "section_name": "E.2.3.2 Madera con protección",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 75,
+        "end_page": 77,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección"
+        ],
+        "parent_section_id": "4bacd7c3a96b3af4",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 662.7908325195312,
+              "r": 214.88409423828125,
+              "b": 653.5878295898438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2 Madera con protección"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 636.2708740234375,
+              "r": 184.5758056640625,
+              "b": 628.9104614257812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.3.2.1 Generalidades"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 616.5908203125,
+              "r": 538.1525268554688,
+              "b": 595.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Para elementos de madera protegidos (ver figura E.2), la velocidad de carbonización nominal de cál"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              736
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 587.640869140625,
+              "r": 538.4279174804688,
+              "b": 497.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce por el fallo de la protección deben conside"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              1000
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 489.6008605957031,
+              "r": 538.427978515625,
+              "b": 365.3979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 18,
+  "char_count": 7881
+}

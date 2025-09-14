@@ -1,0 +1,1535 @@
+{
+  "chunk_id": 143,
+  "section_metadata": {
+    "section_id": "c30ebf587c86df5c",
+    "section_name": "C.2.3.5 Forjados unidireccionales",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 60,
+    "end_page": 60,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.3 Vigas",
+      "C.2.3.5 Forjados unidireccionales"
+    ],
+    "parent_section_id": "f4b6cdbba7db63b5",
+    "positioning_data": [
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          88
+        ],
+        "bbox": {
+          "l": 93.69144439697266,
+          "t": 717.7691040039062,
+          "r": 412.3452453613281,
+          "b": 709.4196166992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+      },
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          60
+        ],
+        "bbox": {
+          "l": 93.69144439697266,
+          "t": 704.9291381835938,
+          "r": 267.6256408691406,
+          "b": 696.2466430664062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+      },
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          249
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 673.350830078125,
+          "r": 538.4279174804688,
+          "b": 641.087890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+      },
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          190
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 632.9108276367188,
+          "r": 537.8079833984375,
+          "b": 612.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+      },
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          104
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 603.7512817382812,
+          "r": 538.3079223632812,
+          "b": 584.96044921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: C.2.3.5 Forjados unidireccionales\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.3 Vigas → C.2.3.5 Forjados unidireccionales\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Vigas, Forjados, Unidireccionales\n**Pages:** 60-60\n\n\n1 Si los forjados disponen de elementos de entrevigado cerámicos o de hormigón y revestimiento inferior, para resistencia al fuego R 120 o menor bastará con que se cumpla el valor de la distancia mínima equivalente al eje de las armaduras establecidos para losas macizas en la tabla C.4, pudiéndose contabilizar, a efectos de dicha distancia, los espesores equivalentes de hormigón con los criterios\n60\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\ny condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación de incendio deberá cumplir asimismo con el espesor hmin establecido en la tabla C.4.\n2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe prolongar hasta el 33% de la longitud del tramo con una cuantía no inferior al 25% de la requerida en los extremos.\n3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean de cerámica o de hormigón, o no se haya dispuesto revestimiento inferior deberán cumplirse las especificaciones establecidas para vigas con las tres caras expuestas al fuego en el apartado C.2.3.1. A efectos del espesor de la losa superior de hormigón y de la anchura de nervio se podrán tener en cuenta los espesores del solado y de las piezas de entrevigado que mantengan su función aislante durante el periodo de resistencia al fuego, el cual puede suponerse, en ausencia de datos experimentales, igual a 120 minutos. Las bovedillas cerámicas pueden considerarse como espesores adicionales de hormigón equivalentes a dos veces el espesor real de la bovedilla.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Si los forjados disponen de elementos de entrevigado cerámicos o de hormigón y revestimiento inferior, para resistencia al fuego R 120 o menor bastará con que se cumpla el valor de la distancia mínima equivalente al eje de las armaduras establecidos para losas macizas en la tabla C.4, pudiéndose contabilizar, a efectos de dicha distancia, los espesores equivalentes de hormigón con los criterios\n60\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\ny condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación de incendio deberá cumplir asimismo con el espesor hmin establecido en la tabla C.4.",
+      "attributes": {
+        "id": "5d6cc979-3933-4d50-b095-41d82e36b84e",
+        "meta_summary": "This section outlines fire resistance requirements for unidirectional slabs, specifically regarding the minimum equivalent distance to the axis of reinforcements and the minimum thickness for fire compartmentation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Documento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado"
+        ],
+        "referenced_documents_sections": [
+          "C.2.4.(2)",
+          "Table C.4"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 327,
+        "end_pos": 1021
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 233
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si los forjados disponen de elementos de entrevigado cerámicos o de hormigón y revestimiento inferior, para resistencia al fuego R 120 o menor bastará con que se cumpla el valor de la distancia mínima equivalente al eje de las armaduras establecidos para losas macizas en la tabla C.4, pudiéndose contabilizar, a efectos de dicha distancia, los espesores equivalentes de hormigón con los criterios y condiciones indicados en el apartado C.2.4.(2).",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "c30ebf587c86df5c",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the slabs have ceramic or concrete infill elements and a lower lining, for fire resistance R 120 or less, it will be sufficient to comply with the minimum equivalent distance to the axis of the reinforcements established for solid slabs in Table C.4, being able to count, for the purposes of said distance, the equivalent concrete thicknesses with the criteria and conditions indicated in section C.2.4.(2).",
+        "applies_if": "SLAB.TYPE == 'UNIDIRECTIONAL' AND SLAB.INFILL.MATERIAL IN ['CERAMIC', 'CONCRETE'] AND SLAB.HAS_LOWER_LINING == TRUE AND SLAB.FIRE_RESISTANCE <= 120",
+        "satisfied_if": "SLAB.REINFORCEMENT.AXIS.MIN_EQUIVALENT_DISTANCE >= TABLE_C4.MIN_EQUIVALENT_DISTANCE AND SLAB.CONCRETE.EQUIVALENT_THICKNESS.COMPUTATION_CRITERIA == 'C.2.4.(2)'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SLAB.TYPE.UNIDIRECTIONAL",
+          "SLAB.INFILL.MATERIAL.CERAMIC",
+          "SLAB.INFILL.MATERIAL.CONCRETE",
+          "SLAB.HAS_LOWER_LINING",
+          "SLAB.FIRE_RESISTANCE",
+          "SLAB.REINFORCEMENT.AXIS.MIN_EQUIVALENT_DISTANCE",
+          "TABLE_C4.MIN_EQUIVALENT_DISTANCE",
+          "SLAB.CONCRETE.EQUIVALENT_THICKNESS.COMPUTATION_CRITERIA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 395,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SLAB.FIRE_RESISTANCE <= 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 329,
+        "end_pos": 881
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 86,
+        "end_index": 200
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Si el forjado tiene función de compartimentación de incendio deberá cumplir asimismo con el espesor hmin establecido en la tabla C.4.",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "c30ebf587c86df5c",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the slab has a fire compartmentation function, it must also comply with the minimum thickness hmin established in Table C.4.",
+        "applies_if": "SLAB.HAS_FIRE_COMPARTMENTATION_FUNCTION == TRUE",
+        "satisfied_if": "SLAB.THICKNESS >= TABLE_C4.HMIN",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SLAB.HAS_FIRE_COMPARTMENTATION_FUNCTION",
+          "SLAB.THICKNESS",
+          "TABLE_C4.HMIN"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 396,
+          "span_char_end": 490,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 885,
+        "end_pos": 1020
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 203,
+        "end_index": 232
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe prolongar hasta el 33% de la longitud del tramo con una cuantía no inferior al 25% de la requerida en los extremos.",
+      "attributes": {
+        "id": "c1d2e3f4-5a6b-7c8d-9e0f-1234567890ab",
+        "parent_section_id": "c30ebf587c86df5c",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For fire resistance R 90 or greater, the negative reinforcement of continuous slabs must be extended up to 33% of the span length with a quantity not less than 25% of that required at the ends.",
+        "applies_if": "SLAB.FIRE_RESISTANCE >= 90 AND SLAB.TYPE == 'CONTINUOUS'",
+        "satisfied_if": "SLAB.REINFORCEMENT.NEGATIVE.EXTENSION_LENGTH >= (0.33 * SLAB.SPAN_LENGTH) AND SLAB.REINFORCEMENT.NEGATIVE.QUANTITY >= (0.25 * SLAB.REINFORCEMENT.END_QUANTITY_REQUIRED)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SLAB.FIRE_RESISTANCE",
+          "SLAB.TYPE.CONTINUOUS",
+          "SLAB.REINFORCEMENT.NEGATIVE.EXTENSION_LENGTH",
+          "SLAB.SPAN_LENGTH",
+          "SLAB.REINFORCEMENT.NEGATIVE.QUANTITY",
+          "SLAB.REINFORCEMENT.END_QUANTITY_REQUIRED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 491,
+          "span_char_end": 707,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SLAB.FIRE_RESISTANCE >= 90",
+          "EXTENSION_LENGTH >= 33%",
+          "QUANTITY >= 25%"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1024,
+        "end_pos": 1238
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 234,
+        "end_index": 280
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean de cerámica o de hormigón, o no se haya dispuesto revestimiento inferior deberán cumplirse las especificaciones establecidas para vigas con las tres caras expuestas al fuego en el apartado C.2.3.1.",
+      "attributes": {
+        "id": "d3e4f5g6-7h8i-9j0k-1l2m-34567890abcd",
+        "parent_section_id": "c30ebf587c86df5c",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For fire resistances greater than R 120, or when the infill elements are not ceramic or concrete, or no lower lining has been provided, the specifications established for beams with three faces exposed to fire in section C.2.3.1 must be complied with.",
+        "applies_if": "SLAB.FIRE_RESISTANCE > 120 OR SLAB.INFILL.MATERIAL NOT IN ['CERAMIC', 'CONCRETE'] OR SLAB.HAS_LOWER_LINING == FALSE",
+        "satisfied_if": "BEAM.FIRE_EXPOSURE.THREE_FACES.SPECIFICATIONS == 'C.2.3.1'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SLAB.FIRE_RESISTANCE",
+          "SLAB.INFILL.MATERIAL.CERAMIC",
+          "SLAB.INFILL.MATERIAL.CONCRETE",
+          "SLAB.HAS_LOWER_LINING",
+          "BEAM.FIRE_EXPOSURE.THREE_FACES.SPECIFICATIONS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 708,
+          "span_char_end": 990,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SLAB.FIRE_RESISTANCE > 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1241,
+        "end_pos": 1535
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 281,
+        "end_index": 343
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "A efectos del espesor de la losa superior de hormigón y de la anchura de nervio se podrán tener en cuenta los espesores del solado y de las piezas de entrevigado que mantengan su función aislante durante el periodo de resistencia al fuego, el cual puede suponerse, en ausencia de datos experimentales, igual a 120 minutos. Las bovedillas cerámicas pueden considerarse como espesores adicionales de hormigón equivalentes a dos veces el espesor real de la bovedilla.",
+      "attributes": {
+        "id": "e5f6g7h8-9i0j-1k2l-3m4n-567890abcdef",
+        "parent_section_id": "c30ebf587c86df5c",
+        "paragraph_number": 3,
+        "procedure_statement": "For the thickness of the upper concrete slab and the rib width, the thicknesses of the flooring and the infill elements that maintain their insulating function during the fire resistance period may be taken into account, which can be assumed, in the absence of experimental data, to be equal to 120 minutes. Ceramic vaults can be considered as additional concrete thicknesses equivalent to twice the actual thickness of the vault.",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "relevant_tags": [
+          "SLAB.CONCRETE.THICKNESS",
+          "SLAB.RIB.WIDTH",
+          "FLOORING.THICKNESS",
+          "INFILL.ELEMENTS.THICKNESS",
+          "INFILL.ELEMENTS.INSULATING_FUNCTION",
+          "FIRE_RESISTANCE.PERIOD",
+          "CERAMIC.VAULTS.THICKNESS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 991,
+          "span_char_end": 1400,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE.PERIOD = 120 minutes",
+          "CERAMIC.VAULTS.EQUIVALENT_THICKNESS = 2 * REAL_THICKNESS"
+        ],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1536,
+        "end_pos": 2000
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 343,
+        "end_index": 434
+      },
+      "section_metadata": {
+        "section_id": "c30ebf587c86df5c",
+        "section_name": "C.2.3.5 Forjados unidireccionales",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.5 Forjados unidireccionales"
+        ],
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              88
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 717.7691040039062,
+              "r": 412.3452453613281,
+              "b": 709.4196166992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              60
+            ],
+            "bbox": {
+              "l": 93.69144439697266,
+              "t": 704.9291381835938,
+              "r": 267.6256408691406,
+              "b": 696.2466430664062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(2) I x y\r\n I y son las luces de la losa, siendo I y  I x ."
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              249
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 673.350830078125,
+              "r": 538.4279174804688,
+              "b": 641.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para losas macizas sobre apoyos lineales y en los casos de resistencia al fuego R 90 o mayor, la a"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              190
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 632.9108276367188,
+              "r": 537.8079833984375,
+              "b": 612.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para losas macizas sobre apoyos puntuales y en los casos de resistencia al fuego R 90 o mayor, el "
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              104
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 603.7512817382812,
+              "r": 538.3079223632812,
+              "b": 584.96044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 2000
+}

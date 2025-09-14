@@ -1,0 +1,1785 @@
+{
+  "chunk_id": 22,
+  "section_metadata": {
+    "section_id": "eae7b7d5b91e23d5",
+    "section_name": "1 Medianerías y fachadas",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 19,
+    "end_page": 19,
+    "toc_path": [
+      "Sección SI 2 Propagación exterior",
+      "1 Medianerías y fachadas"
+    ],
+    "parent_section_id": "38284053a3c96ba5",
+    "positioning_data": [
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          33
+        ],
+        "bbox": {
+          "l": 71.51856231689453,
+          "t": 767.8389282226562,
+          "r": 231.05470275878906,
+          "b": 734.5243530273438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sección SI 2 Propagación exterior"
+      },
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          24
+        ],
+        "bbox": {
+          "l": 72.05316162109375,
+          "t": 586.5311279296875,
+          "r": 262.7596435546875,
+          "b": 573.3756103515625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Medianerías y fachadas"
+      },
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          82
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 562.9208374023438,
+          "r": 449.1811828613281,
+          "b": 553.6978759765625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+      },
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          593
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 545.5208740234375,
+          "r": 538.6266479492188,
+          "b": 478.58837890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+      },
+      {
+        "page_no": 19,
+        "charspan": [
+          0,
+          224
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 470.5209045410156,
+          "r": 538.4279174804688,
+          "b": 438.2579345703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 1 Medianerías y fachadas\n**Path:** Sección SI 2 Propagación exterior → 1 Medianerías y fachadas\n**Level:** 2\n**Tags:** SI2, Propagación, Exterior, Medianerías, Fachadas\n**Pages:** 19-19\n\n\n1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120.\n2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fachada entre dos sectores de incendio, entre una zona de riesgo especial alto y otras zonas o hacia una escalera protegida o pasillo protegido desde otras zonas, los puntos de sus fachadas que no sean al menos EI 60 deben estar separados la distancia d en proyección horizontal que se indica a continuación, como mínimo, en función del ángulo α formado por los planos exteriores de dichas fachadas . Para valores intermedios del ángulo α, la distancia d puede obtenerse por interpolación lineal.\nCuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio considerado que no sean al menos EI 60 cumplirán el 50% de la distancia d hasta la bisectriz del ángulo formado por ambas fachadas.\n(1) Refleja el caso de fachadas enfrentadas paralelas\nFigura 1.1. Fachadas enfrentadas\nFigura 1.3. Fachadas a 60º\nFigura 1.2. Fachadas a 45º\nFigura 1.4. Fachadas a 90º\n19\nDocumento Básico SI en caso de Incendio SI 2. Propagación exterior\nFigura 1.5. Fachadas a 135º\nFigura 1.6. Fachadas a 180º\n3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectores de incendio , entre una zona de riesgo especial alto y otras zonas más altas del edificio, o bien hacia una escalera protegida o hacia un pasillo protegido desde otras zonas, dicha fachada debe ser al menos EI 60 en una franja de 1 m de altura, como mínimo, medida sobre el plano de la fachada (véase figura 1.7). En caso de existir elementos salientes aptos para impedir el paso de las llamas, la altura de dicha franja podrá reducirse en la dimensión del citado saliente (véase figura 1.8).\nFigura 1. 8 Encuentro forjado- fachada con saliente\nFigura 1.7 Encuentro forjado-fachada\n4 La clase de reacción al fuego de los sistemas constructivos de fachada que ocupen más del 10% de su superficie será, en función de la altura total de la fachada:\n-D -s3,d0 en fachadas de altura hasta 10 m;\n-C -s3,d0 en fachadas de altura hasta 18 m;\n-B -s3,d0 en fachadas de altura superior a 18 m .\nDicha clasificación debe considerar la condición de uso final del sistema constructivo incluyendo aquellos materiales que constituyan capas contenidas en el interior de la solución de fachada y que no estén protegidas por una capa que sea EI30 como mínimo.\n5 Los sistemas de aislamiento situados en el interior de cámaras ventiladas deben tener al menos la siguiente clasificación de reacción al fuego en función de la altura total de la fachada:\n-D -s3,d0 en fachadas de altura hasta 10 m;\n-B -s3,d0 en fachadas de altura hasta 28 m;\n-A2 -s3,d0 en fachadas de altura superior a 28 m.\nDebe limitarse el desarrollo vertical de las cámaras ventiladas de fachada en continuidad con los forjados resistentes al fuego que separan sectores de incendio. La inclusión de barreras E 30 se puede considerar un procedimiento válido para limitar dicho desarrollo vertical.\n6 En aquellas fachadas de altura igual o inferior a 18 m cuyo arranque inferior sea accesible al público desde la rasante exterior o desde una cubierta, la clase de reacción al fuego, tanto de los sistemas constructivos mencionados en el punto 4 como de aquellos situados en el interior de cámaras ventiladas en su caso, debe ser al menos B-s3,d0 hasta una altura de 3,5 m como mínimo.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 1 Medianerías y fachadas\nPath: Sección SI 2 Propagación exterior → 1 Medianerías y fachadas\nLevel: 2\nTags: SI2, Propagación, Exterior, Medianerías, Fachadas\nPages: 19-19",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section details requirements for fire propagation control through party walls and facades, including fire resistance ratings, separation distances, and reaction to fire classifications for facade systems and insulation in ventilated cavities.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 35
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 9
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Vertical elements separating from another building must have a fire resistance of at least EI 120.",
+        "applies_if": "ELEMENT.TYPE == 'VERTICAL_SEPARATOR' AND ELEMENT.SEPARATES_BUILDING == TRUE",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI_120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "BUILDING.ELEMENT.VERTICAL_SEPARATOR",
+          "BUILDING.ELEMENT.PARTY_WALL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 178,
+          "span_char_end": 239,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 199,
+        "end_pos": 281
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 70
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fachada entre dos sectores de incendio, entre una zona de riesgo especial alto y otras zonas o hacia una escalera protegida o pasillo protegido desde otras zonas, los puntos de sus fachadas que no sean al menos EI 60 deben estar separados la distancia d en proyección horizontal que se indica a continuación, como mínimo, en función del ángulo α formado por los planos exteriores de dichas fachadas . Para valores intermedios del ángulo α, la distancia d puede obtenerse por interpolación lineal.\nCuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio considerado que no sean al menos EI 60 cumplirán el 50% de la distancia d hasta la bisectriz del ángulo formado por ambas fachadas.",
+      "attributes": {
+        "id": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "To limit the risk of horizontal external fire spread through the facade between two fire sectors, between a high special risk area and other areas, or towards a protected staircase or corridor from other areas, facade points that are not at least EI 60 must be separated by a minimum horizontal distance 'd' based on the angle 'α' formed by the exterior planes of said facades. For intermediate 'α' values, 'd' can be obtained by linear interpolation. For different and adjoining buildings, facade points not at least EI 60 must meet 50% of distance 'd' to the bisector of the angle formed by both facades.",
+        "applies_if": "FIRE.SPREAD.TYPE == 'HORIZONTAL' AND FIRE.SPREAD.LOCATION == 'EXTERNAL' AND FACADE.ELEMENT.FIRE_RESISTANCE != 'EI_60' AND (SEPARATES.FIRE_SECTORS == TRUE OR SEPARATES.HIGH_SPECIAL_RISK_AREA == TRUE OR SEPARATES.PROTECTED_STAIRCASE_OR_CORRIDOR == TRUE)",
+        "satisfied_if": "FACADE.ELEMENT.HORIZONTAL_SEPARATION_DISTANCE >= d(ALPHA) OR (BUILDING.TYPE == 'ADJOINING' AND FACADE.ELEMENT.HORIZONTAL_SEPARATION_DISTANCE >= 0.5 * d(ALPHA))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SPREAD.HORIZONTAL",
+          "FACADE.FIRE_RESISTANCE",
+          "FIRE.SECTOR",
+          "RISK.SPECIAL.HIGH",
+          "STAIRCASE.PROTECTED",
+          "CORRIDOR.PROTECTED",
+          "FACADE.SEPARATION_DISTANCE",
+          "FACADE.ANGLE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 241,
+          "span_char_end": 1025,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 60",
+          "DISTANCE: d",
+          "ANGLE: α"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 282,
+        "end_pos": 1100
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 70,
+        "end_index": 237
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectores de incendio , entre una zona de riesgo especial alto y otras zonas más altas del edificio, o bien hacia una escalera protegida o hacia un pasillo protegido desde otras zonas, dicha fachada debe ser al menos EI 60 en una franja de 1 m de altura, como mínimo, medida sobre el plano de la fachada (véase figura 1.7). En caso de existir elementos salientes aptos para impedir el paso de las llamas, la altura de dicha franja podrá reducirse en la dimensión del citado saliente (véase figura 1.8).",
+      "attributes": {
+        "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "To limit the risk of vertical fire spread through the facade between two fire sectors, between a high special risk area and other higher areas of the building, or towards a protected staircase or corridor from other areas, said facade must be at least EI 60 in a strip of at least 1 m high, measured on the facade plane. If there are protruding elements capable of preventing the passage of flames, the height of said strip may be reduced by the dimension of said protrusion.",
+        "applies_if": "FIRE.SPREAD.TYPE == 'VERTICAL' AND FIRE.SPREAD.LOCATION == 'EXTERNAL' AND (SEPARATES.FIRE_SECTORS == TRUE OR SEPARATES.HIGH_SPECIAL_RISK_AREA == TRUE OR SEPARATES.PROTECTED_STAIRCASE_OR_CORRIDOR == TRUE)",
+        "satisfied_if": "FACADE.FIRE_RESISTANCE_STRIP.HEIGHT >= 1 AND FACADE.FIRE_RESISTANCE_STRIP.FIRE_RESISTANCE == 'EI_60' OR (HAS(FACADE.PROTRUDING_ELEMENTS) AND FACADE.FIRE_RESISTANCE_STRIP.HEIGHT >= (1 - FACADE.PROTRUDING_ELEMENTS.DIMENSION))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SPREAD.VERTICAL",
+          "FACADE.FIRE_RESISTANCE",
+          "FIRE.SECTOR",
+          "RISK.SPECIAL.HIGH",
+          "STAIRCASE.PROTECTED",
+          "CORRIDOR.PROTECTED",
+          "FACADE.STRIP.HEIGHT",
+          "FACADE.PROTRUDING_ELEMENTS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1198,
+          "span_char_end": 1656,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 60",
+          "HEIGHT: 1 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1395,
+        "end_pos": 1989
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 316,
+        "end_index": 449
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "4 La clase de reacción al fuego de los sistemas constructivos de fachada que ocupen más del 10% de su superficie será, en función de la altura total de la fachada:\n-D -s3,d0 en fachadas de altura hasta 10 m;\n-C -s3,d0 en fachadas de altura hasta 18 m;\n-B -s3,d0 en fachadas de altura superior a 18 m .\nDicha clasificación debe considerar la condición de uso final del sistema constructivo incluyendo aquellos materiales que constituyan capas contenidas en el interior de la solución de fachada y que no estén protegidas por una capa que sea EI30 como mínimo.",
+      "attributes": {
+        "id": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The reaction to fire class of facade constructive systems occupying more than 10% of their surface shall be, depending on the total height of the facade: D-s3,d0 for facades up to 10 m high; C-s3,d0 for facades up to 18 m high; B-s3,d0 for facades over 18 m high. This classification must consider the end-use condition of the constructive system, including materials forming internal layers not protected by at least an EI30 layer.",
+        "applies_if": "FACADE.CONSTRUCTIVE_SYSTEM.SURFACE_OCCUPANCY_PERCENTAGE > 10",
+        "satisfied_if": "(FACADE.HEIGHT <= 10 AND FACADE.CONSTRUCTIVE_SYSTEM.REACTION_TO_FIRE_CLASS == 'D-s3,d0') OR (FACADE.HEIGHT > 10 AND FACADE.HEIGHT <= 18 AND FACADE.CONSTRUCTIVE_SYSTEM.REACTION_TO_FIRE_CLASS == 'C-s3,d0') OR (FACADE.HEIGHT > 18 AND FACADE.CONSTRUCTIVE_SYSTEM.REACTION_TO_FIRE_CLASS == 'B-s3,d0')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FACADE.CONSTRUCTIVE_SYSTEM",
+          "FACADE.HEIGHT",
+          "FIRE.REACTION_CLASS",
+          "MATERIAL.FIRE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1851,
+          "span_char_end": 2470,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SURFACE_OCCUPANCY_PERCENTAGE: > 10%",
+          "HEIGHT: <= 10 m",
+          "HEIGHT: <= 18 m",
+          "HEIGHT: > 18 m",
+          "FIRE_RESISTANCE: EI30"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2079,
+        "end_pos": 2637
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 467,
+        "end_index": 608
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "5 Los sistemas de aislamiento situados en el interior de cámaras ventiladas deben tener al menos la siguiente clasificación de reacción al fuego en función de la altura total de la fachada:\n-D -s3,d0 en fachadas de altura hasta 10 m;\n-B -s3,d0 en fachadas de altura hasta 28 m;\n-A2 -s3,d0 en fachadas de altura superior a 28 m.\nDebe limitarse el desarrollo vertical de las cámaras ventiladas de fachada en continuidad con los forjados resistentes al fuego que separan sectores de incendio. La inclusión de barreras E 30 se puede considerar un procedimiento válido para limitar dicho desarrollo vertical.",
+      "attributes": {
+        "id": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Insulation systems located inside ventilated cavities must have at least the following reaction to fire classification based on the total facade height: D-s3,d0 for facades up to 10 m high; B-s3,d0 for facades up to 28 m high; A2-s3,d0 for facades over 28 m high. The vertical development of ventilated facade cavities in continuity with fire-resistant floor slabs separating fire sectors must be limited. The inclusion of E 30 barriers can be considered a valid procedure to limit said vertical development.",
+        "applies_if": "INSULATION.SYSTEM.LOCATION == 'VENTILATED_CAVITY'",
+        "satisfied_if": "(FACADE.HEIGHT <= 10 AND INSULATION.SYSTEM.REACTION_TO_FIRE_CLASS == 'D-s3,d0') OR (FACADE.HEIGHT > 10 AND FACADE.HEIGHT <= 28 AND INSULATION.SYSTEM.REACTION_TO_FIRE_CLASS == 'B-s3,d0') OR (FACADE.HEIGHT > 28 AND INSULATION.SYSTEM.REACTION_TO_FIRE_CLASS == 'A2-s3,d0'); OR (VENTILATED_CAVITY.VERTICAL_DEVELOPMENT.LIMITED == TRUE AND HAS(FIRE_RESISTANT_FLOOR_SLABS) AND FIRE_RESISTANT_FLOOR_SLABS.SEPARATE_FIRE_SECTORS == TRUE AND BARRIER.TYPE == 'E_30')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "INSULATION.SYSTEM",
+          "VENTILATED_CAVITY",
+          "FACADE.HEIGHT",
+          "FIRE.REACTION_CLASS",
+          "FIRE.RESISTANT_FLOOR_SLABS",
+          "FIRE.SECTOR",
+          "BARRIER.FIRE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 2472,
+          "span_char_end": 3209,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "HEIGHT: <= 10 m",
+          "HEIGHT: <= 28 m",
+          "HEIGHT: > 28 m",
+          "FIRE_RESISTANCE: E 30"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2638,
+        "end_pos": 3241
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 608,
+        "end_index": 748
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "6 En aquellas fachadas de altura igual o inferior a 18 m cuyo arranque inferior sea accesible al público desde la rasante exterior o desde una cubierta, la clase de reacción al fuego, tanto de los sistemas constructivos mencionados en el punto 4 como de aquellos situados en el interior de cámaras ventiladas en su caso, debe ser al menos B-s3,d0 hasta una altura de 3,5 m como mínimo.",
+      "attributes": {
+        "id": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "eae7b7d5b91e23d5",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For facades with a height equal to or less than 18 m whose lower start is accessible to the public from the exterior ground level or from a roof, the reaction to fire class, both for the constructive systems mentioned in point 4 and for those located inside ventilated cavities, must be at least B-s3,d0 up to a minimum height of 3.5 m.",
+        "applies_if": "FACADE.HEIGHT <= 18 AND (FACADE.LOWER_START.ACCESSIBLE_FROM_EXTERIOR_GROUND == TRUE OR FACADE.LOWER_START.ACCESSIBLE_FROM_ROOF == TRUE)",
+        "satisfied_if": "(FACADE.CONSTRUCTIVE_SYSTEM.REACTION_TO_FIRE_CLASS == 'B-s3,d0' AND FACADE.CONSTRUCTIVE_SYSTEM.HEIGHT_APPLICABILITY >= 3.5) OR (INSULATION.SYSTEM.LOCATION == 'VENTILATED_CAVITY' AND INSULATION.SYSTEM.REACTION_TO_FIRE_CLASS == 'B-s3,d0' AND INSULATION.SYSTEM.HEIGHT_APPLICABILITY >= 3.5)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FACADE.HEIGHT",
+          "FACADE.ACCESSIBILITY",
+          "FIRE.REACTION_CLASS",
+          "FACADE.CONSTRUCTIVE_SYSTEM",
+          "INSULATION.SYSTEM",
+          "VENTILATED_CAVITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 3211,
+          "span_char_end": 3698,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "HEIGHT: <= 18 m",
+          "HEIGHT: >= 3.5 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "1 Medianerías y fachadas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3242,
+        "end_pos": 3627
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 748,
+        "end_index": 837
+      },
+      "section_metadata": {
+        "section_id": "eae7b7d5b91e23d5",
+        "section_name": "1 Medianerías y fachadas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 19,
+        "end_page": 19,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "1 Medianerías y fachadas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 231.05470275878906,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 2 Propagación exterior"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 262.7596435546875,
+              "b": 573.3756103515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Medianerías y fachadas"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              82
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 562.9208374023438,
+              "r": 449.1811828613281,
+              "b": 553.6978759765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos verticales separadores de otro edificio deben ser al menos EI 120."
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              593
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 545.5208740234375,
+              "r": 538.6266479492188,
+              "b": 478.58837890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Con el fin de limitar el riesgo de propagación exterior horizontal del incendio a través de la fac"
+          },
+          {
+            "page_no": 19,
+            "charspan": [
+              0,
+              224
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 470.5209045410156,
+              "r": 538.4279174804688,
+              "b": 438.2579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 7,
+  "char_count": 3627
+}

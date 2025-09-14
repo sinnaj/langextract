@@ -1,0 +1,936 @@
+{
+  "chunk_id": 117,
+  "section_metadata": {
+    "section_id": "78b4ca3582042b08",
+    "section_name": "B.1 Generalidades",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 53,
+    "end_page": 53,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.1 Generalidades"
+    ],
+    "parent_section_id": "b0621b555a104d1f",
+    "positioning_data": [
+      {
+        "page_no": 53,
+        "charspan": [
+          0,
+          49
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 743.8389282226562,
+          "r": 467.5569763183594,
+          "b": 728.8843994140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo B Tiempo equivalente de exposición al fuego"
+      },
+      {
+        "page_no": 53,
+        "charspan": [
+          0,
+          17
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 692.881103515625,
+          "r": 202.24722290039062,
+          "b": 682.5055541992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "B.1 Generalidades"
+      },
+      {
+        "page_no": 53,
+        "charspan": [
+          0,
+          402
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 669.5108642578125,
+          "r": 538.3983764648438,
+          "b": 614.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+      },
+      {
+        "page_no": 53,
+        "charspan": [
+          0,
+          323
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 606.0008544921875,
+          "r": 538.2696533203125,
+          "b": 561.9883422851562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+      },
+      {
+        "page_no": 53,
+        "charspan": [
+          0,
+          42
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 531.3311157226562,
+          "r": 377.56939697265625,
+          "b": 518.358154296875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "B.2 Curva normalizada tiempo – temperatura"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: B.1 Generalidades\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.1 Generalidades\n**Level:** 2\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Generalidades\n**Pages:** 53-53\n\n\n1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego que, según se indica en SI 6, puede usarse como alternativa de la duración de incendio a soportar, tanto a efectos estructurales como compartimentadores . El tiempo equivalente se obtiene teniendo en cuenta las características geométricas y térmicas del sector y el valor de cálculo de la carga de fuego.\n2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida en la norma UNE EN 1363 -1:2015 y que se utiliza como curva de fuego en los métodos de obtención de resistencias dados en este DB -SI. En la norma (Eurocódigo) UNE EN 1991-1-2:2004 se indican otras curvas de fuego nominales.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego que, según se indica en SI 6, puede usarse como alternativa de la duración de incendio a soportar, tanto a efectos estructurales como compartimentadores . El tiempo equivalente se obtiene teniendo en cuenta las características geométricas y térmicas del sector y el valor de cálculo de la carga de fuego.\n2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida en la norma UNE EN 1363 -1:2015 y que se utiliza como curva de fuego en los métodos de obtención de resistencias dados en este DB -SI. En la norma (Eurocódigo) UNE EN 1991-1-2:2004 se indican otras curvas de fuego nominales.",
+      "attributes": {
+        "id": "b.1.generalidades.chunk.1",
+        "meta_summary": "This annex establishes the procedure for obtaining the equivalent time of exposure to fire, which can be used as an alternative to the fire duration to be withstood, for both structural and compartmentalization purposes. The equivalent time is obtained by considering the geometric and thermal characteristics of the sector and the calculated value of the fire load. It also indicates the expression of the normalized time-temperature curve defined in UNE EN 1363-1:2015 and other nominal fire curves from UNE EN 1991-1-2:2004.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "SI 6",
+          "UNE EN 1363 -1:2015",
+          "UNE EN 1991-1-2:2004"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 205,
+        "end_pos": 931
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 214
+      },
+      "section_metadata": {
+        "section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.1 Generalidades"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego que, según se indica en SI 6, puede usarse como alternativa de la duración de incendio a soportar, tanto a efectos estructurales como compartimentadores . El tiempo equivalente se obtiene teniendo en cuenta las características geométricas y térmicas del sector y el valor de cálculo de la carga de fuego.",
+      "attributes": {
+        "id": "b.1.generalidades.procedure.1",
+        "parent_section_id": "78b4ca3582042b08",
+        "procedure_name": "Obtaining equivalent fire exposure time",
+        "procedure_description": "Procedure to obtain the equivalent fire exposure time, which can be used as an alternative to the fire duration to be withstood for structural and compartmentalization effects. The equivalent time is obtained by considering the geometric and thermal characteristics of the sector and the calculated value of the fire load.",
+        "target_reference": [],
+        "tags": [
+          "FIRE.EXPOSURE.TIME",
+          "FIRE.LOAD.CALCULATION",
+          "STRUCTURAL.EFFECTS",
+          "COMPARTMENTALIZATION.EFFECTS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 300,
+          "visual_refs": []
+        },
+        "section_name": "B.1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 197,
+        "end_pos": 591
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 46,
+        "end_index": 128
+      },
+      "section_metadata": {
+        "section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.1 Generalidades"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE EN 1363 -1:2015",
+      "attributes": {
+        "id": "une.en.1363.1.2015",
+        "title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "year": 2015,
+        "code": "UNE EN 1363 -1",
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "subpart": null,
+        "appendix": null,
+        "annex": null,
+        "source": {
+          "span_char_start": 381,
+          "span_char_end": 400,
+          "visual_refs": []
+        },
+        "parent_section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 608,
+        "end_pos": 738
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 132,
+        "end_index": 163
+      },
+      "section_metadata": {
+        "section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.1 Generalidades"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE EN 1991-1-2:2004",
+      "attributes": {
+        "id": "une.en.1991.1.2.2004",
+        "title": "Eurocódigo 1: Acciones en estructuras - Parte 1-2: Acciones generales - Acciones en estructuras expuestas al fuego",
+        "year": 2004,
+        "code": "UNE EN 1991-1-2",
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "subpart": null,
+        "appendix": null,
+        "annex": null,
+        "source": {
+          "span_char_start": 501,
+          "span_char_end": 520,
+          "visual_refs": []
+        },
+        "parent_section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 785,
+        "end_pos": 887
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 175,
+        "end_index": 206
+      },
+      "section_metadata": {
+        "section_id": "78b4ca3582042b08",
+        "section_name": "B.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 53,
+        "end_page": 53,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.1 Generalidades"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 743.8389282226562,
+              "r": 467.5569763183594,
+              "b": 728.8843994140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo B Tiempo equivalente de exposición al fuego"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 692.881103515625,
+              "r": 202.24722290039062,
+              "b": 682.5055541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.1 Generalidades"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              402
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 669.5108642578125,
+              "r": 538.3983764648438,
+              "b": 614.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Este anejo establece el procedimiento para obtener el tiempo equivalente de exposición al fuego qu"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              323
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 606.0008544921875,
+              "r": 538.2696533203125,
+              "b": 561.9883422851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este anejo se indica también la expresión de la curva normalizada tiempo-temperatura definida e"
+          },
+          {
+            "page_no": 53,
+            "charspan": [
+              0,
+              42
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 531.3311157226562,
+              "r": 377.56939697265625,
+              "b": 518.358154296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.2 Curva normalizada tiempo – temperatura"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 931
+}

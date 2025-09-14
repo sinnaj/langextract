@@ -1,0 +1,518 @@
+{
+  "chunk_id": 109,
+  "section_metadata": {
+    "section_id": "80aafaa3b2495a05",
+    "section_name": "Uso Hospitalario",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Hospitalario"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 768.9913330078125,
+          "r": 149.84713745117188,
+          "b": 759.9078369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Hospitalario"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          260
+        ],
+        "bbox": {
+          "l": 71.12328338623047,
+          "t": 747.630859375,
+          "r": 538.427978515625,
+          "b": 715.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          317
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 698.0708618164062,
+          "r": 538.6266479492188,
+          "b": 656.1504516601562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 627.15087890625,
+          "r": 186.55711364746094,
+          "b": 619.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Residencial Público"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          380
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 605.5208740234375,
+          "r": 538.4279174804688,
+          "b": 561.617919921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Hospitalario\n**Path:** Anejo SI A Terminología → Uso Hospitalario\n**Level:** 2\n**Tags:** Terminología, Uso, Hospitalario\n**Pages:** 51-51\n\n\nEdificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que está ocupados por personas que, en su mayoría, son incapaces de cuidarse por sí mismas, tales como hospitales, clínicas, sanatorios, residencias geriátricas, etc.\nLas zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambulatorio (despachos médicos, consultas, áreas destinadas al diagnóstico y tratamiento, etc.) así como a los centros con dicho carácter en exclusiva, deben cumplir las condiciones correspondientes al uso Administrativo .",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "{'id': 'e9317587-1910-410e-9411-182377855320', 'parent_section_id': 'd0407153-6112-401d-8451-22e70390317e', 'classification_type': 'USAGE', 'classification_name': 'HOSPITAL', 'classification_value': 'PUBLIC.HOSPITAL', 'description': 'Building or establishment intended for 24-hour healthcare with hospitalization, occupied by people who are mostly unable to care for themselves, such as hospitals, clinics, sanatoriums, geriatric residences, etc.', 'applies_if': 'TRUE', 'relevant_tags': ['BUILDING.USAGE.HOSPITAL', 'BUILDING.USAGE.CLINIC', 'BUILDING.USAGE.SANATORIUM', 'BUILDING.USAGE.GERIATRIC_RESIDENCE'], 'location_scope': {'COUNTRY': 'ES'}, 'source': {'span_char_start': 0, 'span_char_end': 269, 'visual_refs': []}, 'confidence': 1.0}",
+      "attributes": {
+        "parent_section_id": "80aafaa3b2495a05",
+        "section_name": "Uso Hospitalario",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "80aafaa3b2495a05",
+        "section_name": "Uso Hospitalario",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Hospitalario"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambulatorio (despachos médicos, consultas, áreas destinadas al diagnóstico y tratamiento, etc.) así como a los centros con dicho carácter en exclusiva, deben cumplir las condiciones correspondientes al uso Administrativo .",
+      "attributes": {
+        "id": "d0407153-6112-401d-8451-22e70390317e",
+        "parent_section_id": "80aafaa3b2495a05",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Zones within hospital buildings or establishments intended for outpatient healthcare (medical offices, consultations, diagnostic and treatment areas, etc.), as well as centers exclusively for such purposes, must comply with the conditions corresponding to Administrative use.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND ZONE.USAGE == 'OUTPATIENT_HEALTHCARE'",
+        "satisfied_if": "ZONE.COMPLIES_WITH_ADMINISTRATIVE_USE_CONDITIONS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "HEALTH"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "ZONE.USAGE.OUTPATIENT_HEALTHCARE",
+          "ZONE.USAGE.ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 270,
+          "span_char_end": 546,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This norm specifies that certain areas within a hospital setting should adhere to 'Administrative use' conditions.",
+        "section_name": "Uso Hospitalario",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 416,
+        "end_pos": 733
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 92,
+        "end_index": 151
+      },
+      "section_metadata": {
+        "section_id": "80aafaa3b2495a05",
+        "section_name": "Uso Hospitalario",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Hospitalario"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 733
+}

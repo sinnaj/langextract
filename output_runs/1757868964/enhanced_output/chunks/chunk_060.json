@@ -1,0 +1,2212 @@
+{
+  "chunk_id": 60,
+  "section_metadata": {
+    "section_id": "0062e09e844b85b2",
+    "section_name": "3 Elementos estructurales principales",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 39,
+    "end_page": 39,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "3 Elementos estructurales principales"
+    ],
+    "parent_section_id": "39b7950996e811a8",
+    "positioning_data": [
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          196
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 768.9908447265625,
+          "r": 538.1878662109375,
+          "b": 738.5904541015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+      },
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          99
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 728.3511962890625,
+          "r": 524.8238525390625,
+          "b": 719.2078857421875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+      },
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.47752380371094,
+          "t": 688.1947631835938,
+          "r": 346.1853332519531,
+          "b": 675.34814453125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Elementos estructurales principales"
+      },
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          151
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 664.9508666992188,
+          "r": 538.0421752929688,
+          "b": 644.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+      },
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          176
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 635.7908325195312,
+          "r": 538.3079223632812,
+          "b": 615.1678466796875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 3 Elementos estructurales principales\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 3 Elementos estructurales principales\n**Level:** 2\n**Tags:** SI6, Resistencia, Fuego, Estructura, Elementos, Estructurales, Principales\n**Pages:** 39-39\n\n\n1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (incluidos forjados, vigas y soportes) , es suficiente si:\nalcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia ante la acción representada por la curva normalizada tiempo temperatura, o\nsoporta dicha acción durante el tiempo equivalente de exposición al fuego indicado en el anejo B.\nTabla 3.1 Resistencia al fuego suficiente de los elementos estructurales\n(1) La resistencia al fuego suficiente R de los elementos estructurales de un suelo que separa sectores de incendio es función del uso del sector inferior. Los elementos estructurales de suelos que no delimitan un sector de incendios, sino que están contenidos en él, deben tener al menos la resistencia al fuego suficiente R que se exija para el uso de dicho sector\n(2) En viviendas unifamiliares agrupadas o adosadas, los elementos que formen parte de la estructura común tendrán la resistencia al fuego exigible a edificios de uso Residencial Vivienda .\n(3) R 180 si la altura de evacuación del edificio excede de 28 m.\n(4) R 180 cuando se trate de aparcamientos robotizados .\nTabla 3.2 Resistencia al fuego suficiente de los elementos estructurales de zonas de riesgo especial integradas en los edificios(1)\n(1) No será inferior al de la estructura portante de la planta del edificio excepto cuando la zona se encuentre bajo una cubierta no prevista para evacuación y cuyo fallo no suponga riesgo para la estabilidad de otras plantas ni para la compartimentación contra incendios, en cuyo caso puede ser R 30.\nLa resistencia al fuego suficiente R de los elementos estructurales de un suelo de una zona de riesgo especial es función del uso del espacio existente bajo dicho suelo\n2 La estructura principal de las cubiertas ligeras no previstas para ser utilizadas en la evacuación de los ocupantes y cuya altura respecto de la rasante exterior no exceda de 28 m, así como los elementos que únicamente sustenten dichas cubiertas, podrán ser R 30 cuando su fallo no pueda ocasionar daños graves a los edificios o establecimientos próximos, ni comprometer la estabilidad de otras plantas inferiores o la compartimentación de los sectores de incendio. A tales efectos, puede enten-\n39\nDocumento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura\nderse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exceda de 1 kN/m².\n3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenidos en el recinto de éstos, serán como mínimo R 30. Cuando se trate de escaleras especialmente protegidas no se exige resistencia al fuego a los elementos estructurales.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 3 Elementos estructurales principales\nPath: Sección SI 6 Resistencia al fuego de la estructura → 3 Elementos estructurales principales\nLevel: 2\nTags: SI6, Resistencia, Fuego, Estructura, Elementos, Estructurales, Principales\nPages: 39-39\n\n\n1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (incluidos forjados, vigas y soportes) , es suficiente si:\nalcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia ante la acción representada por la curva normalizada tiempo temperatura, o\nsoporta dicha acción durante el tiempo equivalente de exposición al fuego indicado en el anejo B.\nTabla 3.1 Resistencia al fuego suficiente de los elementos estructurales\n(1) La resistencia al fuego suficiente R de los elementos estructurales de un suelo que separa sectores de incendio es función del uso del sector inferior. Los elementos estructurales de suelos que no delimitan un sector de incendios, sino que están contenidos en él, deben tener al menos la resistencia al fuego suficiente R que se exija para el uso de dicho sector\n(2) En viviendas unifamiliares agrupadas o adosadas, los elementos que formen parte de la estructura común tendrán la resistencia al fuego exigible a edificios de uso Residencial Vivienda .\n(3) R 180 si la altura de evacuación del edificio excede de 28 m.\n(4) R 180 cuando se trate de aparcamientos robotizados .\nTabla 3.2 Resistencia al fuego suficiente de los elementos estructurales de zonas de riesgo especial integradas en los edificios(1)\n(1) No será inferior al de la estructura portante de la planta del edificio excepto cuando la zona se encuentre bajo una cubierta no prevista para evacuación y cuyo fallo no suponga riesgo para la estabilidad de otras plantas ni para la compartimentación contra incendios, en cuyo caso puede ser R 30.\nLa resistencia al fuego suficiente R de los elementos estructurales de un suelo de una zona de riesgo especial es función del uso del espacio existente bajo dicho suelo\n2 La estructura principal de las cubiertas ligeras no previstas para ser utilizadas en la evacuación de los ocupantes y cuya altura respecto de la rasante exterior no exceda de 28 m, así como los elementos que únicamente sustenten dichas cubiertas, podrán ser R 30 cuando su fallo no pueda ocasionar daños graves a los edificios o establecimientos próximos, ni comprometer la estabilidad de otras plantas inferiores o la compartimentación de los sectores de incendio. A tales efectos, puede enten-\n39\nDocumento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura\nderse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exceda de 1 kN/m².\n3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenidos en el recinto de éstos, serán como mínimo R 30. Cuando se trate de escaleras especialmente protegidas no se exige resistencia al fuego a los elementos estructurales.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section defines the fire resistance requirements for main structural elements of buildings, including floors, beams, supports, and roofs, based on building use, height, and specific risk areas. It also specifies conditions for special cases like grouped single-family homes, robotic parking, and protected stairs.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "CTE"
+        ],
+        "referenced_documents_sections": [
+          "SI 6"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 48
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 7
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (incluidos forjados, vigas y soportes) , es suficiente si:\nalcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia ante la acción representada por la curva normalizada tiempo temperatura, o\nsoporta dicha acción durante el tiempo equivalente de exposición al fuego indicado en el anejo B.",
+      "attributes": {
+        "id": "a3b1c2d3-e4f5-6789-0123-456789abcdef",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance of a main structural element of the building (including floor slabs, beams, and supports) is considered sufficient if it meets specific criteria.",
+        "applies_if": "HAS(BUILDING.STRUCTURAL_ELEMENT.MAIN)",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.MAIN.FIRE_RESISTANCE.CLASS == TABLE.3.1.CLASS OR BUILDING.STRUCTURAL_ELEMENT.MAIN.FIRE_RESISTANCE.CLASS == TABLE.3.2.CLASS ; OR BUILDING.STRUCTURAL_ELEMENT.MAIN.FIRE_RESISTANCE.DURATION >= ANNEX.B.EQUIVALENT_FIRE_EXPOSURE_TIME",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.STRUCTURAL_ELEMENT.MAIN",
+          "FIRE.RESISTANCE",
+          "TABLE.3.1",
+          "TABLE.3.2",
+          "ANNEX.B"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 171,
+          "span_char_end": 490,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "The class represents time in minutes of resistance to the normalized time-temperature curve.",
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 255,
+        "end_pos": 678
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 134
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(1) La resistencia al fuego suficiente R de los elementos estructurales de un suelo que separa sectores de incendio es función del uso del sector inferior. Los elementos estructurales de suelos que no delimitan un sector de incendios, sino que están contenidos en él, deben tener al menos la resistencia al fuego suficiente R que se exija para el uso de dicho sector",
+      "attributes": {
+        "id": "b2c3d4e5-f6a7-8901-2345-6789abcdef01",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The sufficient fire resistance (R) of structural elements of a floor separating fire sectors depends on the use of the lower sector. Structural elements of floors not delimiting a fire sector but contained within it must have at least the required fire resistance (R) for the use of that sector.",
+        "applies_if": "HAS(BUILDING.STRUCTURAL_ELEMENT.FLOOR) AND BUILDING.STRUCTURAL_ELEMENT.FLOOR.SEPARATES_FIRE_SECTORS == TRUE",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.FLOOR.FIRE_RESISTANCE.R == FIRE_SECTOR.LOWER.USAGE.REQUIRED_R",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.STRUCTURAL_ELEMENT.FLOOR",
+          "FIRE.RESISTANCE",
+          "FIRE.SECTOR",
+          "FIRE.SECTOR.USAGE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 544,
+          "span_char_end": 844,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 736,
+        "end_pos": 1114
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 147,
+        "end_index": 220
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(2) En viviendas unifamiliares agrupadas o adosadas, los elementos que formen parte de la estructura común tendrán la resistencia al fuego exigible a edificios de uso Residencial Vivienda .",
+      "attributes": {
+        "id": "c3d4e5f6-a7b8-9012-3456-789abcdef012",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In grouped or semi-detached single-family homes, elements forming part of the common structure must have the fire resistance required for Residential Housing buildings.",
+        "applies_if": "BUILDING.TYPE IN ['SINGLE_FAMILY.GROUPED', 'SINGLE_FAMILY.SEMI_DETACHED'] AND HAS(BUILDING.STRUCTURAL_ELEMENT.COMMON)",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.COMMON.FIRE_RESISTANCE.R == BUILDING.USAGE.RESIDENTIAL.HOUSING.REQUIRED_R",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.TYPE.SINGLE_FAMILY.GROUPED",
+          "BUILDING.TYPE.SINGLE_FAMILY.SEMI_DETACHED",
+          "BUILDING.STRUCTURAL_ELEMENT.COMMON",
+          "FIRE.RESISTANCE",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 847,
+          "span_char_end": 1042,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1124,
+        "end_pos": 1318
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 222,
+        "end_index": 258
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(3) R 180 si la altura de evacuación del edificio excede de 28 m.",
+      "attributes": {
+        "id": "d4e5f6a7-b8c9-0123-4567-89abcdef0123",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire resistance (R) must be 180 minutes if the building's evacuation height exceeds 28 meters.",
+        "applies_if": "BUILDING.EVACUATION.HEIGHT > 28",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.FIRE_RESISTANCE.R == 180",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1045,
+          "span_char_end": 1099,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1236,
+        "end_pos": 1386
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 243,
+        "end_index": 278
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(4) R 180 cuando se trate de aparcamientos robotizados .",
+      "attributes": {
+        "id": "e5f6a7b8-c9d0-1234-5678-9abcdef01234",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire resistance (R) must be 180 minutes for robotic parking facilities.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND PARKING.TYPE == 'ROBOTIZED'",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.FIRE_RESISTANCE.R == 180",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PARKING.TYPE.ROBOTIZED",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1102,
+          "span_char_end": 1157,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1198,
+        "end_pos": 1443
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 235,
+        "end_index": 290
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(1) No será inferior al de la estructura portante de la planta del edificio excepto cuando la zona se encuentre bajo una cubierta no prevista para evacuación y cuyo fallo no suponga riesgo para la estabilidad de otras plantas ni para la compartimentación contra incendios, en cuyo caso puede ser R 30.\nLa resistencia al fuego suficiente R de los elementos estructurales de un suelo de una zona de riesgo especial es función del uso del espacio existente bajo dicho suelo",
+      "attributes": {
+        "id": "f6a7b8c9-d0e1-2345-6789-abcdef012345",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance (R) of structural elements in special risk areas integrated into buildings must not be less than that of the load-bearing structure of the building's floor, except under specific conditions.",
+        "applies_if": "HAS(BUILDING.STRUCTURAL_ELEMENT.SPECIAL_RISK_AREA)",
+        "satisfied_if": "BUILDING.STRUCTURAL_ELEMENT.SPECIAL_RISK_AREA.FIRE_RESISTANCE.R >= BUILDING.FLOOR.LOAD_BEARING_STRUCTURE.FIRE_RESISTANCE.R",
+        "exempt_if": "ZONE.IS_UNDER_ROOF.NOT_FOR_EVACUATION == TRUE AND ROOF.FAILURE.NO_RISK_TO_STABILITY_OTHER_FLOORS == TRUE AND ROOF.FAILURE.NO_RISK_TO_FIRE_COMPARTMENTATION == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.STRUCTURAL_ELEMENT.SPECIAL_RISK_AREA",
+          "FIRE.RESISTANCE",
+          "BUILDING.FLOOR.LOAD_BEARING_STRUCTURE",
+          "ROOF.NOT_FOR_EVACUATION",
+          "ROOF.FAILURE.STABILITY",
+          "ROOF.FAILURE.FIRE_COMPARTMENTATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1221,
+          "span_char_end": 1606,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "If exempted, fire resistance can be R 30. The sufficient fire resistance R of structural elements of a floor in a special risk area is a function of the use of the space below that floor.",
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1563,
+        "end_pos": 2019
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 310,
+        "end_index": 402
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 La estructura principal de las cubiertas ligeras no previstas para ser utilizadas en la evacuación de los ocupantes y cuya altura respecto de la rasante exterior no exceda de 28 m, así como los elementos que únicamente sustenten dichas cubiertas, podrán ser R 30 cuando su fallo no pueda ocasionar daños graves a los edificios o establecimientos próximos, ni comprometer la estabilidad de otras plantas inferiores o la compartimentación de los sectores de incendio. A tales efectos, puede enten-derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exceda de 1 kN/m².",
+      "attributes": {
+        "id": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 2,
+        "obligation_type": "PERMISSIVE",
+        "norm_statement": "The main structure of light roofs not intended for occupant evacuation and whose height above the exterior ground level does not exceed 28m, as well as elements solely supporting these roofs, may have R 30 fire resistance under specific conditions.",
+        "applies_if": "ROOF.TYPE == 'LIGHT' AND ROOF.INTENDED_FOR_EVACUATION == FALSE AND ROOF.HEIGHT_ABOVE_GROUND <= 28",
+        "satisfied_if": "ROOF.STRUCTURAL_ELEMENT.FIRE_RESISTANCE.R == 30",
+        "exempt_if": "ROOF.FAILURE.CAUSES_SEVERE_DAMAGE_TO_NEARBY_BUILDINGS == TRUE OR ROOF.FAILURE.COMPROMISES_STABILITY_LOWER_FLOORS == TRUE OR ROOF.FAILURE.COMPROMISES_FIRE_COMPARTMENTATION == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROOF.TYPE.LIGHT",
+          "ROOF.INTENDED_FOR_EVACUATION",
+          "ROOF.HEIGHT_ABOVE_GROUND",
+          "FIRE.RESISTANCE",
+          "ROOF.FAILURE.DAMAGE",
+          "ROOF.FAILURE.STABILITY",
+          "ROOF.FAILURE.FIRE_COMPARTMENTATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1608,
+          "span_char_end": 2180,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ROOF.HEIGHT_ABOVE_GROUND <= 28 m",
+          "ROOF.PERMANENT_LOAD.CLOSURE <= 1 kN/m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "A light roof is defined as one whose permanent load due solely to its enclosure does not exceed 1 kN/m².",
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2047,
+        "end_pos": 2726
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 406,
+        "end_index": 538
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenidos en el recinto de éstos, serán como mínimo R 30. Cuando se trate de escaleras especialmente protegidas no se exige resistencia al fuego a los elementos estructurales.",
+      "attributes": {
+        "id": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
+        "parent_section_id": "0062e09e844b85b2",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Structural elements of a protected staircase or protected corridor contained within their enclosure must have a minimum fire resistance of R 30.",
+        "applies_if": "HAS(STAIRCASE.PROTECTED.STRUCTURAL_ELEMENT) OR HAS(CORRIDOR.PROTECTED.STRUCTURAL_ELEMENT)",
+        "satisfied_if": "STAIRCASE.PROTECTED.STRUCTURAL_ELEMENT.FIRE_RESISTANCE.R >= 30 ; OR CORRIDOR.PROTECTED.STRUCTURAL_ELEMENT.FIRE_RESISTANCE.R >= 30",
+        "exempt_if": "STAIRCASE.TYPE == 'ESPECIALLY_PROTECTED'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STAIRCASE.PROTECTED.STRUCTURAL_ELEMENT",
+          "CORRIDOR.PROTECTED.STRUCTURAL_ELEMENT",
+          "FIRE.RESISTANCE",
+          "STAIRCASE.TYPE.ESPECIALLY_PROTECTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2182,
+          "span_char_end": 2465,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "No fire resistance is required for structural elements of especially protected staircases.",
+        "section_name": "3 Elementos estructurales principales",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2739,
+        "end_pos": 2999
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 541,
+        "end_index": 594
+      },
+      "section_metadata": {
+        "section_id": "0062e09e844b85b2",
+        "section_name": "3 Elementos estructurales principales",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              196
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.9908447265625,
+              "r": 538.1878662109375,
+              "b": 738.5904541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "diante el estudio por medio de fuegos localizados, según se indica en el Eurocódigo 1 (UNE-EN 1991 -"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.3511962890625,
+              "r": 524.8238525390625,
+              "b": 719.2078857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En este Documento Básico no se considera la capacidad portante de la estructura tras el incendio."
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.47752380371094,
+              "t": 688.1947631835938,
+              "r": 346.1853332519531,
+              "b": 675.34814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Elementos estructurales principales"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              151
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 664.9508666992188,
+              "r": 538.0421752929688,
+              "b": 644.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Se considera que la resistencia al fuego de un elemento estructural principal del edificio (inclui"
+          },
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              176
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 635.7908325195312,
+              "r": 538.3079223632812,
+              "b": 615.1678466796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 9,
+  "char_count": 3014
+}

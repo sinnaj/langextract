@@ -1,0 +1,170 @@
+{
+  "chunk_id": 123,
+  "section_metadata": {
+    "section_id": "c1df76ecb957989e",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 55,
+    "end_page": 55,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.4 Valor de cálculo de la densidad de carga de fuego",
+      "Table 1"
+    ],
+    "parent_section_id": "057b0e30394bb34a",
+    "positioning_data": [
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 86.99127197265625,
+          "t": 448.5460510253906,
+          "r": 542.5550537109375,
+          "b": 325.20050048828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.4 Valor de cálculo de la densidad de carga de fuego → Table 1\n**Level:** 3\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Cálculo, Densidad, Carga, Fuego, Table\n**Pages:** 55-55\n\n\n| Superficie del sector Af [m 2 ] | Riesgo de iniciación \r  q1 |\n| --- | --- |\n| <20 | 1,00 |\n| 25 | 1,10 |\n| 250 | 1,50 |\n| 2 500 | 1,90 |\n| 5 000 | 2,00 |\n| >10 000 | 2,13 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Superficie del sector Af [m 2 ] | Riesgo de iniciación   q1",
+      "attributes": {
+        "id": "2711107f-7127-4638-8e65-276605054173",
+        "parent_section_id": "c1df76ecb957989e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The initiation risk factor (δq1) must correspond to the fire sector surface area (Af) as specified in the table.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(FIRE.SECTOR.AREA < 20 AND FIRE.INITIATION_RISK_FACTOR == 1.00) OR (FIRE.SECTOR.AREA == 25 AND FIRE.INITIATION_RISK_FACTOR == 1.10) OR (FIRE.SECTOR.AREA == 250 AND FIRE.INITIATION_RISK_FACTOR == 1.50) OR (FIRE.SECTOR.AREA == 2500 AND FIRE.INITIATION_RISK_FACTOR == 1.90) OR (FIRE.SECTOR.AREA == 5000 AND FIRE.INITIATION_RISK_FACTOR == 2.00) OR (FIRE.SECTOR.AREA > 10000 AND FIRE.INITIATION_RISK_FACTOR == 2.13)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.7,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR.AREA",
+          "FIRE.INITIATION_RISK_FACTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 100,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.SECTOR.AREA < 20 m^2",
+          "FIRE.SECTOR.AREA == 25 m^2",
+          "FIRE.SECTOR.AREA == 250 m^2",
+          "FIRE.SECTOR.AREA == 2500 m^2",
+          "FIRE.SECTOR.AREA == 5000 m^2",
+          "FIRE.SECTOR.AREA > 10000 m^2",
+          "FIRE.INITIATION_RISK_FACTOR == 1.00",
+          "FIRE.INITIATION_RISK_FACTOR == 1.10",
+          "FIRE.INITIATION_RISK_FACTOR == 1.50",
+          "FIRE.INITIATION_RISK_FACTOR == 1.90",
+          "FIRE.INITIATION_RISK_FACTOR == 2.00",
+          "FIRE.INITIATION_RISK_FACTOR == 2.13"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "This norm is derived from a table, assuming direct correlation between surface area and risk factor.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 275,
+        "end_pos": 336
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 74,
+        "end_index": 91
+      },
+      "section_metadata": {
+        "section_id": "c1df76ecb957989e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego",
+          "Table 1"
+        ],
+        "parent_section_id": "057b0e30394bb34a",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 449
+}

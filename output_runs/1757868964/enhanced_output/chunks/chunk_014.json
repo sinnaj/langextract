@@ -1,0 +1,1593 @@
+{
+  "chunk_id": 14,
+  "section_metadata": {
+    "section_id": "f36d172abd11078f",
+    "section_name": "Tabla 1.2",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 13,
+    "end_page": 13,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "2 Locales y zonas de riesgo especial",
+      "Tabla 1.2"
+    ],
+    "parent_section_id": "2cdaa19101374997",
+    "positioning_data": [
+      {
+        "page_no": 13,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.47727966308594,
+          "t": 729.85791015625,
+          "r": 539.4060668945312,
+          "b": 504.80072021484375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 1.2"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 1.2\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial → Tabla 1.2\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Locales, Zonas, Riesgo, Especial, Tabla\n**Pages:** 13-13\n\n\n| Elemento | Plantas bajo  rasante | Resistencia al fuego Plantas sobre rasante en edificio con altura de eva\u0002 cuación: |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | h ≤ 15 m | 15 < h ≤ 28 m | h > 28 m |\n| Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto:\r (4) |  |  |  |  |\n| -  Sector de riesgo mínimo  en  edificio de cualquier uso | (no se admite) | EI 120 | EI 120 | EI 120 |\n| -  Residencial Vivienda, Residen\u0002 cial Público, Docente, Adminis\u0002 trativo | EI 120 | EI 60 | EI 90 | EI 120 |\n| -  Comercial,  Pública concurren\u0002 cia ,  Hospitalario | EI 120(5) | EI 90 | EI 120 | EI 180 |\n| -  Aparcamiento(6) | EI 120(7) | EI 120 | EI 120 | EI 120 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Sector de riesgo mínimo en edificio de cualquier uso",
+      "attributes": {
+        "id": "221b6711-2d7c-4712-881b-513689429402",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Fire resistance for walls and ceilings separating a minimum risk sector from the rest of the building is not permitted below ground level.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.RISK == 'MINIMUM' AND LOCATION.LEVEL == 'BELOW_GROUND'",
+        "satisfied_if": "FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.RISK.MINIMUM",
+          "LOCATION.LEVEL.BELOW_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The text 'no se admite' implies a prohibition for this specific condition.",
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 542
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 146
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Sector de riesgo mínimo en edificio de cualquier uso",
+      "attributes": {
+        "id": "01725547-495e-4404-897b-89196b606820",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a minimum risk sector from the rest of the building must have a fire resistance of EI 120 for above-ground plants, regardless of evacuation height.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.RISK == 'MINIMUM' AND LOCATION.LEVEL == 'ABOVE_GROUND'",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.RISK.MINIMUM",
+          "LOCATION.LEVEL.ABOVE_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 425,
+        "end_pos": 612
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 163
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Residencial Vivienda, Residencial Público, Docente, Administrativo",
+      "attributes": {
+        "id": "e932483d-327c-472d-832d-9232483d327c",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Residential Housing, Public Residential, Educational, or Administrative use from the rest of the building must have a fire resistance of EI 120 for below-ground plants.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'PUBLIC.EDUCATION', 'ADMINISTRATIVE'] AND LOCATION.LEVEL == 'BELOW_GROUND'",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "PUBLIC.EDUCATION",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.RESIDENTIAL.HOUSING",
+          "SECTOR.USAGE.PUBLIC.RESIDENTIAL",
+          "SECTOR.USAGE.PUBLIC.EDUCATION",
+          "SECTOR.USAGE.ADMINISTRATIVE",
+          "LOCATION.LEVEL.BELOW_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 194
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Residencial Vivienda, Residencial Público, Docente, Administrativo",
+      "attributes": {
+        "id": "832d9232-472d-472d-832d-9232483d327c",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Residential Housing, Public Residential, Educational, or Administrative use from the rest of the building must have a fire resistance of EI 60 for above-ground plants with evacuation height h <= 15m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'PUBLIC.EDUCATION', 'ADMINISTRATIVE'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT <= 15",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 60'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "PUBLIC.EDUCATION",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.RESIDENTIAL.HOUSING",
+          "SECTOR.USAGE.PUBLIC.RESIDENTIAL",
+          "SECTOR.USAGE.PUBLIC.EDUCATION",
+          "SECTOR.USAGE.ADMINISTRATIVE",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 60",
+          "BUILDING.EVACUATION_HEIGHT <= 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 194
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Residencial Vivienda, Residencial Público, Docente, Administrativo",
+      "attributes": {
+        "id": "9232483d-327c-472d-832d-9232483d327c",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Residential Housing, Public Residential, Educational, or Administrative use from the rest of the building must have a fire resistance of EI 90 for above-ground plants with evacuation height 15m < h <= 28m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'PUBLIC.EDUCATION', 'ADMINISTRATIVE'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT > 15 AND BUILDING.EVACUATION_HEIGHT <= 28",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 90'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "PUBLIC.EDUCATION",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.RESIDENTIAL.HOUSING",
+          "SECTOR.USAGE.PUBLIC.RESIDENTIAL",
+          "SECTOR.USAGE.PUBLIC.EDUCATION",
+          "SECTOR.USAGE.ADMINISTRATIVE",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 90",
+          "BUILDING.EVACUATION_HEIGHT > 15 m",
+          "BUILDING.EVACUATION_HEIGHT <= 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 194
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Residencial Vivienda, Residencial Público, Docente, Administrativo",
+      "attributes": {
+        "id": "327c472d-832d-9232-483d327c472d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Residential Housing, Public Residential, Educational, or Administrative use from the rest of the building must have a fire resistance of EI 120 for above-ground plants with evacuation height h > 28m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'PUBLIC.EDUCATION', 'ADMINISTRATIVE'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT > 28",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "PUBLIC.EDUCATION",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.RESIDENTIAL.HOUSING",
+          "SECTOR.USAGE.PUBLIC.RESIDENTIAL",
+          "SECTOR.USAGE.PUBLIC.EDUCATION",
+          "SECTOR.USAGE.ADMINISTRATIVE",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120",
+          "BUILDING.EVACUATION_HEIGHT > 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 194
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Comercial, Pública concurrencia , Hospitalario",
+      "attributes": {
+        "id": "472d832d-9232-483d-327c-472d832d9232",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Commercial, Public Assembly, or Hospital use from the rest of the building must have a fire resistance of EI 120 for below-ground plants.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL'] AND LOCATION.LEVEL == 'BELOW_GROUND'",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PUBLIC.COMMERCIAL",
+          "SECTOR.USAGE.PUBLIC.ASSEMBLY",
+          "SECTOR.USAGE.PUBLIC.HOSPITAL",
+          "LOCATION.LEVEL.BELOW_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 830
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Comercial, Pública concurrencia , Hospitalario",
+      "attributes": {
+        "id": "832d9232-483d-327c-472d-832d9232483d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Commercial, Public Assembly, or Hospital use from the rest of the building must have a fire resistance of EI 90 for above-ground plants with evacuation height h <= 15m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT <= 15",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 90'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PUBLIC.COMMERCIAL",
+          "SECTOR.USAGE.PUBLIC.ASSEMBLY",
+          "SECTOR.USAGE.PUBLIC.HOSPITAL",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 90",
+          "BUILDING.EVACUATION_HEIGHT <= 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 830
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Comercial, Pública concurrencia , Hospitalario",
+      "attributes": {
+        "id": "9232483d-483d-327c-472d-832d9232483d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Commercial, Public Assembly, or Hospital use from the rest of the building must have a fire resistance of EI 120 for above-ground plants with evacuation height 15m < h <= 28m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT > 15 AND BUILDING.EVACUATION_HEIGHT <= 28",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PUBLIC.COMMERCIAL",
+          "SECTOR.USAGE.PUBLIC.ASSEMBLY",
+          "SECTOR.USAGE.PUBLIC.HOSPITAL",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120",
+          "BUILDING.EVACUATION_HEIGHT > 15 m",
+          "BUILDING.EVACUATION_HEIGHT <= 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 830
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Comercial, Pública concurrencia , Hospitalario",
+      "attributes": {
+        "id": "483d327c-472d-832d-9232-483d327c472d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Commercial, Public Assembly, or Hospital use from the rest of the building must have a fire resistance of EI 180 for above-ground plants with evacuation height h > 28m.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL'] AND LOCATION.LEVEL == 'ABOVE_GROUND' AND BUILDING.EVACUATION_HEIGHT > 28",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 180'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PUBLIC.COMMERCIAL",
+          "SECTOR.USAGE.PUBLIC.ASSEMBLY",
+          "SECTOR.USAGE.PUBLIC.HOSPITAL",
+          "LOCATION.LEVEL.ABOVE_GROUND",
+          "BUILDING.EVACUATION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 180",
+          "BUILDING.EVACUATION_HEIGHT > 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 830
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Aparcamiento(6)",
+      "attributes": {
+        "id": "327c472d-832d-9232-483d-327c472d832d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a parking sector from the rest of the building must have a fire resistance of EI 120 for below-ground plants.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE == 'PARKING' AND LOCATION.LEVEL == 'BELOW_GROUND'",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PARKING",
+          "LOCATION.LEVEL.BELOW_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 890
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 243
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al sector considerado del resto del edificio, siendo su uso previsto: (4) - Aparcamiento(6)",
+      "attributes": {
+        "id": "832d9232-483d-327c-472d-832d9232483d",
+        "parent_section_id": "f36d172abd11078f",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a parking sector from the rest of the building must have a fire resistance of EI 120 for above-ground plants, regardless of evacuation height.",
+        "applies_if": "ELEMENT.TYPE IN ['WALL', 'CEILING'] AND SECTOR.USAGE == 'PARKING' AND LOCATION.LEVEL == 'ABOVE_GROUND'",
+        "satisfied_if": "ELEMENT.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "SECTOR.USAGE.PARKING",
+          "LOCATION.LEVEL.ABOVE_GROUND"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+              "page_number": 13,
+              "section_id": "Tabla 1.2"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "section_name": "Tabla 1.2",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 434,
+        "end_pos": 890
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 243
+      },
+      "section_metadata": {
+        "section_id": "f36d172abd11078f",
+        "section_name": "Tabla 1.2",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 13,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 1.2"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.2"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 12,
+  "char_count": 932
+}

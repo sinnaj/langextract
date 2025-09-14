@@ -1,0 +1,216 @@
+{
+  "chunk_id": 206,
+  "section_metadata": {
+    "section_id": "419effe4c9682b04",
+    "section_name": "6 Otras materias",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 92,
+    "end_page": 1000,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "6 Otras materias"
+    ],
+    "parent_section_id": "c695898be7779318",
+    "positioning_data": [
+      {
+        "page_no": 92,
+        "charspan": [
+          0,
+          2
+        ],
+        "bbox": {
+          "l": 300.627685546875,
+          "t": 66.50076293945312,
+          "r": 308.774169921875,
+          "b": 60.631561279296875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "92"
+      },
+      {
+        "page_no": 92,
+        "charspan": [
+          0,
+          15
+        ],
+        "bbox": {
+          "l": 71.38224029541016,
+          "t": 297.35919189453125,
+          "r": 166.06016540527344,
+          "b": 304.72955322265625,
+          "coord_origin": "TOPLEFT"
+        },
+        "text": "5  Señalización"
+      },
+      {
+        "page_no": 92,
+        "charspan": [
+          0,
+          17
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 494.4191589355469,
+          "r": 175.7811279296875,
+          "b": 501.77960205078125,
+          "coord_origin": "TOPLEFT"
+        },
+        "text": "6  Otras materias"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 6 Otras materias\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 6 Otras materias\n**Level:** 2\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Otras, Materias\n**Pages:** 92-1000\n\n\nDocumento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n92\n5  Señalización\n6  Otras materias",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Documento Básico SI en caso de Incendio Anejo G. Normas relacionadas con la aplicación del DB SI\n92\n5  Señalización\n6  Otras materias",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section outlines other matters related to the application of the Basic Document SI (Safety in case of Fire).",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB SI"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "419effe4c9682b04",
+        "section_name": "6 Otras materias",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 300.627685546875,
+              "t": 66.50076293945312,
+              "r": 308.774169921875,
+              "b": 60.631561279296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "92"
+          },
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.38224029541016,
+              "t": 297.35919189453125,
+              "r": 166.06016540527344,
+              "b": 304.72955322265625,
+              "coord_origin": "TOPLEFT"
+            },
+            "text": "5  Señalización"
+          },
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 494.4191589355469,
+              "r": 175.7811279296875,
+              "b": 501.77960205078125,
+              "coord_origin": "TOPLEFT"
+            },
+            "text": "6  Otras materias"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 220,
+        "end_pos": 353
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 54,
+        "end_index": 86
+      },
+      "section_metadata": {
+        "section_id": "419effe4c9682b04",
+        "section_name": "6 Otras materias",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 92,
+        "end_page": 1000,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "6 Otras materias"
+        ],
+        "parent_section_id": "c695898be7779318",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              2
+            ],
+            "bbox": {
+              "l": 300.627685546875,
+              "t": 66.50076293945312,
+              "r": 308.774169921875,
+              "b": 60.631561279296875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "92"
+          },
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.38224029541016,
+              "t": 297.35919189453125,
+              "r": 166.06016540527344,
+              "b": 304.72955322265625,
+              "coord_origin": "TOPLEFT"
+            },
+            "text": "5  Señalización"
+          },
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 494.4191589355469,
+              "r": 175.7811279296875,
+              "b": 501.77960205078125,
+              "coord_origin": "TOPLEFT"
+            },
+            "text": "6  Otras materias"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 353
+}

@@ -1,0 +1,2747 @@
+{
+  "chunk_id": 114,
+  "section_metadata": {
+    "section_id": "25992f09ad03518e",
+    "section_name": "Vestíbulo de independencia",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Vestíbulo de independencia"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 768.9913330078125,
+          "r": 149.84713745117188,
+          "b": 759.9078369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Hospitalario"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          260
+        ],
+        "bbox": {
+          "l": 71.12328338623047,
+          "t": 747.630859375,
+          "r": 538.427978515625,
+          "b": 715.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          317
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 698.0708618164062,
+          "r": 538.6266479492188,
+          "b": 656.1504516601562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 627.15087890625,
+          "r": 186.55711364746094,
+          "b": 619.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Residencial Público"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          380
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 605.5208740234375,
+          "r": 538.4279174804688,
+          "b": 561.617919921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Vestíbulo de independencia\n**Path:** Anejo SI A Terminología → Vestíbulo de independencia\n**Level:** 2\n**Tags:** Terminología, Vestíbulo, Independencia\n**Pages:** 51-51\n\n\nRecinto de uso exclusivo para circulación situado entre dos o más recintos o zonas con el fin de aportar una mayor garantía de compartimentación contra incendios y que únicamente puede comunicar con los recintos o zonas a independizar, con aseos de planta y con ascensores. Cumplirán las siguientes condiciones:\n-Sus paredes serán EI 120. Sus puertas de paso entre los recintos o zonas a independizar tendrán la cuarta parte de la resistencia al fuego exigible al elemento compartimentador que separa dichos recintos y al menos EI2 30-C5 .\n-Los vestíbulos de independencia de las escaleras especialmente protegidas dispondrán de protección frente al humo conforme a alguna de las alternativas establecidas para dichas escaleras.\n-Los que sirvan a uno o a varios locales de riesgo especial, según lo establecido en el apartado 2 de la Sección SI 1 , no pueden utilizarse en los recorridos de evacuación de zonas habitables .\n-La distancia mínima entre los contornos de las superficies barridas por las puertas del vestíbulo debe ser al menos 0,50 m.\n-Los vestíbulos de independencia situados en un itinerario accesible (ver definición en el Anejo A del DB SUA) deben poder contener un círculo de diámetro Ø 1,20 m libre de obstáculos y del barrido de las puertas. Cuando el vestíbulo contenga una zona de refugio, dicho círculo tendrá un diámetro Ø 1,50 m y podrá invadir una de las plazas reservadas para usuarios de silla de ruedas . Los mecanis-\n51\nDocumento Básico SI en caso de Incendio Anejo A. Terminología\nmos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del encuentro en rincón más próximo de la pared que contiene la puerta.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Recinto de uso exclusivo para circulación situado entre dos o más recintos o zonas con el fin de aportar una mayor garantía de compartimentación contra incendios y que únicamente puede comunicar con los recintos o zonas a independizar, con aseos de planta y con ascensores.",
+      "attributes": {
+        "id": "1",
+        "meta_summary": "Definition and purpose of an independence vestibule for fire compartmentation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 182,
+        "end_pos": 455
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 101
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sus paredes serán EI 120.",
+      "attributes": {
+        "id": "2",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The walls of the independence vestibule must be EI 120.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.WALL.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "WALL.FIRE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 302,
+          "span_char_end": 322,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI 120"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 495,
+        "end_pos": 520
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 109,
+        "end_index": 117
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sus puertas de paso entre los recintos o zonas a independizar tendrán la cuarta parte de la resistencia al fuego exigible al elemento compartimentador que separa dichos recintos y al menos EI2 30-C5 .",
+      "attributes": {
+        "id": "3",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The passage doors between the areas to be compartmentalized must have one-fourth of the fire resistance required for the compartmentation element separating those areas, and at least EI2 30-C5.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.FIRE_RESISTANCE >= (COMPARTMENTATION_ELEMENT.FIRE_RESISTANCE / 4) AND VESTIBULE.INDEPENDENCE.DOOR.FIRE_RESISTANCE == 'EI2 30-C5'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.FIRE_RESISTANCE",
+          "COMPARTMENTATION_ELEMENT.FIRE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 323,
+          "span_char_end": 489,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE: EI2 30-C5"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 521,
+        "end_pos": 721
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 117,
+        "end_index": 157
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los vestíbulos de independencia de las escaleras especialmente protegidas dispondrán de protección frente al humo conforme a alguna de las alternativas establecidas para dichas escaleras.",
+      "attributes": {
+        "id": "4",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Independence vestibules for specially protected staircases must have smoke protection in accordance with the alternatives established for those staircases.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(STAIRCASE.PROTECTED.SPECIALLY) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.SMOKE_PROTECTION == STAIRCASE.PROTECTED.SPECIALLY.SMOKE_PROTECTION_ALTERNATIVES",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "STAIRCASE.PROTECTED.SPECIALLY",
+          "SMOKE_PROTECTION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 490,
+          "span_char_end": 639,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 723,
+        "end_pos": 910
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 158,
+        "end_index": 190
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los que sirvan a uno o a varios locales de riesgo especial, según lo establecido en el apartado 2 de la Sección SI 1 , no pueden utilizarse en los recorridos de evacuación de zonas habitables .",
+      "attributes": {
+        "id": "5",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Independence vestibules serving one or more special risk premises, as established in Section SI 1, paragraph 2, cannot be used in evacuation routes for habitable areas.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND VESTIBULE.INDEPENDENCE.SERVES_SPECIAL_RISK_PREMISES == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.IS_USED_IN_EVACUATION_ROUTE_HABITABLE_AREA == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "SPECIAL_RISK_PREMISES",
+          "EVACUATION_ROUTE",
+          "HABITABLE_AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 640,
+          "span_char_end": 804,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 912,
+        "end_pos": 1105
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 191,
+        "end_index": 235
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La distancia mínima entre los contornos de las superficies barridas por las puertas del vestíbulo debe ser al menos 0,50 m.",
+      "attributes": {
+        "id": "6",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The minimum distance between the contours of the swept surfaces by the vestibule doors must be at least 0.50 m.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.SWEEP_SURFACE.MIN_DISTANCE >= 0.50",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.SWEEP_SURFACE",
+          "DISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 805,
+          "span_char_end": 905,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MIN_DISTANCE: 0.50 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1107,
+        "end_pos": 1230
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 236,
+        "end_index": 264
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los vestíbulos de independencia situados en un itinerario accesible (ver definición en el Anejo A del DB SUA) deben poder contener un círculo de diámetro Ø 1,20 m libre de obstáculos y del barrido de las puertas.",
+      "attributes": {
+        "id": "7",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Independence vestibules located on an accessible route must be able to contain a clear circle of 1.20 m diameter, free of obstacles and door sweeps.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND VESTIBULE.INDEPENDENCE.IS_ON_ACCESSIBLE_ROUTE == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DIAMETER >= 1.20 AND VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.IS_FREE_OF_OBSTACLES == TRUE AND VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.IS_FREE_OF_DOOR_SWEEPS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "ACCESSIBLE_ROUTE",
+          "CLEAR_SPACE",
+          "DOOR.SWEEP"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 906,
+          "span_char_end": 1120,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "DIAMETER: 1.20 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1232,
+        "end_pos": 1444
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 265,
+        "end_index": 317
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando el vestíbulo contenga una zona de refugio, dicho círculo tendrá un diámetro Ø 1,50 m y podrá invadir una de las plazas reservadas para usuarios de silla de ruedas .",
+      "attributes": {
+        "id": "8",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the vestibule contains a refuge area, the clear circle must have a diameter of 1.50 m and may overlap with one of the spaces reserved for wheelchair users.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND VESTIBULE.INDEPENDENCE.HAS_REFUGE_AREA == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.DIAMETER >= 1.50 AND (VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.OVERLAPS_WHEELCHAIR_SPACE == TRUE OR VESTIBULE.INDEPENDENCE.CLEAR_CIRCLE.OVERLAPS_WHEELCHAIR_SPACE == FALSE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "REFUGE_AREA",
+          "CLEAR_SPACE",
+          "WHEELCHAIR_USER_SPACE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1121,
+          "span_char_end": 1297,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "DIAMETER: 1.50 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1445,
+        "end_pos": 1616
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 317,
+        "end_index": 359
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los mecanismos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del encuentro en rincón más próximo de la pared que contiene la puerta.",
+      "attributes": {
+        "id": "9",
+        "parent_section_id": "25992f09ad03518e",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The opening mechanisms of vestibule doors must be at a minimum distance of 0.30 m from the nearest corner of the wall containing the door.",
+        "applies_if": "HAS(VESTIBULE.INDEPENDENCE) == TRUE AND HAS(VESTIBULE.INDEPENDENCE.DOOR.OPENING_MECHANISM) == TRUE",
+        "satisfied_if": "VESTIBULE.INDEPENDENCE.DOOR.OPENING_MECHANISM.DISTANCE_TO_NEAREST_CORNER >= 0.30",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "relevant_tags": [
+          "VESTIBULE.INDEPENDENCE",
+          "DOOR.OPENING_MECHANISM",
+          "DISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1300,
+          "span_char_end": 1475,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "MIN_DISTANCE: 0.30 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 1.0,
+        "uncertainty": 0.0,
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1617,
+        "end_pos": 1620
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 359,
+        "end_index": 360
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Terminología, Vestíbulo, Independencia",
+      "attributes": {
+        "id": "10",
+        "parent_section_id": "25992f09ad03518e",
+        "classification_type": "TAGS",
+        "classification_values": [
+          "TERMINOLOGY",
+          "VESTIBULE",
+          "INDEPENDENCE"
+        ],
+        "source": {
+          "span_char_start": 74,
+          "span_char_end": 105,
+          "visual_refs": []
+        },
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 124,
+        "end_pos": 162
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 30,
+        "end_index": 39
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Documents",
+      "extraction_text": "Anejo A del DB SUA",
+      "attributes": {
+        "id": "11",
+        "parent_section_id": "25992f09ad03518e",
+        "doc_type": "REGULATION",
+        "doc_name": "DB SUA",
+        "doc_section": "Anejo A",
+        "doc_article": null,
+        "doc_year": null,
+        "doc_code": null,
+        "source": {
+          "span_char_start": 956,
+          "span_char_end": 971,
+          "visual_refs": []
+        },
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Documents",
+      "extraction_text": "apartado 2 de la Sección SI 1",
+      "attributes": {
+        "id": "12",
+        "parent_section_id": "25992f09ad03518e",
+        "doc_type": "REGULATION",
+        "doc_name": "SI 1",
+        "doc_section": "2",
+        "doc_article": null,
+        "doc_year": null,
+        "doc_code": null,
+        "source": {
+          "span_char_start": 699,
+          "span_char_end": 727,
+          "visual_refs": []
+        },
+        "section_name": "Vestíbulo de independencia",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 952,
+        "end_pos": 1028
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 200,
+        "end_index": 220
+      },
+      "section_metadata": {
+        "section_id": "25992f09ad03518e",
+        "section_name": "Vestíbulo de independencia",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Vestíbulo de independencia"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 12,
+  "char_count": 1863
+}

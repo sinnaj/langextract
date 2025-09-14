@@ -1,0 +1,298 @@
+{
+  "chunk_id": 29,
+  "section_metadata": {
+    "section_id": "8938239d348030aa",
+    "section_name": "Tabla 2.1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 22,
+    "end_page": 22,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "1 Compatibilidad de los elementos de evacuación",
+      "Tabla 2.1"
+    ],
+    "parent_section_id": "dee98d3bdd4cfa2e",
+    "positioning_data": [
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.2428970336914,
+          "t": 165.44390869140625,
+          "r": 540.0243530273438,
+          "b": 77.611328125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 2.1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 2.1\n**Path:** Sección SI 3 Evacuación de ocupantes → 1 Compatibilidad de los elementos de evacuación → Tabla 2.1\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Compatibilidad, Los, Elementos, Evacuación, Tabla\n**Pages:** 22-22\n\n\n| Uso previsto | Zona, tipo de actividad | Ocupación (m 2 /persona) |\n| --- | --- | --- |\n| Cualquiera | Zonas de ocupación ocasional y accesibles únicamente a efectos de manteni\u0002 miento: salas de máquinas, locales para material de limpieza, etc. | Ocupación  nula |\n|  | Aseos de planta | 3 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Ocupación nula",
+      "attributes": {
+        "id": "e967a502-3004-4061-9252-09949d212265",
+        "parent_section_id": "8938239d348030aa",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupation of areas intended for occasional occupation and accessible only for maintenance purposes must be null.",
+        "applies_if": "AREA.USAGE == 'OCCASIONAL_MAINTENANCE_ACCESS'",
+        "satisfied_if": "AREA.OCCUPANCY == 0",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "AREA.USAGE.OCCASIONAL_MAINTENANCE_ACCESS",
+          "AREA.OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "22-22",
+              "page_number": 22,
+              "section_id": "Tabla 2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 499,
+        "end_pos": 514
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 130,
+        "end_index": 134
+      },
+      "section_metadata": {
+        "section_id": "8938239d348030aa",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "dee98d3bdd4cfa2e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Aseos de planta",
+      "attributes": {
+        "id": "2141577e-282e-462f-9276-880940026e2e",
+        "parent_section_id": "8938239d348030aa",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The occupation density for floor toilets must be 3 square meters per person.",
+        "applies_if": "AREA.USAGE == 'FLOOR_TOILETS'",
+        "satisfied_if": "AREA.OCCUPANCY_DENSITY == '3 sq_m/person'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "AREA.USAGE.FLOOR_TOILETS",
+          "AREA.OCCUPANCY_DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "22-22",
+              "page_number": 22,
+              "section_id": "Tabla 2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "AREA.OCCUPANCY_DENSITY = 3 sq_m/person"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 522,
+        "end_pos": 537
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 137,
+        "end_index": 140
+      },
+      "section_metadata": {
+        "section_id": "8938239d348030aa",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "dee98d3bdd4cfa2e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 543
+}

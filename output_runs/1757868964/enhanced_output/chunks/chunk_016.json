@@ -1,0 +1,1334 @@
+{
+  "chunk_id": 16,
+  "section_metadata": {
+    "section_id": "040b6be41721ca51",
+    "section_name": "Tabla 2.1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 15,
+    "end_page": 15,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "2 Locales y zonas de riesgo especial",
+      "Tabla 2.1"
+    ],
+    "parent_section_id": "2cdaa19101374997",
+    "positioning_data": [
+      {
+        "page_no": 15,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 66.32513427734375,
+          "t": 770.0304946899414,
+          "r": 543.1449584960938,
+          "b": 304.7579345703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 2.1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 2.1\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial → Tabla 2.1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Locales, Zonas, Riesgo, Especial, Tabla\n**Pages:** 15-15\n\n\n| Hospitalario -  Almacenes de productos farmacéuticos y clínicos | 100<V≤200 m 3 | 200<V≤400 m3 | V>400 m3 En todo caso |\n| --- | --- | --- | --- |\n| -  Locales destinados a esterilización y almacenes  anejos |  |  |  |\n| -  Laboratorios clínicos | V≤350 m3 | 350<V≤500 m3 | V>500 m3 |\n| Administrativo |  |  |  |\n| -  Imprenta, reprografía y locales anejos, tales como  almacenes de papel o de publicaciones, encuader\u0002 nado, etc. (1) | 100<V≤200 m3 | 200<V≤500 m3 | V>500 m3 |\n| Residencial Público |  |  |  |\n| -  Roperos y locales para la custodia de equipajes | S≤20 m 2 | 20<S≤100 m2 | S>100 m2 |\n| Comercial |  |  |  |\n| -  Almacenes en los que la densidad de carga de  fuego ponderada y corregida (QS) aportada por los  productos almacenados sea(6) | 425<QS≤850  MJ/m2 | 850<QS≤3.400  MJ/m2 | QS>3.400 MJ/m2 |\n| La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos no situados por debajo de la  planta de salida del edificio |  |  |  |\n| con instalación automática de extinción | S< 2.000 m2 | S<600 m2 | S<25 m2 y altura  de evacuación <15 m |\n| sin instalación automática de extinción | S<1.000 m2 | S<300 m2 | no se admite |\n| -  en recintos situados por debajo de la planta  de salida del edificio |  |  |  |\n| con instalación automática de extinción | <800 m2 | no se admite | no se admite |\n| sin instalación automática de extinción | <400 m2 | no se admite | no se admite |\n| Pública concurrencia |  |  |  |\n| -  Taller o almacén de decorados, de vestuario, etc. |  | 100<V≤200 m 3 | V>200 m3 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La superficie construida de los locales así clasifica- dos no debe exceder de la siguiente: - en recintos no situados por debajo de la planta de salida del edificio con instalación automática de extinción",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "040b6be41721ca51",
+        "paragraph_number": null,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The constructed surface area of specially classified premises not located below the building's exit floor, and equipped with an automatic extinguishing system, must not exceed the specified limits.",
+        "applies_if": "LOCATION.BELOW_EXIT_FLOOR == FALSE AND FIRE.EXTINGUISH_SYSTEM.TYPE == 'AUTOMATIC'",
+        "satisfied_if": "LOCAL.AREA.SIZE < 2000 OR LOCAL.AREA.SIZE < 600 OR (LOCAL.AREA.SIZE < 25 AND LOCAL.EVACUATION.HEIGHT < 15)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "HOSPITAL",
+            "ADMINISTRATIVE",
+            "PUBLIC.RESIDENTIAL",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LOCAL.AREA.SIZE",
+          "LOCAL.EVACUATION.HEIGHT",
+          "FIRE.EXTINGUISH_SYSTEM.TYPE.AUTOMATIC",
+          "LOCATION.BELOW_EXIT_FLOOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "LOCAL.AREA.SIZE < 2000 m2",
+          "LOCAL.AREA.SIZE < 600 m2",
+          "LOCAL.AREA.SIZE < 25 m2",
+          "LOCAL.EVACUATION.HEIGHT < 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table structure implies different conditions based on volume/QS, but the norm statement is about the maximum constructed surface area. The specific conditions for each column (100<V<=200 m3, etc.) are not directly linked to the surface area limits in the provided text for this specific norm, so they are not included in satisfied_if.",
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 934,
+        "end_pos": 1264
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 274,
+        "end_index": 356
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La superficie construida de los locales así clasifica- dos no debe exceder de la siguiente: - en recintos no situados por debajo de la planta de salida del edificio sin instalación automática de extinción",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "040b6be41721ca51",
+        "paragraph_number": null,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The constructed surface area of specially classified premises not located below the building's exit floor, and without an automatic extinguishing system, must not exceed the specified limits.",
+        "applies_if": "LOCATION.BELOW_EXIT_FLOOR == FALSE AND FIRE.EXTINGUISH_SYSTEM.TYPE == 'NONE'",
+        "satisfied_if": "LOCAL.AREA.SIZE < 1000 OR LOCAL.AREA.SIZE < 300 OR LOCAL.AREA.SIZE == 'NOT_ADMITTED'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "HOSPITAL",
+            "ADMINISTRATIVE",
+            "PUBLIC.RESIDENTIAL",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LOCAL.AREA.SIZE",
+          "FIRE.EXTINGUISH_SYSTEM.TYPE.NONE",
+          "LOCATION.BELOW_EXIT_FLOOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "LOCAL.AREA.SIZE < 1000 m2",
+          "LOCAL.AREA.SIZE < 300 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table structure implies different conditions based on volume/QS, but the norm statement is about the maximum constructed surface area. The specific conditions for each column (100<V<=200 m3, etc.) are not directly linked to the surface area limits in the provided text for this specific norm, so they are not included in satisfied_if.",
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 936,
+        "end_pos": 1265
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 275,
+        "end_index": 357
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La superficie construida de los locales así clasifica- dos no debe exceder de la siguiente: - en recintos situados por debajo de la planta de salida del edificio con instalación automática de extinción",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+        "parent_section_id": "040b6be41721ca51",
+        "paragraph_number": null,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The constructed surface area of specially classified premises located below the building's exit floor, and equipped with an automatic extinguishing system, must not exceed the specified limits.",
+        "applies_if": "LOCATION.BELOW_EXIT_FLOOR == TRUE AND FIRE.EXTINGUISH_SYSTEM.TYPE == 'AUTOMATIC'",
+        "satisfied_if": "LOCAL.AREA.SIZE < 800 OR LOCAL.AREA.SIZE == 'NOT_ADMITTED'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "HOSPITAL",
+            "ADMINISTRATIVE",
+            "PUBLIC.RESIDENTIAL",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LOCAL.AREA.SIZE",
+          "FIRE.EXTINGUISH_SYSTEM.TYPE.AUTOMATIC",
+          "LOCATION.BELOW_EXIT_FLOOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "LOCAL.AREA.SIZE < 800 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table structure implies different conditions based on volume/QS, but the norm statement is about the maximum constructed surface area. The specific conditions for each column (100<V<=200 m3, etc.) are not directly linked to the surface area limits in the provided text for this specific norm, so they are not included in satisfied_if.",
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 934,
+        "end_pos": 1264
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 274,
+        "end_index": 356
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La superficie construida de los locales así clasifica- dos no debe exceder de la siguiente: - en recintos situados por debajo de la planta de salida del edificio sin instalación automática de extinción",
+      "attributes": {
+        "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+        "parent_section_id": "040b6be41721ca51",
+        "paragraph_number": null,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "The constructed surface area of specially classified premises located below the building's exit floor, and without an automatic extinguishing system, must not exceed the specified limits.",
+        "applies_if": "LOCATION.BELOW_EXIT_FLOOR == TRUE AND FIRE.EXTINGUISH_SYSTEM.TYPE == 'NONE'",
+        "satisfied_if": "LOCAL.AREA.SIZE < 400 OR LOCAL.AREA.SIZE == 'NOT_ADMITTED'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "HOSPITAL",
+            "ADMINISTRATIVE",
+            "PUBLIC.RESIDENTIAL",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "LOCAL.AREA.SIZE",
+          "FIRE.EXTINGUISH_SYSTEM.TYPE.NONE",
+          "LOCATION.BELOW_EXIT_FLOOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "LOCAL.AREA.SIZE < 400 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table structure implies different conditions based on volume/QS, but the norm statement is about the maximum constructed surface area. The specific conditions for each column (100<V<=200 m3, etc.) are not directly linked to the surface area limits in the provided text for this specific norm, so they are not included in satisfied_if.",
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 936,
+        "end_pos": 1265
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 275,
+        "end_index": 357
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Hospitalario - Almacenes de productos farmacéuticos y clínicos",
+      "attributes": {
+        "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "HOSPITAL.PHARMACEUTICAL_CLINICAL_STORAGE",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND LOCAL.USAGE == 'PHARMACEUTICAL_CLINICAL_STORAGE'",
+        "classification_criteria": [
+          {
+            "criteria_name": "VOLUME",
+            "criteria_values": [
+              "100 < V <= 200 m3",
+              "200 < V <= 400 m3",
+              "V > 400 m3"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 129,
+        "end_pos": 291
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 36,
+        "end_index": 76
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "- Locales destinados a esterilización y almacenes anejos",
+      "attributes": {
+        "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "HOSPITAL.STERILIZATION_STORAGE",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND LOCAL.USAGE == 'STERILIZATION_STORAGE'",
+        "classification_criteria": [
+          {
+            "criteria_name": "VOLUME",
+            "criteria_values": [
+              "V <= 350 m3",
+              "350 < V <= 500 m3",
+              "V > 500 m3"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "- Laboratorios clínicos",
+      "attributes": {
+        "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "HOSPITAL.CLINICAL_LABORATORIES",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND LOCAL.USAGE == 'CLINICAL_LABORATORIES'",
+        "classification_criteria": [
+          {
+            "criteria_name": "VOLUME",
+            "criteria_values": [
+              "V <= 350 m3",
+              "350 < V <= 500 m3",
+              "V > 500 m3"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Administrativo - Imprenta, reprografía y locales anejos, tales como almacenes de papel o de publicaciones, encuadernado, etc. (1)",
+      "attributes": {
+        "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "ADMINISTRATIVE.PRINTING_REPROGRAPHY_STORAGE",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE' AND LOCAL.USAGE IN ['PRINTING', 'REPROGRAPHY', 'PAPER_STORAGE', 'PUBLICATION_STORAGE', 'BINDING']",
+        "classification_criteria": [
+          {
+            "criteria_name": "VOLUME",
+            "criteria_values": [
+              "100 < V <= 200 m3",
+              "200 < V <= 500 m3",
+              "V > 500 m3"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 493,
+        "end_pos": 661
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 143,
+        "end_index": 188
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Residencial Público - Roperos y locales para la custodia de equipajes",
+      "attributes": {
+        "id": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "PUBLIC.RESIDENTIAL.WARDROBE_LUGGAGE_STORAGE",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL' AND LOCAL.USAGE IN ['WARDROBE', 'LUGGAGE_STORAGE']",
+        "classification_criteria": [
+          {
+            "criteria_name": "SURFACE_AREA",
+            "criteria_values": [
+              "S <= 20 m2",
+              "20 < S <= 100 m2",
+              "S > 100 m2"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 653,
+        "end_pos": 790
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 183,
+        "end_index": 230
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Comercial - Almacenes en los que la densidad de carga de fuego ponderada y corregida (QS) aportada por los productos almacenados sea(6)",
+      "attributes": {
+        "id": "0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "COMMERCIAL.STORAGE.FIRE_LOAD_DENSITY",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND LOCAL.USAGE == 'STORAGE'",
+        "classification_criteria": [
+          {
+            "criteria_name": "FIRE_LOAD_DENSITY_QS",
+            "criteria_values": [
+              "425 < QS <= 850 MJ/m2",
+              "850 < QS <= 3400 MJ/m2",
+              "QS > 3400 MJ/m2"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 740,
+        "end_pos": 981
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 221,
+        "end_index": 283
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Pública concurrencia - Taller o almacén de decorados, de vestuario, etc.",
+      "attributes": {
+        "id": "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+        "parent_section_id": "040b6be41721ca51",
+        "classification_type": "RISK.SPECIAL.USAGE",
+        "classification_value": "PUBLIC.ASSEMBLY.WORKSHOP_STORAGE_SCENERY_WARDROBE",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND LOCAL.USAGE IN ['WORKSHOP_SCENERY', 'STORAGE_SCENERY', 'STORAGE_WARDROBE']",
+        "classification_criteria": [
+          {
+            "criteria_name": "VOLUME",
+            "criteria_values": [
+              "100 < V <= 200 m3",
+              "V > 200 m3"
+            ]
+          }
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1591,
+        "end_pos": 1757
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 464,
+        "end_index": 512
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "# Section: Tabla 2.1\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial → Tabla 2.1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Locales, Zonas, Riesgo, Especial, Tabla\n**Pages:** 15-15\n\n\n| Hospitalario -  Almacenes de productos farmacéuticos y clínicos | 100<V≤200 m 3 | 200<V≤400 m3 | V>400 m3 En todo caso |\n| --- | --- | --- | --- |\n| -  Locales destinados a esterilización y almacenes  anejos |  |  |  |\n| -  Laboratorios clínicos | V≤350 m3 | 350<V≤500 m3 | V>500 m3 |\n| Administrativo |  |  |  |\n| -  Imprenta, reprografía y locales anejos, tales como  almacenes de papel o de publicaciones, encuader\u0002 nado, etc. (1) | 100<V≤200 m3 | 200<V≤500 m3 | V>500 m3 |\n| Residencial Público |  |  |  |\n| -  Roperos y locales para la custodia de equipajes | S≤20 m 2 | 20<S≤100 m2 | S>100 m2 |\n| Comercial |  |  |  |\n| -  Almacenes en los que la densidad de carga de  fuego ponderada y corregida (QS) aportada por los  productos almacenados sea(6) | 425<QS≤850  MJ/m2 | 850<QS≤3.400  MJ/m2 | QS>3.400 MJ/m2 |\n| La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos no situados por debajo de la  planta de salida del edificio |  |  |  |\n| con instalación automática de extinción | S< 2.000 m2 | S<600 m2 | S<25 m2 y altura  de evacuación <15 m |\n| sin instalación automática de extinción | S<1.000 m2 | S<300 m2 | no se admite |\n| -  en recintos situados por debajo de la planta  de salida del edificio |  |  |  |\n| con instalación automática de extinción | <800 m2 | no se admite | no se admite |\n| sin instalación automática de extinción | <400 m2 | no se admite | no se admite |\n| Pública concurrencia |  |  |  |\n| -  Taller o almacén de decorados, de vestuario, etc. |  | 100<V≤200 m 3 | V>200 m3 |",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section, 'Tabla 2.1', details the classification of special risk premises and their maximum allowed constructed surface areas, depending on their location relative to the exit floor and the presence of automatic extinguishing systems. It categorizes premises by usage (Hospital, Administrative, Public Residential, Commercial, Public Assembly) and specifies conditions based on volume (V), surface area (S), or fire load density (QS).",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 1789
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 528
+      },
+      "section_metadata": {
+        "section_id": "040b6be41721ca51",
+        "section_name": "Tabla 2.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 15,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Tabla 2.1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 2.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 12,
+  "char_count": 1789
+}

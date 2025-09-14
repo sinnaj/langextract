@@ -1,0 +1,548 @@
+{
+  "chunk_id": 90,
+  "section_metadata": {
+    "section_id": "3c3e94f402a141d2",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 47,
+    "end_page": 47,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Recorrido de evacuación",
+      "Table 1"
+    ],
+    "parent_section_id": "ebfad72d50384817",
+    "positioning_data": [
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 70.22305297851562,
+          "t": 221.01812744140625,
+          "r": 541.1832275390625,
+          "b": 126.73583984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI A Terminología → Recorrido de evacuación → Table 1\n**Level:** 3\n**Tags:** Terminología, Recorrido, Evacuación, Table\n**Pages:** 47-47\n\n\n|  | Máxima altura salvada |  |\n| --- | --- | --- |\n| Uso previsto y zona | Hasta una salida de  planta | Hasta el espacio  exterior seguro |\n| En general, exceptuando los casos que se indican a continuación . | 4 m | 6 m |\n| Hospitalario ,  en zonas de hospitalización o tratamiento intensivo  Docente, escuela infantil o enseñanza primaria | 1 m (1) | 2 m (1) |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Máxima altura salvada: En general, exceptuando los casos que se indican a continuación . Hasta una salida de planta: 4 m",
+      "attributes": {
+        "id": "27021727-4221-4f1b-8532-628f8952807e",
+        "parent_section_id": "3c3e94f402a141d2",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum height saved to a floor exit must be 4 meters.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.HEIGHT_SAVED.TO_FLOOR_EXIT <= 4",
+        "exempt_if": "BUILDING.USAGE IN ['HOSPITAL', 'EDUCATION.INFANT', 'EDUCATION.PRIMARY']",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.HEIGHT_SAVED",
+          "EVACUATION.FLOOR_EXIT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.HEIGHT_SAVED.TO_FLOOR_EXIT <= 4 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 179,
+        "end_pos": 200
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 54
+      },
+      "section_metadata": {
+        "section_id": "3c3e94f402a141d2",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "ebfad72d50384817",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Máxima altura salvada: En general, exceptuando los casos que se indican a continuación . Hasta el espacio exterior seguro: 6 m",
+      "attributes": {
+        "id": "67021727-4221-4f1b-8532-628f8952807e",
+        "parent_section_id": "3c3e94f402a141d2",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum height saved to a safe exterior space must be 6 meters.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.HEIGHT_SAVED.TO_SAFE_EXTERIOR_SPACE <= 6",
+        "exempt_if": "BUILDING.USAGE IN ['HOSPITAL', 'EDUCATION.INFANT', 'EDUCATION.PRIMARY']",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.HEIGHT_SAVED",
+          "EVACUATION.SAFE_EXTERIOR_SPACE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.HEIGHT_SAVED.TO_SAFE_EXTERIOR_SPACE <= 6 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 179,
+        "end_pos": 395
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 102
+      },
+      "section_metadata": {
+        "section_id": "3c3e94f402a141d2",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "ebfad72d50384817",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Máxima altura salvada: Hospitalario , en zonas de hospitalización o tratamiento intensivo Docente, escuela infantil o enseñanza primaria. Hasta una salida de planta: 1 m (1)",
+      "attributes": {
+        "id": "87021727-4221-4f1b-8532-628f8952807e",
+        "parent_section_id": "3c3e94f402a141d2",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum height saved to a floor exit must be 1 meter.",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND ZONE.TYPE IN ['HOSPITALIZATION', 'INTENSIVE_TREATMENT'] OR BUILDING.USAGE IN ['EDUCATION.INFANT', 'EDUCATION.PRIMARY']",
+        "satisfied_if": "EVACUATION.HEIGHT_SAVED.TO_FLOOR_EXIT <= 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL",
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.HEIGHT_SAVED",
+          "EVACUATION.FLOOR_EXIT",
+          "BUILDING.USAGE.HOSPITAL",
+          "BUILDING.USAGE.EDUCATION.INFANT",
+          "BUILDING.USAGE.EDUCATION.PRIMARY",
+          "ZONE.TYPE.HOSPITALIZATION",
+          "ZONE.TYPE.INTENSIVE_TREATMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.HEIGHT_SAVED.TO_FLOOR_EXIT <= 1 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 179,
+        "end_pos": 525
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "3c3e94f402a141d2",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "ebfad72d50384817",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Máxima altura salvada: Hospitalario , en zonas de hospitalización o tratamiento intensivo Docente, escuela infantil o enseñanza primaria. Hasta el espacio exterior seguro: 2 m (1)",
+      "attributes": {
+        "id": "97021727-4221-4f1b-8532-628f8952807e",
+        "parent_section_id": "3c3e94f402a141d2",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum height saved to a safe exterior space must be 2 meters.",
+        "applies_if": "BUILDING.USAGE == 'HOSPITAL' AND ZONE.TYPE IN ['HOSPITALIZATION', 'INTENSIVE_TREATMENT'] OR BUILDING.USAGE IN ['EDUCATION.INFANT', 'EDUCATION.PRIMARY']",
+        "satisfied_if": "EVACUATION.HEIGHT_SAVED.TO_SAFE_EXTERIOR_SPACE <= 2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL",
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.HEIGHT_SAVED",
+          "EVACUATION.SAFE_EXTERIOR_SPACE",
+          "BUILDING.USAGE.HOSPITAL",
+          "BUILDING.USAGE.EDUCATION.INFANT",
+          "BUILDING.USAGE.EDUCATION.PRIMARY",
+          "ZONE.TYPE.HOSPITALIZATION",
+          "ZONE.TYPE.INTENSIVE_TREATMENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "EVACUATION.HEIGHT_SAVED.TO_SAFE_EXTERIOR_SPACE <= 2 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 179,
+        "end_pos": 535
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 136
+      },
+      "section_metadata": {
+        "section_id": "3c3e94f402a141d2",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "ebfad72d50384817",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.22305297851562,
+              "t": 221.01812744140625,
+              "r": 541.1832275390625,
+              "b": 126.73583984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 537
+}

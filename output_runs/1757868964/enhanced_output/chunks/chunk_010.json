@@ -1,0 +1,244 @@
+{
+  "chunk_id": 10,
+  "section_metadata": {
+    "section_id": "2686a1d0b332ec68",
+    "section_name": "Tabla 1.1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 10,
+    "end_page": 10,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "1 Compartimentación en sectores de incendio",
+      "Tabla 1.1"
+    ],
+    "parent_section_id": "3446818cb693b4e0",
+    "positioning_data": [
+      {
+        "page_no": 10,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.6197280883789,
+          "t": 261.97357177734375,
+          "r": 541.5142211914062,
+          "b": 142.8077392578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 1.1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 1.1\n**Path:** Sección SI 1 Propagación interior → 1 Compartimentación en sectores de incendio → Tabla 1.1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Compartimentación, Sectores, Incendio, Tabla\n**Pages:** 10-10\n\n\n| Uso previsto del edifi\u0002 cio o establecimiento | Condiciones |\n| --- | --- |\n| En general | -  Todo establecimiento debe constituir sector de incendio diferenciado del resto del  edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta\u0002 blecimientos cuya superficie construida no exceda de 500 m 2  y cuyo uso sea Docen\u0002 te, Administrativo o Residencial Público . -  Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o  establecimiento en el que esté integrada debe constituir un sector de incendio dife\u0002 rente cuando supere los siguientes límites: |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los establecimientos cuya superficie construida no exceda de 500 m2 y cuyo uso sea Docente, Administrativo o Residencial Público.",
+      "attributes": {
+        "id": "2b311756-3240-410c-9321-4f1146200259",
+        "parent_section_id": "2686a1d0b332ec68",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every establishment must constitute a fire sector differentiated from the rest of the building.",
+        "applies_if": "TRUE",
+        "satisfied_if": "ESTABLISHMENT.IS_FIRE_SECTOR == TRUE",
+        "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND ESTABLISHMENT.AREA.SIZE <= 500 AND ESTABLISHMENT.USAGE IN ['PUBLIC.EDUCATION', 'ADMINISTRATIVE', 'PUBLIC.RESIDENTIAL']",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "ESTABLISHMENT.AREA.SIZE",
+          "ESTABLISHMENT.USAGE.PUBLIC.EDUCATION",
+          "ESTABLISHMENT.USAGE.ADMINISTRATIVE",
+          "ESTABLISHMENT.USAGE.PUBLIC.RESIDENTIAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.AREA.SIZE <= 500 m2"
+        ],
+        "confidence": 0.95,
+        "section_name": "Tabla 1.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 10,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.6197280883789,
+              "t": 261.97357177734375,
+              "r": 541.5142211914062,
+              "b": 142.8077392578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 334,
+        "end_pos": 497
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 86,
+        "end_index": 110
+      },
+      "section_metadata": {
+        "section_id": "2686a1d0b332ec68",
+        "section_name": "Tabla 1.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 10,
+        "end_page": 10,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.1"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 10,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.6197280883789,
+              "t": 261.97357177734375,
+              "r": 541.5142211914062,
+              "b": 142.8077392578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diferente cuando supere los siguientes límites:",
+      "attributes": {
+        "id": "f5165625-7212-4211-9310-0937a892795c",
+        "parent_section_id": "2686a1d0b332ec68",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Any zone with a different and subsidiary intended use from the main use of the building or establishment in which it is integrated must constitute a different fire sector when it exceeds the specified limits.",
+        "applies_if": "ZONE.USAGE != BUILDING.USAGE AND ZONE.USAGE != ESTABLISHMENT.USAGE",
+        "satisfied_if": "ZONE.IS_FIRE_SECTOR == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "ZONE.USAGE",
+          "BUILDING.USAGE",
+          "ESTABLISHMENT.USAGE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.9,
+        "section_name": "Tabla 1.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 10,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.6197280883789,
+              "t": 261.97357177734375,
+              "r": 541.5142211914062,
+              "b": 142.8077392578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 634,
+        "end_pos": 798
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 138,
+        "end_index": 165
+      },
+      "section_metadata": {
+        "section_id": "2686a1d0b332ec68",
+        "section_name": "Tabla 1.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 10,
+        "end_page": 10,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "1 Compartimentación en sectores de incendio",
+          "Tabla 1.1"
+        ],
+        "parent_section_id": "3446818cb693b4e0",
+        "positioning_data": [
+          {
+            "page_no": 10,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.6197280883789,
+              "t": 261.97357177734375,
+              "r": 541.5142211914062,
+              "b": 142.8077392578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 1.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 850
+}

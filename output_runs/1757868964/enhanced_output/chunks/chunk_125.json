@@ -1,0 +1,99 @@
+{
+  "chunk_id": 125,
+  "section_metadata": {
+    "section_id": "199c18d1f2a4ab44",
+    "section_name": "B.5 Valor característico de la densidad de carga de fuego( )",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 56,
+    "end_page": 56,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.5 Valor característico de la densidad de carga de fuego( )"
+    ],
+    "parent_section_id": "b0621b555a104d1f",
+    "positioning_data": [
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          85
+        ],
+        "bbox": {
+          "l": 134.1289825439453,
+          "t": 767.9713134765625,
+          "r": 475.2969970703125,
+          "b": 757.2562866210938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla B.4. Valores de los coeficientes \r\n n , i según las medidas activas existentes"
+      },
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          311
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 705.3908081054688,
+          "r": 538.5479736328125,
+          "b": 658.847900390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "5 Los valores de c  pueden obtenerse de la tabla B.5. En el caso de edificios en los que no sea adm"
+      },
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          116
+        ],
+        "bbox": {
+          "l": 158.36900329589844,
+          "t": 642.6703491210938,
+          "r": 536.4249877929688,
+          "b": 622.4409790039062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla B.5. Valores de c c \r\npor las posibles consecuencias del incendio, según la altura de evacuac"
+      },
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          61
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 487.5820007324219,
+          "r": 471.8289794921875,
+          "b": 473.0556335449219,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "B.5 Valor característico de la densidad de carga de fuego( 1)"
+      },
+      {
+        "page_no": 56,
+        "charspan": [
+          0,
+          336
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 462.84088134765625,
+          "r": 538.4279174804688,
+          "b": 419.0379333496094,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor caract"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: B.5 Valor característico de la densidad de carga de fuego( )\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.5 Valor característico de la densidad de carga de fuego( )\n**Level:** 2\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Característico, Densidad, Carga, Fuego\n**Pages:** 56-56\n\n\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nTabla B.4. Valores de los coeficientes \r\n n , i según las medidas activas existentes\n5 Los valores de c  pueden obtenerse de la tabla B.5. En el caso de edificios en los que no sea admisible que puedan quedar fuera de servicio o en los que se pueda haber un número elevado de víctimas en caso de incendio, como es el caso de los hospitales, los valores indicados deben ser multiplicados por 1,5.\nTabla B.5. Valores de c c \r\npor las posibles consecuencias del incendio, según la altura de evacuación del edificio\nB.5 Valor característico de la densidad de carga de fuego( 1)\n1 El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor característico de la densidad de carga de fuego permanente, estimado por su valor promedio o esperado, y el valor característico de la densidad de carga de fuego variable, estimado como el valor que sólo es sobrepasado en un 20% de los casos.\n2 La densidad de carga de fuego permanente corresponde a los revestimientos y otros elementos combustibles permanentes incluidos en proyecto. Puede obtenerse a partir de los valores específicos aportados el fabricante de cada producto o, en su defecto, a partir de tablas de valores para materiales genéricos.\n3 La densidad de carga de fuego variable puede evaluarse elemento a elemento, según se indica en la norma UNE EN 1991 -1 -2: 2004 , pudiendo en este caso tener en cuenta las cargas protegidas, o bien obtenerse en la tabla B.6, para zonas que no presenten acumulaciones de carga de fuego mayores que las propias del uso previsto, como es el caso de zonas de almacenamiento, archivos intensivos de documentación, depósitos de libros, etc.\nTabla B.6. Valores de densidad de carga de fuego variable característica según el uso previsto\n(1) En el \"Reglamento de seguridad contra incendios en los establecimientos industriales\" se indican cargas de fuego promedio para algunas actividades especiales, así como para uso Comercial y para almacenes. El valor característico puede obtenerse multiplicando dicho valor por 1,6. También se aportan valores de potencial calorífico correspondiente a diferentes materiales y sustancias.\n56",
+  "extractions": [],
+  "extraction_count": 0,
+  "char_count": 2578,
+  "note": "No extractions returned from LangExtract"
+}

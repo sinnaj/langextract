@@ -1,0 +1,409 @@
+{
+  "chunk_id": 62,
+  "section_metadata": {
+    "section_id": "9cd010b39383163e",
+    "section_name": "Tabla 3.1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 39,
+    "end_page": 39,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "3 Elementos estructurales principales",
+      "Tabla 3.1"
+    ],
+    "parent_section_id": "0062e09e844b85b2",
+    "positioning_data": [
+      {
+        "page_no": 39,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 89.65866088867188,
+          "t": 275.5341796875,
+          "r": 542.825439453125,
+          "b": 224.69989013671875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla 3.1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Tabla 3.1\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 3 Elementos estructurales principales → Tabla 3.1\n**Level:** 3\n**Tags:** SI6, Resistencia, Fuego, Estructura, Elementos, Estructurales, Principales, Tabla\n**Pages:** 39-39\n\n\n| Riesgo especial bajo | R 90 |\n| --- | --- |\n| Riesgo especial medio | R 120 |\n| Riesgo especial alto | R 180 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Riesgo especial bajo | R 90",
+      "attributes": {
+        "id": "e8109280-9118-406a-a23a-f111516f243a",
+        "parent_section_id": "9cd010b39383163e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Structural elements must have a fire resistance of R 90 for low special risk.",
+        "applies_if": "RISK.SPECIAL == 'LOW'",
+        "satisfied_if": "ELEMENT.STRUCTURAL.FIRE_RESISTANCE == 'R90'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "RISK.SPECIAL.LOW",
+          "ELEMENT.STRUCTURAL",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Tabla 3.1"
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE.R90"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 3.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 260,
+        "end_pos": 287
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 61,
+        "end_index": 67
+      },
+      "section_metadata": {
+        "section_id": "9cd010b39383163e",
+        "section_name": "Tabla 3.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales",
+          "Tabla 3.1"
+        ],
+        "parent_section_id": "0062e09e844b85b2",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Riesgo especial medio | R 120",
+      "attributes": {
+        "id": "2701765c-6028-444c-9f93-010373400870",
+        "parent_section_id": "9cd010b39383163e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Structural elements must have a fire resistance of R 120 for medium special risk.",
+        "applies_if": "RISK.SPECIAL == 'MEDIUM'",
+        "satisfied_if": "ELEMENT.STRUCTURAL.FIRE_RESISTANCE == 'R120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "RISK.SPECIAL.MEDIUM",
+          "ELEMENT.STRUCTURAL",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Tabla 3.1"
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE.R120"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 3.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 306,
+        "end_pos": 335
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 74,
+        "end_index": 80
+      },
+      "section_metadata": {
+        "section_id": "9cd010b39383163e",
+        "section_name": "Tabla 3.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales",
+          "Tabla 3.1"
+        ],
+        "parent_section_id": "0062e09e844b85b2",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Riesgo especial alto | R 180",
+      "attributes": {
+        "id": "28102377-2483-424a-963e-322437637841",
+        "parent_section_id": "9cd010b39383163e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Structural elements must have a fire resistance of R 180 for high special risk.",
+        "applies_if": "RISK.SPECIAL == 'HIGH'",
+        "satisfied_if": "ELEMENT.STRUCTURAL.FIRE_RESISTANCE == 'R180'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "RISK.SPECIAL.HIGH",
+          "ELEMENT.STRUCTURAL",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Tabla 3.1"
+          ]
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE.R180"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Tabla 3.1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 340,
+        "end_pos": 368
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 88
+      },
+      "section_metadata": {
+        "section_id": "9cd010b39383163e",
+        "section_name": "Tabla 3.1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 39,
+        "end_page": 39,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "3 Elementos estructurales principales",
+          "Tabla 3.1"
+        ],
+        "parent_section_id": "0062e09e844b85b2",
+        "positioning_data": [
+          {
+            "page_no": 39,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.65866088867188,
+              "t": 275.5341796875,
+              "r": 542.825439453125,
+              "b": 224.69989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla 3.1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 370
+}
