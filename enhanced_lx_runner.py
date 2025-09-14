@@ -1164,6 +1164,16 @@ def run_enhanced_extraction(
             print(f"[INFO] Skipping LX extraction for section: {section_name}")
             continue
         
+        # Skip parent sections that have child sections to avoid content duplication
+        # Parent sections should not be extracted if they have children, since children contain the actual content
+        section_has_children = any(
+            other_section.parent_section_id == section.section_id 
+            for other_section in sections
+        )
+        if section_has_children:
+            print(f"[INFO] Skipping parent section from LX extraction (has children): {section_name}")
+            continue
+        
         # Extract using LangExtract
         extraction_result = extract_with_langextract(
             text=chunk_text,
