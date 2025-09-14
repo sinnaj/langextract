@@ -362,6 +362,12 @@ def extract_with_langextract(
                 attributes["parent_section_id"] = section_metadata.get("section_id")
                 attributes["section_name"] = section_metadata.get("section_name")
                 attributes["section_level"] = section_metadata.get("section_level")
+                attributes["section_type"] = section_metadata.get("section_type")
+                
+                # Add positioning data for PDF anchoring/highlighting
+                positioning_data = section_metadata.get("positioning_data", [])
+                if positioning_data:
+                    attributes["positioning_data"] = positioning_data
                 item["attributes"] = attributes
                 item["section_metadata"] = section_metadata
             
@@ -1085,11 +1091,40 @@ def run_enhanced_extraction(
         toc_data = create_fallback_toc_from_docling(docling_document)
     
     # Create sections and chunks from ToC and fixed Docling Document
-    print("[INFO] Creating ToC-based chunks (non-ToC headers treated as text body)...")
+    print("[INFO] Creating enhanced sections including table sections...")
     check_memory_usage("before chunking")
     
     with time_operation("chunk_creation_and_alignment"):
-        chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=max_chunk_chars)
+        # Import enhanced chunking functions
+        from extraction_pipeline.enhanced_chunking import (
+            create_enhanced_sections_from_toc, 
+            create_section_chunks_with_context_optimized
+        )
+        
+        # Create enhanced sections (includes table sections)
+        sections = create_enhanced_sections_from_toc(toc_data, docling_document)
+        print(f"[INFO] Created {len(sections)} sections ({len([s for s in sections if s.section_type == 'Headline'])} headline + {len([s for s in sections if s.section_type == 'Table'])} table)")
+        
+        # Create chunks from sections
+        chunks = create_section_chunks_with_context_optimized(sections, docling_document, max_chars=max_chunk_chars)
+        
+        # Convert to expected format (chunk_text, section_info)
+        formatted_chunks = []
+        for chunk_text, section in chunks:
+            section_info = {
+                "section_name": section.section_name,
+                "section_type": section.section_type,
+                "section_level": section.section_level,
+                "start_page": section.start_page,
+                "end_page": section.end_page,
+                "toc_path": section.toc_path,
+                "section_id": section.section_id,
+                "parent_section_id": section.parent_section_id,
+                "positioning_data": getattr(section, 'positioning_data', [])
+            }
+            formatted_chunks.append((chunk_text, section_info))
+        
+        chunks = formatted_chunks
     
     print(f"[INFO] Created {len(chunks)} chunks for processing")
     check_memory_usage("after chunking")
@@ -1107,14 +1142,17 @@ def run_enhanced_extraction(
     for i, (chunk_text, section_info) in enumerate(chunks):
         print(f"[INFO] Processing chunk {i+1}/{len(chunks)}: {section_info.get('section_name', f'Chunk {i+1}')}")
         
-        # Create section metadata for extraction
+        # Create section metadata for extraction (use enhanced section data)
         section_metadata = {
-            "section_id": section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower(),
+            "section_id": section_info.get("section_id", section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower()),
             "section_name": section_info.get("section_name", f"Section {i+1}"),
+            "section_type": section_info.get("section_type", "Headline"),
             "section_level": section_info.get("section_level", 1),
             "start_page": section_info.get("start_page"),
             "end_page": section_info.get("end_page"),
             "toc_path": section_info.get("toc_path", []),
+            "parent_section_id": section_info.get("parent_section_id"),
+            "positioning_data": section_info.get("positioning_data", []),
             "section_summary": f"Section at level {section_info.get('section_level', 1)}"
         }
         
@@ -1124,6 +1162,16 @@ def run_enhanced_extraction(
         section_name = section_info.get("section_name", "")
         if should_skip_section_for_extraction(section_name):
             print(f"[INFO] Skipping LX extraction for section: {section_name}")
+            continue
+        
+        # Skip parent sections that have child sections to avoid content duplication
+        # Parent sections should not be extracted if they have children, since children contain the actual content
+        section_has_children = any(
+            other_section.parent_section_id == section.section_id 
+            for other_section in sections
+        )
+        if section_has_children:
+            print(f"[INFO] Skipping parent section from LX extraction (has children): {section_name}")
             continue
         
         # Extract using LangExtract
@@ -1186,6 +1234,18 @@ def run_enhanced_extraction(
     # Postprocess extractions to derive tags and parameters
     print("[INFO] Performing postprocessing to derive tags and parameters...")
     processed_extractions, derived_tags, derived_parameters = process_extractions_with_postprocessing(all_extractions)
+    
+    # Add parent_section_name field by mapping parent_section_id to section names
+    print("[INFO] Adding parent section names to extractions...")
+    section_id_to_name = {section.get("section_id"): section.get("section_name") for section in all_sections}
+    
+    for extraction in processed_extractions:
+        attributes = extraction.get("attributes", {})
+        parent_section_id = attributes.get("parent_section_id")
+        if parent_section_id and parent_section_id in section_id_to_name:
+            attributes["parent_section_name"] = section_id_to_name[parent_section_id]
+        else:
+            attributes["parent_section_name"] = None
     
     # Generate node tree for web UI
     print("[INFO] Generating node tree structure...")

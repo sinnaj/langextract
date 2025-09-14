@@ -1,0 +1,2292 @@
+{
+  "chunk_id": 3,
+  "section_metadata": {
+    "section_id": "27fb6fc56656f468",
+    "section_name": "7 Señalización de los medios de evacuación",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 1,
+    "end_page": 1,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "7 Señalización de los medios de evacuación"
+    ],
+    "parent_section_id": "5e4188db4ba8cba9",
+    "positioning_data": [
+      {
+        "page_no": 1,
+        "charspan": [
+          0,
+          46
+        ],
+        "bbox": {
+          "l": 71.53368377685547,
+          "t": 743.2811279296875,
+          "r": 411.14892578125,
+          "b": 732.9055786132812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "6 Puertas situadas en recorridos de evacuación"
+      },
+      {
+        "page_no": 1,
+        "charspan": [
+          0,
+          528
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 719.9108276367188,
+          "r": 538.4279174804688,
+          "b": 653.087890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+      },
+      {
+        "page_no": 1,
+        "charspan": [
+          0,
+          507
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 644.7908325195312,
+          "r": 538.4276733398438,
+          "b": 579.9204711914062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+      },
+      {
+        "page_no": 1,
+        "charspan": [
+          0,
+          62
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 569.6812133789062,
+          "r": 350.8023986816406,
+          "b": 560.5379028320312,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+      },
+      {
+        "page_no": 1,
+        "charspan": [
+          0,
+          134
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 552.36083984375,
+          "r": 538.1512451171875,
+          "b": 531.4979248046875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 7 Señalización de los medios de evacuación\n**Path:** Sección SI 3 Evacuación de ocupantes → 7 Señalización de los medios de evacuación\n**Level:** 2\n**Tags:** SI3, Evacuación, Ocupantes, Señalización, Los, Medios, Evacuación\n**Pages:** 1-1\n\n\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\n6 Puertas situadas en recorridos de evacuación\n1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo. Las anteriores condiciones no son aplicables cuando se trate de puertas automáticas.\n2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009 .\n3 Abrirá en el sentido de la evacuación toda puerta de salida:\nprevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien.\nprevista para más de 50 ocupantes del recinto o espacio en el que esté situada.\nPara la determinación del número de personas que se indica en a) y b) se deberán tener en cuenta los criterios de asignación de los ocupantes establecidos en el apartado 4.1 de esta Sección .\n4 Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N. La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista.\n5 Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro:\nQue, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA.\nQue, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente) , abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itinerario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego .\nLa fuerza de apertura abatible se considera aplicada de forma estática en el borde de la hoja, perpendicularmente a la misma y a una altura de 1000 ±10 mm,\nLas puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018 .\n7 Señalización de los medios de evacuación\n1 Se utilizarán las señales de evacuación definidas en la norma UNE 23034:1988, conforme a los siguientes criterios:\nLas salidas de recinto, planta o edificio tendrán una señal con el rótulo \"SALIDA\", excepto en edificios de uso Residencial Vivienda y, en otros usos, cuando se trate de salidas de recintos cu-\n29",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de más de 50 personas serán abatibles con eje de giro vertical y su sistema de cierre, o bien no actuará mientras haya actividad en las zonas a evacuar, o bien consistirá en un dispositivo de fácil y rápida apertura desde el lado del cual provenga dicha evacuación, sin tener que utilizar una llave y sin tener que actuar sobre más de un mecanismo.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Doors intended as floor or building exits and those intended for the evacuation of more than 50 people must be hinged with a vertical pivot axis, and their locking system must either not operate while there is activity in the areas to be evacuated, or consist of a device for easy and quick opening from the evacuation side, without needing a key and without operating more than one mechanism.",
+        "applies_if": "DOOR.TYPE == 'EXIT' AND (DOOR.LOCATION IN ['FLOOR', 'BUILDING'] OR DOOR.EVACUATION.CAPACITY > 50)",
+        "satisfied_if": "DOOR.HINGED.AXIS == 'VERTICAL' AND (DOOR.LOCKING_SYSTEM.ACTIVE == FALSE OR (DOOR.LOCKING_SYSTEM.EASY_OPENING == TRUE AND DOOR.LOCKING_SYSTEM.KEY_REQUIRED == FALSE AND DOOR.LOCKING_SYSTEM.MECHANISMS_COUNT <= 1))",
+        "exempt_if": "DOOR.TYPE == 'AUTOMATIC'",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.EXIT",
+          "DOOR.LOCATION.FLOOR",
+          "DOOR.LOCATION.BUILDING",
+          "DOOR.EVACUATION.CAPACITY",
+          "DOOR.HINGED.AXIS.VERTICAL",
+          "DOOR.LOCKING_SYSTEM.ACTIVE",
+          "DOOR.LOCKING_SYSTEM.EASY_OPENING",
+          "DOOR.LOCKING_SYSTEM.KEY_REQUIRED",
+          "DOOR.LOCKING_SYSTEM.MECHANISMS_COUNT",
+          "DOOR.TYPE.AUTOMATIC"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 371,
+        "end_pos": 812
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 105,
+        "end_index": 205
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante manilla o pulsador conforme a la norma UNE-EN 179:2009, cuando se trate de la evacuación de zonas ocupadas por personas que en su mayoría estén familiarizados con la puerta considerada, así como en caso contrario, cuando se trate de puertas con apertura en el sentido de la evacuación conforme al punto 3 siguiente, los de barra horizontal de empuje o de deslizamiento conforme a la norma UNE EN 1125:2009 .",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Opening devices using a handle or push button in accordance with UNE-EN 179:2009 are considered to satisfy the functional requirement for evacuation from areas occupied by people mostly familiar with the door. Otherwise, for doors opening in the direction of evacuation as per point 3, horizontal push or slide bars in accordance with UNE EN 1125:2009 are considered to satisfy the requirement.",
+        "applies_if": "DOOR.TYPE == 'EXIT' AND (DOOR.LOCATION IN ['FLOOR', 'BUILDING'] OR DOOR.EVACUATION.CAPACITY > 50)",
+        "satisfied_if": "(DOOR.OPENING_DEVICE.TYPE IN ['HANDLE', 'PUSH_BUTTON'] AND DOOR.OPENING_DEVICE.STANDARD == 'UNE-EN 179:2009' AND EVACUATION.OCCUPANTS.FAMILIARITY == 'HIGH') ; OR (DOOR.OPENING_DIRECTION == 'EVACUATION' AND DOOR.OPENING_DEVICE.TYPE IN ['HORIZONTAL_PUSH_BAR', 'SLIDE_BAR'] AND DOOR.OPENING_DEVICE.STANDARD == 'UNE EN 1125:2009')",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.EXIT",
+          "DOOR.LOCATION.FLOOR",
+          "DOOR.LOCATION.BUILDING",
+          "DOOR.EVACUATION.CAPACITY",
+          "DOOR.OPENING_DEVICE.TYPE",
+          "DOOR.OPENING_DEVICE.STANDARD",
+          "EVACUATION.OCCUPANTS.FAMILIARITY",
+          "DOOR.OPENING_DIRECTION.EVACUATION"
+        ],
+        "referenced_documents": [
+          "UNE-EN 179:2009",
+          "UNE EN 1125:2009"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.9,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 900,
+        "end_pos": 1405
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 221,
+        "end_index": 323
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Abrirá en el sentido de la evacuación toda puerta de salida: prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 personas en los demás casos, o bien. prevista para más de 50 ocupantes del recinto o espacio en el que esté situada.",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Any exit door must open in the direction of evacuation if it is intended for the passage of more than 200 people in residential buildings or 100 people in other cases, or if it is intended for more than 50 occupants of the enclosure or space where it is located.",
+        "applies_if": "DOOR.TYPE == 'EXIT' AND ((BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND DOOR.EVACUATION.CAPACITY > 200) OR (BUILDING.USAGE != 'RESIDENTIAL.HOUSING' AND DOOR.EVACUATION.CAPACITY > 100) OR (DOOR.LOCATION.OCCUPANTS > 50))",
+        "satisfied_if": "DOOR.OPENING_DIRECTION == 'EVACUATION'",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.EXIT",
+          "DOOR.OPENING_DIRECTION.EVACUATION",
+          "DOOR.EVACUATION.CAPACITY",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "DOOR.LOCATION.OCCUPANTS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1408,
+        "end_pos": 1680
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 324,
+        "end_index": 389
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para la determinación del número de personas que se indica en a) y b) se deberán tener en cuenta los criterios de asignación de los ocupantes establecidos en el apartado 4.1 de esta Sección .",
+      "attributes": {
+        "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f0a",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 3,
+        "procedure_statement": "For determining the number of people indicated in a) and b), the occupant assignment criteria established in section 4.1 of this Section must be taken into account.",
+        "target_reference": [
+          "Sección SI 3 Evacuación de ocupantes.4.1"
+        ],
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "relevant_tags": [
+          "OCCUPANT.COUNT.DETERMINATION",
+          "OCCUPANT.ASSIGNMENT.CRITERIA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1681,
+        "end_pos": 1872
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 389,
+        "end_index": 438
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertura manual contiguas a ellas, excepto en el caso de que las giratorias sean automáticas y dispongan de un sistema que permita el abatimiento de sus hojas en el sentido de la evacuación, ante una emergencia o incluso en el caso de fallo de suministro eléctrico, mediante la aplicación manual de una fuerza no superior a 220 N. La anchura útil de este tipo de puertas y de las de giro automático después de su abatimiento, debe estar dimensionada para la evacuación total prevista.",
+      "attributes": {
+        "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f0a1b",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When revolving doors exist, adjacent manually opening hinged doors must be provided, unless the revolving doors are automatic and have a system that allows their leaves to fold in the direction of evacuation during an emergency or power failure, by applying a manual force not exceeding 220 N. The clear width of these types of doors and automatic revolving doors after folding must be dimensioned for the total planned evacuation.",
+        "applies_if": "DOOR.TYPE == 'REVOLVING'",
+        "satisfied_if": "(HAS(DOOR.ADJACENT.HINGED_MANUAL) AND DOOR.ADJACENT.HINGED_MANUAL.COUNT >= 1) ; OR (DOOR.TYPE == 'REVOLVING.AUTOMATIC' AND DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.EVACUATION_DIRECTION == TRUE AND DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.EMERGENCY_OPERATION == TRUE AND DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.POWER_FAILURE_OPERATION == TRUE AND DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.MANUAL_FORCE <= 220 AND DOOR.CLEAR_WIDTH.DIMENSIONED_FOR_EVACUATION == TRUE)",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.REVOLVING",
+          "DOOR.ADJACENT.HINGED_MANUAL",
+          "DOOR.TYPE.REVOLVING.AUTOMATIC",
+          "DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.EVACUATION_DIRECTION",
+          "DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.EMERGENCY_OPERATION",
+          "DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.POWER_FAILURE_OPERATION",
+          "DOOR.REVOLVING.AUTOMATIC.FOLDING_SYSTEM.MANUAL_FORCE",
+          "DOOR.CLEAR_WIDTH.DIMENSIONED_FOR_EVACUATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1875,
+        "end_pos": 2432
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 439,
+        "end_index": 554
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo en el suministro eléctrico o en caso de señal de emergencia, cumplirá las siguientes condiciones, excepto en posición de cerrado seguro: Que, cuando se trate de una puerta corredera o plegable, abra y mantenga la puerta abierta o bien permita su apertura abatible en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 220 N. La opción de apertura abatible no se admite cuando la puerta esté situada en un itinerario accesible según DB SUA.",
+      "attributes": {
+        "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f0a1b2c",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Automatic pedestrian doors must have a system that, in case of power failure or emergency signal, complies with the following conditions, except in a safe closed position: If it is a sliding or folding door, it must open and remain open or allow its hinged opening in the direction of evacuation by simple push with a total force not exceeding 220 N. The hinged opening option is not allowed when the door is located on an accessible route according to DB SUA.",
+        "applies_if": "DOOR.TYPE == 'PEDESTRIAN.AUTOMATIC' AND (EVENT.POWER_FAILURE == TRUE OR EVENT.EMERGENCY_SIGNAL == TRUE) AND DOOR.POSITION != 'CLOSED.SAFE'",
+        "satisfied_if": "(DOOR.TYPE IN ['SLIDING', 'FOLDING'] AND (DOOR.STATE == 'OPEN' OR (DOOR.HINGED_OPENING.EVACUATION_DIRECTION == TRUE AND DOOR.HINGED_OPENING.FORCE <= 220)))",
+        "exempt_if": "DOOR.LOCATION.ACCESSIBLE_ROUTE == TRUE AND DOOR.HINGED_OPENING.EVACUATION_DIRECTION == TRUE",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.PEDESTRIAN.AUTOMATIC",
+          "EVENT.POWER_FAILURE",
+          "EVENT.EMERGENCY_SIGNAL",
+          "DOOR.POSITION.CLOSED.SAFE",
+          "DOOR.TYPE.SLIDING",
+          "DOOR.TYPE.FOLDING",
+          "DOOR.STATE.OPEN",
+          "DOOR.HINGED_OPENING.EVACUATION_DIRECTION",
+          "DOOR.HINGED_OPENING.FORCE",
+          "DOOR.LOCATION.ACCESSIBLE_ROUTE"
+        ],
+        "referenced_documents": [
+          "DB SUA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2435,
+        "end_pos": 2993
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 555,
+        "end_index": 675
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Que, cuando se trate de una puerta abatible o giro-batiente (oscilo-batiente) , abra y mantenga la puerta abierta o bien permita su abatimiento en el sentido de la evacuación mediante simple empuje con una fuerza total que no exceda de 150 N. Cuando la puerta esté situada en un itinerario accesible según DB SUA, dicha fuerza no excederá de 25 N, en general, y de 65 N cuando sea resistente al fuego .",
+      "attributes": {
+        "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f0a1b2c3d",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If it is a hinged or tilt-and-turn door, it must open and remain open or allow its hinged opening in the direction of evacuation by simple push with a total force not exceeding 150 N. When the door is located on an accessible route according to DB SUA, this force must not exceed 25 N, in general, and 65 N when it is fire-resistant.",
+        "applies_if": "DOOR.TYPE == 'PEDESTRIAN.AUTOMATIC' AND (EVENT.POWER_FAILURE == TRUE OR EVENT.EMERGENCY_SIGNAL == TRUE) AND DOOR.POSITION != 'CLOSED.SAFE' AND DOOR.TYPE IN ['HINGED', 'TILT_AND_TURN']",
+        "satisfied_if": "(DOOR.STATE == 'OPEN' OR (DOOR.HINGED_OPENING.EVACUATION_DIRECTION == TRUE AND DOOR.HINGED_OPENING.FORCE <= 150 AND (DOOR.LOCATION.ACCESSIBLE_ROUTE == FALSE OR (DOOR.LOCATION.ACCESSIBLE_ROUTE == TRUE AND DOOR.FIRE_RESISTANT == FALSE AND DOOR.HINGED_OPENING.FORCE <= 25) OR (DOOR.LOCATION.ACCESSIBLE_ROUTE == TRUE AND DOOR.FIRE_RESISTANT == TRUE AND DOOR.HINGED_OPENING.FORCE <= 65))))",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION",
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.PEDESTRIAN.AUTOMATIC",
+          "EVENT.POWER_FAILURE",
+          "EVENT.EMERGENCY_SIGNAL",
+          "DOOR.POSITION.CLOSED.SAFE",
+          "DOOR.TYPE.HINGED",
+          "DOOR.TYPE.TILT_AND_TURN",
+          "DOOR.STATE.OPEN",
+          "DOOR.HINGED_OPENING.EVACUATION_DIRECTION",
+          "DOOR.HINGED_OPENING.FORCE",
+          "DOOR.LOCATION.ACCESSIBLE_ROUTE",
+          "DOOR.FIRE_RESISTANT"
+        ],
+        "referenced_documents": [
+          "DB SUA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2994,
+        "end_pos": 3396
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 675,
+        "end_index": 765
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "La fuerza de apertura abatible se considera aplicada de forma estática en el borde de la hoja, perpendicularmente a la misma y a una altura de 1000 ±10 mm,",
+      "attributes": {
+        "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f0a1b2c3d4e",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 5,
+        "procedure_statement": "The hinged opening force is considered to be applied statically at the edge of the leaf, perpendicularly to it and at a height of 1000 ±10 mm.",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "relevant_tags": [
+          "DOOR.HINGED_OPENING.FORCE.MEASUREMENT",
+          "DOOR.LEAF.EDGE",
+          "DOOR.HEIGHT.MEASUREMENT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3397,
+        "end_pos": 3552
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 765,
+        "end_index": 799
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las puertas peatonales automáticas se someterán obligatoriamente a las condiciones de mantenimiento conforme a la norma UNE 85121:2018 .",
+      "attributes": {
+        "id": "9c0d1e2f-3a4b-5c6d-7e8f-0a1b2c3d4e5f",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Automatic pedestrian doors must be subject to maintenance conditions in accordance with UNE 85121:2018.",
+        "applies_if": "DOOR.TYPE == 'PEDESTRIAN.AUTOMATIC'",
+        "satisfied_if": "DOOR.MAINTENANCE.COMPLIES_WITH_STANDARD == 'UNE 85121:2018'",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "DOOR.TYPE.PEDESTRIAN.AUTOMATIC",
+          "DOOR.MAINTENANCE",
+          "DOOR.MAINTENANCE.STANDARD"
+        ],
+        "referenced_documents": [
+          "UNE 85121:2018"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3553,
+        "end_pos": 3689
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 799,
+        "end_index": 824
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Se utilizarán las señales de evacuación definidas en la norma UNE 23034:1988, conforme a los siguientes criterios: Las salidas de recinto, planta o edificio tendrán una señal con el rótulo \"SALIDA\", excepto en edificios de uso Residencial Vivienda y, en otros usos, cuando se trate de salidas de recintos cu-",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7a8b-9c0d-e1f2a3b4c5d6",
+        "parent_section_id": "27fb6fc56656f468",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Evacuation signs defined in UNE 23034:1988 must be used. Exits from enclosures, floors, or buildings must have a sign with the label \"SALIDA\", except in residential buildings and, in other uses, when it concerns exits from enclosures...",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.SIGNAGE.STANDARD == 'UNE 23034:1988' AND (EXIT.LOCATION IN ['ENCLOSURE', 'FLOOR', 'BUILDING'] AND EXIT.SIGNAGE.LABEL == 'SALIDA')",
+        "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' OR (BUILDING.USAGE != 'RESIDENTIAL.HOUSING' AND EXIT.LOCATION == 'ENCLOSURE')",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.SIGNAGE.STANDARD",
+          "EXIT.LOCATION.ENCLOSURE",
+          "EXIT.LOCATION.FLOOR",
+          "EXIT.LOCATION.BUILDING",
+          "EXIT.SIGNAGE.LABEL",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "referenced_documents": [
+          "UNE 23034:1988"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.9,
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3735,
+        "end_pos": 4043
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 838,
+        "end_index": 910
+      },
+      "section_metadata": {
+        "section_id": "27fb6fc56656f468",
+        "section_name": "7 Señalización de los medios de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "7 Señalización de los medios de evacuación"
+        ],
+        "parent_section_id": "5e4188db4ba8cba9",
+        "positioning_data": [
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              46
+            ],
+            "bbox": {
+              "l": 71.53368377685547,
+              "t": 743.2811279296875,
+              "r": 411.14892578125,
+              "b": 732.9055786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "6 Puertas situadas en recorridos de evacuación"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              528
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 719.9108276367188,
+              "r": 538.4279174804688,
+              "b": 653.087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Las puertas previstas como salida de planta o de edificio y las previstas para la evacuación de má"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              507
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 644.7908325195312,
+              "r": 538.4276733398438,
+              "b": 579.9204711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Se considera que satisfacen el anterior requisito funcional los dispositivos de apertura mediante "
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              62
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 569.6812133789062,
+              "r": 350.8023986816406,
+              "b": 560.5379028320312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Abrirá en el sentido de la evacuación toda puerta de salida:"
+          },
+          {
+            "page_no": 1,
+            "charspan": [
+              0,
+              134
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 552.36083984375,
+              "r": 538.1512451171875,
+              "b": 531.4979248046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 4046
+}

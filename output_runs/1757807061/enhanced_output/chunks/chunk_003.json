@@ -1,0 +1,369 @@
+{
+  "chunk_id": 3,
+  "section_metadata": {
+    "section_id": "8_control_del_humo_de_incendio",
+    "section_name": "8 Control del humo de incendio",
+    "section_level": 2,
+    "start_page": 2,
+    "end_page": 2,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "8 Control del humo de incendio"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 8 Control del humo de incendio\n**Path:** Sección SI 3 Evacuación de ocupantes → 8 Control del humo de incendio\n**Level:** 2\n**Pages:** 2-2\n\n1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nZonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto;\nEstablecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas;\nAtrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.\n2 El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008 , UNE 23585:2017 y UNE-EN 12101-6:2006 .\nEn zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS -3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas:\nEl sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuer-\n30\ntas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas.\nLos ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60 .\nLos conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60 .",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad: Zonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto; Establecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas; Atrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An fire smoke control system must be installed to ensure control during occupant evacuation in safety conditions.",
+        "applies_if": "(AREA.USAGE == 'PARKING' AND NOT AREA.TYPE == 'OPEN_PARKING') OR (ESTABLISHMENT.USAGE IN ['COMMERCIAL', 'PUBLIC.ASSEMBLY'] AND ESTABLISHMENT.OCCUPANCY > 1000) OR (ATRIUM.OCCUPANCY > 500 AND ATRIUM.IS_FIRE_SECTOR == TRUE) OR (ATRIUM.EVACUATION.CAPACITY > 500)",
+        "satisfied_if": "HAS(FIRE.SMOKE_CONTROL_SYSTEM)",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "AREA.USAGE.PARKING",
+          "AREA.TYPE.OPEN_PARKING",
+          "ESTABLISHMENT.USAGE.COMMERCIAL",
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "ESTABLISHMENT.OCCUPANCY",
+          "ATRIUM.OCCUPANCY",
+          "ATRIUM.IS_FIRE_SECTOR",
+          "ATRIUM.EVACUATION.CAPACITY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.OCCUPANCY > 1000 persons",
+          "ATRIUM.OCCUPANCY > 500 persons",
+          "ATRIUM.EVACUATION.CAPACITY > 500 persons"
+        ],
+        "confidence": 0.95,
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 153,
+        "end_pos": 803
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 40,
+        "end_index": 173
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008 , UNE 23585:2017 y UNE-EN 12101-6:2006 .",
+      "attributes": {
+        "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "paragraph_number": 2,
+        "procedure_statement": "Design, calculation, installation, and maintenance of the fire smoke control system can be carried out according to specific UNE and UNE-EN standards.",
+        "target_reference": [],
+        "tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "DESIGN",
+          "CALCULATION",
+          "INSTALLATION",
+          "MAINTENANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "confidence": 0.95,
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 806,
+        "end_pos": 965
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 174,
+        "end_index": 216
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS -3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas: El sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuer- tas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas. Los ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60 . Los conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60 .",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Ventilation systems in parking areas, when mechanical, must comply with additional conditions for fire smoke control.",
+        "applies_if": "AREA.USAGE == 'PARKING' AND HAS(VENTILATION.SYSTEM) AND VENTILATION.SYSTEM.TYPE == 'MECHANICAL'",
+        "satisfied_if": "VENTILATION.SYSTEM.AIR_EXTRACTION.CAPACITY >= 150 l_per_parking_space_per_s AND VENTILATION.SYSTEM.AIR_SUPPLY.MAX_CAPACITY <= 120 l_per_parking_space_per_s AND VENTILATION.SYSTEM.ACTIVATION.TYPE == 'AUTOMATIC_FIRE_DETECTION'; OR (FLOOR.HEIGHT > 4 AND HAS(VENTILATION.SYSTEM.AIR_EXTRACTION.OPENINGS) AND VENTILATION.SYSTEM.AIR_EXTRACTION.OPENINGS.CLOSEST_TO_GROUND.TYPE == 'AUTOMATIC_DAMPER' AND VENTILATION.SYSTEM.AIR_EXTRACTION.OPENINGS.CLOSEST_TO_GROUND.FIRE_RESISTANCE == 'E300_60'); OR (VENTILATION.SYSTEM.FANS.FIRE_RESISTANCE == 'F300_60'); OR (DUCTS.LOCATION == 'SINGLE_FIRE_SECTOR' AND DUCTS.FIRE_RESISTANCE == 'E300_60'); OR (DUCTS.LOCATION == 'CROSS_FIRE_SECTOR_SEPARATORS' AND DUCTS.FIRE_RESISTANCE == 'EI_60')",
+        "topics": [
+          "SAFETY.FIRE",
+          "HEALTH",
+          "PROTECTION.INDOOR.AIR"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "relevant_tags": [
+          "VENTILATION.SYSTEM",
+          "VENTILATION.SYSTEM.TYPE.MECHANICAL",
+          "VENTILATION.SYSTEM.AIR_EXTRACTION.CAPACITY",
+          "VENTILATION.SYSTEM.AIR_SUPPLY.MAX_CAPACITY",
+          "VENTILATION.SYSTEM.ACTIVATION.TYPE.AUTOMATIC_FIRE_DETECTION",
+          "FLOOR.HEIGHT",
+          "VENTILATION.SYSTEM.AIR_EXTRACTION.OPENINGS.CLOSEST_TO_GROUND.TYPE.AUTOMATIC_DAMPER",
+          "VENTILATION.SYSTEM.AIR_EXTRACTION.OPENINGS.CLOSEST_TO_GROUND.FIRE_RESISTANCE",
+          "VENTILATION.SYSTEM.FANS.FIRE_RESISTANCE",
+          "DUCTS.LOCATION.SINGLE_FIRE_SECTOR",
+          "DUCTS.LOCATION.CROSS_FIRE_SECTOR_SEPARATORS",
+          "DUCTS.FIRE_RESISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "referenced_documents": [
+          "DB HS-3"
+        ],
+        "extracted_parameters": [
+          "AIR_EXTRACTION.CAPACITY >= 150 l/plaza·s",
+          "AIR_SUPPLY.MAX_CAPACITY <= 120 l/plaza·s",
+          "FLOOR.HEIGHT > 4 m",
+          "FIRE_RESISTANCE == 'E300_60'",
+          "FIRE_RESISTANCE == 'F300_60'",
+          "FIRE_RESISTANCE == 'EI_60'"
+        ],
+        "confidence": 0.95,
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 966,
+        "end_pos": 1471
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 216,
+        "end_index": 327
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE 23584:2008",
+      "attributes": {
+        "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+        "title": "UNE 23584:2008",
+        "type": "STANDARD",
+        "year": 2008,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "uri": null,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "sub_part": null,
+        "amendment": null,
+        "status": null,
+        "notes": "Referenced for design, calculation, installation and maintenance of fire smoke control systems.",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 910,
+        "end_pos": 924
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 197,
+        "end_index": 201
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE 23585:2017",
+      "attributes": {
+        "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+        "title": "UNE 23585:2017",
+        "type": "STANDARD",
+        "year": 2017,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "uri": null,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "sub_part": null,
+        "amendment": null,
+        "status": null,
+        "notes": "Referenced for design, calculation, installation and maintenance of fire smoke control systems.",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 927,
+        "end_pos": 941
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 202,
+        "end_index": 206
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 12101-6:2006",
+      "attributes": {
+        "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+        "title": "UNE-EN 12101-6:2006",
+        "type": "STANDARD",
+        "year": 2006,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "uri": null,
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "sub_part": null,
+        "amendment": null,
+        "status": null,
+        "notes": "Referenced for design, calculation, installation and maintenance of fire smoke control systems.",
+        "parent_section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 944,
+        "end_pos": 963
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 207,
+        "end_index": 215
+      },
+      "section_metadata": {
+        "section_id": "8_control_del_humo_de_incendio",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 1935
+}

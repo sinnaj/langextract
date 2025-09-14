@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Sección SI 3 Evacuación de ocupantes",
+    "level": 1,
+    "start_page": -1,
+    "end_page": 3,
+    "children": [
+      {
+        "title": "6 Puertas situadas en recorridos de evacuación",
+        "level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "children": []
+      },
+      {
+        "title": "7 Señalización de los medios de evacuación",
+        "level": 2,
+        "start_page": 1,
+        "end_page": 1,
+        "children": []
+      },
+      {
+        "title": "8 Control del humo de incendio",
+        "level": 2,
+        "start_page": 2,
+        "end_page": 2,
+        "children": []
+      },
+      {
+        "title": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Sección SI 4 Instalaciones de protección contra incendios",
+    "level": 1,
+    "start_page": 4,
+    "end_page": 1000,
+    "children": [
+      {
+        "title": "1 Dotación de instalaciones de protección contra incendios",
+        "level": 2,
+        "start_page": 4,
+        "end_page": 6,
+        "children": []
+      },
+      {
+        "title": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "level": 2,
+        "start_page": 7,
+        "end_page": 1000,
+        "children": []
+      }
+    ]
+  }
+]

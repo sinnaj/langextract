@@ -91,7 +91,7 @@ class TestTableConversion(unittest.TestCase):
         self.assertIn("Text with newline", result)
 
     def test_extract_section_content_with_table(self):
-        """Test section content extraction including tables."""
+        """Test section content extraction - regular sections no longer include tables."""
         # Create a test section
         section = EnhancedSection.create_with_id(
             toc_path=["Test Section"],
@@ -140,8 +140,54 @@ class TestTableConversion(unittest.TestCase):
         
         content = extract_section_content(section, mock_docling)
         
-        # Check that both text content and table are included
+        # Check that text content is included but table content is NOT
+        # (tables now have their own sections)
         self.assertIn("This is section content.", content)
+        self.assertNotIn("Column A", content)  # Table content should not be in regular sections
+        self.assertNotIn("Column B", content)
+        self.assertNotIn("|", content)  # No markdown table structure
+
+    def test_extract_content_for_table_section(self):
+        """Test content extraction specifically for table sections."""
+        # Create a table section
+        table_section = EnhancedSection.create_with_id(
+            toc_path=["Test Section", "Table 1"],
+            start_page=1,
+            title_normalized="table 1",
+            section_name="Table 1",
+            section_level=2,
+            section_index=1,
+            parent_section_id="test_section_id",
+            end_page=1,
+            section_type="Table"
+        )
+        
+        # Mock docling document with table
+        mock_docling = {
+            "tables": [
+                {
+                    "prov": [{"page_no": 1}],
+                    "data": {
+                        "table_cells": [
+                            {
+                                "start_row_offset_idx": 0,
+                                "start_col_offset_idx": 0,
+                                "text": "Column A"
+                            },
+                            {
+                                "start_row_offset_idx": 0,
+                                "start_col_offset_idx": 1,
+                                "text": "Column B"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+        
+        content = extract_section_content(table_section, mock_docling)
+        
+        # Check that table content is properly extracted as markdown
         self.assertIn("Column A", content)
         self.assertIn("Column B", content)
         self.assertIn("|", content)  # Markdown table structure

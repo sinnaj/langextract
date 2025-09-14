@@ -1,0 +1,536 @@
+PDF file detected, using enhanced extraction pipeline
+Starting enhanced extraction...
+Processing PDF: DBSI-29-35.pdf
+Running enhanced extraction pipeline...
+[INFO] Setting up enhanced extraction pipeline...
+[INFO] Processing PDF: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\input\DBSI-29-35.pdf
+[DEBUG] Memory usage during pipeline start: 114.6 MB
+[INFO] Converting PDF to Docling Document...
+2025-09-14 16:09:27,743 - pdf_to_docling_document - INFO - Converting PDF to DoclingDocument: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\input\DBSI-29-35.pdf
+2025-09-14 16:09:27,743 - pdf_to_docling_document - INFO - CUDA not available, using CPU
+2025-09-14 16:09:27,753 - docling.datamodel.document - INFO - detected formats: [<InputFormat.PDF: 'pdf'>]
+2025-09-14 16:09:27,755 - docling.document_converter - INFO - Going to convert document batch...
+2025-09-14 16:09:27,756 - docling.document_converter - INFO - Initializing pipeline for StandardPdfPipeline with options hash a22773f7e48adaca1c6a62f6c5f17c35
+2025-09-14 16:09:27,769 - docling.models.factories.base_factory - INFO - Loading plugin 'docling_defaults'
+2025-09-14 16:09:27,773 - docling.models.factories - INFO - Registered ocr engines: ['easyocr', 'ocrmac', 'rapidocr', 'tesserocr', 'tesseract']
+c:\Projects\Arqio\LangExtract\langextract\.venv\Lib\site-packages\docling\models\easyocr_model.py:68: UserWarning: Deprecated field. Better to set the `accelerator_options.device` in `pipeline_options`. When `use_gpu and accelerator_options.device == AcceleratorDevice.CUDA` the GPU is used to run EasyOCR. Otherwise, EasyOCR runs in CPU.
+  warnings.warn(
+2025-09-14 16:09:29,084 - docling.utils.accelerator_utils - WARNING - CUDA is not available in the system. Fall back to 'CPU'
+2025-09-14 16:09:29,084 - docling.utils.accelerator_utils - INFO - Accelerator device: 'cpu'
+2025-09-14 16:09:30,044 - docling.utils.accelerator_utils - WARNING - CUDA is not available in the system. Fall back to 'CPU'
+2025-09-14 16:09:30,045 - docling.utils.accelerator_utils - INFO - Accelerator device: 'cpu'
+2025-09-14 16:09:30,341 - docling.models.factories.base_factory - INFO - Loading plugin 'docling_defaults'
+2025-09-14 16:09:30,343 - docling.models.factories - INFO - Registered picture descriptions: ['vlm', 'api']
+2025-09-14 16:09:30,344 - docling.pipeline.base_pipeline - INFO - Processing document DBSI-29-35.pdf
+2025-09-14 16:09:41,993 - docling.document_converter - INFO - Finished converting document DBSI-29-35.pdf in 14.25 sec.
+2025-09-14 16:09:41,993 - pdf_to_docling_document - INFO - PDF converted to DoclingDocument successfully
+2025-09-14 16:09:42,063 - pdf_to_docling_document - INFO - DoclingDocument saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\converted_document.json
+[INFO] Docling Document saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\converted_document.json
+[WARNING] High memory usage during PDF conversion: 2623.8 MB
+[INFO] Extracting ToC and fixing headlines in Docling Document...
+2025-09-14 16:09:42,074 - scripts.pdf_toc_extractor - INFO - Step 1: Extracting ToC from PDF...
+2025-09-14 16:09:42,139 - scripts.pdf_toc_extractor - INFO - Extracting ToC from: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\input\DBSI-29-35.pdf
+2025-09-14 16:09:42,141 - scripts.pdf_toc_extractor - INFO - Successfully extracted ToC with 8 entries
+2025-09-14 16:09:42,141 - scripts.pdf_toc_extractor - INFO - Step 2: Loading DoclingDocument...
+2025-09-14 16:09:42,143 - scripts.pdf_toc_extractor - INFO - Estimated document has 1000 pages
+2025-09-14 16:09:42,143 - scripts.pdf_toc_extractor - INFO - Step 3: Performing enhanced ToC-driven hierarchy mapping...
+2025-09-14 16:09:42,156 - scripts.pdf_toc_extractor - INFO - Step 1: Building ToC intervals
+2025-09-14 16:09:42,156 - scripts.pdf_toc_extractor - INFO - Step 2: Extracting DoclingDocument section headers
+2025-09-14 16:09:42,160 - scripts.pdf_toc_extractor - INFO - Found 7 valid section headers in DoclingDocument
+2025-09-14 16:09:42,160 - scripts.pdf_toc_extractor - INFO - Found 8 ToC entries with intervals
+2025-09-14 16:09:42,160 - scripts.pdf_toc_extractor - INFO - Step 2.5: Detecting and merging split headlines
+2025-09-14 16:09:42,171 - scripts.pdf_toc_extractor - INFO - After split headline detection: 7 section headers
+2025-09-14 16:09:42,171 - scripts.pdf_toc_extractor - INFO - Step 3: Performing multi-pass mapping
+2025-09-14 16:09:42,171 - scripts.pdf_toc_extractor - INFO - Pass 1: Exact and near-exact matches
+2025-09-14 16:09:42,180 - scripts.pdf_toc_extractor - INFO - Pass 2: Structural and numbered matches
+2025-09-14 16:09:42,180 - scripts.pdf_toc_extractor - INFO - Pass 3: Fuzzy matching with context
+2025-09-14 16:09:42,180 - scripts.pdf_toc_extractor - INFO - Pass 4: Page scanning for unmapped ToC entries
+2025-09-14 16:09:42,180 - scripts.pdf_toc_extractor - INFO - Multi-pass mapping complete: 7 matches, 1 unmapped ToC, 0 unmapped sections
+2025-09-14 16:09:42,180 - scripts.pdf_toc_extractor - INFO - Step 4: Updating hierarchical levels
+2025-09-14 16:09:42,181 - scripts.pdf_toc_extractor - INFO - Updated levels for 7 section headers from ToC mappings
+2025-09-14 16:09:42,181 - scripts.pdf_toc_extractor - INFO - Step 5: Processing unmapped sections
+2025-09-14 16:09:42,181 - scripts.pdf_toc_extractor - INFO - Processed 0 unmapped sections with enhanced logic
+2025-09-14 16:09:42,182 - scripts.pdf_toc_extractor - INFO - Processed 0 unmapped sections with enhanced logic
+2025-09-14 16:09:42,182 - scripts.pdf_toc_extractor - INFO - Step 6: Applying page-driven parenting
+2025-09-14 16:09:42,195 - scripts.pdf_toc_extractor - INFO - Step 6.5: Fixing page order within parent groups
+2025-09-14 16:09:42,207 - scripts.pdf_toc_extractor - INFO - No page order fixes needed
+2025-09-14 16:09:42,208 - scripts.pdf_toc_extractor - INFO - Step 7: Performing consistency checks
+2025-09-14 16:09:42,208 - scripts.pdf_toc_extractor - INFO - Consistency checks complete: 0 issues, 0 warnings
+2025-09-14 16:09:42,208 - scripts.pdf_toc_extractor - INFO - Step 8: Handling orphaned metadata sections
+2025-09-14 16:09:42,221 - scripts.pdf_toc_extractor - INFO - No orphaned metadata sections found
+2025-09-14 16:09:42,221 - scripts.pdf_toc_extractor - INFO - Step 4: Saving corrected DoclingDocument...
+2025-09-14 16:09:42,283 - scripts.pdf_toc_extractor - INFO - Corrected DoclingDocument saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\headline_fixed_doclingdocument.json
+2025-09-14 16:09:42,283 - scripts.pdf_toc_extractor - INFO - Step 4.5: Saving ToC data...
+2025-09-14 16:09:42,284 - scripts.pdf_toc_extractor - INFO - ToC data saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\toc.json
+2025-09-14 16:09:42,284 - scripts.pdf_toc_extractor - INFO - Step 5: Generating enhanced mapping report...
+2025-09-14 16:09:42,285 - scripts.pdf_toc_extractor - INFO - Enhanced mapping report saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\report.md
+2025-09-14 16:09:42,285 - scripts.pdf_toc_extractor - INFO - === PROCESSING SUMMARY ===
+2025-09-14 16:09:42,285 - scripts.pdf_toc_extractor - INFO - ToC entries processed: 8
+2025-09-14 16:09:42,285 - scripts.pdf_toc_extractor - INFO - Section headers found: 7
+2025-09-14 16:09:42,285 - scripts.pdf_toc_extractor - INFO - Successful mappings: 7
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO -   - Pass 1 (exact): 7
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO -   - Pass 2 (structural): 0
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO -   - Pass 3 (fuzzy): 0
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO -   - Pass 4 (page scan): 0
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO - Synthetic sections created: 0
+2025-09-14 16:09:42,286 - scripts.pdf_toc_extractor - INFO - Ground-truth updates: 7
+2025-09-14 16:09:42,287 - scripts.pdf_toc_extractor - INFO - Derived updates: 0
+2025-09-14 16:09:42,287 - scripts.pdf_toc_extractor - INFO - Orphaned metadata sections handled: 0
+2025-09-14 16:09:42,287 - scripts.pdf_toc_extractor - INFO - Consistency issues: 0
+2025-09-14 16:09:42,287 - scripts.pdf_toc_extractor - INFO - Consistency warnings: 0
+2025-09-14 16:09:42,287 - scripts.pdf_toc_extractor - INFO - Enhanced ToC-driven hierarchy repair completed successfully!
+[INFO] Headline-fixed Docling Document saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\headline_fixed_doclingdocument.json
+[INFO] Loading headline-fixed Docling Document...
+[INFO] Loading ToC data from: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\toc.json
+[INFO] Loaded 2 ToC entries
+[INFO] Creating enhanced sections including table sections...
+[WARNING] High memory usage during before chunking: 2642.5 MB
+[PERF] Starting chunk_creation_and_alignment...
+[INFO] Created 12 sections (8 headline + 4 table)
+[DEBUG] Built document caches: 7 pages, 0 headers
+[PERF] chunk_creation_and_alignment completed in 0.02 seconds
+[INFO] Created 12 chunks for processing
+[WARNING] High memory usage during after chunking: 2642.6 MB
+[INFO] Setting up LangExtract configuration...
+2025-09-14 16:09:42,324 - absl - INFO - Loaded provider plugin: gemini
+2025-09-14 16:09:42,326 - absl - INFO - Loaded provider plugin: ollama
+2025-09-14 16:09:42,327 - absl - INFO - Loaded provider plugin: openai
+[WARNING] Could not list providers: module 'langextract.providers' has no attribute 'list_providers'
+[INFO] Loaded 2 few-shot examples from input_examplefiles\examples_V9_section_chunking.py
+[INFO] Processing chunks with LangExtract...
+[INFO] Processing chunk 1/12: Sección SI 3 Evacuación de ocupantes
+[DEBUG] Calling lx.extract for 10163 characters of text
+2025-09-14 16:09:42,360 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:09:42,361 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:09:42,361 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:09:42,361 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:09:43,390 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:09:43,409 - absl - INFO - Processing batch 0 with length 3
+2025-09-14 16:09:44,712 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:09:44,713 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:09:44,715 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:10:12,491 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:10:12,491 - absl - INFO - Starting string parsing.
+2025-09-14 16:10:12,492 - absl - INFO - Completed parsing of string.
+2025-09-14 16:10:12,492 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:10:12,492 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:10:12,493 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:10:12,554 - absl - INFO - Starting fuzzy alignment for 16 unaligned extractions (source has 1065 tokens)
+2025-09-14 16:10:14,502 - absl - INFO - Fuzzy alignment completed in 1.95s (12/16 successful)
+2025-09-14 16:10:14,507 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:10:14,507 - absl - INFO - Completed alignment process for the provided source_text.
+2025-09-14 16:10:14,507 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:10:14,508 - absl - INFO - Starting string parsing.
+2025-09-14 16:10:14,508 - absl - INFO - Completed parsing of string.
+2025-09-14 16:10:14,508 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:10:14,508 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:10:14,508 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:10:14,561 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:10:14,561 - absl - INFO - Completed alignment process for the provided source_text.
+2025-09-14 16:10:14,562 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:10:14,562 - absl - INFO - Starting string parsing.
+2025-09-14 16:10:14,562 - absl - INFO - Completed parsing of string.
+2025-09-14 16:10:14,562 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:10:14,562 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:10:14,562 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:10:14,566 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:10:14,566 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:31]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:31]
+2025-09-14 16:10:14,566 - absl - INFO - Finalizing annotation for document ID doc_5e737557.
+2025-09-14 16:10:14,567 - absl - INFO - Document annotation completed.
+[INFO] Extracted 36 items from chunk 1
+[INFO] Processing chunk 2/12: 6 Puertas situadas en recorridos de evacuación
+[DEBUG] Calling lx.extract for 4058 characters of text
+2025-09-14 16:10:14,659 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:10:14,660 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:10:14,660 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:10:14,660 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:10:14,837 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:10:14,843 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:10:15,674 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:10:40,107 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:10:40,108 - absl - INFO - Starting string parsing.
+2025-09-14 16:10:40,108 - absl - INFO - Completed parsing of string.
+2025-09-14 16:10:40,108 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:10:40,108 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:10:40,108 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:10:40,159 - absl - INFO - Starting fuzzy alignment for 13 unaligned extractions (source has 899 tokens)
+2025-09-14 16:10:40,624 - absl - INFO - Fuzzy alignment completed in 0.47s (9/13 successful)
+2025-09-14 16:10:40,629 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:10:40,629 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:25]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:25]
+2025-09-14 16:10:40,630 - absl - INFO - Finalizing annotation for document ID doc_03f948cc.
+2025-09-14 16:10:40,630 - absl - INFO - Document annotation completed.
+[INFO] Extracted 14 items from chunk 2
+[INFO] Processing chunk 3/12: 7 Señalización de los medios de evacuación
+[DEBUG] Calling lx.extract for 4046 characters of text
+2025-09-14 16:10:40,686 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:10:40,686 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:10:40,687 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:10:40,687 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:10:40,868 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:10:40,876 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:10:41,788 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:10:59,318 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:10:59,318 - absl - INFO - Starting string parsing.
+2025-09-14 16:10:59,319 - absl - INFO - Completed parsing of string.
+2025-09-14 16:10:59,319 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:10:59,319 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:10:59,319 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:10:59,358 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:10:59,358 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:18]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:18]
+2025-09-14 16:10:59,359 - absl - INFO - Finalizing annotation for document ID doc_fd2b3a79.
+2025-09-14 16:10:59,359 - absl - INFO - Document annotation completed.
+[INFO] Extracted 10 items from chunk 3
+[INFO] Processing chunk 4/12: 8 Control del humo de incendio
+[DEBUG] Calling lx.extract for 4223 characters of text
+2025-09-14 16:10:59,405 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:10:59,405 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:10:59,406 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:10:59,406 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:10:59,589 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:10:59,598 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:11:00,475 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:11:10,382 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:11:10,382 - absl - INFO - Starting string parsing.
+2025-09-14 16:11:10,383 - absl - INFO - Completed parsing of string.
+2025-09-14 16:11:10,383 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:11:10,383 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:11:10,384 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:11:10,403 - absl - INFO - Starting fuzzy alignment for 4 unaligned extractions (source has 932 tokens)
+2025-09-14 16:11:10,403 - absl - INFO - Fuzzy alignment completed in 0.00s (0/4 successful)
+2025-09-14 16:11:10,406 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:11:10,407 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+2025-09-14 16:11:10,407 - absl - INFO - Finalizing annotation for document ID doc_7783b858.
+2025-09-14 16:11:10,407 - absl - INFO - Document annotation completed.
+[INFO] Extracted 7 items from chunk 4
+[INFO] Processing chunk 5/12: 9 Evacuación de personas con discapacidad en caso de incendio
+[DEBUG] Calling lx.extract for 2508 characters of text
+2025-09-14 16:11:10,453 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:11:10,454 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:11:10,454 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:11:10,454 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:11:10,645 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:11:10,649 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:11:11,518 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:11:23,869 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:11:23,869 - absl - INFO - Starting string parsing.
+2025-09-14 16:11:23,870 - absl - INFO - Completed parsing of string.
+2025-09-14 16:11:23,870 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:11:23,870 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:11:23,870 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:11:23,890 - absl - INFO - Starting fuzzy alignment for 4 unaligned extractions (source has 532 tokens)
+2025-09-14 16:11:24,000 - absl - INFO - Fuzzy alignment completed in 0.11s (4/4 successful)
+2025-09-14 16:11:24,004 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:11:24,006 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:13]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:13]
+2025-09-14 16:11:24,006 - absl - INFO - Finalizing annotation for document ID doc_67e4cdf3.
+2025-09-14 16:11:24,007 - absl - INFO - Document annotation completed.
+[INFO] Extracted 10 items from chunk 5
+[WARNING] High memory usage during chunk 5/12: 2666.9 MB
+[DEBUG] Forced garbage collection
+[INFO] Processing chunk 6/12: Sección SI 4 Instalaciones de protección contra incendios
+[DEBUG] Calling lx.extract for 4481 characters of text
+2025-09-14 16:11:24,243 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:11:24,243 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:11:24,243 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:11:24,244 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:11:24,418 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:11:24,426 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:11:25,027 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:11:53,649 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:11:53,649 - absl - INFO - Starting string parsing.
+2025-09-14 16:11:53,650 - absl - INFO - Completed parsing of string.
+2025-09-14 16:11:53,650 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:11:53,650 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:11:53,650 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:11:53,710 - absl - INFO - Starting fuzzy alignment for 15 unaligned extractions (source has 980 tokens)
+2025-09-14 16:11:54,231 - absl - INFO - Fuzzy alignment completed in 0.52s (11/15 successful)
+2025-09-14 16:11:54,238 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:11:54,238 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:29]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:29]
+2025-09-14 16:11:54,239 - absl - INFO - Finalizing annotation for document ID doc_9a433f59.
+2025-09-14 16:11:54,239 - absl - INFO - Document annotation completed.
+[INFO] Extracted 16 items from chunk 6
+[INFO] Processing chunk 7/12: 1 Dotación de instalaciones de protección contra incendios
+[DEBUG] Calling lx.extract for 2045 characters of text
+2025-09-14 16:11:54,296 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:11:54,297 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:11:54,297 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:11:54,297 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:11:54,474 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:11:54,478 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:11:55,230 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:12:04,710 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:12:04,711 - absl - INFO - Starting string parsing.
+2025-09-14 16:12:04,711 - absl - INFO - Completed parsing of string.
+2025-09-14 16:12:04,711 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:12:04,711 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:12:04,711 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:12:04,730 - absl - INFO - Starting fuzzy alignment for 5 unaligned extractions (source has 434 tokens)
+2025-09-14 16:12:04,961 - absl - INFO - Fuzzy alignment completed in 0.23s (5/5 successful)
+2025-09-14 16:12:04,964 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:12:04,964 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+2025-09-14 16:12:04,965 - absl - INFO - Finalizing annotation for document ID doc_5a3b84b0.
+2025-09-14 16:12:04,965 - absl - INFO - Document annotation completed.
+[INFO] Extracted 6 items from chunk 7
+[INFO] Processing chunk 8/12: 2 Señalización de las instalaciones manuales de protección contra incendios
+[DEBUG] Calling lx.extract for 2951 characters of text
+2025-09-14 16:12:05,005 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:12:05,006 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:12:05,006 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:12:05,006 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:12:05,189 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:12:05,194 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:12:05,932 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:12:21,984 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:12:21,984 - absl - INFO - Starting string parsing.
+2025-09-14 16:12:21,984 - absl - INFO - Completed parsing of string.
+2025-09-14 16:12:21,985 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:12:21,985 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:12:21,985 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:12:22,017 - absl - INFO - Starting fuzzy alignment for 10 unaligned extractions (source has 669 tokens)
+2025-09-14 16:12:22,617 - absl - INFO - Fuzzy alignment completed in 0.60s (9/10 successful)
+2025-09-14 16:12:22,624 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:12:22,624 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:17]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:17]
+2025-09-14 16:12:22,625 - absl - INFO - Finalizing annotation for document ID doc_1109a06e.
+2025-09-14 16:12:22,625 - absl - INFO - Document annotation completed.
+[INFO] Extracted 11 items from chunk 8
+[INFO] Processing chunk 9/12: Table 1
+[DEBUG] Calling lx.extract for 1247 characters of text
+2025-09-14 16:12:22,671 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:12:22,672 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:12:22,672 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:12:22,672 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:12:22,856 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:12:22,859 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:12:23,676 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:12:33,170 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:12:33,170 - absl - INFO - Starting string parsing.
+2025-09-14 16:12:33,171 - absl - WARNING - JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: Invalid control character at: line 4 column 143 (char 169)
+2025-09-14 16:12:33,185 - absl - INFO - Completed parsing of string.
+2025-09-14 16:12:33,185 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:12:33,185 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:12:33,185 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:12:33,195 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:12:33,196 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:10]
+2025-09-14 16:12:33,196 - absl - INFO - Finalizing annotation for document ID doc_9e9c80d1.
+2025-09-14 16:12:33,196 - absl - INFO - Document annotation completed.
+[INFO] Extracted 2 items from chunk 9
+[INFO] Processing chunk 10/12: Table 2
+[DEBUG] Calling lx.extract for 3372 characters of text
+2025-09-14 16:12:33,230 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:12:33,230 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:12:33,231 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:12:33,231 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:12:33,428 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:12:33,434 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:12:34,091 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:13:07,439 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:13:07,440 - absl - INFO - Starting string parsing.
+2025-09-14 16:13:07,440 - absl - WARNING - JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: Invalid control character at: line 970 column 174 (char 30235)
+2025-09-14 16:13:07,468 - absl - INFO - Completed parsing of string.
+2025-09-14 16:13:07,468 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:13:07,468 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:13:07,468 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:13:07,515 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:13:07,515 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:34]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:34]
+2025-09-14 16:13:07,516 - absl - INFO - Finalizing annotation for document ID doc_7da90e82.
+2025-09-14 16:13:07,516 - absl - INFO - Document annotation completed.
+[INFO] Extracted 18 items from chunk 10
+[WARNING] High memory usage during chunk 10/12: 2667.1 MB
+[DEBUG] Forced garbage collection
+[INFO] Processing chunk 11/12: Table 3
+[DEBUG] Calling lx.extract for 3398 characters of text
+2025-09-14 16:13:07,727 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:13:07,728 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:13:07,728 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:13:07,728 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:13:07,918 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:13:07,929 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:13:08,846 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:13:37,236 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:13:37,237 - absl - INFO - Starting string parsing.
+2025-09-14 16:13:37,237 - absl - WARNING - JSON parse failed, trying sanitization (string-aware) then dirtyjson then YAML: Invalid control character at: line 4 column 121 (char 147)
+2025-09-14 16:13:37,261 - absl - INFO - Completed parsing of string.
+2025-09-14 16:13:37,261 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:13:37,261 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:13:37,261 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:13:37,303 - absl - INFO - Starting fuzzy alignment for 4 unaligned extractions (source has 852 tokens)
+2025-09-14 16:13:39,272 - absl - INFO - Fuzzy alignment completed in 1.97s (4/4 successful)
+2025-09-14 16:13:39,279 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:13:39,280 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:31]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:31]
+2025-09-14 16:13:39,280 - absl - INFO - Finalizing annotation for document ID doc_79667abb.
+2025-09-14 16:13:39,280 - absl - INFO - Document annotation completed.
+[INFO] Extracted 25 items from chunk 11
+[INFO] Processing chunk 12/12: Table 4
+[DEBUG] Calling lx.extract for 787 characters of text
+2025-09-14 16:13:39,327 - absl - INFO - Starting fuzzy alignment for 1 unaligned extractions (source has 1246 tokens)
+2025-09-14 16:13:39,328 - absl - INFO - Fuzzy alignment completed in 0.00s (0/1 successful)
+2025-09-14 16:13:39,328 - absl - WARNING - Prompt alignment: FAILED to align: [example#1] class='Procedure' status=None text='Las superficies maximas indicadas en dicha tabla para los sectores de incendio pueden duplicarse cuando esten protegido…'
+2025-09-14 16:13:39,328 - absl - WARNING - Prompt alignment: non-exact match: [example#1] class='NORM' status=AlignmentStatus.MATCH_LESSER text='- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté i…' char_span=(2427, 2641)
+2025-09-14 16:13:39,508 - absl - INFO - Starting document annotation.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:00]2025-09-14 16:13:39,510 - absl - INFO - Processing batch 0 with length 1
+2025-09-14 16:13:40,256 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-14 16:13:46,745 - absl - INFO - Starting resolver process for input text.
+2025-09-14 16:13:46,746 - absl - INFO - Starting string parsing.
+2025-09-14 16:13:46,746 - absl - INFO - Completed parsing of string.
+2025-09-14 16:13:46,746 - absl - INFO - Starting to extract and order extractions from data.
+2025-09-14 16:13:46,746 - absl - INFO - Completed extraction and ordering of extractions.
+2025-09-14 16:13:46,746 - absl - INFO - Starting alignment process for provided chunk text.
+2025-09-14 16:13:46,754 - absl - INFO - Resolver debug output saved to: C:\Projects\Arqio\LangExtract\langextract\resolver_output.json
+2025-09-14 16:13:46,754 - absl - INFO - Completed alignment process for the provided source_text.
+
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:07]
+[94m[1mLangExtract[0m: model=[92mgoogle/gemini-2.5-flash[0m [00:07]
+2025-09-14 16:13:46,756 - absl - INFO - Finalizing annotation for document ID doc_808b2531.
+2025-09-14 16:13:46,756 - absl - INFO - Document annotation completed.
+[INFO] Extracted 3 items from chunk 12
+[INFO] Total extractions collected: 158
+[INFO] Performing postprocessing to derive tags and parameters...
+[INFO] Deduplicating extractions...
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Las puertas previstas como salida de planta o de edificio y las previstas para l...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Se considera que satisfacen el anterior requisito funcional los dispositivos de ...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Abrirá en el sentido de la evacuación toda puerta de salida: prevista para el pa...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Cuando existan puertas giratorias, deben disponerse puertas abatibles de apertur...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Las puertas peatonales automáticas dispondrán de un sistema que en caso de fallo...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Las puertas peatonales automáticas se someterán obligatoriamente a las condicion...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: Para la determinación del número de personas que se indica en a) y b) se deberán...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 2 duplicate(s) for text: La fuerza de apertura abatible se considera aplicada de forma estática en el bor...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: UNE-EN 179:2009...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: UNE EN 1125:2009...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: UNE 85121:2018...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: UNE 23034:1988...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '9 Evacuación de personas con discapacidad en caso de incendio' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Los ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o r...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '9 Evacuación de personas con discapacidad en caso de incendio' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Los conductos que transcurran por un único sector de incendio deben tener una cl...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '9 Evacuación de personas con discapacidad en caso de incendio' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Los que atraviesen elementos separadores de sectores de incendio deben tener una...
+[DEDUP]   - Removed from section 'Sección SI 3 Evacuación de ocupantes' (Level 1, Headline)
+[DEDUP] Kept extraction from section '7 Señalización de los medios de evacuación' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Se utilizarán las señales de evacuación definidas en la norma UNE 23034:1988, co...
+[DEDUP]   - Removed from section '6 Puertas situadas en recorridos de evacuación' (Level 2, Headline)
+[DEDUP] Kept extraction from section '1 Dotación de instalaciones de protección contra incendios' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Los edificios deben disponer de los equipos e instalaciones de protección contra...
+[DEDUP]   - Removed from section 'Sección SI 4 Instalaciones de protección contra incendios' (Level 1, Headline)
+[DEDUP] Kept extraction from section '1 Dotación de instalaciones de protección contra incendios' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Los locales de riesgo especial, así como aquellas zonas cuyo uso previsto sea di...
+[DEDUP]   - Removed from section 'Sección SI 4 Instalaciones de protección contra incendios' (Level 1, Headline)
+[DEDUP] Kept extraction from section '1 Dotación de instalaciones de protección contra incendios' (Level 2, Headline)
+[DEDUP] Removed 1 duplicate(s) for text: Reglamento de Instalaciones de Protección contra Incendios...
+[DEDUP]   - Removed from section 'Sección SI 4 Instalaciones de protección contra incendios' (Level 1, Headline)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 1 duplicate(s) for text: Hidrantes exteriores | Uno si la superficie total construida está comprendida en...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 2 duplicate(s) for text: Columna seca(5) | Si la altura de evacuación excede de 24 m.||fbb87d0321248f96...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 1 duplicate(s) for text: Sistema de alarma(6) | Si la superficie construida excede de 1.000 m 2 .||fbb87d...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 1 duplicate(s) for text: Hidrantes exteriores | Uno si la superficie total construida está comprendida en...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 1 duplicate(s) for text: Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Kept extraction from section 'Table 3' (Level 3, Table)
+[DEDUP] Removed 1 duplicate(s) for text: Hidrantes exteriores | Uno si la superficie total construida está comprendida en...
+[DEDUP]   - Removed from section 'Table 3' (Level 3, Table)
+[DEDUP] Deduplication summary: 158 -> 125 extractions (33 duplicates removed)
+[INFO] Processing 106 norms for tag/parameter extraction
+[INFO] Derived 238 tags and 92 parameters
+[INFO] Generating node tree structure...
+[INFO] Intermediate results saved to chunks directory: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\chunks
+[SUCCESS] Enhanced extraction pipeline completed!
+  - Input PDF: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\input\DBSI-29-35.pdf
+  - Sections processed: 12
+  - Extractions: 125
+  - Tags: 238
+  - Parameters: 92
+  - Results saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\enhanced_extraction_results.json
+  - Node tree saved to: C:\Projects\Arqio\LangExtract\langextract\output_runs\1757858960\enhanced_output\node_tree.json
+Extraction completed successfully!
+ERROR in enhanced extraction: 'dict' object has no attribute 'total_sections'
+Traceback (most recent call last):
+  File "C:\Projects\Arqio\LangExtract\langextract\web\runner_worker.py", line 61, in _run_enhanced_extraction
+    _print(f"  - Sections processed: {quality_metrics.total_sections}")
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'total_sections'
+STATS: {"ok": false, "error": "'dict' object has no attribute 'total_sections'", "enhanced": true}
