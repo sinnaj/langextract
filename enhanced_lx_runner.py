@@ -362,6 +362,12 @@ def extract_with_langextract(
                 attributes["parent_section_id"] = section_metadata.get("section_id")
                 attributes["section_name"] = section_metadata.get("section_name")
                 attributes["section_level"] = section_metadata.get("section_level")
+                attributes["section_type"] = section_metadata.get("section_type")
+                
+                # Add positioning data for PDF anchoring/highlighting
+                positioning_data = section_metadata.get("positioning_data", [])
+                if positioning_data:
+                    attributes["positioning_data"] = positioning_data
                 item["attributes"] = attributes
                 item["section_metadata"] = section_metadata
             
@@ -1113,7 +1119,8 @@ def run_enhanced_extraction(
                 "end_page": section.end_page,
                 "toc_path": section.toc_path,
                 "section_id": section.section_id,
-                "parent_section_id": section.parent_section_id
+                "parent_section_id": section.parent_section_id,
+                "positioning_data": getattr(section, 'positioning_data', [])
             }
             formatted_chunks.append((chunk_text, section_info))
         
@@ -1145,6 +1152,7 @@ def run_enhanced_extraction(
             "end_page": section_info.get("end_page"),
             "toc_path": section_info.get("toc_path", []),
             "parent_section_id": section_info.get("parent_section_id"),
+            "positioning_data": section_info.get("positioning_data", []),
             "section_summary": f"Section at level {section_info.get('section_level', 1)}"
         }
         

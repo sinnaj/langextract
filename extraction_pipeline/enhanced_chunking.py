@@ -59,6 +59,63 @@ def convert_table_to_markdown(table_data: Dict[str, Any]) -> str:
     return '\n'.join(markdown_lines)
 
 
+def collect_positioning_data_for_section(
+    section: EnhancedSection,
+    docling_document: Dict[str, Any],
+    max_elements: int = 5
+) -> List[Dict[str, Any]]:
+    """Collect positioning data for a section from docling document.
+    
+    Args:
+        section: Enhanced section to collect positioning for
+        docling_document: Docling document with text elements
+        max_elements: Maximum number of positioning elements to collect
+        
+    Returns:
+        List of positioning data dictionaries
+    """
+    texts = docling_document.get('texts', [])
+    positioning_data = []
+    
+    # Find text elements within this section's page range
+    for text_item in texts:
+        if len(positioning_data) >= max_elements:
+            break
+            
+        # Skip page headers
+        if text_item.get('label') == 'page_header':
+            continue
+        
+        text_content = text_item.get('text', '').strip()
+        if not text_content:
+            continue
+            
+        # Get page from provenance
+        page_no = None
+        charspan = [0, 0]
+        bbox = {}
+        
+        prov_data = text_item.get('prov', [])
+        if prov_data and isinstance(prov_data, list) and len(prov_data) > 0:
+            first_prov = prov_data[0]
+            if isinstance(first_prov, dict):
+                page_no = first_prov.get('page_no')
+                charspan = first_prov.get('charspan', [0, 0])
+                bbox = first_prov.get('bbox', {})
+        
+        # Check if this element is within the section's page range
+        if page_no and section.start_page and section.end_page:
+            if section.start_page <= page_no <= section.end_page:
+                positioning_data.append({
+                    'page_no': page_no,
+                    'charspan': charspan,
+                    'bbox': bbox,
+                    'text': text_content[:100]  # First 100 chars for reference
+                })
+    
+    return positioning_data
+
+
 def create_enhanced_sections_from_toc(
     toc_data: List[Dict[str, Any]],
     docling_document: Dict[str, Any]
@@ -106,6 +163,9 @@ def create_enhanced_sections_from_toc(
             end_page=end_page,
             section_type="Headline"
         )
+        
+        # Collect positioning data for the section
+        section.positioning_data = collect_positioning_data_for_section(section, docling_document)
         
         sections.append(section)
         section_index += 1
@@ -331,6 +391,22 @@ def create_table_sections_from_docling(
         
         # Store the table index for content extraction
         table_section.table_index = table_index
+        
+        # Collect positioning data for the table from provenance data
+        table_positioning = []
+        for prov_item in prov_data:
+            if isinstance(prov_item, dict) and 'page_no' in prov_item:
+                # Extract positioning information from provenance data
+                prov_positioning = {
+                    'page_no': prov_item.get('page_no'),
+                    'charspan': prov_item.get('charspan', [0, 0]),
+                    'bbox': prov_item.get('bbox', {}),
+                    'text': table_name  # Use table name as reference
+                }
+                table_positioning.append(prov_positioning)
+        
+        # Store positioning data for the table section
+        table_section.positioning_data = table_positioning
         
         # Add table section to parent's sub_section_ids
         if table_section.section_id not in parent_section.sub_section_ids:
