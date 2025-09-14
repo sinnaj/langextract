@@ -1,0 +1,385 @@
+{
+  "chunk_id": 4,
+  "section_metadata": {
+    "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+    "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+    "section_level": 2,
+    "start_page": 3,
+    "end_page": 3,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "9 Evacuación de personas con discapacidad en caso de incendio"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 9 Evacuación de personas con discapacidad en caso de incendio\n**Path:** Sección SI 3 Evacuación de ocupantes → 9 Evacuación de personas con discapacidad en caso de incendio\n**Level:** 2\n**Pages:** 3-3\n\n1 En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público , Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m 2 , toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación:\n-una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2;\n-excepto en uso Residencial Vivienda , una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2 .\nEn terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad .\n2 Toda planta que disponga de zonas de refugio o de una salida de planta accesible de paso a un sector alternativo contará con algún itinerario accesible entre todo origen de evacuación situado en una zona accesible y aquéllas .\n3 Toda planta de salida del edificio dispondrá de algún itinerario accesible desde todo origen de evacuación situado en una zona accesible hasta alguna salida del edificio accesible.\n4 En plantas de salida del edificio podrán habilitarse salidas de emergencia accesibles para personas con discapacidad diferentes de los accesos principales del edificio.\n31",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Residencial Público , Administrativo o Docente con altura de evacuación superior a 14 m, de uso Comercial o Pública concurrencia con altura de evacuación superior a 10 m o en plantas de uso Aparcamiento cuya superficie exceda de 1.500 m 2 , toda planta que no sea zona de ocupación nula y que no disponga de alguna salida del edificio accesible dispondrá de posibilidad de paso a un sector de incendio alternativo mediante una salida de planta accesible o bien de una zona de refugio apta para el número de plazas que se indica a continuación: -una para usuario de silla de ruedas por cada 100 ocupantes o fracción, conforme a SI3-2; -excepto en uso Residencial Vivienda , una para persona con otro tipo de movilidad reducida por cada 33 ocupantes o fracción, conforme a SI3-2 . En terminales de transporte podrán utilizarse bases estadísticas propias para estimar el número de plazas reservadas a personas con discapacidad .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "parent_section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every floor that is not a null occupancy zone and does not have an accessible building exit must provide the possibility of passing to an alternative fire sector through an accessible floor exit or a refuge area suitable for the specified number of spaces.",
+        "applies_if": "(BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND BUILDING.EVACUATION.HEIGHT > 28) OR (BUILDING.USAGE IN ['PUBLIC.RESIDENTIAL', 'ADMINISTRATIVE', 'EDUCATION'] AND BUILDING.EVACUATION.HEIGHT > 14) OR (BUILDING.USAGE IN ['COMMERCIAL', 'PUBLIC.ASSEMBLY'] AND BUILDING.EVACUATION.HEIGHT > 10) OR (FLOOR.USAGE == 'PARKING' AND FLOOR.AREA > 1500) AND FLOOR.OCCUPANCY.NULL == FALSE AND HAS(BUILDING.EXIT.ACCESSIBLE) == FALSE",
+        "satisfied_if": "HAS(FLOOR.EXIT.ACCESSIBLE.ALTERNATIVE_FIRE_SECTOR) OR (HAS(REFUGE_AREA) AND REFUGE_AREA.CAPACITY.WHEELCHAIR >= CEILING(OCCUPANTS / 100) AND (BUILDING.USAGE == 'RESIDENTIAL.HOUSING' OR REFUGE_AREA.CAPACITY.REDUCED_MOBILITY >= CEILING(OCCUPANTS / 33)))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "ADMINISTRATIVE",
+            "EDUCATION",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "BUILDING.EVACUATION.HEIGHT",
+          "FLOOR.AREA",
+          "FLOOR.OCCUPANCY.NULL",
+          "BUILDING.EXIT.ACCESSIBLE",
+          "FLOOR.EXIT.ACCESSIBLE.ALTERNATIVE_FIRE_SECTOR",
+          "REFUGE_AREA",
+          "REFUGE_AREA.CAPACITY.WHEELCHAIR",
+          "REFUGE_AREA.CAPACITY.REDUCED_MOBILITY",
+          "OCCUPANTS",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "BUILDING.USAGE.PUBLIC.RESIDENTIAL",
+          "BUILDING.USAGE.ADMINISTRATIVE",
+          "BUILDING.USAGE.EDUCATION",
+          "BUILDING.USAGE.COMMERCIAL",
+          "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+          "FLOOR.USAGE.PARKING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 794,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 28 m",
+          "BUILDING.EVACUATION.HEIGHT > 14 m",
+          "BUILDING.EVACUATION.HEIGHT > 10 m",
+          "FLOOR.AREA > 1500 m2",
+          "REFUGE_AREA.CAPACITY.WHEELCHAIR >= CEILING(OCCUPANTS / 100)",
+          "REFUGE_AREA.CAPACITY.REDUCED_MOBILITY >= CEILING(OCCUPANTS / 33)"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Statistical bases may be used for transport terminals to estimate reserved spaces for disabled people.",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 213,
+        "end_pos": 1234
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 51,
+        "end_index": 270
+      },
+      "section_metadata": {
+        "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "9 Evacuación de personas con discapacidad en caso de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Toda planta que disponga de zonas de refugio o de una salida de planta accesible de paso a un sector alternativo contará con algún itinerario accesible entre todo origen de evacuación situado en una zona accesible y aquéllas .",
+      "attributes": {
+        "id": "8b1e4a2e-4e5f-4d6a-8b1e-4a2e4e5f4d6a",
+        "parent_section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every floor that has refuge areas or an accessible floor exit to an alternative sector must have an accessible route between every evacuation origin located in an accessible area and these.",
+        "applies_if": "HAS(FLOOR.REFUGE_AREA) OR HAS(FLOOR.EXIT.ACCESSIBLE.ALTERNATIVE_FIRE_SECTOR)",
+        "satisfied_if": "HAS(ACCESSIBLE_ROUTE) AND ACCESSIBLE_ROUTE.CONNECTS_EVACUATION_ORIGIN_TO_REFUGE_AREA_OR_ALTERNATIVE_EXIT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.REFUGE_AREA",
+          "FLOOR.EXIT.ACCESSIBLE.ALTERNATIVE_FIRE_SECTOR",
+          "ACCESSIBLE_ROUTE",
+          "EVACUATION.ORIGIN",
+          "ACCESSIBLE_ZONE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 795,
+          "span_char_end": 948,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1235,
+        "end_pos": 1463
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 270,
+        "end_index": 317
+      },
+      "section_metadata": {
+        "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "9 Evacuación de personas con discapacidad en caso de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Toda planta de salida del edificio dispondrá de algún itinerario accesible desde todo origen de evacuación situado en una zona accesible hasta alguna salida del edificio accesible.",
+      "attributes": {
+        "id": "9c2f5b3c-5e6d-4f7e-9c2f-5b3c5e6d4f7e",
+        "parent_section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every building exit floor must have an accessible route from every evacuation origin in an accessible area to an accessible building exit.",
+        "applies_if": "FLOOR.IS_BUILDING_EXIT_FLOOR == TRUE",
+        "satisfied_if": "HAS(ACCESSIBLE_ROUTE) AND ACCESSIBLE_ROUTE.CONNECTS_EVACUATION_ORIGIN_TO_ACCESSIBLE_BUILDING_EXIT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.IS_BUILDING_EXIT_FLOOR",
+          "ACCESSIBLE_ROUTE",
+          "EVACUATION.ORIGIN",
+          "ACCESSIBLE_ZONE",
+          "BUILDING.EXIT.ACCESSIBLE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 949,
+          "span_char_end": 1109,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1464,
+        "end_pos": 1646
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 317,
+        "end_index": 351
+      },
+      "section_metadata": {
+        "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "9 Evacuación de personas con discapacidad en caso de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "4 En plantas de salida del edificio podrán habilitarse salidas de emergencia accesibles para personas con discapacidad diferentes de los accesos principales del edificio.",
+      "attributes": {
+        "id": "a0d0e1f1-0e1f-1e2f-a0d0-e1f10e1f1e2f",
+        "parent_section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "paragraph_number": 4,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "Accessible emergency exits for people with disabilities, different from the main accesses of the building, may be enabled on building exit floors.",
+        "applies_if": "FLOOR.IS_BUILDING_EXIT_FLOOR == TRUE",
+        "satisfied_if": "HAS(EMERGENCY_EXIT.ACCESSIBLE.DISABLED) AND EMERGENCY_EXIT.ACCESSIBLE.DISABLED.IS_DIFFERENT_FROM_MAIN_ACCESS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.7,
+          "likelihood": 0.7,
+          "impact": 0.6
+        },
+        "relevant_tags": [
+          "FLOOR.IS_BUILDING_EXIT_FLOOR",
+          "EMERGENCY_EXIT.ACCESSIBLE.DISABLED",
+          "BUILDING.MAIN_ACCESS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 1110,
+          "span_char_end": 1243,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 1647,
+        "end_pos": 1817
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 351,
+        "end_index": 378
+      },
+      "section_metadata": {
+        "section_id": "9_evacuación_de_personas_con_discapacidad_en_caso_de_incendio",
+        "section_name": "9 Evacuación de personas con discapacidad en caso de incendio",
+        "section_level": 2,
+        "start_page": 3,
+        "end_page": 3,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "9 Evacuación de personas con discapacidad en caso de incendio"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1820
+}

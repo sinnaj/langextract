@@ -1,0 +1,165 @@
+{
+  "chunk_id": 6,
+  "section_metadata": {
+    "section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
+    "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+    "section_level": 2,
+    "start_page": 7,
+    "end_page": 1000,
+    "toc_path": [
+      "Sección SI 4 Instalaciones de protección contra incendios",
+      "2 Señalización de las instalaciones manuales de protección contra incendios"
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 2 Señalización de las instalaciones manuales de protección contra incendios\n**Path:** Sección SI 4 Instalaciones de protección contra incendios → 2 Señalización de las instalaciones manuales de protección contra incendios\n**Level:** 2\n**Pages:** 7-1000\n\n1 La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.\n35",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 La señalización de las instalaciones manuales de protección contra incendios debe cumplir lo establecido en el vigente Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo.",
+      "attributes": {
+        "id": "e67e335e-0428-482c-8067-159670081232",
+        "parent_section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The signage of manual fire protection installations must comply with the provisions of the current Regulation on fire protection installations.",
+        "applies_if": "HAS(FIRE.PROTECTION.INSTALLATION.MANUAL) AND HAS(FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNAGE)",
+        "satisfied_if": "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNAGE.COMPLIES_WITH_RD_513_2017 == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.PROTECTION.INSTALLATION.MANUAL",
+          "FIRE.PROTECTION.INSTALLATION.MANUAL.SIGNAGE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 190,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 265,
+        "end_pos": 499
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 61,
+        "end_index": 107
+      },
+      "section_metadata": {
+        "section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 1000,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "2 Señalización de las instalaciones manuales de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Reglamento de instalaciones de protección contra incendios",
+      "attributes": {
+        "id": "2168271e-2895-46f9-8472-108118227670",
+        "document_type": "REAL_DECRETO",
+        "document_code": "513/2017",
+        "document_year": 2017,
+        "document_date": "2017-05-22",
+        "document_title": "Reglamento de instalaciones de protección contra incendios",
+        "document_article": null,
+        "document_section": null,
+        "document_chapter": null,
+        "document_part": null,
+        "document_annex": null,
+        "document_url": null,
+        "document_source_text": "Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 94,
+          "span_char_end": 190,
+          "visual_refs": []
+        },
+        "parent_section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2
+      },
+      "char_interval": {
+        "start_pos": 386,
+        "end_pos": 444
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 85,
+        "end_index": 94
+      },
+      "section_metadata": {
+        "section_id": "2_señalización_de_las_instalaciones_manuales_de_protección_contra_incendios",
+        "section_name": "2 Señalización de las instalaciones manuales de protección contra incendios",
+        "section_level": 2,
+        "start_page": 7,
+        "end_page": 1000,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "2 Señalización de las instalaciones manuales de protección contra incendios"
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 502
+}
