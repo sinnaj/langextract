@@ -165,26 +165,50 @@ def extract_section_content(
     
     content_parts = []
     
-    # Use cached page elements if available, otherwise build cache
-    if _cached_pages is None:
-        pages = docling_document.get('pages', [])
-        page_elements_cache = {}
-        for page_data in pages:
-            page_num = page_data.get('page', 1)
-            page_elements_cache[page_num] = page_data.get('elements', [])
-    else:
-        page_elements_cache = _cached_pages
+    # For real docling documents, content is in 'texts' array with provenance data
+    texts = docling_document.get('texts', [])
     
-    # Extract content from pages in section interval
-    for page_num in range(section.start_page, section.end_page + 1):
-        if page_num not in page_elements_cache:
-            continue
+    if texts:
+        # Extract content from texts with page-based filtering
+        for text_item in texts:
+            # Get page number from provenance data
+            prov_data = text_item.get('prov', [])
+            if prov_data and isinstance(prov_data, list):
+                text_page = prov_data[0].get('page_no')
+                if text_page and section.start_page <= text_page <= section.end_page:
+                    text_content = text_item.get('text', '').strip()
+                    if text_content:
+                        content_parts.append(text_content)
+    else:
+        # Fallback: Use cached page elements if available (for test/mock documents)
+        if _cached_pages is None:
+            pages_data = docling_document.get('pages', {})
+            page_elements_cache = {}
             
-        # Process elements from cached page data
-        for element in page_elements_cache[page_num]:
-            element_text = element.get('text', '').strip()
-            if element_text:
-                content_parts.append(element_text)
+            # Handle both list format (test/mock) and dict format (real docling document)
+            if isinstance(pages_data, list):
+                # List format: [{"page": 1, "elements": [...]}, ...]
+                for page_data in pages_data:
+                    page_num = page_data.get('page', 1)
+                    page_elements_cache[page_num] = page_data.get('elements', [])
+            else:
+                # Dict format: {"1": {"elements": [...]}, "2": {"elements": [...]}, ...}
+                for page_key, page_data in pages_data.items():
+                    page_num = int(page_key) if isinstance(page_key, str) and page_key.isdigit() else 1
+                    page_elements_cache[page_num] = page_data.get('elements', [])
+        else:
+            page_elements_cache = _cached_pages
+        
+        # Extract content from pages in section interval
+        for page_num in range(section.start_page, section.end_page + 1):
+            if page_num not in page_elements_cache:
+                continue
+                
+            # Process elements from cached page data
+            for element in page_elements_cache[page_num]:
+                element_text = element.get('text', '').strip()
+                if element_text:
+                    content_parts.append(element_text)
     
     # For regular sections, we no longer include tables since they have their own sections
     # This is a change from the previous behavior where tables were included in regular sections
@@ -329,36 +353,50 @@ def build_document_caches(docling_document: Dict[str, Any]) -> Tuple[Dict[int, L
         Tuple of (page_elements_cache, header_lookup_cache, sorted_headers_cache)
     """
     # Cache 1: Page elements indexed by page number
-    pages = docling_document.get('pages', [])
+    pages_data = docling_document.get('pages', {})
     page_elements_cache = {}
-    for page_data in pages:
-        page_num = page_data.get('page', 1)
-        page_elements_cache[page_num] = page_data.get('elements', [])
+    
+    # Handle both list format (test/mock) and dict format (real docling document)
+    if isinstance(pages_data, list):
+        # List format: [{"page": 1, "elements": [...]}, ...]
+        for page_data in pages_data:
+            page_num = page_data.get('page', 1)
+            page_elements_cache[page_num] = page_data.get('elements', [])
+    else:
+        # Dict format: {"1": {"elements": [...]}, "2": {"elements": [...]}, ...}
+        # Real docling documents don't have elements in pages, so create empty cache
+        for page_key, page_data in pages_data.items():
+            page_num = int(page_key) if isinstance(page_key, str) and page_key.isdigit() else 1
+            page_elements_cache[page_num] = page_data.get('elements', [])
     
     # Cache 2: Header title -> page number lookup for fast section alignment
     header_lookup_cache = {}
     sorted_headers_cache = []
     
-    for page_data in pages:
-        page_num = page_data.get('page', 1)
-        elements = page_data.get('elements', [])
-        
-        for element in elements:
-            element_type = element.get('type', '')
-            element_text = element.get('text', '').strip()
+    # For real docling documents, we don't have page elements with headers,
+    # so we'll build a minimal cache or skip header processing
+    if isinstance(pages_data, list):
+        # Process page elements for test/mock documents
+        for page_data in pages_data:
+            page_num = page_data.get('page', 1)
+            elements = page_data.get('elements', [])
             
-            if (element_type.lower().startswith('heading') or 'header' in element_type.lower()) and element_text:
-                header_key = element_text.lower()
-                # Store the first occurrence for faster lookups
-                if header_key not in header_lookup_cache:
-                    header_lookup_cache[header_key] = page_num
+            for element in elements:
+                element_type = element.get('type', '')
+                element_text = element.get('text', '').strip()
                 
-                sorted_headers_cache.append({
-                    'text': element_text,
-                    'page': page_num,
-                    'level': element.get('level', 1),
-                    'element_type': element_type
-                })
+                if (element_type.lower().startswith('heading') or 'header' in element_type.lower()) and element_text:
+                    header_key = element_text.lower()
+                    # Store the first occurrence for faster lookups
+                    if header_key not in header_lookup_cache:
+                        header_lookup_cache[header_key] = page_num
+                    
+                    sorted_headers_cache.append({
+                        'text': element_text,
+                        'page': page_num,
+                        'level': element.get('level', 1),
+                        'element_type': element_type
+                    })
     
     # Sort headers by page and level for efficient traversal
     sorted_headers_cache.sort(key=lambda x: (x['page'], x['level']))

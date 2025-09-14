@@ -1085,11 +1085,39 @@ def run_enhanced_extraction(
         toc_data = create_fallback_toc_from_docling(docling_document)
     
     # Create sections and chunks from ToC and fixed Docling Document
-    print("[INFO] Creating ToC-based chunks (non-ToC headers treated as text body)...")
+    print("[INFO] Creating enhanced sections including table sections...")
     check_memory_usage("before chunking")
     
     with time_operation("chunk_creation_and_alignment"):
-        chunks = create_chunks_from_toc_and_docling(toc_data, docling_document, max_chars=max_chunk_chars)
+        # Import enhanced chunking functions
+        from extraction_pipeline.enhanced_chunking import (
+            create_enhanced_sections_from_toc, 
+            create_section_chunks_with_context_optimized
+        )
+        
+        # Create enhanced sections (includes table sections)
+        sections = create_enhanced_sections_from_toc(toc_data, docling_document)
+        print(f"[INFO] Created {len(sections)} sections ({len([s for s in sections if s.section_type == 'Headline'])} headline + {len([s for s in sections if s.section_type == 'Table'])} table)")
+        
+        # Create chunks from sections
+        chunks = create_section_chunks_with_context_optimized(sections, docling_document, max_chars=max_chunk_chars)
+        
+        # Convert to expected format (chunk_text, section_info)
+        formatted_chunks = []
+        for chunk_text, section in chunks:
+            section_info = {
+                "section_name": section.section_name,
+                "section_type": section.section_type,
+                "section_level": section.section_level,
+                "start_page": section.start_page,
+                "end_page": section.end_page,
+                "toc_path": section.toc_path,
+                "section_id": section.section_id,
+                "parent_section_id": section.parent_section_id
+            }
+            formatted_chunks.append((chunk_text, section_info))
+        
+        chunks = formatted_chunks
     
     print(f"[INFO] Created {len(chunks)} chunks for processing")
     check_memory_usage("after chunking")
@@ -1107,14 +1135,16 @@ def run_enhanced_extraction(
     for i, (chunk_text, section_info) in enumerate(chunks):
         print(f"[INFO] Processing chunk {i+1}/{len(chunks)}: {section_info.get('section_name', f'Chunk {i+1}')}")
         
-        # Create section metadata for extraction
+        # Create section metadata for extraction (use enhanced section data)
         section_metadata = {
-            "section_id": section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower(),
+            "section_id": section_info.get("section_id", section_info.get("section_name", f"section_{i+1}").replace(" ", "_").lower()),
             "section_name": section_info.get("section_name", f"Section {i+1}"),
+            "section_type": section_info.get("section_type", "Headline"),
             "section_level": section_info.get("section_level", 1),
             "start_page": section_info.get("start_page"),
             "end_page": section_info.get("end_page"),
             "toc_path": section_info.get("toc_path", []),
+            "parent_section_id": section_info.get("parent_section_id"),
             "section_summary": f"Section at level {section_info.get('section_level', 1)}"
         }
         
