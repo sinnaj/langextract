@@ -136,7 +136,7 @@ def create_enhanced_sections_from_toc(
         node: Dict[str, Any],
         parent_path: List[str],
         parent_section_id: Optional[str] = None
-    ) -> None:
+    ) -> Optional[str]:
         nonlocal section_index
         
         title = node.get('title', '')
@@ -148,7 +148,34 @@ def create_enhanced_sections_from_toc(
         full_path = parent_path + [title]
         if any('índice' in part.lower() or 'document info' in part.lower() 
                for part in full_path):
-            return
+            # Still process children but with current parent context
+            children = node.get('children', [])
+            for child in children:
+                process_toc_node(child, parent_path, parent_section_id)
+            return None
+        
+        # Check if this section should be filtered (page headers, invalid ranges)
+        title_lower = title.lower()
+        should_skip_section = (
+            title_lower.startswith('documento básico') or 
+            title_lower.startswith('página') or 
+            title_lower.startswith('page ') or
+            'header' in title_lower or
+            # Skip sections with very broad page ranges that look like page headers
+            (start_page and end_page and end_page - start_page > 100)
+        )
+        
+        if should_skip_section:
+            print(f"[DEBUG] Skipping potential page header section: '{title}' (pages {start_page}-{end_page})")
+            # Still process children but with current parent context, adjusting their level
+            children = node.get('children', [])
+            for child in children:
+                # Promote child level since we're skipping the parent
+                child_copy = dict(child)
+                if 'level' in child_copy and child_copy['level'] > 1:
+                    child_copy['level'] -= 1
+                process_toc_node(child_copy, parent_path, parent_section_id)
+            return None
         
         # Create enhanced section with deterministic ID
         title_normalized = normalize_text_for_id(title)
@@ -187,6 +214,8 @@ def create_enhanced_sections_from_toc(
             )
             child_ids.append(child_id)
         section.sub_section_ids = child_ids
+        
+        return section.section_id
     
     # Process root ToC nodes
     for root_node in toc_data:
@@ -347,13 +376,35 @@ def create_table_sections_from_docling(
     table_counter = 1
     
     # Create a mapping of page to section for finding parent sections
-    # We want the most specific (highest level) section that contains each page
+    # We want the most specific (deepest level) section that contains each page
+    # In hierarchical structures: Level 1 = parent, Level 2 = child, etc.
+    # So we want the section with the HIGHEST level number (most specific)
     page_to_section = {}
+    
+    # First pass: find reasonable page bounds by analyzing all sections
+    max_reasonable_page = 1
     for section in existing_sections:
-        if section.start_page and section.end_page:
-            for page in range(section.start_page, section.end_page + 1):
-                if page not in page_to_section or section.section_level > page_to_section[page].section_level:
-                    page_to_section[page] = section
+        if section.start_page and section.start_page > 0:
+            max_reasonable_page = max(max_reasonable_page, section.start_page + 20)  # Allow 20 pages per section as reasonable
+    
+    # Cap at reasonable document size (most PDFs are under 100 pages)
+    max_reasonable_page = min(max_reasonable_page, 100)
+    
+    for section in existing_sections:
+        # Skip sections with invalid page ranges
+        if not section.start_page or not section.end_page or section.start_page < 1:
+            continue
+        
+        # Detect unrealistic page ranges (sections claiming > 50 pages or end_page > 500)
+        effective_end_page = section.end_page
+        if section.end_page - section.start_page > 50 or section.end_page > max_reasonable_page:
+            # For overly broad sections, limit their scope to reasonable bounds
+            effective_end_page = min(section.start_page + 20, max_reasonable_page)
+            print(f"[DEBUG] Section '{section.section_name}' has unrealistic page range {section.start_page}-{section.end_page}, limiting to {section.start_page}-{effective_end_page}")
+            
+        for page in range(section.start_page, effective_end_page + 1):
+            if page not in page_to_section or section.section_level > page_to_section[page].section_level:
+                page_to_section[page] = section
     
     for table_index, table in enumerate(tables):
         # Get table page from provenance data

@@ -10,9 +10,7 @@
       ],
       "parent_section_id": null,
       "sub_section_ids": [
-        "48252a66a5872f43",
-        "e7b395e42ee132e8",
-        "885c4856f8268ed3"
+        "48252a66a5872f43"
       ],
       "start_page": 1,
       "end_page": 5
@@ -27,34 +25,39 @@
         "Material Properties"
       ],
       "parent_section_id": "bc48a72f4ec32bfc",
-      "sub_section_ids": [],
+      "sub_section_ids": [
+        "efd4e6f3fd3dd2f6",
+        "70c775af79e703ea"
+      ],
       "start_page": 3,
       "end_page": 4
     },
     {
-      "section_id": "e7b395e42ee132e8",
+      "section_id": "efd4e6f3fd3dd2f6",
       "section_name": "Table 1",
       "section_type": "Table",
-      "section_level": 2,
+      "section_level": 3,
       "toc_path": [
         "Requirements Analysis",
+        "Material Properties",
         "Table 1"
       ],
-      "parent_section_id": "bc48a72f4ec32bfc",
+      "parent_section_id": "48252a66a5872f43",
       "sub_section_ids": [],
       "start_page": 3,
       "end_page": 3
     },
     {
-      "section_id": "885c4856f8268ed3",
+      "section_id": "70c775af79e703ea",
       "section_name": "Table 2",
       "section_type": "Table",
-      "section_level": 2,
+      "section_level": 3,
       "toc_path": [
         "Requirements Analysis",
+        "Material Properties",
         "Table 2"
       ],
-      "parent_section_id": "bc48a72f4ec32bfc",
+      "parent_section_id": "48252a66a5872f43",
       "sub_section_ids": [],
       "start_page": 4,
       "end_page": 4
@@ -77,17 +80,17 @@
     },
     {
       "chunk_index": 2,
-      "section_id": "e7b395e42ee132e8",
+      "section_id": "efd4e6f3fd3dd2f6",
       "section_name": "Table 1",
       "section_type": "Table",
-      "chunk_preview": "# Section: Table 1\n**Path:** Requirements Analysis → Table 1\n**Level:** 2\n**Tags:** Requirements, An..."
+      "chunk_preview": "# Section: Table 1\n**Path:** Requirements Analysis → Material Properties → Table 1\n**Level:** 3\n**Ta..."
     },
     {
       "chunk_index": 3,
-      "section_id": "885c4856f8268ed3",
+      "section_id": "70c775af79e703ea",
       "section_name": "Table 2",
       "section_type": "Table",
-      "chunk_preview": "# Section: Table 2\n**Path:** Requirements Analysis → Table 2\n**Level:** 2\n**Tags:** Requirements, An..."
+      "chunk_preview": "# Section: Table 2\n**Path:** Requirements Analysis → Material Properties → Table 2\n**Level:** 3\n**Ta..."
     }
   ]
 }
