@@ -1,0 +1,2351 @@
+{
+  "chunk_id": 11,
+  "section_metadata": {
+    "section_id": "fbb87d0321248f96",
+    "section_name": "Table 3",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 6,
+    "end_page": 6,
+    "toc_path": [
+      "Sección SI 4 Instalaciones de protección contra incendios",
+      "1 Dotación de instalaciones de protección contra incendios",
+      "Table 3"
+    ],
+    "parent_section_id": "45600ba0c70a63de",
+    "positioning_data": [
+      {
+        "page_no": 6,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 70.62786102294922,
+          "t": 781.2074928283691,
+          "r": 538.7819213867188,
+          "b": 84.801513671875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 3"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 3\n**Path:** Sección SI 4 Instalaciones de protección contra incendios → 1 Dotación de instalaciones de protección contra incendios → Table 3\n**Level:** 3\n**Tags:** SI4, Instalaciones, Protección, Contra, Incendios, Dotación, Instalaciones, Protección, Contra, Incendios, Table\n**Pages:** 6-6\n\n\n| Ascensor de emergencia | En las zonas de hospitalización y de tratamiento intensivo cuya altura de evacua\u0002 ción es mayor que 15 m. |\n| --- | --- |\n| Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 2.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3) |\n| Docente |  |\n| Bocas de incendio equipadas | Si la superficie construida excede de 2.000 m 2 . (7) |\n| Columna seca(5) | Si la altura de evacuación excede de 24 m. |\n| Sistema de alarma(6) | Si la superficie construida excede de 1.000 m 2 . |\n| Sistema de detección de in\u0002 cendio | Si la superficie construida excede de 2.000 m 2 ,  detectores en zonas de riesgo alto conforme al capítulo 2 de la Sección 1 de este DB. Si excede de 5.000 m 2 ,  en todo  el edificio . |\n| Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 5.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3) |\n| Comercial |  |\n| Extintores portátiles | En toda agrupación de locales de riesgo especial medio y alto cuya superficie  construida total excede de 1.000 m², extintores móviles de 50 kg de polvo, distri\u0002 buidos a razón de un extintor por cada 1 000 m² de superficie que supere dicho  límite o fracción. |\n| Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7) |\n| Columna seca(5) | Si la altura de evacuación excede de 24 m. |\n| Sistema de alarma(6) | Si la superficie construida excede de 1.000 m 2 . |\n| Sistema de detección de in\u0002 cendio (9) | Si la superficie construida excede de 2.000 m 2 . (8) |\n| Instalación automática de  extinción | Si la superficie total construida del área pública de ventas excede de 1.500 m 2  y en  ella la densidad de carga de fuego ponderada y corregida aportada por los produc\u0002 tos comercializados es mayor que 500 MJ/m², contará con la instalación, tanto el  área pública de ventas, como los locales y zonas de riesgo especial medio y alto  conforme al capítulo 2 de la Sección 1 de este DB. |\n| Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 1 000 y 10 000 m 2 .  Uno más por cada 10 000 m 2  adicionales o fracción.(3) |\n| Pública concurrencia |  |\n| Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7) |\n| Columna seca(5) | Si la altura de evacuación excede de 24 m. |\n| Sistema de alarma(6) | Si la ocupación excede de 500 personas. El sistema debe ser apto para emitir  mensajes por megafonía. |\n| Sistema de detección de in\u0002 cendio | Si la superficie construida excede de 1000 m 2 . (8) |\n| Hidrantes exteriores | En cines, teatros, auditorios y discotecas con superficie construida comprendida  entre 500 y 10.000 m² y en recintos deportivos con superficie construida compren\u0002 dida entre 5.000 y 10.000 m².(3) |\n| Aparcamiento |  |\n| Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7)  Se excluyen los aparcamientos  robotizados . |\n| Columna seca(5) | Si existen más de tres plantas bajo rasante o más de cuatro sobre rasante, con  tomas en todas sus plantas. |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Ascensor de emergencia | En las zonas de hospitalización y de tratamiento intensivo cuya altura de evacua\u0002 ción es mayor que 15 m.",
+      "attributes": {
+        "id": "1198425e-3351-4091-8c46-170701831868",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Emergency elevators must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND BUILDING.EVACUATION.HEIGHT > 15",
+        "satisfied_if": "HAS(ELEVATOR.EMERGENCY)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 15 m"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 313,
+        "end_pos": 443
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 78,
+        "end_index": 107
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 2.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "23630f95-4678-4357-8178-522194622116",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Exterior hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED >= 2000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 2000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 462,
+        "end_pos": 623
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 114,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 2.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "23630f95-4678-4357-8178-522194622117",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One additional exterior hydrant must be provided for every 10,000 m2 or fraction thereof.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1 + CEILING((BUILDING.AREA.TOTAL_CONSTRUCTED - 10000) / 10000)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 307,
+        "end_pos": 621
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 76,
+        "end_index": 154
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Bocas de incendio equipadas | Si la superficie construida excede de 2.000 m 2 . (7)",
+      "attributes": {
+        "id": "678e718f-1234-4567-89ab-cdef01234567",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 2000",
+        "satisfied_if": "HAS(FIRE_HYDRANT.EQUIPPED)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 2000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 643,
+        "end_pos": 726
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 162,
+        "end_index": 182
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Columna seca(5) | Si la altura de evacuación excede de 24 m.",
+      "attributes": {
+        "id": "a8b9c0d1-e2f3-4455-6677-8899aabbccdd",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Dry riser must be provided.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.EVACUATION.HEIGHT > 24",
+        "satisfied_if": "HAS(DRY_RISER)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 24 m"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 731,
+        "end_pos": 791
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 184,
+        "end_index": 202
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de alarma(6) | Si la superficie construida excede de 1.000 m 2 .",
+      "attributes": {
+        "id": "b2c3d4e5-f6a7-48b9-c0d1-e2f3a4b5c6d7",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Alarm system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 1000",
+        "satisfied_if": "HAS(ALARM.SYSTEM)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 1000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 796,
+        "end_pos": 868
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 204,
+        "end_index": 223
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de detección de in\u0002 cendio | Si la superficie construida excede de 2.000 m 2 ,  detectores en zonas de riesgo alto conforme al capítulo 2 de la Sección 1 de este DB.",
+      "attributes": {
+        "id": "c3d4e5f6-a7b8-49c0-d1e2-f3a4b5c6d7e8",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire detection system must be provided with detectors in high-risk areas.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 2000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 5000",
+        "satisfied_if": "HAS(FIRE_DETECTION.SYSTEM) AND HAS(FIRE_DETECTION.DETECTORS) AND FIRE_DETECTION.DETECTORS.LOCATION == 'HIGH_RISK_AREAS'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 2000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 5000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 873,
+        "end_pos": 1046
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 225,
+        "end_index": 269
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de detección de in\u0002 cendio | Si excede de 5.000 m 2 ,  en todo  el edificio .",
+      "attributes": {
+        "id": "d4e5f6a7-b8c9-4ad0-e1f2-a3b4c5d6e7f8",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire detection system must be provided throughout the entire building.",
+        "applies_if": "BUILDING.USAGE == 'EDUCATION' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 5000",
+        "satisfied_if": "HAS(FIRE_DETECTION.SYSTEM) AND FIRE_DETECTION.SYSTEM.SCOPE == 'ENTIRE_BUILDING'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 5000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 873,
+        "end_pos": 1093
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 225,
+        "end_index": 282
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 5.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "e5f6a7b8-c9d0-4be1-f2a3-b4c5d6e7f8a9",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Exterior hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_CONSTRUCTED >= 5000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 5000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1100,
+        "end_pos": 1261
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 285,
+        "end_index": 327
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 5.000 y 10.000 m 2 .  Uno más por cada 10.000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "e5f6a7b8-c9d0-4be1-f2a3-b4c5d6e7f8a0",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One additional exterior hydrant must be provided for every 10,000 m2 or fraction thereof.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1 + CEILING((BUILDING.AREA.TOTAL_CONSTRUCTED - 10000) / 10000)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 311,
+        "end_pos": 622
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 77,
+        "end_index": 155
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Extintores portátiles | En toda agrupación de locales de riesgo especial medio y alto cuya superficie  construida total excede de 1.000 m², extintores móviles de 50 kg de polvo, distri\u0002 buidos a razón de un extintor por cada 1 000 m² de superficie que supere dicho  límite o fracción.",
+      "attributes": {
+        "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Mobile 50 kg powder fire extinguishers must be provided in groupings of medium and high special risk premises.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND PREMISES.RISK.LEVEL IN ['MEDIUM', 'HIGH'] AND PREMISES.AREA.TOTAL_CONSTRUCTED > 1000",
+        "satisfied_if": "EXTINGUISHER.MOBILE.POWDER.COUNT == CEILING(PREMISES.AREA.TOTAL_CONSTRUCTED / 1000)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "PREMISES.AREA.TOTAL_CONSTRUCTED > 1000 m2",
+          "EXTINGUISHER.MOBILE.POWDER.WEIGHT == 50 kg"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1283,
+        "end_pos": 1567
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 333,
+        "end_index": 401
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7)",
+      "attributes": {
+        "id": "0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 500",
+        "satisfied_if": "HAS(FIRE_HYDRANT.EQUIPPED)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 500 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1572,
+        "end_pos": 1653
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 403,
+        "end_index": 421
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Columna seca(5) | Si la altura de evacuación excede de 24 m.",
+      "attributes": {
+        "id": "1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Dry riser must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.EVACUATION.HEIGHT > 24",
+        "satisfied_if": "HAS(DRY_RISER)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 24 m"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1658,
+        "end_pos": 1718
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 423,
+        "end_index": 441
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de alarma(6) | Si la superficie construida excede de 1.000 m 2 .",
+      "attributes": {
+        "id": "2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Alarm system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 1000",
+        "satisfied_if": "HAS(ALARM.SYSTEM)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 1000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1723,
+        "end_pos": 1795
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 443,
+        "end_index": 462
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de detección de in\u0002 cendio (9) | Si la superficie construida excede de 2.000 m 2 . (8)",
+      "attributes": {
+        "id": "3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire detection system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 2000",
+        "satisfied_if": "HAS(FIRE_DETECTION.SYSTEM)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 2000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1800,
+        "end_pos": 1894
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 464,
+        "end_index": 492
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Instalación automática de  extinción | Si la superficie total construida del área pública de ventas excede de 1.500 m 2  y en  ella la densidad de carga de fuego ponderada y corregida aportada por los produc\u0002 tos comercializados es mayor que 500 MJ/m², contará con la instalación, tanto el  área pública de ventas, como los locales y zonas de riesgo especial medio y alto  conforme al capítulo 2 de la Sección 1 de este DB.",
+      "attributes": {
+        "id": "4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Automatic extinguishing system must be provided in the public sales area and in medium and high special risk premises and areas.",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND AREA.PUBLIC_SALES.AREA_CONSTRUCTED > 1500 AND AREA.PUBLIC_SALES.FIRE_LOAD_DENSITY > 500",
+        "satisfied_if": "HAS(EXTINGUISHING.SYSTEM.AUTOMATIC) AND EXTINGUISHING.SYSTEM.AUTOMATIC.SCOPE IN ['PUBLIC_SALES_AREA', 'MEDIUM_SPECIAL_RISK_PREMISES', 'HIGH_SPECIAL_RISK_PREMISES']",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "AREA.PUBLIC_SALES.AREA_CONSTRUCTED > 1500 m2",
+          "AREA.PUBLIC_SALES.FIRE_LOAD_DENSITY > 500 MJ/m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1899,
+        "end_pos": 2322
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": {
+        "start_index": 494,
+        "end_index": 595
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 1 000 y 10 000 m 2 .  Uno más por cada 10 000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0d",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Exterior hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.AREA.TOTAL_CONSTRUCTED >= 1000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 1000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2327,
+        "end_pos": 2488
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": {
+        "start_index": 597,
+        "end_index": 636
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | Uno si la superficie total construida está comprendida entre 1 000 y 10 000 m 2 .  Uno más por cada 10 000 m 2  adicionales o fracción.(3)",
+      "attributes": {
+        "id": "5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0e",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "One additional exterior hydrant must be provided for every 10,000 m2 or fraction thereof.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 10000",
+        "satisfied_if": "HYDRANT.EXTERIOR.COUNT == 1 + CEILING((BUILDING.AREA.TOTAL_CONSTRUCTED - 10000) / 10000)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 452,
+        "end_pos": 623
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 18,
+      "group_index": 17,
+      "description": null,
+      "token_interval": {
+        "start_index": 110,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7)",
+      "attributes": {
+        "id": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 500",
+        "satisfied_if": "HAS(FIRE_HYDRANT.EQUIPPED)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 500 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2521,
+        "end_pos": 2602
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 19,
+      "group_index": 18,
+      "description": null,
+      "token_interval": {
+        "start_index": 645,
+        "end_index": 663
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Columna seca(5) | Si la altura de evacuación excede de 24 m.",
+      "attributes": {
+        "id": "7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Dry riser must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.EVACUATION.HEIGHT > 24",
+        "satisfied_if": "HAS(DRY_RISER)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT > 24 m"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2607,
+        "end_pos": 2667
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 20,
+      "group_index": 19,
+      "description": null,
+      "token_interval": {
+        "start_index": 665,
+        "end_index": 683
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de alarma(6) | Si la ocupación excede de 500 personas. El sistema debe ser apto para emitir  mensajes por megafonía.",
+      "attributes": {
+        "id": "8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Alarm system capable of broadcasting messages must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.OCCUPANCY > 500",
+        "satisfied_if": "HAS(ALARM.SYSTEM) AND ALARM.SYSTEM.CAPABILITY.BROADCAST_MESSAGES == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.OCCUPANCY > 500 persons"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2672,
+        "end_pos": 2796
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 21,
+      "group_index": 20,
+      "description": null,
+      "token_interval": {
+        "start_index": 685,
+        "end_index": 715
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Sistema de detección de in\u0002 cendio | Si la superficie construida excede de 1000 m 2 . (8)",
+      "attributes": {
+        "id": "9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire detection system must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 1000",
+        "satisfied_if": "HAS(FIRE_DETECTION.SYSTEM)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 1000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2801,
+        "end_pos": 2890
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 22,
+      "group_index": 21,
+      "description": null,
+      "token_interval": {
+        "start_index": 717,
+        "end_index": 740
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Hidrantes exteriores | En cines, teatros, auditorios y discotecas con superficie construida comprendida  entre 500 y 10.000 m² y en recintos deportivos con superficie construida compren\u0002 dida entre 5.000 y 10.000 m².(3)",
+      "attributes": {
+        "id": "a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5e",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Exterior hydrants must be provided.",
+        "applies_if": "(BUILDING.USAGE IN ['CINEMA', 'THEATER', 'AUDITORIUM', 'DISCOTHEQUE'] AND BUILDING.AREA.TOTAL_CONSTRUCTED >= 500 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000) OR (BUILDING.USAGE == 'SPORTS_FACILITY' AND BUILDING.AREA.TOTAL_CONSTRUCTED >= 5000 AND BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000)",
+        "satisfied_if": "HAS(HYDRANT.EXTERIOR)",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 500 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED >= 5000 m2",
+          "BUILDING.AREA.TOTAL_CONSTRUCTED <= 10000 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2895,
+        "end_pos": 3114
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 23,
+      "group_index": 22,
+      "description": null,
+      "token_interval": {
+        "start_index": 742,
+        "end_index": 787
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Bocas de incendio equipadas | Si la superficie construida excede de 500 m 2 . (7)  Se excluyen los aparcamientos  robotizados .",
+      "attributes": {
+        "id": "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6f",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Equipped fire hydrants must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND BUILDING.AREA.TOTAL_CONSTRUCTED > 500",
+        "satisfied_if": "HAS(FIRE_HYDRANT.EQUIPPED)",
+        "exempt_if": "PARKING.TYPE == 'ROBOTIZED'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.AREA.TOTAL_CONSTRUCTED > 500 m2"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3139,
+        "end_pos": 3266
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 24,
+      "group_index": 23,
+      "description": null,
+      "token_interval": {
+        "start_index": 793,
+        "end_index": 817
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Columna seca(5) | Si existen más de tres plantas bajo rasante o más de cuatro sobre rasante, con  tomas en todas sus plantas.",
+      "attributes": {
+        "id": "c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e70",
+        "parent_section_id": "fbb87d0321248f96",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Dry riser with outlets on all floors must be provided.",
+        "applies_if": "BUILDING.USAGE == 'PARKING' AND (BUILDING.FLOORS.BELOW_GROUND > 3 OR BUILDING.FLOORS.ABOVE_GROUND > 4)",
+        "satisfied_if": "HAS(DRY_RISER) AND DRY_RISER.OUTLETS.LOCATION == 'ALL_FLOORS'",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "extracted_parameters": [
+          "BUILDING.FLOORS.BELOW_GROUND > 3",
+          "BUILDING.FLOORS.ABOVE_GROUND > 4"
+        ],
+        "confidence": 1,
+        "section_name": "Table 3",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3271,
+        "end_pos": 3396
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 25,
+      "group_index": 24,
+      "description": null,
+      "token_interval": {
+        "start_index": 819,
+        "end_index": 851
+      },
+      "section_metadata": {
+        "section_id": "fbb87d0321248f96",
+        "section_name": "Table 3",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 6,
+        "end_page": 6,
+        "toc_path": [
+          "Sección SI 4 Instalaciones de protección contra incendios",
+          "1 Dotación de instalaciones de protección contra incendios",
+          "Table 3"
+        ],
+        "parent_section_id": "45600ba0c70a63de",
+        "positioning_data": [
+          {
+            "page_no": 6,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.62786102294922,
+              "t": 781.2074928283691,
+              "r": 538.7819213867188,
+              "b": 84.801513671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 3"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 25,
+  "char_count": 3398
+}
