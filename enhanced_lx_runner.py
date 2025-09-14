@@ -883,12 +883,36 @@ def deduplicate_extractions(extractions: List[Dict[str, Any]]) -> List[Dict[str,
             deduplicated.extend(extraction_group)
         else:
             # Multiple extractions with same text - keep most specific (highest section level)
-            # or if same level, keep first one encountered
+            # or if same level, keep the one with most contextually relevant section name
             
-            # Sort by preference: Table sections first, then highest section level, then by parent ID for consistency
+            def get_content_relevance_score(extraction, text):
+                """Calculate how relevant a section is for the given text content."""
+                section_name = extraction.get("attributes", {}).get("section_name", "").lower()
+                text_lower = text.lower()
+                
+                # Define content-to-section relevance keywords
+                relevance_keywords = {
+                    "puertas": ["puerta", "door", "evacua", "salida", "apertura", "cerrada"],
+                    "señalización": ["señal", "sign", "indicador", "marca", "visual"],
+                    "humo": ["humo", "smoke", "ventil", "extrac"],
+                    "discapacidad": ["discapacidad", "accessibility", "accesib", "movilidad"],
+                    "instalaciones": ["instalacion", "equipment", "sistema", "dispositivo"],
+                    "evacuación": ["evacua", "emergency", "emergencia", "escape"]
+                }
+                
+                score = 0
+                for topic, keywords in relevance_keywords.items():
+                    if topic in section_name:
+                        # If section name matches topic, check if content contains relevant keywords
+                        score += sum(1 for keyword in keywords if keyword in text_lower)
+                
+                return score
+            
+            # Sort by preference: Table sections first, then highest section level, then content relevance, then by parent ID
             sorted_group = sorted(extraction_group, key=lambda e: (
                 e.get("attributes", {}).get("section_type", "") != "Table",  # Table sections first (False < True)
                 -e.get("attributes", {}).get("section_level", 0),  # Higher level first (negative for reverse)
+                -get_content_relevance_score(e, text),  # Higher relevance score first (negative for reverse)
                 e.get("attributes", {}).get("parent_section_id", "")  # Consistent tie-breaking
             ))
             
@@ -904,8 +928,9 @@ def deduplicate_extractions(extractions: List[Dict[str, Any]]) -> List[Dict[str,
             best_parent = parent_info.get("section_name", "Unknown")
             best_level = parent_info.get("section_level", 0)
             best_type = parent_info.get("section_type", "Unknown")
+            best_relevance = get_content_relevance_score(best_extraction, text)
             
-            print(f"[DEDUP] Kept extraction from section '{best_parent}' (Level {best_level}, {best_type})")
+            print(f"[DEDUP] Kept extraction from section '{best_parent}' (Level {best_level}, {best_type}, Relevance: {best_relevance})")
             print(f"[DEDUP] Removed {len(removed_extractions)} duplicate(s) for text: {text[:80]}...")
             
             for removed in removed_extractions:
@@ -913,7 +938,8 @@ def deduplicate_extractions(extractions: List[Dict[str, Any]]) -> List[Dict[str,
                 removed_parent = removed_parent_info.get("section_name", "Unknown")
                 removed_level = removed_parent_info.get("section_level", 0)
                 removed_type = removed_parent_info.get("section_type", "Unknown")
-                print(f"[DEDUP]   - Removed from section '{removed_parent}' (Level {removed_level}, {removed_type})")
+                removed_relevance = get_content_relevance_score(removed, text)
+                print(f"[DEDUP]   - Removed from section '{removed_parent}' (Level {removed_level}, {removed_type}, Relevance: {removed_relevance})")
     
     # Add non-text-based extractions (metadata, etc.)
     for extraction in extractions:
