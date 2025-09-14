@@ -1332,6 +1332,18 @@ def run_enhanced_extraction(
     print("[INFO] Performing postprocessing to derive tags and parameters...")
     processed_extractions, derived_tags, derived_parameters = process_extractions_with_postprocessing(all_extractions)
     
+    # Add parent_section_name field by mapping parent_section_id to section names
+    print("[INFO] Adding parent section names to extractions...")
+    section_id_to_name = {section.get("section_id"): section.get("section_name") for section in all_sections}
+    
+    for extraction in processed_extractions:
+        attributes = extraction.get("attributes", {})
+        parent_section_id = attributes.get("parent_section_id")
+        if parent_section_id and parent_section_id in section_id_to_name:
+            attributes["parent_section_name"] = section_id_to_name[parent_section_id]
+        else:
+            attributes["parent_section_name"] = None
+    
     # Generate node tree for web UI
     print("[INFO] Generating node tree structure...")
     node_tree = generate_node_tree(all_sections, processed_extractions, derived_tags, derived_parameters)
