@@ -416,16 +416,34 @@ def extract_table_content_for_section(
 ) -> str:
     """Extract table content for a table section.
     
+    Handles both single tables and multi-page table groups by combining content
+    from all tables in the group.
+    
     Args:
-        table_section: Table section
+        table_section: Table section (may span multiple pages)
         docling_document: Docling document with table data
         
     Returns:
-        Markdown representation of the table
+        Markdown representation of the table(s)
     """
     tables = docling_document.get('tables', [])
+    combined_markdown = []
     
-    # Check if we have stored table index
+    # Check if we have stored table indices (for multi-page tables)
+    if hasattr(table_section, 'table_indices'):
+        for table_index in table_section.table_indices:
+            if 0 <= table_index < len(tables):
+                table = tables[table_index]
+                table_data = table.get('data', {})
+                if table_data:
+                    table_markdown = convert_table_to_markdown(table_data)
+                    if table_markdown.strip():
+                        combined_markdown.append(table_markdown)
+        
+        if combined_markdown:
+            return '\n\n'.join(combined_markdown)
+    
+    # Check for legacy single table index
     if hasattr(table_section, 'table_index'):
         table_index = table_section.table_index
         if 0 <= table_index < len(tables):
@@ -467,6 +485,9 @@ def create_table_sections_from_docling(
 ) -> List[EnhancedSection]:
     """Create table sections from Docling document tables.
     
+    Groups multi-page tables that appear on consecutive pages within the same parent section
+    into a single logical table section to prevent artificial table splitting.
+    
     Args:
         docling_document: Docling document with table data
         existing_sections: List of existing sections to find parents
@@ -478,7 +499,6 @@ def create_table_sections_from_docling(
     table_sections = []
     tables = docling_document.get('tables', [])
     section_index = starting_section_index
-    table_counter = 1
     
     # Create a mapping of page to section for finding parent sections
     # We want the most specific (highest level) section that contains each page
@@ -489,6 +509,8 @@ def create_table_sections_from_docling(
                 if page not in page_to_section or section.section_level > page_to_section[page].section_level:
                     page_to_section[page] = section
     
+    # Group tables by parent section and consecutive pages
+    tables_by_parent = {}
     for table_index, table in enumerate(tables):
         # Get table page from provenance data
         table_page = None
@@ -504,52 +526,114 @@ def create_table_sections_from_docling(
         if not parent_section:
             continue
         
-        # Create table section name using the global table counter
-        table_name = f"Table {table_counter}"
+        parent_id = parent_section.section_id
+        if parent_id not in tables_by_parent:
+            tables_by_parent[parent_id] = []
         
-        # Create ToC path by extending parent's path
-        table_toc_path = parent_section.toc_path + [table_name]
+        tables_by_parent[parent_id].append({
+            'table_index': table_index,
+            'table': table,
+            'page': table_page,
+            'parent_section': parent_section
+        })
+    
+    # Process each parent section's tables
+    for parent_id, parent_tables in tables_by_parent.items():
+        # Sort tables by page number
+        parent_tables.sort(key=lambda x: x['page'])
         
-        # Create table section with deterministic ID
-        title_normalized = normalize_text_for_id(table_name)
-        table_section = EnhancedSection.create_with_id(
-            toc_path=table_toc_path,
-            start_page=table_page,
-            title_normalized=title_normalized,
-            section_name=table_name,
-            section_level=parent_section.section_level + 1,  # One level deeper than parent
-            section_index=section_index,
-            parent_section_id=parent_section.section_id,
-            end_page=table_page,  # Tables are typically on single pages
-            section_type="Table"
-        )
+        # Group consecutive page tables into logical table groups
+        table_groups = []
+        current_group = []
         
-        # Store the table index for content extraction
-        table_section.table_index = table_index
+        for table_info in parent_tables:
+            if not current_group:
+                # Always start a new group with the first table
+                current_group = [table_info]
+            else:
+                last_page = current_group[-1]['page']
+                current_page = table_info['page']
+                
+                # Get cell counts for intelligent grouping
+                current_table = tables[table_info['table_index']]
+                current_cell_count = len(current_table.get('data', {}).get('table_cells', []))
+                
+                # If consecutive pages, consider grouping
+                is_consecutive = current_page - last_page <= 1  # Only allow directly consecutive pages
+                
+                # For multi-page tables, be more lenient about cell counts
+                # Small cell count might be a header/footer page of a larger table
+                is_reasonable_content = current_cell_count > 5  # Very small tables are likely separate
+                
+                if is_consecutive and is_reasonable_content:
+                    current_group.append(table_info)
+                else:
+                    # Start new group
+                    if current_group:
+                        table_groups.append(current_group)
+                    current_group = [table_info]
         
-        # Collect positioning data for the table from provenance data
-        table_positioning = []
-        for prov_item in prov_data:
-            if isinstance(prov_item, dict) and 'page_no' in prov_item:
-                # Extract positioning information from provenance data
-                prov_positioning = {
-                    'page_no': prov_item.get('page_no'),
-                    'charspan': prov_item.get('charspan', [0, 0]),
-                    'bbox': prov_item.get('bbox', {}),
-                    'text': table_name  # Use table name as reference
-                }
-                table_positioning.append(prov_positioning)
+        # Add the last group
+        if current_group:
+            table_groups.append(current_group)
         
-        # Store positioning data for the table section
-        table_section.positioning_data = table_positioning
-        
-        # Add table section to parent's sub_section_ids
-        if table_section.section_id not in parent_section.sub_section_ids:
-            parent_section.sub_section_ids.append(table_section.section_id)
-        
-        table_sections.append(table_section)
-        section_index += 1
-        table_counter += 1
+        # Create table sections for each group
+        for group_index, table_group in enumerate(table_groups):
+            table_counter = group_index + 1  # Reset counter per parent section
+            
+            # Create table section name using the parent-relative counter
+            table_name = f"Table {table_counter}"
+            
+            parent_section = table_group[0]['parent_section']
+            
+            # Create ToC path by extending parent's path
+            table_toc_path = parent_section.toc_path + [table_name]
+            
+            title_normalized = normalize_text_for_id(table_name)
+            
+            # Determine page range for the table group
+            start_page = min(t['page'] for t in table_group)
+            end_page = max(t['page'] for t in table_group)
+            
+            table_section = EnhancedSection.create_with_id(
+                toc_path=table_toc_path,
+                start_page=start_page,
+                title_normalized=title_normalized,
+                section_name=table_name,
+                section_level=parent_section.section_level + 1,  # One level deeper than parent
+                section_index=section_index,
+                parent_section_id=parent_section.section_id,
+                end_page=end_page,  # Multi-page tables span multiple pages
+                section_type="Table"
+            )
+            
+            # Store all table indices from the group for content extraction
+            table_section.table_indices = [t['table_index'] for t in table_group]
+            
+            # Collect positioning data from all tables in the group
+            table_positioning = []
+            for table_info in table_group:
+                prov_data = table_info['table'].get('prov', [])
+                for prov_item in prov_data:
+                    if isinstance(prov_item, dict) and 'page_no' in prov_item:
+                        # Extract positioning information from provenance data
+                        prov_positioning = {
+                            'page_no': prov_item.get('page_no'),
+                            'charspan': prov_item.get('charspan', [0, 0]),
+                            'bbox': prov_item.get('bbox', {}),
+                            'text': table_name  # Use table name as reference
+                        }
+                        table_positioning.append(prov_positioning)
+            
+            # Store positioning data for the table section
+            table_section.positioning_data = table_positioning
+            
+            # Add table section to parent's sub_section_ids
+            if table_section.section_id not in parent_section.sub_section_ids:
+                parent_section.sub_section_ids.append(table_section.section_id)
+            
+            table_sections.append(table_section)
+            section_index += 1
     
     return table_sections
 
