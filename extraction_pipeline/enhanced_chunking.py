@@ -196,6 +196,15 @@ def create_enhanced_sections_from_toc(
     table_sections = create_table_sections_from_docling(docling_document, sections, section_index)
     sections.extend(table_sections)
     
+    # Sort sections by document order (start_page, then by section type)
+    # Headlines should come before Tables within the same page for proper hierarchy
+    sections.sort(key=lambda s: (
+        s.start_page or 0,
+        0 if s.section_type == "Headline" else 1,  # Headlines first, then Tables
+        s.section_level,  # Lower level numbers (higher in hierarchy) first
+        s.section_index   # Original creation order as tie-breaker
+    ))
+    
     return sections
 
 
@@ -218,7 +227,7 @@ def find_section_boundaries_in_document(
     """
     texts = docling_document.get('texts', [])
     if not texts:
-        return {}
+        return {}, []
     
     # Create a list of all text items with their positions for boundary detection
     text_items_with_positions = []
@@ -478,6 +487,92 @@ def extract_table_content_for_section(
     return ""
 
 
+def detect_table_name_from_content(
+    table_group: List[Dict[str, Any]], 
+    docling_document: Dict[str, Any],
+    parent_section: EnhancedSection
+) -> Optional[str]:
+    """Detect table name from document content using patterns like 'tabla 1.1.'.
+    
+    This function looks for table captions or references near the table location
+    that match common table naming patterns.
+    
+    Args:
+        table_group: List of table info dictionaries for the table group
+        docling_document: Docling document with text content
+        parent_section: Parent section containing the table
+        
+    Returns:
+        Detected table name or None if no pattern found
+    """
+    import re
+    
+    # Common table name patterns (case insensitive)
+    # Supports: "tabla 1.1.", "table 1.1:", "cuadro 1:", etc.
+    table_name_patterns = [
+        r'\b(tabla|table|cuadro|figure)\s+(\d+(?:\.\d+)*)[.:]?\s*',  # tabla 1.1., table 1:, etc.
+        r'\b(tab|tbl|fig)\.\s*(\d+(?:\.\d+)*)[.:]?\s*',              # tab. 1.1, tbl. 1:, etc.
+    ]
+    
+    # Get text content from around the table location
+    texts = docling_document.get('texts', [])
+    if not texts:
+        return None
+    
+    # Get the page range for the table group
+    table_pages = {t['page'] for t in table_group}
+    min_page = min(table_pages)
+    max_page = max(table_pages)
+    
+    # Look for table names in text near the table (same page or adjacent pages)
+    search_pages = set(range(max(1, min_page - 1), max_page + 2))
+    
+    potential_names = []
+    
+    for text_item in texts:
+        prov_data = text_item.get('prov', [])
+        if not prov_data:
+            continue
+            
+        text_page = prov_data[0].get('page_no')
+        if text_page not in search_pages:
+            continue
+            
+        text_content = text_item.get('text', '').strip()
+        if not text_content:
+            continue
+        
+        # Check for table name patterns
+        for pattern in table_name_patterns:
+            matches = re.finditer(pattern, text_content, re.IGNORECASE)
+            for match in matches:
+                table_type = match.group(1).lower()
+                table_number = match.group(2)
+                
+                # Create normalized table name (preserve original language)
+                if table_type == 'tabla':
+                    detected_name = f"Tabla {table_number}"
+                elif table_type == 'cuadro':
+                    detected_name = f"Cuadro {table_number}"
+                elif table_type == 'table':
+                    detected_name = f"Table {table_number}"  # Keep English
+                else:
+                    detected_name = f"Table {table_number}"  # Default fallback
+                
+                # Store with proximity score (closer to table page = higher score)
+                proximity_score = 10 - abs(text_page - min_page)
+                potential_names.append((detected_name, proximity_score, text_page))
+    
+    # Return the best match (highest proximity score)
+    if potential_names:
+        potential_names.sort(key=lambda x: x[1], reverse=True)  # Sort by proximity score
+        best_match = potential_names[0]
+        print(f"[DEBUG] Detected table name: {best_match[0]} (page {best_match[2]}, score {best_match[1]})")
+        return best_match[0]
+    
+    return None
+
+
 def create_table_sections_from_docling(
     docling_document: Dict[str, Any], 
     existing_sections: List[EnhancedSection],
@@ -562,10 +657,22 @@ def create_table_sections_from_docling(
                 is_consecutive = current_page - last_page <= 1  # Only allow directly consecutive pages
                 
                 # For multi-page tables, be more lenient about cell counts
-                # Small cell count might be a header/footer page of a larger table
-                is_reasonable_content = current_cell_count > 5  # Very small tables are likely separate
+                # Small cell count might be a continuation of a larger table
+                is_reasonable_content = current_cell_count > 1  # At least 2 cells to be meaningful
                 
-                if is_consecutive and is_reasonable_content:
+                # Also check if this looks like a continuation based on row indices
+                first_group_table = tables[current_group[0]['table_index']]
+                first_group_cells = first_group_table.get('data', {}).get('table_cells', [])
+                max_row_in_group = max((cell.get('start_row_offset_idx', 0) for cell in first_group_cells), default=0)
+                
+                current_cells = current_table.get('data', {}).get('table_cells', [])
+                min_row_in_current = min((cell.get('start_row_offset_idx', 0) for cell in current_cells), default=0)
+                
+                # If current table starts where previous left off, it's likely a continuation
+                # But if both tables start at row 0, they're probably separate tables
+                is_continuation = (min_row_in_current > max_row_in_group) and (min_row_in_current > 0)
+                
+                if is_consecutive and is_continuation:
                     current_group.append(table_info)
                 else:
                     # Start new group
@@ -579,10 +686,17 @@ def create_table_sections_from_docling(
         
         # Create table sections for each group
         for group_index, table_group in enumerate(table_groups):
-            table_counter = group_index + 1  # Reset counter per parent section
+            # Try to detect table name from document content or use sequential naming
+            detected_table_name = detect_table_name_from_content(
+                table_group, docling_document, parent_section
+            )
             
-            # Create table section name using the parent-relative counter
-            table_name = f"Table {table_counter}"
+            if detected_table_name:
+                table_name = detected_table_name
+            else:
+                # Fallback to sequential naming per parent section
+                table_counter = group_index + 1  # Reset counter per parent section
+                table_name = f"Table {table_counter}"
             
             parent_section = table_group[0]['parent_section']
             
