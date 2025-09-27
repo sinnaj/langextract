@@ -71,8 +71,8 @@ def get_canonical_tag(tag_path):
     # If no alias found, return original tag
     return tag_path
 
-def find_latest_combined_extractions():
-    """Find the latest combined_extractions.json file."""
+def find_latest_enhanced_extractions():
+    """Find the latest enhanced_extraction_results.json file."""
     base_path = Path(__file__).parent.parent.parent
     output_runs_path = base_path / "output_runs"
     
@@ -84,20 +84,21 @@ def find_latest_combined_extractions():
     
     for run_dir in output_runs_path.iterdir():
         if run_dir.is_dir():
-            combined_file = run_dir / "lx output" / "combined_extractions.json"
-            if combined_file.exists():
+            # Try enhanced output first
+            enhanced_file = run_dir / "enhanced_output" / "enhanced_extraction_results.json"
+            if enhanced_file.exists():
                 try:
                     timestamp = int(run_dir.name)
                     if timestamp > latest_timestamp:
                         latest_timestamp = timestamp
-                        latest_file = combined_file
+                        latest_file = enhanced_file
                 except ValueError:
                     continue
     
     return latest_file
 
 def load_extractions_data(file_path):
-    """Load and parse the combined extractions JSON file."""
+    """Load and parse the enhanced extractions JSON file."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -107,9 +108,8 @@ def load_extractions_data(file_path):
         return None
 
 def extract_tag_data(data):
-    """Extract and process tag data from extractions."""
-    extractions = data.get('extractions', [])
-    tag_extractions = [e for e in extractions if e.get('extraction_class') == 'Tag']
+    """Extract and process tag data from the enhanced extraction structure."""
+    tags = data.get('tags', [])
     
     # Use a dictionary to merge aliases
     merged_tags = defaultdict(lambda: {
@@ -121,10 +121,10 @@ def extract_tag_data(data):
         'extraction_texts': set()
     })
     
-    # Process each tag extraction and merge aliases
-    for tag_extraction in tag_extractions:
-        attrs = tag_extraction.get('attributes', {})
-        original_tag_path = attrs.get('tag', tag_extraction.get('extraction_text', ''))
+    # Process each tag and merge aliases
+    for tag in tags:
+        attrs = tag.get('attributes', {})
+        original_tag_path = attrs.get('tag', tag.get('extraction_text', ''))
         
         # Get the canonical tag name (handling aliases)
         canonical_tag_path = get_canonical_tag(original_tag_path)
@@ -134,8 +134,8 @@ def extract_tag_data(data):
         merged_tags[canonical_tag_path]['original_paths'].append(original_tag_path)
         merged_tags[canonical_tag_path]['used_by_norms'].update(attrs.get('used_by_norm_ids', []))
         merged_tags[canonical_tag_path]['related_topics'].update(attrs.get('related_topics', []))
-        merged_tags[canonical_tag_path]['section_parents'].add(tag_extraction.get('section_parent_id', ''))
-        merged_tags[canonical_tag_path]['extraction_texts'].add(tag_extraction.get('extraction_text', ''))
+        merged_tags[canonical_tag_path]['section_parents'].add('')  # Not available in new format
+        merged_tags[canonical_tag_path]['extraction_texts'].add(tag.get('extraction_text', ''))
     
     # Convert merged data to the expected format
     tags_data = []
@@ -161,15 +161,14 @@ def extract_tag_data(data):
     return pd.DataFrame(tags_data)
 
 def extract_topic_data(data):
-    """Extract and process topic data from extractions."""
-    extractions = data.get('extractions', [])
-    
+    """Extract and process topic data from enhanced extraction structure."""
     # Collect topic information from norms and tags
     topic_info = defaultdict(lambda: {'norms': set(), 'tags': set(), 'related_topics': set()})
     
-    # Process NORM extractions to get topic-norm and topic-tag relationships
+    # Process extractions to get topic-norm and topic-tag relationships
+    extractions = data.get('extractions', [])
     for extraction in extractions:
-        if extraction.get('extraction_class') == 'NORM':
+        if extraction.get('extraction_class') == 'Norm':
             attrs = extraction.get('attributes', {})
             norm_id = attrs.get('id', '')
             topics = attrs.get('topics', [])
@@ -179,15 +178,15 @@ def extract_topic_data(data):
                 topic_info[topic]['norms'].add(norm_id)
                 topic_info[topic]['tags'].update(tags)
     
-    # Process Tag extractions to get additional topic relationships
-    for extraction in extractions:
-        if extraction.get('extraction_class') == 'Tag':
-            attrs = extraction.get('attributes', {})
-            tag = attrs.get('tag', '')
-            related_topics = attrs.get('related_topics', [])
-            
-            for topic in related_topics:
-                topic_info[topic]['tags'].add(tag)
+    # Process tags to get additional topic relationships
+    tags = data.get('tags', [])
+    for tag in tags:
+        attrs = tag.get('attributes', {})
+        tag_name = attrs.get('tag', '')
+        related_topics = attrs.get('related_topics', [])
+        
+        for topic in related_topics:
+            topic_info[topic]['tags'].add(tag_name)
     
     # Convert to DataFrame format
     topics_data = []
@@ -726,15 +725,14 @@ def display_topic_statistics(df, G):
             st.metric("Connected Components", connected_components)
 
 def extract_parameter_data(data):
-    """Extract and process parameter data from extractions."""
-    extractions = data.get('extractions', [])
-    parameter_extractions = [e for e in extractions if e.get('extraction_class') == 'Parameter']
+    """Extract and process parameter data from enhanced extraction structure."""
+    parameters = data.get('parameters', [])
     
     # Collect parameter information
     param_info = defaultdict(lambda: {'norms': set(), 'details': []})
     
-    for param_extraction in parameter_extractions:
-        attrs = param_extraction.get('attributes', {})
+    for parameter in parameters:
+        attrs = parameter.get('attributes', {})
         param_tag = attrs.get('applies_for_tag', '')
         param_id = attrs.get('id', '')
         norm_ids = attrs.get('norm_ids', [])
@@ -1621,7 +1619,7 @@ def main():
     st.sidebar.title("Data Source")
     
     # Try to find latest file automatically
-    latest_file = find_latest_combined_extractions()
+    latest_file = find_latest_enhanced_extractions()
     
     if latest_file:
         st.sidebar.success(f"Latest file found: {latest_file.name}")
@@ -1631,9 +1629,9 @@ def main():
         st.sidebar.divider()
         st.sidebar.subheader("Or upload a file:")
         uploaded_file = st.sidebar.file_uploader(
-            "Choose a combined_extractions.json file",
+            "Choose an enhanced_extraction_results.json file",
             type=['json'],
-            help="Upload your own combined_extractions.json file"
+            help="Upload your own enhanced_extraction_results.json file"
         )
         
         if uploaded_file:
@@ -1646,11 +1644,11 @@ def main():
             data = None
             file_source = None
     else:
-        st.sidebar.warning("No combined_extractions.json files found in output_runs")
+        st.sidebar.warning("No enhanced_extraction_results.json files found in output_runs")
         uploaded_file = st.sidebar.file_uploader(
-            "Upload a combined_extractions.json file",
+            "Upload an enhanced_extraction_results.json file",
             type=['json'],
-            help="Upload your combined_extractions.json file"
+            help="Upload your enhanced_extraction_results.json file"
         )
         
         if uploaded_file:
