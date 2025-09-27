@@ -545,7 +545,9 @@ def create_plotly_topic_network_graph(G, topic_info):
                 y=0.3  # Position below the tag colorbar
             ),
             line=dict(width=2)
-        )
+        ),
+        # Add the actual topic names for click events
+        ids=[node for node in G.nodes()]  # This will be used for click events
     )
     
     # Create the figure
@@ -962,7 +964,9 @@ def create_plotly_parameter_network_graph(G, param_info):
                 y=0.1  # Position below the topic and tag colorbars
             ),
             line=dict(width=2)
-        )
+        ),
+        # Add the actual parameter names for click events
+        ids=[node for node in G.nodes()]  # This will be used for click events
     )
     
     # Create the figure
@@ -1261,7 +1265,9 @@ def create_plotly_network_graph(G, tag_info):
                 title="Usage Count"
             ),
             line=dict(width=2)
-        )
+        ),
+        # Add the actual tag names for click events
+        ids=[node for node in G.nodes()]  # This will be used for click events
     )
     
     # Create the figure
@@ -1507,6 +1513,14 @@ def main():
     st.title("🕸️ Tag Graph")
     st.markdown("Interactive network graph showing relationships between extracted tags")
     
+    # Initialize session state for click events
+    if 'clicked_tag' not in st.session_state:
+        st.session_state.clicked_tag = ""
+    if 'clicked_topic' not in st.session_state:
+        st.session_state.clicked_topic = ""
+    if 'clicked_parameter' not in st.session_state:
+        st.session_state.clicked_parameter = ""
+    
     # Sidebar for file selection (same pattern as Tags.py)
     st.sidebar.title("Data Source")
     
@@ -1570,15 +1584,38 @@ def main():
             if G and len(G.nodes()) > 0:
                 fig = create_plotly_network_graph(G, tag_info)
                 if fig:
-                    st.plotly_chart(fig, use_container_width=True)
+                    # Display the interactive graph with click event handling
+                    event = st.plotly_chart(fig, use_container_width=True, on_select="rerun", key="tag_graph")
                     
                     # Tag selection for detailed view
                     st.divider()
+                    
+                    # Get available tags
+                    tag_options = [""] + sorted(tags_df['tag_path'].tolist())
+                    
+                    # Check if there's a selection from the graph
+                    selected_from_graph = None
+                    if hasattr(st.session_state, 'tag_graph') and st.session_state.tag_graph:
+                        selection = st.session_state.tag_graph.get('selection', {})
+                        if selection and 'points' in selection and selection['points']:
+                            # Get the first selected point
+                            point = selection['points'][0]
+                            if 'id' in point:
+                                selected_from_graph = point['id']
+                    
+                    # Determine the initial index
+                    initial_index = 0
+                    if selected_from_graph and selected_from_graph in tag_options:
+                        initial_index = tag_options.index(selected_from_graph)
+                    elif st.session_state.clicked_tag and st.session_state.clicked_tag in tag_options:
+                        initial_index = tag_options.index(st.session_state.clicked_tag)
+                    
                     selected_tag = st.selectbox(
                         "Select a tag to see detailed usage information:",
-                        options=[""] + sorted(tags_df['tag_path'].tolist()),
-                        index=0,
-                        help="Choose a tag to see where it's used and its relationships"
+                        options=tag_options,
+                        index=initial_index,
+                        help="Choose a tag to see where it's used and its relationships. You can also click on a tag in the graph above.",
+                        key="tag_selector_main"
                     )
                     
                     if selected_tag:
@@ -1616,15 +1653,37 @@ def main():
                 if topic_G and len(topic_G.nodes()) > 0:
                     topic_fig = create_plotly_topic_network_graph(topic_G, topic_info)
                     if topic_fig:
-                        st.plotly_chart(topic_fig, use_container_width=True)
+                        # Display the interactive topic graph with click event handling
+                        event = st.plotly_chart(topic_fig, use_container_width=True, on_select="rerun", key="topic_graph")
                         
                         # Topic selection for detailed view
                         st.divider()
+                        
+                        # Get available topics
+                        topic_options = [""] + sorted(topics_df['topic_name'].tolist())
+                        
+                        # Check if there's a selection from the graph
+                        selected_from_graph = None
+                        if hasattr(st.session_state, 'topic_graph') and st.session_state.topic_graph:
+                            selection = st.session_state.topic_graph.get('selection', {})
+                            if selection and 'points' in selection and selection['points']:
+                                # Get the first selected point
+                                point = selection['points'][0]
+                                if 'id' in point:
+                                    selected_from_graph = point['id']
+                        
+                        # Determine the initial index
+                        initial_index = 0
+                        if selected_from_graph and selected_from_graph in topic_options:
+                            initial_index = topic_options.index(selected_from_graph)
+                        elif st.session_state.clicked_topic and st.session_state.clicked_topic in topic_options:
+                            initial_index = topic_options.index(st.session_state.clicked_topic)
+                        
                         selected_topic = st.selectbox(
                             "Select a topic to see detailed usage information:",
-                            options=[""] + sorted(topics_df['topic_name'].tolist()),
-                            index=0,
-                            help="Choose a topic to see related norms and tags",
+                            options=topic_options,
+                            index=initial_index,
+                            help="Choose a topic to see related norms and tags. You can also click on a topic in the graph above.",
                             key="topic_selector"  # Unique key to avoid conflicts with tag selector
                         )
                         
@@ -1666,15 +1725,37 @@ def main():
                 if param_G and len(param_G.nodes()) > 0:
                     param_fig = create_plotly_parameter_network_graph(param_G, param_info)
                     if param_fig:
-                        st.plotly_chart(param_fig, use_container_width=True)
+                        # Display the interactive parameter graph with click event handling
+                        event = st.plotly_chart(param_fig, use_container_width=True, on_select="rerun", key="param_graph")
                         
                         # Parameter selection for detailed view
                         st.divider()
+                        
+                        # Get available parameters
+                        param_options = [""] + sorted(params_df['parameter_name'].tolist())
+                        
+                        # Check if there's a selection from the graph
+                        selected_from_graph = None
+                        if hasattr(st.session_state, 'param_graph') and st.session_state.param_graph:
+                            selection = st.session_state.param_graph.get('selection', {})
+                            if selection and 'points' in selection and selection['points']:
+                                # Get the first selected point
+                                point = selection['points'][0]
+                                if 'id' in point:
+                                    selected_from_graph = point['id']
+                        
+                        # Determine the initial index
+                        initial_index = 0
+                        if selected_from_graph and selected_from_graph in param_options:
+                            initial_index = param_options.index(selected_from_graph)
+                        elif st.session_state.clicked_parameter and st.session_state.clicked_parameter in param_options:
+                            initial_index = param_options.index(st.session_state.clicked_parameter)
+                        
                         selected_param = st.selectbox(
                             "Select a parameter to see detailed usage information:",
-                            options=[""] + sorted(params_df['parameter_name'].tolist()),
-                            index=0,
-                            help="Choose a parameter to see related norms and details",
+                            options=param_options,
+                            index=initial_index,
+                            help="Choose a parameter to see related norms and details. You can also click on a parameter in the graph above.",
                             key="param_selector"  # Unique key to avoid conflicts with tag and topic selectors
                         )
                         
