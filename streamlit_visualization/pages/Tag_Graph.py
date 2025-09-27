@@ -678,26 +678,51 @@ def display_topic_usage_details(df, selected_topic, data=None):
             with col2:
                 if topic_info['norms']:
                     st.write(f"**Related Norms ({len(topic_info['norms'])}):**")
-                    # Display hoverable norm IDs
-                    if data:  # If we have access to the full data
-                        for norm_id in topic_info['norms'][:10]:  # Show first 10
-                            norm_details = get_norm_details_by_id(data, norm_id)
-                            display_hoverable_norm_id(norm_id, norm_details)
-                        if len(topic_info['norms']) > 10:
-                            st.write(f"... and {len(topic_info['norms']) - 10} more")
-                    else:  # Fallback to original display if no data available
-                        for norm_id in topic_info['norms'][:10]:
-                            st.write(f"- {norm_id}")
-                        if len(topic_info['norms']) > 10:
-                            st.write(f"... and {len(topic_info['norms']) - 10} more")
+                    
+                    # Display all norm IDs without truncation, using columns for better layout
+                    norm_ids = topic_info['norms']
+                    
+                    # Create multiple columns to display norm IDs efficiently
+                    if len(norm_ids) <= 5:
+                        cols = st.columns(1)
+                    elif len(norm_ids) <= 10:
+                        cols = st.columns(2)
+                    elif len(norm_ids) <= 20:
+                        cols = st.columns(3)
+                    else:
+                        cols = st.columns(4)
+                    
+                    # Display hoverable norm IDs across columns
+                    for i, norm_id in enumerate(norm_ids):
+                        col_idx = i % len(cols)
+                        with cols[col_idx]:
+                            if data:  # If we have access to the full data
+                                norm_details = get_norm_details_by_id(data, norm_id)
+                                display_hoverable_norm_id(norm_id, norm_details)
+                            else:  # Fallback to original display if no data available
+                                st.write(f"- {norm_id}")
                 
                 if topic_info['tags']:
                     st.write(f"**Related Tags ({len(topic_info['tags'])}):**")
-                    # Show first 10 tags
-                    for tag in topic_info['tags'][:10]:
-                        st.write(f"- {tag}")
-                    if len(topic_info['tags']) > 10:
-                        st.write(f"... and {len(topic_info['tags']) - 10} more")
+                    
+                    # Display all tags without truncation, using columns for better layout
+                    tags = topic_info['tags']
+                    
+                    # Create multiple columns to display tags efficiently
+                    if len(tags) <= 5:
+                        tag_cols = st.columns(1)
+                    elif len(tags) <= 10:
+                        tag_cols = st.columns(2)
+                    elif len(tags) <= 20:
+                        tag_cols = st.columns(3)
+                    else:
+                        tag_cols = st.columns(4)
+                    
+                    # Display tags across columns
+                    for i, tag in enumerate(tags):
+                        col_idx = i % len(tag_cols)
+                        with tag_cols[col_idx]:
+                            st.write(f"- {tag}")
 
 def display_topic_statistics(df, G):
     """Display statistics about the topic graph."""
@@ -1096,31 +1121,40 @@ def display_parameter_usage_details(df, selected_param, data=None):
             with col2:
                 if param_info['norms']:
                     st.write(f"**Related Norms ({len(param_info['norms'])}):**")
-                    # Display hoverable norm IDs
-                    if data:  # If we have access to the full data
-                        for norm_id in param_info['norms'][:10]:  # Show first 10
-                            norm_details = get_norm_details_by_id(data, norm_id)
-                            display_hoverable_norm_id(norm_id, norm_details)
-                        if len(param_info['norms']) > 10:
-                            st.write(f"... and {len(param_info['norms']) - 10} more")
-                    else:  # Fallback to original display if no data available
-                        for norm_id in param_info['norms'][:10]:
-                            st.write(f"- {norm_id}")
-                        if len(param_info['norms']) > 10:
-                            st.write(f"... and {len(param_info['norms']) - 10} more")
+                    
+                    # Display all norm IDs without truncation, using columns for better layout
+                    norm_ids = param_info['norms']
+                    
+                    # Create multiple columns to display norm IDs efficiently
+                    if len(norm_ids) <= 5:
+                        cols = st.columns(1)
+                    elif len(norm_ids) <= 10:
+                        cols = st.columns(2)
+                    elif len(norm_ids) <= 20:
+                        cols = st.columns(3)
+                    else:
+                        cols = st.columns(4)
+                    
+                    # Display hoverable norm IDs across columns
+                    for i, norm_id in enumerate(norm_ids):
+                        col_idx = i % len(cols)
+                        with cols[col_idx]:
+                            if data:  # If we have access to the full data
+                                norm_details = get_norm_details_by_id(data, norm_id)
+                                display_hoverable_norm_id(norm_id, norm_details)
+                            else:  # Fallback to original display if no data available
+                                st.write(f"- {norm_id}")
                 
                 if param_info['details']:
                     st.write(f"**Parameter Instances ({len(param_info['details'])}):**")
-                    # Show first 5 instances with their details
-                    for i, detail in enumerate(param_info['details'][:5]):
+                    # Show all instances with their details
+                    for i, detail in enumerate(param_info['details']):
                         value = detail.get('value', '')
                         unit = detail.get('unit', '')
                         operator = detail.get('operator', '')
                         param_id = detail.get('id', '')
                         value_str = f"{operator} {value} {unit}".strip()
                         st.write(f"- {param_id}: {value_str}")
-                    if len(param_info['details']) > 5:
-                        st.write(f"... and {len(param_info['details']) - 5} more")
 
 def display_parameter_statistics(df, G):
     """Display statistics about the parameter graph."""
@@ -1146,6 +1180,203 @@ def display_parameter_statistics(df, G):
         if G:
             connected_components = nx.number_connected_components(G)
             st.metric("Connected Components", connected_components)
+
+def extract_parameter_identifiers_from_condition(condition_text):
+    """Extract parameter identifiers from a condition string (applies_if or exempt_if)."""
+    if not condition_text or condition_text.upper() in ['TRUE', 'FALSE']:
+        return []
+    
+    # Pattern to match parameter identifiers (e.g., BUILDING.USAGE, FLOOR.HEIGHT, etc.)
+    # This regex looks for uppercase words with dots and underscores
+    pattern = r'\b[A-Z][A-Z0-9_]*(?:\.[A-Z][A-Z0-9_]*)*\b'
+    
+    # Extract all matches
+    identifiers = re.findall(pattern, condition_text)
+    
+    # Filter out common logical operators and values
+    excluded = {'TRUE', 'FALSE', 'AND', 'OR', 'NOT', 'NULL', 'NONE'}
+    
+    # Also filter out quoted values and numeric patterns
+    filtered_identifiers = []
+    for identifier in identifiers:
+        # Skip if it's an excluded term
+        if identifier in excluded:
+            continue
+        # Skip if it looks like a quoted value (all caps single word that might be a value)
+        if '.' not in identifier and len(identifier) < 15:  # Allow some single words that might be parameters
+            # Check if it's likely a parameter vs a value by context
+            # Parameters usually have dots or are common parameter patterns
+            if not any(param_pattern in identifier for param_pattern in ['BUILDING', 'FLOOR', 'AREA', 'HEIGHT', 'WIDTH', 'USAGE', 'TYPE', 'SYSTEM', 'FIRE', 'SAFETY', 'ACCESS']):
+                continue
+        filtered_identifiers.append(identifier)
+    
+    return list(set(filtered_identifiers))  # Remove duplicates
+
+def extract_condition_parameter_data(data, condition_field='applies_if'):
+    """Extract and process parameter identifiers from norm condition fields."""
+    extractions = data.get('extractions', [])
+    norm_extractions = [e for e in extractions if e.get('extraction_class') in ['Norm', 'NORM']]
+    
+    # Collect parameter identifier information from conditions
+    param_info = defaultdict(lambda: {'norms': set(), 'conditions': []})
+    
+    for norm in norm_extractions:
+        attrs = norm.get('attributes', {})
+        norm_id = attrs.get('id', '')
+        condition_text = attrs.get(condition_field, '')
+        
+        if condition_text:
+            identifiers = extract_parameter_identifiers_from_condition(condition_text)
+            for identifier in identifiers:
+                param_info[identifier]['norms'].add(norm_id)
+                param_info[identifier]['conditions'].append({
+                    'norm_id': norm_id,
+                    'condition': condition_text,
+                    'norm_statement': attrs.get('norm_statement', ''),
+                    'section_id': attrs.get('parent_section_id', '')
+                })
+    
+    # Convert to DataFrame format
+    params_data = []
+    for param_name, info in param_info.items():
+        # Parse hierarchical structure for parameters
+        path_parts = param_name.split('.')
+        
+        params_data.append({
+            'parameter_name': param_name,
+            'depth': len(path_parts),
+            'root_category': path_parts[0] if path_parts else '',
+            'subcategory': path_parts[1] if len(path_parts) > 1 else '',
+            'norms': list(info['norms']),
+            'norm_count': len(info['norms']),
+            'conditions': info['conditions'],
+            'condition_count': len(info['conditions']),
+            'is_chained': len(path_parts) > 1,
+            'condition_field': condition_field
+        })
+    
+    return pd.DataFrame(params_data)
+
+def create_condition_parameter_network_graph(df):
+    """Create a network graph showing condition parameter relationships."""
+    if df.empty:
+        return None, {}, []
+    
+    # Create a graph
+    G = nx.DiGraph()  # Use directed graph to show hierarchy clearly
+    
+    # Track parent-child relationships
+    relationships = []
+    param_info = {}
+    
+    # First, collect all existing parameters
+    existing_params = set(df['parameter_name'].tolist())
+    
+    # Process each parameter to find hierarchical relationships
+    for _, row in df.iterrows():
+        param_name = row['parameter_name']
+        path_parts = param_name.split('.')
+        
+        # Store parameter info
+        param_info[param_name] = {
+            'usage_count': row['norm_count'],
+            'depth': row['depth'],
+            'is_chained': row['is_chained'],
+            'is_virtual': False,
+            'condition_count': row['condition_count']
+        }
+        
+        # Add node to graph
+        G.add_node(param_name)
+        
+        # Create parent-child relationships for chained parameters
+        if len(path_parts) > 1:
+            for i in range(1, len(path_parts)):
+                parent = '.'.join(path_parts[:i])
+                child = '.'.join(path_parts[:i+1])
+                
+                # Add parent as virtual node if it doesn't exist as a real parameter
+                if parent not in existing_params:
+                    if parent not in param_info:
+                        param_info[parent] = {
+                            'usage_count': 0,
+                            'depth': i,
+                            'is_chained': i > 1,
+                            'is_virtual': True,
+                            'condition_count': 0
+                        }
+                        G.add_node(parent)
+                
+                # Add relationship
+                if G.has_node(parent) and G.has_node(child):
+                    G.add_edge(parent, child)
+                    relationships.append((parent, child))
+    
+    return G, param_info, relationships
+
+def display_condition_parameter_usage_details(df, selected_param, data, condition_field='applies_if'):
+    """Display detailed usage information for a selected condition parameter."""
+    condition_name = "Applies If" if condition_field == 'applies_if' else "Exempt If"
+    
+    if selected_param and not df.empty:
+        param_data = df[df['parameter_name'] == selected_param]
+        if not param_data.empty:
+            param_info = param_data.iloc[0]
+            
+            st.subheader(f"📍 {condition_name} Parameter Details: {selected_param}")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write(f"**Parameter Name:** {selected_param}")
+                st.write(f"**Usage Count:** {param_info['norm_count']}")
+                st.write(f"**Condition Count:** {param_info['condition_count']}")
+                st.write(f"**Hierarchy Depth:** {param_info['depth']}")
+                st.write(f"**Root Category:** {param_info['root_category']}")
+                
+                if param_info['is_chained']:
+                    st.info("🔗 This is a chained parameter (contains dots)")
+                else:
+                    st.info("🏷️ This is a root-level parameter")
+            
+            with col2:
+                if param_info['norms']:
+                    st.write(f"**Used in {len(param_info['norms'])} norm(s) {condition_name.lower()} conditions:**")
+                    
+                    # Display all norm IDs without truncation, using columns for better layout
+                    norm_ids = param_info['norms']
+                    
+                    # Create multiple columns to display norm IDs efficiently
+                    if len(norm_ids) <= 5:
+                        cols = st.columns(1)
+                        col_idx = 0
+                    elif len(norm_ids) <= 10:
+                        cols = st.columns(2)
+                    elif len(norm_ids) <= 20:
+                        cols = st.columns(3)
+                    else:
+                        cols = st.columns(4)
+                    
+                    for i, norm_id in enumerate(norm_ids):
+                        col_idx = i % len(cols)
+                        with cols[col_idx]:
+                            # Get norm details for hoverable display
+                            norm_details = get_norm_details_by_id(data, norm_id)
+                            if norm_details:
+                                display_hoverable_norm_id(norm_id, norm_details)
+                            else:
+                                st.write(f"- {norm_id}")
+                
+                # Show sample conditions
+                if param_info['conditions']:
+                    st.write(f"**Sample {condition_name} Conditions:**")
+                    sample_conditions = param_info['conditions'][:3]  # Show first 3 conditions
+                    for i, condition_info in enumerate(sample_conditions):
+                        with st.expander(f"Condition {i+1} (Norm: {condition_info['norm_id']})"):
+                            st.code(condition_info['condition'], language='text')
+                            if condition_info['norm_statement']:
+                                st.write("**Norm Statement:**")
+                                st.write(condition_info['norm_statement'][:200] + "..." if len(condition_info['norm_statement']) > 200 else condition_info['norm_statement'])
 
 def create_plotly_network_graph(G, tag_info):
     """Create an interactive network graph using plotly."""
@@ -1565,18 +1796,29 @@ def display_tag_usage_details(df, selected_tag, data=None):
                 
                 if tag_info['used_by_norms']:
                     st.write(f"**Used by {len(tag_info['used_by_norms'])} norm(s):**")
-                    # Display hoverable norm IDs
-                    if data:  # If we have access to the full data
-                        for norm_id in tag_info['used_by_norms'][:5]:  # Show first 5
-                            norm_details = get_norm_details_by_id(data, norm_id)
-                            display_hoverable_norm_id(norm_id, norm_details)
-                        if len(tag_info['used_by_norms']) > 5:
-                            st.write(f"... and {len(tag_info['used_by_norms']) - 5} more")
-                    else:  # Fallback to original display if no data available
-                        for norm_id in tag_info['used_by_norms'][:5]:  # Show first 5
-                            st.write(f"- {norm_id}")
-                        if len(tag_info['used_by_norms']) > 5:
-                            st.write(f"... and {len(tag_info['used_by_norms']) - 5} more")
+                    
+                    # Display all norm IDs without truncation, using columns for better layout
+                    norm_ids = tag_info['used_by_norms']
+                    
+                    # Create multiple columns to display norm IDs efficiently
+                    if len(norm_ids) <= 5:
+                        cols = st.columns(1)
+                    elif len(norm_ids) <= 10:
+                        cols = st.columns(2)
+                    elif len(norm_ids) <= 20:
+                        cols = st.columns(3)
+                    else:
+                        cols = st.columns(4)
+                    
+                    # Display hoverable norm IDs across columns
+                    for i, norm_id in enumerate(norm_ids):
+                        col_idx = i % len(cols)
+                        with cols[col_idx]:
+                            if data:  # If we have access to the full data
+                                norm_details = get_norm_details_by_id(data, norm_id)
+                                display_hoverable_norm_id(norm_id, norm_details)
+                            else:  # Fallback to original display if no data available
+                                st.write(f"- {norm_id}")
 
 def display_graph_statistics(df, G):
     """Display statistics about the tag graph."""
@@ -1614,6 +1856,10 @@ def main():
         st.session_state.clicked_topic = ""
     if 'clicked_parameter' not in st.session_state:
         st.session_state.clicked_parameter = ""
+    if 'clicked_applies_if_param' not in st.session_state:
+        st.session_state.clicked_applies_if_param = ""
+    if 'clicked_exempt_if_param' not in st.session_state:
+        st.session_state.clicked_exempt_if_param = ""
     
     # Sidebar for file selection (same pattern as Tags.py)
     st.sidebar.title("Data Source")
@@ -1869,6 +2115,194 @@ def main():
             else:
                 st.divider()
                 st.info("No parameter data found in the selected file.")
+            
+            # ===== ADD APPLIES IF PARAMETER NETWORK SECTION =====
+            # Extract and process applies_if parameter data
+            applies_if_params_df = extract_condition_parameter_data(data, 'applies_if')
+            
+            if not applies_if_params_df.empty:
+                st.divider()
+                st.divider()  # Double divider to separate sections
+                
+                # Create applies_if parameter network graph
+                applies_if_param_G, applies_if_param_info, applies_if_param_relationships = create_condition_parameter_network_graph(applies_if_params_df)
+                
+                # Display applies_if parameter statistics
+                st.header("🔍 Applies If Parameter Statistics")
+                
+                if applies_if_params_df.empty or applies_if_param_G is None:
+                    st.info("No applies_if parameter data found.")
+                else:
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("Total Parameters", len(applies_if_params_df))
+                    
+                    with col2:
+                        chained_params = len(applies_if_params_df[applies_if_params_df['parameter_name'].str.contains('.', regex=False)])
+                        st.metric("Chained Parameters", chained_params)
+                    
+                    with col3:
+                        root_params = len(applies_if_params_df[~applies_if_params_df['parameter_name'].str.contains('.', regex=False)])
+                        st.metric("Root Parameters", root_params)
+                    
+                    with col4:
+                        if applies_if_param_G:
+                            connected_components = nx.number_connected_components(applies_if_param_G)
+                            st.metric("Connected Components", connected_components)
+                
+                st.divider()
+                
+                # Create and display the interactive applies_if parameter graph
+                st.header("🔍 Applies If Parameter Relationship Network")
+                
+                if applies_if_param_G and len(applies_if_param_G.nodes()) > 0:
+                    applies_if_param_fig = create_plotly_parameter_network_graph(applies_if_param_G, applies_if_param_info)
+                    if applies_if_param_fig:
+                        # Display the interactive applies_if parameter graph with click event handling
+                        event = st.plotly_chart(applies_if_param_fig, use_container_width=True, on_select="rerun", key="applies_if_param_graph")
+                        
+                        # Applies_if parameter selection for detailed view
+                        st.divider()
+                        
+                        # Get available applies_if parameters
+                        applies_if_param_options = [""] + sorted(applies_if_params_df['parameter_name'].tolist())
+                        
+                        # Check if there's a selection from the graph
+                        selected_from_graph = None
+                        if hasattr(st.session_state, 'applies_if_param_graph') and st.session_state.applies_if_param_graph:
+                            selection = st.session_state.applies_if_param_graph.get('selection', {})
+                            if selection and 'points' in selection and selection['points']:
+                                # Get the first selected point
+                                point = selection['points'][0]
+                                if 'id' in point:
+                                    selected_from_graph = point['id']
+                        
+                        # Determine the initial index
+                        initial_index = 0
+                        if selected_from_graph and selected_from_graph in applies_if_param_options:
+                            initial_index = applies_if_param_options.index(selected_from_graph)
+                        elif st.session_state.clicked_applies_if_param and st.session_state.clicked_applies_if_param in applies_if_param_options:
+                            initial_index = applies_if_param_options.index(st.session_state.clicked_applies_if_param)
+                        
+                        selected_applies_if_param = st.selectbox(
+                            "Select an applies_if parameter to see detailed usage information:",
+                            options=applies_if_param_options,
+                            index=initial_index,
+                            help="Choose a parameter to see related norms and applies_if conditions. You can also click on a parameter in the graph above.",
+                            key="applies_if_param_selector"
+                        )
+                        
+                        if selected_applies_if_param:
+                            display_condition_parameter_usage_details(applies_if_params_df, selected_applies_if_param, data, 'applies_if')
+                        
+                        # Show applies_if parameter relationships table
+                        if applies_if_param_relationships:
+                            st.divider()
+                            st.header("🔍 Applies If Parameter Relationships")
+                            applies_if_param_relationships_df = pd.DataFrame(applies_if_param_relationships, columns=['Parent Parameter', 'Child Parameter'])
+                            st.dataframe(applies_if_param_relationships_df, use_container_width=True)
+                    else:
+                        st.warning("Could not create the applies_if parameter network graph.")
+                else:
+                    st.warning("No applies_if parameter relationships found to display in graph.")
+            else:
+                st.divider()
+                st.info("No applies_if parameter data found in the selected file.")
+            
+            # ===== ADD EXEMPT IF PARAMETER NETWORK SECTION =====
+            # Extract and process exempt_if parameter data
+            exempt_if_params_df = extract_condition_parameter_data(data, 'exempt_if')
+            
+            if not exempt_if_params_df.empty:
+                st.divider()
+                st.divider()  # Double divider to separate sections
+                
+                # Create exempt_if parameter network graph
+                exempt_if_param_G, exempt_if_param_info, exempt_if_param_relationships = create_condition_parameter_network_graph(exempt_if_params_df)
+                
+                # Display exempt_if parameter statistics
+                st.header("🚫 Exempt If Parameter Statistics")
+                
+                if exempt_if_params_df.empty or exempt_if_param_G is None:
+                    st.info("No exempt_if parameter data found.")
+                else:
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("Total Parameters", len(exempt_if_params_df))
+                    
+                    with col2:
+                        chained_params = len(exempt_if_params_df[exempt_if_params_df['parameter_name'].str.contains('.', regex=False)])
+                        st.metric("Chained Parameters", chained_params)
+                    
+                    with col3:
+                        root_params = len(exempt_if_params_df[~exempt_if_params_df['parameter_name'].str.contains('.', regex=False)])
+                        st.metric("Root Parameters", root_params)
+                    
+                    with col4:
+                        if exempt_if_param_G:
+                            connected_components = nx.number_connected_components(exempt_if_param_G)
+                            st.metric("Connected Components", connected_components)
+                
+                st.divider()
+                
+                # Create and display the interactive exempt_if parameter graph
+                st.header("🚫 Exempt If Parameter Relationship Network")
+                
+                if exempt_if_param_G and len(exempt_if_param_G.nodes()) > 0:
+                    exempt_if_param_fig = create_plotly_parameter_network_graph(exempt_if_param_G, exempt_if_param_info)
+                    if exempt_if_param_fig:
+                        # Display the interactive exempt_if parameter graph with click event handling
+                        event = st.plotly_chart(exempt_if_param_fig, use_container_width=True, on_select="rerun", key="exempt_if_param_graph")
+                        
+                        # Exempt_if parameter selection for detailed view
+                        st.divider()
+                        
+                        # Get available exempt_if parameters
+                        exempt_if_param_options = [""] + sorted(exempt_if_params_df['parameter_name'].tolist())
+                        
+                        # Check if there's a selection from the graph
+                        selected_from_graph = None
+                        if hasattr(st.session_state, 'exempt_if_param_graph') and st.session_state.exempt_if_param_graph:
+                            selection = st.session_state.exempt_if_param_graph.get('selection', {})
+                            if selection and 'points' in selection and selection['points']:
+                                # Get the first selected point
+                                point = selection['points'][0]
+                                if 'id' in point:
+                                    selected_from_graph = point['id']
+                        
+                        # Determine the initial index
+                        initial_index = 0
+                        if selected_from_graph and selected_from_graph in exempt_if_param_options:
+                            initial_index = exempt_if_param_options.index(selected_from_graph)
+                        elif st.session_state.clicked_exempt_if_param and st.session_state.clicked_exempt_if_param in exempt_if_param_options:
+                            initial_index = exempt_if_param_options.index(st.session_state.clicked_exempt_if_param)
+                        
+                        selected_exempt_if_param = st.selectbox(
+                            "Select an exempt_if parameter to see detailed usage information:",
+                            options=exempt_if_param_options,
+                            index=initial_index,
+                            help="Choose a parameter to see related norms and exempt_if conditions. You can also click on a parameter in the graph above.",
+                            key="exempt_if_param_selector"
+                        )
+                        
+                        if selected_exempt_if_param:
+                            display_condition_parameter_usage_details(exempt_if_params_df, selected_exempt_if_param, data, 'exempt_if')
+                        
+                        # Show exempt_if parameter relationships table
+                        if exempt_if_param_relationships:
+                            st.divider()
+                            st.header("🚫 Exempt If Parameter Relationships")
+                            exempt_if_param_relationships_df = pd.DataFrame(exempt_if_param_relationships, columns=['Parent Parameter', 'Child Parameter'])
+                            st.dataframe(exempt_if_param_relationships_df, use_container_width=True)
+                    else:
+                        st.warning("Could not create the exempt_if parameter network graph.")
+                else:
+                    st.warning("No exempt_if parameter relationships found to display in graph.")
+            else:
+                st.divider()
+                st.info("No exempt_if parameter data found in the selected file.")
         else:
             st.warning("No tag data found in the selected file.")
     else:
