@@ -78,6 +78,55 @@ def extract_tag_data(data):
     
     return pd.DataFrame(tags_data)
 
+def extract_topic_data(data):
+    """Extract and process topic data from extractions."""
+    extractions = data.get('extractions', [])
+    
+    # Collect topic information from norms and tags
+    topic_info = defaultdict(lambda: {'norms': set(), 'tags': set(), 'related_topics': set()})
+    
+    # Process NORM extractions to get topic-norm and topic-tag relationships
+    for extraction in extractions:
+        if extraction.get('extraction_class') == 'NORM':
+            attrs = extraction.get('attributes', {})
+            norm_id = attrs.get('id', '')
+            topics = attrs.get('topics', [])
+            tags = attrs.get('relevant_tags', [])
+            
+            for topic in topics:
+                topic_info[topic]['norms'].add(norm_id)
+                topic_info[topic]['tags'].update(tags)
+    
+    # Process Tag extractions to get additional topic relationships
+    for extraction in extractions:
+        if extraction.get('extraction_class') == 'Tag':
+            attrs = extraction.get('attributes', {})
+            tag = attrs.get('tag', '')
+            related_topics = attrs.get('related_topics', [])
+            
+            for topic in related_topics:
+                topic_info[topic]['tags'].add(tag)
+    
+    # Convert to DataFrame format
+    topics_data = []
+    for topic_name, info in topic_info.items():
+        # Parse hierarchical structure for topics (similar to tags)
+        path_parts = topic_name.split('.')
+        
+        topics_data.append({
+            'topic_name': topic_name,
+            'depth': len(path_parts),
+            'root_category': path_parts[0] if path_parts else '',
+            'subcategory': path_parts[1] if len(path_parts) > 1 else '',
+            'norms': list(info['norms']),
+            'norm_count': len(info['norms']),
+            'tags': list(info['tags']),
+            'tag_count': len(info['tags']),
+            'is_chained': len(path_parts) > 1
+        })
+    
+    return pd.DataFrame(topics_data)
+
 def create_tag_network_graph(df):
     """Create a network graph showing tag relationships."""
     if df.empty:
@@ -221,6 +270,369 @@ def create_hierarchical_layout(G, tag_info):
                 pos[orphan] = (max_x + 5 + i * 2, -(depth - 1) * y_spacing)
     
     return pos
+
+def create_topic_network_graph(df):
+    """Create a network graph showing topic relationships."""
+    if df.empty:
+        return None
+    
+    # Create a graph
+    G = nx.DiGraph()  # Use directed graph to show hierarchy clearly
+    
+    # Track parent-child relationships
+    relationships = []
+    topic_info = {}
+    
+    # First, collect all existing topics
+    existing_topics = set(df['topic_name'].tolist())
+    
+    # Process each topic to find hierarchical relationships
+    for _, row in df.iterrows():
+        topic_name = row['topic_name']
+        path_parts = topic_name.split('.')
+        
+        # Store topic information
+        topic_info[topic_name] = {
+            'norm_count': row['norm_count'],
+            'tag_count': row['tag_count'],
+            'norms': row['norms'],
+            'tags': row['tags'],
+            'depth': row['depth'],
+            'is_chained': len(path_parts) > 1
+        }
+        
+        # Add the topic as a node
+        G.add_node(topic_name, **topic_info[topic_name])
+    
+    # Second pass: create edges for hierarchical relationships
+    for _, row in df.iterrows():
+        topic_name = row['topic_name']
+        path_parts = topic_name.split('.')
+        
+        # Create edges for hierarchical relationships
+        if len(path_parts) > 1:
+            # Try to connect to immediate parent first
+            for i in range(len(path_parts) - 1, 0, -1):
+                parent_path = '.'.join(path_parts[:i])
+                if parent_path in existing_topics:
+                    G.add_edge(parent_path, topic_name)
+                    relationships.append((parent_path, topic_name))
+                    break  # Only connect to the most immediate parent found
+            else:
+                # If no immediate parent exists, create a virtual parent node
+                parent_path = '.'.join(path_parts[:-1])
+                if parent_path not in existing_topics:
+                    # Add virtual parent node with minimal info
+                    topic_info[parent_path] = {
+                        'norm_count': 0,
+                        'tag_count': 0,
+                        'norms': [],
+                        'tags': [],
+                        'depth': len(parent_path.split('.')),
+                        'is_chained': '.' in parent_path,
+                        'is_virtual': True
+                    }
+                    G.add_node(parent_path, **topic_info[parent_path])
+                    existing_topics.add(parent_path)
+                
+                G.add_edge(parent_path, topic_name)
+                relationships.append((parent_path, topic_name))
+    
+    # Convert back to undirected graph for better visualization
+    G_undirected = nx.Graph(G)
+    
+    return G_undirected, topic_info, relationships
+
+def create_plotly_topic_network_graph(G, topic_info):
+    """Create an interactive topic network graph using plotly."""
+    if G is None or len(G.nodes()) == 0:
+        return None
+    
+    # Calculate positions using hierarchical layout
+    pos = create_topic_hierarchical_layout(G, topic_info)
+    
+    # Prepare node traces
+    node_x = []
+    node_y = []
+    node_text = []
+    node_color = []
+    node_size = []
+    node_info = []
+    
+    for node in G.nodes():
+        x, y = pos[node]
+        node_x.append(x)
+        node_y.append(y)
+        
+        info = topic_info.get(node, {})
+        norm_count = info.get('norm_count', 0)
+        tag_count = info.get('tag_count', 0)
+        depth = info.get('depth', 1)
+        is_chained = info.get('is_chained', False)
+        is_virtual = info.get('is_virtual', False)
+        
+        # Node text - show abbreviated text for better readability
+        display_text = node
+        if len(display_text) > 15:
+            # For hierarchical topics, show only the last part if too long
+            if '.' in display_text:
+                parts = display_text.split('.')
+                if len(parts[-1]) <= 12:
+                    display_text = parts[-1]  # Show only the last part
+                else:
+                    display_text = parts[-1][:12] + "..."
+            else:
+                display_text = display_text[:12] + "..."
+        node_text.append(display_text)
+        
+        # Node color based on depth and type
+        if is_virtual:
+            color = '#cccccc'  # Gray for virtual nodes
+        elif depth == 1:
+            color = '#ff6b6b'  # Red for root topics
+        elif depth == 2:
+            color = '#4ecdc4'  # Teal for second level
+        elif depth == 3:
+            color = '#45b7d1'  # Blue for third level
+        else:
+            color = '#96ceb4'  # Green for deeper levels
+        node_color.append(color)
+        
+        # Node size based on norm count (primary) and tag count (secondary)
+        if is_virtual:
+            size = 8  # Smaller size for virtual nodes
+        else:
+            # Size primarily based on norm count, with tag count as secondary factor
+            primary_size = max(10, min(40, 10 + norm_count * 2))
+            secondary_bonus = min(10, tag_count // 10)  # Small bonus for many tags
+            size = primary_size + secondary_bonus
+        node_size.append(size)
+        
+        # Hover info
+        hover_text = f"Topic: {node}<br>"
+        if is_virtual:
+            hover_text += "Type: Virtual Parent Topic<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += "Note: This parent topic was inferred from child topics"
+        else:
+            hover_text += f"Norm Count: {norm_count}<br>"
+            hover_text += f"Tag Count: {tag_count}<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += f"Chained: {'Yes' if is_chained else 'No'}"
+        node_info.append(hover_text)
+    
+    # Prepare edge traces
+    edge_x = []
+    edge_y = []
+    
+    for edge in G.edges():
+        x0, y0 = pos[edge[0]]
+        x1, y1 = pos[edge[1]]
+        edge_x.extend([x0, x1, None])
+        edge_y.extend([y0, y1, None])
+    
+    # Create edge trace
+    edge_trace = go.Scatter(
+        x=edge_x,
+        y=edge_y,
+        line=dict(width=1.5, color='rgba(100,100,100,0.6)'),
+        hoverinfo='none',
+        mode='lines'
+    )
+    
+    # Create node trace
+    node_trace = go.Scatter(
+        x=node_x,
+        y=node_y,
+        mode='markers+text',
+        hovertemplate='%{customdata}<extra></extra>',
+        customdata=node_info,
+        text=node_text,
+        textposition="middle center",
+        textfont=dict(size=10),
+        marker=dict(
+            showscale=True,
+            colorscale='Reds',
+            color=node_size,  # Use size for color scale
+            size=node_size,
+            colorbar=dict(
+                thickness=15,
+                len=0.7,
+                x=1.0,
+                title="Norm Count",
+                y=0.3  # Position below the tag colorbar
+            ),
+            line=dict(width=2)
+        )
+    )
+    
+    # Create the figure
+    fig = go.Figure(data=[edge_trace, node_trace],
+                   layout=go.Layout(
+                       title=dict(
+                           text='Topic Hierarchy Network Graph',
+                           font=dict(size=16)
+                       ),
+                       showlegend=False,
+                       hovermode='closest',
+                       margin=dict(b=20,l=5,r=5,t=40),
+                       annotations=[
+                           dict(
+                               text="Hierarchical view of topic relationships. Node size = norm count, Colors = depth level.",
+                               showarrow=False,
+                               xref="paper", yref="paper",
+                               x=0.005, y=-0.002,
+                               xanchor='left', yanchor='bottom',
+                               font=dict(size=12)
+                           )
+                       ],
+                       xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                       yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                       height=600,  # Slightly smaller than tag graph to fit on same page
+                       plot_bgcolor='rgba(250,240,240,0.3)'  # Light reddish background to differentiate from tag graph
+                   ))
+    
+    return fig
+
+def create_topic_hierarchical_layout(G, topic_info):
+    """Create a hierarchical layout for topics that shows parent-child relationships clearly."""
+    pos = {}
+    
+    # Group nodes by hierarchy depth
+    depth_groups = defaultdict(list)
+    for node in G.nodes():
+        depth = topic_info.get(node, {}).get('depth', 1)
+        depth_groups[depth].append(node)
+    
+    # Sort depths to ensure consistent ordering
+    sorted_depths = sorted(depth_groups.keys())
+    
+    # Calculate positions level by level
+    y_spacing = 2.5  # Vertical spacing between levels
+    
+    # First pass: position root nodes
+    for depth_idx, depth in enumerate(sorted_depths):
+        nodes_at_depth = depth_groups[depth]
+        
+        if depth == 1:  # Root nodes
+            # Spread root nodes horizontally
+            if len(nodes_at_depth) == 1:
+                x_positions = [0]
+            else:
+                total_width = (len(nodes_at_depth) - 1) * 6.0
+                x_positions = [i * 6.0 - total_width/2 for i in range(len(nodes_at_depth))]
+            
+            for i, node in enumerate(nodes_at_depth):
+                pos[node] = (x_positions[i], 0)
+    
+    # Second pass: position child nodes based on their parents
+    for depth in sorted_depths[1:]:  # Skip root level
+        nodes_at_depth = depth_groups[depth]
+        
+        # Group nodes by their parents
+        parent_groups = defaultdict(list)
+        orphans = []
+        
+        for node in nodes_at_depth:
+            parents = [n for n in G.neighbors(node) 
+                      if topic_info.get(n, {}).get('depth', 1) < depth and n in pos]
+            
+            if parents:
+                parent_groups[parents[0]].append(node)
+            else:
+                orphans.append(node)
+        
+        # Position children under their parents
+        for parent, children in parent_groups.items():
+            parent_x, parent_y = pos[parent]
+            child_y = parent_y - y_spacing
+            
+            if len(children) == 1:
+                pos[children[0]] = (parent_x, child_y)
+            else:
+                # Spread children around parent
+                child_spacing = 1.5
+                total_width = (len(children) - 1) * child_spacing
+                start_x = parent_x - total_width/2
+                
+                for i, child in enumerate(children):
+                    child_x = start_x + i * child_spacing
+                    pos[child] = (child_x, child_y)
+        
+        # Position orphan nodes
+        if orphans:
+            # Find the rightmost position at this level
+            max_x = max([x for x, y in pos.values() if abs(y - (-(depth - 1) * y_spacing)) < 0.1], default=0)
+            for i, orphan in enumerate(orphans):
+                pos[orphan] = (max_x + 4 + i * 1.5, -(depth - 1) * y_spacing)
+    
+    return pos
+
+def display_topic_usage_details(df, selected_topic):
+    """Display detailed usage information for a selected topic."""
+    if selected_topic and not df.empty:
+        topic_data = df[df['topic_name'] == selected_topic]
+        if not topic_data.empty:
+            topic_info = topic_data.iloc[0]
+            
+            st.subheader(f"🏷️ Topic Details: {selected_topic}")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write(f"**Topic Name:** {selected_topic}")
+                st.write(f"**Norm Count:** {topic_info['norm_count']}")
+                st.write(f"**Tag Count:** {topic_info['tag_count']}")
+                st.write(f"**Hierarchy Depth:** {topic_info['depth']}")
+                st.write(f"**Root Category:** {topic_info['root_category']}")
+                
+                # Show if it's a chained topic
+                if '.' in selected_topic:
+                    st.info("🔗 This is a chained topic (contains dots)")
+                else:
+                    st.info("🏷️ This is a root-level topic")
+            
+            with col2:
+                if topic_info['norms']:
+                    st.write(f"**Related Norms ({len(topic_info['norms'])}):**")
+                    # Show first 10 norms
+                    for norm_id in topic_info['norms'][:10]:
+                        st.write(f"- {norm_id}")
+                    if len(topic_info['norms']) > 10:
+                        st.write(f"... and {len(topic_info['norms']) - 10} more")
+                
+                if topic_info['tags']:
+                    st.write(f"**Related Tags ({len(topic_info['tags'])}):**")
+                    # Show first 10 tags
+                    for tag in topic_info['tags'][:10]:
+                        st.write(f"- {tag}")
+                    if len(topic_info['tags']) > 10:
+                        st.write(f"... and {len(topic_info['tags']) - 10} more")
+
+def display_topic_statistics(df, G):
+    """Display statistics about the topic graph."""
+    st.header("🏷️ Topic Statistics")
+    
+    if df.empty or G is None:
+        return
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Total Topics", len(df))
+    
+    with col2:
+        chained_topics = len(df[df['topic_name'].str.contains('.', regex=False)])
+        st.metric("Chained Topics", chained_topics)
+    
+    with col3:
+        root_topics = len(df[~df['topic_name'].str.contains('.', regex=False)])
+        st.metric("Root Topics", root_topics)
+    
+    with col4:
+        if G:
+            connected_components = nx.number_connected_components(G)
+            st.metric("Connected Components", connected_components)
 
 def create_plotly_network_graph(G, tag_info):
     """Create an interactive network graph using plotly."""
@@ -523,12 +935,61 @@ def main():
                     st.warning("Could not create the network graph.")
             else:
                 st.warning("No tag relationships found to display in graph.")
+                
+            # ===== ADD TOPIC NETWORK SECTION =====
+            # Extract and process topic data
+            topics_df = extract_topic_data(data)
+            
+            if not topics_df.empty:
+                st.divider()
+                st.divider()  # Double divider to separate sections
+                
+                # Create topic network graph
+                topic_G, topic_info, topic_relationships = create_topic_network_graph(topics_df)
+                
+                # Display topic statistics
+                display_topic_statistics(topics_df, topic_G)
+                st.divider()
+                
+                # Create and display the interactive topic graph
+                st.header("🏷️ Topic Relationship Network")
+                
+                if topic_G and len(topic_G.nodes()) > 0:
+                    topic_fig = create_plotly_topic_network_graph(topic_G, topic_info)
+                    if topic_fig:
+                        st.plotly_chart(topic_fig, use_container_width=True)
+                        
+                        # Topic selection for detailed view
+                        st.divider()
+                        selected_topic = st.selectbox(
+                            "Select a topic to see detailed usage information:",
+                            options=[""] + sorted(topics_df['topic_name'].tolist()),
+                            index=0,
+                            help="Choose a topic to see related norms and tags",
+                            key="topic_selector"  # Unique key to avoid conflicts with tag selector
+                        )
+                        
+                        if selected_topic:
+                            display_topic_usage_details(topics_df, selected_topic)
+                        
+                        # Show topic relationships table
+                        if topic_relationships:
+                            st.divider()
+                            st.header("🏷️ Topic Relationships")
+                            topic_relationships_df = pd.DataFrame(topic_relationships, columns=['Parent Topic', 'Child Topic'])
+                            st.dataframe(topic_relationships_df, use_container_width=True)
+                    else:
+                        st.warning("Could not create the topic network graph.")
+                else:
+                    st.warning("No topic relationships found to display in graph.")
+            else:
+                st.divider()
+                st.info("No topic data found in the selected file.")
         else:
             st.warning("No tag data found in the selected file.")
-            
     else:
         st.info("👆 Please select a data source from the sidebar to view the tag graph.")
-        st.markdown("""
+    st.markdown("""
         ### About Tag Graph
         
         This page provides an interactive network visualization of tag relationships, including:
