@@ -14,6 +14,60 @@ st.set_page_config(
     layout="wide"
 )
 
+# Hardcoded tag aliases - list of lists where each sublist contains aliases of one tag
+# Special rule: if an alias contains a dot, it only matches tags under that parent
+TAG_ALIASES = [
+    ["ACCESSIBILITY", "ACCESSIBLE"],
+    ["DOOR", "PUERTA"],
+    ["FIRE.SYSTEM", "FIRE_SYSTEM"],
+    ["FIRE.DETECTION", "FIRE_DETECTION"],
+    ["FIRE.ALARM", "FIRE_ALARM"],
+    ["BUILDING.AREA", "AREA.BUILT"],
+    ["BUILDING.HEIGHT", "HEIGHT"],
+    ["EVACUATION.ROUTE", "EVACUATION_ROUTE"],
+    ["SAFETY.FIRE", "FIRE.SAFETY"],
+    ["EMERGENCY.EXIT", "EXIT.EMERGENCY"]
+]
+
+def get_canonical_tag(tag_path):
+    """Get the canonical tag name for a given tag path, considering aliases."""
+    # For each alias group, check if the tag matches any alias
+    for alias_group in TAG_ALIASES:
+        for alias in alias_group:
+            if '.' in alias:
+                # Special rule: dotted aliases only match if the tag sits under the same parent
+                alias_parts = alias.split('.')
+                tag_parts = tag_path.split('.')
+                
+                # Check if the tag structure matches the alias structure
+                if len(tag_parts) >= len(alias_parts):
+                    # Compare the relevant parts
+                    if alias_parts == tag_parts[:len(alias_parts)]:
+                        # Return the first alias in the group (canonical form)
+                        return alias_group[0]
+                    
+                    # Also check if it's a direct match with underscore variant
+                    alias_underscore = alias.replace('.', '_')
+                    if tag_path == alias_underscore:
+                        # Convert to canonical dotted form
+                        return alias_group[0]
+            else:
+                # Simple string matching for non-dotted aliases
+                if tag_path.upper() == alias.upper():
+                    return alias_group[0]
+                
+                # Check if it's part of a larger tag path
+                tag_parts = tag_path.split('.')
+                for part in tag_parts:
+                    if part.upper() == alias.upper():
+                        # Replace this part with canonical form
+                        canonical_parts = tag_parts.copy()
+                        canonical_parts[tag_parts.index(part)] = alias_group[0]
+                        return '.'.join(canonical_parts)
+    
+    # If no alias found, return original tag
+    return tag_path
+
 def find_latest_combined_extractions():
     """Find the latest combined_extractions.json file."""
     base_path = Path(__file__).parent.parent.parent
@@ -54,26 +108,51 @@ def extract_tag_data(data):
     extractions = data.get('extractions', [])
     tag_extractions = [e for e in extractions if e.get('extraction_class') == 'Tag']
     
-    tags_data = []
+    # Use a dictionary to merge aliases
+    merged_tags = defaultdict(lambda: {
+        'ids': [],
+        'original_paths': [],
+        'used_by_norms': set(),
+        'related_topics': set(),
+        'section_parents': set(),
+        'extraction_texts': set()
+    })
+    
+    # Process each tag extraction and merge aliases
     for tag_extraction in tag_extractions:
         attrs = tag_extraction.get('attributes', {})
-        tag_path = attrs.get('tag', tag_extraction.get('extraction_text', ''))
+        original_tag_path = attrs.get('tag', tag_extraction.get('extraction_text', ''))
         
-        # Parse hierarchical structure
-        path_parts = tag_path.split('.')
+        # Get the canonical tag name (handling aliases)
+        canonical_tag_path = get_canonical_tag(original_tag_path)
+        
+        # Merge data for this canonical tag
+        merged_tags[canonical_tag_path]['ids'].append(attrs.get('id', ''))
+        merged_tags[canonical_tag_path]['original_paths'].append(original_tag_path)
+        merged_tags[canonical_tag_path]['used_by_norms'].update(attrs.get('used_by_norm_ids', []))
+        merged_tags[canonical_tag_path]['related_topics'].update(attrs.get('related_topics', []))
+        merged_tags[canonical_tag_path]['section_parents'].add(tag_extraction.get('section_parent_id', ''))
+        merged_tags[canonical_tag_path]['extraction_texts'].add(tag_extraction.get('extraction_text', ''))
+    
+    # Convert merged data to the expected format
+    tags_data = []
+    for canonical_tag_path, merged_data in merged_tags.items():
+        # Parse hierarchical structure of canonical tag
+        path_parts = canonical_tag_path.split('.')
         
         tags_data.append({
-            'id': attrs.get('id', ''),
-            'tag_path': tag_path,
+            'id': ', '.join(merged_data['ids']),  # Combine all IDs
+            'tag_path': canonical_tag_path,
+            'original_paths': list(merged_data['original_paths']),  # Keep track of original paths
             'depth': len(path_parts),
             'root_category': path_parts[0] if path_parts else '',
             'subcategory': path_parts[1] if len(path_parts) > 1 else '',
             'full_category': '.'.join(path_parts[:2]) if len(path_parts) > 1 else path_parts[0] if path_parts else '',
-            'used_by_norms': attrs.get('used_by_norm_ids', []),
-            'usage_count': len(attrs.get('used_by_norm_ids', [])),
-            'related_topics': attrs.get('related_topics', []),
-            'section_parent': tag_extraction.get('section_parent_id', ''),
-            'extraction_text': tag_extraction.get('extraction_text', '')
+            'used_by_norms': list(merged_data['used_by_norms']),
+            'usage_count': len(merged_data['used_by_norms']),
+            'related_topics': list(merged_data['related_topics']),
+            'section_parent': ', '.join(filter(None, merged_data['section_parents'])),
+            'extraction_text': ', '.join(filter(None, merged_data['extraction_texts']))
         })
     
     return pd.DataFrame(tags_data)
@@ -1218,6 +1297,15 @@ def display_tag_usage_details(df, selected_tag):
                     st.info("🔗 This is a chained tag (contains dots)")
                 else:
                     st.info("🏷️ This is a root-level tag")
+                
+                # Show alias information if this tag has merged aliases
+                if 'original_paths' in tag_info and tag_info['original_paths']:
+                    original_paths = tag_info['original_paths']
+                    if len(original_paths) > 1 or (len(original_paths) == 1 and original_paths[0] != selected_tag):
+                        st.info(f"🔄 **Merged Aliases**: This tag combines data from {len(original_paths)} tag variant(s)")
+                        with st.expander("View original tag names"):
+                            for path in original_paths:
+                                st.write(f"- {path}")
             
             with col2:
                 if tag_info['related_topics']:
