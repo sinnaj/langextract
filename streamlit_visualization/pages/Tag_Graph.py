@@ -2148,7 +2148,9 @@ def main():
                     
                     with col4:
                         if applies_if_param_G:
-                            connected_components = nx.number_connected_components(applies_if_param_G)
+                            # Convert to undirected for connected components calculation
+                            undirected_g = applies_if_param_G.to_undirected() if applies_if_param_G.is_directed() else applies_if_param_G
+                            connected_components = nx.number_connected_components(undirected_g)
                             st.metric("Connected Components", connected_components)
                 
                 st.divider()
@@ -2242,7 +2244,9 @@ def main():
                     
                     with col4:
                         if exempt_if_param_G:
-                            connected_components = nx.number_connected_components(exempt_if_param_G)
+                            # Convert to undirected for connected components calculation  
+                            undirected_g = exempt_if_param_G.to_undirected() if exempt_if_param_G.is_directed() else exempt_if_param_G
+                            connected_components = nx.number_connected_components(undirected_g)
                             st.metric("Connected Components", connected_components)
                 
                 st.divider()
