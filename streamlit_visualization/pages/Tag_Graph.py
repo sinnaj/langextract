@@ -1374,7 +1374,8 @@ def display_hoverable_norm_id(norm_id, norm_details):
         **Tags:** {', '.join(norm_details['relevant_tags'][:3])}{'...' if len(norm_details['relevant_tags']) > 3 else ''}
         """
         
-        # Use HTML with CSS for tooltip (increased width for more content)
+        # Use HTML with CSS and JavaScript for smart tooltip positioning
+        tooltip_id = f"tooltip_{hash(norm_id) % 10000}"  # Create unique ID for this tooltip
         st.markdown(f"""
         <style>
         .norm-tooltip {{
@@ -1386,25 +1387,23 @@ def display_hoverable_norm_id(norm_id, norm_details):
         }}
         .norm-tooltip .tooltiptext {{
             visibility: hidden;
-            width: 500px;
+            width: 480px;
             background-color: #333;
             color: #fff;
             text-align: left;
             border-radius: 6px;
             padding: 12px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -250px;
+            position: fixed;
+            z-index: 9999;
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 12px;
             line-height: 1.4;
             white-space: pre-line;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             max-height: 400px;
             overflow-y: auto;
+            pointer-events: none;
         }}
         .norm-tooltip:hover .tooltiptext {{
             visibility: visible;
@@ -1413,17 +1412,114 @@ def display_hoverable_norm_id(norm_id, norm_details):
         .norm-tooltip .tooltiptext::after {{
             content: "";
             position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
+            border-width: 8px;
             border-style: solid;
+        }}
+        /* Arrow pointing up (tooltip below element) */
+        .tooltip-below::after {{
+            top: -16px;
+            left: 50%;
+            margin-left: -8px;
+            border-color: transparent transparent #333 transparent;
+        }}
+        /* Arrow pointing down (tooltip above element) */
+        .tooltip-above::after {{
+            bottom: -16px;
+            left: 50%;
+            margin-left: -8px;
             border-color: #333 transparent transparent transparent;
         }}
+        /* Arrow pointing right (tooltip to the left) */
+        .tooltip-left::after {{
+            top: 50%;
+            right: -16px;
+            margin-top: -8px;
+            border-color: transparent transparent transparent #333;
+        }}
+        /* Arrow pointing left (tooltip to the right) */
+        .tooltip-right::after {{
+            top: 50%;
+            left: -16px;
+            margin-top: -8px;
+            border-color: transparent #333 transparent transparent;
+        }}
         </style>
-        <div class="norm-tooltip">- {norm_id}
-            <span class="tooltiptext">{tooltip_content.strip()}</span>
+        <div class="norm-tooltip" onmouseenter="positionTooltip_{tooltip_id}(event)" onmouseleave="hideTooltip_{tooltip_id}()">- {norm_id}
+            <span class="tooltiptext" id="{tooltip_id}">{tooltip_content.strip()}</span>
         </div>
+        <script>
+        function positionTooltip_{tooltip_id}(event) {{
+            const tooltip = document.getElementById('{tooltip_id}');
+            const trigger = event.target;
+            
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            // Get trigger element position
+            const triggerRect = trigger.getBoundingClientRect();
+            
+            // Tooltip dimensions
+            const tooltipWidth = 480;
+            const tooltipHeight = Math.min(400, tooltip.scrollHeight + 24); // Max height + padding
+            
+            let x, y;
+            let position = 'above'; // default
+            
+            // Determine best position
+            // Try above first
+            if (triggerRect.top > tooltipHeight + 20) {{
+                y = triggerRect.top - tooltipHeight - 10;
+                position = 'above';
+            }}
+            // Try below if not enough space above
+            else if (triggerRect.bottom + tooltipHeight + 20 < viewportHeight) {{
+                y = triggerRect.bottom + 10;
+                position = 'below';
+            }}
+            // Try to the left
+            else if (triggerRect.left > tooltipWidth + 20) {{
+                x = triggerRect.left - tooltipWidth - 10;
+                y = triggerRect.top + (triggerRect.height / 2) - (tooltipHeight / 2);
+                position = 'left';
+            }}
+            // Try to the right
+            else if (triggerRect.right + tooltipWidth + 20 < viewportWidth) {{
+                x = triggerRect.right + 10;
+                y = triggerRect.top + (triggerRect.height / 2) - (tooltipHeight / 2);
+                position = 'right';
+            }}
+            // Fallback: above with adjusted position
+            else {{
+                y = Math.max(10, triggerRect.top - tooltipHeight - 10);
+                position = 'above';
+            }}
+            
+            // Calculate x position for above/below positions
+            if (position === 'above' || position === 'below') {{
+                x = triggerRect.left + (triggerRect.width / 2) - (tooltipWidth / 2);
+                // Ensure tooltip doesn't go off screen horizontally
+                x = Math.max(10, Math.min(x, viewportWidth - tooltipWidth - 10));
+            }}
+            
+            // Ensure tooltip doesn't go off screen vertically for left/right positions
+            if (position === 'left' || position === 'right') {{
+                y = Math.max(10, Math.min(y, viewportHeight - tooltipHeight - 10));
+            }}
+            
+            // Apply position
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+            
+            // Remove old arrow classes and add appropriate one
+            tooltip.classList.remove('tooltip-above', 'tooltip-below', 'tooltip-left', 'tooltip-right');
+            tooltip.classList.add('tooltip-' + position);
+        }}
+        
+        function hideTooltip_{tooltip_id}() {{
+            // No additional action needed, CSS handles hiding
+        }}
+        </script>
         """, unsafe_allow_html=True)
     else:
         # Fallback if no details found
