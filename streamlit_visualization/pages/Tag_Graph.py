@@ -650,7 +650,7 @@ def create_topic_hierarchical_layout(G, topic_info):
     
     return pos
 
-def display_topic_usage_details(df, selected_topic):
+def display_topic_usage_details(df, selected_topic, data=None):
     """Display detailed usage information for a selected topic."""
     if selected_topic and not df.empty:
         topic_data = df[df['topic_name'] == selected_topic]
@@ -677,11 +677,18 @@ def display_topic_usage_details(df, selected_topic):
             with col2:
                 if topic_info['norms']:
                     st.write(f"**Related Norms ({len(topic_info['norms'])}):**")
-                    # Show first 10 norms
-                    for norm_id in topic_info['norms'][:10]:
-                        st.write(f"- {norm_id}")
-                    if len(topic_info['norms']) > 10:
-                        st.write(f"... and {len(topic_info['norms']) - 10} more")
+                    # Display hoverable norm IDs
+                    if data:  # If we have access to the full data
+                        for norm_id in topic_info['norms'][:10]:  # Show first 10
+                            norm_details = get_norm_details_by_id(data, norm_id)
+                            display_hoverable_norm_id(norm_id, norm_details)
+                        if len(topic_info['norms']) > 10:
+                            st.write(f"... and {len(topic_info['norms']) - 10} more")
+                    else:  # Fallback to original display if no data available
+                        for norm_id in topic_info['norms'][:10]:
+                            st.write(f"- {norm_id}")
+                        if len(topic_info['norms']) > 10:
+                            st.write(f"... and {len(topic_info['norms']) - 10} more")
                 
                 if topic_info['tags']:
                     st.write(f"**Related Tags ({len(topic_info['tags'])}):**")
@@ -1060,7 +1067,7 @@ def create_parameter_hierarchical_layout(G, param_info):
     
     return pos
 
-def display_parameter_usage_details(df, selected_param):
+def display_parameter_usage_details(df, selected_param, data=None):
     """Display detailed usage information for a selected parameter."""
     if selected_param and not df.empty:
         param_data = df[df['parameter_name'] == selected_param]
@@ -1087,11 +1094,18 @@ def display_parameter_usage_details(df, selected_param):
             with col2:
                 if param_info['norms']:
                     st.write(f"**Related Norms ({len(param_info['norms'])}):**")
-                    # Show first 10 norms
-                    for norm_id in param_info['norms'][:10]:
-                        st.write(f"- {norm_id}")
-                    if len(param_info['norms']) > 10:
-                        st.write(f"... and {len(param_info['norms']) - 10} more")
+                    # Display hoverable norm IDs
+                    if data:  # If we have access to the full data
+                        for norm_id in param_info['norms'][:10]:  # Show first 10
+                            norm_details = get_norm_details_by_id(data, norm_id)
+                            display_hoverable_norm_id(norm_id, norm_details)
+                        if len(param_info['norms']) > 10:
+                            st.write(f"... and {len(param_info['norms']) - 10} more")
+                    else:  # Fallback to original display if no data available
+                        for norm_id in param_info['norms'][:10]:
+                            st.write(f"- {norm_id}")
+                        if len(param_info['norms']) > 10:
+                            st.write(f"... and {len(param_info['norms']) - 10} more")
                 
                 if param_info['details']:
                     st.write(f"**Parameter Instances ({len(param_info['details'])}):**")
@@ -1278,7 +1292,109 @@ def create_plotly_network_graph(G, tag_info):
     
     return fig
 
-def display_tag_usage_details(df, selected_tag):
+def get_norm_details_by_id(data, norm_id):
+    """Get detailed norm information by norm ID."""
+    extractions = data.get('extractions', [])
+    norm_extractions = [e for e in extractions if e.get('extraction_class') in ['Norm', 'NORM']]
+    
+    for norm in norm_extractions:
+        attrs = norm.get('attributes', {})
+        if attrs.get('id') == norm_id:
+            return {
+                'id': attrs.get('id', ''),
+                'norm_statement': attrs.get('norm_statement', norm.get('extraction_text', '')),
+                'obligation_type': attrs.get('obligation_type', ''),
+                'priority': attrs.get('priority', 0),
+                'confidence': attrs.get('confidence', 0),
+                'applies_if': attrs.get('applies_if', ''),
+                'satisfied_if': attrs.get('satisfied_if', ''),
+                'exempt_if': attrs.get('exempt_if', ''),
+                'topics': attrs.get('topics', []),
+                'relevant_tags': attrs.get('relevant_tags', []),
+                'parent_section_id': attrs.get('parent_section_id', ''),
+                'paragraph_number': attrs.get('paragraph_number', 0),
+                'extraction_text': norm.get('extraction_text', ''),
+                'location_scope': attrs.get('location_scope', {}),
+                'project_dimensions': attrs.get('project_dimensions', {})
+            }
+    return None
+
+def display_hoverable_norm_id(norm_id, norm_details):
+    """Display a norm ID with hoverable tooltip showing norm details."""
+    if norm_details:
+        # Create tooltip content
+        tooltip_content = f"""
+        **Norm ID:** {norm_details['id']}
+        
+        **Statement:** {norm_details['norm_statement'][:200]}{'...' if len(norm_details['norm_statement']) > 200 else ''}
+        
+        **Type:** {norm_details['obligation_type']}
+        **Priority:** {norm_details['priority']}
+        **Confidence:** {norm_details['confidence']:.2f}
+        
+        **Applies If:** {norm_details['applies_if'][:100]}{'...' if len(norm_details['applies_if']) > 100 else ''}
+        
+        **Satisfied If:** {norm_details['satisfied_if'][:100]}{'...' if len(norm_details['satisfied_if']) > 100 else ''}
+        
+        **Topics:** {', '.join(norm_details['topics'][:3])}{'...' if len(norm_details['topics']) > 3 else ''}
+        
+        **Tags:** {', '.join(norm_details['relevant_tags'][:3])}{'...' if len(norm_details['relevant_tags']) > 3 else ''}
+        """
+        
+        # Use HTML with CSS for tooltip
+        st.markdown(f"""
+        <style>
+        .norm-tooltip {{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: #0066cc;
+            text-decoration: underline;
+        }}
+        .norm-tooltip .tooltiptext {{
+            visibility: hidden;
+            width: 400px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -200px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            line-height: 1.4;
+            white-space: pre-line;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }}
+        .norm-tooltip:hover .tooltiptext {{
+            visibility: visible;
+            opacity: 1;
+        }}
+        .norm-tooltip .tooltiptext::after {{
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }}
+        </style>
+        <div class="norm-tooltip">- {norm_id}
+            <span class="tooltiptext">{tooltip_content.strip()}</span>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        # Fallback if no details found
+        st.write(f"- {norm_id}")
+
+def display_tag_usage_details(df, selected_tag, data=None):
     """Display detailed usage information for a selected tag."""
     if selected_tag and not df.empty:
         tag_data = df[df['tag_path'] == selected_tag]
@@ -1320,10 +1436,18 @@ def display_tag_usage_details(df, selected_tag):
                 
                 if tag_info['used_by_norms']:
                     st.write(f"**Used by {len(tag_info['used_by_norms'])} norm(s):**")
-                    for norm_id in tag_info['used_by_norms'][:5]:  # Show first 5
-                        st.write(f"- {norm_id}")
-                    if len(tag_info['used_by_norms']) > 5:
-                        st.write(f"... and {len(tag_info['used_by_norms']) - 5} more")
+                    # Display hoverable norm IDs
+                    if data:  # If we have access to the full data
+                        for norm_id in tag_info['used_by_norms'][:5]:  # Show first 5
+                            norm_details = get_norm_details_by_id(data, norm_id)
+                            display_hoverable_norm_id(norm_id, norm_details)
+                        if len(tag_info['used_by_norms']) > 5:
+                            st.write(f"... and {len(tag_info['used_by_norms']) - 5} more")
+                    else:  # Fallback to original display if no data available
+                        for norm_id in tag_info['used_by_norms'][:5]:  # Show first 5
+                            st.write(f"- {norm_id}")
+                        if len(tag_info['used_by_norms']) > 5:
+                            st.write(f"... and {len(tag_info['used_by_norms']) - 5} more")
 
 def display_graph_statistics(df, G):
     """Display statistics about the tag graph."""
@@ -1429,7 +1553,7 @@ def main():
                     )
                     
                     if selected_tag:
-                        display_tag_usage_details(tags_df, selected_tag)
+                        display_tag_usage_details(tags_df, selected_tag, data)
                     
                     # Show relationships table
                     if relationships:
@@ -1476,7 +1600,7 @@ def main():
                         )
                         
                         if selected_topic:
-                            display_topic_usage_details(topics_df, selected_topic)
+                            display_topic_usage_details(topics_df, selected_topic, data)
                         
                         # Show topic relationships table
                         if topic_relationships:
@@ -1526,7 +1650,7 @@ def main():
                         )
                         
                         if selected_param:
-                            display_parameter_usage_details(params_df, selected_param)
+                            display_parameter_usage_details(params_df, selected_param, data)
                         
                         # Show parameter relationships table
                         if param_relationships:
