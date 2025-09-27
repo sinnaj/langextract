@@ -634,6 +634,421 @@ def display_topic_statistics(df, G):
             connected_components = nx.number_connected_components(G)
             st.metric("Connected Components", connected_components)
 
+def extract_parameter_data(data):
+    """Extract and process parameter data from extractions."""
+    extractions = data.get('extractions', [])
+    parameter_extractions = [e for e in extractions if e.get('extraction_class') == 'Parameter']
+    
+    # Collect parameter information
+    param_info = defaultdict(lambda: {'norms': set(), 'details': []})
+    
+    for param_extraction in parameter_extractions:
+        attrs = param_extraction.get('attributes', {})
+        param_tag = attrs.get('applies_for_tag', '')
+        param_id = attrs.get('id', '')
+        norm_ids = attrs.get('norm_ids', [])
+        value = attrs.get('value', '')
+        unit = attrs.get('unit', '')
+        operator = attrs.get('operator', '')
+        
+        if param_tag:  # Only process if we have a valid parameter tag
+            param_info[param_tag]['norms'].update(norm_ids)
+            param_info[param_tag]['details'].append({
+                'id': param_id,
+                'value': value,
+                'unit': unit,
+                'operator': operator,
+                'norm_ids': norm_ids
+            })
+    
+    # Convert to DataFrame format
+    params_data = []
+    for param_name, info in param_info.items():
+        # Parse hierarchical structure for parameters (similar to tags and topics)
+        path_parts = param_name.split('.')
+        
+        params_data.append({
+            'parameter_name': param_name,
+            'depth': len(path_parts),
+            'root_category': path_parts[0] if path_parts else '',
+            'subcategory': path_parts[1] if len(path_parts) > 1 else '',
+            'norms': list(info['norms']),
+            'norm_count': len(info['norms']),
+            'details': info['details'],
+            'instance_count': len(info['details']),
+            'is_chained': len(path_parts) > 1
+        })
+    
+    return pd.DataFrame(params_data)
+
+def create_parameter_network_graph(df):
+    """Create a network graph showing parameter relationships."""
+    if df.empty:
+        return None
+    
+    # Create a graph
+    G = nx.DiGraph()  # Use directed graph to show hierarchy clearly
+    
+    # Track parent-child relationships
+    relationships = []
+    param_info = {}
+    
+    # First, collect all existing parameters
+    existing_params = set(df['parameter_name'].tolist())
+    
+    # Process each parameter to find hierarchical relationships
+    for _, row in df.iterrows():
+        param_name = row['parameter_name']
+        path_parts = param_name.split('.')
+        
+        # Store parameter information
+        param_info[param_name] = {
+            'norm_count': row['norm_count'],
+            'instance_count': row['instance_count'],
+            'norms': row['norms'],
+            'details': row['details'],
+            'depth': row['depth'],
+            'is_chained': len(path_parts) > 1
+        }
+        
+        # Add the parameter as a node
+        G.add_node(param_name, **param_info[param_name])
+    
+    # Second pass: create edges for hierarchical relationships
+    for _, row in df.iterrows():
+        param_name = row['parameter_name']
+        path_parts = param_name.split('.')
+        
+        # Create edges for hierarchical relationships
+        if len(path_parts) > 1:
+            # Try to connect to immediate parent first
+            for i in range(len(path_parts) - 1, 0, -1):
+                parent_path = '.'.join(path_parts[:i])
+                if parent_path in existing_params:
+                    G.add_edge(parent_path, param_name)
+                    relationships.append((parent_path, param_name))
+                    break  # Only connect to the most immediate parent found
+            else:
+                # If no immediate parent exists, create a virtual parent node
+                parent_path = '.'.join(path_parts[:-1])
+                if parent_path not in existing_params:
+                    # Add virtual parent node with minimal info
+                    param_info[parent_path] = {
+                        'norm_count': 0,
+                        'instance_count': 0,
+                        'norms': [],
+                        'details': [],
+                        'depth': len(parent_path.split('.')),
+                        'is_chained': '.' in parent_path,
+                        'is_virtual': True
+                    }
+                    G.add_node(parent_path, **param_info[parent_path])
+                    existing_params.add(parent_path)
+                
+                G.add_edge(parent_path, param_name)
+                relationships.append((parent_path, param_name))
+    
+    # Convert back to undirected graph for better visualization
+    G_undirected = nx.Graph(G)
+    
+    return G_undirected, param_info, relationships
+
+def create_plotly_parameter_network_graph(G, param_info):
+    """Create an interactive parameter network graph using plotly."""
+    if G is None or len(G.nodes()) == 0:
+        return None
+    
+    # Calculate positions using hierarchical layout
+    pos = create_parameter_hierarchical_layout(G, param_info)
+    
+    # Prepare node traces
+    node_x = []
+    node_y = []
+    node_text = []
+    node_color = []
+    node_size = []
+    node_info = []
+    
+    for node in G.nodes():
+        x, y = pos[node]
+        node_x.append(x)
+        node_y.append(y)
+        
+        info = param_info.get(node, {})
+        norm_count = info.get('norm_count', 0)
+        instance_count = info.get('instance_count', 0)
+        depth = info.get('depth', 1)
+        is_chained = info.get('is_chained', False)
+        is_virtual = info.get('is_virtual', False)
+        
+        # Node text - show abbreviated text for better readability
+        display_text = node
+        if len(display_text) > 15:
+            # For hierarchical parameters, show only the last part if too long
+            if '.' in display_text:
+                parts = display_text.split('.')
+                if len(parts[-1]) <= 12:
+                    display_text = parts[-1]  # Show only the last part
+                else:
+                    display_text = parts[-1][:12] + "..."
+            else:
+                display_text = display_text[:12] + "..."
+        node_text.append(display_text)
+        
+        # Node color based on depth and type (green color scheme for parameters)
+        if is_virtual:
+            color = '#cccccc'  # Gray for virtual nodes
+        elif depth == 1:
+            color = '#2e8b57'  # Dark green for root parameters
+        elif depth == 2:
+            color = '#3cb371'  # Medium green for second level
+        elif depth == 3:
+            color = '#98fb98'  # Light green for third level
+        else:
+            color = '#90ee90'  # Light green for deeper levels
+        node_color.append(color)
+        
+        # Node size based on norm count (primary) and instance count (secondary)
+        if is_virtual:
+            size = 8  # Smaller size for virtual nodes
+        else:
+            # Size primarily based on norm count, with instance count as secondary factor
+            primary_size = max(10, min(40, 10 + norm_count * 3))
+            secondary_bonus = min(8, instance_count // 2)  # Small bonus for multiple instances
+            size = primary_size + secondary_bonus
+        node_size.append(size)
+        
+        # Hover info
+        hover_text = f"Parameter: {node}<br>"
+        if is_virtual:
+            hover_text += "Type: Virtual Parent Parameter<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += "Note: This parent parameter was inferred from child parameters"
+        else:
+            hover_text += f"Norm Count: {norm_count}<br>"
+            hover_text += f"Instance Count: {instance_count}<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += f"Chained: {'Yes' if is_chained else 'No'}"
+        node_info.append(hover_text)
+    
+    # Prepare edge traces
+    edge_x = []
+    edge_y = []
+    
+    for edge in G.edges():
+        x0, y0 = pos[edge[0]]
+        x1, y1 = pos[edge[1]]
+        edge_x.extend([x0, x1, None])
+        edge_y.extend([y0, y1, None])
+    
+    # Create edge trace
+    edge_trace = go.Scatter(
+        x=edge_x,
+        y=edge_y,
+        line=dict(width=1.5, color='rgba(46,139,87,0.6)'),  # Green color for parameter edges
+        hoverinfo='none',
+        mode='lines'
+    )
+    
+    # Create node trace
+    node_trace = go.Scatter(
+        x=node_x,
+        y=node_y,
+        mode='markers+text',
+        hovertemplate='%{customdata}<extra></extra>',
+        customdata=node_info,
+        text=node_text,
+        textposition="middle center",
+        textfont=dict(size=10),
+        marker=dict(
+            showscale=True,
+            colorscale='Greens',
+            color=node_size,  # Use size for color scale
+            size=node_size,
+            colorbar=dict(
+                thickness=15,
+                len=0.7,
+                x=1.0,
+                title="Norm Count",
+                y=0.1  # Position below the topic and tag colorbars
+            ),
+            line=dict(width=2)
+        )
+    )
+    
+    # Create the figure
+    fig = go.Figure(data=[edge_trace, node_trace],
+                   layout=go.Layout(
+                       title=dict(
+                           text='Parameter Hierarchy Network Graph',
+                           font=dict(size=16)
+                       ),
+                       showlegend=False,
+                       hovermode='closest',
+                       margin=dict(b=20,l=5,r=5,t=40),
+                       annotations=[
+                           dict(
+                               text="Hierarchical view of parameter relationships. Node size = norm count, Colors = depth level.",
+                               showarrow=False,
+                               xref="paper", yref="paper",
+                               x=0.005, y=-0.002,
+                               xanchor='left', yanchor='bottom',
+                               font=dict(size=12)
+                           )
+                       ],
+                       xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                       yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                       height=600,  # Slightly smaller than tag graph to fit on same page
+                       plot_bgcolor='rgba(240,250,240,0.3)'  # Light greenish background to differentiate from tag and topic graphs
+                   ))
+    
+    return fig
+
+def create_parameter_hierarchical_layout(G, param_info):
+    """Create a hierarchical layout for parameters that shows parent-child relationships clearly."""
+    pos = {}
+    
+    # Group nodes by hierarchy depth
+    depth_groups = defaultdict(list)
+    for node in G.nodes():
+        depth = param_info.get(node, {}).get('depth', 1)
+        depth_groups[depth].append(node)
+    
+    # Sort depths to ensure consistent ordering
+    sorted_depths = sorted(depth_groups.keys())
+    
+    # Calculate positions level by level
+    y_spacing = 2.5  # Vertical spacing between levels
+    
+    # First pass: position root nodes
+    for depth_idx, depth in enumerate(sorted_depths):
+        nodes_at_depth = depth_groups[depth]
+        
+        if depth == 1:  # Root nodes
+            # Spread root nodes horizontally
+            if len(nodes_at_depth) == 1:
+                x_positions = [0]
+            else:
+                total_width = (len(nodes_at_depth) - 1) * 6.0
+                x_positions = [i * 6.0 - total_width/2 for i in range(len(nodes_at_depth))]
+            
+            for i, node in enumerate(nodes_at_depth):
+                pos[node] = (x_positions[i], 0)
+    
+    # Second pass: position child nodes based on their parents
+    for depth in sorted_depths[1:]:  # Skip root level
+        nodes_at_depth = depth_groups[depth]
+        
+        # Group nodes by their parents
+        parent_groups = defaultdict(list)
+        orphans = []
+        
+        for node in nodes_at_depth:
+            parents = [n for n in G.neighbors(node) 
+                      if param_info.get(n, {}).get('depth', 1) < depth and n in pos]
+            
+            if parents:
+                parent_groups[parents[0]].append(node)
+            else:
+                orphans.append(node)
+        
+        # Position children under their parents
+        for parent, children in parent_groups.items():
+            parent_x, parent_y = pos[parent]
+            child_y = parent_y - y_spacing
+            
+            if len(children) == 1:
+                pos[children[0]] = (parent_x, child_y)
+            else:
+                # Spread children around parent
+                child_spacing = 1.5
+                total_width = (len(children) - 1) * child_spacing
+                start_x = parent_x - total_width/2
+                
+                for i, child in enumerate(children):
+                    child_x = start_x + i * child_spacing
+                    pos[child] = (child_x, child_y)
+        
+        # Position orphan nodes
+        if orphans:
+            # Find the rightmost position at this level
+            max_x = max([x for x, y in pos.values() if abs(y - (-(depth - 1) * y_spacing)) < 0.1], default=0)
+            for i, orphan in enumerate(orphans):
+                pos[orphan] = (max_x + 4 + i * 1.5, -(depth - 1) * y_spacing)
+    
+    return pos
+
+def display_parameter_usage_details(df, selected_param):
+    """Display detailed usage information for a selected parameter."""
+    if selected_param and not df.empty:
+        param_data = df[df['parameter_name'] == selected_param]
+        if not param_data.empty:
+            param_info = param_data.iloc[0]
+            
+            st.subheader(f"📊 Parameter Details: {selected_param}")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write(f"**Parameter Name:** {selected_param}")
+                st.write(f"**Norm Count:** {param_info['norm_count']}")
+                st.write(f"**Instance Count:** {param_info['instance_count']}")
+                st.write(f"**Hierarchy Depth:** {param_info['depth']}")
+                st.write(f"**Root Category:** {param_info['root_category']}")
+                
+                # Show if it's a chained parameter
+                if '.' in selected_param:
+                    st.info("🔗 This is a chained parameter (contains dots)")
+                else:
+                    st.info("📊 This is a root-level parameter")
+            
+            with col2:
+                if param_info['norms']:
+                    st.write(f"**Related Norms ({len(param_info['norms'])}):**")
+                    # Show first 10 norms
+                    for norm_id in param_info['norms'][:10]:
+                        st.write(f"- {norm_id}")
+                    if len(param_info['norms']) > 10:
+                        st.write(f"... and {len(param_info['norms']) - 10} more")
+                
+                if param_info['details']:
+                    st.write(f"**Parameter Instances ({len(param_info['details'])}):**")
+                    # Show first 5 instances with their details
+                    for i, detail in enumerate(param_info['details'][:5]):
+                        value = detail.get('value', '')
+                        unit = detail.get('unit', '')
+                        operator = detail.get('operator', '')
+                        param_id = detail.get('id', '')
+                        value_str = f"{operator} {value} {unit}".strip()
+                        st.write(f"- {param_id}: {value_str}")
+                    if len(param_info['details']) > 5:
+                        st.write(f"... and {len(param_info['details']) - 5} more")
+
+def display_parameter_statistics(df, G):
+    """Display statistics about the parameter graph."""
+    st.header("📊 Parameter Statistics")
+    
+    if df.empty or G is None:
+        return
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Total Parameters", len(df))
+    
+    with col2:
+        chained_params = len(df[df['parameter_name'].str.contains('.', regex=False)])
+        st.metric("Chained Parameters", chained_params)
+    
+    with col3:
+        root_params = len(df[~df['parameter_name'].str.contains('.', regex=False)])
+        st.metric("Root Parameters", root_params)
+    
+    with col4:
+        if G:
+            connected_components = nx.number_connected_components(G)
+            st.metric("Connected Components", connected_components)
+
 def create_plotly_network_graph(G, tag_info):
     """Create an interactive network graph using plotly."""
     if G is None or len(G.nodes()) == 0:
@@ -985,6 +1400,56 @@ def main():
             else:
                 st.divider()
                 st.info("No topic data found in the selected file.")
+                
+            # ===== ADD PARAMETER NETWORK SECTION =====
+            # Extract and process parameter data
+            params_df = extract_parameter_data(data)
+            
+            if not params_df.empty:
+                st.divider()
+                st.divider()  # Double divider to separate sections
+                
+                # Create parameter network graph
+                param_G, param_info, param_relationships = create_parameter_network_graph(params_df)
+                
+                # Display parameter statistics
+                display_parameter_statistics(params_df, param_G)
+                st.divider()
+                
+                # Create and display the interactive parameter graph
+                st.header("📊 Parameter Relationship Network")
+                
+                if param_G and len(param_G.nodes()) > 0:
+                    param_fig = create_plotly_parameter_network_graph(param_G, param_info)
+                    if param_fig:
+                        st.plotly_chart(param_fig, use_container_width=True)
+                        
+                        # Parameter selection for detailed view
+                        st.divider()
+                        selected_param = st.selectbox(
+                            "Select a parameter to see detailed usage information:",
+                            options=[""] + sorted(params_df['parameter_name'].tolist()),
+                            index=0,
+                            help="Choose a parameter to see related norms and details",
+                            key="param_selector"  # Unique key to avoid conflicts with tag and topic selectors
+                        )
+                        
+                        if selected_param:
+                            display_parameter_usage_details(params_df, selected_param)
+                        
+                        # Show parameter relationships table
+                        if param_relationships:
+                            st.divider()
+                            st.header("📊 Parameter Relationships")
+                            param_relationships_df = pd.DataFrame(param_relationships, columns=['Parent Parameter', 'Child Parameter'])
+                            st.dataframe(param_relationships_df, use_container_width=True)
+                    else:
+                        st.warning("Could not create the parameter network graph.")
+                else:
+                    st.warning("No parameter relationships found to display in graph.")
+            else:
+                st.divider()
+                st.info("No parameter data found in the selected file.")
         else:
             st.warning("No tag data found in the selected file.")
     else:
