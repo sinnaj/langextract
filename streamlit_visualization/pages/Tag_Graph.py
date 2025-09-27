@@ -1295,11 +1295,19 @@ def create_plotly_network_graph(G, tag_info):
 def get_norm_details_by_id(data, norm_id):
     """Get detailed norm information by norm ID."""
     extractions = data.get('extractions', [])
+    sections = data.get('sections', [])
     norm_extractions = [e for e in extractions if e.get('extraction_class') in ['Norm', 'NORM']]
+    
+    # Create section mapping for easy lookup
+    section_map = {s.get('section_id'): s for s in sections}
     
     for norm in norm_extractions:
         attrs = norm.get('attributes', {})
         if attrs.get('id') == norm_id:
+            parent_section_id = attrs.get('parent_section_id', '')
+            section_info = section_map.get(parent_section_id, {})
+            section_name = section_info.get('section_name', parent_section_id or 'Unknown Section')
+            
             return {
                 'id': attrs.get('id', ''),
                 'norm_statement': attrs.get('norm_statement', norm.get('extraction_text', '')),
@@ -1311,7 +1319,8 @@ def get_norm_details_by_id(data, norm_id):
                 'exempt_if': attrs.get('exempt_if', ''),
                 'topics': attrs.get('topics', []),
                 'relevant_tags': attrs.get('relevant_tags', []),
-                'parent_section_id': attrs.get('parent_section_id', ''),
+                'parent_section_id': parent_section_id,
+                'section_name': section_name,
                 'paragraph_number': attrs.get('paragraph_number', 0),
                 'extraction_text': norm.get('extraction_text', ''),
                 'location_scope': attrs.get('location_scope', {}),
@@ -1322,11 +1331,25 @@ def get_norm_details_by_id(data, norm_id):
 def display_hoverable_norm_id(norm_id, norm_details):
     """Display a norm ID with hoverable tooltip showing norm details."""
     if norm_details:
-        # Create tooltip content
+        # Format project dimensions for display
+        project_dims_str = ""
+        if norm_details['project_dimensions']:
+            dim_parts = []
+            for key, values in norm_details['project_dimensions'].items():
+                if isinstance(values, list):
+                    dim_parts.append(f"{key}: {', '.join(values)}")
+                else:
+                    dim_parts.append(f"{key}: {values}")
+            project_dims_str = "; ".join(dim_parts)
+        
+        # Create tooltip content with all requested information
         tooltip_content = f"""
         **Norm ID:** {norm_details['id']}
         
         **Statement:** {norm_details['norm_statement'][:200]}{'...' if len(norm_details['norm_statement']) > 200 else ''}
+        
+        **Section:** {norm_details['section_name']}
+        **Section ID:** {norm_details['parent_section_id']}
         
         **Type:** {norm_details['obligation_type']}
         **Priority:** {norm_details['priority']}
@@ -1336,12 +1359,16 @@ def display_hoverable_norm_id(norm_id, norm_details):
         
         **Satisfied If:** {norm_details['satisfied_if'][:100]}{'...' if len(norm_details['satisfied_if']) > 100 else ''}
         
+        **Exempt If:** {norm_details['exempt_if'][:100]}{'...' if len(norm_details['exempt_if']) > 100 else ''}
+        
+        **Project Dimensions:** {project_dims_str[:100]}{'...' if len(project_dims_str) > 100 else project_dims_str or 'None'}
+        
         **Topics:** {', '.join(norm_details['topics'][:3])}{'...' if len(norm_details['topics']) > 3 else ''}
         
         **Tags:** {', '.join(norm_details['relevant_tags'][:3])}{'...' if len(norm_details['relevant_tags']) > 3 else ''}
         """
         
-        # Use HTML with CSS for tooltip
+        # Use HTML with CSS for tooltip (increased width for more content)
         st.markdown(f"""
         <style>
         .norm-tooltip {{
@@ -1353,23 +1380,25 @@ def display_hoverable_norm_id(norm_id, norm_details):
         }}
         .norm-tooltip .tooltiptext {{
             visibility: hidden;
-            width: 400px;
+            width: 500px;
             background-color: #333;
             color: #fff;
             text-align: left;
             border-radius: 6px;
-            padding: 10px;
+            padding: 12px;
             position: absolute;
             z-index: 1;
             bottom: 125%;
             left: 50%;
-            margin-left: -200px;
+            margin-left: -250px;
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 12px;
             line-height: 1.4;
             white-space: pre-line;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            max-height: 400px;
+            overflow-y: auto;
         }}
         .norm-tooltip:hover .tooltiptext {{
             visibility: visible;
