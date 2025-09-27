@@ -84,11 +84,14 @@ def create_tag_network_graph(df):
         return None
     
     # Create a graph
-    G = nx.Graph()
+    G = nx.DiGraph()  # Use directed graph to show hierarchy clearly
     
     # Track parent-child relationships
     relationships = []
     tag_info = {}
+    
+    # First, collect all existing tags
+    existing_tags = set(df['tag_path'].tolist())
     
     # Process each tag to find hierarchical relationships
     for _, row in df.iterrows():
@@ -106,24 +109,126 @@ def create_tag_network_graph(df):
         
         # Add the tag as a node
         G.add_node(tag_path, **tag_info[tag_path])
+    
+    # Second pass: create edges for hierarchical relationships
+    for _, row in df.iterrows():
+        tag_path = row['tag_path']
+        path_parts = tag_path.split('.')
         
         # Create edges for hierarchical relationships
         if len(path_parts) > 1:
-            # Connect to parent tag
-            parent_path = '.'.join(path_parts[:-1])
-            if parent_path in [t['tag_path'] for _, t in df.iterrows()]:
+            # Try to connect to immediate parent first
+            for i in range(len(path_parts) - 1, 0, -1):
+                parent_path = '.'.join(path_parts[:i])
+                if parent_path in existing_tags:
+                    G.add_edge(parent_path, tag_path)
+                    relationships.append((parent_path, tag_path))
+                    break  # Only connect to the most immediate parent found
+            else:
+                # If no immediate parent exists, create a virtual parent node
+                parent_path = '.'.join(path_parts[:-1])
+                if parent_path not in existing_tags:
+                    # Add virtual parent node with minimal info
+                    tag_info[parent_path] = {
+                        'usage_count': 0,
+                        'id': f'virtual_{parent_path}',
+                        'related_topics': [],
+                        'depth': len(parent_path.split('.')),
+                        'is_chained': '.' in parent_path,
+                        'is_virtual': True
+                    }
+                    G.add_node(parent_path, **tag_info[parent_path])
+                    existing_tags.add(parent_path)
+                
                 G.add_edge(parent_path, tag_path)
                 relationships.append((parent_path, tag_path))
     
-    return G, tag_info, relationships
+    # Convert back to undirected graph for better visualization
+    G_undirected = nx.Graph(G)
+    
+    return G_undirected, tag_info, relationships
+
+def create_hierarchical_layout(G, tag_info):
+    """Create a hierarchical layout that shows parent-child relationships clearly."""
+    pos = {}
+    
+    # Group nodes by hierarchy depth
+    depth_groups = defaultdict(list)
+    for node in G.nodes():
+        depth = tag_info.get(node, {}).get('depth', 1)
+        depth_groups[depth].append(node)
+    
+    # Sort depths to ensure consistent ordering
+    sorted_depths = sorted(depth_groups.keys())
+    
+    # Calculate positions level by level
+    y_spacing = 3.0  # Vertical spacing between levels
+    
+    # First pass: position root nodes
+    for depth_idx, depth in enumerate(sorted_depths):
+        nodes_at_depth = depth_groups[depth]
+        
+        if depth == 1:  # Root nodes
+            # Spread root nodes horizontally
+            if len(nodes_at_depth) == 1:
+                x_positions = [0]
+            else:
+                total_width = (len(nodes_at_depth) - 1) * 8.0
+                x_positions = [i * 8.0 - total_width/2 for i in range(len(nodes_at_depth))]
+            
+            for i, node in enumerate(nodes_at_depth):
+                pos[node] = (x_positions[i], 0)
+    
+    # Second pass: position child nodes based on their parents
+    for depth in sorted_depths[1:]:  # Skip root level
+        nodes_at_depth = depth_groups[depth]
+        
+        # Group nodes by their parents
+        parent_groups = defaultdict(list)
+        orphans = []
+        
+        for node in nodes_at_depth:
+            parents = [n for n in G.neighbors(node) 
+                      if tag_info.get(n, {}).get('depth', 1) < depth and n in pos]
+            
+            if parents:
+                parent_groups[parents[0]].append(node)
+            else:
+                orphans.append(node)
+        
+        # Position children under their parents
+        for parent, children in parent_groups.items():
+            parent_x, parent_y = pos[parent]
+            child_y = parent_y - y_spacing
+            
+            if len(children) == 1:
+                pos[children[0]] = (parent_x, child_y)
+            else:
+                # Spread children around parent
+                child_spacing = 2.0
+                total_width = (len(children) - 1) * child_spacing
+                start_x = parent_x - total_width/2
+                
+                for i, child in enumerate(children):
+                    child_x = start_x + i * child_spacing
+                    pos[child] = (child_x, child_y)
+        
+        # Position orphan nodes
+        if orphans:
+            # Find the rightmost position at this level
+            max_x = max([x for x, y in pos.values() if abs(y - (-depth + 1) * y_spacing) < 0.1], default=0)
+            for i, orphan in enumerate(orphans):
+                pos[orphan] = (max_x + 5 + i * 2, -(depth - 1) * y_spacing)
+    
+    return pos
 
 def create_plotly_network_graph(G, tag_info):
     """Create an interactive network graph using plotly."""
     if G is None or len(G.nodes()) == 0:
         return None
     
-    # Calculate positions using spring layout
-    pos = nx.spring_layout(G, k=3, iterations=50)
+    # Calculate positions using hierarchical layout
+    pos = create_hierarchical_layout(G, tag_info)
     
     # Prepare node traces
     node_x = []
@@ -142,15 +247,26 @@ def create_plotly_network_graph(G, tag_info):
         usage_count = info.get('usage_count', 0)
         depth = info.get('depth', 1)
         is_chained = info.get('is_chained', False)
+        is_virtual = info.get('is_virtual', False)
         
-        # Node text
+        # Node text - show abbreviated text for better readability
         display_text = node
         if len(display_text) > 15:
-            display_text = display_text[:12] + "..."
+            # For hierarchical tags, show only the last part if too long
+            if '.' in display_text:
+                parts = display_text.split('.')
+                if len(parts[-1]) <= 12:
+                    display_text = parts[-1]  # Show only the last part
+                else:
+                    display_text = parts[-1][:12] + "..."
+            else:
+                display_text = display_text[:12] + "..."
         node_text.append(display_text)
         
-        # Node color based on depth
-        if depth == 1:
+        # Node color based on depth and type
+        if is_virtual:
+            color = '#cccccc'  # Gray for virtual nodes
+        elif depth == 1:
             color = '#1f77b4'  # Blue for root tags
         elif depth == 2:
             color = '#ff7f0e'  # Orange for second level
@@ -161,16 +277,24 @@ def create_plotly_network_graph(G, tag_info):
         node_color.append(color)
         
         # Node size based on usage count
-        size = max(10, min(50, 10 + usage_count * 5))
+        if is_virtual:
+            size = 8  # Smaller size for virtual nodes
+        else:
+            size = max(10, min(50, 10 + usage_count * 3))
         node_size.append(size)
         
         # Hover info
         hover_text = f"Tag: {node}<br>"
-        hover_text += f"Usage Count: {usage_count}<br>"
-        hover_text += f"Depth: {depth}<br>"
-        hover_text += f"Chained: {'Yes' if is_chained else 'No'}<br>"
-        if info.get('related_topics'):
-            hover_text += f"Related Topics: {', '.join(info['related_topics'])}"
+        if is_virtual:
+            hover_text += "Type: Virtual Parent Node<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += "Note: This parent tag was inferred from child tags"
+        else:
+            hover_text += f"Usage Count: {usage_count}<br>"
+            hover_text += f"Depth: {depth}<br>"
+            hover_text += f"Chained: {'Yes' if is_chained else 'No'}<br>"
+            if info.get('related_topics'):
+                hover_text += f"Related Topics: {', '.join(info['related_topics'])}"
         node_info.append(hover_text)
     
     # Prepare edge traces
@@ -187,7 +311,7 @@ def create_plotly_network_graph(G, tag_info):
     edge_trace = go.Scatter(
         x=edge_x,
         y=edge_y,
-        line=dict(width=2, color='rgba(125,125,125,0.5)'),
+        line=dict(width=1.5, color='rgba(50,50,50,0.6)'),
         hoverinfo='none',
         mode='lines'
     )
@@ -221,7 +345,7 @@ def create_plotly_network_graph(G, tag_info):
     fig = go.Figure(data=[edge_trace, node_trace],
                    layout=go.Layout(
                        title=dict(
-                           text='Tag Relationship Network Graph',
+                           text='Tag Hierarchy Network Graph',
                            font=dict(size=16)
                        ),
                        showlegend=False,
@@ -229,7 +353,7 @@ def create_plotly_network_graph(G, tag_info):
                        margin=dict(b=20,l=5,r=5,t=40),
                        annotations=[
                            dict(
-                               text="Node size represents usage count. Colors represent hierarchy depth.",
+                               text="Hierarchical view showing tag relationships. Node size = usage count, Colors = depth level.",
                                showarrow=False,
                                xref="paper", yref="paper",
                                x=0.005, y=-0.002,
@@ -239,7 +363,8 @@ def create_plotly_network_graph(G, tag_info):
                        ],
                        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                       height=700
+                       height=800,  # Increased height for better hierarchy display
+                       plot_bgcolor='rgba(240,240,240,0.3)'  # Light background to better show structure
                    ))
     
     return fig
