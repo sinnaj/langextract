@@ -1,33 +1,33 @@
-# LangExtract Streamlit Visualization Dashboard
+# LangExtract Enhanced Streamlit Visualization Dashboard
 
-This folder contains a Streamlit dashboard for visualizing LangExtract processing results.
+This folder contains a Streamlit dashboard for visualizing Enhanced LangExtract processing results.
 
 ## Features
 
 ### Main Dashboard (`app.py`)
-- **KPI Cards**: Key metrics from combined_extractions.json
-  - Total extractions count
-  - Processing success rate
+- **KPI Cards**: Key metrics from enhanced_extraction_results.json
+  - Total extractions count (including norms, tags, parameters)
+  - Pipeline processing statistics
   - Number of sections processed
-  - Last processing timestamp
-  - Breakdown by extraction types (NORM, Tag, Parameter, etc.)
+  - Pipeline version and method information
+  - Breakdown by extraction types (Norm, Tag, Parameter, Legal_Document, etc.)
 
 - **Processing Overview**: 
-  - Evaluation statistics (extract/manual/drop counts)
-  - Section processing breakdown
-  - Visual charts showing processing results
+  - Enhanced pipeline processing statistics
+  - Section hierarchy breakdown by level and type
+  - Visual charts showing processing results and section distribution
 
 - **Extractions Analysis**:
-  - Distribution of extraction types
-  - Text length analysis
-  - Top sections by extraction count
+  - Distribution of extraction types across all categories
+  - Text length analysis with improved visualization
+  - Top sections by extraction count with section hierarchy context
+  - Section level analysis showing extraction patterns
 
-### Tags Analytics Page (`pages/Tags.py`)
-- **Tags Overview**: Core metrics about extracted tags
-- **Hierarchical Structure Analysis**: Tag categorization and depth analysis
-- **Usage Analysis**: How tags are used across norms
-- **Topics Analysis**: Related topics and co-occurrence patterns
-- **Tag Explorer**: Interactive filtering and detailed tag views
+### Enhanced Analytics Pages
+- **Tags Analytics** (`pages/Tags.py`): Hierarchical tag analysis from enhanced tag extraction
+- **Norms Analytics** (`pages/Norms.py`): Comprehensive norms analysis with enhanced attributes
+- **Parameters Analytics** (`pages/Parameters.py`): Parameter normalization and unit analysis
+- **Legal Documents Analytics** (`pages/Legal_Documents.py`): Legal document extraction analysis
 
 ## Installation
 
@@ -71,10 +71,20 @@ python validate_dashboard.py
 
 ### Data Sources
 
-The dashboard automatically looks for the latest `combined_extractions.json` file in the `output_runs` directory. You can also:
+The dashboard automatically looks for the latest `enhanced_extraction_results.json` file in the `output_runs` directory. You can also:
 
-1. **Use Latest File**: Automatically detected from `output_runs/{timestamp}/lx output/combined_extractions.json`
-2. **Upload File**: Upload your own `combined_extractions.json` file through the sidebar
+1. **Use Latest File**: Automatically detected from `output_runs/{timestamp}/enhanced_output/enhanced_extraction_results.json`
+2. **Upload File**: Upload your own `enhanced_extraction_results.json` file through the sidebar
+
+### Enhanced Pipeline Support
+
+The dashboard now supports the Enhanced LangExtract Pipeline which provides:
+- **Hierarchical section structure** with deterministic SHA1-based IDs
+- **PDF text anchoring** with highlight coordinates and 3-stage matching
+- **Parameter normalization** with SI unit conversion
+- **Comprehensive extraction metadata** including positioning data
+- **Quality metrics** and processing statistics
+- **Enhanced data organization** separating norms, tags, parameters, and other entity types
 
 ### Navigation
 
@@ -83,41 +93,41 @@ The dashboard automatically looks for the latest `combined_extractions.json` fil
 
 ## Data Structure Expected
 
-The dashboard expects `combined_extractions.json` files with this structure:
+The dashboard expects `enhanced_extraction_results.json` files with this structure:
 
 ```json
 {
-  "document_metadata": {
-    "total_extractions": int,
-    "total_processed_sections": int,
-    "processing_timestamp": "ISO datetime"
-  },
-  "evaluation_statistics": {
-    "extract_count": int,
-    "manual_count": int,
-    "drop_count": int,
-    "extract_percentage": float
+  "pipeline_info": {
+    "version": "2.0",
+    "method": "enhanced_docling_toc_based_extraction",
+    "total_sections": 207,
+    "total_extractions": 1231,
+    "total_tags": 1357,
+    "total_parameters": 542,
+    "performance_metrics": {...}
   },
   "sections": [
     {
-      "section_id": "string",
-      "section_name": "string",
-      "processing_type": "extract|manual|drop",
-      "extraction_count": int
+      "section_id": "fa09c7d5c06b6313",
+      "section_name": "I Objeto",
+      "section_type": "Headline",
+      "section_level": 2,
+      "start_page": 3,
+      "end_page": 3,
+      "toc_path": ["Introducción", "I Objeto"],
+      "parent_section_id": "0ec9c0e66768fb12",
+      "positioning_data": [...],
+      "section_summary": "Section at level 2"
     }
   ],
-  "extractions": [
-    {
-      "extraction_class": "Tag|NORM|Parameter|LEGAL_DOCUMENT|PROCEDURE",
-      "extraction_text": "string",
-      "attributes": {
-        "id": "string",
-        "tag": "hierarchical.path",
-        "used_by_norm_ids": ["array"],
-        "related_topics": ["array"]
-      }
-    }
-  ]
+  "extractions": [...],
+  "tags": [...],
+  "parameters": [...],
+  "processing_stats": {
+    "chunks_processed": 207,
+    "successful_extractions": 1231,
+    "sections_with_extractions": 201
+  }
 }
 ```
 

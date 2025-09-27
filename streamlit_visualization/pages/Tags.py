@@ -13,8 +13,8 @@ st.set_page_config(
     layout="wide"
 )
 
-def find_latest_combined_extractions():
-    """Find the latest combined_extractions.json file."""
+def find_latest_enhanced_extractions():
+    """Find the latest enhanced_extraction_results.json file."""
     base_path = Path(__file__).parent.parent.parent
     output_runs_path = base_path / "output_runs"
     
@@ -26,20 +26,21 @@ def find_latest_combined_extractions():
     
     for run_dir in output_runs_path.iterdir():
         if run_dir.is_dir():
-            combined_file = run_dir / "lx output" / "combined_extractions.json"
-            if combined_file.exists():
+            # Try enhanced output first
+            enhanced_file = run_dir / "enhanced_output" / "enhanced_extraction_results.json"
+            if enhanced_file.exists():
                 try:
                     timestamp = int(run_dir.name)
                     if timestamp > latest_timestamp:
                         latest_timestamp = timestamp
-                        latest_file = combined_file
+                        latest_file = enhanced_file
                 except ValueError:
                     continue
     
     return latest_file
 
 def load_extractions_data(file_path):
-    """Load and parse the combined extractions JSON file."""
+    """Load and parse the enhanced extractions JSON file."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -49,14 +50,13 @@ def load_extractions_data(file_path):
         return None
 
 def extract_tag_data(data):
-    """Extract and process tag data from extractions."""
-    extractions = data.get('extractions', [])
-    tag_extractions = [e for e in extractions if e.get('extraction_class') == 'Tag']
+    """Extract and process tag data from the enhanced extraction structure."""
+    tags = data.get('tags', [])
     
     tags_data = []
-    for tag_extraction in tag_extractions:
-        attrs = tag_extraction.get('attributes', {})
-        tag_path = attrs.get('tag', tag_extraction.get('extraction_text', ''))
+    for tag in tags:
+        attrs = tag.get('attributes', {})
+        tag_path = attrs.get('tag', tag.get('extraction_text', ''))
         
         # Parse hierarchical structure
         path_parts = tag_path.split('.')
@@ -71,8 +71,8 @@ def extract_tag_data(data):
             'used_by_norms': attrs.get('used_by_norm_ids', []),
             'usage_count': len(attrs.get('used_by_norm_ids', [])),
             'related_topics': attrs.get('related_topics', []),
-            'section_parent': tag_extraction.get('section_parent_id', ''),
-            'extraction_text': tag_extraction.get('extraction_text', '')
+            'section_parent': '',  # Not available in new format
+            'extraction_text': tag.get('extraction_text', '')
         })
     
     return pd.DataFrame(tags_data)
@@ -384,13 +384,13 @@ def display_tag_explorer(df):
 
 def main():
     st.title("🏷️ Tags Analytics")
-    st.markdown("Detailed analytics for extracted tags from LangExtract")
+    st.markdown("Detailed analytics for extracted tags from Enhanced LangExtract")
     
     # Sidebar for file selection
     st.sidebar.title("Data Source")
     
     # Try to find latest file automatically
-    latest_file = find_latest_combined_extractions()
+    latest_file = find_latest_enhanced_extractions()
     
     if latest_file:
         st.sidebar.success(f"Latest file found: {latest_file.name}")
@@ -400,9 +400,9 @@ def main():
         st.sidebar.divider()
         st.sidebar.subheader("Or upload a file:")
         uploaded_file = st.sidebar.file_uploader(
-            "Choose a combined_extractions.json file",
+            "Choose an enhanced_extraction_results.json file",
             type=['json'],
-            help="Upload your own combined_extractions.json file"
+            help="Upload your own enhanced_extraction_results.json file"
         )
         
         if uploaded_file:
@@ -415,11 +415,11 @@ def main():
             data = None
             file_source = None
     else:
-        st.sidebar.warning("No combined_extractions.json files found in output_runs")
+        st.sidebar.warning("No enhanced_extraction_results.json files found in output_runs")
         uploaded_file = st.sidebar.file_uploader(
-            "Upload a combined_extractions.json file",
+            "Upload an enhanced_extraction_results.json file",
             type=['json'],
-            help="Upload your combined_extractions.json file"
+            help="Upload your enhanced_extraction_results.json file"
         )
         
         if uploaded_file:
