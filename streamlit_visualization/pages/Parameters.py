@@ -57,15 +57,28 @@ def extract_parameters_data(data):
     
     parameter_extractions = [e for e in extractions if e.get('extraction_class') == 'Parameter']
     
+    # First pass: collect all norm IDs for each identifier
+    identifier_norm_map = defaultdict(set)
+    for param in parameter_extractions:
+        attrs = param.get('attributes', {})
+        identifier = attrs.get('applies_for_tag', '')
+        norm_ids = attrs.get('norm_ids', [])
+        if identifier:
+            identifier_norm_map[identifier].update(norm_ids)
+    
     parameters_data = []
     for param in parameter_extractions:
         attrs = param.get('attributes', {})
         section_id = param.get('section_parent_id', '')
         section_info = section_map.get(section_id, {})
+        identifier = attrs.get('applies_for_tag', '')
+        
+        # Get the total number of unique norms that use this identifier
+        identifier_norm_count = len(identifier_norm_map.get(identifier, set()))
         
         parameters_data.append({
             'id': attrs.get('id', ''),
-            'applies_for_tag': attrs.get('applies_for_tag', ''),
+            'applies_for_tag': identifier,
             'operator': attrs.get('operator', ''),
             'value': attrs.get('value', ''),
             'unit': attrs.get('unit', ''),
@@ -74,10 +87,11 @@ def extract_parameters_data(data):
             'section_name': section_info.get('section_name', ''),
             'section_level': section_info.get('section_level', 0),
             'extraction_text': param.get('extraction_text', ''),
-            'norm_count': len(attrs.get('norm_ids', [])),
+            'norm_count': identifier_norm_count,  # Fixed: Count unique norms using this identifier
+            'instance_norm_count': len(attrs.get('norm_ids', [])),  # Keep individual instance count for reference
             'has_unit': bool(attrs.get('unit')),
             'value_type': type(attrs.get('value', '')).__name__,
-            'tag_category': attrs.get('applies_for_tag', '').split('.')[0] if attrs.get('applies_for_tag') else ''
+            'tag_category': identifier.split('.')[0] if identifier else ''
         })
     
     return pd.DataFrame(parameters_data)
@@ -309,8 +323,14 @@ def display_parameters_explorer(df, all_sections, all_norms):
     
     if not filtered_df.empty:
         # Display filtered results
-        display_cols = ['applies_for_tag', 'operator', 'value', 'unit', 'norm_count', 'section_name']
+        display_cols = ['applies_for_tag', 'operator', 'value', 'unit', 'norm_count', 'instance_norm_count', 'section_name']
         display_df = filtered_df[display_cols].copy()
+        
+        # Rename columns for better clarity
+        display_df = display_df.rename(columns={
+            'norm_count': 'Identifier Norm Count',
+            'instance_norm_count': 'Instance Norm Count'
+        })
         
         st.dataframe(
             display_df,
@@ -344,10 +364,11 @@ def display_parameters_explorer(df, all_sections, all_norms):
                 with detail_col2:
                     st.write(f"**Section:** {param_details['section_name']}")
                     st.write(f"**Tag Category:** {param_details['tag_category']}")
-                    st.write(f"**Related Norms Count:** {param_details['norm_count']}")
+                    st.write(f"**Identifier Norm Count:** {param_details['norm_count']} (total norms using this identifier)")
+                    st.write(f"**Instance Norm Count:** {param_details['instance_norm_count']} (norms for this specific parameter)")
                     
                     if param_details['norm_ids']:
-                        st.write(f"**Related Norm IDs:**")
+                        st.write(f"**Related Norm IDs for this Instance:**")
                         for norm_id in param_details['norm_ids'][:5]:
                             st.write(f"  - {norm_id}")
                         if len(param_details['norm_ids']) > 5:
