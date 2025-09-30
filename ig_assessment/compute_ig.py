@@ -76,22 +76,25 @@ def sample_feature_value(
     # We need to return a concrete value within that bin
     if schema.is_numeric(feature_name):
         nf = schema.numeric_features[feature_name]
-        bin_idx = sampled_value
-        if bin_idx < len(nf.bins):
-            bin_low, bin_high = nf.bins[bin_idx]
-            # Return a representative value
-            if bin_low is None and bin_high is not None:
-                # (-inf, high]
-                return bin_high - 1.0
-            elif bin_low is not None and bin_high is None:
-                # (low, inf)
-                return bin_low + 1.0
-            elif bin_low is not None and bin_high is not None:
-                # (low, high]
-                return (bin_low + bin_high) / 2.0
+        try:
+            bin_idx = int(sampled_value)
+            if bin_idx < len(nf.bins):
+                bin_low, bin_high = nf.bins[bin_idx]
+                # Return a representative value
+                if bin_low is None and bin_high is not None:
+                    return bin_high - 1.0
+                elif bin_low is not None and bin_high is None:
+                    return bin_low + 1.0
+                elif bin_low is not None and bin_high is not None:
+                    return (bin_low + bin_high) / 2.0
+                else:
+                    return 0.0
             else:
-                # (-inf, inf)
-                return 0.0
+                # If bin_idx is out of range, just return the sampled value
+                return sampled_value
+        except (ValueError, TypeError):
+            # If sampled_value is not an int, treat as categorical
+            return sampled_value
     
     return sampled_value
 
@@ -216,15 +219,18 @@ def compute_conditional_entropy(
             if val is None:
                 continue
             
-            # Check if val is in the bin
-            in_bin = True
-            if bin_low is not None and val <= bin_low:
-                in_bin = False
-            if bin_high is not None and val > bin_high:
-                in_bin = False
-            
-            if in_bin:
-                mask[j] = True
+            # Check if val is in the bin (only if val is a number)
+            if isinstance(val, (int, float)):
+                in_bin = True
+                if bin_low is not None and val <= bin_low:
+                    in_bin = False
+                if bin_high is not None and val > bin_high:
+                    in_bin = False
+                if in_bin:
+                    mask[j] = True
+            else:
+                # If val is not numeric, skip this sample for numeric binning
+                continue
     else:
         # Categorical feature
         for j, assignment in enumerate(samples):
@@ -452,7 +458,7 @@ def main():
 
     # Load input JSON
     print(f"Loading {args.input}...")
-    with open(args.input, 'r') as f:
+    with open(args.input, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     # Extract norms
