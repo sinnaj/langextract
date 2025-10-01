@@ -43,7 +43,7 @@ def _run_enhanced_extraction(run_dir: Path, payload: dict):
         results = run_enhanced_extraction(
             pdf_path=pdf_path,
             output_dir=output_dir,
-            # Pass LangExtract configuration parameters from payload
+            # Pass Arqio Extraction configuration parameters from payload
             MODEL_ID=payload.get("MODEL_ID", "google/gemini-2.0-flash-exp"),
             MODEL_TEMPERATURE=float(payload.get("MODEL_TEMPERATURE", 0.15)),
             MAX_NORMS_PER_5K=int(payload.get("MAX_NORMS_PER_5K", 10)),
@@ -58,20 +58,20 @@ def _run_enhanced_extraction(run_dir: Path, payload: dict):
         
         quality_metrics = results["quality_metrics"]
         _print(f"Extraction completed successfully!")
-        _print(f"  - Sections processed: {quality_metrics.total_sections}")
-        _print(f"  - Norms extracted: {quality_metrics.total_norms}")
-        _print(f"  - Anchoring success: {quality_metrics.anchoring_success_rate():.1%}")
-        _print(f"  - Parameter normalization: {quality_metrics.parameter_normalization_coverage:.1%}")
+        _print(f"  - Sections processed: {quality_metrics['total_sections']}")
+        _print(f"  - Norms extracted: {quality_metrics['total_norms']}")
+        _print(f"  - Anchoring success: {quality_metrics['anchoring_success_rate']():.1%}")
+        _print(f"  - Parameter normalization: {quality_metrics['parameter_normalization_coverage']:.1%}")
         
         # Create stats for web UI
         stats = {
             "ok": True,
             "enhanced": True,
-            "total_sections": quality_metrics.total_sections,
-            "total_norms": quality_metrics.total_norms,
-            "anchoring_success_rate": quality_metrics.anchoring_success_rate(),
-            "parameter_normalization_coverage": quality_metrics.parameter_normalization_coverage,
-            "low_confidence_norms": len(quality_metrics.low_confidence_norms),
+            "total_sections": quality_metrics["total_sections"],
+            "total_norms": quality_metrics["total_norms"],
+            "anchoring_success_rate": quality_metrics["anchoring_success_rate"](),
+            "parameter_normalization_coverage": quality_metrics["parameter_normalization_coverage"],
+            "low_confidence_norms": quality_metrics.get("low_confidence_norms", 0),  # Use get() with default value
             "ts": time()
         }
         (run_dir / "stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")

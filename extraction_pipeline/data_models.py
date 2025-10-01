@@ -274,6 +274,7 @@ class EnhancedSection:
         sub_section_ids: List of child section IDs
         start_page: Starting page in PDF
         end_page: Ending page in PDF
+        section_type: Type of section ("Headline" for regular sections, "Table" for tables)
         tags: Auto-generated tags from ToC path
         application_statement: Optional application statement
         exemption_statement: Optional exemption statement
@@ -290,6 +291,7 @@ class EnhancedSection:
     sub_section_ids: List[str] = dataclasses.field(default_factory=list)
     start_page: Optional[int] = None
     end_page: Optional[int] = None
+    section_type: str = "Headline"
     tags: List[str] = dataclasses.field(default_factory=list)
     application_statement: Optional[str] = None
     exemption_statement: Optional[str] = None

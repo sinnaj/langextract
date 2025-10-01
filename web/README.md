@@ -1,6 +1,6 @@
-# LangExtract Workshop Web Runner
+# Arqio Extraction Workshop Web Runner
 
-Lightweight Flask web UI to launch LangExtract runs, stream logs live, and preview outputs (JSON, Markdown, logs, etc.).
+Lightweight Flask web UI to launch Arqio Extraction runs, stream logs live, and preview outputs (JSON, Markdown, logs, etc.).
 
 ## Setup (Windows PowerShell)
 ```powershell

@@ -98,7 +98,7 @@
     }
 
     getCurrentUser() {
-      let user = localStorage.getItem('langextract_user');
+      let user = localStorage.getItem('arqio_user');
       if (!user) {
         user = this.promptForUserName();
       }
@@ -112,7 +112,7 @@
         return this.promptForUserName(); // Recursively prompt until valid name is provided
       }
       const trimmedUser = user.trim();
-      localStorage.setItem('langextract_user', trimmedUser);
+      localStorage.setItem('arqio_user', trimmedUser);
       return trimmedUser;
     }
 
