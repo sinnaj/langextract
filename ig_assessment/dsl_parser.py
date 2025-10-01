@@ -5,8 +5,11 @@ of Norm objects. It supports:
 - Boolean operators: AND, OR, NOT, parentheses
 - Comparisons: ==, !=, >, >=, <, <=
 - Membership: IN with lists
-- Literals: strings, integers, floats, booleans
+- Literals: strings, integers, floats, booleans (TRUE/FALSE are case-insensitive)
 - Identifiers: dotted notation (A.B.C)
+
+Note: The grammar requires uppercase identifiers and keywords, but TRUE/FALSE
+literals are handled specially and accept any case (TRUE, True, true, etc.)
 """
 
 from dataclasses import dataclass
