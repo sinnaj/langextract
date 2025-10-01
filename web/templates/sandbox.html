@@ -95,6 +95,7 @@
       let features = [];
       let currentFilters = {};
       let currentRunId = null;
+      let showOnlyTrueAppliesIf = false; // Filter for applies_if TRUE
 
       // Initialize
       async function init() {
@@ -182,6 +183,31 @@
         const container = document.getElementById('filters-container');
         container.innerHTML = '';
 
+        // Add special filter for applies_if TRUE
+        const trueFilterDiv = document.createElement('div');
+        trueFilterDiv.className = 'border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg';
+        
+        const trueLabel = document.createElement('label');
+        trueLabel.className = 'flex items-center cursor-pointer';
+        
+        const trueCheckbox = document.createElement('input');
+        trueCheckbox.type = 'checkbox';
+        trueCheckbox.id = 'filter-true-applies-if';
+        trueCheckbox.className = 'mr-2 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500';
+        trueCheckbox.onchange = (e) => {
+          showOnlyTrueAppliesIf = e.target.checked;
+          handleFilterChange();
+        };
+        
+        const trueText = document.createElement('span');
+        trueText.className = 'text-sm font-medium';
+        trueText.textContent = 'Show only norms with applies_if = TRUE';
+        
+        trueLabel.appendChild(trueCheckbox);
+        trueLabel.appendChild(trueText);
+        trueFilterDiv.appendChild(trueLabel);
+        container.appendChild(trueFilterDiv);
+
         // Limit to top 20 features for performance
         const topFeatures = features.slice(0, 20);
 
@@ -251,7 +277,7 @@
       }
 
       // Handle filter changes
-      async function handleFilterChange() {
+      function handleFilterChange() {
         // Build filters object
         currentFilters = {};
 
@@ -271,12 +297,38 @@
           }
         });
 
-        // Apply filters
-        await applyFilters();
+        // Apply filters client-side (much faster than API call)
+        applyFiltersClientSide();
       }
 
-      // Apply filters via API
-      async function applyFilters() {
+      // Apply filters client-side for speed
+      function applyFiltersClientSide() {
+        // Start with all norms
+        let result = allNorms;
+        
+        // First apply the applies_if TRUE filter if enabled
+        if (showOnlyTrueAppliesIf) {
+          result = result.filter(norm => {
+            const appliesIf = norm.attributes?.applies_if || 'TRUE';
+            return appliesIf.trim().toUpperCase() === 'TRUE';
+          });
+        }
+        
+        // If no other filters, we're done
+        if (Object.keys(currentFilters).length === 0) {
+          filteredNorms = result;
+          renderNorms();
+          updateCounter();
+          return;
+        }
+        
+        // For other filters, we need to call the API for tri-state evaluation
+        // But we can optimize by only sending norms that might be affected
+        applyFiltersViaAPI(result);
+      }
+
+      // Apply filters via API (only when needed for tri-state logic)
+      async function applyFiltersViaAPI(normsToFilter) {
         if (!currentRunId) return;
 
         try {
@@ -285,7 +337,8 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               run_id: currentRunId,
-              filters: currentFilters
+              filters: currentFilters,
+              norm_ids: normsToFilter.map(n => n.attributes?.id).filter(Boolean)
             })
           });
 
@@ -425,6 +478,13 @@
 
       // Clear filters
       document.getElementById('clear-filters').onclick = () => {
+        // Clear TRUE filter checkbox
+        const trueCheckbox = document.getElementById('filter-true-applies-if');
+        if (trueCheckbox) {
+          trueCheckbox.checked = false;
+          showOnlyTrueAppliesIf = false;
+        }
+        
         // Clear all selects (categorical and bin filters)
         document.querySelectorAll('select[data-feature]').forEach(select => select.value = '');
         

@@ -97,6 +97,9 @@ INPUT_DIRS = {
 
 PAST_MODELS_FILE = REPO_ROOT / "web" / "pastmodels.json"
 
+# Cache for parsed norm ASTs (run_id -> {norm_id -> parsed_ast})
+_NORM_AST_CACHE: Dict[str, Dict[str, Any]] = {}
+
 @app.route('/test-comments')
 def test_comments():
     """Test page for comments functionality."""
@@ -1312,6 +1315,7 @@ def filter_sandbox_norms():
         
         run_id = data.get('run_id')
         filters = data.get('filters', {})  # {feature_name: value or [values]}
+        norm_ids = data.get('norm_ids')  # Optional: only filter specific norms
         
         if not run_id:
             return jsonify({"error": "run_id is required"}), 400
@@ -1333,6 +1337,11 @@ def filter_sandbox_norms():
             if e.get("extraction_class") == "NORM"
         ]
         
+        # Filter to specific norm_ids if provided
+        if norm_ids:
+            norm_ids_set = set(norm_ids)
+            norms = [n for n in norms if n.get('attributes', {}).get('id') in norm_ids_set]
+        
         # Import evaluator from ig_assessment
         sys.path.insert(0, str(REPO_ROOT / "ig_assessment"))
         from dsl_parser import parse_applies_if
@@ -1344,13 +1353,30 @@ def filter_sandbox_norms():
             # All values are now single values (no arrays from frontend)
             assignment[feature_name] = value
         
-        # Filter norms
+        # Check if we have cached ASTs for this run
+        cache_key = run_id
+        if cache_key not in _NORM_AST_CACHE:
+            # Parse and cache all ASTs for this run
+            _NORM_AST_CACHE[cache_key] = {}
+            for norm in norms:
+                norm_id = norm.get('attributes', {}).get('id')
+                if norm_id:
+                    applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
+                    ast = parse_applies_if(applies_if)
+                    _NORM_AST_CACHE[cache_key][norm_id] = ast
+        
+        # Filter norms using cached ASTs
         filtered_norms = []
         for norm in norms:
-            applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
+            norm_id = norm.get('attributes', {}).get('id')
             
-            # Parse the applies_if expression
-            ast = parse_applies_if(applies_if)
+            # Get cached AST
+            if norm_id and norm_id in _NORM_AST_CACHE[cache_key]:
+                ast = _NORM_AST_CACHE[cache_key][norm_id]
+            else:
+                # Fallback: parse on the fly
+                applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
+                ast = parse_applies_if(applies_if)
             
             # Evaluate with partial assignment
             evaluator = Evaluator(assignment)
