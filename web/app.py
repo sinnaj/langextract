@@ -1326,38 +1326,39 @@ def filter_sandbox_norms():
             return jsonify({"error": "Enhanced extraction results not found"}), 404
         
         result_data = json.loads(extraction_file.read_text(encoding="utf-8"))
-        norms = [
+        all_norms = [
             e for e in result_data.get("extractions", [])
             if e.get("extraction_class") == "NORM"
         ]
-        
-        # Filter to specific norm_ids if provided
-        if norm_ids:
-            norm_ids_set = set(norm_ids)
-            norms = [n for n in norms if n.get('attributes', {}).get('id') in norm_ids_set]
         
         # Import evaluator from ig_assessment
         sys.path.insert(0, str(REPO_ROOT / "ig_assessment"))
         from dsl_parser import parse_applies_if
         from evaluator import Evaluator, TristateValue
         
-        # Build partial assignment from filters
-        assignment = {}
-        for feature_name, value in filters.items():
-            # All values are now single values (no arrays from frontend)
-            assignment[feature_name] = value
-        
-        # Check if we have cached ASTs for this run
+        # Check if we have cached ASTs for this run - cache ALL norms, not just the subset
         cache_key = run_id
         if cache_key not in _NORM_AST_CACHE:
-            # Parse and cache all ASTs for this run
+            # Parse and cache all ASTs for this run (before filtering)
             _NORM_AST_CACHE[cache_key] = {}
-            for norm in norms:
+            for norm in all_norms:
                 norm_id = norm.get('attributes', {}).get('id')
                 if norm_id:
                     applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
                     ast = parse_applies_if(applies_if)
                     _NORM_AST_CACHE[cache_key][norm_id] = ast
+        
+        # Filter to specific norm_ids if provided
+        norms = all_norms
+        if norm_ids:
+            norm_ids_set = set(norm_ids)
+            norms = [n for n in all_norms if n.get('attributes', {}).get('id') in norm_ids_set]
+        
+        # Build partial assignment from filters
+        assignment = {}
+        for feature_name, value in filters.items():
+            # All values are now single values (no arrays from frontend)
+            assignment[feature_name] = value
         
         # Filter norms using cached ASTs
         filtered_norms = []
