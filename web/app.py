@@ -1241,21 +1241,34 @@ def get_sandbox_norms(run_id: str):
 
 @app.get("/api/sandbox/features")
 def get_sandbox_features():
-    """Get feature definitions from ig.csv."""
-    ig_csv_path = REPO_ROOT / "ig_assessment" / "tmp" / "ig.csv"
+    """Get feature definitions from ig_results.csv."""
+    ig_csv_path = REPO_ROOT / "ig_assessment" / "tmp" / "ig_results.csv"
     
     if not ig_csv_path.exists():
-        return jsonify({"error": "ig.csv not found"}), 404
+        return jsonify({"error": "ig_results.csv not found"}), 404
     
     try:
         import csv
         features = []
         with open(ig_csv_path, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
-            for row in reader:
+            rows = list(reader)
+            
+            # Sort by avg_dismissal_rate descending
+            rows.sort(key=lambda r: float(r.get('avg_dismissal_rate', '0.0')) if r.get('avg_dismissal_rate', '0.0') not in ['', 'N/A'] else 0.0, reverse=True)
+            
+            for row in rows:
                 feature_name = row.get('feature', '')
                 numeric = row.get('numeric', 'False').strip().lower() == 'true'
                 categories_or_bins = row.get('categories_or_bins', '[]').strip()
+                max_dismissal_rate = row.get('max_dismissal_rate', '0.0')
+                
+                # Format feature name with max_dismissal_rate (first 2 decimals)
+                try:
+                    max_dismissal_float = float(max_dismissal_rate) if max_dismissal_rate not in ['', 'N/A'] else 0.0
+                    display_name = f"{feature_name} ({max_dismissal_float:.2f})"
+                except (ValueError, TypeError):
+                    display_name = f"{feature_name} (0.00)"
                 
                 # Parse categories_or_bins
                 values = []
@@ -1289,6 +1302,7 @@ def get_sandbox_features():
                 
                 features.append({
                     'name': feature_name,
+                    'display_name': display_name,
                     'type': feature_type,
                     'values': values,
                     'numeric': numeric
