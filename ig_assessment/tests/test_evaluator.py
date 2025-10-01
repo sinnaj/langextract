@@ -219,3 +219,23 @@ def test_evaluate_false_literal():
     ast = parse_applies_if("FALSE")
     result = evaluate_with_assignment(ast, {})
     assert result == TristateValue.FALSE
+
+
+def test_evaluate_true_literal_case_insensitive():
+    """Test TRUE literal with various cases (case-insensitive)."""
+    test_cases = ["TRUE", "True", "true", "TrUe"]
+    for text in test_cases:
+        ast = parse_applies_if(text)
+        # Should always evaluate to TRUE, even with filters
+        result = evaluate_with_assignment(ast, {"AREA.USAGE": "PARKING", "AREA.SIZE": 100})
+        assert result == TristateValue.TRUE, f"Failed for input: {repr(text)}"
+
+
+def test_evaluate_false_literal_case_insensitive():
+    """Test FALSE literal with various cases (case-insensitive)."""
+    test_cases = ["FALSE", "False", "false", "FaLsE"]
+    for text in test_cases:
+        ast = parse_applies_if(text)
+        # Should always evaluate to FALSE, even with filters
+        result = evaluate_with_assignment(ast, {"AREA.USAGE": "PARKING", "AREA.SIZE": 100})
+        assert result == TristateValue.FALSE, f"Failed for input: {repr(text)}"

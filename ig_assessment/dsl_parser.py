@@ -269,13 +269,15 @@ class DSLParser:
         Returns:
             Root AST node, or None if parsing fails
         """
-        if not text or text.strip() in ("", "TRUE", "FALSE"):
-            # Handle trivial cases
-            if text.strip() == "TRUE":
-                return Literal(True)
-            elif text.strip() == "FALSE":
-                return Literal(False)
+        if not text or text.strip() == "":
             return None
+            
+        # Handle trivial TRUE/FALSE cases (case-insensitive)
+        stripped = text.strip().upper()
+        if stripped == "TRUE":
+            return Literal(True)
+        elif stripped == "FALSE":
+            return Literal(False)
 
         try:
             tree = self.parser.parse(text)
