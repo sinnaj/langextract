@@ -22,6 +22,9 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
+    .tab-button {
+      transition: all 0.2s ease;
+    }
   </style>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -45,20 +48,35 @@
     <!-- Main Content -->
     <div class="flex h-[calc(100vh-60px)]">
       <!-- Left: Norms List -->
-      <div class="flex-1 overflow-auto p-4">
-        <div id="norms-container" class="space-y-4">
-          <!-- Norms will be loaded here -->
-          <div class="text-center py-12 text-gray-500">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p>Loading norms...</p>
+      <div class="flex-1 flex flex-col">
+        <!-- Tab Bar -->
+        <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+          <div class="flex space-x-1 px-4">
+            <button id="tab-current" class="tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400" onclick="switchTab('current')">
+              Current (<span id="count-current">0</span>)
+            </button>
+            <button id="tab-filtered-out" class="tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" onclick="switchTab('filtered-out')">
+              Filtered Out (<span id="count-filtered-out">0</span>)
+            </button>
           </div>
         </div>
-        <!-- Empty state -->
-        <div id="empty-state" class="hidden text-center py-12">
-          <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-          <p class="text-gray-500 text-lg">No norms match the current filters</p>
+        
+        <!-- Norms Container -->
+        <div class="flex-1 overflow-auto p-4">
+          <div id="norms-container" class="space-y-4">
+            <!-- Norms will be loaded here -->
+            <div class="text-center py-12 text-gray-500">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p>Loading norms...</p>
+            </div>
+          </div>
+          <!-- Empty state -->
+          <div id="empty-state" class="hidden text-center py-12">
+            <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <p class="text-gray-500 text-lg">No norms match the current filters</p>
+          </div>
         </div>
       </div>
 
@@ -92,10 +110,12 @@
       // State
       let allNorms = [];
       let filteredNorms = [];
+      let filteredOutNorms = [];
       let features = [];
       let currentFilters = {};
       let currentRunId = null;
-      let showOnlyTrueAppliesIf = false; // Filter for applies_if TRUE
+      let appliesIfFilter = 'all'; // 'all', 'true', 'not-true'
+      let currentTab = 'current'; // 'current' or 'filtered-out'
 
       // Initialize
       async function init() {
@@ -165,6 +185,7 @@
           if (data.norms) {
             allNorms = data.norms;
             filteredNorms = allNorms;
+            filteredOutNorms = [];
             renderNorms();
             updateCounter();
           } else if (data.error) {
@@ -183,29 +204,39 @@
         const container = document.getElementById('filters-container');
         container.innerHTML = '';
 
-        // Add special filter for applies_if TRUE
+        // Add special dropdown for applies_if filter
         const trueFilterDiv = document.createElement('div');
         trueFilterDiv.className = 'border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg';
         
         const trueLabel = document.createElement('label');
-        trueLabel.className = 'flex items-center cursor-pointer';
+        trueLabel.className = 'block text-sm font-medium mb-2';
+        trueLabel.textContent = 'applies_if Filter';
+        trueFilterDiv.appendChild(trueLabel);
         
-        const trueCheckbox = document.createElement('input');
-        trueCheckbox.type = 'checkbox';
-        trueCheckbox.id = 'filter-true-applies-if';
-        trueCheckbox.className = 'mr-2 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500';
-        trueCheckbox.onchange = (e) => {
-          showOnlyTrueAppliesIf = e.target.checked;
+        const trueSelect = document.createElement('select');
+        trueSelect.id = 'filter-applies-if';
+        trueSelect.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+        trueSelect.onchange = (e) => {
+          appliesIfFilter = e.target.value;
           handleFilterChange();
         };
         
-        const trueText = document.createElement('span');
-        trueText.className = 'text-sm font-medium';
-        trueText.textContent = 'Show only norms with applies_if = TRUE';
+        const allOption = document.createElement('option');
+        allOption.value = 'all';
+        allOption.textContent = 'All';
+        trueSelect.appendChild(allOption);
         
-        trueLabel.appendChild(trueCheckbox);
-        trueLabel.appendChild(trueText);
-        trueFilterDiv.appendChild(trueLabel);
+        const trueOption = document.createElement('option');
+        trueOption.value = 'true';
+        trueOption.textContent = 'TRUE';
+        trueSelect.appendChild(trueOption);
+        
+        const notTrueOption = document.createElement('option');
+        notTrueOption.value = 'not-true';
+        notTrueOption.textContent = '!TRUE';
+        trueSelect.appendChild(notTrueOption);
+        
+        trueFilterDiv.appendChild(trueSelect);
         container.appendChild(trueFilterDiv);
 
         // Limit to top 20 features for performance
@@ -306,17 +337,24 @@
         // Start with all norms
         let result = allNorms;
         
-        // First apply the applies_if TRUE filter if enabled
-        if (showOnlyTrueAppliesIf) {
+        // First apply the applies_if filter
+        if (appliesIfFilter === 'true') {
           result = result.filter(norm => {
             const appliesIf = norm.attributes?.applies_if || 'TRUE';
             return appliesIf.trim().toUpperCase() === 'TRUE';
           });
+        } else if (appliesIfFilter === 'not-true') {
+          result = result.filter(norm => {
+            const appliesIf = norm.attributes?.applies_if || 'TRUE';
+            return appliesIf.trim().toUpperCase() !== 'TRUE';
+          });
         }
+        // 'all' means no filtering by applies_if
         
         // If no other filters, we're done
         if (Object.keys(currentFilters).length === 0) {
           filteredNorms = result;
+          filteredOutNorms = allNorms.filter(n => !result.includes(n));
           renderNorms();
           updateCounter();
           return;
@@ -346,6 +384,11 @@
           
           if (data.norms) {
             filteredNorms = data.norms;
+            // Calculate filtered out norms
+            filteredOutNorms = allNorms.filter(n => {
+              const normId = n.attributes?.id;
+              return !filteredNorms.some(fn => fn.attributes?.id === normId);
+            });
             renderNorms();
             updateCounter(data.original_total);
           } else if (data.error) {
@@ -361,7 +404,10 @@
         const container = document.getElementById('norms-container');
         const emptyState = document.getElementById('empty-state');
         
-        if (filteredNorms.length === 0) {
+        // Determine which norms to display based on current tab
+        const normsToDisplay = currentTab === 'current' ? filteredNorms : filteredOutNorms;
+        
+        if (normsToDisplay.length === 0) {
           container.innerHTML = '';
           emptyState.classList.remove('hidden');
           return;
@@ -370,10 +416,30 @@
         emptyState.classList.add('hidden');
         container.innerHTML = '';
 
-        filteredNorms.forEach((norm, idx) => {
+        normsToDisplay.forEach((norm, idx) => {
           const card = createNormCard(norm, idx);
           container.appendChild(card);
         });
+      }
+
+      // Switch between tabs
+      function switchTab(tab) {
+        currentTab = tab;
+        
+        // Update tab button styles
+        const currentBtn = document.getElementById('tab-current');
+        const filteredOutBtn = document.getElementById('tab-filtered-out');
+        
+        if (tab === 'current') {
+          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
+          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
+        } else {
+          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
+          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
+        }
+        
+        // Re-render the norms for the selected tab
+        renderNorms();
       }
 
       // Create norm card element
@@ -469,20 +535,23 @@
       }
 
       // Update counter
-      // Update counter
       function updateCounter(originalTotal) {
         const counter = document.getElementById('results-counter');
         const total = originalTotal || allNorms.length;
         counter.textContent = `${filteredNorms.length}/${total}`;
+        
+        // Update tab counts
+        document.getElementById('count-current').textContent = filteredNorms.length;
+        document.getElementById('count-filtered-out').textContent = filteredOutNorms.length;
       }
 
       // Clear filters
       document.getElementById('clear-filters').onclick = () => {
-        // Clear TRUE filter checkbox
-        const trueCheckbox = document.getElementById('filter-true-applies-if');
-        if (trueCheckbox) {
-          trueCheckbox.checked = false;
-          showOnlyTrueAppliesIf = false;
+        // Reset applies_if filter dropdown
+        const appliesIfSelect = document.getElementById('filter-applies-if');
+        if (appliesIfSelect) {
+          appliesIfSelect.value = 'all';
+          appliesIfFilter = 'all';
         }
         
         // Clear all selects (categorical and bin filters)
@@ -493,6 +562,7 @@
         
         currentFilters = {};
         filteredNorms = allNorms;
+        filteredOutNorms = [];
         renderNorms();
         updateCounter();
       };
