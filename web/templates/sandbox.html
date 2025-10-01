@@ -115,6 +115,7 @@
       let allNorms = [];
       let filteredNorms = [];
       let filteredOutNorms = [];
+      let baseNormsAfterAppliesIf = []; // Norms after applies_if filter, before feature filters
       let features = [];
       let currentFilters = {};
       let currentRunId = null;
@@ -364,6 +365,9 @@
         }
         // 'all' means no filtering by applies_if
         
+        // Store the base set after applies_if filter (for calculating filtered-out correctly)
+        baseNormsAfterAppliesIf = result;
+        
         // If no other filters, we're done
         if (Object.keys(currentFilters).length === 0) {
           filteredNorms = result;
@@ -385,6 +389,7 @@
         console.log('[Sandbox] Applying filters via API');
         console.log('[Sandbox] Filters:', currentFilters);
         console.log('[Sandbox] Norms to filter:', normsToFilter.length);
+        console.log('[Sandbox] Base norms after applies_if:', baseNormsAfterAppliesIf.length);
 
         try {
           const response = await fetch('/api/sandbox/filter', {
@@ -404,12 +409,16 @@
           
           if (data.norms) {
             filteredNorms = data.norms;
-            // Calculate filtered out norms
-            filteredOutNorms = allNorms.filter(n => {
+            // Calculate filtered out norms relative to baseNormsAfterAppliesIf, not allNorms
+            // This ensures norms filtered out by applies_if don't appear in "Filtered Out" tab
+            filteredOutNorms = baseNormsAfterAppliesIf.filter(n => {
               const normId = n.attributes?.id;
               return !filteredNorms.some(fn => fn.attributes?.id === normId);
             });
             console.log('[Sandbox] Filtered out count:', filteredOutNorms.length);
+            console.log('[Sandbox] Explanation: baseNorms=' + baseNormsAfterAppliesIf.length + 
+                       ', current=' + filteredNorms.length + 
+                       ', filtered_out=' + filteredOutNorms.length);
             renderNorms();
             updateCounter(data.original_total);
           } else if (data.error) {
