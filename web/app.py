@@ -1341,13 +1341,8 @@ def filter_sandbox_norms():
         # Build partial assignment from filters
         assignment = {}
         for feature_name, value in filters.items():
-            if isinstance(value, list):
-                # For categorical with multiple selections, we'll evaluate each and OR them
-                # For now, just use the first value (simplified)
-                if value:
-                    assignment[feature_name] = value[0] if len(value) == 1 else value
-            else:
-                assignment[feature_name] = value
+            # All values are now single values (no arrays from frontend)
+            assignment[feature_name] = value
         
         # Filter norms
         filtered_norms = []

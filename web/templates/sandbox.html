@@ -13,9 +13,6 @@
     .norm-card:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    .filter-checkbox:checked {
-      background-color: #3b82f6;
-    }
     .details-expanded {
       max-height: 2000px;
       transition: max-height 0.3s ease;
@@ -198,33 +195,25 @@
           filterDiv.appendChild(label);
 
           if (feature.type === 'categorical') {
-            // Render checkboxes
-            const checkboxContainer = document.createElement('div');
-            checkboxContainer.className = 'space-y-2 max-h-48 overflow-y-auto';
+            // Render dropdown for categorical (single-select)
+            const select = document.createElement('select');
+            select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+            select.dataset.feature = feature.name;
+            select.onchange = () => handleFilterChange();
+            
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = '-- Any --';
+            select.appendChild(defaultOption);
             
             feature.values.forEach(value => {
-              const checkDiv = document.createElement('div');
-              checkDiv.className = 'flex items-center';
-              
-              const checkbox = document.createElement('input');
-              checkbox.type = 'checkbox';
-              checkbox.id = `filter-${feature.name}-${value}`;
-              checkbox.className = 'filter-checkbox mr-2';
-              checkbox.dataset.feature = feature.name;
-              checkbox.dataset.value = value;
-              checkbox.onchange = () => handleFilterChange();
-              
-              const checkLabel = document.createElement('label');
-              checkLabel.htmlFor = checkbox.id;
-              checkLabel.className = 'text-sm cursor-pointer';
-              checkLabel.textContent = value;
-              
-              checkDiv.appendChild(checkbox);
-              checkDiv.appendChild(checkLabel);
-              checkboxContainer.appendChild(checkDiv);
+              const option = document.createElement('option');
+              option.value = value;
+              option.textContent = value;
+              select.appendChild(option);
             });
             
-            filterDiv.appendChild(checkboxContainer);
+            filterDiv.appendChild(select);
           } else if (feature.type === 'bin') {
             // Render dropdown for bins
             const select = document.createElement('select');
@@ -266,18 +255,7 @@
         // Build filters object
         currentFilters = {};
 
-        // Collect checkbox filters (multi-select)
-        const checkboxes = document.querySelectorAll('.filter-checkbox:checked');
-        checkboxes.forEach(cb => {
-          const feature = cb.dataset.feature;
-          const value = cb.dataset.value;
-          if (!currentFilters[feature]) {
-            currentFilters[feature] = [];
-          }
-          currentFilters[feature].push(value);
-        });
-
-        // Collect dropdown filters (single-select)
+        // Collect dropdown filters (single-select) - both categorical and bins
         const selects = document.querySelectorAll('select[data-feature]');
         selects.forEach(select => {
           if (select.value) {
@@ -438,18 +416,16 @@
       }
 
       // Update counter
+      // Update counter
       function updateCounter(originalTotal) {
         const counter = document.getElementById('results-counter');
         const total = originalTotal || allNorms.length;
-        counter.textContent = `Results: ${filteredNorms.length} of ${total} norms`;
+        counter.textContent = `${filteredNorms.length}/${total}`;
       }
 
       // Clear filters
       document.getElementById('clear-filters').onclick = () => {
-        // Clear all checkboxes
-        document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
-        
-        // Clear all selects
+        // Clear all selects (categorical and bin filters)
         document.querySelectorAll('select[data-feature]').forEach(select => select.value = '');
         
         // Clear all number inputs
