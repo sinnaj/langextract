@@ -23,6 +23,26 @@ Information Gain measures how much a feature reduces uncertainty about norm appl
    - `IG/Cost = IG(F) / cost(F)`
    - Identifies cost-effective questions
 
+5. **Dismissal Statistics**: Understanding norm filtering power
+   - **Max Dismissal Rate**: Fraction of norms dismissed by the best value of this feature
+   - **Avg Dismissal Rate**: Average dismissal rate across all values
+   - **Best Dismissal Value**: The value that dismisses the most norms
+   - A norm is dismissed when it becomes inapplicable (FALSE) given a feature value
+
+## What are Dismissal Statistics?
+
+Dismissal statistics complement Information Gain by showing which feature values actively **filter out** or **dismiss** norms from consideration. This is particularly useful when you want to identify:
+
+- **High-impact filtering features**: Features where selecting certain values eliminates many norms
+- **Efficient early filters**: Features that can quickly narrow down the set of applicable norms
+- **Value-specific impact**: Which specific values of a feature have the strongest filtering effect
+
+For example, if `PROJECT.TYPE == 'REFORM'` causes 5 out of 10 norms to become inapplicable (FALSE), then:
+- `PROJECT.TYPE` would have a dismissal rate of 0.5 (50%) for value `'REFORM'`
+- This helps identify that asking about project type early can efficiently filter the norm set
+
+**Key difference from IG**: While IG measures uncertainty reduction, dismissal rate directly measures how many norms become definitively inapplicable.
+
 ## Features
 
 - **DSL Parser**: Safe parsing of `applies_if` predicates using Lark
@@ -45,6 +65,11 @@ Information Gain measures how much a feature reduces uncertainty about norm appl
   - Computes entropies from empirical frequencies
 
 - **Cost-Aware Ranking**: Balances information value with acquisition cost
+
+- **Dismissal Statistics**: Computes how many norms each feature value dismisses
+  - Identifies high-impact filtering features
+  - Shows which values eliminate the most norms
+  - Complements IG by focusing on definitive filtering rather than uncertainty reduction
 
 ## Installation
 
@@ -182,6 +207,9 @@ python compute_ig.py \
 | `num_values` | Number of possible values (bins or categories) |
 | `numeric` | Boolean: Is this a numeric feature? |
 | `categories_or_bins` | String representation of value space |
+| `max_dismissal_rate` | Fraction of norms dismissed by the best value (0.0 to 1.0) |
+| `avg_dismissal_rate` | Average dismissal rate across all values (0.0 to 1.0) |
+| `best_dismissal_value` | The value that dismisses the most norms |
 
 ### Example Output
 
@@ -193,6 +221,20 @@ BUILDING.USAGE                  0.9234   0.10    9.234      5     False
 AREA.OCCUPANCY                  0.5123   0.50    1.025      2     True
 AREA.FIRE.LOAD_TOTAL_CORRECTED  0.3421   0.25    1.368      2     True
 ```
+
+**Dismissal Statistics Output:**
+```
+Feature                         Max Dismissal  Avg Dismissal  Best Value
+AREA.USAGE                             0.6667         0.6667  ADMINISTRATIVE
+AREA.SIZE                              0.3333         0.1667  ≤100.0
+AREA.OCCUPANCY                         0.1667         0.0833  ≤500.0
+AREA.FIRE.LOAD_TOTAL_CORRECTED         0.1667         0.0833  ≤3000000.0
+```
+
+Interpretation:
+- **AREA.USAGE**: Selecting "ADMINISTRATIVE" usage dismisses 66.67% of norms (4 out of 6)
+- **AREA.SIZE**: Values ≤100.0 dismiss 33.33% of norms (2 out of 6)
+- This helps identify which questions provide the strongest filtering effect
 
 ## Example: Toy Dataset
 
@@ -220,6 +262,44 @@ Expected ranking:
 3. **AREA.OCCUPANCY** - gates 1 norm
 4. **AREA.FIRE.LOAD_TOTAL_CORRECTED** - gates 1 norm
 
+## Interpreting Results
+
+### When to Use Information Gain vs. Dismissal Rate
+
+**Use Information Gain when:**
+- You want to maximize overall uncertainty reduction
+- You need to balance between confirming and dismissing norms
+- You want a feature that helps narrow down the applicable norm set efficiently
+
+**Use Dismissal Rate when:**
+- You specifically want to identify features that filter out many norms
+- You're designing an early filtering stage in a decision tree
+- You want to understand which feature values have the strongest negative impact on norm applicability
+
+**Best Practice:** Use both metrics together:
+1. Sort by IG to find features that provide the most information
+2. Check dismissal rates to understand the filtering power of each feature
+3. For early decision stages, prefer high-dismissal features to quickly eliminate inapplicable norms
+4. For later stages, prefer high-IG features to refine the remaining norm set
+
+### Example Interpretation
+
+Given this output:
+```
+Feature         IG     IG/Cost  Max Dismissal  Best Value
+PROJECT.TYPE   2.45    9.80     0.50          NEW_CONSTRUCTION
+AREA.USAGE     2.30    9.20     0.67          ADMINISTRATIVE
+AREA.SIZE      1.20    4.80     0.33          ≤100.0
+```
+
+**Interpretation:**
+- **PROJECT.TYPE** has the highest IG, making it most informative overall
+- **AREA.USAGE** has the highest dismissal rate (67%), meaning certain usage types eliminate 2/3 of norms
+- For a questionnaire design:
+  1. Ask PROJECT.TYPE first (highest IG, good balance)
+  2. Then ask AREA.USAGE (strong filtering for certain values)
+  3. Finally ask AREA.SIZE (lower impact, use for refinement)
+
 ## Testing
 
 Run the test suite:
@@ -233,6 +313,22 @@ Tests cover:
 - **Evaluator**: Tri-state logic truth tables, partial evaluation
 - **Feature Schema**: Threshold extraction, bin derivation, categorical values
 - **IG Computation**: Entropy calculation, sampling, ranking validation
+- **Dismissal Statistics**: Norm filtering, dismissal rate computation
+
+## Testing
+
+Run the test suite:
+```bash
+cd ig_assessment
+pytest tests/
+```
+
+Tests cover:
+- **Parser**: All operators, nested parentheses, complex expressions
+- **Evaluator**: Tri-state logic truth tables, partial evaluation
+- **Feature Schema**: Threshold extraction, bin derivation, categorical values
+- **IG Computation**: Entropy calculation, sampling, ranking validation
+- **Dismissal Statistics**: Norm filtering, dismissal rate computation
 
 ## Architecture
 
@@ -250,7 +346,8 @@ ig_assessment/
     ├── test_parser.py           # Parser tests
     ├── test_evaluator.py        # Evaluator tests
     ├── test_feature_schema.py   # Feature extraction tests
-    └── test_compute_ig.py       # IG computation tests
+    ├── test_compute_ig.py       # IG computation tests
+    └── test_dismissal.py        # Dismissal statistics tests
 ```
 
 ## Algorithm Details
@@ -290,9 +387,22 @@ ig_assessment/
   - Weight by `P(F=v) = fraction_of_samples_matching`
 - **IG**: `IG(F) = H_base - E[H|F]`
 
-### 7. Ranking
+### 7. Dismissal Statistics Computation
+- **For each feature F and value v**:
+  - Filter samples where `F=v` (mask)
+  - Count how many norms have `applicability[i, mask].sum() == 0`
+  - These norms are "dismissed" (never applicable when F=v)
+  - Dismissal rate = dismissed_count / total_norms
+- **Max Dismissal**: The highest dismissal rate across all values of F
+- **Avg Dismissal**: Mean dismissal rate across all values of F
+- **Best Value**: The value with the highest dismissal rate
+
+**Key insight**: A norm is dismissed by a feature-value pair when it evaluates to FALSE for all samples with that feature value. This captures how effectively that value filters out norms in practice.
+
+### 8. Ranking
 - Sort by `IG / cost` descending
-- Output table and CSV
+- Also provide ranking by `max_dismissal_rate` descending
+- Output tables and CSV
 
 ## Performance
 
