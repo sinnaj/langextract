@@ -1336,20 +1336,6 @@ def filter_sandbox_norms():
         from dsl_parser import parse_applies_if
         from evaluator import Evaluator, TristateValue
         
-        # Check if we have cached ASTs for this run - cache ALL norms, not just the subset
-        # Include a version stamp in cache key to invalidate old caches when parser changes
-        parser_version = "v2_case_insensitive"  # Update this when parser logic changes
-        cache_key = f"{run_id}_{parser_version}"
-        if cache_key not in _NORM_AST_CACHE:
-            # Parse and cache all ASTs for this run (before filtering)
-            _NORM_AST_CACHE[cache_key] = {}
-            for norm in all_norms:
-                norm_id = norm.get('attributes', {}).get('id')
-                if norm_id:
-                    applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
-                    ast = parse_applies_if(applies_if)
-                    _NORM_AST_CACHE[cache_key][norm_id] = ast
-        
         # Filter to specific norm_ids if provided
         norms = all_norms
         if norm_ids:
@@ -1362,19 +1348,16 @@ def filter_sandbox_norms():
             # All values are now single values (no arrays from frontend)
             assignment[feature_name] = value
         
-        # Filter norms using cached ASTs
+        # Filter norms by parsing and evaluating applies_if on the fly
+        # NOTE: We don't cache ASTs because norm_ids are not guaranteed to be unique
         filtered_norms = []
         debug_log = []  # For debugging
         for norm in norms:
             norm_id = norm.get('attributes', {}).get('id')
             applies_if_str = norm.get('attributes', {}).get('applies_if', 'TRUE')
             
-            # Get cached AST
-            if norm_id and norm_id in _NORM_AST_CACHE[cache_key]:
-                ast = _NORM_AST_CACHE[cache_key][norm_id]
-            else:
-                # Fallback: parse on the fly
-                ast = parse_applies_if(applies_if_str)
+            # Parse applies_if expression on the fly
+            ast = parse_applies_if(applies_if_str)
             
             # Evaluate with partial assignment
             evaluator = Evaluator(assignment)
