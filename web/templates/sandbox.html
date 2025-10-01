@@ -371,7 +371,9 @@
         // If no other filters, we're done
         if (Object.keys(currentFilters).length === 0) {
           filteredNorms = result;
-          filteredOutNorms = allNorms.filter(n => !result.includes(n));
+          // Filtered out should be empty when no feature filters are applied
+          // (norms filtered by applies_if are not "filtered out" by feature filters)
+          filteredOutNorms = [];
           renderNorms();
           updateCounter();
           return;

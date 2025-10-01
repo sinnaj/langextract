@@ -85,17 +85,33 @@ class Evaluator:
         Returns:
             TristateValue (TRUE, FALSE, or UNKNOWN)
         """
+        import sys
+        DEBUG = False  # Set to True to enable debugging
+        if DEBUG:
+            print(f'[DEBUG evaluate] node={node}, type={type(node)}', file=sys.stderr)
+        
         if node is None:
+            if DEBUG:
+                print('[DEBUG evaluate] node is None, returning UNKNOWN', file=sys.stderr)
             return TristateValue.UNKNOWN
 
         if isinstance(node, Literal):
+            if DEBUG:
+                print(f'[DEBUG evaluate] node is Literal, value={node.value}, is_bool={isinstance(node.value, bool)}', file=sys.stderr)
             # Literal boolean value
             if isinstance(node.value, bool):
-                return TristateValue.TRUE if node.value else TristateValue.FALSE
+                result = TristateValue.TRUE if node.value else TristateValue.FALSE
+                if DEBUG:
+                    print(f'[DEBUG evaluate] returning {result}', file=sys.stderr)
+                return result
             # Non-boolean literals shouldn't appear at top level
+            if DEBUG:
+                print('[DEBUG evaluate] non-boolean literal, returning UNKNOWN', file=sys.stderr)
             return TristateValue.UNKNOWN
 
         elif isinstance(node, BinaryOp):
+            if DEBUG:
+                print(f'[DEBUG evaluate] node is BinaryOp, op={node.op}', file=sys.stderr)
             if node.op == "AND":
                 left = self.evaluate(node.left)
                 right = self.evaluate(node.right)
@@ -106,7 +122,12 @@ class Evaluator:
                 return tristate_or(left, right)
             else:
                 # Comparison operations
-                return self._evaluate_comparison(node)
+                if DEBUG:
+                    print('[DEBUG evaluate] calling _evaluate_comparison', file=sys.stderr)
+                result = self._evaluate_comparison(node)
+                if DEBUG:
+                    print(f'[DEBUG evaluate] _evaluate_comparison returned {result}', file=sys.stderr)
+                return result
 
         elif isinstance(node, UnaryOp):
             if node.op == "NOT":
@@ -123,6 +144,8 @@ class Evaluator:
             # Geographic functions - treat as feature comparisons
             return self._evaluate_geo_func(node)
 
+        if DEBUG:
+            print('[DEBUG evaluate] no match, returning UNKNOWN', file=sys.stderr)
         return TristateValue.UNKNOWN
 
     def _evaluate_comparison(self, node: BinaryOp) -> TristateValue:
