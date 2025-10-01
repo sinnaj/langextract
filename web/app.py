@@ -1188,6 +1188,197 @@ def _install_signal_handlers():
             pass
 
 
+# Sandbox API endpoints
+
+@app.get("/sandbox")
+def sandbox():
+    """Sandbox page for interactive norm filtering."""
+    return render_template("sandbox.html")
+
+
+@app.get("/api/sandbox/outputs")
+def list_sandbox_outputs():
+    """List available output directories with timestamps."""
+    outputs = []
+    if OUTPUT_ROOT.exists():
+        for d in OUTPUT_ROOT.iterdir():
+            if d.is_dir():
+                try:
+                    run_id = d.name
+                    # Check if enhanced_extraction_results.json exists
+                    enhanced_output_dir = d / "enhanced_output"
+                    extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
+                    if extraction_file.exists():
+                        ts = d.stat().st_mtime
+                        outputs.append({"run_id": run_id, "timestamp": ts})
+                except Exception:
+                    continue
+    outputs.sort(key=lambda x: x["timestamp"], reverse=True)
+    return jsonify({"outputs": outputs})
+
+
+@app.get("/api/sandbox/norms/<run_id>")
+def get_sandbox_norms(run_id: str):
+    """Get all norms from an output run."""
+    run_dir = OUTPUT_ROOT / run_id
+    if not run_dir.exists():
+        return jsonify({"error": "Run not found"}), 404
+    
+    enhanced_output_dir = run_dir / "enhanced_output"
+    extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
+    
+    if not extraction_file.exists():
+        return jsonify({"error": "Enhanced extraction results not found"}), 404
+    
+    try:
+        data = json.loads(extraction_file.read_text(encoding="utf-8"))
+        # Extract only NORM extractions
+        norms = [
+            e for e in data.get("extractions", [])
+            if e.get("extraction_class") == "NORM"
+        ]
+        return jsonify({"norms": norms, "total": len(norms)})
+    except Exception as e:
+        return jsonify({"error": f"Error loading norms: {str(e)}"}), 500
+
+
+@app.get("/api/sandbox/features")
+def get_sandbox_features():
+    """Get feature definitions from ig.csv."""
+    ig_csv_path = REPO_ROOT / "ig_assessment" / "tmp" / "ig.csv"
+    
+    if not ig_csv_path.exists():
+        return jsonify({"error": "ig.csv not found"}), 404
+    
+    try:
+        import csv
+        features = []
+        with open(ig_csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                feature_name = row.get('feature', '')
+                numeric = row.get('numeric', 'False').strip().lower() == 'true'
+                categories_or_bins = row.get('categories_or_bins', '[]').strip()
+                
+                # Parse categories_or_bins
+                values = []
+                feature_type = 'categorical'
+                
+                if categories_or_bins and categories_or_bins not in ['[]', '0']:
+                    try:
+                        # Try to parse as Python literal
+                        import ast
+                        parsed = ast.literal_eval(categories_or_bins)
+                        if isinstance(parsed, list):
+                            if numeric and parsed:
+                                # Bins (tuples)
+                                feature_type = 'bin'
+                                values = [str(b) for b in parsed]
+                            else:
+                                # Categorical
+                                feature_type = 'categorical'
+                                values = parsed
+                    except Exception:
+                        # Try splitting by semicolon or comma
+                        if ';' in categories_or_bins:
+                            values = [v.strip().strip("'\"") for v in categories_or_bins.split(';')]
+                        elif ',' in categories_or_bins and not categories_or_bins.startswith('['):
+                            values = [v.strip().strip("'\"") for v in categories_or_bins.split(',')]
+                        feature_type = 'categorical'
+                
+                # If numeric and no values, it's an integer input
+                if numeric and not values:
+                    feature_type = 'int'
+                
+                features.append({
+                    'name': feature_name,
+                    'type': feature_type,
+                    'values': values,
+                    'numeric': numeric
+                })
+        
+        return jsonify({"features": features, "total": len(features)})
+    except Exception as e:
+        return jsonify({"error": f"Error loading features: {str(e)}"}), 500
+
+
+@app.post("/api/sandbox/filter")
+def filter_sandbox_norms():
+    """Filter norms based on current filter selections using tri-state logic."""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "JSON data is required"}), 400
+        
+        run_id = data.get('run_id')
+        filters = data.get('filters', {})  # {feature_name: value or [values]}
+        
+        if not run_id:
+            return jsonify({"error": "run_id is required"}), 400
+        
+        # Get all norms
+        run_dir = OUTPUT_ROOT / run_id
+        if not run_dir.exists():
+            return jsonify({"error": "Run not found"}), 404
+        
+        enhanced_output_dir = run_dir / "enhanced_output"
+        extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
+        
+        if not extraction_file.exists():
+            return jsonify({"error": "Enhanced extraction results not found"}), 404
+        
+        result_data = json.loads(extraction_file.read_text(encoding="utf-8"))
+        norms = [
+            e for e in result_data.get("extractions", [])
+            if e.get("extraction_class") == "NORM"
+        ]
+        
+        # Import evaluator from ig_assessment
+        sys.path.insert(0, str(REPO_ROOT / "ig_assessment"))
+        from dsl_parser import parse_applies_if
+        from evaluator import Evaluator, TristateValue
+        
+        # Build partial assignment from filters
+        assignment = {}
+        for feature_name, value in filters.items():
+            if isinstance(value, list):
+                # For categorical with multiple selections, we'll evaluate each and OR them
+                # For now, just use the first value (simplified)
+                if value:
+                    assignment[feature_name] = value[0] if len(value) == 1 else value
+            else:
+                assignment[feature_name] = value
+        
+        # Filter norms
+        filtered_norms = []
+        for norm in norms:
+            applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
+            
+            # Parse the applies_if expression
+            ast = parse_applies_if(applies_if)
+            
+            # Evaluate with partial assignment
+            evaluator = Evaluator(assignment)
+            result = evaluator.evaluate(ast)
+            
+            # Keep norm if result is TRUE or UNKNOWN, exclude if FALSE
+            if result != TristateValue.FALSE:
+                filtered_norms.append(norm)
+        
+        return jsonify({
+            "norms": filtered_norms,
+            "total": len(filtered_norms),
+            "original_total": len(norms)
+        })
+        
+    except Exception as e:
+        import traceback
+        return jsonify({
+            "error": f"Error filtering norms: {str(e)}",
+            "traceback": traceback.format_exc()
+        }), 500
+
+
 if __name__ == "__main__":
     # Ensure single instance and graceful shutdown
     host = "127.0.0.1"
