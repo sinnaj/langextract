@@ -87,6 +87,9 @@ _SHUTTING_DOWN = False
 
 RUNNERS: Dict[str, Runner] = {}
 
+# Cache for parsed norm ASTs (per run_id)
+_NORM_AST_CACHE: Dict[str, Dict[str, Any]] = {}
+
 INPUT_DIRS = {
     "input_promptfiles": REPO_ROOT / "input_promptfiles",
     "input_glossaryfiles": REPO_ROOT / "input_glossaryfiles",
