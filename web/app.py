@@ -1362,24 +1362,41 @@ def filter_sandbox_norms():
         
         # Filter norms using cached ASTs
         filtered_norms = []
+        debug_log = []  # For debugging
         for norm in norms:
             norm_id = norm.get('attributes', {}).get('id')
+            applies_if_str = norm.get('attributes', {}).get('applies_if', 'TRUE')
             
             # Get cached AST
             if norm_id and norm_id in _NORM_AST_CACHE[cache_key]:
                 ast = _NORM_AST_CACHE[cache_key][norm_id]
             else:
                 # Fallback: parse on the fly
-                applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
-                ast = parse_applies_if(applies_if)
+                ast = parse_applies_if(applies_if_str)
             
             # Evaluate with partial assignment
             evaluator = Evaluator(assignment)
             result = evaluator.evaluate(ast)
             
+            # Debug logging for norms with applies_if = TRUE
+            if applies_if_str.strip().upper() == 'TRUE':
+                debug_log.append({
+                    'norm_id': norm_id,
+                    'applies_if': applies_if_str,
+                    'result': str(result),
+                    'kept': result != TristateValue.FALSE
+                })
+            
             # Keep norm if result is TRUE or UNKNOWN, exclude if FALSE
             if result != TristateValue.FALSE:
                 filtered_norms.append(norm)
+        
+        # Log debug info for norms with applies_if = TRUE if any were excluded
+        excluded_true_norms = [d for d in debug_log if not d['kept']]
+        if excluded_true_norms:
+            print(f"[DEBUG] WARNING: {len(excluded_true_norms)} norms with applies_if=TRUE were incorrectly filtered out!")
+            for d in excluded_true_norms[:5]:  # Show first 5
+                print(f"  - {d}")
         
         return jsonify({
             "norms": filtered_norms,
