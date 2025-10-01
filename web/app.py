@@ -1337,7 +1337,9 @@ def filter_sandbox_norms():
         from evaluator import Evaluator, TristateValue
         
         # Check if we have cached ASTs for this run - cache ALL norms, not just the subset
-        cache_key = run_id
+        # Include a version stamp in cache key to invalidate old caches when parser changes
+        parser_version = "v2_case_insensitive"  # Update this when parser logic changes
+        cache_key = f"{run_id}_{parser_version}"
         if cache_key not in _NORM_AST_CACHE:
             # Parse and cache all ASTs for this run (before filtering)
             _NORM_AST_CACHE[cache_key] = {}
@@ -1383,6 +1385,10 @@ def filter_sandbox_norms():
                 debug_log.append({
                     'norm_id': norm_id,
                     'applies_if': applies_if_str,
+                    'applies_if_repr': repr(applies_if_str),
+                    'ast': str(ast),
+                    'ast_type': type(ast).__name__,
+                    'ast_value': str(ast.value) if hasattr(ast, 'value') else 'N/A',
                     'result': str(result),
                     'kept': result != TristateValue.FALSE
                 })
