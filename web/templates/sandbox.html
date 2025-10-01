@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sandbox - Norms Explorer</title>
+  <!-- Cache busting: v1.1 -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <!-- Tailwind via CDN with local fallback -->
+  <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
+  <style>
+    .norm-card {
+      transition: all 0.2s ease;
+    }
+    .norm-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .details-expanded {
+      max-height: 2000px;
+      transition: max-height 0.3s ease;
+    }
+    .details-collapsed {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .tab-button {
+      transition: all 0.2s ease;
+    }
+  </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
+      <div class="px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <a href="/" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+          </a>
+          <h1 class="text-xl font-bold">Norms Sandbox</h1>
+        </div>
+        <div class="text-sm text-gray-600 dark:text-gray-400" id="results-counter">
+          Loading...
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex h-[calc(100vh-60px)]">
+      <!-- Left: Norms List -->
+      <div class="flex-1 flex flex-col">
+        <!-- Tab Bar -->
+        <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+          <div class="flex space-x-1 px-4">
+            <button id="tab-current" class="tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400" onclick="switchTab('current')">
+              Current (<span id="count-current">0</span>)
+            </button>
+            <button id="tab-filtered-out" class="tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" onclick="switchTab('filtered-out')">
+              Filtered Out (<span id="count-filtered-out">0</span>)
+            </button>
+          </div>
+        </div>
+        
+        <!-- Norms Container -->
+        <div class="flex-1 overflow-auto p-4">
+          <div id="norms-container" class="space-y-4">
+            <!-- Norms will be loaded here -->
+            <div class="text-center py-12 text-gray-500">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p>Loading norms...</p>
+            </div>
+          </div>
+          <!-- Empty state -->
+          <div id="empty-state" class="hidden text-center py-12">
+            <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <p class="text-gray-500 text-lg">No norms match the current filters</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Filters Panel -->
+      <div class="w-80 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 overflow-auto">
+        <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 z-10">
+          <h2 class="text-lg font-bold mb-3">Filters</h2>
+          
+          <!-- Output Selector -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-2">Output Run</label>
+            <select id="output-selector" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-sm">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
+          <!-- Clear Filters Button -->
+          <button id="clear-filters" class="w-full px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md text-sm font-medium">
+            Clear All Filters
+          </button>
+        </div>
+
+        <!-- Filters Container -->
+        <div id="filters-container" class="p-4 space-y-4">
+          <div class="text-center text-sm text-gray-500">Loading filters...</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // State
+      let allNorms = [];
+      let filteredNorms = [];
+      let filteredOutNorms = [];
+      let baseNormsAfterAppliesIf = []; // Norms after applies_if filter, before feature filters
+      let features = [];
+      let currentFilters = {};
+      let currentRunId = null;
+      let appliesIfFilter = 'all'; // 'all', 'true', 'not-true'
+      let currentTab = 'current'; // 'current' or 'filtered-out'
+
+      // Initialize
+      async function init() {
+        console.log('[Sandbox] Initializing page - version 1.1');
+        await loadOutputs();
+        await loadFeatures();
+        console.log('[Sandbox] Initialization complete');
+      }
+
+      // Load available outputs
+      async function loadOutputs() {
+        try {
+          const response = await fetch('/api/sandbox/outputs');
+          const data = await response.json();
+          
+          const selector = document.getElementById('output-selector');
+          selector.innerHTML = '';
+          
+          if (data.outputs && data.outputs.length > 0) {
+            data.outputs.forEach((output, idx) => {
+              const option = document.createElement('option');
+              option.value = output.run_id;
+              const date = new Date(output.timestamp * 1000);
+              option.textContent = idx === 0 
+                ? `${output.run_id} (Latest - ${date.toLocaleString()})`
+                : `${output.run_id} (${date.toLocaleString()})`;
+              selector.appendChild(option);
+            });
+            
+            // Select latest by default
+            currentRunId = data.outputs[0].run_id;
+            selector.value = currentRunId;
+            await loadNorms(currentRunId);
+          } else {
+            selector.innerHTML = '<option>No outputs available</option>';
+          }
+        } catch (error) {
+          console.error('Error loading outputs:', error);
+          document.getElementById('output-selector').innerHTML = '<option>Error loading outputs</option>';
+        }
+      }
+
+      // Load features from ig.csv
+      async function loadFeatures() {
+        try {
+          const response = await fetch('/api/sandbox/features');
+          const data = await response.json();
+          
+          if (data.features) {
+            features = data.features;
+            renderFilters();
+          } else if (data.error) {
+            document.getElementById('filters-container').innerHTML = 
+              `<div class="text-sm text-red-600">Error: ${data.error}</div>`;
+          }
+        } catch (error) {
+          console.error('Error loading features:', error);
+          document.getElementById('filters-container').innerHTML = 
+            '<div class="text-sm text-red-600">Error loading filters</div>';
+        }
+      }
+
+      // Load norms for a run
+      async function loadNorms(runId) {
+        try {
+          const response = await fetch(`/api/sandbox/norms/${runId}`);
+          const data = await response.json();
+          
+          if (data.norms) {
+            allNorms = data.norms;
+            filteredNorms = allNorms;
+            filteredOutNorms = [];
+            renderNorms();
+            updateCounter();
+          } else if (data.error) {
+            document.getElementById('norms-container').innerHTML = 
+              `<div class="text-center text-red-600 py-12">${data.error}</div>`;
+          }
+        } catch (error) {
+          console.error('Error loading norms:', error);
+          document.getElementById('norms-container').innerHTML = 
+            '<div class="text-center text-red-600 py-12">Error loading norms</div>';
+        }
+      }
+
+      // Render filters
+      function renderFilters() {
+        const container = document.getElementById('filters-container');
+        container.innerHTML = '';
+
+        // Add special dropdown for applies_if filter
+        const trueFilterDiv = document.createElement('div');
+        trueFilterDiv.className = 'border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg';
+        
+        const trueLabel = document.createElement('label');
+        trueLabel.className = 'block text-sm font-medium mb-2';
+        trueLabel.textContent = 'applies_if Filter';
+        trueFilterDiv.appendChild(trueLabel);
+        
+        const trueSelect = document.createElement('select');
+        trueSelect.id = 'filter-applies-if';
+        trueSelect.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+        trueSelect.onchange = (e) => {
+          appliesIfFilter = e.target.value;
+          handleFilterChange();
+        };
+        
+        const allOption = document.createElement('option');
+        allOption.value = 'all';
+        allOption.textContent = 'All';
+        trueSelect.appendChild(allOption);
+        
+        const trueOption = document.createElement('option');
+        trueOption.value = 'true';
+        trueOption.textContent = 'TRUE';
+        trueSelect.appendChild(trueOption);
+        
+        const notTrueOption = document.createElement('option');
+        notTrueOption.value = 'not-true';
+        notTrueOption.textContent = '!TRUE';
+        trueSelect.appendChild(notTrueOption);
+        
+        trueFilterDiv.appendChild(trueSelect);
+        container.appendChild(trueFilterDiv);
+
+        // Limit to top 20 features for performance
+        const topFeatures = features.slice(0, 20);
+
+        topFeatures.forEach(feature => {
+          const filterDiv = document.createElement('div');
+          filterDiv.className = 'border-b border-gray-200 dark:border-gray-700 pb-4';
+
+          const label = document.createElement('label');
+          label.className = 'block text-sm font-medium mb-2';
+          label.textContent = feature.name;
+          filterDiv.appendChild(label);
+
+          if (feature.type === 'categorical') {
+            // Render dropdown for categorical (single-select)
+            const select = document.createElement('select');
+            select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+            select.dataset.feature = feature.name;
+            select.onchange = () => handleFilterChange();
+            
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = '-- Any --';
+            select.appendChild(defaultOption);
+            
+            feature.values.forEach(value => {
+              const option = document.createElement('option');
+              option.value = value;
+              option.textContent = value;
+              select.appendChild(option);
+            });
+            
+            filterDiv.appendChild(select);
+          } else if (feature.type === 'bin') {
+            // Render dropdown for bins
+            const select = document.createElement('select');
+            select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+            select.dataset.feature = feature.name;
+            select.onchange = () => handleFilterChange();
+            
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = '-- Any --';
+            select.appendChild(defaultOption);
+            
+            feature.values.forEach(value => {
+              const option = document.createElement('option');
+              option.value = value;
+              option.textContent = value;
+              select.appendChild(option);
+            });
+            
+            filterDiv.appendChild(select);
+          } else if (feature.type === 'int') {
+            // Render number input
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+            input.placeholder = 'Enter value...';
+            input.dataset.feature = feature.name;
+            input.oninput = () => handleFilterChange();
+            
+            filterDiv.appendChild(input);
+          }
+
+          container.appendChild(filterDiv);
+        });
+      }
+
+      // Handle filter changes
+      function handleFilterChange() {
+        console.log('[Sandbox] handleFilterChange called');
+        // Build filters object
+        currentFilters = {};
+
+        // Collect dropdown filters (single-select) - both categorical and bins
+        const selects = document.querySelectorAll('select[data-feature]');
+        console.log('[Sandbox] Found', selects.length, 'feature selects');
+        selects.forEach(select => {
+          if (select.value) {
+            currentFilters[select.dataset.feature] = select.value;
+            console.log('[Sandbox] Filter added:', select.dataset.feature, '=', select.value);
+          }
+        });
+
+        // Collect number inputs
+        const inputs = document.querySelectorAll('input[type="number"][data-feature]');
+        inputs.forEach(input => {
+          if (input.value) {
+            currentFilters[input.dataset.feature] = parseFloat(input.value);
+            console.log('[Sandbox] Int filter added:', input.dataset.feature, '=', input.value);
+          }
+        });
+
+        console.log('[Sandbox] Current filters:', currentFilters);
+        console.log('[Sandbox] applies_if filter:', appliesIfFilter);
+
+        // Apply filters client-side (much faster than API call)
+        applyFiltersClientSide();
+      }
+
+      // Apply filters client-side for speed
+      function applyFiltersClientSide() {
+        // Start with all norms
+        let result = allNorms;
+        
+        // First apply the applies_if filter
+        if (appliesIfFilter === 'true') {
+          result = result.filter(norm => {
+            const appliesIf = norm.attributes?.applies_if || 'TRUE';
+            return appliesIf.trim().toUpperCase() === 'TRUE';
+          });
+        } else if (appliesIfFilter === 'not-true') {
+          result = result.filter(norm => {
+            const appliesIf = norm.attributes?.applies_if || 'TRUE';
+            return appliesIf.trim().toUpperCase() !== 'TRUE';
+          });
+        }
+        // 'all' means no filtering by applies_if
+        
+        // Store the base set after applies_if filter (for calculating filtered-out correctly)
+        baseNormsAfterAppliesIf = result;
+        
+        // If no other filters, we're done
+        if (Object.keys(currentFilters).length === 0) {
+          filteredNorms = result;
+          // Filtered out should be empty when no feature filters are applied
+          // (norms filtered by applies_if are not "filtered out" by feature filters)
+          filteredOutNorms = [];
+          renderNorms();
+          updateCounter();
+          return;
+        }
+        
+        // For other filters, we need to call the API for tri-state evaluation
+        // But we can optimize by only sending norms that might be affected
+        applyFiltersViaAPI(result);
+      }
+
+      // Apply filters via API (only when needed for tri-state logic)
+      async function applyFiltersViaAPI(normsToFilter) {
+        if (!currentRunId) return;
+
+        console.log('[Sandbox] Applying filters via API');
+        console.log('[Sandbox] Filters:', currentFilters);
+        console.log('[Sandbox] Norms to filter:', normsToFilter.length);
+        console.log('[Sandbox] Base norms after applies_if:', baseNormsAfterAppliesIf.length);
+
+        try {
+          const response = await fetch('/api/sandbox/filter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              run_id: currentRunId,
+              filters: currentFilters,
+              norm_ids: normsToFilter.map(n => n.attributes?.id).filter(Boolean)
+            })
+          });
+
+          const data = await response.json();
+          console.log('[Sandbox] API response received');
+          console.log('[Sandbox] Filtered norms count:', data.norms?.length || 0);
+          console.log('[Sandbox] Original total:', data.original_total || 0);
+          
+          if (data.norms) {
+            filteredNorms = data.norms;
+            // Calculate filtered out norms relative to baseNormsAfterAppliesIf, not allNorms
+            // This ensures norms filtered out by applies_if don't appear in "Filtered Out" tab
+            filteredOutNorms = baseNormsAfterAppliesIf.filter(n => {
+              const normId = n.attributes?.id;
+              return !filteredNorms.some(fn => fn.attributes?.id === normId);
+            });
+            console.log('[Sandbox] Filtered out count:', filteredOutNorms.length);
+            console.log('[Sandbox] Explanation: baseNorms=' + baseNormsAfterAppliesIf.length + 
+                       ', current=' + filteredNorms.length + 
+                       ', filtered_out=' + filteredOutNorms.length);
+            renderNorms();
+            updateCounter(data.original_total);
+          } else if (data.error) {
+            console.error('[Sandbox] Filter error:', data.error);
+          }
+        } catch (error) {
+          console.error('[Sandbox] Error applying filters:', error);
+        }
+      }
+
+      // Render norms
+      function renderNorms() {
+        const container = document.getElementById('norms-container');
+        const emptyState = document.getElementById('empty-state');
+        
+        // Determine which norms to display based on current tab
+        const normsToDisplay = currentTab === 'current' ? filteredNorms : filteredOutNorms;
+        
+        if (normsToDisplay.length === 0) {
+          container.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+        container.innerHTML = '';
+
+        normsToDisplay.forEach((norm, idx) => {
+          const card = createNormCard(norm, idx);
+          container.appendChild(card);
+        });
+      }
+
+      // Switch between tabs
+      function switchTab(tab) {
+        currentTab = tab;
+        
+        // Update tab button styles
+        const currentBtn = document.getElementById('tab-current');
+        const filteredOutBtn = document.getElementById('tab-filtered-out');
+        
+        if (tab === 'current') {
+          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
+          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
+        } else {
+          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
+          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
+        }
+        
+        // Re-render the norms for the selected tab
+        renderNorms();
+      }
+
+      // Create norm card element
+      function createNormCard(norm, idx) {
+        const attrs = norm.attributes || {};
+        const card = document.createElement('div');
+        card.className = 'norm-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4';
+
+        // Header
+        const header = document.createElement('div');
+        header.className = 'flex items-start justify-between mb-2';
+        
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'flex-1';
+        
+        const id = document.createElement('div');
+        id.className = 'text-xs text-gray-500 dark:text-gray-400 font-mono mb-1';
+        id.textContent = `ID: ${attrs.id?.substring(0, 8) || 'N/A'}`;
+        
+        const statement = document.createElement('div');
+        statement.className = 'text-sm font-medium text-gray-900 dark:text-gray-100';
+        statement.textContent = attrs.norm_statement || 'No statement';
+        
+        titleDiv.appendChild(id);
+        titleDiv.appendChild(statement);
+        
+        const expandBtn = document.createElement('button');
+        expandBtn.className = 'ml-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 text-sm font-medium';
+        expandBtn.textContent = 'Details';
+        expandBtn.onclick = () => toggleDetails(idx);
+        
+        header.appendChild(titleDiv);
+        header.appendChild(expandBtn);
+        card.appendChild(header);
+
+        // Details (collapsed by default)
+        const details = document.createElement('div');
+        details.id = `details-${idx}`;
+        details.className = 'details-collapsed';
+        
+        const detailsContent = document.createElement('div');
+        detailsContent.className = 'mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 space-y-2 text-sm';
+        
+        // Topics
+        if (attrs.topics && attrs.topics.length > 0) {
+          const topicsDiv = document.createElement('div');
+          topicsDiv.innerHTML = `<span class="font-medium">Topics:</span> ${attrs.topics.join(', ')}`;
+          detailsContent.appendChild(topicsDiv);
+        }
+
+        // Priority
+        if (attrs.priority) {
+          const priorityDiv = document.createElement('div');
+          priorityDiv.innerHTML = `<span class="font-medium">Priority:</span> ${attrs.priority}`;
+          detailsContent.appendChild(priorityDiv);
+        }
+
+        // Location scope
+        if (attrs.location_scope) {
+          const locationDiv = document.createElement('div');
+          locationDiv.innerHTML = `<span class="font-medium">Location:</span> ${JSON.stringify(attrs.location_scope)}`;
+          detailsContent.appendChild(locationDiv);
+        }
+
+        // Applies If
+        const appliesDiv = document.createElement('div');
+        appliesDiv.innerHTML = `<span class="font-medium">Applies If:</span> <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs">${attrs.applies_if || 'TRUE'}</code>`;
+        detailsContent.appendChild(appliesDiv);
+
+        // Satisfied If
+        if (attrs.satisfied_if) {
+          const satisfiedDiv = document.createElement('div');
+          satisfiedDiv.innerHTML = `<span class="font-medium">Satisfied If:</span> <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs">${attrs.satisfied_if}</code>`;
+          detailsContent.appendChild(satisfiedDiv);
+        }
+
+        details.appendChild(detailsContent);
+        card.appendChild(details);
+
+        return card;
+      }
+
+      // Toggle details expansion
+      function toggleDetails(idx) {
+        const details = document.getElementById(`details-${idx}`);
+        if (details.classList.contains('details-collapsed')) {
+          details.classList.remove('details-collapsed');
+          details.classList.add('details-expanded');
+        } else {
+          details.classList.remove('details-expanded');
+          details.classList.add('details-collapsed');
+        }
+      }
+
+      // Update counter
+      function updateCounter(originalTotal) {
+        const counter = document.getElementById('results-counter');
+        const total = originalTotal || allNorms.length;
+        counter.textContent = `${filteredNorms.length}/${total}`;
+        
+        // Update tab counts
+        document.getElementById('count-current').textContent = filteredNorms.length;
+        document.getElementById('count-filtered-out').textContent = filteredOutNorms.length;
+      }
+
+      // Clear filters
+      document.getElementById('clear-filters').onclick = () => {
+        // Reset applies_if filter dropdown
+        const appliesIfSelect = document.getElementById('filter-applies-if');
+        if (appliesIfSelect) {
+          appliesIfSelect.value = 'all';
+          appliesIfFilter = 'all';
+        }
+        
+        // Clear all selects (categorical and bin filters)
+        document.querySelectorAll('select[data-feature]').forEach(select => select.value = '');
+        
+        // Clear all number inputs
+        document.querySelectorAll('input[type="number"][data-feature]').forEach(input => input.value = '');
+        
+        currentFilters = {};
+        filteredNorms = allNorms;
+        filteredOutNorms = [];
+        renderNorms();
+        updateCounter();
+      };
+
+      // Output selector change
+      document.getElementById('output-selector').onchange = async (e) => {
+        currentRunId = e.target.value;
+        if (currentRunId) {
+          // Clear filters
+          document.getElementById('clear-filters').click();
+          await loadNorms(currentRunId);
+        }
+      };
+
+      // Initialize on load
+      init();
+    </script>
+  </body>
+</html>
