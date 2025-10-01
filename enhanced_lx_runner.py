@@ -19,6 +19,10 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import tempfile
 
+from dotenv import load_dotenv
+
+from langextract import providers
+
 # Performance monitoring
 PERFORMANCE_TRACKING = {}  # Global dict to track operation timings
 # Import LangExtract functionality
@@ -47,6 +51,7 @@ from enhanced_extraction.content_chunking import (
     emergency_chunk_content
 )
 from enhanced_extraction.config import (
+    DOTENV_AVAILABLE,
     ExtractionConfig,
     setup_langextract_providers as setup_providers,
     should_skip_section_for_extraction,
@@ -1257,6 +1262,35 @@ def run_enhanced_extraction(
             "docling_document": fixed_docling_path
         }
     }
+
+
+def setup_langextract_providers() -> Tuple[bool, Optional[str], Optional[str]]:
+    """Setup LangExtract providers and configuration.
+    
+    Returns:
+        Tuple of (USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY)
+    """
+    if DOTENV_AVAILABLE:
+        load_dotenv()
+    
+    try:
+        # Ensure provider registry is populated
+        providers.load_builtins_once()
+        providers.load_plugins_once()
+        
+        # List available providers
+        avail = providers.router.list_providers()
+        provider_names = [str(patterns) for patterns, priority in avail]
+        print(f"[DEBUG] Providers available: {provider_names}")
+    except Exception as e:
+        print(f"[WARNING] Could not setup providers: {e}")
+    
+    # Get provider configuration from environment
+    USE_OPENROUTER = os.getenv("USE_OPENROUTER", "1").lower() in {"1", "true", "yes"}
+    OPENROUTER_KEY = os.environ.get("OPENAI_API_KEY")
+    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+    
+    return USE_OPENROUTER, OPENROUTER_KEY, GOOGLE_API_KEY
 
 
 def main():
