@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sandbox - Norms Explorer</title>
+  <!-- Cache busting: v1.1 -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <!-- Tailwind via CDN with local fallback -->
   <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
   <style>
@@ -119,8 +123,10 @@
 
       // Initialize
       async function init() {
+        console.log('[Sandbox] Initializing page - version 1.1');
         await loadOutputs();
         await loadFeatures();
+        console.log('[Sandbox] Initialization complete');
       }
 
       // Load available outputs
@@ -309,14 +315,17 @@
 
       // Handle filter changes
       function handleFilterChange() {
+        console.log('[Sandbox] handleFilterChange called');
         // Build filters object
         currentFilters = {};
 
         // Collect dropdown filters (single-select) - both categorical and bins
         const selects = document.querySelectorAll('select[data-feature]');
+        console.log('[Sandbox] Found', selects.length, 'feature selects');
         selects.forEach(select => {
           if (select.value) {
             currentFilters[select.dataset.feature] = select.value;
+            console.log('[Sandbox] Filter added:', select.dataset.feature, '=', select.value);
           }
         });
 
@@ -325,8 +334,12 @@
         inputs.forEach(input => {
           if (input.value) {
             currentFilters[input.dataset.feature] = parseFloat(input.value);
+            console.log('[Sandbox] Int filter added:', input.dataset.feature, '=', input.value);
           }
         });
+
+        console.log('[Sandbox] Current filters:', currentFilters);
+        console.log('[Sandbox] applies_if filter:', appliesIfFilter);
 
         // Apply filters client-side (much faster than API call)
         applyFiltersClientSide();
@@ -369,6 +382,10 @@
       async function applyFiltersViaAPI(normsToFilter) {
         if (!currentRunId) return;
 
+        console.log('[Sandbox] Applying filters via API');
+        console.log('[Sandbox] Filters:', currentFilters);
+        console.log('[Sandbox] Norms to filter:', normsToFilter.length);
+
         try {
           const response = await fetch('/api/sandbox/filter', {
             method: 'POST',
@@ -381,6 +398,9 @@
           });
 
           const data = await response.json();
+          console.log('[Sandbox] API response received');
+          console.log('[Sandbox] Filtered norms count:', data.norms?.length || 0);
+          console.log('[Sandbox] Original total:', data.original_total || 0);
           
           if (data.norms) {
             filteredNorms = data.norms;
@@ -389,13 +409,14 @@
               const normId = n.attributes?.id;
               return !filteredNorms.some(fn => fn.attributes?.id === normId);
             });
+            console.log('[Sandbox] Filtered out count:', filteredOutNorms.length);
             renderNorms();
             updateCounter(data.original_total);
           } else if (data.error) {
-            console.error('Filter error:', data.error);
+            console.error('[Sandbox] Filter error:', data.error);
           }
         } catch (error) {
-          console.error('Error applying filters:', error);
+          console.error('[Sandbox] Error applying filters:', error);
         }
       }
 
