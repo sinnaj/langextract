@@ -1,0 +1,1903 @@
+{
+  "chunk_id": 18,
+  "section_metadata": {
+    "section_id": "ca716d8284186de5",
+    "section_name": "2 Cálculo de la ocupación",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 22,
+    "end_page": 23,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "2 Cálculo de la ocupación"
+    ],
+    "parent_section_id": "59fb0ac27845244e",
+    "positioning_data": [
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          36
+        ],
+        "bbox": {
+          "l": 71.51856231689453,
+          "t": 767.8389282226562,
+          "r": 266.5337829589844,
+          "b": 734.7318115234375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sección SI 3 Evacuación de ocupantes"
+      },
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          47
+        ],
+        "bbox": {
+          "l": 72.05316162109375,
+          "t": 586.5311279296875,
+          "r": 424.4474792480469,
+          "b": 573.5581665039062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Compatibilidad de los elementos de evacuación"
+      },
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          339
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 563.160888671875,
+          "r": 538.5060424804688,
+          "b": 519.1483764648438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+      },
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          425
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 511.08087158203125,
+          "r": 538.386962890625,
+          "b": 455.80828857421875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+      },
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          236
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 447.6008605957031,
+          "r": 538.3079223632812,
+          "b": 417.0604553222656,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 2 Cálculo de la ocupación\n**Path:** Sección SI 3 Evacuación de ocupantes → 2 Cálculo de la ocupación\n**Level:** 2\n**Tags:** SI3, Evacuación, Ocupantes, Cálculo, Ocupación\n**Pages:** 22-23\n\n\n1 Para calcular la ocupación deben tomarse los valores de densidad de ocupación que se indican en la tabla 2.1 en función de la superficie útil de cada zona, salvo cuando sea previsible una ocupación mayor o bien cuando sea exigible una ocupación menor en aplicación de alguna disposición legal de obligado cumplimiento, como puede ser en el caso de establecimientos hoteleros, docentes, hospitales, etc . En aquellos recintos o zonas no incluidos en la tabla se deben aplicar los valores correspondientes a los que sean más asimilables.\n2 A efectos de determinar la ocupación, se debe tener en cuenta el carácter simultáneo o alternativo de las diferentes zonas de un edificio, considerando el régimen de actividad y de uso previsto para el mismo.\nTabla 2.1. Densidades de ocupación(1)\n22\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\n23\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\n(1) Deben considerarse las posibles utilizaciones especiales y circunstanciales de determinadas zonas o recintos, cuando puedan suponer un aumento importante de la ocupación en comparación con la propia del uso normal previsto. En dichos casos se debe, o bien considerar dichos usos alternativos a efectos del diseño y cálculo de los elementos de evacuación, o bien dejar constancia, tanto en la documentación del proyecto, como en el Libro del edificio, de que las ocupaciones y los usos previstos han sido únicamente los característicos de la actividad.\n(2) En los aparcamientos robotizados se considera que no existe ocupación. No obstante, dispondrán de los medios de escape en caso de emergencia para el personal de mantenimiento que en cada caso considere necesarios la autoridad de control.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 2 Cálculo de la ocupación\nPath: Sección SI 3 Evacuación de ocupantes → 2 Cálculo de la ocupación\nLevel: 2\nTags: SI3, Evacuación, Ocupantes, Cálculo, Ocupación\nPages: 22-23\n\n\n1 Para calcular la ocupación deben tomarse los valores de densidad de ocupación que se indican en la tabla 2.1 en función de la superficie útil de cada zona, salvo cuando sea previsible una ocupación mayor o bien cuando sea exigible una ocupación menor en aplicación de alguna disposición legal de obligado cumplimiento, como puede ser en el caso de establecimientos hoteleros, docentes, hospitales, etc . En aquellos recintos o zonas no incluidos en la tabla se deben aplicar los valores correspondientes a los que sean más asimilables.\n2 A efectos de determinar la ocupación, se debe tener en cuenta el carácter simultáneo o alternativo de las diferentes zonas de un edificio, considerando el régimen de actividad y de uso previsto para el mismo.\nTabla 2.1. Densidades de ocupación(1)\n22\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\n23\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\n(1) Deben considerarse las posibles utilizaciones especiales y circunstanciales de determinadas zonas o recintos, cuando puedan suponer un aumento importante de la ocupación en comparación con la propia del uso normal previsto. En dichos casos se debe, o bien considerar dichos usos alternativos a efectos del diseño y cálculo de los elementos de evacuación, o bien dejar constancia, tanto en la documentación del proyecto, como en el Libro del edificio, de que las ocupaciones y los usos previstos han sido únicamente los característicos de la actividad.\n(2) En los aparcamientos robotizados se considera que no existe ocupación. No obstante, dispondrán de los medios de escape en caso de emergencia para el personal de mantenimiento que en cada caso considere necesarios la autoridad de control.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section outlines the methodology for calculating building occupancy, emphasizing the use of density values from Table 2.1 based on the useful area of each zone. It also addresses situations where higher or lower occupancy might be required by law or when special/circumstantial uses could significantly increase occupancy, requiring consideration in design or documentation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 36
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 12
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Para calcular la ocupación deben tomarse los valores de densidad de ocupación que se indican en la tabla 2.1 en función de la superficie útil de cada zona, salvo cuando sea previsible una ocupación mayor o bien cuando sea exigible una ocupación menor en aplicación de alguna disposición legal de obligado cumplimiento, como puede ser en el caso de establecimientos hoteleros, docentes, hospitales, etc . En aquellos recintos o zonas no incluidos en la tabla se deben aplicar los valores correspondientes a los que sean más asimilables.",
+      "attributes": {
+        "id": "f51a445f-4277-408f-8012-701380907577",
+        "parent_section_id": "ca716d8284186de5",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Occupancy calculation must use density values from Table 2.1 based on the useful area of each zone.",
+        "applies_if": "TRUE",
+        "satisfied_if": "OCCUPANCY.CALCULATION.USES_TABLE_2_1_DENSITY == TRUE",
+        "exempt_if": "OCCUPANCY.PREDICTED > OCCUPANCY.TABLE_2_1_VALUE OR OCCUPANCY.REQUIRED_BY_LAW < OCCUPANCY.TABLE_2_1_VALUE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY.CALCULATION",
+          "OCCUPANCY.DENSITY",
+          "AREA.USEFUL",
+          "TABLE.2.1",
+          "LEGAL.PROVISION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 108,
+          "span_char_end": 509,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "For areas not in the table, apply values from most similar categories. Exemptions apply if predicted occupancy is higher or legally required occupancy is lower.",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 184,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 59,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 A efectos de determinar la ocupación, se debe tener en cuenta el carácter simultáneo o alternativo de las diferentes zonas de un edificio, considerando el régimen de actividad y de uso previsto para el mismo.",
+      "attributes": {
+        "id": "21e42718-4905-4322-8356-8208354c4652",
+        "parent_section_id": "ca716d8284186de5",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When determining occupancy, the simultaneous or alternative nature of different building zones must be considered, taking into account the activity regime and intended use.",
+        "applies_if": "TRUE",
+        "satisfied_if": "OCCUPANCY.CALCULATION.CONSIDERS_SIMULTANEOUS_OR_ALTERNATIVE_USE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "OCCUPANCY.CALCULATION",
+          "BUILDING.ZONE.USE",
+          "BUILDING.ACTIVITY.REGIME"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 510,
+          "span_char_end": 699,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 726,
+        "end_pos": 942
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 175,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(1) Deben considerarse las posibles utilizaciones especiales y circunstanciales de determinadas zonas o recintos, cuando puedan suponer un aumento importante de la ocupación en comparación con la propia del uso normal previsto. En dichos casos se debe, o bien considerar dichos usos alternativos a efectos del diseño y cálculo de los elementos de evacuación, o bien dejar constancia, tanto en la documentación del proyecto, como en el Libro del edificio, de que las ocupaciones y los usos previstos han sido únicamente los característicos de la actividad.",
+      "attributes": {
+        "id": "18e24483-3987-4340-9844-32362145e121",
+        "parent_section_id": "ca716d8284186de5",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Possible special and circumstantial uses of certain zones or enclosures must be considered if they could significantly increase occupancy compared to normal intended use.",
+        "applies_if": "ZONE.USE.SPECIAL_OR_CIRCUMSTANTIAL == TRUE AND OCCUPANCY.INCREASE_SIGNIFICANT == TRUE",
+        "satisfied_if": "EVACUATION.ELEMENTS.DESIGN_CONSIDERS_ALTERNATIVE_USES == TRUE ; OR PROJECT.DOCUMENTATION.STATES_NORMAL_OCCUPANCY_AND_USES == TRUE AND BUILDING.LOGBOOK.STATES_NORMAL_OCCUPANCY_AND_USES == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ZONE.USE.SPECIAL",
+          "ZONE.USE.CIRCUMSTANTIAL",
+          "OCCUPANCY.INCREASE",
+          "EVACUATION.ELEMENTS.DESIGN",
+          "PROJECT.DOCUMENTATION",
+          "BUILDING.LOGBOOK"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 767,
+          "span_char_end": 1249,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "This is a note for Table 2.1, not a standalone norm. It provides guidance on how to handle special uses that might increase occupancy.",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1110,
+        "end_pos": 1666
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 268,
+        "end_index": 379
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "(2) En los aparcamientos robotizados se considera que no existe ocupación. No obstante, dispondrán de los medios de escape en caso de emergencia para el personal de mantenimiento que en cada caso considere necesarios la autoridad de control.",
+      "attributes": {
+        "id": "e3137910-1845-4299-913a-73413813a48e",
+        "parent_section_id": "ca716d8284186de5",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Robotic car parks are considered to have no occupancy. However, they must have emergency escape means for maintenance personnel as deemed necessary by the control authority.",
+        "applies_if": "PARKING.TYPE == 'ROBOTIC'",
+        "satisfied_if": "PARKING.OCCUPANCY == 0 AND PARKING.EMERGENCY_ESCAPE_MEANS.FOR_MAINTENANCE_PERSONNEL_PRESENT == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "PARKING.TYPE.ROBOTIC",
+          "OCCUPANCY",
+          "EMERGENCY.ESCAPE.MEANS",
+          "MAINTENANCE.PERSONNEL",
+          "CONTROL.AUTHORITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1250,
+          "span_char_end": 1509,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This is a note for Table 2.1, not a standalone norm. It specifies the occupancy and escape requirements for robotic car parks.",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1679,
+        "end_pos": 1922
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 382,
+        "end_index": 429
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "1 Para calcular la ocupación deben tomarse los valores de densidad de ocupación que se indican en la tabla 2.1 en función de la superficie útil de cada zona, salvo cuando sea previsible una ocupación mayor o bien cuando sea exigible una ocupación menor en aplicación de alguna disposición legal de obligado cumplimiento, como puede ser en el caso de establecimientos hoteleros, docentes, hospitales, etc . En aquellos recintos o zonas no incluidos en la tabla se deben aplicar los valores correspondientes a los que sean más asimilables.",
+      "attributes": {
+        "id": "f51a445f-4277-408f-8012-701380907577",
+        "parent_section_id": "ca716d8284186de5",
+        "procedure_statement": "To calculate occupancy, use the density values from Table 2.1 based on the useful area of each zone. If a higher occupancy is foreseen or a lower occupancy is legally required (e.g., hotels, schools, hospitals), use that value instead. For areas not in the table, apply values from the most similar categories.",
+        "target_reference": [
+          "Tabla 2.1. Densidades de ocupación"
+        ],
+        "tags": [
+          "OCCUPANCY.CALCULATION",
+          "OCCUPANCY.DENSITY",
+          "AREA.USEFUL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 108,
+          "span_char_end": 509,
+          "visual_refs": []
+        },
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 184,
+        "end_pos": 721
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 59,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "2 A efectos de determinar la ocupación, se debe tener en cuenta el carácter simultáneo o alternativo de las diferentes zonas de un edificio, considerando el régimen de actividad y de uso previsto para el mismo.",
+      "attributes": {
+        "id": "21e42718-4905-4322-8356-8208354c4652",
+        "parent_section_id": "ca716d8284186de5",
+        "procedure_statement": "To determine occupancy, consider the simultaneous or alternative nature of different building zones, taking into account the activity regime and intended use.",
+        "target_reference": [],
+        "tags": [
+          "OCCUPANCY.DETERMINATION",
+          "BUILDING.ZONE.USE",
+          "ACTIVITY.REGIME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 510,
+          "span_char_end": 699,
+          "visual_refs": []
+        },
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 726,
+        "end_pos": 942
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 175,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Tabla 2.1. Densidades de ocupación(1)",
+      "attributes": {
+        "id": "a0d4b9c1-1a2b-4c3d-4e5f-6a7b8c9d0e1f",
+        "parent_section_id": "ca716d8284186de5",
+        "classification_type": "OCCUPANCY.DENSITY",
+        "classification_value": "TABLE_2_1",
+        "applies_if": "TRUE",
+        "notes": "This table provides density values for occupancy calculation.",
+        "source": {
+          "span_char_start": 700,
+          "span_char_end": 732,
+          "visual_refs": []
+        },
+        "section_name": "2 Cálculo de la ocupación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 826,
+        "end_pos": 987
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 199,
+        "end_index": 237
+      },
+      "section_metadata": {
+        "section_id": "ca716d8284186de5",
+        "section_name": "2 Cálculo de la ocupación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 22,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 266.5337829589844,
+              "b": 734.7318115234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 3 Evacuación de ocupantes"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              47
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 424.4474792480469,
+              "b": 573.5581665039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Compatibilidad de los elementos de evacuación"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.160888671875,
+              "r": 538.5060424804688,
+              "b": 519.1483764648438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los establecimientos de uso Comercial o Pública concurrencia de cualquier superficie y los de uso "
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              425
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 511.08087158203125,
+              "r": 538.386962890625,
+              "b": 455.80828857421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de uso habitual y los recorridos hasta el espacio exterior seguro estarán situados en el"
+          },
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              236
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 447.6008605957031,
+              "r": 538.3079223632812,
+              "b": 417.0604553222656,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 1931
+}

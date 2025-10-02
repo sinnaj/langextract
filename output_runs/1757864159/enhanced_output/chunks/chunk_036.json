@@ -1,0 +1,3493 @@
+{
+  "chunk_id": 36,
+  "section_metadata": {
+    "section_id": "6844a304e524563c",
+    "section_name": "1 Generalidades",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 38,
+    "end_page": 38,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "1 Generalidades"
+    ],
+    "parent_section_id": "39b7950996e811a8",
+    "positioning_data": [
+      {
+        "page_no": 38,
+        "charspan": [
+          0,
+          50
+        ],
+        "bbox": {
+          "l": 71.51856231689453,
+          "t": 767.8389282226562,
+          "r": 348.69195556640625,
+          "b": 734.5243530273438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sección SI 6 Resistencia al fuego de la estructura"
+      },
+      {
+        "page_no": 38,
+        "charspan": [
+          0,
+          15
+        ],
+        "bbox": {
+          "l": 72.05316162109375,
+          "t": 586.5311279296875,
+          "r": 202.24722290039062,
+          "b": 576.1555786132812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Generalidades"
+      },
+      {
+        "page_no": 38,
+        "charspan": [
+          0,
+          440
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 563.0408935546875,
+          "r": 538.4279174804688,
+          "b": 507.7379455566406,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+      },
+      {
+        "page_no": 38,
+        "charspan": [
+          0,
+          333
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 499.4408874511719,
+          "r": 538.4828491210938,
+          "b": 455.8979187011719,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+      },
+      {
+        "page_no": 38,
+        "charspan": [
+          0,
+          389
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 447.4012145996094,
+          "r": 538.4279174804688,
+          "b": 403.568359375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 1 Generalidades\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 1 Generalidades\n**Level:** 2\n**Tags:** SI6, Resistencia, Fuego, Estructura, Generalidades\n**Pages:** 38-38\n\n\n1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afecta a su estructura de dos formas diferentes. Por un lado, los materiales ven afectadas sus propiedades, modificándose de forma importante su capacidad mecánica. Por otro, aparecen acciones indirectas como consecuencia de las deformaciones de los elementos, que generalmente dan lugar a tensiones que se suman a las debidas a otras acciones.\n2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente aproximados para la mayoría de las situaciones habituales (véase anejos B a F). Estos métodos sólo recogen el estudio de la resistencia al fuego de los elementos estructurales individuales ante la curva normalizada tiempo temperatura .\n3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante el incendio, tales como las denominadas curvas paramétricas o, para efectos locales los modelos de incendio de una o dos zonas o de fuegos localizados o métodos basados en dinámica de fluidos (CFD, según siglas inglesas) tales como los que se contemplan en la norma UNE-EN 1991-1-2:2004 .\nEn dicha norma se recogen, asimismo, también otras curvas nominales para fuego exterior o para incendios producidos por combustibles de gran poder calorífico, como hidrocarburos, y métodos para el estudio de los elementos externos situados fuera de la envolvente del sector de incendio y a los que el fuego afecta a través de las aberturas en fachada.\n4 En las normas UNE -EN 1992 -1 -2:2011, UNE-EN 1993-1-2:2016, UNE-EN 1994-1-2:2016, UNE-EN 1995 -1 -2:2016 , se incluyen modelos de resistencia para los materiales.\n5 Los modelos de incendio citados en el párrafo 3 son adecuados para el estudio de edificios singulares o para el tratamiento global de la estructura o parte de ella, así como cuando se requiera un estudio más ajustado a la situación de incendio real.\n6 En cualquier caso, también es válido evaluar el comportamiento de una estructura, de parte de ella o de un elemento estructural mediante la realización de los ensayos que establece el Real Decreto842/2013 de 31 de octubre .\n7 Si se utilizan los métodos simplificados indicados en este Documento Básico no es necesario tener en cuenta las acciones indirectas derivadas del incendio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afecta a su estructura de dos formas diferentes. Por un lado, los materiales ven afectadas sus propiedades, modificándose de forma importante su capacidad mecánica. Por otro, aparecen acciones indirectas como consecuencia de las deformaciones de los elementos, que generalmente dan lugar a tensiones que se suman a las debidas a otras acciones.",
+      "attributes": {
+        "id": "c7625126-7243-4171-872f-5183815b139f",
+        "meta_summary": "Describes the effects of fire on building structures, including material property changes and indirect actions from deformations.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 199,
+        "end_pos": 639
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 127
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente aproximados para la mayoría de las situaciones habituales (véase anejos B a F). Estos métodos sólo recogen el estudio de la resistencia al fuego de los elementos estructurales individuales ante la curva normalizada tiempo temperatura .",
+      "attributes": {
+        "id": "e9432658-005e-4573-9524-712396115201",
+        "meta_summary": "This Basic Document provides simplified calculation methods for fire resistance of individual structural elements against the standardized time-temperature curve.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [
+          "ANEJO.B",
+          "ANEJO.C",
+          "ANEJO.D",
+          "ANEJO.E",
+          "ANEJO.F"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 640,
+        "end_pos": 973
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 127,
+        "end_index": 193
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante el incendio, tales como las denominadas curvas paramétricas o, para efectos locales los modelos de incendio de una o dos zonas o de fuegos localizados o métodos basados en dinámica de fluidos (CFD, según siglas inglesas) tales como los que se contemplan en la norma UNE-EN 1991-1-2:2004 .",
+      "attributes": {
+        "id": "87b07804-d533-402f-b441-177265223c21",
+        "meta_summary": "Alternative fire models, including parametric curves, one or two-zone models, localized fires, or CFD methods, can be used to represent temperature evolution during a fire, as outlined in UNE-EN 1991-1-2:2004.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE-EN 1991-1-2:2004"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 974,
+        "end_pos": 1363
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 193,
+        "end_index": 279
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "En dicha norma se recogen, asimismo, también otras curvas nominales para fuego exterior o para incendios producidos por combustibles de gran poder calorífico, como hidrocarburos, y métodos para el estudio de los elementos externos situados fuera de la envolvente del sector de incendio y a los que el fuego afecta a través de las aberturas en fachada.",
+      "attributes": {
+        "id": "4e730701-14f7-4148-8314-1180237303f0",
+        "meta_summary": "The standard also includes nominal curves for external fires or fires caused by high-calorific fuels (e.g., hydrocarbons), and methods for studying external elements outside the fire sector envelope affected by fire through facade openings.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE-EN 1991-1-2:2004"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1364,
+        "end_pos": 1715
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 279,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "4 En las normas UNE -EN 1992 -1 -2:2011, UNE-EN 1993-1-2:2016, UNE-EN 1994-1-2:2016, UNE-EN 1995 -1 -2:2016 , se incluyen modelos de resistencia para los materiales.",
+      "attributes": {
+        "id": "41738722-132b-4395-9271-968600122247",
+        "meta_summary": "Resistance models for materials are included in UNE-EN 1992-1-2:2011, UNE-EN 1993-1-2:2016, UNE-EN 1994-1-2:2016, and UNE-EN 1995-1-2:2016.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE-EN 1992-1-2:2011",
+          "UNE-EN 1993-1-2:2016",
+          "UNE-EN 1994-1-2:2016",
+          "UNE-EN 1995-1-2:2016"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1716,
+        "end_pos": 1881
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 349,
+        "end_index": 406
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "5 Los modelos de incendio citados en el párrafo 3 son adecuados para el estudio de edificios singulares o para el tratamiento global de la estructura o parte de ella, así como cuando se requiera un estudio más ajustado a la situación de incendio real.",
+      "attributes": {
+        "id": "41221124-b153-41a4-9271-968600122247",
+        "meta_summary": "The fire models mentioned in paragraph 3 are suitable for studying unique buildings, global or partial structural analysis, and when a more precise study of the actual fire situation is required.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1882,
+        "end_pos": 2133
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 406,
+        "end_index": 460
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "6 En cualquier caso, también es válido evaluar el comportamiento de una estructura, de parte de ella o de un elemento estructural mediante la realización de los ensayos que establece el Real Decreto842/2013 de 31 de octubre .",
+      "attributes": {
+        "id": "71221124-b153-41a4-9271-968600122247",
+        "meta_summary": "The behavior of a structure, part of it, or a structural element can also be evaluated through tests established by Royal Decree 842/2013 of October 31.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Real Decreto 842/2013"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2134,
+        "end_pos": 2359
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 460,
+        "end_index": 506
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "7 Si se utilizan los métodos simplificados indicados en este Documento Básico no es necesario tener en cuenta las acciones indirectas derivadas del incendio.",
+      "attributes": {
+        "id": "71221124-b153-41a4-9271-968600122247",
+        "meta_summary": "When using the simplified methods in this Basic Document, indirect actions from fire do not need to be considered.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2360,
+        "end_pos": 2517
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 506,
+        "end_index": 535
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente aproximados para la mayoría de las situaciones habituales (véase anejos B a F). Estos métodos sólo recogen el estudio de la resistencia al fuego de los elementos estructurales individuales ante la curva normalizada tiempo temperatura .",
+      "attributes": {
+        "id": "e9432658-005e-4573-9524-712396115201",
+        "parent_section_id": "6844a304e524563c",
+        "Procedure": "Simplified calculation methods are provided for fire resistance of individual structural elements against the standardized time-temperature curve. Refer to Annexes B to F for details.",
+        "target_reference": [
+          "ANEJO.B",
+          "ANEJO.C",
+          "ANEJO.D",
+          "ANEJO.E",
+          "ANEJO.F"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.ELEMENTS",
+          "CALCULATION.METHOD",
+          "TIME.TEMPERATURE.CURVE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 630,
+        "end_pos": 952
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 125,
+        "end_index": 190
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante el incendio, tales como las denominadas curvas paramétricas o, para efectos locales los modelos de incendio de una o dos zonas o de fuegos localizados o métodos basados en dinámica de fluidos (CFD, según siglas inglesas) tales como los que se contemplan en la norma UNE-EN 1991-1-2:2004 .",
+      "attributes": {
+        "id": "87b07804-d533-402f-b441-177265223c21",
+        "parent_section_id": "6844a304e524563c",
+        "Procedure": "Alternative fire models can be adopted to represent temperature evolution during a fire, including parametric curves, one or two-zone fire models, localized fires, or Computational Fluid Dynamics (CFD) methods, as described in UNE-EN 1991-1-2:2004.",
+        "target_reference": [
+          "UNE-EN 1991-1-2:2004"
+        ],
+        "Tags": [
+          "FIRE.MODELING",
+          "TEMPERATURE.EVOLUTION",
+          "PARAMETRIC.CURVES",
+          "CFD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 953,
+        "end_pos": 1355
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 190,
+        "end_index": 275
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En cualquier caso, también es válido evaluar el comportamiento de una estructura, de parte de ella o de un elemento estructural mediante la realización de los ensayos que establece el Real Decreto842/2013 de 31 de octubre .",
+      "attributes": {
+        "id": "71221124-b153-41a4-9271-968600122247",
+        "parent_section_id": "6844a304e524563c",
+        "Procedure": "The behavior of a structure, part of it, or a structural element can be evaluated through tests established by Royal Decree 842/2013 of October 31.",
+        "target_reference": [
+          "Real Decreto 842/2013"
+        ],
+        "Tags": [
+          "STRUCTURAL.BEHAVIOR",
+          "FIRE.TESTING",
+          "EVALUATION.METHOD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2088,
+        "end_pos": 2349
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 447,
+        "end_index": 504
+      },
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "87b07804-d533-402f-b441-177265223c21",
+        "title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "year": "2004",
+        "document_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": "1-2",
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1992-1-2:2011",
+      "attributes": {
+        "id": "41738722-132b-4395-9271-968600122247",
+        "title": null,
+        "year": "2011",
+        "document_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": "1-2",
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1993-1-2:2016",
+      "attributes": {
+        "id": "41738722-132b-4395-9271-968600122247",
+        "title": null,
+        "year": "2016",
+        "document_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": "1-2",
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1994-1-2:2016",
+      "attributes": {
+        "id": "41738722-132b-4395-9271-968600122247",
+        "title": null,
+        "year": "2016",
+        "document_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": "1-2",
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 1995-1-2:2016",
+      "attributes": {
+        "id": "41738722-132b-4395-9271-968600122247",
+        "title": null,
+        "year": "2016",
+        "document_type": "STANDARD",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": "1-2",
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Real Decreto 842/2013",
+      "attributes": {
+        "id": "71221124-b153-41a4-9271-968600122247",
+        "title": null,
+        "year": "2013",
+        "document_type": "REAL_DECRETO",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "annex": null,
+        "part": null,
+        "parent_section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "6844a304e524563c",
+        "section_name": "1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 38,
+        "end_page": 38,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "1 Generalidades"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              50
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 767.8389282226562,
+              "r": 348.69195556640625,
+              "b": 734.5243530273438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 6 Resistencia al fuego de la estructura"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 586.5311279296875,
+              "r": 202.24722290039062,
+              "b": 576.1555786132812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Generalidades"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              440
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 563.0408935546875,
+              "r": 538.4279174804688,
+              "b": 507.7379455566406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La elevación de la temperatura que se produce como consecuencia de un incendio en un edificio afec"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 499.4408874511719,
+              "r": 538.4828491210938,
+              "b": 455.8979187011719,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En este Documento Básico se indican únicamente métodos simplificados de cálculo suficientemente ap"
+          },
+          {
+            "page_no": 38,
+            "charspan": [
+              0,
+              389
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 447.4012145996094,
+              "r": 538.4279174804688,
+              "b": 403.568359375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 17,
+  "char_count": 2517
+}

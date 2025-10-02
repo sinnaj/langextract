@@ -1,0 +1,315 @@
+{
+  "chunk_id": 54,
+  "section_metadata": {
+    "section_id": "efa7e8b4f0f20554",
+    "section_name": "Escalera especialmente protegida",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 44,
+    "end_page": 44,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Escalera especialmente protegida"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          26
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 769.11083984375,
+          "r": 203.880126953125,
+          "b": 759.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          158
+        ],
+        "bbox": {
+          "l": 71.60135650634766,
+          "t": 747.630859375,
+          "r": 537.6140747070312,
+          "b": 726.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 699.630859375,
+          "r": 255.4430389404297,
+          "b": 690.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego de cálculo"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          186
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 678.15087890625,
+          "r": 538.3076782226562,
+          "b": 657.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          28
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 630.0313720703125,
+          "r": 198.30252075195312,
+          "b": 622.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Escalera abierta al exterior"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Escalera especialmente protegida\n**Path:** Anejo SI A Terminología → Escalera especialmente protegida\n**Level:** 2\n**Tags:** Terminología, Escalera, Especialmente, Protegida\n**Pages:** 44-44\n\n\nEscalera que reúne las condiciones de escalera protegida y que además dispone de un vestíbulo de independencia diferente en cada uno de sus accesos desde cada planta. La existencia de dicho vestíbulo de independencia no es necesaria cuando se trate de una escalera abierta al exterior, ni en la planta de salida del edificio , cuando se trate de una escalera para evacuación ascendente, pudiendo la escalera en dicha planta carecer de compartimentación.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Escalera que reúne las condiciones de escalera protegida y que además dispone de un vestíbulo de independencia diferente en cada uno de sus accesos desde cada planta. La existencia de dicho vestíbulo de independencia no es necesaria cuando se trate de una escalera abierta al exterior, ni en la planta de salida del edificio , cuando se trate de una escalera para evacuación ascendente, pudiendo la escalera en dicha planta carecer de compartimentación.",
+      "attributes": {
+        "id": "1",
+        "parent_section_id": "efa7e8b4f0f20554",
+        "classification_type": "DEFINITION",
+        "name": "ESCALERA.ESPECIALMENTE.PROTEGIDA",
+        "definition": "Staircase that meets the conditions of a protected staircase and also has a different independence vestibule at each of its accesses from each floor. The existence of said independence vestibule is not necessary when it is an open-air staircase, nor on the building's exit floor, when it is a staircase for ascending evacuation, and the staircase on said floor may lack compartmentalization.",
+        "applies_if": "TRUE",
+        "exempt_if": "STAIRCASE.TYPE == 'OPEN_TO_EXTERIOR' OR STAIRCASE.TYPE == 'ASCENDING_EVACUATION' AND FLOOR.TYPE == 'EXIT_FLOOR'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "relevant_tags": [
+          "STAIRCASE.TYPE",
+          "STAIRCASE.PROTECTED",
+          "STAIRCASE.INDEPENDENCE_VESTIBULE",
+          "STAIRCASE.COMPARTMENTALIZATION",
+          "FLOOR.TYPE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 519,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "Escalera especialmente protegida",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 204,
+        "end_pos": 657
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "efa7e8b4f0f20554",
+        "section_name": "Escalera especialmente protegida",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera especialmente protegida"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 657
+}

@@ -1,0 +1,1191 @@
+{
+  "chunk_id": 20,
+  "section_metadata": {
+    "section_id": "abda6f536da89fea",
+    "section_name": "4.1 Criterios para la asignación de los ocupantes",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 25,
+    "end_page": 25,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "4 Dimensionado de los medios de evacuación",
+      "4.1 Criterios para la asignación de los ocupantes"
+    ],
+    "parent_section_id": "264a184867292de8",
+    "positioning_data": [
+      {
+        "page_no": 25,
+        "charspan": [
+          0,
+          102
+        ],
+        "bbox": {
+          "l": 76.16999816894531,
+          "t": 619.864013671875,
+          "r": 174.33799743652344,
+          "b": 571.77099609375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+      },
+      {
+        "page_no": 25,
+        "charspan": [
+          0,
+          141
+        ],
+        "bbox": {
+          "l": 182.1739959716797,
+          "t": 764.2510375976562,
+          "r": 533.2360229492188,
+          "b": 745.5579833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+      },
+      {
+        "page_no": 25,
+        "charspan": [
+          0,
+          26
+        ],
+        "bbox": {
+          "l": 181.8679962158203,
+          "t": 737.6109619140625,
+          "r": 309.46099853515625,
+          "b": 729.3579711914062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-35 m en uso Aparcamiento;"
+      },
+      {
+        "page_no": 25,
+        "charspan": [
+          0,
+          300
+        ],
+        "bbox": {
+          "l": 181.8679962158203,
+          "t": 721.291015625,
+          "r": 533.490966796875,
+          "b": 681.8380126953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+      },
+      {
+        "page_no": 25,
+        "charspan": [
+          0,
+          255
+        ],
+        "bbox": {
+          "l": 181.74200439453125,
+          "t": 670.531005859375,
+          "r": 533.4580078125,
+          "b": 632.760986328125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: 4.1 Criterios para la asignación de los ocupantes\n**Path:** Sección SI 3 Evacuación de ocupantes → 4 Dimensionado de los medios de evacuación → 4.1 Criterios para la asignación de los ocupantes\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Dimensionado, Los, Medios, Evacuación, Criterios, Para, Asignación, Los, Ocupantes\n**Pages:** 25-25\n\n\n1 Cuando en una zona, en un recinto, en una planta o en el edificio deba existir más de una salida , considerando también como tales los puntos de paso obligado, la distribución de los ocupantes entre ellas a efectos de cálculo debe hacerse suponiendo inutilizada una de ellas, bajo la hipótesis más desfavorable.\n2 A efectos del cálculo de la capacidad de evacuación de las escaleras y de la distribución de los ocupantes entre ellas, cuando existan varias, no es preciso suponer inutilizada en su totalidad alguna de las escaleras protegidas, de las especialmente protegidas o de las compartimentadas como los sectores de incendio, existentes. En cambio, cuando deban existir varias escaleras y estas sean no protegidas y no compartimentadas, debe considerarse inutilizada en su totalidad alguna de ellas, bajo la hipótesis más desfavorable.\n3 En la planta de desembarco de una escalera, el flujo de personas que la utiliza deberá añadirse a la salida de planta que les corresponda, a efectos de determinar la anchura de esta. Dicho flujo deberá estimarse, o bien en 160 A personas, siendo A la anchura, en metros, del desembarco de la escale-\n25\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\nra, o bien en el número de personas que utiliza la escalera en el conjunto de las plantas, cuando este número de personas sea menor que 160 A.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando en una zona, en un recinto, en una planta o en el edificio deba existir más de una salida , considerando también como tales los puntos de paso obligado, la distribución de los ocupantes entre ellas a efectos de cálculo debe hacerse suponiendo inutilizada una de ellas, bajo la hipótesis más desfavorable.",
+      "attributes": {
+        "id": "111a4185-3b10-4497-b08b-62547076043c",
+        "parent_section_id": "abda6f536da89fea",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When there must be more than one exit in an area, enclosure, floor, or building, including mandatory passage points, the distribution of occupants among them for calculation purposes must be done assuming one of them is unusable, under the most unfavorable hypothesis.",
+        "applies_if": "HAS(AREA.EXIT.COUNT) AND AREA.EXIT.COUNT > 1",
+        "satisfied_if": "OCCUPANT.DISTRIBUTION.CALCULATION.ASSUMES_ONE_EXIT_UNUSABLE == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EXIT",
+          "OCCUPANT.DISTRIBUTION",
+          "CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 259,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 360,
+        "end_pos": 671
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 95,
+        "end_index": 165
+      },
+      "section_metadata": {
+        "section_id": "abda6f536da89fea",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 25,
+        "end_page": 25,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.1 Criterios para la asignación de los ocupantes"
+        ],
+        "parent_section_id": "264a184867292de8",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A efectos del cálculo de la capacidad de evacuación de las escaleras y de la distribución de los ocupantes entre ellas, cuando existan varias, no es preciso suponer inutilizada en su totalidad alguna de las escaleras protegidas, de las especialmente protegidas o de las compartimentadas como los sectores de incendio, existentes.",
+      "attributes": {
+        "id": "2d17462a-8616-47a3-832c-358c2813158c",
+        "parent_section_id": "abda6f536da89fea",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "For the purpose of calculating the evacuation capacity of stairs and the distribution of occupants among them, when there are several, it is not necessary to assume any of the existing protected, specially protected, or fire-compartmented stairs are completely unusable.",
+        "applies_if": "HAS(STAIR.COUNT) AND STAIR.COUNT > 1 AND STAIR.TYPE IN ['PROTECTED', 'SPECIALLY_PROTECTED', 'FIRE_COMPARTMENTED']",
+        "satisfied_if": "STAIR.CALCULATION.ASSUMES_ONE_STAIR_UNUSABLE == FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIR",
+          "EVACUATION.CAPACITY",
+          "OCCUPANT.DISTRIBUTION",
+          "STAIR.TYPE.PROTECTED",
+          "STAIR.TYPE.SPECIALLY_PROTECTED",
+          "STAIR.TYPE.FIRE_COMPARTMENTED"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 260,
+          "span_char_end": 579,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 674,
+        "end_pos": 1003
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 166,
+        "end_index": 228
+      },
+      "section_metadata": {
+        "section_id": "abda6f536da89fea",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 25,
+        "end_page": 25,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.1 Criterios para la asignación de los ocupantes"
+        ],
+        "parent_section_id": "264a184867292de8",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En cambio, cuando deban existir varias escaleras y estas sean no protegidas y no compartimentadas, debe considerarse inutilizada en su totalidad alguna de ellas, bajo la hipótesis más desfavorable.",
+      "attributes": {
+        "id": "5441a134-8b6b-4e14-8740-424a511e6417",
+        "parent_section_id": "abda6f536da89fea",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "However, when there must be several stairs and these are unprotected and not compartmentalized, one of them must be considered completely unusable, under the most unfavorable hypothesis.",
+        "applies_if": "HAS(STAIR.COUNT) AND STAIR.COUNT > 1 AND STAIR.TYPE == 'UNPROTECTED' AND STAIR.COMPARTMENTED == FALSE",
+        "satisfied_if": "STAIR.CALCULATION.ASSUMES_ONE_STAIR_UNUSABLE == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIR",
+          "EVACUATION.CAPACITY",
+          "STAIR.TYPE.UNPROTECTED",
+          "STAIR.COMPARTMENTED"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 580,
+          "span_char_end": 776,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1004,
+        "end_pos": 1201
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 228,
+        "end_index": 265
+      },
+      "section_metadata": {
+        "section_id": "abda6f536da89fea",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 25,
+        "end_page": 25,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.1 Criterios para la asignación de los ocupantes"
+        ],
+        "parent_section_id": "264a184867292de8",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En la planta de desembarco de una escalera, el flujo de personas que la utiliza deberá añadirse a la salida de planta que les corresponda, a efectos de determinar la anchura de esta.",
+      "attributes": {
+        "id": "3e712395-5d9c-4821-945b-782245367610",
+        "parent_section_id": "abda6f536da89fea",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "On the landing floor of a staircase, the flow of people using it must be added to the corresponding floor exit, for the purpose of determining its width.",
+        "applies_if": "TRUE",
+        "satisfied_if": "STAIR.LANDING.OCCUPANT_FLOW.ADDED_TO_FLOOR_EXIT_FOR_WIDTH_CALCULATION == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STAIR.LANDING",
+          "OCCUPANT.FLOW",
+          "EXIT.WIDTH.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 777,
+          "span_char_end": 923,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1204,
+        "end_pos": 1386
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 266,
+        "end_index": 305
+      },
+      "section_metadata": {
+        "section_id": "abda6f536da89fea",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 25,
+        "end_page": 25,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.1 Criterios para la asignación de los ocupantes"
+        ],
+        "parent_section_id": "264a184867292de8",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Dicho flujo deberá estimarse, o bien en 160 A personas, siendo A la anchura, en metros, del desembarco de la escale-ra, o bien en el número de personas que utiliza la escalera en el conjunto de las plantas, cuando este número de personas sea menor que 160 A.",
+      "attributes": {
+        "id": "6a91176e-3467-4638-963b-6407f1543888",
+        "parent_section_id": "abda6f536da89fea",
+        "procedure_statement": "The occupant flow must be estimated either as 160 * A persons, where A is the width in meters of the stair landing, or as the number of people using the stair across all floors, if this number is less than 160 * A.",
+        "target_reference": [],
+        "tags": [
+          "OCCUPANT.FLOW.CALCULATION",
+          "STAIR.LANDING.WIDTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 924,
+          "span_char_end": 1242,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1387,
+        "end_pos": 1503
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 305,
+        "end_index": 332
+      },
+      "section_metadata": {
+        "section_id": "abda6f536da89fea",
+        "section_name": "4.1 Criterios para la asignación de los ocupantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 25,
+        "end_page": 25,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.1 Criterios para la asignación de los ocupantes"
+        ],
+        "parent_section_id": "264a184867292de8",
+        "positioning_data": [
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              102
+            ],
+            "bbox": {
+              "l": 76.16999816894531,
+              "t": 619.864013671875,
+              "r": 174.33799743652344,
+              "b": 571.77099609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Plantas o recintos que disponen de más de una salida de planta o salida de recinto respectivamente ("
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              141
+            ],
+            "bbox": {
+              "l": 182.1739959716797,
+              "t": 764.2510375976562,
+              "r": 533.2360229492188,
+              "b": 745.5579833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos de evacuación hasta una salida de planta no excede de 25 m, excepto en"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 737.6109619140625,
+              "r": 309.46099853515625,
+              "b": 729.3579711914062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-35 m en uso Aparcamiento;"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              300
+            ],
+            "bbox": {
+              "l": 181.8679962158203,
+              "t": 721.291015625,
+              "r": 533.490966796875,
+              "b": 681.8380126953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-50 m si se trata de una planta, incluso de uso Aparcamiento, que tiene una salida directa al espaci"
+          },
+          {
+            "page_no": 25,
+            "charspan": [
+              0,
+              255
+            ],
+            "bbox": {
+              "l": 181.74200439453125,
+              "t": 670.531005859375,
+              "r": 533.4580078125,
+              "b": 632.760986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La altura de evacuación descendente de la planta considerada no excede de 28 m, excepto en uso Resid"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 1719
+}

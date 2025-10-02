@@ -1,0 +1,583 @@
+{
+  "chunk_id": 118,
+  "section_metadata": {
+    "section_id": "c9b26b522224c762",
+    "section_name": "D.3 Conexiones",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 72,
+    "end_page": 72,
+    "toc_path": [
+      "Anejo D Resistencia al fuego de los elementos de acero",
+      "D.3 Conexiones"
+    ],
+    "parent_section_id": "0aa04ae7c511d922",
+    "positioning_data": [
+      {
+        "page_no": 72,
+        "charspan": [
+          0,
+          6
+        ],
+        "bbox": {
+          "l": 142.19863891601562,
+          "t": 768.7513427734375,
+          "r": 171.47108459472656,
+          "b": 761.5104370117188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "donde:"
+      },
+      {
+        "page_no": 72,
+        "charspan": [
+          0,
+          333
+        ],
+        "bbox": {
+          "l": 158.20602416992188,
+          "t": 751.879150390625,
+          "r": 538.3079223632812,
+          "b": 693.9887084960938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": " c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva no"
+      },
+      {
+        "page_no": 72,
+        "charspan": [
+          0,
+          49
+        ],
+        "bbox": {
+          "l": 156.1494903564453,
+          "t": 637.5913696289062,
+          "r": 403.3275146484375,
+          "b": 628.3783569335938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "t intervalo de tiempo, no superior a 5 segundos;"
+      },
+      {
+        "page_no": 72,
+        "charspan": [
+          0,
+          99
+        ],
+        "bbox": {
+          "l": 156.52796936035156,
+          "t": 619.3513793945312,
+          "r": 537.73779296875,
+          "b": 598.5883178710938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 ."
+      },
+      {
+        "page_no": 72,
+        "charspan": [
+          0,
+          193
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 589.6012573242188,
+          "r": 538.3079223632812,
+          "b": 568.2178955078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida un"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: D.3 Conexiones\n**Path:** Anejo D Resistencia al fuego de los elementos de acero → D.3 Conexiones\n**Level:** 2\n**Tags:** Resistencia, Fuego, Los, Elementos, Acero, Conexiones\n**Pages:** 72-72\n\n\n1 La conexión entre elementos debe tener un valor de fi mayor que el valor pésimo de los elementos que une.\n2 Si los elementos están revestidos, la unión entre los mismos debe estar asimismo revestida, de tal forma que el valor del coeficiente de aislamiento del material de revestimiento de la unión sea mayor o igual al de los elementos.\n72\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\nAnejo SI EResistencia al fuego de las estructuras de madera",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 La conexión entre elementos debe tener un valor de fi mayor que el valor pésimo de los elementos que une.",
+      "attributes": {
+        "id": "e818818e-494b-4860-912f-87002010839e",
+        "parent_section_id": "c9b26b522224c762",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The connection between elements must have a μfi value greater than the worst value of the elements it joins.",
+        "applies_if": "TRUE",
+        "satisfied_if": "CONNECTION.MU_FI > ELEMENT.MU_FI.WORST_VALUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "CONNECTION",
+          "ELEMENT",
+          "MU_FI"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 128,
+          "span_char_end": 222,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "D.3 Conexiones",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              6
+            ],
+            "bbox": {
+              "l": 142.19863891601562,
+              "t": 768.7513427734375,
+              "r": 171.47108459472656,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "donde:"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 158.20602416992188,
+              "t": 751.879150390625,
+              "r": 538.3079223632812,
+              "b": 693.9887084960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": " c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva no"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 156.1494903564453,
+              "t": 637.5913696289062,
+              "r": 403.3275146484375,
+              "b": 628.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "t intervalo de tiempo, no superior a 5 segundos;"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 156.52796936035156,
+              "t": 619.3513793945312,
+              "r": 537.73779296875,
+              "b": 598.5883178710938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 ."
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 589.6012573242188,
+              "r": 538.3079223632812,
+              "b": 568.2178955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida un"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 204,
+        "end_pos": 312
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 76
+      },
+      "section_metadata": {
+        "section_id": "c9b26b522224c762",
+        "section_name": "D.3 Conexiones",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 72,
+        "end_page": 72,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.3 Conexiones"
+        ],
+        "parent_section_id": "0aa04ae7c511d922",
+        "positioning_data": [
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              6
+            ],
+            "bbox": {
+              "l": 142.19863891601562,
+              "t": 768.7513427734375,
+              "r": 171.47108459472656,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "donde:"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 158.20602416992188,
+              "t": 751.879150390625,
+              "r": 538.3079223632812,
+              "b": 693.9887084960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": " c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva no"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 156.1494903564453,
+              "t": 637.5913696289062,
+              "r": 403.3275146484375,
+              "b": 628.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "t intervalo de tiempo, no superior a 5 segundos;"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 156.52796936035156,
+              "t": 619.3513793945312,
+              "r": 537.73779296875,
+              "b": 598.5883178710938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 ."
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 589.6012573242188,
+              "r": 538.3079223632812,
+              "b": 568.2178955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida un"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Si los elementos están revestidos, la unión entre los mismos debe estar asimismo revestida, de tal forma que el valor del coeficiente de aislamiento del material de revestimiento de la unión sea mayor o igual al de los elementos.",
+      "attributes": {
+        "id": "27116239-166e-4f3b-857e-394200782352",
+        "parent_section_id": "c9b26b522224c762",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the elements are coated, the joint between them must also be coated, such that the insulation coefficient value of the joint's coating material is greater than or equal to that of the elements.",
+        "applies_if": "ELEMENT.IS_COATED == TRUE",
+        "satisfied_if": "CONNECTION.IS_COATED == TRUE AND CONNECTION.COATING.INSULATION_COEFFICIENT >= ELEMENT.COATING.INSULATION_COEFFICIENT",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ELEMENT.COATED",
+          "CONNECTION.COATED",
+          "COATING.INSULATION_COEFFICIENT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 223,
+          "span_char_end": 409,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "D.3 Conexiones",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              6
+            ],
+            "bbox": {
+              "l": 142.19863891601562,
+              "t": 768.7513427734375,
+              "r": 171.47108459472656,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "donde:"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 158.20602416992188,
+              "t": 751.879150390625,
+              "r": 538.3079223632812,
+              "b": 693.9887084960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": " c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva no"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 156.1494903564453,
+              "t": 637.5913696289062,
+              "r": 403.3275146484375,
+              "b": 628.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "t intervalo de tiempo, no superior a 5 segundos;"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 156.52796936035156,
+              "t": 619.3513793945312,
+              "r": 537.73779296875,
+              "b": 598.5883178710938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 ."
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 589.6012573242188,
+              "r": 538.3079223632812,
+              "b": 568.2178955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida un"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 313,
+        "end_pos": 544
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 76,
+        "end_index": 125
+      },
+      "section_metadata": {
+        "section_id": "c9b26b522224c762",
+        "section_name": "D.3 Conexiones",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 72,
+        "end_page": 72,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.3 Conexiones"
+        ],
+        "parent_section_id": "0aa04ae7c511d922",
+        "positioning_data": [
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              6
+            ],
+            "bbox": {
+              "l": 142.19863891601562,
+              "t": 768.7513427734375,
+              "r": 171.47108459472656,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "donde:"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              333
+            ],
+            "bbox": {
+              "l": 158.20602416992188,
+              "t": 751.879150390625,
+              "r": 538.3079223632812,
+              "b": 693.9887084960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": " c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva no"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              49
+            ],
+            "bbox": {
+              "l": 156.1494903564453,
+              "t": 637.5913696289062,
+              "r": 403.3275146484375,
+              "b": 628.3783569335938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "t intervalo de tiempo, no superior a 5 segundos;"
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 156.52796936035156,
+              "t": 619.3513793945312,
+              "r": 537.73779296875,
+              "b": 598.5883178710938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 ."
+          },
+          {
+            "page_no": 72,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 589.6012573242188,
+              "r": 538.3079223632812,
+              "b": 568.2178955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida un"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 706
+}

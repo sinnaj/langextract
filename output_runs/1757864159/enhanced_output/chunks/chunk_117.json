@@ -1,0 +1,949 @@
+{
+  "chunk_id": 117,
+  "section_metadata": {
+    "section_id": "a8695e8b5f389eb6",
+    "section_name": "D.2.3 Determinación de la temperatura del acero",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 71,
+    "end_page": 71,
+    "toc_path": [
+      "Anejo D Resistencia al fuego de los elementos de acero",
+      "D.2 Método simplificado de cálculo",
+      "D.2.3 Determinación de la temperatura del acero"
+    ],
+    "parent_section_id": "8d52a4b5f5a0f3f4",
+    "positioning_data": [
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          292
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 768.7911987304688,
+          "r": 538.2009887695312,
+          "b": 736.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+      },
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          377
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 728.4308471679688,
+          "r": 538.676513671875,
+          "b": 684.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+      },
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          89
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 675.630859375,
+          "r": 460.85943603515625,
+          "b": 666.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+      },
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          213
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 658.11083984375,
+          "r": 538.3767700195312,
+          "b": 625.9678955078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+      },
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          120
+        ],
+        "bbox": {
+          "l": 89.21244049072266,
+          "t": 617.7908325195312,
+          "r": 538.015625,
+          "b": 596.8978881835938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: D.2.3 Determinación de la temperatura del acero\n**Path:** Anejo D Resistencia al fuego de los elementos de acero → D.2 Método simplificado de cálculo → D.2.3 Determinación de la temperatura del acero\n**Level:** 3\n**Tags:** Resistencia, Fuego, Los, Elementos, Acero, Método, Simplificado, Cálculo, Determinación, Temperatura, Del, Acero\n**Pages:** 71-71\n\n\n1 Para comprobar vigas o soportes, en función de la variación de los parámetros mecánicos del acero, establecidas en la tabla D.2, es preciso obtener la temperatura en el elemento, mediante un cálculo incremental, de acuerdo con la variación de la temperatura del sector.\n2 Para acero sin revestir, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión:\nsiendo:\nA m /V factor de forma, según se define en D.2.1;\ncs calor específico del acero, que puede suponerse independiente de la temperatura, y de valor c s = 600 J/kgK;\nh ' net,d valor de cálculo del flujo de calor neto por unidad de área (W/m 2 ), que se considera suma del valor del flujo de calor por radiación h'net,r y por convección h'net,c , siendo:\n factor de configuración, de valor 1,0 si no existen datos específicos;\nf emisividad del fuego, de valor 1,0 si no existen datos específicos;\nm emisividad superficial del material, que en el caso del acero tiene valor 0,50;\n r temperatura de radiación efectiva en el sector de incendio [ºC], que puede tomarse igual a la del gas según B.2 ;\n s temperatura superficial del elemento (ºC), y\n constante de Boltzmann; igual a 5,67·10 -8 W/m2 K4\n71\nDocumento Básico SI en caso de Incendio\nAnejo D. Resistencia al fuego de los elementos de acero\ndonde:\n c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva normalizada tiempo-temperatura es igual a 25 W/m 2 K. En el lado no expuesto de elementos separadores, puede considerarse únicamente el flujo de calor por convección, tomando como coeficiente de transferencia el valor de  c = 9 W/m2 K\nt intervalo de tiempo, no superior a 5 segundos;\ns densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 .\n3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión:\nsiendo:\ndonde:\nA m /V definido en el apartado D.2.3;\nd definido en el apartado D.2.1;\ng,t temperatura del gas en el instante t;\ns,t temperatura del acero en el instante t;\n p conductividad térmica del material de revestimiento, [W/mK].\ncp calor específico del revestimiento, [J/kgK];\ncs calor específico del acero, [J/kgK];\np densidad del revestimiento, [kg/m 3 ];\ns definido en D.2.3.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Para comprobar vigas o soportes, en función de la variación de los parámetros mecánicos del acero, establecidas en la tabla D.2, es preciso obtener la temperatura en el elemento, mediante un cálculo incremental, de acuerdo con la variación de la temperatura del sector.\n2 Para acero sin revestir, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión:\nsiendo:\nA m /V factor de forma, según se define en D.2.1;\ncs calor específico del acero, que puede suponerse independiente de la temperatura, y de valor c s = 600 J/kgK;\nh ' net,d valor de cálculo del flujo de calor neto por unidad de área (W/m 2 ), que se considera suma del valor del flujo de calor por radiación h'net,r y por convección h'net,c , siendo:\n factor de configuración, de valor 1,0 si no existen datos específicos;\nf emisividad del fuego, de valor 1,0 si no existen datos específicos;\nm emisividad superficial del material, que en el caso del acero tiene valor 0,50;\n r temperatura de radiación efectiva en el sector de incendio [ºC], que puede tomarse igual a la del gas según B.2 ;\n s temperatura superficial del elemento (ºC), y\n constante de Boltzmann; igual a 5,67·10 -8 W/m2 K4\n71\nDocumento Básico SI en caso de Incendio\nAnejo D. Resistencia al fuego de los elementos de acero\ndonde:\n c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva normalizada tiempo-temperatura es igual a 25 W/m 2 K. En el lado no expuesto de elementos separadores, puede considerarse únicamente el flujo de calor por convección, tomando como coeficiente de transferencia el valor de  c = 9 W/m2 K\nt intervalo de tiempo, no superior a 5 segundos;\ns densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 .\n3 Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión:\nsiendo:\ndonde:\nA m /V definido en el apartado D.2.3;\nd definido en el apartado D.2.1;\ng,t temperatura del gas en el instante t;\ns,t temperatura del acero en el instante t;\n p conductividad térmica del material de revestimiento, [W/mK].\ncp calor específico del revestimiento, [J/kgK];\ncs calor específico del acero, [J/kgK];\np densidad del revestimiento, [kg/m 3 ];\ns definido en D.2.3.",
+      "attributes": {
+        "id": "d.2.3-determinacion-de-la-temperatura-del-acero",
+        "meta_summary": "This section describes the method for determining the temperature of steel elements (beams or supports) in case of fire, both for uncoated and coated steel, using an incremental calculation based on the variation of the sector's temperature.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [
+          "D.2.1",
+          "B.2",
+          "D.2.3"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "a8695e8b5f389eb6",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 366,
+        "end_pos": 2814
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 97,
+        "end_index": 707
+      },
+      "section_metadata": {
+        "section_id": "a8695e8b5f389eb6",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para comprobar vigas o soportes, en función de la variación de los parámetros mecánicos del acero, establecidas en la tabla D.2, es preciso obtener la temperatura en el elemento, mediante un cálculo incremental, de acuerdo con la variación de la temperatura del sector.",
+      "attributes": {
+        "id": "d.2.3-1",
+        "parent_section_id": "a8695e8b5f389eb6",
+        "procedure_name": "Steel Element Temperature Determination for Beams and Supports",
+        "procedure_description": "To verify beams or supports, based on the variation of mechanical parameters of steel established in Table D.2, the temperature in the element must be obtained through an incremental calculation, according to the variation of the sector's temperature.",
+        "target_reference": [
+          "Table D.2"
+        ],
+        "tags": [
+          "STEEL",
+          "FIRE.RESISTANCE",
+          "TEMPERATURE.CALCULATION",
+          "STRUCTURAL.ELEMENTS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 360,
+        "end_pos": 625
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 95,
+        "end_index": 158
+      },
+      "section_metadata": {
+        "section_id": "a8695e8b5f389eb6",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para acero sin revestir, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión: siendo: A m /V factor de forma, según se define en D.2.1; cs calor específico del acero, que puede suponerse independiente de la temperatura, y de valor c s = 600 J/kgK; h ' net,d valor de cálculo del flujo de calor neto por unidad de área (W/m 2 ), que se considera suma del valor del flujo de calor por radiación h'net,r y por convección h'net,c , siendo:  factor de configuración, de valor 1,0 si no existen datos específicos; f emisividad del fuego, de valor 1,0 si no existen datos específicos; m emisividad superficial del material, que en el caso del acero tiene valor 0,50;  r temperatura de radiación efectiva en el sector de incendio [ºC], que puede tomarse igual a la del gas según B.2 ;  s temperatura superficial del elemento (ºC), y  constante de Boltzmann; igual a 5,67·10 -8 W/m2 K4 donde:  c coeficiente de transferencia de calor por convección (W/m 2 ºK), que para el caso de la curva normalizada tiempo-temperatura es igual a 25 W/m 2 K. En el lado no expuesto de elementos separadores, puede considerarse únicamente el flujo de calor por convección, tomando como coeficiente de transferencia el valor de  c = 9 W/m2 K t intervalo de tiempo, no superior a 5 segundos; s densidad del acero, que puede suponerse independiente de la temperatura y de valor 7850 kg/m 3 .",
+      "attributes": {
+        "id": "d.2.3-2",
+        "parent_section_id": "a8695e8b5f389eb6",
+        "procedure_name": "Temperature Increment Calculation for Uncoated Steel",
+        "procedure_description": "The temperature increment in uncoated steel (Δθs,t), assumed uniformly distributed in the section over a time increment Δt, is determined by a specific expression. This expression involves: form factor (Am/V, defined in D.2.1), specific heat of steel (cs = 600 J/kgK), net heat flux (h'net,d) as sum of radiation (h'net,r) and convection (h'net,c), configuration factor (Φ = 1.0 if no specific data), fire emissivity (εf = 1.0 if no specific data), material surface emissivity (εm = 0.50 for steel), effective radiation temperature in fire sector (Θr, equal to gas temperature per B.2), surface temperature of the element (Θs), Boltzmann constant (σ = 5.67·10^-8 W/m2 K4), convection heat transfer coefficient (αc = 25 W/m2 K for normalized time-temperature curve, or 9 W/m2 K for non-exposed side of separating elements), time interval (Δt ≤ 5 seconds), and steel density (ρs = 7850 kg/m3).",
+        "target_reference": [
+          "D.2.1",
+          "B.2"
+        ],
+        "tags": [
+          "STEEL",
+          "UNCOATED.STEEL",
+          "TEMPERATURE.CALCULATION",
+          "FIRE.RESISTANCE",
+          "HEAT.TRANSFER",
+          "MATERIAL.PROPERTIES"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 205,
+          "span_char_end": 1335,
+          "visual_refs": []
+        },
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 640,
+        "end_pos": 2132
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 162,
+        "end_index": 535
+      },
+      "section_metadata": {
+        "section_id": "a8695e8b5f389eb6",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para acero revestido, el incremento de temperatura en el acero, s,t, suponiéndola distribuida uniformemente en la sección, en un incremento de tiempo t, se determina mediante la expresión: siendo: donde: A m /V definido en el apartado D.2.3; d definido en el apartado D.2.1; g,t temperatura del gas en el instante t; s,t temperatura del acero en el instante t;  p conductividad térmica del material de revestimiento, [W/mK]. cp calor específico del revestimiento, [J/kgK]; cs calor específico del acero, [J/kgK]; p densidad del revestimiento, [kg/m 3 ]; s definido en D.2.3.",
+      "attributes": {
+        "id": "d.2.3-3",
+        "parent_section_id": "a8695e8b5f389eb6",
+        "procedure_name": "Temperature Increment Calculation for Coated Steel",
+        "procedure_description": "The temperature increment in coated steel (Δθs,t), assumed uniformly distributed in the section over a time increment Δt, is determined by a specific expression. This expression involves: form factor (Am/V, defined in D.2.3), 'd' (defined in D.2.1), gas temperature at time t (θg,t), steel temperature at time t (θs,t), thermal conductivity of coating material (λp), specific heat of coating (cp), specific heat of steel (cs), density of coating (ρp), and density of steel (ρs, defined in D.2.3).",
+        "target_reference": [
+          "D.2.3",
+          "D.2.1"
+        ],
+        "tags": [
+          "STEEL",
+          "COATED.STEEL",
+          "TEMPERATURE.CALCULATION",
+          "FIRE.RESISTANCE",
+          "HEAT.TRANSFER",
+          "MATERIAL.PROPERTIES"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1336,
+          "span_char_end": 1904,
+          "visual_refs": []
+        },
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2207,
+        "end_pos": 2804
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 547,
+        "end_index": 700
+      },
+      "section_metadata": {
+        "section_id": "a8695e8b5f389eb6",
+        "section_name": "D.2.3 Determinación de la temperatura del acero",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              292
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 768.7911987304688,
+              "r": 538.2009887695312,
+              "b": 736.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el caso de estructuras arriostradas en las que cada sector no abarque más de una planta y en la"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              377
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 728.4308471679688,
+              "r": 538.676513671875,
+              "b": 684.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 En cualquier caso, en soportes de pared no delgada (clases 1,2 o 3), la capacidad resistente de cá"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              89
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 675.630859375,
+              "r": 460.85943603515625,
+              "b": 666.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "el límite elástico se reducirá multiplicándolo por el coeficiente ky, de la tabla D.2"
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              213
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 658.11083984375,
+              "r": 538.3767700195312,
+              "b": 625.9678955078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como longitud de pandeo se tomará, en estructuras arriostradas y si el sector de incendio no abarca "
+          },
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              120
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 617.7908325195312,
+              "r": 538.015625,
+              "b": 596.8978881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 2814
+}

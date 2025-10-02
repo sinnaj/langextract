@@ -1,0 +1,503 @@
+{
+  "chunk_id": 67,
+  "section_metadata": {
+    "section_id": "947d70dbfaab7191",
+    "section_name": "Resistencia al fuego",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 48,
+    "end_page": 48,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Resistencia al fuego"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 48,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 769.11083984375,
+          "r": 253.70001220703125,
+          "b": 761.7504272460938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Recorridos de evacuación alternativos"
+      },
+      {
+        "page_no": 48,
+        "charspan": [
+          0,
+          357
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 747.630859375,
+          "r": 538.6266479492188,
+          "b": 703.7279052734375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Se considera que dos recorridos de evacuación que conducen desde un punto hasta dos salidas de plant"
+      },
+      {
+        "page_no": 48,
+        "charspan": [
+          0,
+          20
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 676.5908203125,
+          "r": 167.07791137695312,
+          "b": 667.25830078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Resistencia al fuego"
+      },
+      {
+        "page_no": 48,
+        "charspan": [
+          0,
+          259
+        ],
+        "bbox": {
+          "l": 71.03363800048828,
+          "t": 654.9908447265625,
+          "r": 538.05126953125,
+          "b": 622.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la f"
+      },
+      {
+        "page_no": 48,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 595.5608520507812,
+          "r": 152.12796020507812,
+          "b": 588.1904907226562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Salida de edificio"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Resistencia al fuego\n**Path:** Anejo SI A Terminología → Resistencia al fuego\n**Level:** 2\n**Tags:** Terminología, Resistencia, Fuego\n**Pages:** 48-48\n\n\nCapacidad de un elemento de construcción para mantener durante un período de tiempo determinado la función portante que le sea exigible, así como la integridad y/o el aislamiento térmico en los términos especificados en el ensayo normalizado correspondiente .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la función portante que le sea exigible, así como la integridad y/o el aislamiento térmico en los términos especificados en el ensayo normalizado correspondiente .",
+      "attributes": {
+        "id": "1d835154-154a-4363-950c-d40b8529230a",
+        "meta_summary": "Definition of fire resistance for a construction element.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "947d70dbfaab7191",
+        "section_name": "Resistencia al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 253.70001220703125,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorridos de evacuación alternativos"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              357
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 747.630859375,
+              "r": 538.6266479492188,
+              "b": 703.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Se considera que dos recorridos de evacuación que conducen desde un punto hasta dos salidas de plant"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 676.5908203125,
+              "r": 167.07791137695312,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Resistencia al fuego"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              259
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 654.9908447265625,
+              "r": 538.05126953125,
+              "b": 622.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la f"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 595.5608520507812,
+              "r": 152.12796020507812,
+              "b": 588.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Salida de edificio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 164,
+        "end_pos": 423
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 39,
+        "end_index": 90
+      },
+      "section_metadata": {
+        "section_id": "947d70dbfaab7191",
+        "section_name": "Resistencia al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Resistencia al fuego"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 253.70001220703125,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorridos de evacuación alternativos"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              357
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 747.630859375,
+              "r": 538.6266479492188,
+              "b": 703.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Se considera que dos recorridos de evacuación que conducen desde un punto hasta dos salidas de plant"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 676.5908203125,
+              "r": 167.07791137695312,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Resistencia al fuego"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              259
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 654.9908447265625,
+              "r": 538.05126953125,
+              "b": 622.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la f"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 595.5608520507812,
+              "r": 152.12796020507812,
+              "b": 588.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Salida de edificio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Resistencia al fuego",
+      "attributes": {
+        "id": "2168923a-5993-417d-944a-393275037d04",
+        "parent_section_id": "947d70dbfaab7191",
+        "classification_type": "DEFINITION",
+        "class_name": "FIRE.RESISTANCE",
+        "class_definition": "Capacity of a construction element to maintain, for a specified period, its required load-bearing function, as well as integrity and/or thermal insulation, as specified in the corresponding standardized test.",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "Resistencia al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 253.70001220703125,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorridos de evacuación alternativos"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              357
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 747.630859375,
+              "r": 538.6266479492188,
+              "b": 703.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Se considera que dos recorridos de evacuación que conducen desde un punto hasta dos salidas de plant"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 676.5908203125,
+              "r": 167.07791137695312,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Resistencia al fuego"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              259
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 654.9908447265625,
+              "r": 538.05126953125,
+              "b": 622.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la f"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 595.5608520507812,
+              "r": 152.12796020507812,
+              "b": 588.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Salida de edificio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 9,
+        "end_pos": 31
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 2,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "947d70dbfaab7191",
+        "section_name": "Resistencia al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 48,
+        "end_page": 48,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Resistencia al fuego"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 253.70001220703125,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorridos de evacuación alternativos"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              357
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 747.630859375,
+              "r": 538.6266479492188,
+              "b": 703.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Se considera que dos recorridos de evacuación que conducen desde un punto hasta dos salidas de plant"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              20
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 676.5908203125,
+              "r": 167.07791137695312,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Resistencia al fuego"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              259
+            ],
+            "bbox": {
+              "l": 71.03363800048828,
+              "t": 654.9908447265625,
+              "r": 538.05126953125,
+              "b": 622.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Capacidad de un elemento de construcción para mantener durante un período de tiempo determinado la f"
+          },
+          {
+            "page_no": 48,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 595.5608520507812,
+              "r": 152.12796020507812,
+              "b": 588.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Salida de edificio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 423
+}

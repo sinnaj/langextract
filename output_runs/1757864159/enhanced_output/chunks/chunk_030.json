@@ -1,0 +1,304 @@
+{
+  "chunk_id": 30,
+  "section_metadata": {
+    "section_id": "6e34e6faab005b13",
+    "section_name": "Sección SI 5 Intervención de los bomberos",
+    "section_type": "Headline",
+    "section_level": 1,
+    "start_page": 36,
+    "end_page": 37,
+    "toc_path": [
+      "Sección SI 5 Intervención de los bomberos"
+    ],
+    "parent_section_id": null,
+    "positioning_data": [
+      {
+        "page_no": 36,
+        "charspan": [
+          0,
+          41
+        ],
+        "bbox": {
+          "l": 71.51856231689453,
+          "t": 753.3189086914062,
+          "r": 297.5919494628906,
+          "b": 723.1644287109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sección SI 5 Intervención de los bomberos"
+      },
+      {
+        "page_no": 36,
+        "charspan": [
+          0,
+          43
+        ],
+        "bbox": {
+          "l": 72.05316162109375,
+          "t": 573.3820190429688,
+          "r": 383.718994140625,
+          "b": 558.8556518554688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Condiciones de aproximación y entorno( 1)"
+      },
+      {
+        "page_no": 36,
+        "charspan": [
+          0,
+          32
+        ],
+        "bbox": {
+          "l": 71.89199829101562,
+          "t": 536.2060546875,
+          "r": 268.4599914550781,
+          "b": 525.1180419921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1.1 Aproximación a los edificios"
+      },
+      {
+        "page_no": 36,
+        "charspan": [
+          0,
+          168
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 514.6011962890625,
+          "r": 538.1089477539062,
+          "b": 493.828369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que s"
+      },
+      {
+        "page_no": 36,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 485.640869140625,
+          "r": 200.92626953125,
+          "b": 476.308349609375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "anchura mínima libre"
+      }
+    ],
+    "section_summary": "Section at level 1"
+  },
+  "chunk_text": "# Section: Sección SI 5 Intervención de los bomberos\n**Path:** Sección SI 5 Intervención de los bomberos\n**Level:** 1\n**Tags:** SI5, Intervención, Los, Bomberos\n**Pages:** 36-37\n\n\n1 Condiciones de aproximación y entorno\n1.1 Aproximación a los edificios\n1.2 Entorno de los edificios\n8\nDocumento Básico SI Seguridad en caso de Incendio ÍNDICE\n2 Accesibilidad por fachada",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: Sección SI 5 Intervención de los bomberos\nPath: Sección SI 5 Intervención de los bomberos\nLevel: 1\nTags: SI5, Intervención, Los, Bomberos\nPages: 36-37\n\n\n1 Condiciones de aproximación y entorno\n1.1 Aproximación a los edificios\n1.2 Entorno de los edificios\n8\nDocumento Básico SI Seguridad en caso de Incendio ÍNDICE\n2 Accesibilidad por fachada",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This section outlines the conditions for firefighter intervention, including approach to buildings, building surroundings, and facade accessibility.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Documento Básico SI Seguridad en caso de Incendio"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "6e34e6faab005b13",
+        "section_name": "Sección SI 5 Intervención de los bomberos",
+        "section_level": 1,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 753.3189086914062,
+              "r": 297.5919494628906,
+              "b": 723.1644287109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 5 Intervención de los bomberos"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              43
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 573.3820190429688,
+              "r": 383.718994140625,
+              "b": 558.8556518554688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Condiciones de aproximación y entorno( 1)"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              32
+            ],
+            "bbox": {
+              "l": 71.89199829101562,
+              "t": 536.2060546875,
+              "r": 268.4599914550781,
+              "b": 525.1180419921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1.1 Aproximación a los edificios"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 514.6011962890625,
+              "r": 538.1089477539062,
+              "b": 493.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que s"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 485.640869140625,
+              "r": 200.92626953125,
+              "b": 476.308349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "anchura mínima libre"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 52
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 14
+      },
+      "section_metadata": {
+        "section_id": "6e34e6faab005b13",
+        "section_name": "Sección SI 5 Intervención de los bomberos",
+        "section_type": "Headline",
+        "section_level": 1,
+        "start_page": 36,
+        "end_page": 37,
+        "toc_path": [
+          "Sección SI 5 Intervención de los bomberos"
+        ],
+        "parent_section_id": null,
+        "positioning_data": [
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.51856231689453,
+              "t": 753.3189086914062,
+              "r": 297.5919494628906,
+              "b": 723.1644287109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sección SI 5 Intervención de los bomberos"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              43
+            ],
+            "bbox": {
+              "l": 72.05316162109375,
+              "t": 573.3820190429688,
+              "r": 383.718994140625,
+              "b": 558.8556518554688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Condiciones de aproximación y entorno( 1)"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              32
+            ],
+            "bbox": {
+              "l": 71.89199829101562,
+              "t": 536.2060546875,
+              "r": 268.4599914550781,
+              "b": 525.1180419921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1.1 Aproximación a los edificios"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 514.6011962890625,
+              "r": 538.1089477539062,
+              "b": 493.828369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los viales de aproximación de los vehículos de los bomberos a los espacios de maniobra a los que s"
+          },
+          {
+            "page_no": 36,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 485.640869140625,
+              "r": 200.92626953125,
+              "b": 476.308349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "anchura mínima libre"
+          }
+        ],
+        "section_summary": "Section at level 1"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 368
+}

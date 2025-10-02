@@ -1,0 +1,1418 @@
+{
+  "chunk_id": 183,
+  "section_metadata": {
+    "section_id": "4f7d7a9b62eb1a70",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 92,
+    "end_page": 92,
+    "toc_path": [
+      "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+      "5 Señalización",
+      "Table 1"
+    ],
+    "parent_section_id": "2201c653cfc16ad3",
+    "positioning_data": [
+      {
+        "page_no": 92,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.39147186279297,
+          "t": 776.7480392456055,
+          "r": 542.9326171875,
+          "b": 181.896484375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI G Normas relacionadas con la aplicación del DB SI → 5 Señalización → Table 1\n**Level:** 3\n**Tags:** Normas, Relacionadas, Con, Aplicación, Del, Señalización, Table\n**Pages:** 92-92\n\n\n| *UNE - EN 1158:2003 | Herrajes para la edificación. Dispositivos de coordinación de puer\u0002 tas. Requisitos y métodos de ensayo. |\n| --- | --- |\n| UNE - EN 1191:2013 | Ventanas y puertas. Resistencia a aperturas y cierres repetidos.  Método de ensayo. |\n| UNE - EN 13637:2016 | Herrajes para la edificación. Sistemas de salida controlados eléc\u0002 tricamente para su uso en recorridos de evacuación. Requisitos y  métodos de ensayo. |\n| UNE - EN 16034:2015 | Puertas peatonales, industriales, comerciales, de garaje y venta\u0002 nas practicables. Norma de producto, características de presta\u0002 ción. Características de resistencia al fuego y/o control de humo. |\n| UNE - EN 23740 - 1:2016 | Seguridad contra incendios. Elementos de cerramiento de huecos.  Requisitos específicos de instalación, uso, mantenimiento. Parte 1:  Puertas cortafuego. |\n| 5  Señalización |  |\n| *UNE 23034:1988 | Seguridad contra incendios. Señalización de seguridad. Vías de  evacuación. |\n| UNE 23035 | Seguridad contra incendios. Señalización fotoluminiscente |\n| *UNE 23035 - 1:2003 | Parte 1: Medida y calificación. |\n| *UNE 23035 - 2:2003 | Parte 2: Medida de productos en el lugar de utilización. |\n| *UNE 23035 - 3:2003 | Parte 3: Señalizaciones y balizamientos luminiscentes. |\n| *UNE 23035 - 4:2003 | Parte 4: Condiciones generales. Mediciones y clasificación. |\n| 6  Otras materias |  |\n| UNE - EN ISO 13943:2018 | Seguridad contra incendio. Vocabulario. |\n| UNE - EN ISO 16730 - 1:2017 | Ingeniería de seguridad contra incendios - Procedimientos y requi\u0002 sitos para la verificación y la validación de métodos de cálculo.  Parte 1: Generalidades. |\n| UNE - EN ISO 16733 - 1:2017 | Ingeniería de seguridad contra incendios  -  Selección de escena\u0002 rios de fuego de diseño y fuegos de diseño. Parte 1: Selección de  escenarios de fuego de diseño. |\n| UNE - EN ISO 23932:2017 | Ingeniería de seguridad contra incendios. Principios generales. |",
+  "extractions": [
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN 1158:2003",
+      "attributes": {
+        "id": "1",
+        "title": "Herrajes para la edificación. Dispositivos de coordinación de puertas. Requisitos y métodos de ensayo.",
+        "type": "STANDARD",
+        "year": "2003",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "DOOR.HARDWARE",
+          "DOOR.COORDINATION",
+          "TESTING.METHODS"
+        ],
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 224,
+        "end_pos": 242
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 65,
+        "end_index": 71
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN 1191:2013",
+      "attributes": {
+        "id": "2",
+        "title": "Ventanas y puertas. Resistencia a aperturas y cierres repetidos. Método de ensayo.",
+        "type": "STANDARD",
+        "year": "2013",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "WINDOWS",
+          "DOORS",
+          "RESISTANCE.REPEATED.OPENING.CLOSING",
+          "TESTING.METHODS"
+        ],
+        "source": {
+          "span_char_start": 209,
+          "span_char_end": 296,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 368,
+        "end_pos": 386
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 104,
+        "end_index": 110
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN 13637:2016",
+      "attributes": {
+        "id": "3",
+        "title": "Herrajes para la edificación. Sistemas de salida controlados eléctricamente para su uso en recorridos de evacuación. Requisitos y métodos de ensayo.",
+        "type": "STANDARD",
+        "year": "2016",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "DOOR.HARDWARE",
+          "EXIT.SYSTEMS",
+          "ELECTRICALLY.CONTROLLED",
+          "EVACUATION.ROUTES",
+          "TESTING.METHODS"
+        ],
+        "source": {
+          "span_char_start": 301,
+          "span_char_end": 448,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 477,
+        "end_pos": 496
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 130,
+        "end_index": 136
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN 16034:2015",
+      "attributes": {
+        "id": "4",
+        "title": "Puertas peatonales, industriales, comerciales, de garaje y ventanas practicables. Norma de producto, características de prestación. Características de resistencia al fuego y/o control de humo.",
+        "type": "STANDARD",
+        "year": "2015",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "DOORS.PEDESTRIAN",
+          "DOORS.INDUSTRIAL",
+          "DOORS.COMMERCIAL",
+          "DOORS.GARAGE",
+          "WINDOWS.OPERABLE",
+          "PRODUCT.STANDARD",
+          "FIRE.RESISTANCE",
+          "SMOKE.CONTROL"
+        ],
+        "source": {
+          "span_char_start": 453,
+          "span_char_end": 605,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 655,
+        "end_pos": 674
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 173,
+        "end_index": 179
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN 23740 - 1:2016",
+      "attributes": {
+        "id": "5",
+        "title": "Seguridad contra incendios. Elementos de cerramiento de huecos. Requisitos específicos de instalación, uso, mantenimiento. Parte 1: Puertas cortafuego.",
+        "type": "STANDARD",
+        "year": "2016",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "FIRE.SAFETY",
+          "CLOSURE.ELEMENTS",
+          "INSTALLATION.REQUIREMENTS",
+          "USE.REQUIREMENTS",
+          "MAINTENANCE.REQUIREMENTS",
+          "FIRE.DOORS"
+        ],
+        "source": {
+          "span_char_start": 610,
+          "span_char_end": 738,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 878,
+        "end_pos": 901
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 223,
+        "end_index": 231
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23034:1988",
+      "attributes": {
+        "id": "6",
+        "title": "Seguridad contra incendios. Señalización de seguridad. Vías de evacuación.",
+        "type": "STANDARD",
+        "year": "1988",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "FIRE.SAFETY",
+          "SAFETY.SIGNAGE",
+          "EVACUATION.ROUTES"
+        ],
+        "source": {
+          "span_char_start": 761,
+          "span_char_end": 834,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1086,
+        "end_pos": 1100
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 273,
+        "end_index": 277
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23035",
+      "attributes": {
+        "id": "7",
+        "title": "Seguridad contra incendios. Señalización fotoluminiscente",
+        "type": "STANDARD",
+        "year": null,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "FIRE.SAFETY",
+          "PHOTOLUMINESCENT.SIGNAGE"
+        ],
+        "source": {
+          "span_char_start": 839,
+          "span_char_end": 894,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1183,
+        "end_pos": 1192
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 300,
+        "end_index": 302
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23035 - 1:2003",
+      "attributes": {
+        "id": "8",
+        "title": "Parte 1: Medida y calificación.",
+        "type": "STANDARD",
+        "year": "2003",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "MEASUREMENT",
+          "QUALIFICATION"
+        ],
+        "source": {
+          "span_char_start": 899,
+          "span_char_end": 935,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1258,
+        "end_pos": 1276
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 316,
+        "end_index": 322
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23035 - 2:2003",
+      "attributes": {
+        "id": "9",
+        "title": "Parte 2: Medida de productos en el lugar de utilización.",
+        "type": "STANDARD",
+        "year": "2003",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "PRODUCT.MEASUREMENT",
+          "ON.SITE.USE"
+        ],
+        "source": {
+          "span_char_start": 940,
+          "span_char_end": 996,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1316,
+        "end_pos": 1334
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 335,
+        "end_index": 341
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23035 - 3:2003",
+      "attributes": {
+        "id": "10",
+        "title": "Parte 3: Señalizaciones y balizamientos luminiscentes.",
+        "type": "STANDARD",
+        "year": "2003",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "SIGNAGE",
+          "LUMINESCENT.MARKERS"
+        ],
+        "source": {
+          "span_char_start": 1001,
+          "span_char_end": 1059,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1399,
+        "end_pos": 1417
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 359,
+        "end_index": 365
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE 23035 - 4:2003",
+      "attributes": {
+        "id": "11",
+        "title": "Parte 4: Condiciones generales. Mediciones y clasificación.",
+        "type": "STANDARD",
+        "year": "2003",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "tags": [
+          "GENERAL.CONDITIONS",
+          "MEASUREMENTS",
+          "CLASSIFICATION"
+        ],
+        "source": {
+          "span_char_start": 1064,
+          "span_char_end": 1126,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1480,
+        "end_pos": 1498
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 379,
+        "end_index": 385
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN ISO 13943:2018",
+      "attributes": {
+        "id": "12",
+        "title": "Seguridad contra incendio. Vocabulario.",
+        "type": "STANDARD",
+        "year": "2018",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "FIRE.SAFETY",
+          "VOCABULARY"
+        ],
+        "source": {
+          "span_char_start": 1150,
+          "span_char_end": 1195,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1590,
+        "end_pos": 1613
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 406,
+        "end_index": 413
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN ISO 16730 - 1:2017",
+      "attributes": {
+        "id": "13",
+        "title": "Ingeniería de seguridad contra incendios - Procedimientos y requisitos para la verificación y la validación de métodos de cálculo. Parte 1: Generalidades.",
+        "type": "STANDARD",
+        "year": "2017",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "FIRE.SAFETY.ENGINEERING",
+          "VERIFICATION.PROCEDURES",
+          "VALIDATION.REQUIREMENTS",
+          "CALCULATION.METHODS"
+        ],
+        "source": {
+          "span_char_start": 1200,
+          "span_char_end": 1361,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1660,
+        "end_pos": 1687
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 422,
+        "end_index": 431
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN ISO 16733 - 1:2017",
+      "attributes": {
+        "id": "14",
+        "title": "Ingeniería de seguridad contra incendios - Selección de escenarios de fuego de diseño y fuegos de diseño. Parte 1: Selección de escenarios de fuego de diseño.",
+        "type": "STANDARD",
+        "year": "2017",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "FIRE.SAFETY.ENGINEERING",
+          "FIRE.SCENARIO.SELECTION",
+          "DESIGN.FIRES"
+        ],
+        "source": {
+          "span_char_start": 1366,
+          "span_char_end": 1530,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1852,
+        "end_pos": 1879
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 471,
+        "end_index": 480
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Document",
+      "extraction_text": "UNE - EN ISO 23932:2017",
+      "attributes": {
+        "id": "15",
+        "title": "Ingeniería de seguridad contra incendios. Principios generales.",
+        "type": "STANDARD",
+        "year": "2017",
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "status": "ACTIVE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "tags": [
+          "FIRE.SAFETY.ENGINEERING",
+          "GENERAL.PRINCIPLES"
+        ],
+        "source": {
+          "span_char_start": 1535,
+          "span_char_end": 1600,
+          "visual_refs": []
+        },
+        "parent_section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2050,
+        "end_pos": 2073
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 526,
+        "end_index": 533
+      },
+      "section_metadata": {
+        "section_id": "4f7d7a9b62eb1a70",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 92,
+        "end_page": 92,
+        "toc_path": [
+          "Anejo SI G Normas relacionadas con la aplicación del DB SI",
+          "5 Señalización",
+          "Table 1"
+        ],
+        "parent_section_id": "2201c653cfc16ad3",
+        "positioning_data": [
+          {
+            "page_no": 92,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.39147186279297,
+              "t": 776.7480392456055,
+              "r": 542.9326171875,
+              "b": 181.896484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 15,
+  "char_count": 2141
+}

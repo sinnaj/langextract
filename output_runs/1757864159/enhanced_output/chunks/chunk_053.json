@@ -1,0 +1,1250 @@
+{
+  "chunk_id": 53,
+  "section_metadata": {
+    "section_id": "f8a271a7c7b5ad6d",
+    "section_name": "Escalera abierta al exterior",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 44,
+    "end_page": 44,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Escalera abierta al exterior"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          26
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 769.11083984375,
+          "r": 203.880126953125,
+          "b": 759.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          158
+        ],
+        "bbox": {
+          "l": 71.60135650634766,
+          "t": 747.630859375,
+          "r": 537.6140747070312,
+          "b": 726.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 699.630859375,
+          "r": 255.4430389404297,
+          "b": 690.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego de cálculo"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          186
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 678.15087890625,
+          "r": 538.3076782226562,
+          "b": 657.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+      },
+      {
+        "page_no": 44,
+        "charspan": [
+          0,
+          28
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 630.0313720703125,
+          "r": 198.30252075195312,
+          "b": 622.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Escalera abierta al exterior"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Escalera abierta al exterior\n**Path:** Anejo SI A Terminología → Escalera abierta al exterior\n**Level:** 2\n**Tags:** Terminología, Escalera, Abierta, Exterior\n**Pages:** 44-44\n\n\nEscalera que dispone de huecos permanentemente abiertos al exterior que, en cada planta, acumulan una superficie de 5A m 2 , como mínimo, siendo A la anchura del tramo de la escalera, en m. Cuando dichos huecos comuniquen con un patio, las dimensiones de la proyección horizontal de éste deben admitir el trazado de un círculo inscrito de h/3 m de diámetro, siendo h la altura del patio.\nPuede considerarse como escalera especialmente protegida sin que para ello precise disponer de vestíbulos de independencia en sus accesos .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Escalera que dispone de huecos permanentemente abiertos al exterior que, en cada planta, acumulan una superficie de 5A m 2 , como mínimo, siendo A la anchura del tramo de la escalera, en m. Cuando dichos huecos comuniquen con un patio, las dimensiones de la proyección horizontal de éste deben admitir el trazado de un círculo inscrito de h/3 m de diámetro, siendo h la altura del patio.\nPuede considerarse como escalera especialmente protegida sin que para ello precise disponer de vestíbulos de independencia en sus accesos .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Definition and characteristics of an open-to-exterior staircase, including its classification as a specially protected staircase.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 189,
+        "end_pos": 716
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 43,
+        "end_index": 151
+      },
+      "section_metadata": {
+        "section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera abierta al exterior"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Escalera abierta al exterior",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "f8a271a7c7b5ad6d",
+        "classification_type": "STAIRCASE.TYPE",
+        "class_name": "OPEN_TO_EXTERIOR_STAIRCASE",
+        "definition": "Staircase with permanently open exterior openings that, on each floor, accumulate a minimum surface area of 5A m², where A is the width of the staircase section in meters. When these openings communicate with a patio, the dimensions of its horizontal projection must allow for an inscribed circle of h/3 m diameter, where h is the height of the patio.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "STAIRCASE.OPENING.EXTERIOR",
+          "STAIRCASE.OPENING.AREA",
+          "STAIRCASE.WIDTH",
+          "PATIO.DIMENSIONS",
+          "PATIO.HEIGHT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 268,
+          "visual_refs": []
+        },
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 39
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 7
+      },
+      "section_metadata": {
+        "section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera abierta al exterior"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Escalera que dispone de huecos permanentemente abiertos al exterior que, en cada planta, acumulan una superficie de 5A m 2 , como mínimo, siendo A la anchura del tramo de la escalera, en m.",
+      "attributes": {
+        "id": "f8e7d6c5-b4a3-2109-fedc-ba9876543210",
+        "parent_section_id": "f8a271a7c7b5ad6d",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An open-to-exterior staircase must have permanently open exterior openings that, on each floor, accumulate a minimum surface area of 5A m², where A is the width of the staircase section in meters.",
+        "applies_if": "STAIRCASE.TYPE == 'OPEN_TO_EXTERIOR_STAIRCASE'",
+        "satisfied_if": "STAIRCASE.OPENING.EXTERIOR.PERMANENT == TRUE AND STAIRCASE.OPENING.AREA_PER_FLOOR >= (5 * STAIRCASE.WIDTH)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIRCASE.OPENING.EXTERIOR",
+          "STAIRCASE.OPENING.AREA",
+          "STAIRCASE.WIDTH"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 150,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "STAIRCASE.OPENING.AREA_PER_FLOOR >= 5 * STAIRCASE.WIDTH m^2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 183,
+        "end_pos": 375
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 83
+      },
+      "section_metadata": {
+        "section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera abierta al exterior"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando dichos huecos comuniquen con un patio, las dimensiones de la proyección horizontal de éste deben admitir el trazado de un círculo inscrito de h/3 m de diámetro, siendo h la altura del patio.",
+      "attributes": {
+        "id": "cba98765-4321-0fed-cba9-876543210fed",
+        "parent_section_id": "f8a271a7c7b5ad6d",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When the openings of an open-to-exterior staircase communicate with a patio, the dimensions of the patio's horizontal projection must allow for an inscribed circle with a diameter of h/3 meters, where h is the patio's height.",
+        "applies_if": "STAIRCASE.TYPE == 'OPEN_TO_EXTERIOR_STAIRCASE' AND STAIRCASE.OPENING.COMMUNICATES_WITH_PATIO == TRUE",
+        "satisfied_if": "PATIO.HORIZONTAL_PROJECTION.ALLOWS_INSCRIBED_CIRCLE_DIAMETER >= (PATIO.HEIGHT / 3)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIRCASE.OPENING.PATIO",
+          "PATIO.DIMENSIONS",
+          "PATIO.HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 152,
+          "span_char_end": 268,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PATIO.INSCRIBED_CIRCLE_DIAMETER >= PATIO.HEIGHT / 3 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": null,
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 360,
+        "end_pos": 569
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 79,
+        "end_index": 127
+      },
+      "section_metadata": {
+        "section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera abierta al exterior"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Puede considerarse como escalera especialmente protegida sin que para ello precise disponer de vestíbulos de independencia en sus accesos .",
+      "attributes": {
+        "id": "12345678-90ab-cdef-1234-567890abcdef",
+        "parent_section_id": "f8a271a7c7b5ad6d",
+        "paragraph_number": 2,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "An open-to-exterior staircase may be considered a specially protected staircase without requiring independence vestibules at its accesses.",
+        "applies_if": "STAIRCASE.TYPE == 'OPEN_TO_EXTERIOR_STAIRCASE'",
+        "satisfied_if": "STAIRCASE.CLASSIFICATION == 'SPECIALLY_PROTECTED_STAIRCASE' AND STAIRCASE.ACCESS.HAS_INDEPENDENCE_VESTIBULES == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 3,
+        "priority_factors": {
+          "severity": 0.6,
+          "likelihood": 0.6,
+          "impact": 0.5
+        },
+        "relevant_tags": [
+          "STAIRCASE.TYPE",
+          "STAIRCASE.CLASSIFICATION",
+          "STAIRCASE.ACCESS.INDEPENDENCE_VESTIBULES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 270,
+          "span_char_end": 379,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Escalera abierta al exterior",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 483,
+        "end_pos": 714
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 105,
+        "end_index": 150
+      },
+      "section_metadata": {
+        "section_id": "f8a271a7c7b5ad6d",
+        "section_name": "Escalera abierta al exterior",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 44,
+        "end_page": 44,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Escalera abierta al exterior"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              26
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 769.11083984375,
+              "r": 203.880126953125,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              158
+            ],
+            "bbox": {
+              "l": 71.60135650634766,
+              "t": 747.630859375,
+              "r": 537.6140747070312,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Carga de fuego por unidad de superficie construida qf, o por unidad de superficie de toda la envolve"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 699.630859375,
+              "r": 255.4430389404297,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego de cálculo"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              186
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 678.15087890625,
+              "r": 538.3076782226562,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Densidad de carga de fuego considerada para determinar las acciones térmicas en el cálculo en situac"
+          },
+          {
+            "page_no": 44,
+            "charspan": [
+              0,
+              28
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 630.0313720703125,
+              "r": 198.30252075195312,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Escalera abierta al exterior"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 716
+}

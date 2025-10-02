@@ -1,0 +1,370 @@
+{
+  "chunk_id": 175,
+  "section_metadata": {
+    "section_id": "192da7db13085e4a",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 74,
+    "end_page": 74,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.1 Madera sin protección",
+      "Table 1"
+    ],
+    "parent_section_id": "9ad54027d2b390f3",
+    "positioning_data": [
+      {
+        "page_no": 74,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 107.0527114868164,
+          "t": 731.9522323608398,
+          "r": 538.4041137695312,
+          "b": 628.9975891113281,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 74,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 89.23796081542969,
+          "t": 181.43896484375,
+          "r": 539.3683471679688,
+          "b": 78.1934814453125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.1 Madera sin protección → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Sin, Protección, Table\n**Pages:** 74-74\n\n\n| para: madera maciza | kfi = 1,25 |\n| --- | --- |\n| madera laminada encolada | kfi = 1,15 |\n| tableros derivados de la madera | kfi = 1,15 |\n| madera microlaminada (LVL) | kfi = 1,10 |\n| uniones con elementos laterales de madera y tableros derivados de la madera | kfi = 1,15 |\n| uniones con placas de acero externas | kfi = 1,05 |\n\n|  | n (mm/min) |\n| --- | --- |\n| Coníferas y haya |  |\n| Madera laminada encolada con densidad característica  290 kg/m 3 | 0,70 |\n| Madera maciza con densidad característica  290 kg/m 3 | 0,80 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1\n| para: madera maciza | kfi = 1,25 |\n| --- | --- |\n| madera laminada encolada | kfi = 1,15 |\n| tableros derivados de la madera | kfi = 1,15 |\n| madera microlaminada (LVL) | kfi = 1,10 |\n| uniones con elementos laterales de madera y tableros derivados de la madera | kfi = 1,15 |\n| uniones con placas de acero externas | kfi = 1,05 |",
+      "attributes": {
+        "id": "e210137f-381a-493a-8671-53641121927c",
+        "parent_section_id": "192da7db13085e4a",
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The kfi factor for fire resistance of timber structures must be as specified in the table.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(TIMBER.TYPE == 'SOLID_WOOD' AND TIMBER.KFI == 1.25); OR (TIMBER.TYPE == 'GLUED_LAMINATED_TIMBER' AND TIMBER.KFI == 1.15); OR (TIMBER.TYPE == 'WOOD_BASED_PANELS' AND TIMBER.KFI == 1.15); OR (TIMBER.TYPE == 'LAMINATED_VENEER_LUMBER' AND TIMBER.KFI == 1.10); OR (TIMBER.TYPE == 'JOINTS_WITH_LATERAL_WOOD_ELEMENTS_AND_WOOD_BASED_PANELS' AND TIMBER.KFI == 1.15); OR (TIMBER.TYPE == 'JOINTS_WITH_EXTERNAL_STEEL_PLATES' AND TIMBER.KFI == 1.05)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "TIMBER.TYPE",
+          "TIMBER.KFI",
+          "TIMBER.SOLID_WOOD",
+          "TIMBER.GLUED_LAMINATED_TIMBER",
+          "TIMBER.WOOD_BASED_PANELS",
+          "TIMBER.LAMINATED_VENEER_LUMBER",
+          "TIMBER.JOINTS_WITH_LATERAL_WOOD_ELEMENTS_AND_WOOD_BASED_PANELS",
+          "TIMBER.JOINTS_WITH_EXTERNAL_STEEL_PLATES"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 139,
+          "span_char_end": 560,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "192da7db13085e4a",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección",
+          "Table 1"
+        ],
+        "parent_section_id": "9ad54027d2b390f3",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "|  | n (mm/min) |\n| --- | --- |\n| Coníferas y haya |  |\n| Madera laminada encolada con densidad característica  290 kg/m 3 | 0,70 |\n| Madera maciza con densidad característica  290 kg/m 3 | 0,80 |",
+      "attributes": {
+        "id": "18430541-b016-4107-881c-81862145391c",
+        "parent_section_id": "192da7db13085e4a",
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate (βn) for timber must be as specified in the table.",
+        "applies_if": "TIMBER.TYPE IN ['CONIFEROUS', 'BEECH']",
+        "satisfied_if": "(TIMBER.TYPE == 'GLUED_LAMINATED_TIMBER' AND TIMBER.DENSITY_CHARACTERISTIC >= 290 AND TIMBER.CHARRING_RATE_NOMINAL == 0.70); OR (TIMBER.TYPE == 'SOLID_WOOD' AND TIMBER.DENSITY_CHARACTERISTIC >= 290 AND TIMBER.CHARRING_RATE_NOMINAL == 0.80)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "TIMBER.TYPE",
+          "TIMBER.DENSITY_CHARACTERISTIC",
+          "TIMBER.CHARRING_RATE_NOMINAL",
+          "TIMBER.CONIFEROUS",
+          "TIMBER.BEECH",
+          "TIMBER.GLUED_LAMINATED_TIMBER",
+          "TIMBER.SOLID_WOOD"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 562,
+          "span_char_end": 745,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "TIMBER.DENSITY_CHARACTERISTIC >= 290 kg/m^3",
+          "TIMBER.CHARRING_RATE_NOMINAL == 0.70 mm/min",
+          "TIMBER.CHARRING_RATE_NOMINAL == 0.80 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 737,
+        "end_pos": 936
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 202,
+        "end_index": 258
+      },
+      "section_metadata": {
+        "section_id": "192da7db13085e4a",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 74,
+        "end_page": 74,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.1 Madera sin protección",
+          "Table 1"
+        ],
+        "parent_section_id": "9ad54027d2b390f3",
+        "positioning_data": [
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 107.0527114868164,
+              "t": 731.9522323608398,
+              "r": 538.4041137695312,
+              "b": 628.9975891113281,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 74,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.23796081542969,
+              "t": 181.43896484375,
+              "r": 539.3683471679688,
+              "b": 78.1934814453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 936
+}

@@ -1,0 +1,579 @@
+{
+  "chunk_id": 126,
+  "section_metadata": {
+    "section_id": "d97626b2289cf383",
+    "section_name": "E.3.2 Vigas",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 78,
+    "end_page": 78,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+      "E.3.2 Vigas"
+    ],
+    "parent_section_id": "df1656ab2e2b717e",
+    "positioning_data": [
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          7
+        ],
+        "bbox": {
+          "l": 89.13275909423828,
+          "t": 768.7513427734375,
+          "r": 120.10835266113281,
+          "b": 761.5104370117188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "siendo:"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          24
+        ],
+        "bbox": {
+          "l": 89.48135375976562,
+          "t": 751.2313232421875,
+          "r": 228.63153076171875,
+          "b": 742.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "h p espesor del tablero;"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          63
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 733.9508666992188,
+          "r": 396.517333984375,
+          "b": 724.7279052734375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          99
+        ],
+        "bbox": {
+          "l": 89.46144104003906,
+          "t": 716.4308471679688,
+          "r": 537.7202758789062,
+          "b": 697.5504150390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          68
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 664.8011474609375,
+          "r": 533.7649536132812,
+          "b": 651.6456298828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.3.2 Vigas\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.3 Reglas simplificadas para el análisis de elementos estructurales → E.3.2 Vigas\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Reglas, Simplificadas, Para, Análisis, Elementos, Estructurales, Vigas\n**Pages:** 78-78\n\n\n1 Cuando pueda producirse el fallo del arriostramiento lateral de la viga durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de cálculo la posibilidad de vuelco lateral de la viga sin arriostramiento.\n2 En vigas con entalladuras debe verificarse que la sección residual en las proximidades de la entalladura es como mínimo del 60% de la sección requerida en condiciones de cálculo a la temperatura normal.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando pueda producirse el fallo del arriostramiento lateral de la viga durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de cálculo la posibilidad de vuelco lateral de la viga sin arriostramiento.",
+      "attributes": {
+        "id": "1e7a206a-3721-471f-9988-348270549929",
+        "parent_section_id": "d97626b2289cf383",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "When lateral bracing failure of the beam may occur during the required fire exposure time, the possibility of lateral overturning of the unbraced beam must be considered for calculation purposes.",
+        "applies_if": "BEAM.LATERAL_BRACING.FAILURE_POSSIBLE == TRUE AND FIRE.EXPOSURE.TIME.REQUIRED == TRUE",
+        "satisfied_if": "BEAM.LATERAL_OVERTURNING.CONSIDERED_IN_CALCULATION == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "BEAM.LATERAL_BRACING",
+          "FIRE.EXPOSURE.TIME",
+          "BEAM.LATERAL_OVERTURNING",
+          "STRUCTURAL.CALCULATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "E.3.2 Vigas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 340,
+        "end_pos": 567
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 83,
+        "end_index": 124
+      },
+      "section_metadata": {
+        "section_id": "d97626b2289cf383",
+        "section_name": "E.3.2 Vigas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.2 Vigas"
+        ],
+        "parent_section_id": "df1656ab2e2b717e",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En vigas con entalladuras debe verificarse que la sección residual en las proximidades de la entalladura es como mínimo del 60% de la sección requerida en condiciones de cálculo a la temperatura normal.",
+      "attributes": {
+        "id": "060d4786-887e-400e-b765-71714421183c",
+        "parent_section_id": "d97626b2289cf383",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In notched beams, it must be verified that the residual section in the vicinity of the notch is at least 60% of the section required under normal temperature calculation conditions.",
+        "applies_if": "BEAM.HAS_NOTCHES == TRUE",
+        "satisfied_if": "BEAM.NOTCH.RESIDUAL_SECTION >= (0.6 * BEAM.SECTION.REQUIRED_NORMAL_TEMPERATURE)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.8,
+          "impact": 0.9
+        },
+        "relevant_tags": [
+          "BEAM.NOTCHES",
+          "BEAM.RESIDUAL_SECTION",
+          "BEAM.SECTION.REQUIRED",
+          "STRUCTURAL.CALCULATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 205,
+          "span_char_end": 409,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BEAM.NOTCH.RESIDUAL_SECTION >= 60%"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.3.2 Vigas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 570,
+        "end_pos": 772
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 125,
+        "end_index": 168
+      },
+      "section_metadata": {
+        "section_id": "d97626b2289cf383",
+        "section_name": "E.3.2 Vigas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.2 Vigas"
+        ],
+        "parent_section_id": "df1656ab2e2b717e",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 772
+}

@@ -1,0 +1,290 @@
+{
+  "chunk_id": 154,
+  "section_metadata": {
+    "section_id": "a2976d00b54a387d",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 22,
+    "end_page": 22,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "1 Compatibilidad de los elementos de evacuación",
+      "Table 1"
+    ],
+    "parent_section_id": "dee98d3bdd4cfa2e",
+    "positioning_data": [
+      {
+        "page_no": 22,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.2428970336914,
+          "t": 165.44390869140625,
+          "r": 540.0243530273438,
+          "b": 77.611328125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 3 Evacuación de ocupantes → 1 Compatibilidad de los elementos de evacuación → Table 1\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Compatibilidad, Los, Elementos, Evacuación, Table\n**Pages:** 22-22\n\n\n| Uso previsto | Zona, tipo de actividad | Ocupación (m 2 /persona) |\n| --- | --- | --- |\n| Cualquiera | Zonas de ocupación ocasional y accesibles únicamente a efectos de manteni\u0002 miento: salas de máquinas, locales para material de limpieza, etc. | Ocupación  nula |\n|  | Aseos de planta | 3 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas de ocupación ocasional y accesibles únicamente a efectos de manteni-miento: salas de máquinas, locales para material de limpieza, etc. | Ocupación nula",
+      "attributes": {
+        "id": "e9317582-7212-4014-9988-123456789012",
+        "parent_section_id": "a2976d00b54a387d",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Areas of occasional occupancy and accessible only for maintenance purposes (e.g., machine rooms, cleaning material storage rooms) must have zero occupancy.",
+        "applies_if": "AREA.USAGE IN ['MACHINE_ROOM', 'CLEANING_STORAGE'] AND AREA.ACCESS == 'MAINTENANCE_ONLY'",
+        "satisfied_if": "AREA.OCCUPANCY == 0",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "AREA.USAGE.MACHINE_ROOM",
+          "AREA.USAGE.CLEANING_STORAGE",
+          "AREA.ACCESS.MAINTENANCE_ONLY",
+          "AREA.OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.OCCUPANCY == 0"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 351,
+        "end_pos": 424
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 94,
+        "end_index": 108
+      },
+      "section_metadata": {
+        "section_id": "a2976d00b54a387d",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "dee98d3bdd4cfa2e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Aseos de planta | 3",
+      "attributes": {
+        "id": "f9428693-8323-5125-0099-234567890123",
+        "parent_section_id": "a2976d00b54a387d",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Floor toilets must have an occupancy rate of 3 square meters per person.",
+        "applies_if": "AREA.USAGE == 'TOILET.FLOOR'",
+        "satisfied_if": "AREA.OCCUPANCY_RATE == 3",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "AREA.USAGE.TOILET.FLOOR",
+          "AREA.OCCUPANCY_RATE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.OCCUPANCY_RATE == 3 sq_m_per_person"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 518,
+        "end_pos": 537
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 133,
+        "end_index": 138
+      },
+      "section_metadata": {
+        "section_id": "a2976d00b54a387d",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 22,
+        "end_page": 22,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "1 Compatibilidad de los elementos de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "dee98d3bdd4cfa2e",
+        "positioning_data": [
+          {
+            "page_no": 22,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.2428970336914,
+              "t": 165.44390869140625,
+              "r": 540.0243530273438,
+              "b": 77.611328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 539
+}

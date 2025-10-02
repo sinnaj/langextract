@@ -1,0 +1,1153 @@
+{
+  "chunk_id": 177,
+  "section_metadata": {
+    "section_id": "95c1212a27668496",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 79,
+    "end_page": 79,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.4 Uniones",
+      "E.4.2 Uniones con piezas laterales de madera",
+      "E.4.2.1 Uniones no protegidas",
+      "Table 1"
+    ],
+    "parent_section_id": "b3cff89cbf874ae0",
+    "positioning_data": [
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 83.32735443115234,
+          "t": 747.3180541992188,
+          "r": 542.11279296875,
+          "b": 694.3908996582031,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 79,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 88.47256469726562,
+          "t": 399.4322814941406,
+          "r": 542.545654296875,
+          "b": 293.52972412109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.4 Uniones → E.4.2 Uniones con piezas laterales de madera → E.4.2.1 Uniones no protegidas → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Uniones, Uniones, Con, Piezas, Laterales, Madera, Uniones, Protegidas, Table\n**Pages:** 79-79\n\n\n|  | f |\n| --- | --- |\n| Clavos y tirafondos | 0,2 |\n| Pernos, pasadores y conectores | 0,67 |\n\n|  | Resistencia al fuego | Condiciones |\n| --- | --- | --- |\n| Clavos lisos | R - 15 | d  2,8 mm(1) |\n| Tirafondos | R - 15 | d  3,5 mm(1) |\n| Pernos | R - 15 | t1  45 mm(2) |\n| Pasadores | R - 20 | t1  45 mm(2) |\n| Conectores | R - 15 | t1  45 mm(2) |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Clavos y tirafondos",
+      "attributes": {
+        "id": "226b91c0-0326-444a-811c-22363198031d",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance factor (ηf) for nails and screws must be 0.2.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FASTENER.TYPE IN ['NAIL', 'SCREW'] AND FASTENER.FIRE_RESISTANCE_FACTOR == 0.2",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.NAIL",
+          "FASTENER.TYPE.SCREW",
+          "FIRE.RESISTANCE.FACTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 160,
+          "span_char_end": 178,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 384,
+        "end_pos": 403
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 101,
+        "end_index": 104
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pernos, pasadores y conectores",
+      "attributes": {
+        "id": "81215442-9907-4229-873b-57751998592f",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance factor (ηf) for bolts, pins, and connectors must be 0.67.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FASTENER.TYPE IN ['BOLT', 'PIN', 'CONNECTOR'] AND FASTENER.FIRE_RESISTANCE_FACTOR == 0.67",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.BOLT",
+          "FASTENER.TYPE.PIN",
+          "FASTENER.TYPE.CONNECTOR",
+          "FIRE.RESISTANCE.FACTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 189,
+          "span_char_end": 216,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 414,
+        "end_pos": 444
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 110,
+        "end_index": 115
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Clavos lisos",
+      "attributes": {
+        "id": "1114251a-723f-42a9-9654-2e923e51240c",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Smooth nails must have a fire resistance of R-15.",
+        "applies_if": "FASTENER.TYPE == 'NAIL.SMOOTH'",
+        "satisfied_if": "FASTENER.FIRE_RESISTANCE == 'R-15' AND FASTENER.DIAMETER >= 2.8",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.NAIL.SMOOTH",
+          "FIRE.RESISTANCE",
+          "FASTENER.DIAMETER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 281,
+          "span_char_end": 293,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.DIAMETER >= 2.8 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 519,
+        "end_pos": 531
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 136,
+        "end_index": 138
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tirafondos",
+      "attributes": {
+        "id": "224b121a-723f-42a9-9654-2e923e51240c",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Screws must have a fire resistance of R-15.",
+        "applies_if": "FASTENER.TYPE == 'SCREW'",
+        "satisfied_if": "FASTENER.FIRE_RESISTANCE == 'R-15' AND FASTENER.DIAMETER >= 3.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.SCREW",
+          "FIRE.RESISTANCE",
+          "FASTENER.DIAMETER"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 308,
+          "span_char_end": 318,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.DIAMETER >= 3.5 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 561,
+        "end_pos": 571
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 154,
+        "end_index": 155
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pernos",
+      "attributes": {
+        "id": "3334251a-723f-42a9-9654-2e923e51240c",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Bolts must have a fire resistance of R-15.",
+        "applies_if": "FASTENER.TYPE == 'BOLT'",
+        "satisfied_if": "FASTENER.FIRE_RESISTANCE == 'R-15' AND FASTENER.THICKNESS_1 >= 45",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.BOLT",
+          "FIRE.RESISTANCE",
+          "FASTENER.THICKNESS_1"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 333,
+          "span_char_end": 339,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.THICKNESS_1 >= 45 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 601,
+        "end_pos": 607
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 171,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pasadores",
+      "attributes": {
+        "id": "4444251a-723f-42a9-9654-2e923e51240c",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Pins must have a fire resistance of R-20.",
+        "applies_if": "FASTENER.TYPE == 'PIN'",
+        "satisfied_if": "FASTENER.FIRE_RESISTANCE == 'R-20' AND FASTENER.THICKNESS_1 >= 45",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.PIN",
+          "FIRE.RESISTANCE",
+          "FASTENER.THICKNESS_1"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 354,
+          "span_char_end": 363,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.THICKNESS_1 >= 45 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 637,
+        "end_pos": 646
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 187,
+        "end_index": 188
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Conectores",
+      "attributes": {
+        "id": "5554251a-723f-42a9-9654-2e923e51240c",
+        "parent_section_id": "95c1212a27668496",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Connectors must have a fire resistance of R-15.",
+        "applies_if": "FASTENER.TYPE == 'CONNECTOR'",
+        "satisfied_if": "FASTENER.FIRE_RESISTANCE == 'R-15' AND FASTENER.THICKNESS_1 >= 45",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "FASTENER.TYPE.CONNECTOR",
+          "FIRE.RESISTANCE",
+          "FASTENER.THICKNESS_1"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 378,
+          "span_char_end": 388,
+          "visual_refs": [
+            {
+              "id": "79e12080-6927-466c-905c-354363294326",
+              "page_number": 79,
+              "section_id": "E.4.2.1"
+            }
+          ]
+        },
+        "extracted_parameters": [
+          "FASTENER.THICKNESS_1 >= 45 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 676,
+        "end_pos": 686
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 203,
+        "end_index": 204
+      },
+      "section_metadata": {
+        "section_id": "95c1212a27668496",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 79,
+        "end_page": 79,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.2 Uniones con piezas laterales de madera",
+          "E.4.2.1 Uniones no protegidas",
+          "Table 1"
+        ],
+        "parent_section_id": "b3cff89cbf874ae0",
+        "positioning_data": [
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 83.32735443115234,
+              "t": 747.3180541992188,
+              "r": 542.11279296875,
+              "b": 694.3908996582031,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 79,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.47256469726562,
+              "t": 399.4322814941406,
+              "r": 542.545654296875,
+              "b": 293.52972412109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 7,
+  "char_count": 713
+}

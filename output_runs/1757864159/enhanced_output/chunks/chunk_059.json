@@ -1,0 +1,722 @@
+{
+  "chunk_id": 59,
+  "section_metadata": {
+    "section_id": "b3a72a9153884ba4",
+    "section_name": "Fuego totalmente desarrollado",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 46,
+    "end_page": 46,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Fuego totalmente desarrollado"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          29
+        ],
+        "bbox": {
+          "l": 71.68103790283203,
+          "t": 768.9913330078125,
+          "r": 216.53167724609375,
+          "b": 759.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego totalmente desarrollado"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          136
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 747.5108642578125,
+          "r": 537.9783935546875,
+          "b": 726.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.68103790283203,
+          "t": 699.5113525390625,
+          "r": 151.48056030273438,
+          "b": 690.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego localizado"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          109
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 678.15087890625,
+          "r": 538.1879272460938,
+          "b": 657.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          41
+        ],
+        "bbox": {
+          "l": 71.65116119384766,
+          "t": 630.15087890625,
+          "r": 273.1896057128906,
+          "b": 622.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Modelo informático de dinámica de fluidos"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Fuego totalmente desarrollado\n**Path:** Anejo SI A Terminología → Fuego totalmente desarrollado\n**Level:** 2\n**Tags:** Terminología, Fuego, Totalmente, Desarrollado\n**Pages:** 46-46\n\n\nEstado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego (UNE-EN 1991-1-2:2004) .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego (UNE-EN 1991-1-2:2004) .",
+      "attributes": {
+        "id": "5146b9a8-3729-4530-9941-6e828453472b",
+        "meta_summary": "Definition of 'Fully developed fire'",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "b3a72a9153884ba4",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 195,
+        "end_pos": 331
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 71
+      },
+      "section_metadata": {
+        "section_id": "b3a72a9153884ba4",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "Fuego totalmente desarrollado",
+      "attributes": {
+        "id": "2711681a-6415-46f9-8667-331046201b1e",
+        "parent_section_id": "b3a72a9153884ba4",
+        "classification_type": "DEFINITION",
+        "class_definition": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan en el fuego",
+        "class_context": "FIRE.FULLY_DEVELOPED",
+        "class_category": "FIRE.TERMINOLOGY",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 96,
+          "visual_refs": []
+        },
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 9,
+        "end_pos": 40
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 2,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "b3a72a9153884ba4",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_REFERENCE",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "4164103c-834f-401d-859a-18b761702952",
+        "parent_section_id": "b3a72a9153884ba4",
+        "legal_doc_type": "STANDARD",
+        "legal_doc_name": "UNE-EN 1991-1-2:2004",
+        "legal_doc_component": null,
+        "legal_doc_source_text": "(UNE-EN 1991-1-2:2004)",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 98,
+          "span_char_end": 120,
+          "visual_refs": []
+        },
+        "section_name": "Fuego totalmente desarrollado",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 247,
+        "end_pos": 328
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 49,
+        "end_index": 69
+      },
+      "section_metadata": {
+        "section_id": "b3a72a9153884ba4",
+        "section_name": "Fuego totalmente desarrollado",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Fuego totalmente desarrollado"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 331
+}

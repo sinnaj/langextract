@@ -1,0 +1,223 @@
+{
+  "chunk_id": 174,
+  "section_metadata": {
+    "section_id": "6bfc3468b809a980",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 4,
+    "start_page": 71,
+    "end_page": 71,
+    "toc_path": [
+      "Anejo D Resistencia al fuego de los elementos de acero",
+      "D.2 Método simplificado de cálculo",
+      "D.2.3 Determinación de la temperatura del acero",
+      "Table 1"
+    ],
+    "parent_section_id": "a8695e8b5f389eb6",
+    "positioning_data": [
+      {
+        "page_no": 71,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 87.48531341552734,
+          "t": 553.2826232910156,
+          "r": 546.4341430664062,
+          "b": 502.70416259765625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo D Resistencia al fuego de los elementos de acero → D.2 Método simplificado de cálculo → D.2.3 Determinación de la temperatura del acero → Table 1\n**Level:** 4\n**Tags:** Resistencia, Fuego, Los, Elementos, Acero, Método, Simplificado, Cálculo, Determinación, Temperatura, Del, Acero, Table\n**Pages:** 71-71\n\n\n| Temperatura (ºC) | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000 | 1200 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| k  y,  = f  y,  / f  y | 1,00 | 1,00 | 1,00 | 1,00 | 0,78 | 0,47 | 0,23 | 0,11 | 0,06 | 0,04 | 0,00 |\n| k  ,  =  _ θ _ θ\r λ / λ | 1,00 | 1,05 | 1,11 | 1,19 | 1,14 | 1,23 | 1,33 | - | - | - | - |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "71337482-1425-412f-902d-073142273062",
+        "meta_summary": "Table providing coefficients for steel temperature determination in fire resistance calculations.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "6bfc3468b809a980",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 87.48531341552734,
+              "t": 553.2826232910156,
+              "r": 546.4341430664062,
+              "b": 502.70416259765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "6bfc3468b809a980",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero",
+          "Table 1"
+        ],
+        "parent_section_id": "a8695e8b5f389eb6",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 87.48531341552734,
+              "t": 553.2826232910156,
+              "r": 546.4341430664062,
+              "b": 502.70416259765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Table 1 provides values for k y,θ (ratio of yield strength at temperature θ to yield strength at 20°C) and k λ,θ (ratio of modulus of elasticity at temperature θ to modulus of elasticity at 20°C) for different temperatures (ºC).",
+      "attributes": {
+        "id": "1841392b-8716-4352-944a-935102146199",
+        "parent_section_id": "6bfc3468b809a980",
+        "Procedure": "To determine the temperature of steel elements, use the provided table to find the corresponding k y,θ and k λ,θ values based on the steel temperature in ºC.",
+        "target_reference": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero"
+        ],
+        "Tags": [
+          "STEEL.TEMPERATURE",
+          "FIRE.RESISTANCE",
+          "CALCULATION.SIMPLIFIED",
+          "COEFFICIENT.YIELD_STRENGTH",
+          "COEFFICIENT.MODULUS_OF_ELASTICITY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 87.48531341552734,
+              "t": 553.2826232910156,
+              "r": 546.4341430664062,
+              "b": 502.70416259765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 173,
+        "end_pos": 180
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 47
+      },
+      "section_metadata": {
+        "section_id": "6bfc3468b809a980",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 71,
+        "end_page": 71,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.3 Determinación de la temperatura del acero",
+          "Table 1"
+        ],
+        "parent_section_id": "a8695e8b5f389eb6",
+        "positioning_data": [
+          {
+            "page_no": 71,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 87.48531341552734,
+              "t": 553.2826232910156,
+              "r": 546.4341430664062,
+              "b": 502.70416259765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 706
+}

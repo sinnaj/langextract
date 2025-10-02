@@ -1,0 +1,2274 @@
+{
+  "chunk_id": 25,
+  "section_metadata": {
+    "section_id": "3e0d27a4a7198124",
+    "section_name": "8 Control del humo de incendio",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 30,
+    "end_page": 30,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "8 Control del humo de incendio"
+    ],
+    "parent_section_id": "59fb0ac27845244e",
+    "positioning_data": [
+      {
+        "page_no": 30,
+        "charspan": [
+          0,
+          148
+        ],
+        "bbox": {
+          "l": 108.29936218261719,
+          "t": 768.9908447265625,
+          "r": 538.7503662109375,
+          "b": 748.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+      },
+      {
+        "page_no": 30,
+        "charspan": [
+          0,
+          130
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 740.0604248046875,
+          "r": 537.8244018554688,
+          "b": 719.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+      },
+      {
+        "page_no": 30,
+        "charspan": [
+          0,
+          319
+        ],
+        "bbox": {
+          "l": 89.21244049072266,
+          "t": 711.0308837890625,
+          "r": 538.4279174804688,
+          "b": 667.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+      },
+      {
+        "page_no": 30,
+        "charspan": [
+          0,
+          413
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 659.0708618164062,
+          "r": 538.6272583007812,
+          "b": 603.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+      },
+      {
+        "page_no": 30,
+        "charspan": [
+          0,
+          241
+        ],
+        "bbox": {
+          "l": 89.19252014160156,
+          "t": 595.4408569335938,
+          "r": 537.7346801757812,
+          "b": 563.0682983398438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 8 Control del humo de incendio\n**Path:** Sección SI 3 Evacuación de ocupantes → 8 Control del humo de incendio\n**Level:** 2\n**Tags:** SI3, Evacuación, Ocupantes, Control, Del, Humo, Incendio\n**Pages:** 30-30\n\n\n1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nZonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto;\nEstablecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas;\nAtrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.\n2 El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008 , UNE 23585:2017 y UNE-EN 12101-6:2006 .\nEn zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS -3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas:\nEl sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuer-\n30\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\ntas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas.\nLos ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60 .\nLos conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60 .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nZonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto;\nEstablecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas;\nAtrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.",
+      "attributes": {
+        "id": "23381467-3362-4217-8025-051833753555",
+        "meta_summary": "Requirements for installing a smoke control system for fire evacuation safety.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 221,
+        "end_pos": 873
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 58,
+        "end_index": 192
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nZonas de uso Aparcamiento que no tengan la consideración de aparcamiento abierto;",
+      "attributes": {
+        "id": "67362378-1234-5678-9012-345678901234",
+        "parent_section_id": "3e0d27a4a7198124",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire smoke control system must be installed to ensure control during occupant evacuation in safe conditions.",
+        "applies_if": "AREA.USAGE == 'PARKING' AND AREA.PARKING.TYPE != 'OPEN'",
+        "satisfied_if": "HAS(FIRE.SMOKE_CONTROL_SYSTEM) == TRUE AND FIRE.SMOKE_CONTROL_SYSTEM.CAPABILITY.EVACUATION_SAFETY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "AREA.USAGE.PARKING",
+          "AREA.PARKING.TYPE.OPEN",
+          "EVACUATION.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 100,
+          "span_char_end": 300,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 213,
+        "end_pos": 529
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 121
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nEstablecimientos de uso Comercial o Pública concurrencia cuya ocupación exceda de 1000 personas;",
+      "attributes": {
+        "id": "78901234-5678-9012-3456-789012345678",
+        "parent_section_id": "3e0d27a4a7198124",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire smoke control system must be installed to ensure control during occupant evacuation in safe conditions.",
+        "applies_if": "ESTABLISHMENT.USAGE IN ['PUBLIC.COMMERCIAL', 'PUBLIC.ASSEMBLY'] AND ESTABLISHMENT.OCCUPANCY > 1000",
+        "satisfied_if": "HAS(FIRE.SMOKE_CONTROL_SYSTEM) == TRUE AND FIRE.SMOKE_CONTROL_SYSTEM.CAPABILITY.EVACUATION_SAFETY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "ESTABLISHMENT.USAGE.PUBLIC.COMMERCIAL",
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "ESTABLISHMENT.OCCUPANCY",
+          "EVACUATION.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 301,
+          "span_char_end": 450,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.OCCUPANCY > 1000 persons"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 221,
+        "end_pos": 633
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 58,
+        "end_index": 139
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 En los casos que se indican a continuación se debe instalar un sistema de control del humo de incendio capaz de garantizar dicho control durante la evacuación de los ocupantes, de forma que ésta se pueda llevar a cabo en condiciones de seguridad:\nAtrios, cuando su ocupación en el conjunto de las zonas y plantas que constituyan un mismo sector de incendio, exceda de 500 personas, o bien cuando esté previsto para ser utilizado para la evacuación de más de 500 personas.",
+      "attributes": {
+        "id": "89012345-6789-0123-4567-890123456789",
+        "parent_section_id": "3e0d27a4a7198124",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A fire smoke control system must be installed to ensure control during occupant evacuation in safe conditions.",
+        "applies_if": "AREA.TYPE == 'ATRIUM' AND (AREA.OCCUPANCY > 500 OR AREA.EVACUATION.CAPACITY > 500)",
+        "satisfied_if": "HAS(FIRE.SMOKE_CONTROL_SYSTEM) == TRUE AND FIRE.SMOKE_CONTROL_SYSTEM.CAPABILITY.EVACUATION_SAFETY == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "AREA.TYPE.ATRIUM",
+          "AREA.OCCUPANCY",
+          "AREA.EVACUATION.CAPACITY",
+          "EVACUATION.SAFETY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 451,
+          "span_char_end": 650,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.OCCUPANCY > 500 persons",
+          "AREA.EVACUATION.CAPACITY > 500 persons"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 221,
+        "end_pos": 855
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 58,
+        "end_index": 187
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "2 El diseño, cálculo, instalación y mantenimiento del sistema pueden realizarse de acuerdo con las normas UNE 23584:2008 , UNE 23585:2017 y UNE-EN 12101-6:2006 .",
+      "attributes": {
+        "id": "12345678-9012-3456-7890-123456789012",
+        "parent_section_id": "3e0d27a4a7198124",
+        "procedure_statement": "The design, calculation, installation, and maintenance of the smoke control system can be carried out according to UNE 23584:2008, UNE 23585:2017, and UNE-EN 12101-6:2006 standards.",
+        "procedure_type": "DESIGN_INSTALLATION_MAINTENANCE",
+        "target_entity": "FIRE.SMOKE_CONTROL_SYSTEM",
+        "relevant_tags": [
+          "FIRE.SMOKE_CONTROL_SYSTEM",
+          "DESIGN",
+          "CALCULATION",
+          "INSTALLATION",
+          "MAINTENANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 651,
+          "span_char_end": 780,
+          "visual_refs": []
+        },
+        "confidence": 0.98,
+        "uncertainty": 0.02,
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 874,
+        "end_pos": 1035
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 192,
+        "end_index": 235
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En zonas de uso Aparcamiento se consideran válidos los sistemas de ventilación conforme a lo establecido en el DB HS -3, los cuales, cuando sean mecánicos, cumplirán las siguientes condiciones adicionales a las allí establecidas:\nEl sistema debe ser capaz de extraer un caudal de aire de 150 l/plaza·s con una aportación máxima de 120 l/plaza·s y debe activarse automáticamente en caso de incendio mediante una instalación de detección. En plantas cuya altura exceda de 4 m deben cerrase mediante compuer-tas automáticas E300 60 las aberturas de extracción de aire más cercanas al suelo, cuando el sistema disponga de ellas.\nLos ventiladores, incluidos los de impulsión para vencer pérdidas de carga y/o regular el flujo, deben tener una clasificación F300 60 .\nLos conductos que transcurran por un único sector de incendio deben tener una clasificación E300 60. Los que atraviesen elementos separadores de sectores de incendio deben tener una clasificación EI 60 .",
+      "attributes": {
+        "id": "23456789-0123-4567-8901-234567890123",
+        "parent_section_id": "3e0d27a4a7198124",
+        "procedure_statement": "In parking areas, ventilation systems compliant with DB HS-3 are considered valid. If mechanical, they must meet additional conditions: extract 150 l/parking_space·s, supply max 120 l/parking_space·s, automatic activation by detection system in case of fire. In floors > 4m high, close nearest-to-ground air extraction openings with E300 60 automatic gates if present. Fans (including impulse fans) must be F300 60. Ducts within a single fire sector must be E300 60. Ducts crossing fire sector separators must be EI 60.",
+        "procedure_type": "DESIGN_INSTALLATION",
+        "target_entity": "VENTILATION_SYSTEM.PARKING",
+        "relevant_tags": [
+          "VENTILATION_SYSTEM",
+          "PARKING",
+          "MECHANICAL_VENTILATION",
+          "AIR_EXTRACTION",
+          "AIR_SUPPLY",
+          "FIRE_DETECTION_SYSTEM",
+          "AUTOMATIC_ACTIVATION",
+          "FIRE_DAMPER",
+          "FAN",
+          "DUCTWORK",
+          "FIRE_RESISTANCE",
+          "FIRE.SECTOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 781,
+          "span_char_end": 1400,
+          "visual_refs": []
+        },
+        "confidence": 0.98,
+        "uncertainty": 0.02,
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1036,
+        "end_pos": 1541
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 235,
+        "end_index": 346
+      },
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE 23584:2008",
+      "attributes": {
+        "id": "34567890-1234-5678-9012-345678901234",
+        "title": "UNE 23584:2008",
+        "type": "STANDARD",
+        "year": 2008,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "annex": null,
+        "url": null,
+        "notes": "Standard for design, calculation, installation, and maintenance of smoke control systems.",
+        "parent_section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE 23585:2017",
+      "attributes": {
+        "id": "45678901-2345-6789-0123-456789012345",
+        "title": "UNE 23585:2017",
+        "type": "STANDARD",
+        "year": 2017,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "annex": null,
+        "url": null,
+        "notes": "Standard for design, calculation, installation, and maintenance of smoke control systems.",
+        "parent_section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE-EN 12101-6:2006",
+      "attributes": {
+        "id": "56789012-3456-7890-1234-567890123456",
+        "title": "UNE-EN 12101-6:2006",
+        "type": "STANDARD",
+        "year": 2006,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": null,
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "annex": null,
+        "url": null,
+        "notes": "Standard for design, calculation, installation, and maintenance of smoke control systems.",
+        "parent_section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "DB HS -3",
+      "attributes": {
+        "id": "67890123-4567-8901-2345-678901234567",
+        "title": "Documento Básico HS-3",
+        "type": "BUILDING_CODE",
+        "year": null,
+        "country": "ES",
+        "jurisdiction": "NATIONAL",
+        "article": null,
+        "section": "HS-3",
+        "chapter": null,
+        "part": null,
+        "sub_part": null,
+        "annex": null,
+        "url": null,
+        "notes": "Basic Document for Health and Salubrity, specifically section 3 related to ventilation.",
+        "parent_section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3e0d27a4a7198124",
+        "section_name": "8 Control del humo de incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 30,
+        "end_page": 30,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "8 Control del humo de incendio"
+        ],
+        "parent_section_id": "59fb0ac27845244e",
+        "positioning_data": [
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              148
+            ],
+            "bbox": {
+              "l": 108.29936218261719,
+              "t": 768.9908447265625,
+              "r": 538.7503662109375,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ya superficie no exceda de 50 m², sean fácilmente visibles desde todo punto de dichos recintos y los"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              130
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 740.0604248046875,
+              "r": 537.8244018554688,
+              "b": 719.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La señal con el rótulo \"Salida de emergencia\" debe utilizarse en toda salida prevista para uso exclu"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              319
+            ],
+            "bbox": {
+              "l": 89.21244049072266,
+              "t": 711.0308837890625,
+              "r": 538.4279174804688,
+              "b": 667.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Deben disponerse señales indicativas de dirección de los recorridos, visibles desde todo origen de e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              413
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 659.0708618164062,
+              "r": 538.6272583007812,
+              "b": 603.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En los puntos de los recorridos de evacuación en los que existan alternativas que puedan inducir a e"
+          },
+          {
+            "page_no": 30,
+            "charspan": [
+              0,
+              241
+            ],
+            "bbox": {
+              "l": 89.19252014160156,
+              "t": 595.4408569335938,
+              "r": 537.7346801757812,
+              "b": 563.0682983398438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 10,
+  "char_count": 2075
+}

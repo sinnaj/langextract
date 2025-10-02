@@ -1,0 +1,770 @@
+{
+  "chunk_id": 39,
+  "section_metadata": {
+    "section_id": "41a3efaa2506b8f4",
+    "section_name": "4 Elementos estructurales secundarios",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 40,
+    "end_page": 40,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "4 Elementos estructurales secundarios"
+    ],
+    "parent_section_id": "39b7950996e811a8",
+    "positioning_data": [
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          113
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 768.7911987304688,
+          "r": 538.3092041015625,
+          "b": 749.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          268
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 739.9912109375,
+          "r": 538.3079223632812,
+          "b": 707.6983642578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.21076202392578,
+          "t": 676.6748046875,
+          "r": 354.8352355957031,
+          "b": 666.4255981445312,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 Elementos estructurales secundarios"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          416
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 653.231201171875,
+          "r": 538.6302490234375,
+          "b": 598.1282958984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          262
+        ],
+        "bbox": {
+          "l": 88.86095428466797,
+          "t": 589.8008422851562,
+          "r": 538.5631713867188,
+          "b": 557.4283447265625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 4 Elementos estructurales secundarios\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 4 Elementos estructurales secundarios\n**Level:** 2\n**Tags:** SI6, Resistencia, Fuego, Estructura, Elementos, Estructurales, Secundarios\n**Pages:** 40-40\n\n\n1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar daños a los ocupantes, ni comprometer la estabilidad global de la estructura, la evacuación o la compartimentación en sectores de incendio del edificio, como puede ser el caso de pequeñas entreplantas o de suelos o escaleras de construcción ligera, etc., no precisan cumplir ninguna exigencia de resistencia al fuego .\nNo obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fuego R que se establece en la tabla 3.1 del apartado anterior, debe ser accesible al menos por una escalera que garantice esa misma resistencia o que sea protegida .\n2 Las estructuras sustentantes de cerramientos formados por elementos textiles, tales como carpas, serán R 30, excepto cuando se acredite que el elemento textil, además de ser nivel T2 conforme a la norma UNE -EN 15619:2014 o C -s2,d0, conforme a la UNE-EN 13501-1:2007, según se establece en el Capítulo 4 de la Sección 1 de este DB, presenta, en todas sus capas de cubrición, una perforación de superficie igual o mayor que 20 cm2 tras el ensayo definido en la norma UNE-EN 14115:2002.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar daños a los ocupantes, ni comprometer la estabilidad global de la estructura, la evacuación o la compartimentación en sectores de incendio del edificio, como puede ser el caso de pequeñas entreplantas o de suelos o escaleras de construcción ligera, etc., no precisan cumplir ninguna exigencia de resistencia al fuego .",
+      "attributes": {
+        "id": "2703813a-230d-495c-9411-137785210137",
+        "parent_section_id": "41a3efaa2506b8f4",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Structural elements whose collapse due to direct fire action cannot cause harm to occupants, compromise global structural stability, evacuation, or fire sector compartmentalization of the building, do not need to meet any fire resistance requirements.",
+        "applies_if": "STRUCTURAL_ELEMENT.COLLAPSE.FIRE_ACTION.DOES_NOT_HARM_OCCUPANTS AND STRUCTURAL_ELEMENT.COLLAPSE.FIRE_ACTION.DOES_NOT_COMPROMISE_GLOBAL_STABILITY AND STRUCTURAL_ELEMENT.COLLAPSE.FIRE_ACTION.DOES_NOT_COMPROMISE_EVACUATION AND STRUCTURAL_ELEMENT.COLLAPSE.FIRE_ACTION.DOES_NOT_COMPROMISE_FIRE_COMPARTMENTATION",
+        "satisfied_if": "STRUCTURAL_ELEMENT.FIRE_RESISTANCE_REQUIREMENT == FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STRUCTURAL_ELEMENT",
+          "FIRE_RESISTANCE",
+          "OCCUPANT_SAFETY",
+          "STRUCTURAL_STABILITY",
+          "EVACUATION",
+          "FIRE_COMPARTMENTATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 102,
+          "span_char_end": 420,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 269,
+        "end_pos": 683
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 54,
+        "end_index": 135
+      },
+      "section_metadata": {
+        "section_id": "41a3efaa2506b8f4",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fuego R que se establece en la tabla 3.1 del apartado anterior, debe ser accesible al menos por una escalera que garantice esa misma resistencia o que sea protegida .",
+      "attributes": {
+        "id": "11985925-116d-4235-972c-738981295325",
+        "parent_section_id": "41a3efaa2506b8f4",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Any floor that must guarantee the fire resistance R established in table 3.1 of the previous section must be accessible by at least one staircase that guarantees the same resistance or is protected.",
+        "applies_if": "FLOOR.REQUIRES_FIRE_RESISTANCE_R_FROM_TABLE_3_1",
+        "satisfied_if": "FLOOR.ACCESSIBLE_BY_STAIRCASE AND STAIRCASE.FIRE_RESISTANCE == FLOOR.FIRE_RESISTANCE_R OR STAIRCASE.IS_PROTECTED",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FLOOR",
+          "FIRE_RESISTANCE",
+          "STAIRCASE",
+          "ACCESSIBILITY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 422,
+          "span_char_end": 643,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 684,
+        "end_pos": 946
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 135,
+        "end_index": 186
+      },
+      "section_metadata": {
+        "section_id": "41a3efaa2506b8f4",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las estructuras sustentantes de cerramientos formados por elementos textiles, tales como carpas, serán R 30, excepto cuando se acredite que el elemento textil, además de ser nivel T2 conforme a la norma UNE -EN 15619:2014 o C -s2,d0, conforme a la UNE-EN 13501-1:2007, según se establece en el Capítulo 4 de la Sección 1 de este DB, presenta, en todas sus capas de cubrición, una perforación de superficie igual o mayor que 20 cm2 tras el ensayo definido en la norma UNE-EN 14115:2002.",
+      "attributes": {
+        "id": "06222631-419b-461d-8520-222416b92131",
+        "parent_section_id": "41a3efaa2506b8f4",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Supporting structures for enclosures made of textile elements, such as tents, must have a fire resistance of R 30.",
+        "applies_if": "STRUCTURAL_ELEMENT.TYPE == 'SUPPORTING_STRUCTURE' AND ENCLOSURE.MATERIAL == 'TEXTILE'",
+        "satisfied_if": "STRUCTURAL_ELEMENT.FIRE_RESISTANCE == 'R30'",
+        "exempt_if": "TEXTILE_ELEMENT.FIRE_CLASSIFICATION == 'T2' AND TEXTILE_ELEMENT.FIRE_CLASSIFICATION_STANDARD == 'UNE-EN 15619:2014' OR TEXTILE_ELEMENT.FIRE_CLASSIFICATION == 'C-s2,d0' AND TEXTILE_ELEMENT.FIRE_CLASSIFICATION_STANDARD == 'UNE-EN 13501-1:2007' AND TEXTILE_ELEMENT.COVERING_LAYERS.ALL.HAS_PERFORATION_AREA >= 20 AND TEXTILE_ELEMENT.COVERING_LAYERS.ALL.PERFORATION_AREA_UNIT == 'cm2' AND TEXTILE_ELEMENT.PERFORATION_TEST_STANDARD == 'UNE-EN 14115:2002'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "STRUCTURAL_ELEMENT",
+          "TEXTILE_ELEMENT",
+          "FIRE_RESISTANCE",
+          "FIRE_CLASSIFICATION",
+          "PERFORATION_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 645,
+          "span_char_end": 1172,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_RESISTANCE == 'R30'",
+          "PERFORATION_AREA >= 20 cm2"
+        ],
+        "confidence": 0.9,
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 949,
+        "end_pos": 1434
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 187,
+        "end_index": 314
+      },
+      "section_metadata": {
+        "section_id": "41a3efaa2506b8f4",
+        "section_name": "4 Elementos estructurales secundarios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "4 Elementos estructurales secundarios"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 1434
+}

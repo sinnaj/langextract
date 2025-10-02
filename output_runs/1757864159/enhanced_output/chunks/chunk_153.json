@@ -1,0 +1,126 @@
+{
+  "chunk_id": 153,
+  "section_metadata": {
+    "section_id": "dcdb95bd829d99f5",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 21,
+    "end_page": 21,
+    "toc_path": [
+      "Sección SI 2 Propagación exterior",
+      "2 Cubiertas",
+      "Table 1"
+    ],
+    "parent_section_id": "a9143cadc4b7a2d9",
+    "positioning_data": [
+      {
+        "page_no": 21,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 90.95108795166016,
+          "t": 654.0939025878906,
+          "r": 539.3584594726562,
+          "b": 618.1216888427734,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 2 Propagación exterior → 2 Cubiertas → Table 1\n**Level:** 3\n**Tags:** SI2, Propagación, Exterior, Cubiertas, Table\n**Pages:** 21-21\n\n\n| d (m) | ≥2,50 | 2,00 | 1,75 | 1,50 | 1,25 | 1,00 | 0,75 | 0,50 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| h (m) | 0 | 1,00 | 1,50 | 2,00 | 2,50 | 3,00 | 3,50 | 4,00 | 5,00 |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "This table provides values for 'd' and 'h' in meters, likely related to dimensions or distances in a building regulation context.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "dcdb95bd829d99f5",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 21,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.95108795166016,
+              "t": 654.0939025878906,
+              "r": 539.3584594726562,
+              "b": 618.1216888427734,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "dcdb95bd829d99f5",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 21,
+        "end_page": 21,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "2 Cubiertas",
+          "Table 1"
+        ],
+        "parent_section_id": "a9143cadc4b7a2d9",
+        "positioning_data": [
+          {
+            "page_no": 21,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.95108795166016,
+              "t": 654.0939025878906,
+              "r": 539.3584594726562,
+              "b": 618.1216888427734,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 376
+}

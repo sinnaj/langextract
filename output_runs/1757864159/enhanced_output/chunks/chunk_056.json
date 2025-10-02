@@ -1,0 +1,1978 @@
+{
+  "chunk_id": 56,
+  "section_metadata": {
+    "section_id": "f01b6e31a28630af",
+    "section_name": "Espacio exterior seguro",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 45,
+    "end_page": 45,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Espacio exterior seguro"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          109
+        ],
+        "bbox": {
+          "l": 89.13275909423828,
+          "t": 768.9111938476562,
+          "r": 538.4305419921875,
+          "b": 749.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          91
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 739.9508666992188,
+          "r": 485.75885009765625,
+          "b": 730.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          155
+        ],
+        "bbox": {
+          "l": 89.18255615234375,
+          "t": 722.5508422851562,
+          "r": 538.4280395507812,
+          "b": 701.6878662109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          170
+        ],
+        "bbox": {
+          "l": 89.47139739990234,
+          "t": 693.3908081054688,
+          "r": 538.1710205078125,
+          "b": 672.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+      },
+      {
+        "page_no": 45,
+        "charspan": [
+          0,
+          248
+        ],
+        "bbox": {
+          "l": 108.4587173461914,
+          "t": 664.879150390625,
+          "r": 538.4276733398438,
+          "b": 632.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Espacio exterior seguro\n**Path:** Anejo SI A Terminología → Espacio exterior seguro\n**Level:** 2\n**Tags:** Terminología, Espacio, Exterior, Seguro\n**Pages:** 45-45\n\n\nEs aquel en el que se puede dar por finalizada la evacuación de los ocupantes del edificio, debido a que cumple las siguientes condiciones:\n1 Permite la dispersión de los ocupantes que abandonan el edificio, en condiciones de seguridad.\n2 Se puede considerar que dicha condición se cumple cuando el espacio exterior tiene, delante de cada salida de edificio que comunique con él, una superficie de al menos 0,5P m² dentro de la zona delimitada con un radio 0,1P m de distancia desde la salida de edificio, siendo P el número de ocupantes cuya evacuación esté prevista por dicha salida. Cuando P no exceda de 50 personas no es necesario comprobar dicha condición.\n3 Si el espacio considerado no está comunicado con la red viaria o con otros espacios abiertos no puede considerarse ninguna zona situada a menos de 15 m de cualquier parte del edificio, excepto cuando esté dividido en sectores de incendio estructuralmente independientes entre sí y con salidas también independientes al espacio exterior, en cuyo caso dicha distancia se podrá aplicar únicamente respecto del sector afectado por un posible incendio.\n4 Permite una amplia disipación del calor, del humo y de los gases producidos por el incendio.\n5 Permite el acceso de los efectivos de bomberos y de los medios de ayuda a los ocupantes que, en cada caso, se consideren necesarios.\n6 La cubierta de un edificio se puede considerar como espacio exterior seguro siempre que, además de cumplir las condiciones anteriores, su estructura sea totalmente independiente de la del edificio con salida a dicho espacio y un incendio no pueda afectar simultáneamente a ambos .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Es aquel en el que se puede dar por finalizada la evacuación de los ocupantes del edificio, debido a que cumple las siguientes condiciones:\n1 Permite la dispersión de los ocupantes que abandonan el edificio, en condiciones de seguridad.\n2 Se puede considerar que dicha condición se cumple cuando el espacio exterior tiene, delante de cada salida de edificio que comunique con él, una superficie de al menos 0,5P m² dentro de la zona delimitada con un radio 0,1P m de distancia desde la salida de edificio, siendo P el número de ocupantes cuya evacuación esté prevista por dicha salida. Cuando P no exceda de 50 personas no es necesario comprobar dicha condición.\n3 Si el espacio considerado no está comunicado con la red viaria o con otros espacios abiertos no puede considerarse ninguna zona situada a menos de 15 m de cualquier parte del edificio, excepto cuando esté dividido en sectores de incendio estructuralmente independientes entre sí y con salidas también independientes al espacio exterior, en cuyo caso dicha distancia se podrá aplicar únicamente respecto del sector afectado por un posible incendio.\n4 Permite una amplia disipación del calor, del humo y de los gases producidos por el incendio.\n5 Permite el acceso de los efectivos de bomberos y de los medios de ayuda a los ocupantes que, en cada caso, se consideren necesarios.\n6 La cubierta de un edificio se puede considerar como espacio exterior seguro siempre que, además de cumplir las condiciones anteriores, su estructura sea totalmente independiente de la del edificio con salida a dicho espacio y un incendio no pueda afectar simultáneamente a ambos .",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Defines the conditions for a 'safe exterior space' for building evacuation.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 177,
+        "end_pos": 1802
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 41,
+        "end_index": 364
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Permite la dispersión de los ocupantes que abandonan el edificio, en condiciones de seguridad.",
+      "attributes": {
+        "id": "21a3b4c5-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A safe exterior space must allow for the dispersion of occupants evacuating the building in safe conditions.",
+        "applies_if": "SPACE.TYPE == 'SAFE_EXTERIOR_SPACE'",
+        "satisfied_if": "SPACE.ALLOWS_OCCUPANT_DISPERSION == TRUE AND SPACE.OCCUPANT_DISPERSION.CONDITIONS == 'SAFE'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "OCCUPANT.EVACUATION",
+          "SAFETY.CONDITIONS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 178,
+          "span_char_end": 269,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 189,
+        "end_pos": 413
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 44,
+        "end_index": 88
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Se puede considerar que dicha condición se cumple cuando el espacio exterior tiene, delante de cada salida de edificio que comunique con él, una superficie de al menos 0,5P m² dentro de la zona delimitada con un radio 0,1P m de distancia desde la salida de edificio, siendo P el número de ocupantes cuya evacuación esté prevista por dicha salida. Cuando P no exceda de 50 personas no es necesario comprobar dicha condición.",
+      "attributes": {
+        "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The exterior space must have an area of at least 0.5P m² in front of each building exit, within a radius of 0.1P m from the exit, where P is the number of occupants expected to evacuate through that exit.",
+        "applies_if": "SPACE.TYPE == 'SAFE_EXTERIOR_SPACE' AND OCCUPANTS.EVACUATION_COUNT > 50",
+        "satisfied_if": "SPACE.AREA_IN_FRONT_OF_EXIT >= (0.5 * OCCUPANTS.EVACUATION_COUNT) AND SPACE.RADIUS_FROM_EXIT >= (0.1 * OCCUPANTS.EVACUATION_COUNT)",
+        "exempt_if": "OCCUPANTS.EVACUATION_COUNT <= 50",
+        "topics": [
+          "SAFETY.USE",
+          "SAFETY.ACCIDENTPREVENTION"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "BUILDING.EXIT",
+          "OCCUPANTS.EVACUATION_COUNT",
+          "SPACE.AREA",
+          "SPACE.RADIUS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 270,
+          "span_char_end": 622,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SPACE.AREA_IN_FRONT_OF_EXIT >= 0.5P m²",
+          "SPACE.RADIUS_FROM_EXIT >= 0.1P m",
+          "OCCUPANTS.EVACUATION_COUNT <= 50"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P is the number of occupants",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 388,
+        "end_pos": 828
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 84,
+        "end_index": 180
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Si el espacio considerado no está comunicado con la red viaria o con otros espacios abiertos no puede considerarse ninguna zona situada a menos de 15 m de cualquier parte del edificio, excepto cuando esté dividido en sectores de incendio estructuralmente independientes entre sí y con salidas también independientes al espacio exterior, en cuyo caso dicha distancia se podrá aplicar únicamente respecto del sector afectado por un posible incendio.",
+      "attributes": {
+        "id": "4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 3,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "No area less than 15m from any part of the building can be considered a safe exterior space if it is not connected to the road network or other open spaces.",
+        "applies_if": "SPACE.TYPE == 'SAFE_EXTERIOR_SPACE' AND SPACE.NOT_CONNECTED_TO_ROAD_NETWORK == TRUE AND SPACE.NOT_CONNECTED_TO_OPEN_SPACES == TRUE",
+        "satisfied_if": "SPACE.DISTANCE_FROM_BUILDING >= 15",
+        "exempt_if": "BUILDING.DIVIDED_INTO_STRUCTURALLY_INDEPENDENT_FIRE_SECTORS == TRUE AND BUILDING.FIRE_SECTORS.HAVE_INDEPENDENT_EXTERNAL_EXITS == TRUE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "SPACE.CONNECTION.ROAD_NETWORK",
+          "SPACE.CONNECTION.OPEN_SPACES",
+          "BUILDING.DISTANCE",
+          "FIRE.SECTOR.STRUCTURALLY_INDEPENDENT",
+          "FIRE.SECTOR.INDEPENDENT_EXTERNAL_EXITS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 623,
+          "span_char_end": 997,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "DISTANCE >= 15 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 836,
+        "end_pos": 1271
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 181,
+        "end_index": 261
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "4 Permite una amplia disipación del calor, del humo y de los gases producidos por el incendio.",
+      "attributes": {
+        "id": "5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A safe exterior space must allow for ample dissipation of heat, smoke, and gases produced by fire.",
+        "applies_if": "SPACE.TYPE == 'SAFE_EXTERIOR_SPACE'",
+        "satisfied_if": "SPACE.ALLOWS_HEAT_DISSIPATION == TRUE AND SPACE.ALLOWS_SMOKE_DISSIPATION == TRUE AND SPACE.ALLOWS_GAS_DISSIPATION == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "FIRE.HEAT_DISSIPATION",
+          "FIRE.SMOKE_DISSIPATION",
+          "FIRE.GAS_DISSIPATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 998,
+          "span_char_end": 1095,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1123,
+        "end_pos": 1383
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 234,
+        "end_index": 284
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "5 Permite el acceso de los efectivos de bomberos y de los medios de ayuda a los ocupantes que, en cada caso, se consideren necesarios.",
+      "attributes": {
+        "id": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A safe exterior space must allow access for firefighters and aid for occupants as deemed necessary.",
+        "applies_if": "SPACE.TYPE == 'SAFE_EXTERIOR_SPACE'",
+        "satisfied_if": "SPACE.ALLOWS_FIREFIGHTER_ACCESS == TRUE AND SPACE.ALLOWS_OCCUPANT_AID_ACCESS == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "FIREFIGHTER.ACCESS",
+          "OCCUPANT.AID.ACCESS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1096,
+          "span_char_end": 1238,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1357,
+        "end_pos": 1518
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 280,
+        "end_index": 312
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "6 La cubierta de un edificio se puede considerar como espacio exterior seguro siempre que, además de cumplir las condiciones anteriores, su estructura sea totalmente independiente de la del edificio con salida a dicho espacio y un incendio no pueda afectar simultáneamente a ambos .",
+      "attributes": {
+        "id": "7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e",
+        "parent_section_id": "f01b6e31a28630af",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "A building's roof can be considered a safe exterior space if its structure is completely independent of the building's structure with an exit to that space, and a fire cannot simultaneously affect both.",
+        "applies_if": "ROOF.TYPE == 'SAFE_EXTERIOR_SPACE'",
+        "satisfied_if": "ROOF.STRUCTURE.IS_INDEPENDENT_FROM_BUILDING == TRUE AND FIRE.CANNOT_SIMULTANEOUSLY_AFFECT_ROOF_AND_BUILDING == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROOF.TYPE.SAFE_EXTERIOR_SPACE",
+          "ROOF.STRUCTURE.INDEPENDENCE",
+          "FIRE.IMPACT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1239,
+          "span_char_end": 1509,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Also requires compliance with previous conditions.",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1508,
+        "end_pos": 1794
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 311,
+        "end_index": 362
+      },
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Espacio exterior seguro",
+      "attributes": {
+        "id": "8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f",
+        "parent_section_id": "f01b6e31a28630af",
+        "classification_type": "DEFINITION",
+        "classification_value": "A space where the evacuation of building occupants can be considered complete, meeting specific safety conditions.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "SPACE.TYPE.SAFE_EXTERIOR_SPACE",
+          "EVACUATION.COMPLETION",
+          "SAFETY.CONDITIONS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 102,
+          "span_char_end": 177,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Espacio exterior seguro",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "f01b6e31a28630af",
+        "section_name": "Espacio exterior seguro",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 45,
+        "end_page": 45,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Espacio exterior seguro"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.9111938476562,
+              "r": 538.4305419921875,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dicho límite es el que con carácter general se establece para cualquier origen de evacuación de dich"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              91
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 739.9508666992188,
+              "r": 485.75885009765625,
+              "b": 730.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 El recinto cuenta con protección frente al humo, mediante una de las siguientes opciones:"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              155
+            ],
+            "bbox": {
+              "l": 89.18255615234375,
+              "t": 722.5508422851562,
+              "r": 538.4280395507812,
+              "b": 701.6878662109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación natural mediante ventanas practicables o huecos abiertos al exterior con una superficie "
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              170
+            ],
+            "bbox": {
+              "l": 89.47139739990234,
+              "t": 693.3908081054688,
+              "r": 538.1710205078125,
+              "b": 672.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Ventilación mediante dos conductos independientes de entrada y de salida de aire, dispuestos exclusi"
+          },
+          {
+            "page_no": 45,
+            "charspan": [
+              0,
+              248
+            ],
+            "bbox": {
+              "l": 108.4587173461914,
+              "t": 664.879150390625,
+              "r": 538.4276733398438,
+              "b": 632.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 1802
+}

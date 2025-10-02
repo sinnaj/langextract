@@ -1,0 +1,1946 @@
+{
+  "chunk_id": 95,
+  "section_metadata": {
+    "section_id": "057b0e30394bb34a",
+    "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 55,
+    "end_page": 55,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.4 Valor de cálculo de la densidad de carga de fuego"
+    ],
+    "parent_section_id": "b0621b555a104d1f",
+    "positioning_data": [
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          53
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 768.361083984375,
+          "r": 438.1236572265625,
+          "b": 755.20556640625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+      },
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          233
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 744.9908447265625,
+          "r": 538.4279174804688,
+          "b": 713.1756591796875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+      },
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          7
+        ],
+        "bbox": {
+          "l": 89.13275909423828,
+          "t": 682.2313232421875,
+          "r": 120.10835266113281,
+          "b": 674.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "siendo:"
+      },
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          70
+        ],
+        "bbox": {
+          "l": 89.17259979248047,
+          "t": 664.9508666992188,
+          "r": 395.65960693359375,
+          "b": 655.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+      },
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          353
+        ],
+        "bbox": {
+          "l": 89.48135375976562,
+          "t": 647.3108520507812,
+          "r": 538.427978515625,
+          "b": 603.4183349609375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: B.4 Valor de cálculo de la densidad de carga de fuego\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.4 Valor de cálculo de la densidad de carga de fuego\n**Level:** 2\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Cálculo, Densidad, Carga, Fuego\n**Pages:** 55-55\n\n\n1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característico de la carga de fuego del sector, así como de la probabilidad de activación y de las previsibles consecuencias del incendio, como:\nsiendo:\nqf,k valor característico de la densidad de carga de fuego, según B.5;\nm coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio. En los casos en los que el material incendiado sea de tipo celulósico (madera, papel, tejidos, etc.) puede tomarse m= 0,8. Cuando se trate de otro tipo de material y no se conozca su coeficiente de combustión puede tomarse m=1 del lado de la seguridad.\n q1 coeficiente que tiene en cuenta el riesgo de iniciación debido al tamaño del sector,\n q2 coeficiente que tiene en cuenta el riesgo de iniciación debido al tipo de uso o actividad;\nn  coeficiente que tiene en cuenta las medidas activas voluntarias existentes, n  n  = n  n , 1  n  n 2  n  n 3\nc  coeficiente de corrección según las consecuencias del incendio.\n2 Los valores de \r\n q1 se dan en la tabla B.2, pudiéndose obtener valores intermedios por interpolación lineal.\nTabla B.2. Valores del coeficiente \r\n q1 por el riesgo de iniciación debido al tamaño del sector\n3 Los valores de \r\n q  q2 pueden obtenerse de la tabla B.3.\nTabla B.3. Valores del coeficiente \r\n q2 por el riesgo de iniciación debido al uso o actividad\n4 Los valores de \r\n n , i pueden obtenerse de la tabla B.4.\n55\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nTabla B.4. Valores de los coeficientes \r\n n , i según las medidas activas existentes\n5 Los valores de c  pueden obtenerse de la tabla B.5. En el caso de edificios en los que no sea admisible que puedan quedar fuera de servicio o en los que se pueda haber un número elevado de víctimas en caso de incendio, como es el caso de los hospitales, los valores indicados deben ser multiplicados por 1,5.\nTabla B.5. Valores de c c \r\npor las posibles consecuencias del incendio, según la altura de evacuación del edificio\nB.5 Valor característico de la densidad de carga de fuego( 1)\n1 El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor característico de la densidad de carga de fuego permanente, estimado por su valor promedio o esperado, y el valor característico de la densidad de carga de fuego variable, estimado como el valor que sólo es sobrepasado en un 20% de los casos.\n2 La densidad de carga de fuego permanente corresponde a los revestimientos y otros elementos combustibles permanentes incluidos en proyecto. Puede obtenerse a partir de los valores específicos aportados el fabricante de cada producto o, en su defecto, a partir de tablas de valores para materiales genéricos.\n3 La densidad de carga de fuego variable puede evaluarse elemento a elemento, según se indica en la norma UNE EN 1991 -1 -2: 2004 , pudiendo en este caso tener en cuenta las cargas protegidas, o bien obtenerse en la tabla B.6, para zonas que no presenten acumulaciones de carga de fuego mayores que las propias del uso previsto, como es el caso de zonas de almacenamiento, archivos intensivos de documentación, depósitos de libros, etc.\nTabla B.6. Valores de densidad de carga de fuego variable característica según el uso previsto\n(1) En el \"Reglamento de seguridad contra incendios en los establecimientos industriales\" se indican cargas de fuego promedio para algunas actividades especiales, así como para uso Comercial y para almacenes. El valor característico puede obtenerse multiplicando dicho valor por 1,6. También se aportan valores de potencial calorífico correspondiente a diferentes materiales y sustancias.\n56\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nAnejo C . Resistencia al fuego de las estructuras de hormigón armado\nC.1 Generalidades\nEn este anejo se establecen métodos simplificados y tablas que permiten determinar la resistencia de los elementos de hormigón ante la acción representada por la curva normalizada tiempo-temperatura .\nLos elementos estructurales deben diseñarse de forma que, ante el desconchado (spalling) del hormigón, el fallo por anclaje o por pérdida de capacidad de giro tenga una menor probabilidad de aparición que el fallo por flexión, por esfuerzo cortante o por cargas axiles.\nC.2 Tablas",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "El valor de cálculo de la densidad de carga de fuego se determina en función del valor característico de la carga de fuego del sector, así como de la probabilidad de activación y de las previsibles consecuencias del incendio, como:\nsiendo:\nqf,k valor característico de la densidad de carga de fuego, según B.5;\nm coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio. En los casos en los que el material incendiado sea de tipo celulósico (madera, papel, tejidos, etc.) puede tomarse m= 0,8. Cuando se trate de otro tipo de material y no se conozca su coeficiente de combustión puede tomarse m=1 del lado de la seguridad.\n q1 coeficiente que tiene en cuenta el riesgo de iniciación debido al tamaño del sector,\n q2 coeficiente que tiene en cuenta el riesgo de iniciación debido al tipo de uso o actividad;\nn  coeficiente que tiene en cuenta las medidas activas voluntarias existentes, n  n  = n  n , 1  n  n 2  n  n 3\nc  coeficiente de corrección según las consecuencias del incendio.\n2 Los valores de \n q1 se dan en la tabla B.2, pudiéndose obtener valores intermedios por interpolación lineal.\nTabla B.2. Valores del coeficiente \n q1 por el riesgo de iniciación debido al tamaño del sector\n3 Los valores de \n q  q2 pueden obtenerse de la tabla B.3.\nTabla B.3. Valores del coeficiente \n q2 por el riesgo de iniciación debido al uso o actividad\n4 Los valores de \n n , i pueden obtenerse de la tabla B.4.\n55\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nTabla B.4. Valores de los coeficientes \n n , i según las medidas activas existentes\n5 Los valores de c  pueden obtenerse de la tabla B.5. En el caso de edificios en los que no sea admisible que puedan quedar fuera de servicio o en los que se pueda haber un número elevado de víctimas en caso de incendio, como es el caso de los hospitales, los valores indicados deben ser multiplicados por 1,5.\nTabla B.5. Valores de c c \npor las posibles consecuencias del incendio, según la altura de evacuación del edificio\nB.5 Valor característico de la densidad de carga de fuego( 1)\n1 El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor característico de la densidad de carga de fuego permanente, estimado por su valor promedio o esperado, y el valor característico de la densidad de carga de fuego variable, estimado como el valor que sólo es sobrepasado en un 20% de los casos.\n2 La densidad de carga de fuego permanente corresponde a los revestimientos y otros elementos combustibles permanentes incluidos en proyecto. Puede obtenerse a partir de los valores específicos aportados el fabricante de cada producto o, en su defecto, a partir de tablas de valores para materiales genéricos.\n3 La densidad de carga de fuego variable puede evaluarse elemento a elemento, según se indica en la norma UNE EN 1991 -1 -2: 2004 , pudiendo en este caso tener en cuenta las cargas protegidas, o bien obtenerse en la tabla B.6, para zonas que no presenten acumulaciones de carga de fuego mayores que las propias del uso previsto, como es el caso de zonas de almacenamiento, archivos intensivos de documentación, depósitos de libros, etc.\nTabla B.6. Valores de densidad de carga de fuego variable característica según el uso previsto\n(1) En el \"Reglamento de seguridad contra incendios en los establecimientos industriales\" se indican cargas de fuego promedio para algunas actividades especiales, así como para uso Comercial y para almacenes. El valor característico puede obtenerse multiplicando dicho valor por 1,6.\nTambién se aportan valores de potencial calorífico correspondiente a diferentes materiales y sustancias.\n56\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nAnejo C . Resistencia al fuego de las estructuras de hormigón armado\nC.1 Generalidades\nEn este anejo se establecen métodos simplificados y tablas que permiten determinar la resistencia de los elementos de hormigón ante la acción representada por la curva normalizada tiempo-temperatura .\nLos elementos estructurales deben diseñarse de forma que, ante el desconchado (spalling) del hormigón, el fallo por anclaje o por pérdida de capacidad de giro tenga una menor probabilidad de aparición que el fallo por flexión, por esfuerzo cortante o por cargas axiles.\nC.2 Tablas",
+      "attributes": {
+        "id": "b4e41258-0056-424a-8d76-21876595568a",
+        "meta_summary": "This section details the calculation of fire load density, considering characteristic fire load, activation probability, and fire consequences. It also describes the determination of characteristic fire load density (permanent and variable) and introduces methods for assessing fire resistance of concrete structures.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE EN 1991 -1 -2: 2004",
+          "Reglamento de seguridad contra incendios en los establecimientos industriales"
+        ],
+        "referenced_documents_sections": [
+          "B.5",
+          "B.2",
+          "B.3",
+          "B.4",
+          "B.5",
+          "B.6",
+          "C.1",
+          "C.2"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 304,
+        "end_pos": 4709
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 1065
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "El valor de cálculo de la densidad de carga de fuego se determina en función del valor característico de la carga de fuego del sector, así como de la probabilidad de activación y de las previsibles consecuencias del incendio.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "parent_section_id": "057b0e30394bb34a",
+        "Procedure": "The design value of the fire load density is determined based on the characteristic value of the fire load of the sector, the probability of activation, and the foreseeable consequences of the fire.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.LOAD.DENSITY.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 297,
+        "end_pos": 519
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 80,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor característico de la densidad de carga de fuego permanente, estimado por su valor promedio o esperado, y el valor característico de la densidad de carga de fuego variable, estimado como el valor que sólo es sobrepasado en un 20% de los casos.",
+      "attributes": {
+        "id": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+        "parent_section_id": "057b0e30394bb34a",
+        "Procedure": "The characteristic value of the fire load density, qf,k, is obtained by summing the characteristic value of the permanent fire load density (estimated by its average or expected value) and the characteristic value of the variable fire load density (estimated as the value that is only exceeded in 20% of cases).",
+        "target_reference": [
+          "B.5"
+        ],
+        "Tags": [
+          "FIRE.LOAD.DENSITY.CHARACTERISTIC.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2459,
+        "end_pos": 2787
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 603,
+        "end_index": 678
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "La densidad de carga de fuego permanente corresponde a los revestimientos y otros elementos combustibles permanentes incluidos en proyecto. Puede obtenerse a partir de los valores específicos aportados el fabricante de cada producto o, en su defecto, a partir de tablas de valores para materiales genéricos.",
+      "attributes": {
+        "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+        "parent_section_id": "057b0e30394bb34a",
+        "Procedure": "Permanent fire load density corresponds to permanent combustible coatings and other elements included in the project. It can be obtained from specific values provided by the product manufacturer or, failing that, from tables of values for generic materials.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.LOAD.DENSITY.PERMANENT.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2797,
+        "end_pos": 3102
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 680,
+        "end_index": 734
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "La densidad de carga de fuego variable puede evaluarse elemento a elemento, según se indica en la norma UNE EN 1991 -1 -2: 2004 , pudiendo en este caso tener en cuenta las cargas protegidas, o bien obtenerse en la tabla B.6, para zonas que no presenten acumulaciones de carga de fuego mayores que las propias del uso previsto, como es el caso de zonas de almacenamiento, archivos intensivos de documentación, depósitos de libros, etc.",
+      "attributes": {
+        "id": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+        "parent_section_id": "057b0e30394bb34a",
+        "Procedure": "Variable fire load density can be evaluated element by element, as indicated in standard UNE EN 1991 -1 -2: 2004, taking into account protected loads, or obtained from table B.6 for areas that do not present fire load accumulations greater than those typical for the intended use (e.g., storage areas, intensive document archives, book depositories, etc.).",
+        "target_reference": [
+          "UNE EN 1991 -1 -2: 2004",
+          "Tabla B.6"
+        ],
+        "Tags": [
+          "FIRE.LOAD.DENSITY.VARIABLE.CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3101,
+        "end_pos": 3532
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 733,
+        "end_index": 827
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Los elementos estructurales deben diseñarse de forma que, ante el desconchado (spalling) del hormigón, el fallo por anclaje o por pérdida de capacidad de giro tenga una menor probabilidad de aparición que el fallo por flexión, por esfuerzo cortante o por cargas axiles.",
+      "attributes": {
+        "id": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+        "parent_section_id": "057b0e30394bb34a",
+        "Procedure": "Structural elements must be designed so that, in the event of concrete spalling, anchorage failure, or loss of rotational capacity, these failures have a lower probability of occurrence than failure due to bending, shear force, or axial loads.",
+        "target_reference": [],
+        "Tags": [
+          "STRUCTURAL.DESIGN",
+          "CONCRETE.FIRE.RESISTANCE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 4415,
+        "end_pos": 4690
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 1000,
+        "end_index": 1059
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En el caso de edificios en los que no sea admisible que puedan quedar fuera de servicio o en los que se pueda haber un número elevado de víctimas en caso de incendio, como es el caso de los hospitales, los valores indicados deben ser multiplicados por 1,5.",
+      "attributes": {
+        "id": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "parent_section_id": "057b0e30394bb34a",
+        "paragraph_number": 5,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For buildings where it is not acceptable for them to be out of service or where there could be a high number of victims in case of fire, such as hospitals, the indicated values must be multiplied by 1.5.",
+        "applies_if": "BUILDING.USAGE IN ['HOSPITAL'] OR BUILDING.RISK.OUT_OF_SERVICE == TRUE OR BUILDING.RISK.HIGH_VICTIMS == TRUE",
+        "satisfied_if": "COEFFICIENT.C_DELTA == COEFFICIENT.C_DELTA_BASE * 1.5",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.LOAD.DENSITY.CALCULATION",
+          "COEFFICIENT.C_DELTA",
+          "BUILDING.USAGE.HOSPITAL",
+          "BUILDING.RISK.OUT_OF_SERVICE",
+          "BUILDING.RISK.HIGH_VICTIMS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This norm modifies the calculation of the c_delta coefficient under specific high-risk conditions.",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2023,
+        "end_pos": 2280
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 501,
+        "end_index": 558
+      },
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "UNE EN 1991 -1 -2: 2004",
+      "attributes": {
+        "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+        "parent_section_id": "057b0e30394bb34a",
+        "title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "code": "UNE EN 1991 -1 -2",
+        "year": "2004",
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "appendix": null,
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+      "attributes": {
+        "id": "8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+        "parent_section_id": "057b0e30394bb34a",
+        "title": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+        "code": "RSCIEI",
+        "year": null,
+        "article": null,
+        "section": null,
+        "subsection": null,
+        "chapter": null,
+        "part": null,
+        "appendix": "I",
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "057b0e30394bb34a",
+        "section_name": "B.4 Valor de cálculo de la densidad de carga de fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego"
+        ],
+        "parent_section_id": "b0621b555a104d1f",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              53
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.361083984375,
+              "r": 438.1236572265625,
+              "b": 755.20556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "B.4 Valor de cálculo de la densidad de carga de fuego"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              233
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 744.9908447265625,
+              "r": 538.4279174804688,
+              "b": 713.1756591796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 El valor de cálculo de la densidad de carga de fuego se determina en función del valor característ"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 682.2313232421875,
+              "r": 120.10835266113281,
+              "b": 674.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              70
+            ],
+            "bbox": {
+              "l": 89.17259979248047,
+              "t": 664.9508666992188,
+              "r": 395.65960693359375,
+              "b": 655.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "qf,k valor característico de la densidad de carga de fuego, según B.5;"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              353
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 647.3108520507812,
+              "r": 538.427978515625,
+              "b": 603.4183349609375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 9,
+  "char_count": 4709
+}

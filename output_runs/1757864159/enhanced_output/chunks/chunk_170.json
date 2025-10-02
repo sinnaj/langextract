@@ -1,0 +1,223 @@
+{
+  "chunk_id": 170,
+  "section_metadata": {
+    "section_id": "6e8f68d402f3e03b",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 60,
+    "end_page": 60,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.3 Vigas",
+      "C.2.3.4 Forjados bidireccionales",
+      "Table 1"
+    ],
+    "parent_section_id": "f185987d668ab2ef",
+    "positioning_data": [
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.91810607910156,
+          "t": 786.6546363830566,
+          "r": 539.9277954101562,
+          "b": 721.2470169067383,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 60,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 88.6042251586914,
+          "t": 394.47149658203125,
+          "r": 542.6048583984375,
+          "b": 241.1588134765625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.3 Vigas → C.2.3.4 Forjados bidireccionales → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Vigas, Forjados, Bidireccionales, Table\n**Pages:** 60-60\n\n\n| REI 120 | 120 | 35 | 20 | 30 |\n| --- | --- | --- | --- | --- |\n| REI 180 | 150 | 50 | 30 | 40 |\n| REI 240 | 175 | 60 | 50 | 50 |\n\n| Resistencia al fuego | Anchura de nervio mínimo bmín / Distancia mínima equivalente al eje am \r (1) (mm) |  |  | Espesor mínimo hmin (mm) |\n| --- | --- | --- | --- | --- |\n|  | Opción 1 | Opción 2 | Opción 3 |  |\n| REI 30 | 80 / 20 | 120 / 15 | 200 / 10 | 60 |\n| REI 60 | 100 /30 | 150 / 25 | 200 / 20 | 80 |\n| REI 90 | 120 / 40 | 200 / 30 | 250 / 25 | 100 |\n| REI 120 | 160 / 50 | 250 / 40 | 300 / 35 | 120 |\n| REI 180 | 200 / 70 | 300 / 60 | 400 / 55 | 150 |\n| REI 240 | 250 / 90 | 350 / 75 | 500 / 70 | 175 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1",
+      "attributes": {
+        "id": "e931758e-0498-472a-928d-17112028643c",
+        "parent_section_id": "6e8f68d402f3e03b",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The fire resistance of bidirectional slabs must comply with the minimum web width, equivalent axis distance, and minimum thickness specified in Table 1 for the given REI rating.",
+        "applies_if": "ELEMENT.TYPE == 'SLAB.BIDIRECTIONAL' AND MATERIAL.TYPE == 'REINFORCED_CONCRETE'",
+        "satisfied_if": "(FIRE.RESISTANCE_RATING == 'REI 30' AND BEAM.WIDTH.MIN >= 80 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 20 AND THICKNESS.MIN >= 60); OR (FIRE.RESISTANCE_RATING == 'REI 30' AND BEAM.WIDTH.MIN >= 120 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 15 AND THICKNESS.MIN >= 60); OR (FIRE.RESISTANCE_RATING == 'REI 30' AND BEAM.WIDTH.MIN >= 200 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 10 AND THICKNESS.MIN >= 60); OR (FIRE.RESISTANCE_RATING == 'REI 60' AND BEAM.WIDTH.MIN >= 100 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 30 AND THICKNESS.MIN >= 80); OR (FIRE.RESISTANCE_RATING == 'REI 60' AND BEAM.WIDTH.MIN >= 150 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 25 AND THICKNESS.MIN >= 80); OR (FIRE.RESISTANCE_RATING == 'REI 60' AND BEAM.WIDTH.MIN >= 200 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 20 AND THICKNESS.MIN >= 80); OR (FIRE.RESISTANCE_RATING == 'REI 90' AND BEAM.WIDTH.MIN >= 120 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 40 AND THICKNESS.MIN >= 100); OR (FIRE.RESISTANCE_RATING == 'REI 90' AND BEAM.WIDTH.MIN >= 200 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 30 AND THICKNESS.MIN >= 100); OR (FIRE.RESISTANCE_RATING == 'REI 90' AND BEAM.WIDTH.MIN >= 250 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 25 AND THICKNESS.MIN >= 100); OR (FIRE.RESISTANCE_RATING == 'REI 120' AND BEAM.WIDTH.MIN >= 160 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 50 AND THICKNESS.MIN >= 120); OR (FIRE.RESISTANCE_RATING == 'REI 120' AND BEAM.WIDTH.MIN >= 250 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 40 AND THICKNESS.MIN >= 120); OR (FIRE.RESISTANCE_RATING == 'REI 120' AND BEAM.WIDTH.MIN >= 300 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 35 AND THICKNESS.MIN >= 120); OR (FIRE.RESISTANCE_RATING == 'REI 180' AND BEAM.WIDTH.MIN >= 200 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 70 AND THICKNESS.MIN >= 150); OR (FIRE.RESISTANCE_RATING == 'REI 180' AND BEAM.WIDTH.MIN >= 300 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 60 AND THICKNESS.MIN >= 150); OR (FIRE.RESISTANCE_RATING == 'REI 180' AND BEAM.WIDTH.MIN >= 400 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 55 AND THICKNESS.MIN >= 150); OR (FIRE.RESISTANCE_RATING == 'REI 240' AND BEAM.WIDTH.MIN >= 250 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 90 AND THICKNESS.MIN >= 175); OR (FIRE.RESISTANCE_RATING == 'REI 240' AND BEAM.WIDTH.MIN >= 350 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 75 AND THICKNESS.MIN >= 175); OR (FIRE.RESISTANCE_RATING == 'REI 240' AND BEAM.WIDTH.MIN >= 500 AND AXIS.DISTANCE.EQUIVALENT.MIN >= 70 AND THICKNESS.MIN >= 175)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE_RATING",
+          "ELEMENT.TYPE.SLAB.BIDIRECTIONAL",
+          "MATERIAL.TYPE.REINFORCED_CONCRETE",
+          "BEAM.WIDTH.MIN",
+          "AXIS.DISTANCE.EQUIVALENT.MIN",
+          "THICKNESS.MIN"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "REI 30",
+          "REI 60",
+          "REI 90",
+          "REI 120",
+          "REI 180",
+          "REI 240",
+          "BEAM.WIDTH.MIN",
+          "AXIS.DISTANCE.EQUIVALENT.MIN",
+          "THICKNESS.MIN"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table provides three options for minimum web width and equivalent axis distance for each REI rating.",
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.91810607910156,
+              "t": 786.6546363830566,
+              "r": 539.9277954101562,
+              "b": 721.2470169067383,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.6042251586914,
+              "t": 394.47149658203125,
+              "r": 542.6048583984375,
+              "b": 241.1588134765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "6e8f68d402f3e03b",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 60,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas",
+          "C.2.3.4 Forjados bidireccionales",
+          "Table 1"
+        ],
+        "parent_section_id": "f185987d668ab2ef",
+        "positioning_data": [
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.91810607910156,
+              "t": 786.6546363830566,
+              "r": 539.9277954101562,
+              "b": 721.2470169067383,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 60,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 88.6042251586914,
+              "t": 394.47149658203125,
+              "r": 542.6048583984375,
+              "b": 241.1588134765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 961
+}

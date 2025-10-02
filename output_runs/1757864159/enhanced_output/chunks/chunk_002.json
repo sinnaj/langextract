@@ -1,0 +1,1100 @@
+{
+  "chunk_id": 2,
+  "section_metadata": {
+    "section_id": "871beab772fa440c",
+    "section_name": "II Ámbito de aplicación",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 4,
+    "end_page": 4,
+    "toc_path": [
+      "Introducción",
+      "II Ámbito de aplicación"
+    ],
+    "parent_section_id": "0ec9c0e66768fb12",
+    "positioning_data": [
+      {
+        "page_no": 4,
+        "charspan": [
+          0,
+          44
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 768.3111572265625,
+          "r": 265.0898132324219,
+          "b": 759.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "cumplirse las anteriores exigencias básicas."
+      },
+      {
+        "page_no": 4,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.89871978759766,
+          "t": 723.298095703125,
+          "r": 246.13629150390625,
+          "b": 707.8681640625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "II Ámbito de aplicación"
+      },
+      {
+        "page_no": 4,
+        "charspan": [
+          0,
+          315
+        ],
+        "bbox": {
+          "l": 71.25276184082031,
+          "t": 695.4308471679688,
+          "r": 538.015380859375,
+          "b": 662.9383544921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+      },
+      {
+        "page_no": 4,
+        "charspan": [
+          0,
+          311
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 645.870849609375,
+          "r": 538.3351440429688,
+          "b": 603.950439453125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+      },
+      {
+        "page_no": 4,
+        "charspan": [
+          0,
+          257
+        ],
+        "bbox": {
+          "l": 71.12328338623047,
+          "t": 584.880859375,
+          "r": 538.3079223632812,
+          "b": 552.3883666992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: II Ámbito de aplicación\n**Path:** Introducción → II Ámbito de aplicación\n**Level:** 2\n**Tags:** Introducción, Ámbito, Aplicación\n**Pages:** 4-4\n\n\nEl ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del CTE en su artículo 2 (Parte I) excluyendo los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicación el \"Reglamento de seguridad contra incendios en los establecimientos industriales\".\nEl contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito básico \"Seguridad en caso de incendio\". También deben cumplirse las exigencias básicas de los demás requisitos básicos, lo que se posibilita mediante la aplicación del DB correspondiente a cada uno de ellos.(1)\nEste CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con las instalaciones o los almacenamientos regulados por reglamentación específica, debido a que corresponde a dicha reglamentación establecer dichas exigencias.\nComo en el conjunto del CTE, el ámbito de aplicación de este DB son las obras de edificación. Por ello, los elementos del entorno del edificio a los que les son de obligada aplicación sus condiciones son únicamente aquellos que formen parte del proyecto de edificación. Conforme al artículo 2, punto 3 de la ley 38/1999, de 5 de noviembre, de Ordenación de la Edificación (LOE), se consideran comprendidas en la edificación sus instalaciones fijas y el equipamiento propio, así como los elementos de urbanización que permanezcan adscritos al edificio.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del CTE en su artículo 2 (Parte I) excluyendo los edificios, establecimientos y zonas de uso industrial a los que les sea de aplicación el \"Reglamento de seguridad contra incendios en los establecimientos industriales\".\nEl contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito básico \"Seguridad en caso de incendio\". También deben cumplirse las exigencias básicas de los demás requisitos básicos, lo que se posibilita mediante la aplicación del DB correspondiente a cada uno de ellos.(1)\nEste CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con las instalaciones o los almacenamientos regulados por reglamentación específica, debido a que corresponde a dicha reglamentación establecer dichas exigencias.\nComo en el conjunto del CTE, el ámbito de aplicación de este DB son las obras de edificación. Por ello, los elementos del entorno del edificio a los que les son de obligada aplicación sus condiciones son únicamente aquellos que formen parte del proyecto de edificación. Conforme al artículo 2, punto 3 de la ley 38/1999, de 5 de noviembre, de Ordenación de la Edificación (LOE), se consideran comprendidas en la edificación sus instalaciones fijas y el equipamiento propio, así como los elementos de urbanización que permanezcan adscritos al edificio.",
+      "attributes": {
+        "id": "5d6cc979-3933-4d50-b095-41d82e36b84e",
+        "meta_summary": "This document (DB) applies generally to the CTE, specifically addressing basic requirements for 'Fire Safety'. It excludes industrial buildings, establishments, and zones covered by specific industrial fire safety regulations. It also clarifies that the CTE does not cover fire initiation risks related to installations or storage regulated by specific legislation. The scope includes building works, fixed installations, equipment, and urban elements assigned to the building as per LOE Article 2.3.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "BUILDING.USAGE == 'INDUSTRIAL' AND HAS(REGULATION.FIRE_SAFETY.INDUSTRIAL_ESTABLISHMENTS)",
+        "referenced_documents": [
+          "CTE",
+          "Reglamento de seguridad contra incendios en los establecimientos industriales",
+          "Ley 38/1999, de 5 de noviembre, de Ordenación de la Edificación (LOE)"
+        ],
+        "referenced_documents_sections": [
+          "CTE.ARTICLE.2.PART_I",
+          "LOE.ARTICLE.2.3"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 157,
+        "end_pos": 1594
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 47,
+        "end_index": 347
+      },
+      "section_metadata": {
+        "section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "toc_path": [
+          "Introducción",
+          "II Ámbito de aplicación"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_NAME",
+      "extraction_text": "BUILDING.USAGE",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+        "parent_section_id": "871beab772fa440c",
+        "classification_type": "EXCLUSION",
+        "classification_value": "INDUSTRIAL",
+        "applies_if": "TRUE",
+        "notes": "Industrial buildings, establishments, and zones are excluded from this DB's application if they are covered by the 'Reglamento de seguridad contra incendios en los establecimientos industriales'.",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "toc_path": [
+          "Introducción",
+          "II Ámbito de aplicación"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_REFERENCE",
+      "extraction_text": "CTE",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7g8h-9i0j-1k2l3m4n5o6p",
+        "parent_section_id": "871beab772fa440c",
+        "legal_doc_type": "CODE",
+        "legal_doc_name": "Código Técnico de la Edificación",
+        "legal_doc_code": "CTE",
+        "legal_doc_year": null,
+        "legal_doc_article": "2",
+        "legal_doc_part": "I",
+        "legal_doc_section": null,
+        "legal_doc_chapter": null,
+        "legal_doc_title": null,
+        "legal_doc_url": null,
+        "notes": "General application scope for the CTE.",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "toc_path": [
+          "Introducción",
+          "II Ámbito de aplicación"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_REFERENCE",
+      "extraction_text": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+      "attributes": {
+        "id": "b2c3d4e5-f6g7-8h9i-0j1k-2l3m4n5o6p7q",
+        "parent_section_id": "871beab772fa440c",
+        "legal_doc_type": "REGULATION",
+        "legal_doc_name": "Reglamento de seguridad contra incendios en los establecimientos industriales",
+        "legal_doc_code": null,
+        "legal_doc_year": null,
+        "legal_doc_article": null,
+        "legal_doc_part": null,
+        "legal_doc_section": null,
+        "legal_doc_chapter": null,
+        "legal_doc_title": null,
+        "legal_doc_url": null,
+        "notes": "Specific regulation for fire safety in industrial establishments, which exempts them from this DB.",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 288,
+        "end_pos": 470
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 82,
+        "end_index": 112
+      },
+      "section_metadata": {
+        "section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "toc_path": [
+          "Introducción",
+          "II Ámbito de aplicación"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_REFERENCE",
+      "extraction_text": "Ley 38/1999, de 5 de noviembre, de Ordenación de la Edificación (LOE)",
+      "attributes": {
+        "id": "c3d4e5f6-g7h8-9i0j-1k2l-3m4n5o6p7q8r",
+        "parent_section_id": "871beab772fa440c",
+        "legal_doc_type": "LAW",
+        "legal_doc_name": "Ley de Ordenación de la Edificación",
+        "legal_doc_code": "LOE",
+        "legal_doc_year": "1999",
+        "legal_doc_article": "2",
+        "legal_doc_part": null,
+        "legal_doc_section": "3",
+        "legal_doc_chapter": null,
+        "legal_doc_title": null,
+        "legal_doc_url": null,
+        "notes": "Defines what is considered part of the building for the purpose of building works.",
+        "section_name": "II Ámbito de aplicación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1297,
+        "end_pos": 1419
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 280,
+        "end_index": 315
+      },
+      "section_metadata": {
+        "section_id": "871beab772fa440c",
+        "section_name": "II Ámbito de aplicación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 4,
+        "end_page": 4,
+        "toc_path": [
+          "Introducción",
+          "II Ámbito de aplicación"
+        ],
+        "parent_section_id": "0ec9c0e66768fb12",
+        "positioning_data": [
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              44
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 768.3111572265625,
+              "r": 265.0898132324219,
+              "b": 759.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "cumplirse las anteriores exigencias básicas."
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.89871978759766,
+              "t": 723.298095703125,
+              "r": 246.13629150390625,
+              "b": 707.8681640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "II Ámbito de aplicación"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              315
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 695.4308471679688,
+              "r": 538.015380859375,
+              "b": 662.9383544921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El ámbito de aplicación de este DB es el que se establece con carácter general para el conjunto del "
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              311
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 645.870849609375,
+              "r": 538.3351440429688,
+              "b": 603.950439453125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "El contenido de este DB se refiere únicamente a las exigencias básicas relacionadas con el requisito"
+          },
+          {
+            "page_no": 4,
+            "charspan": [
+              0,
+              257
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 584.880859375,
+              "r": 538.3079223632812,
+              "b": 552.3883666992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 1594
+}

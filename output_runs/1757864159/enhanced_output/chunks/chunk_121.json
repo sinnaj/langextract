@@ -1,0 +1,1403 @@
+{
+  "chunk_id": 121,
+  "section_metadata": {
+    "section_id": "5e1e339ac7b0bdb2",
+    "section_name": "E.2.1 Generalidades",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 73,
+    "end_page": 73,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.1 Generalidades"
+    ],
+    "parent_section_id": "db289ede10dc1146",
+    "positioning_data": [
+      {
+        "page_no": 73,
+        "charspan": [
+          0,
+          59
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 744.2411499023438,
+          "r": 474.5888977050781,
+          "b": 731.0856323242188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+      },
+      {
+        "page_no": 73,
+        "charspan": [
+          0,
+          17
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 695.1611328125,
+          "r": 202.24722290039062,
+          "b": 684.7855834960938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.1 Generalidades"
+      },
+      {
+        "page_no": 73,
+        "charspan": [
+          0,
+          216
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 671.6708984375,
+          "r": 538.3055419921875,
+          "b": 639.6478881835938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+      },
+      {
+        "page_no": 73,
+        "charspan": [
+          0,
+          33
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 608.6111450195312,
+          "r": 314.1552734375,
+          "b": 598.235595703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.2 Método de la sección reducida"
+      },
+      {
+        "page_no": 73,
+        "charspan": [
+          0,
+          19
+        ],
+        "bbox": {
+          "l": 71.81999969482422,
+          "t": 572.8060302734375,
+          "r": 188.46798706054688,
+          "b": 563.93798828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.2.1 Generalidades"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.2.1 Generalidades\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.1 Generalidades\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Generalidades\n**Pages:** 73-73\n\n\n1 La comprobación de la capacidad portante de un elemento estructural de madera se realiza por los métodos establecidos en DB SE -M, teniendo en cuenta las reglas simplificadas para el análisis de elementos establecidos en E.3, y considerando:\nuna sección reducida de madera, obtenida eliminando de la sección inicial la profundidad eficaz de carbonización, def, en las caras expuestas, alcanzada durante el periodo de tiempo considerado;\nsiendo:\ndchar,n profundidad carbonizada nominal de cálculo, se determinará de acuerdo con el apartado E.2.2.\nd0 de valor igual a 7 mm k0 de valor igual a 1 para un tiempo, t, mayor o igual a 20 minutos y t/20 para tiempos inferiores, en el caso de superficies no protegidas o superficies protegidas cuyo tiempo del inicio de la carbonización, tch, sea menor o igual que 20 minutos. Para superficies protegidas cuyo tiempo del inicio de la carbonización, tch, sea mayor que 20 minutos se considerará que k0 varía linealmente desde cero hasta uno durante el intervalo de tiempo comprendido entre cero y tch, siendo constante e igual a uno a partir de dicho punto.\n1 Superficie inicial del elemento\n2 Límite de la sección residual\n3 Límite de la sección eficaz\nFigura E.1. Definición de la sección residual y eficaz.\n73\nDocumento Básico SI en caso de Incendio Anejo E. Resistencia al fuego de las estructuras de madera\nque la resistencia de cálculo y los parámetros de cálculo de la rigidez se consideran constantes durante el incendio, tomando como tales los valores característicos multiplicados por el siguiente factor kfi :\nque el factor de modificación Kmod en situación de incendio se tomará igual a la unidad .\n2 En este método se consideran las siguientes hipótesis implícitas:\n-Se analizan, a estos efectos, solamente los elementos estructurales individualmente en lugar de la estructura global.\n-Las condiciones de contorno y apoyo, para el elemento estructural, se corresponden con las adoptadas para temperatura normal.\n-No es necesario considerar las dilataciones térmicas en los elementos de madera, aunque sí en otros materiales.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.1 Generalidades",
+      "attributes": {
+        "id": "e21_generalidades",
+        "meta_summary": "General rules for fire resistance of timber structures using the reduced cross-section method.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "DB SE -M"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "pages": "73-73",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 41,
+        "end_pos": 159
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 12,
+        "end_index": 43
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La comprobación de la capacidad portante de un elemento estructural de madera se realiza por los métodos establecidos en DB SE -M, teniendo en cuenta las reglas simplificadas para el análisis de elementos establecidos en E.3, y considerando: una sección reducida de madera, obtenida eliminando de la sección inicial la profundidad eficaz de carbonización, def, en las caras expuestas, alcanzada durante el periodo de tiempo considerado; siendo: dchar,n profundidad carbonizada nominal de cálculo, se determinará de acuerdo con el apartado E.2.2. d0 de valor igual a 7 mm k0 de valor igual a 1 para un tiempo, t, mayor o igual a 20 minutos y t/20 para tiempos inferiores, en el caso de superficies no protegidas o superficies protegidas cuyo tiempo del inicio de la carbonización, tch, sea menor o igual que 20 minutos. Para superficies protegidas cuyo tiempo del inicio de la carbonización, tch, sea mayor que 20 minutos se considerará que k0 varía linealmente desde cero hasta uno durante el intervalo de tiempo comprendido entre cero y tch, siendo constante e igual a uno a partir de dicho punto.",
+      "attributes": {
+        "id": "e21_norm_1",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The load-bearing capacity of a timber structural element must be verified using methods established in DB SE-M, considering simplified analysis rules from E.3, and a reduced timber cross-section obtained by removing the effective charring depth (def) from the initial cross-section on exposed faces during the considered time period.",
+        "applies_if": "ELEMENT.MATERIAL == 'TIMBER' AND ELEMENT.TYPE == 'STRUCTURAL' AND PROJECT.TOPIC == 'SAFETY.FIRE'",
+        "satisfied_if": "STRUCTURAL_ELEMENT.LOAD_BEARING_CAPACITY.VERIFIED_BY_DB_SE_M == TRUE AND STRUCTURAL_ELEMENT.ANALYSIS_RULES.SIMPLIFIED_E3_APPLIED == TRUE AND STRUCTURAL_ELEMENT.CROSS_SECTION.REDUCED.CALCULATED_BY_EFFECTIVE_CHARRING_DEPTH == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEMENT.MATERIAL.TIMBER",
+          "ELEMENT.TYPE.STRUCTURAL",
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.LOAD_BEARING_CAPACITY",
+          "STRUCTURAL.CROSS_SECTION.REDUCED",
+          "STRUCTURAL.CHARRING_DEPTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 100,
+          "span_char_end": 1010,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "d0 == 7 mm",
+          "k0 == 1 (t >= 20 minutes)",
+          "k0 == t/20 (t < 20 minutes, unprotected or tch <= 20 minutes)",
+          "k0.VARIES_LINEARLY (0 to 1, 0 < t < tch, tch > 20 minutes)",
+          "k0 == 1 (t >= tch, tch > 20 minutes)"
+        ],
+        "confidence": 0.95,
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 282,
+        "end_pos": 1380
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 74,
+        "end_index": 310
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La resistencia de cálculo y los parámetros de cálculo de la rigidez se consideran constantes durante el incendio, tomando como tales los valores característicos multiplicados por el siguiente factor kfi : que el factor de modificación Kmod en situación de incendio se tomará igual a la unidad .",
+      "attributes": {
+        "id": "e21_norm_2",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Design resistance and stiffness calculation parameters must be considered constant during a fire, using characteristic values multiplied by factor kfi, and the modification factor Kmod in fire situations must be taken as unity.",
+        "applies_if": "ELEMENT.MATERIAL == 'TIMBER' AND ELEMENT.TYPE == 'STRUCTURAL' AND PROJECT.TOPIC == 'SAFETY.FIRE'",
+        "satisfied_if": "STRUCTURAL_ELEMENT.DESIGN_RESISTANCE.CONSTANT_DURING_FIRE == TRUE AND STRUCTURAL_ELEMENT.STIFFNESS_PARAMETERS.CONSTANT_DURING_FIRE == TRUE AND STRUCTURAL_ELEMENT.CHARACTERISTIC_VALUES.MULTIPLIED_BY_KFI == TRUE AND STRUCTURAL_ELEMENT.MODIFICATION_FACTOR_KMOD == 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "ELEMENT.MATERIAL.TIMBER",
+          "ELEMENT.TYPE.STRUCTURAL",
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.DESIGN_RESISTANCE",
+          "STRUCTURAL.STIFFNESS",
+          "STRUCTURAL.MODIFICATION_FACTOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1109,
+          "span_char_end": 1390,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "Kmod == 1"
+        ],
+        "confidence": 0.9,
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1639,
+        "end_pos": 1933
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 374,
+        "end_index": 436
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Se analizan, a estos efectos, solamente los elementos estructurales individualmente en lugar de la estructura global.",
+      "attributes": {
+        "id": "e21_procedure_1",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "paragraph_number": 2,
+        "procedure_statement": "For fire resistance analysis, structural elements are analyzed individually instead of the global structure.",
+        "applies_if": "ELEMENT.MATERIAL == 'TIMBER' AND ELEMENT.TYPE == 'STRUCTURAL' AND PROJECT.TOPIC == 'SAFETY.FIRE'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "relevant_tags": [
+          "ELEMENT.MATERIAL.TIMBER",
+          "ELEMENT.TYPE.STRUCTURAL",
+          "FIRE.RESISTANCE.ANALYSIS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1450,
+          "span_char_end": 1546,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2003,
+        "end_pos": 2120
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 454,
+        "end_index": 473
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Las condiciones de contorno y apoyo, para el elemento estructural, se corresponden con las adoptadas para temperatura normal.",
+      "attributes": {
+        "id": "e21_procedure_2",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "paragraph_number": 2,
+        "procedure_statement": "Boundary and support conditions for the structural element correspond to those adopted for normal temperature.",
+        "applies_if": "ELEMENT.MATERIAL == 'TIMBER' AND ELEMENT.TYPE == 'STRUCTURAL' AND PROJECT.TOPIC == 'SAFETY.FIRE'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "relevant_tags": [
+          "ELEMENT.MATERIAL.TIMBER",
+          "ELEMENT.TYPE.STRUCTURAL",
+          "STRUCTURAL.BOUNDARY_CONDITIONS",
+          "STRUCTURAL.SUPPORT_CONDITIONS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1548,
+          "span_char_end": 1660,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2122,
+        "end_pos": 2247
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 474,
+        "end_index": 495
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "No es necesario considerar las dilataciones térmicas en los elementos de madera, aunque sí en otros materiales.",
+      "attributes": {
+        "id": "e21_procedure_3",
+        "parent_section_id": "5e1e339ac7b0bdb2",
+        "paragraph_number": 2,
+        "procedure_statement": "Thermal expansions do not need to be considered for timber elements, but they do for other materials.",
+        "applies_if": "ELEMENT.MATERIAL == 'TIMBER' AND ELEMENT.TYPE == 'STRUCTURAL' AND PROJECT.TOPIC == 'SAFETY.FIRE'",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "relevant_tags": [
+          "ELEMENT.MATERIAL.TIMBER",
+          "ELEMENT.TYPE.STRUCTURAL",
+          "STRUCTURAL.THERMAL_EXPANSION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1662,
+          "span_char_end": 1754,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "E.2.1 Generalidades",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2249,
+        "end_pos": 2360
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 496,
+        "end_index": 518
+      },
+      "section_metadata": {
+        "section_id": "5e1e339ac7b0bdb2",
+        "section_name": "E.2.1 Generalidades",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 73,
+        "end_page": 73,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.1 Generalidades"
+        ],
+        "parent_section_id": "db289ede10dc1146",
+        "positioning_data": [
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 474.5888977050781,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo SI EResistencia al fuego de las estructuras de madera"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.1 Generalidades"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.3055419921875,
+              "b": 639.6478881835938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establecen un método simplificado de cálculo que permite determinar la resistenci"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              33
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 608.6111450195312,
+              "r": 314.1552734375,
+              "b": 598.235595703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2 Método de la sección reducida"
+          },
+          {
+            "page_no": 73,
+            "charspan": [
+              0,
+              19
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 572.8060302734375,
+              "r": 188.46798706054688,
+              "b": 563.93798828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.2.1 Generalidades"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 2360
+}

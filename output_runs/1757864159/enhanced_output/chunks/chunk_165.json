@@ -1,0 +1,359 @@
+{
+  "chunk_id": 165,
+  "section_metadata": {
+    "section_id": "c1df76ecb957989e",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 55,
+    "end_page": 55,
+    "toc_path": [
+      "Anejo B Tiempo equivalente de exposición al fuego",
+      "B.4 Valor de cálculo de la densidad de carga de fuego",
+      "Table 1"
+    ],
+    "parent_section_id": "057b0e30394bb34a",
+    "positioning_data": [
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 86.99127197265625,
+          "t": 448.5460510253906,
+          "r": 542.5550537109375,
+          "b": 325.20050048828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 55,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 76.46607208251953,
+          "t": 254.39532470703125,
+          "r": 531.8516845703125,
+          "b": 147.04541015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo B Tiempo equivalente de exposición al fuego → B.4 Valor de cálculo de la densidad de carga de fuego → Table 1\n**Level:** 3\n**Tags:** Tiempo, Equivalente, Exposición, Fuego, Valor, Cálculo, Densidad, Carga, Fuego, Table\n**Pages:** 55-55\n\n\n| Superficie del sector Af [m 2 ] | Riesgo de iniciación \r  q1 |\n| --- | --- |\n| <20 | 1,00 |\n| 25 | 1,10 |\n| 250 | 1,50 |\n| 2 500 | 1,90 |\n| 5 000 | 2,00 |\n| >10 000 | 2,13 |\n\n| Actividad | Riesgo de iniciación \r  |\n| --- | --- |\n| Vivienda, Administrativo, Residencial, Docente | 1,00 |\n| Comercial, Aparcamiento, Hospitalario ,  Pública concurrencia | 1,25 |\n| Locales de riesgo especial bajo | 1,25 |\n| Locales de riesgo especial medio | 1,40 |\n| Locales de riesgo especial alto | 1,60 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Superficie del sector Af [m 2 ] | Riesgo de iniciación   q1 | --- | --- | <20 | 1,00 | 25 | 1,10 | 250 | 1,50 | 2 500 | 1,90 | 5 000 | 2,00 | >10 000 | 2,13",
+      "attributes": {
+        "id": "11111111-1111-1111-1111-111111111111",
+        "parent_section_id": "c1df76ecb957989e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The initiation risk (δq1) for a fire sector is determined by its surface area (Af) according to the provided table.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(\n            (FIRE.SECTOR.AREA < 20 AND FIRE.INITIATION_RISK == 1.00) OR\n            (FIRE.SECTOR.AREA == 25 AND FIRE.INITIATION_RISK == 1.10) OR\n            (FIRE.SECTOR.AREA == 250 AND FIRE.INITIATION_RISK == 1.50) OR\n            (FIRE.SECTOR.AREA == 2500 AND FIRE.INITIATION_RISK == 1.90) OR\n            (FIRE.SECTOR.AREA == 5000 AND FIRE.INITIATION_RISK == 2.00) OR\n            (FIRE.SECTOR.AREA > 10000 AND FIRE.INITIATION_RISK == 2.13)\n        )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {},
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.7,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR.AREA",
+          "FIRE.INITIATION_RISK"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.SECTOR.AREA < 20 m2",
+          "FIRE.SECTOR.AREA == 25 m2",
+          "FIRE.SECTOR.AREA == 250 m2",
+          "FIRE.SECTOR.AREA == 2500 m2",
+          "FIRE.SECTOR.AREA == 5000 m2",
+          "FIRE.SECTOR.AREA > 10000 m2",
+          "FIRE.INITIATION_RISK == 1.00",
+          "FIRE.INITIATION_RISK == 1.10",
+          "FIRE.INITIATION_RISK == 1.50",
+          "FIRE.INITIATION_RISK == 1.90",
+          "FIRE.INITIATION_RISK == 2.00",
+          "FIRE.INITIATION_RISK == 2.13"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table provides specific values for initiation risk based on fire sector surface area. The values for 20, 25, 250, 2500, 5000, and 10000 are exact, while <20 and >10000 are ranges.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 275,
+        "end_pos": 338
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 74,
+        "end_index": 92
+      },
+      "section_metadata": {
+        "section_id": "c1df76ecb957989e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego",
+          "Table 1"
+        ],
+        "parent_section_id": "057b0e30394bb34a",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Actividad | Riesgo de iniciación   | --- | --- | Vivienda, Administrativo, Residencial, Docente | 1,00 | Comercial, Aparcamiento, Hospitalario ,  Pública concurrencia | 1,25 | Locales de riesgo especial bajo | 1,25 | Locales de riesgo especial medio | 1,40 | Locales de riesgo especial alto | 1,60",
+      "attributes": {
+        "id": "22222222-2222-2222-2222-222222222222",
+        "parent_section_id": "c1df76ecb957989e",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The initiation risk (δ) is determined by the activity type according to the provided table.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(\n            (ACTIVITY.TYPE IN ['RESIDENTIAL.HOUSING', 'ADMINISTRATIVE', 'RESIDENTIAL', 'EDUCATION'] AND FIRE.INITIATION_RISK == 1.00) OR\n            (ACTIVITY.TYPE IN ['COMMERCIAL', 'PARKING', 'HOSPITAL', 'PUBLIC.ASSEMBLY'] AND FIRE.INITIATION_RISK == 1.25) OR\n            (ACTIVITY.TYPE == 'SPECIAL_RISK.LOW' AND FIRE.INITIATION_RISK == 1.25) OR\n            (ACTIVITY.TYPE == 'SPECIAL_RISK.MEDIUM' AND FIRE.INITIATION_RISK == 1.40) OR\n            (ACTIVITY.TYPE == 'SPECIAL_RISK.HIGH' AND FIRE.INITIATION_RISK == 1.60)\n        )",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {},
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.7,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ACTIVITY.TYPE",
+          "FIRE.INITIATION_RISK"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE.INITIATION_RISK == 1.00",
+          "FIRE.INITIATION_RISK == 1.25",
+          "FIRE.INITIATION_RISK == 1.40",
+          "FIRE.INITIATION_RISK == 1.60"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The table provides specific values for initiation risk based on activity type.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 453,
+        "end_pos": 491
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 145,
+        "end_index": 154
+      },
+      "section_metadata": {
+        "section_id": "c1df76ecb957989e",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 55,
+        "end_page": 55,
+        "toc_path": [
+          "Anejo B Tiempo equivalente de exposición al fuego",
+          "B.4 Valor de cálculo de la densidad de carga de fuego",
+          "Table 1"
+        ],
+        "parent_section_id": "057b0e30394bb34a",
+        "positioning_data": [
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 86.99127197265625,
+              "t": 448.5460510253906,
+              "r": 542.5550537109375,
+              "b": 325.20050048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 55,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 76.46607208251953,
+              "t": 254.39532470703125,
+              "r": 531.8516845703125,
+              "b": 147.04541015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 766
+}

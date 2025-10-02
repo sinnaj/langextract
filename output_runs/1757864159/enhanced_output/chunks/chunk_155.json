@@ -1,0 +1,1039 @@
+{
+  "chunk_id": 155,
+  "section_metadata": {
+    "section_id": "bd45938a055f0859",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 23,
+    "end_page": 23,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "2 Cálculo de la ocupación",
+      "Table 1"
+    ],
+    "parent_section_id": "ca716d8284186de5",
+    "positioning_data": [
+      {
+        "page_no": 23,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 68.53072357177734,
+          "t": 782.2006683349609,
+          "r": 539.3204956054688,
+          "b": 79.9422607421875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 3 Evacuación de ocupantes → 2 Cálculo de la ocupación → Table 1\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Cálculo, Ocupación, Table\n**Pages:** 23-23\n\n\n| Residencial  Vivienda | Plantas de vivienda | 20 |\n| --- | --- | --- |\n| Residencial  Público | Zonas de alojamiento | 20 |\n|  | Salones de uso múltiple | 1 |\n|  | Vestíbulos generales y zonas generales de uso público en plantas de sótano,  baja y entreplanta | 2 |\n| Aparcamiento(2) | Vinculado a una actividad sujeta a horarios: comercial, espectáculos, oficina, etc. | 15 |\n|  | En otros casos, incluidos los estacionamientos de vehículos destinados al servicio de transporte de personas y transporte de mercancías | 40 |\n| Administrativo | Plantas o zonas de oficinas | 10 |\n|  | Vestíbulos generales y zonas de uso público | 2 |\n| Docente | Conjunto de la planta o del edificio | 10 |\n|  | Locales diferentes de aulas, como laboratorios, talleres, gimnasios, salas de  dibujo, etc. | 5 |\n|  | Aulas (excepto de escuelas infantiles) | 1,5 |\n|  | Aulas de escuelas infantiles y salas de lectura de bibliotecas | 2 |\n| Hospitalario | Salas de espera | 2 |\n|  | Zonas de hospitalización | 15 |\n|  | Servicios ambulatorios y de diagnóstico | 10 |\n|  | Zonas destinadas a tratamiento a pacientes internados | 20 |\n| Comercial | En establecimientos comerciales: |  |\n|  | áreas de ventas en plantas de sótano, baja y entreplanta | 2 |\n|  | áreas de ventas en plantas diferentes de las anteriores | 3 |\n|  | En zonas comunes de centros comerciales: |  |\n|  | mercados y galerías de alimentación | 2 |\n|  | plantas de sótano, baja y entreplanta o en cualquier otra con acceso desde  el espacio exterior | 3 |\n|  | plantas diferentes de las anteriores | 5 |\n|  | En áreas de venta en las que no sea previsible gran afluencia de público, tales  como exposición y venta de muebles, vehículos, etc . | 5 |\n| Pública concu\u0002 rrencia | Zonas destinadas a espectadores sentados: |  |\n|  | con asientos definidos en el proyecto | 1pers/asiento |\n|  | sin asientos definidos en el proyecto | 0,5 |\n|  | Zonas de espectadores de pie | 0,25 |\n|  | Zonas de público en discotecas | 0,5 |\n|  | Zonas de público de pie, en bares, cafeterías, etc. | 1 |\n|  | Zonas de público en gimnasios: |  |\n|  | con aparatos | 5 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Table 1.1 Condiciones de compartmentacion en sectores de incendio  \n                    <table><tr><td>Uso previsto del edifi-cio o establecimiento</td><td>Condiciones</td></tr><tr><td>En general</td><td>- Todo establecimiento debe constituir sector de incendio diferenciado del resto del edificio excepto, en edificios cuyo uso principal sea Residencial Vivienda, los esta-blecimientos cuya superficie construida no exceda de 500 m² y cuyo uso sea Docente, Administrativo o Residencial Público.",
+      "attributes": {
+        "id": "d1654c1a-39de-46eb-8d75-650bd8054abe",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Every establishment must constitute a fire sector differentiated from the rest of the building",
+        "applies_if": "TRUE",
+        "satisfied_if": "ESTABLISHMENT.AREA.IS_FIRE_SECTOR == TRUE",
+        "exempt_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING' AND ESTABLISHMENT.AREA.SIZE <= 500 AND (ESTABLISHMENT.USAGE == 'EDUCATION' OR ESTABLISHMENT.USAGE == 'ADMINISTRATIVE' OR ESTABLISHMENT.USAGE == 'PUBLIC.RESIDENTIAL')",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "ESTABLISHMENT.AREA",
+          "ESTABLISHMENT.USAGE.EDUCATION",
+          "ESTABLISHMENT.USAGE.ADMINISTRATIVE",
+          "ESTABLISHMENT.USAGE.PUBLIC.RESIDENTIAL",
+          "FIRE.EXTINGUISH_SYSTEM.TYPE.AUTOMATIC"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.SIZE <= 500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 18
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "- Toda zona cuyo uso previsto sea diferente y subsidiario del principal del edificio o establecimiento en el que esté integrada debe constituir un sector de incendio diffe-rente cuando supere los siguientes límites: Zona de uso Residencial Vivienda en todo caso.\n                    Zona de alojamiento (1) o de uso Administrativo, Comercial, Docente cuya superficie construida exceda de 500 m² o cuya superficie construida exceda de 250 m² en caso de uso principal Almacén.\n                    Zona de uso Pública concurrencia cuya ocupación exceda de 500 personas, o cuya superficie exceda de 250 m² en el caso de uso principal Almacén.\n                    Zona de uso Aparcamiento cuya superficie construida exceda de 100 m² (2) Cualquier comunicación con zonas de otro uso se debe hacer a través de vestí-bulos de independencia.\n                    Zona que englobe varios de los usos anteriormente enunciados y en conjunto superior los 250 m², siendo el uso principal Almacén.\n                    Zona de uso Almacén cuya carga de fuego total ponderada y corregida (Qr), cal-culada según el anexo I del RSCIEI, sea igual o superior a tres millones de me-gajulios.",
+      "attributes": {
+        "id": "dac48fcd-aa58-4314-8155-30015df904dd",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Any area with a different and subsidiary use from the main use of the building or establishment in which it is integrated must constitute a different fire sector when it exceeds the mentioned limits",
+        "applies_if": "AREA.USAGE != BUILDING.USAGE AND (\n                        (AREA.USAGE == 'RESIDENTIAL.HOUSING') OR\n                        (AREA.USAGE IN ['LODGING', 'ADMINISTRATIVE', 'COMMERCIAL', 'EDUCATION'] AND AREA.SIZE > 500) OR\n                        (AREA.USAGE IN ['LODGING', 'ADMINISTRATIVE', 'COMMERCIAL', 'EDUCATION'] AND BUILDING.USAGE == 'STORAGE' AND AREA.SIZE > 250) OR\n                        (AREA.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.OCCUPANCY > 500) OR\n                        (AREA.USAGE == 'PUBLIC.ASSEMBLY' AND BUILDING.USAGE == 'STORAGE' AND AREA.SIZE > 250) OR\n                        (AREA.USAGE == 'PARKING' AND AREA.SIZE > 100) OR\n                        (AREA.USAGE == 'STORAGE' AND AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000)\n                    )",
+        "satisfied_if": "AREA.IS_FIRE_SECTOR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "AREA.USAGE.RESIDENTIAL.HOUSING",
+          "AREA.USAGE.LODGING",
+          "AREA.USAGE.ADMINISTRATIVE",
+          "AREA.USAGE.COMMERCIAL",
+          "AREA.USAGE.PUBLIC.RESIDENTIAL",
+          "AREA.USAGE.PUBLIC.ASSEMBLY",
+          "AREA.USAGE.PUBLIC.GOV",
+          "AREA.USAGE.PUBLIC.HOSPITAL",
+          "AREA.USAGE.PUBLIC.PARK",
+          "AREA.USAGE.PUBLIC.COMMERCIAL",
+          "AREA.USAGE.PARKING",
+          "AREA.USAGE.STORAGE",
+          "BUILDING.USAGE.STORAGE",
+          "AREA.OCCUPANCY",
+          "AREA.USAGE",
+          "BUILDING.USAGE",
+          "AREA.SIZE",
+          "AREA.FIRE.LOAD_TOTAL_CORRECTED"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.SIZE > 500 sq_m",
+          "AREA.SIZE > 250 sq_m",
+          "AREA.OCCUPANCY > 500 persons",
+          "AREA.SIZE > 100 sq_m",
+          "AREA.SIZE > 250 sq_m",
+          "AREA.FIRE.LOAD_TOTAL_CORRECTED >= 3000000 MJ"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "- Un espacio diáfano puede constituir un único sector de incendio que supere los límites de superficie construida que se establecen, siempre que al menos el 90% de esta se desarrolló en una planta, sus salidas comunique directamente con el español libre exterior, al menos el 75% de su perimetro sea fachada y no exista sobre dicho recinto ninguna zona habitable.\n- No se establece límite de superficie para los sectores de riesgo mínimo.",
+      "attributes": {
+        "id": "e2f8f742-d28c-4217-802c-41484128509c",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "An open-plan space may constitute a single fire sector exceeding the established built surface limits",
+        "applies_if": "TRUE",
+        "satisfied_if": "OPEN_PLAN_SPACE.IS_FIRE_SECTOR == TRUE AND OPEN_PLAN_SPACE.AREA.PERCENT_ON_ONE_FLOOR >= 90 AND OPEN_PLAN_SPACE.EXITS.COMMUNICATE_DIRECTLY_WITH_EXTERIOR == TRUE AND OPEN_PLAN_SPACE.PERIMETER.PERCENT_FACADE >= 75 AND OPEN_PLAN_SPACE.HAS_HABITABLE_ZONE_ABOVE == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "OPEN_PLAN_SPACE",
+          "OPEN_PLAN_SPACE.AREA",
+          "OPEN_PLAN_SPACE.EXITS",
+          "OPEN_PLAN_SPACE.PERIMETER",
+          "OPEN_PLAN_SPACE.HABITABLE_ZONE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OPEN_PLAN_SPACE.AREA.PERCENT_ON_ONE_FLOOR >= 90",
+          "OPEN_PLAN_SPACE.PERIMETER.PERCENT_FACADE >= 75"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "No surface limit for minimum risk sectors.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Residencial Vivienda - La superficie construida de todo sector de incendio no debe exceder de 2.500 m².\n- Los elementos que separan viviendas entre sí deben ser al menos el 60.",
+      "attributes": {
+        "id": "f5e9e01a-1f2e-4e8c-8b0a-1e0c0c0c0c0c",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The built surface area of every fire sector must not exceed 2,500 m².",
+        "applies_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING'",
+        "satisfied_if": "FIRE_SECTOR.AREA.SIZE <= 2500",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "FIRE.SECTOR.AREA",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.AREA.SIZE <= 2500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Administrativo - La superficie construida de todo sector de incendio no debe exceder de 2.500 m².",
+      "attributes": {
+        "id": "g7h8i9j0-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The built surface area of every fire sector must not exceed 2,500 m².",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE'",
+        "satisfied_if": "FIRE_SECTOR.AREA.SIZE <= 2500",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "FIRE.SECTOR.AREA",
+          "BUILDING.USAGE.ADMINISTRATIVE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.AREA.SIZE <= 2500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Comercial(3) - Excepto en los casos contemplados en los guiones siguientes, la superficie construi-da de todo sector de incendio no debe exceder de: 0 2.500 m², en general; 1) 10.000 m² en los establecimientos o centros comerciales que ocupen en su tota-lidad un edificio integramente protegido con una instalación automática de ex-tinción y cuya altura de evolución no exceeding de 10 m.(4)",
+      "attributes": {
+        "id": "h1i2j3k4-5l6m-7n8o-9p0q-1r2s3t4u5v6w",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The built surface area of every fire sector must not exceed 2,500 m² in general, or 10,000 m² in establishments or commercial centers that entirely occupy a building fully protected with an automatic extinguishing system and whose evolution height does not exceed 10 m.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL'",
+        "satisfied_if": "FIRE_SECTOR.AREA.SIZE <= 2500 ; OR (FIRE_SECTOR.AREA.SIZE <= 10000 AND BUILDING.IS_FULLY_PROTECTED_WITH_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE AND BUILDING.EVOLUTION_HEIGHT <= 10)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "FIRE.SECTOR.AREA",
+          "BUILDING.USAGE.PUBLIC.COMMERCIAL",
+          "BUILDING.IS_FULLY_PROTECTED_WITH_AUTOMATIC_EXTINGUISHING_SYSTEM",
+          "BUILDING.EVOLUTION_HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "FIRE_SECTOR.AREA.SIZE <= 2500 sq_m",
+          "FIRE_SECTOR.AREA.SIZE <= 10000 sq_m",
+          "BUILDING.EVOLUTION_HEIGHT <= 10 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "- En establecimientos o centros comerciales que ocupen en su totalidad un edificio exento integramente protegido con una instalación automática de extinción, las zo-has destinadas al público pueden constituir un único sector de incendio cuando en ellas la altura de evolución descendente no exceeds de 10 m ni la ascendente ex-ceda de 4 m y cada planta tenga la evacuación de todos sus ocupantes resuelta mediante salidas de edificio situadas en la propia planta y salidas de planta que den acceso a escaleras protegidas o a pasillos protegidos que conduzcan directamente al espacio exterior seguro.(4)",
+      "attributes": {
+        "id": "i1j2k3l4-5m6n-7o8p-9q0r-1s2t3u4v5w6x",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "In commercial establishments or centers that entirely occupy a detached building fully protected with an automatic extinguishing system, public areas may constitute a single fire sector",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND BUILDING.IS_DETACHED == TRUE AND BUILDING.IS_FULLY_PROTECTED_WITH_AUTOMATIC_EXTINGUISHING_SYSTEM == TRUE",
+        "satisfied_if": "PUBLIC_AREA.IS_SINGLE_FIRE_SECTOR == TRUE AND PUBLIC_AREA.EVOLUTION_HEIGHT.DESCENDING <= 10 AND PUBLIC_AREA.EVOLUTION_HEIGHT.ASCENDING <= 4 AND EVERY_FLOOR.EVACUATION.IS_RESOLVED_BY_EXITS_ON_FLOOR == TRUE AND EVERY_FLOOR.EXITS_PROVIDE_ACCESS_TO_PROTECTED_STAIRS_OR_CORRIDORS_LEADING_TO_SAFE_EXTERIOR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "PUBLIC_AREA",
+          "BUILDING.USAGE.PUBLIC.COMMERCIAL",
+          "BUILDING.IS_DETACHED",
+          "BUILDING.IS_FULLY_PROTECTED_WITH_AUTOMATIC_EXTINGUISHING_SYSTEM",
+          "PUBLIC_AREA.EVOLUTION_HEIGHT.DESCENDING",
+          "PUBLIC_AREA.EVOLUTION_HEIGHT.ASCENDING",
+          "EVERY_FLOOR.EVACUATION",
+          "EVERY_FLOOR.EXITS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PUBLIC_AREA.EVOLUTION_HEIGHT.DESCENDING <= 10 m",
+          "PUBLIC_AREA.EVOLUTION_HEIGHT.ASCENDING <= 4 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "- En centros comerciales, cada establecimiento de uso Pública Concurrencia: 1) En el que se prevea la existencia de espectaculars (includidos cines, teatros, dis-cotecas, salas de baile, etc.), cualquier que sea su superficie; 1) destinado a otro tipo de actividad, cuando su superficie construida exceda de 500 m²; debe constituir al menos un sector de incendio diferenciado, incluido el posible vesti-bulo común a diferentes salas.(5)",
+      "attributes": {
+        "id": "j1k2l3m4-5n6o-7p8q-9r0s-1t2u3v4w5x6y",
+        "parent_section_id": "bd45938a055f0859",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In shopping centers, each establishment for Public Assembly use must constitute at least a differentiated fire sector, including the possible common vestibule to different rooms.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND ESTABLISHMENT.USAGE == 'PUBLIC.ASSEMBLY' AND (ESTABLISHMENT.HAS_SPECTACLES == TRUE OR ESTABLISHMENT.AREA.SIZE > 500)",
+        "satisfied_if": "ESTABLISHMENT.IS_DIFFERENTIATED_FIRE_SECTOR == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.SECTOR",
+          "ESTABLISHMENT.USAGE.PUBLIC.ASSEMBLY",
+          "BUILDING.USAGE.PUBLIC.COMMERCIAL",
+          "ESTABLISHMENT.HAS_SPECTACLES",
+          "ESTABLISHMENT.AREA.SIZE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ESTABLISHMENT.AREA.SIZE > 500 sq_m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.92,
+        "uncertainty": 0.08,
+        "notes": "sq_m can be doubled if automatic extinguish system is present",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "bd45938a055f0859",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 23,
+        "end_page": 23,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "2 Cálculo de la ocupación",
+          "Table 1"
+        ],
+        "parent_section_id": "ca716d8284186de5",
+        "positioning_data": [
+          {
+            "page_no": 23,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 68.53072357177734,
+              "t": 782.2006683349609,
+              "r": 539.3204956054688,
+              "b": 79.9422607421875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 2300
+}

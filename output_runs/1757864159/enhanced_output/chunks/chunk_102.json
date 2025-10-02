@@ -1,0 +1,737 @@
+{
+  "chunk_id": 102,
+  "section_metadata": {
+    "section_id": "f4b6cdbba7db63b5",
+    "section_name": "C.2.3 Vigas",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 58,
+    "end_page": 60,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.2  Tablas",
+      "C.2.3 Vigas"
+    ],
+    "parent_section_id": "b081e4ba6f044f3f",
+    "positioning_data": [
+      {
+        "page_no": 58,
+        "charspan": [
+          0,
+          364
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 768.870849609375,
+          "r": 538.4279174804688,
+          "b": 725.0983276367188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+      },
+      {
+        "page_no": 58,
+        "charspan": [
+          0,
+          348
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 716.8311767578125,
+          "r": 538.547607421875,
+          "b": 673.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+      },
+      {
+        "page_no": 58,
+        "charspan": [
+          0,
+          22
+        ],
+        "bbox": {
+          "l": 71.50800323486328,
+          "t": 652.6360473632812,
+          "r": 207.66799926757812,
+          "b": 641.3920288085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.2.2 Soportes y muros"
+      },
+      {
+        "page_no": 58,
+        "charspan": [
+          0,
+          286
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 631.11083984375,
+          "r": 538.5479125976562,
+          "b": 598.7083740234375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+      },
+      {
+        "page_no": 58,
+        "charspan": [
+          0,
+          238
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 590.640869140625,
+          "r": 537.4921875,
+          "b": 558.3778686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: C.2.3 Vigas\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.2  Tablas → C.2.3 Vigas\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Tablas, Vigas\n**Pages:** 58-60\n\n\nPara vigas de sección de ancho variable se considera como anchura mínima b la que existe a la altura del centro de gravedad mecánico de la armadura traccionada en la zona expuesta, según se indica en la figura C.1.\nFigura C.1. Dimensiones equivalentes en caso de ancho variable en el canto\n58\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nPara vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca como ancho mínimo. Cuando el canto del ala inferior sea variable se considerará, a los efectos de esta comprobación, el indicado en la figura def = d1+0,5d2 .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Para vigas de sección de ancho variable se considera como anchura mínima b la que existe a la altura del centro de gravedad mecánico de la armadura traccionada en la zona expuesta, según se indica en la figura C.1.\nFigura C.1. Dimensiones equivalentes en caso de ancho variable en el canto\n58\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\nPara vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca como ancho mínimo. Cuando el canto del ala inferior sea variable se considerará, a los efectos de esta comprobación, el indicado en la figura def = d1+0,5d2 .",
+      "attributes": {
+        "id": "c.2.3-vigas",
+        "meta_summary": "Defines minimum width and equivalent dimensions for variable width and double T beams in concrete structures for fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "section_name": "C.2.3 Vigas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 241,
+        "end_pos": 898
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 68,
+        "end_index": 222
+      },
+      "section_metadata": {
+        "section_id": "f4b6cdbba7db63b5",
+        "section_name": "C.2.3 Vigas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 58,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas"
+        ],
+        "parent_section_id": "b081e4ba6f044f3f",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para vigas de sección de ancho variable se considera como anchura mínima b la que existe a la altura del centro de gravedad mecánico de la armadura traccionada en la zona expuesta, según se indica en la figura C.1.",
+      "attributes": {
+        "id": "c.2.3-vigas-procedure-1",
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "Procedure": "For beams with variable width sections, the minimum width 'b' is considered to be the width at the height of the mechanical center of gravity of the tensioned reinforcement in the exposed area, as indicated in Figure C.1.",
+        "target_reference": [
+          "Figura C.1"
+        ],
+        "Tags": [
+          "BEAM.WIDTH.VARIABLE",
+          "REINFORCEMENT.TENSIONED",
+          "FIRE.RESISTANCE.CONCRETE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 180,
+          "visual_refs": []
+        },
+        "section_name": "C.2.3 Vigas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 235,
+        "end_pos": 453
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 66,
+        "end_index": 117
+      },
+      "section_metadata": {
+        "section_id": "f4b6cdbba7db63b5",
+        "section_name": "C.2.3 Vigas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 58,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas"
+        ],
+        "parent_section_id": "b081e4ba6f044f3f",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para vigas doble T, el canto del ala inferior deberá ser mayor que la dimensión que se establezca como ancho mínimo. Cuando el canto del ala inferior sea variable se considerará, a los efectos de esta comprobación, el indicado en la figura def = d1+0,5d2 .",
+      "attributes": {
+        "id": "c.2.3-vigas-procedure-2",
+        "parent_section_id": "f4b6cdbba7db63b5",
+        "Procedure": "For double T beams, the depth of the bottom flange must be greater than the dimension established as the minimum width. When the depth of the bottom flange is variable, for the purposes of this verification, the value indicated in the figure def = d1+0.5d2 will be considered.",
+        "target_reference": [
+          "Figura C.1"
+        ],
+        "Tags": [
+          "BEAM.DOUBLE_T",
+          "FLANGE.BOTTOM.DEPTH",
+          "MINIMUM.WIDTH",
+          "FIRE.RESISTANCE.CONCRETE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 257,
+          "span_char_end": 507,
+          "visual_refs": []
+        },
+        "section_name": "C.2.3 Vigas",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 632,
+        "end_pos": 894
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 155,
+        "end_index": 219
+      },
+      "section_metadata": {
+        "section_id": "f4b6cdbba7db63b5",
+        "section_name": "C.2.3 Vigas",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 58,
+        "end_page": 60,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.2  Tablas",
+          "C.2.3 Vigas"
+        ],
+        "parent_section_id": "b081e4ba6f044f3f",
+        "positioning_data": [
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 768.870849609375,
+              "r": 538.4279174804688,
+              "b": 725.0983276367188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los valores dados en las tablas siguientes son aplicables a hormigones de densidad normal, confecc"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              348
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 716.8311767578125,
+              "r": 538.547607421875,
+              "b": 673.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 En zonas traccionadas con recubrimientos de hormigón mayores de 50 mm debe disponerse una armadura"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 652.6360473632812,
+              "r": 207.66799926757812,
+              "b": 641.3920288085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.2 Soportes y muros"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              286
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 631.11083984375,
+              "r": 538.5479125976562,
+              "b": 598.7083740234375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Mediante la tabla C.2 puede obtenerse la resistencia al fuego de los soportes expuestos por tres o"
+          },
+          {
+            "page_no": 58,
+            "charspan": [
+              0,
+              238
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 590.640869140625,
+              "r": 537.4921875,
+              "b": 558.3778686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 898
+}

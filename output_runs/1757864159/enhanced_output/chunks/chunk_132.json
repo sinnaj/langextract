@@ -1,0 +1,1042 @@
+{
+  "chunk_id": 132,
+  "section_metadata": {
+    "section_id": "bfa78d27e216e192",
+    "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 81,
+    "end_page": 81,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.4 Uniones",
+      "E.4.3 Uniones con placas de acero al exterior",
+      "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+    ],
+    "parent_section_id": "6465e24c9b216828",
+    "positioning_data": [
+      {
+        "page_no": 81,
+        "charspan": [
+          0,
+          59
+        ],
+        "bbox": {
+          "l": 176.84600830078125,
+          "t": 624.7720336914062,
+          "r": 432.68499755859375,
+          "b": 616.3390502929688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+      },
+      {
+        "page_no": 81,
+        "charspan": [
+          0,
+          78
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 594.03125,
+          "r": 450.4483642578125,
+          "b": 584.788330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+      },
+      {
+        "page_no": 81,
+        "charspan": [
+          0,
+          276
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 574.3512573242188,
+          "r": 538.49609375,
+          "b": 542.2979125976562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+      },
+      {
+        "page_no": 81,
+        "charspan": [
+          0,
+          68
+        ],
+        "bbox": {
+          "l": 157.64898681640625,
+          "t": 527.3410034179688,
+          "r": 452.0259704589844,
+          "b": 518.989013671875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+      },
+      {
+        "page_no": 81,
+        "charspan": [
+          0,
+          146
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 406.6912536621094,
+          "r": 537.8978271484375,
+          "b": 385.9283752441406,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.4 Uniones → E.4.3 Uniones con placas de acero al exterior → E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Uniones, Uniones, Con, Placas, Acero, Exterior, Reglas, Complementarias, Para, Uniones, Con, Placas, Acero, Interior\n**Pages:** 81-81\n\n\n1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.\nTabla E.6. Anchos de las placas de acero con bordes sin proteger bst\n2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegidas en los casos siguientes, (ver figura E.5):\nEn placas con un espesor no superior a 3 mm, cuando el retranqueo dg sea mayor que 20 mm para una resistencia al fuego R 30, y mayor que 60 mm para una resistencia al fuego R 60.\nEn uniones con filetes encolados o tableros derivados de la madera, cuando el retranqueo dg o el espesor del panel hp, respectivamente, sea mayor que 10 mm para una resistencia al fuego R 30, y mayor que 30 mm para una resistencia al fuego R 60 .\nFigura E.5. Protección de los bordes de las placas de acero (no se muestran las conexiones entre la placa y la madera): a) sin proteger, b) protegidas con retranqueo, c) protegidas con filetes encolados, d) protegidas con tableros.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.\nTabla E.6. Anchos de las placas de acero con bordes sin proteger bst",
+      "attributes": {
+        "id": "c6239169-2110-410c-9975-0158462b210a",
+        "meta_summary": "Specifies conditions for the width of steel plates in timber connections for fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "bfa78d27e216e192",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 509,
+        "end_pos": 854
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 122,
+        "end_index": 197
+      },
+      "section_metadata": {
+        "section_id": "bfa78d27e216e192",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 81,
+        "end_page": 81,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.3 Uniones con placas de acero al exterior",
+          "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+        ],
+        "parent_section_id": "6465e24c9b216828",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en las que la placa de acero no sobresalga respecto de la superficie de la pieza de madera, el ancho bst de la placa de acero debe cumplir las condiciones definidas en la tabla E.6.",
+      "attributes": {
+        "id": "022d4168-1240-410c-9975-0158462b210a",
+        "parent_section_id": "bfa78d27e216e192",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The width (bst) of steel plates must comply with the conditions defined in Table E.6.",
+        "applies_if": "CONNECTION.TYPE == 'STEEL_PLATE' AND STEEL_PLATE.THICKNESS >= 2 AND STEEL_PLATE.POSITION == 'CENTRAL_PIECE' AND STEEL_PLATE.PROTRUSION_FROM_WOOD_SURFACE == FALSE",
+        "satisfied_if": "STEEL_PLATE.WIDTH.bst == TABLE_E6.CONDITIONS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.STEEL",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STEEL.PLATE.THICKNESS",
+          "STEEL.PLATE.WIDTH",
+          "TIMBER.CONNECTION",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 204,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "STEEL_PLATE.THICKNESS >= 2 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "Table E.6 is not provided, so its conditions cannot be inlined.",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 504,
+        "end_pos": 783
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 121,
+        "end_index": 179
+      },
+      "section_metadata": {
+        "section_id": "bfa78d27e216e192",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 81,
+        "end_page": 81,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.3 Uniones con placas de acero al exterior",
+          "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+        ],
+        "parent_section_id": "6465e24c9b216828",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegidas en los casos siguientes, (ver figura E.5): En placas con un espesor no superior a 3 mm, cuando el retranqueo dg sea mayor que 20 mm para una resistencia al fuego R 30, y mayor que 60 mm para una resistencia al fuego R 60.",
+      "attributes": {
+        "id": "022d4168-1240-410c-9975-0158462b210b",
+        "parent_section_id": "bfa78d27e216e192",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Steel plates with a width less than that of the timber pieces can be considered protected if the setback (dg) meets specific criteria for fire resistance.",
+        "applies_if": "STEEL_PLATE.WIDTH < TIMBER_PIECE.WIDTH AND STEEL_PLATE.THICKNESS <= 3",
+        "satisfied_if": "(FIRE.RESISTANCE == 'R30' AND SETBACK.dg > 20) OR (FIRE.RESISTANCE == 'R60' AND SETBACK.dg > 60)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.STEEL",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STEEL.PLATE.THICKNESS",
+          "STEEL.PLATE.WIDTH",
+          "TIMBER.PIECE.WIDTH",
+          "FIRE.RESISTANCE",
+          "SETBACK.dg"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 283,
+          "span_char_end": 506,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "STEEL_PLATE.THICKNESS <= 3 mm",
+          "SETBACK.dg > 20 mm",
+          "SETBACK.dg > 60 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Refers to Figure E.5 for visual context.",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 857,
+        "end_pos": 1180
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 198,
+        "end_index": 269
+      },
+      "section_metadata": {
+        "section_id": "bfa78d27e216e192",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 81,
+        "end_page": 81,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.3 Uniones con placas de acero al exterior",
+          "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+        ],
+        "parent_section_id": "6465e24c9b216828",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uniones con filetes encolados o tableros derivados de la madera, cuando el retranqueo dg o el espesor del panel hp, respectivamente, sea mayor que 10 mm para una resistencia al fuego R 30, y mayor que 30 mm para una resistencia al fuego R 60 .",
+      "attributes": {
+        "id": "022d4168-1240-410c-9975-0158462b210c",
+        "parent_section_id": "bfa78d27e216e192",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In connections with glued fillets or wood-based panels, the setback (dg) or panel thickness (hp) must meet specific criteria for fire resistance.",
+        "applies_if": "CONNECTION.TYPE IN ['GLUED_FILLET', 'WOOD_BASED_PANEL']",
+        "satisfied_if": "(FIRE.RESISTANCE == 'R30' AND (SETBACK.dg > 10 OR PANEL.THICKNESS.hp > 10)); OR (FIRE.RESISTANCE == 'R60' AND (SETBACK.dg > 30 OR PANEL.THICKNESS.hp > 30))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "MATERIALS.TIMBER"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "CONNECTION.TYPE",
+          "FIRE.RESISTANCE",
+          "SETBACK.dg",
+          "PANEL.THICKNESS.hp"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 507,
+          "span_char_end": 744,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "SETBACK.dg > 10 mm",
+          "PANEL.THICKNESS.hp > 10 mm",
+          "SETBACK.dg > 30 mm",
+          "PANEL.THICKNESS.hp > 30 mm"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Refers to Figure E.5 for visual context.",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1181,
+        "end_pos": 1427
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 269,
+        "end_index": 320
+      },
+      "section_metadata": {
+        "section_id": "bfa78d27e216e192",
+        "section_name": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 81,
+        "end_page": 81,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.4 Uniones",
+          "E.4.3 Uniones con placas de acero al exterior",
+          "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+        ],
+        "parent_section_id": "6465e24c9b216828",
+        "positioning_data": [
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              59
+            ],
+            "bbox": {
+              "l": 176.84600830078125,
+              "t": 624.7720336914062,
+              "r": 432.68499755859375,
+              "b": 616.3390502929688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura E.4. Ejemplo de protección de la cabeza de un perno."
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              78
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 594.03125,
+              "r": 450.4483642578125,
+              "b": 584.788330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.4.2.3 Reglas complementarias para uniones con placas de acero en el interior"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              276
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 574.3512573242188,
+              "r": 538.49609375,
+              "b": 542.2979125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En uniones con placas de acero espesor mayor o igual a 2 mm, situadas como piezas centrales, en la"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 157.64898681640625,
+              "t": 527.3410034179688,
+              "r": 452.0259704589844,
+              "b": 518.989013671875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Tabla E.6. Anchos de las placas de acero con bordes sin proteger bst"
+          },
+          {
+            "page_no": 81,
+            "charspan": [
+              0,
+              146
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 406.6912536621094,
+              "r": 537.8978271484375,
+              "b": 385.9283752441406,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1659
+}

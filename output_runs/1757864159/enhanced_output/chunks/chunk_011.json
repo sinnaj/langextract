@@ -1,0 +1,759 @@
+{
+  "chunk_id": 11,
+  "section_metadata": {
+    "section_id": "dac600d72cb1a240",
+    "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 16,
+    "end_page": 16,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios"
+    ],
+    "parent_section_id": "018b051f734a19d1",
+    "positioning_data": [
+      {
+        "page_no": 16,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 109.46923065185547,
+          "t": 767.040771484375,
+          "r": 172.9852294921875,
+          "b": 759.6680908203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "ser menor que 3 l."
+      },
+      {
+        "page_no": 16,
+        "charspan": [
+          0,
+          193
+        ],
+        "bbox": {
+          "l": 88.24127960205078,
+          "t": 754.9616088867188,
+          "r": 538.2374877929688,
+          "b": 738.0996704101562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+      },
+      {
+        "page_no": 16,
+        "charspan": [
+          0,
+          85
+        ],
+        "bbox": {
+          "l": 71.2514419555664,
+          "t": 734.3291015625,
+          "r": 379.2170715332031,
+          "b": 726.0680541992188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+      },
+      {
+        "page_no": 16,
+        "charspan": [
+          0,
+          199
+        ],
+        "bbox": {
+          "l": 71.2514419555664,
+          "t": 722.0891723632812,
+          "r": 538.4843139648438,
+          "b": 704.4996337890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+      },
+      {
+        "page_no": 16,
+        "charspan": [
+          0,
+          351
+        ],
+        "bbox": {
+          "l": 71.2514419555664,
+          "t": 700.7291259765625,
+          "r": 538.5184936523438,
+          "b": 673.899658203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios\n**Path:** Sección SI 1 Propagación interior → 3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios\n**Level:** 2\n**Tags:** SI1, Propagación, Interior, Espacios, Ocultos, Paso, Instalaciones, Través, Elementos, Compartimentación, Incendios\n**Pages:** 16-16\n\n\n1 La compartimentación contra incendios de los espacios ocupables debe tener continuidad en los espacios ocultos, tales como patinillos, cámaras, falsos techos, suelos elevados, etc., salvo cuando éstos estén compartimentados respecto de los primeros al menos con la misma resistencia al fuego , pudiendo reducirse ésta a la mitad en los registros para mantenimiento .\n2 La resistencia al fuego requerida a los elementos de compartimentación de incendios se debe mantener en los puntos en los que dichos elementos son atravesados por elementos de las instalaciones, tales como cables, tuberías, conducciones, conductos de ventilación, etc., excluidas las penetraciones cuya sección de paso no exceda de 50 cm² . Para ello puede optarse por una de las siguientes alternativas:\n16\nDocumento Básico SI Seguridad en caso de Incendio SI 1. Propagación interior\nDisponer un elemento que, en caso de incendio, obture automáticamente la sección de paso y garantice en dicho punto una resistencia al fuego al menos igual a la del elemento atravesado, por ejemplo, una compuerta cortafuegos automática EI t (io) siendo t el tiempo de resistencia al fuego requerida al elemento de compartimentación atravesado, o un dispositivo intumescente de obturación.\nElementos pasantes que aporten una resistencia al menos igual a la del elemento atravesado, por ejemplo, conductos de ventilación EI t (io) siendo t el tiempo de resistencia al fuego requerida al elemento de compartimentación atravesado.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La compartimentación contra incendios de los espacios ocupables debe tener continuidad en los espacios ocultos, tales como patinillos, cámaras, falsos techos, suelos elevados, etc., salvo cuando éstos estén compartimentados respecto de los primeros al menos con la misma resistencia al fuego , pudiendo reducirse ésta a la mitad en los registros para mantenimiento .",
+      "attributes": {
+        "id": "16b9076b-3135-4203-913a-73336712361b",
+        "parent_section_id": "dac600d72cb1a240",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Fire compartmentalization of occupied spaces must have continuity in hidden spaces (e.g., shafts, chambers, false ceilings, raised floors).",
+        "applies_if": "HAS(SPACE.OCCUPIABLE) AND HAS(SPACE.HIDDEN)",
+        "satisfied_if": "SPACE.OCCUPIABLE.FIRE_COMPARTMENTATION.CONTINUITY == TRUE AND SPACE.HIDDEN.FIRE_COMPARTMENTATION.CONTINUITY == TRUE",
+        "exempt_if": "SPACE.HIDDEN.FIRE_COMPARTMENTATION.RESISTANCE >= SPACE.OCCUPIABLE.FIRE_COMPARTMENTATION.RESISTANCE OR (SPACE.HIDDEN.FIRE_COMPARTMENTATION.RESISTANCE >= SPACE.OCCUPIABLE.FIRE_COMPARTMENTATION.RESISTANCE / 2 AND SPACE.TYPE == 'MAINTENANCE_REGISTER')",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.COMPARTMENTATION",
+          "SPACE.OCCUPIABLE",
+          "SPACE.HIDDEN",
+          "FIRE.RESISTANCE",
+          "MAINTENANCE.REGISTER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 266,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 413,
+        "end_pos": 779
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 96,
+        "end_index": 164
+      },
+      "section_metadata": {
+        "section_id": "dac600d72cb1a240",
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 16,
+        "end_page": 16,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios"
+        ],
+        "parent_section_id": "018b051f734a19d1",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La resistencia al fuego requerida a los elementos de compartimentación de incendios se debe mantener en los puntos en los que dichos elementos son atravesados por elementos de las instalaciones, tales como cables, tuberías, conducciones, conductos de ventilación, etc., excluidas las penetraciones cuya sección de paso no exceda de 50 cm² .",
+      "attributes": {
+        "id": "7662572e-336c-4876-9289-4089c2226252",
+        "parent_section_id": "dac600d72cb1a240",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The required fire resistance of fire compartmentalization elements must be maintained at points where these elements are crossed by installation elements (e.g., cables, pipes, ducts).",
+        "applies_if": "HAS(FIRE_COMPARTMENTATION.ELEMENTS) AND HAS(INSTALLATION.ELEMENTS) AND FIRE_COMPARTMENTATION.ELEMENTS.CROSSED_BY.INSTALLATION.ELEMENTS == TRUE",
+        "satisfied_if": "FIRE_COMPARTMENTATION.ELEMENTS.FIRE_RESISTANCE.MAINTAINED_AT_CROSSING_POINTS == TRUE",
+        "exempt_if": "PENETRATION.SECTION_AREA <= 50",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "FIRE.COMPARTMENTATION",
+          "FIRE.RESISTANCE",
+          "INSTALLATION.ELEMENTS",
+          "CABLES",
+          "PIPES",
+          "DUCTS",
+          "VENTILATION.DUCTS",
+          "PENETRATION.SECTION_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 267,
+          "span_char_end": 501,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "PENETRATION.SECTION_AREA <= 50 cm²"
+        ],
+        "confidence": 0.95,
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 782,
+        "end_pos": 1122
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 165,
+        "end_index": 232
+      },
+      "section_metadata": {
+        "section_id": "dac600d72cb1a240",
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 16,
+        "end_page": 16,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios"
+        ],
+        "parent_section_id": "018b051f734a19d1",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "Para ello puede optarse por una de las siguientes alternativas: Disponer un elemento que, en caso de incendio, obture automáticamente la sección de paso y garantice en dicho punto una resistencia al fuego al menos igual a la del elemento atravesado, por ejemplo, una compuerta cortafuegos automática EI t (io) siendo t el tiempo de resistencia al fuego requerida al elemento de compartimentación atravesado. o un dispositivo intumescente de obturación. Elementos pasantes que aporten una resistencia al menos igual a la del elemento atravesado, por ejemplo, conductos de ventilación EI t (io) siendo t el tiempo de resistencia al fuego requerida al elemento de compartimentación atravesado.",
+      "attributes": {
+        "id": "1e91244e-1234-4567-89ab-cdef01234567",
+        "parent_section_id": "dac600d72cb1a240",
+        "procedure_statement": "To maintain fire resistance at crossing points, one of the following alternatives can be chosen: 1. Install an element that automatically seals the passage section in case of fire, ensuring fire resistance at least equal to that of the traversed element (e.g., an automatic fire damper EI t (io) where t is the required fire resistance time, or an intumescent sealing device). 2. Use through-elements that provide resistance at least equal to that of the traversed element (e.g., ventilation ducts EI t (io) where t is the required fire resistance time).",
+        "target_reference": [],
+        "tags": [
+          "FIRE.RESISTANCE.MAINTENANCE",
+          "FIRE.COMPARTMENTATION",
+          "INSTALLATION.ELEMENTS.CROSSING",
+          "FIRE.DAMPER",
+          "INTUMESCENT.DEVICE",
+          "VENTILATION.DUCTS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 502,
+          "span_char_end": 1020,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1123,
+        "end_pos": 1186
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 232,
+        "end_index": 243
+      },
+      "section_metadata": {
+        "section_id": "dac600d72cb1a240",
+        "section_name": "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 16,
+        "end_page": 16,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "3 Espacios ocultos. Paso de instalaciones a través de elementos de compartimentación de incendios"
+        ],
+        "parent_section_id": "018b051f734a19d1",
+        "positioning_data": [
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 109.46923065185547,
+              "t": 767.040771484375,
+              "r": 172.9852294921875,
+              "b": 759.6680908203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "ser menor que 3 l."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              193
+            ],
+            "bbox": {
+              "l": 88.24127960205078,
+              "t": 754.9616088867188,
+              "r": 538.2374877929688,
+              "b": 738.0996704101562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Los ventiladores cumplirán las especificaciones de la norma UNE-EN 12101-3: 2016 \"Especificaciones "
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 734.3291015625,
+              "r": 379.2170715332031,
+              "b": 726.0680541992188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(4) Las zonas de aseos no computan a efectos del cálculo de la superficie construida."
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              199
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 722.0891723632812,
+              "r": 538.4843139648438,
+              "b": 704.4996337890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(5) Se consideran aquellos trasteros que tienen vinculación con las viviendas de los edificios en lo"
+          },
+          {
+            "page_no": 16,
+            "charspan": [
+              0,
+              351
+            ],
+            "bbox": {
+              "l": 71.2514419555664,
+              "t": 700.7291259765625,
+              "r": 538.5184936523438,
+              "b": 673.899658203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "(6) Las áreas públicas de venta no se clasifican como locales de riesgo especial. La determinación d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 1895
+}

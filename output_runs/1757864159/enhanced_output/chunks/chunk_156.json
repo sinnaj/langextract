@@ -1,0 +1,380 @@
+{
+  "chunk_id": 156,
+  "section_metadata": {
+    "section_id": "aefc8ec0cb9711b3",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 24,
+    "end_page": 24,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "3 Número de salidas y longitud de los recorridos de evacuación",
+      "Table 1"
+    ],
+    "parent_section_id": "eb7444d1bc1ed618",
+    "positioning_data": [
+      {
+        "page_no": 24,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.27472686767578,
+          "t": 768.4837799072266,
+          "r": 539.5726318359375,
+          "b": 455.70556640625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 24,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 70.77130126953125,
+          "t": 278.01495361328125,
+          "r": 538.2518310546875,
+          "b": 91.13751220703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 3 Evacuación de ocupantes → 3 Número de salidas y longitud de los recorridos de evacuación → Table 1\n**Level:** 3\n**Tags:** SI3, Evacuación, Ocupantes, Número, Salidas, Longitud, Los, Recorridos, Evacuación, Table\n**Pages:** 24-24\n\n\n|  | sin aparatos | 1,5 |\n| --- | --- | --- |\n|  | Piscinas públicas |  |\n|  | zonas de baño (superficie de los vasos de las piscinas) | 2 |\n|  | zonas de estancia de público en piscinas descubiertas | 4 |\n|  | vestuarios | 3 |\n|  | Salones de uso múltiple en edificios para congresos, hoteles, etc. | 1 |\n|  | Zonas de público en restaurantes de “comida rápida”, (p. ej: hamburgueserías,  pizzerías...) | 1,2 |\n|  | Zonas de público sentado en bares, cafeterías, restaurantes, etc. | 1,5 |\n|  | Salas de espera, salas de lectura en bibliotecas, zonas de uso público en mu\u0002 seos, galerías de arte, ferias y exposiciones, etc. | 2 |\n|  | Vestíbulos generales, zonas de uso público en plantas de sótano, baja y entre\u0002 planta | 2 |\n|  | Vestíbulos, vestuarios, camerinos y otras dependencias similares y anejas a  salas de espectáculos y de reunión | 2 |\n|  | Zonas de público en terminales de transporte | 10 |\n|  | Zonas de servicio de bares, restaurantes, cafeterías, etc. | 10 |\n| Archivos, alma\u0002 cenes |  | 40 |\n\n| Número de salidas  existentes | Condiciones |\n| --- | --- |\n| Plantas o  recintos que  disponen de una única  salida de planta o salida  de  recinto  respectiva\u0002 mente | No se admite en: -  uso Hospitalario ,  en las plantas de hospitalización o de tratamiento intensivo, así  como en salas o unidades para pacientes hospitalizados cuya superficie construida  exceda de 90 m2 . |\n|  | La ocupación no excede de 100 personas, excepto en los casos que se indican a conti\u0002 nuación: -  500 personas en el conjunto del edificio, en el caso de salida de un edificio de  viviendas; -  50 personas en zonas desde las que la evacuación hasta una salida de planta deba salvar una altura mayor que 2 m en sentido ascendente; - |\n|  | 50 alumnos en escuelas infantiles, o de enseñanza primaria o secundaria. |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No se admite en: - uso Hospitalario , en las plantas de hospitalización o de tratamiento intensivo, así como en salas o unidades para pacientes hospitalizados cuya superficie construida exceda de 90 m2 .",
+      "attributes": {
+        "id": "21e42845-6677-4567-8901-234567890123",
+        "parent_section_id": "aefc8ec0cb9711b3",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "A single exit from a floor or enclosure is not permitted in hospital use, in hospitalization or intensive treatment floors, or in rooms or units for hospitalized patients whose built area exceeds 90 m2.",
+        "applies_if": "HAS(FLOOR.EXIT.SINGLE) OR HAS(ENCLOSURE.EXIT.SINGLE)",
+        "satisfied_if": "NOT (BUILDING.USAGE == 'PUBLIC.HOSPITAL' AND (FLOOR.TYPE IN ['HOSPITALIZATION', 'INTENSIVE_TREATMENT'] OR (ROOM.TYPE == 'HOSPITALIZED_PATIENT_UNIT' AND ROOM.AREA > 90)))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FLOOR.EXIT.SINGLE",
+          "ENCLOSURE.EXIT.SINGLE",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "FLOOR.TYPE.HOSPITALIZATION",
+          "FLOOR.TYPE.INTENSIVE_TREATMENT",
+          "ROOM.TYPE.HOSPITALIZED_PATIENT_UNIT",
+          "ROOM.AREA"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "ROOM.AREA > 90 m2"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.27472686767578,
+              "t": 768.4837799072266,
+              "r": 539.5726318359375,
+              "b": 455.70556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.77130126953125,
+              "t": 278.01495361328125,
+              "r": 538.2518310546875,
+              "b": 91.13751220703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1460,
+        "end_pos": 1667
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 392,
+        "end_index": 432
+      },
+      "section_metadata": {
+        "section_id": "aefc8ec0cb9711b3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 24,
+        "end_page": 24,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "3 Número de salidas y longitud de los recorridos de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "eb7444d1bc1ed618",
+        "positioning_data": [
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.27472686767578,
+              "t": 768.4837799072266,
+              "r": 539.5726318359375,
+              "b": 455.70556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.77130126953125,
+              "t": 278.01495361328125,
+              "r": 538.2518310546875,
+              "b": 91.13751220703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La ocupación no excede de 100 personas, excepto en los casos que se indican a conti\u0002 nuación: - 500 personas en el conjunto del edificio, en el caso de salida de un edificio de viviendas; - 50 personas en zonas desde las que la evacuación hasta una salida de planta deba salvar una altura mayor que 2 m en sentido ascendente; - 50 alumnos en escuelas infantiles, o de enseñanza primaria o secundaria.",
+      "attributes": {
+        "id": "32f53956-7788-4678-9012-345678901234",
+        "parent_section_id": "aefc8ec0cb9711b3",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Occupancy must not exceed 100 people, with specific exceptions.",
+        "applies_if": "HAS(FLOOR.EXIT.SINGLE) OR HAS(ENCLOSURE.EXIT.SINGLE)",
+        "satisfied_if": "OCCUPANCY <= 100 ; OR (BUILDING.TYPE == 'RESIDENTIAL.HOUSING' AND BUILDING.OCCUPANCY <= 500) ; OR (EVACUATION.ASCENDING_HEIGHT > 2 AND OCCUPANCY <= 50) ; OR (BUILDING.USAGE IN ['EDUCATION.INFANT', 'EDUCATION.PRIMARY', 'EDUCATION.SECONDARY'] AND OCCUPANCY <= 50)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.EDUCATION"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "OCCUPANCY",
+          "BUILDING.TYPE.RESIDENTIAL.HOUSING",
+          "BUILDING.OCCUPANCY",
+          "EVACUATION.ASCENDING_HEIGHT",
+          "BUILDING.USAGE.EDUCATION.INFANT",
+          "BUILDING.USAGE.EDUCATION.PRIMARY",
+          "BUILDING.USAGE.EDUCATION.SECONDARY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "OCCUPANCY <= 100 persons",
+          "BUILDING.OCCUPANCY <= 500 persons",
+          "EVACUATION.ASCENDING_HEIGHT > 2 m",
+          "OCCUPANCY <= 50 persons"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.27472686767578,
+              "t": 768.4837799072266,
+              "r": 539.5726318359375,
+              "b": 455.70556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.77130126953125,
+              "t": 278.01495361328125,
+              "r": 538.2518310546875,
+              "b": 91.13751220703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1675,
+        "end_pos": 2005
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 435,
+        "end_index": 509
+      },
+      "section_metadata": {
+        "section_id": "aefc8ec0cb9711b3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 24,
+        "end_page": 24,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "3 Número de salidas y longitud de los recorridos de evacuación",
+          "Table 1"
+        ],
+        "parent_section_id": "eb7444d1bc1ed618",
+        "positioning_data": [
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.27472686767578,
+              "t": 768.4837799072266,
+              "r": 539.5726318359375,
+              "b": 455.70556640625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 24,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 70.77130126953125,
+              "t": 278.01495361328125,
+              "r": 538.2518310546875,
+              "b": 91.13751220703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 2087
+}

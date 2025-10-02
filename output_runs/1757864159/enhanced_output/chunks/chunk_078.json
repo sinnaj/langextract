@@ -1,0 +1,731 @@
+{
+  "chunk_id": 78,
+  "section_metadata": {
+    "section_id": "0b6211510b872a71",
+    "section_name": "Tiempo equivalente de exposición al fuego",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 49,
+    "end_page": 49,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Tiempo equivalente de exposición al fuego"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 769.11083984375,
+          "r": 159.90670776367188,
+          "b": 761.740478515625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          364
+        ],
+        "bbox": {
+          "l": 71.55155944824219,
+          "t": 747.5108642578125,
+          "r": 538.3604125976562,
+          "b": 703.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 676.5908203125,
+          "r": 187.08755493164062,
+          "b": 667.25830078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de riesgo mínimo"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          57
+        ],
+        "bbox": {
+          "l": 71.64119720458984,
+          "t": 654.9908447265625,
+          "r": 328.986083984375,
+          "b": 645.6583251953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio que cumple las siguientes condiciones:"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          85
+        ],
+        "bbox": {
+          "l": 71.2627182006836,
+          "t": 630.4312133789062,
+          "r": 458.24237060546875,
+          "b": 621.1783447265625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Tiempo equivalente de exposición al fuego\n**Path:** Anejo SI A Terminología → Tiempo equivalente de exposición al fuego\n**Level:** 2\n**Tags:** Terminología, Tiempo, Equivalente, Exposición, Fuego\n**Pages:** 49-49\n\n\nEs el tiempo de exposición a la curva normalizada tiempo-temperatura que se supone que tiene un efecto térmico igual al de un incendio real en el sector de incendio considerado (UNE-EN 1991-1-2:2004).\n49\nDocumento Básico SI en caso de Incendio Anejo A. Terminología",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Es el tiempo de exposición a la curva normalizada tiempo-temperatura que se supone que tiene un efecto térmico igual al de un incendio real en el sector de incendio considerado (UNE-EN 1991-1-2:2004).",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "meta_summary": "Definition of equivalent fire exposure time.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "UNE-EN 1991-1-2:2004"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "0b6211510b872a71",
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 226,
+        "end_pos": 426
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 55,
+        "end_index": 103
+      },
+      "section_metadata": {
+        "section_id": "0b6211510b872a71",
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Tiempo equivalente de exposición al fuego"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Tiempo equivalente de exposición al fuego",
+      "attributes": {
+        "id": "f2e1d0c9-b8a7-6543-210f-edcba9876543",
+        "parent_section_id": "0b6211510b872a71",
+        "classification_type": "DEFINITION",
+        "classification_value": "Equivalent fire exposure time",
+        "classification_definition": "The exposure time to the standardized time-temperature curve that is assumed to have a thermal effect equal to that of a real fire in the considered fire sector (UNE-EN 1991-1-2:2004).",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "FIRE.EXPOSURE.TIME",
+          "FIRE.SECTOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 100,
+          "visual_refs": []
+        },
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 52
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 11
+      },
+      "section_metadata": {
+        "section_id": "0b6211510b872a71",
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Tiempo equivalente de exposición al fuego"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Legal_Documents",
+      "extraction_text": "UNE-EN 1991-1-2:2004",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
+        "parent_section_id": "0b6211510b872a71",
+        "doc_type": "STANDARD",
+        "doc_title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "doc_code": "UNE-EN 1991-1-2",
+        "doc_year": "2004",
+        "doc_article": null,
+        "doc_section": null,
+        "doc_url": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 100,
+          "visual_refs": []
+        },
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 309,
+        "end_pos": 424
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 72,
+        "end_index": 102
+      },
+      "section_metadata": {
+        "section_id": "0b6211510b872a71",
+        "section_name": "Tiempo equivalente de exposición al fuego",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Tiempo equivalente de exposición al fuego"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 491
+}

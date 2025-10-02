@@ -1,0 +1,5867 @@
+{
+  "chunk_id": 149,
+  "section_metadata": {
+    "section_id": "c4fa1db495062ecc",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 13,
+    "end_page": 15,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "2 Locales y zonas de riesgo especial",
+      "Table 1"
+    ],
+    "parent_section_id": "2cdaa19101374997",
+    "positioning_data": [
+      {
+        "page_no": 13,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.47727966308594,
+          "t": 729.85791015625,
+          "r": 539.4060668945312,
+          "b": 504.80072021484375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 14,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 67.41493225097656,
+          "t": 632.31787109375,
+          "r": 542.6506958007812,
+          "b": 87.57574462890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 15,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 66.32513427734375,
+          "t": 770.0304946899414,
+          "r": 543.1449584960938,
+          "b": 304.7579345703125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial → Table 1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Locales, Zonas, Riesgo, Especial, Table\n**Pages:** 13-15\n\n\n| Elemento | Plantas bajo  rasante | Resistencia al fuego Plantas sobre rasante en edificio con altura de eva\u0002 cuación: |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | h ≤ 15 m | 15 < h ≤ 28 m | h > 28 m |\n| Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto:\r (4) |  |  |  |  |\n| -  Sector de riesgo mínimo  en  edificio de cualquier uso | (no se admite) | EI 120 | EI 120 | EI 120 |\n| -  Residencial Vivienda, Residen\u0002 cial Público, Docente, Adminis\u0002 trativo | EI 120 | EI 60 | EI 90 | EI 120 |\n| -  Comercial,  Pública concurren\u0002 cia ,  Hospitalario | EI 120(5) | EI 90 | EI 120 | EI 180 |\n| -  Aparcamiento(6) | EI 120(7) | EI 120 | EI 120 | EI 120 |\n\n|  |  | Riesgo bajo | Riesgo medio | Riesgo alto |\n| --- | --- | --- | --- | --- |\n| En cualquier edificio o establecimiento: |  |  |  |  |\n| - | Talleres de mantenimiento, almacenes de elemen\u0002 tos combustibles (p. e.: mobiliario, lencería, limpie\u0002 za, etc.) archivos de documentos, depósitos de li\u0002 bros, etc. (1) | 100<V≤ 200 m3 | 200<V≤ 400 m3 | V>400 m3 |\n| - | Almacén de residuos | 5<S≤15 m2 | 15<S ≤30 m2 | S>30 m2 |\n| - | Aparcamiento de vehículos cuya superficie S no  exceda de 100 m2 o integrado en una vivienda uni\u0002 familiar. | En todo caso |  |  |\n| - | Cocinas según potencia instalada P(2)(3) | 20<P≤30 kW | 30<P≤50 kW | P>50 kW |\n| - | Lavanderías. Vestuarios de personal. Camerinos(4) | 20<S≤100 m 2 | 100<S≤200 m2 | S>200 m2 |\n| - | Salas de calderas con potencia útil nominal P | 70<P≤200 kW | 200<P≤600 kW | P>600 kW |\n| - | Salas de máquinas de instalaciones de climatiza\u0002 ción (según Reglamento de Instalaciones Térmicas  en los edificios, RITE, aprobado por RD 1027/2007 ,  de 20 de julio, BOE 2007/08/29) | En todo caso |  |  |\n| - | Salas de maquinaria frigorífica: refrigerante amonia\u0002 co |  | En todo caso |  |\n|  | refrigerante halogenado | P≤400 kW | P>400 kW |  |\n| - | Almacén de combustible sólido para calefacción | S≤3 m 2 | S>3 m2 |  |\n| - | Local de contadores de electricidad y de cuadros  generales de distribución | En todo caso |  |  |\n| - | Centro de transformación |  |  |  |\n|  | -  aparatos con aislamiento dieléctrico seco o  líquido con punto de inflamación mayor que  300ºC | En todo caso |  |  |\n|  | -  aparatos con aislamiento dieléctrico con  punto de inflamación que no exceda de  300ºC y potencia instalada P: total | P<2 520 kVA | 2520<P<4000 kVA | P>4 000 kVA |\n|  | en cada transformador | P<630 kVA | 630<P<1000 kVA | P>1 000 kVA |\n| - | Sala de maquinaria de ascensores | En todo caso |  |  |\n| - | Sala de grupo electrógeno | En todo caso |  |  |\n| Residencial Vivienda |  |  |  |  |\n| - | Trasteros(5) | 50<S≤100 m2 | 100<S≤500 m2 | S>500 m2 |\n\n| Hospitalario -  Almacenes de productos farmacéuticos y clínicos | 100<V≤200 m 3 | 200<V≤400 m3 | V>400 m3 En todo caso |\n| --- | --- | --- | --- |\n| -  Locales destinados a esterilización y almacenes  anejos |  |  |  |\n| -  Laboratorios clínicos | V≤350 m3 | 350<V≤500 m3 | V>500 m3 |\n| Administrativo |  |  |  |\n| -  Imprenta, reprografía y locales anejos, tales como  almacenes de papel o de publicaciones, encuader\u0002 nado, etc. (1) | 100<V≤200 m3 | 200<V≤500 m3 | V>500 m3 |\n| Residencial Público |  |  |  |\n| -  Roperos y locales para la custodia de equipajes | S≤20 m 2 | 20<S≤100 m2 | S>100 m2 |\n| Comercial |  |  |  |\n| -  Almacenes en los que la densidad de carga de  fuego ponderada y corregida (QS) aportada por los  productos almacenados sea(6) | 425<QS≤850  MJ/m2 | 850<QS≤3.400  MJ/m2 | QS>3.400 MJ/m2 |\n| La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos no situados por debajo de la  planta de salida del edificio |  |  |  |\n| con instalación automática de extinción | S< 2.000 m2 | S<600 m2 | S<25 m2 y altura  de evacuación <15 m |\n| sin instalación automática de extinción | S<1.000 m2 | S<300 m2 | no se admite |\n| -  en recintos situados por debajo de la planta  de salida del edificio |  |  |  |\n| con instalación automática de extinción | <800 m2 | no se admite | no se admite |\n| sin instalación automática de extinción | <400 m2 | no se admite | no se admite |\n| Pública concurrencia |  |  |  |\n| -  Taller o almacén de decorados, de vestuario, etc. |  | 100<V≤200 m 3 | V>200 m3 |",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Table 1\n**Path:** Sección SI 1 Propagación interior → 2 Locales y zonas de riesgo especial → Table 1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Locales, Zonas, Riesgo, Especial, Table\n**Pages:** 13-15",
+      "attributes": {
+        "id": "table_1_chunk_metadata",
+        "meta_summary": "This section defines fire resistance requirements for walls and ceilings separating fire sectors based on building usage, height, and specific risk areas, as well as classification of special risk areas based on volume, surface area, power, or fire load.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 219
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 59
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto: (4) -  Sector de riesgo mínimo  en  edificio de cualquier uso",
+      "attributes": {
+        "id": "norm_fire_resistance_min_risk_sector",
+        "parent_section_id": "c4fa1db495062ecc",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a minimum risk sector from the rest of the building must have a specified fire resistance.",
+        "applies_if": "BUILDING.USAGE IN ['GENERAL', 'RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'EDUCATION', 'ADMINISTRATIVE', 'COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL', 'PARKING'] AND SECTOR.RISK == 'MINIMUM'",
+        "satisfied_if": "ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "LOCATION.BELOW_GROUND_LEVEL == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "EDUCATION",
+            "ADMINISTRATIVE",
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "FIRE.SECTOR",
+          "RISK.MINIMUM",
+          "BUILDING.USAGE",
+          "HEIGHT.EVACUATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Fire resistance for walls and ceilings separating minimum risk sectors from the rest of the building, for any building use, when not below ground level.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 430,
+        "end_pos": 538
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 142
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto: (4) -  Residencial Vivienda, Residen\u0002 cial Público, Docente, Adminis\u0002 trativo",
+      "attributes": {
+        "id": "norm_fire_resistance_residential_education_admin",
+        "parent_section_id": "c4fa1db495062ecc",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Residential Housing, Public Residential, Educational, or Administrative use from the rest of the building must have a specified fire resistance.",
+        "applies_if": "SECTOR.USAGE IN ['RESIDENTIAL.HOUSING', 'PUBLIC.RESIDENTIAL', 'EDUCATION', 'ADMINISTRATIVE']",
+        "satisfied_if": "(LOCATION.BELOW_GROUND_LEVEL == TRUE AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT <= 15 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 60' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 60'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT > 15 AND BUILDING.EVACUATION.HEIGHT <= 28 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 90' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 90'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT > 28 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "RESIDENTIAL.HOUSING",
+            "PUBLIC.RESIDENTIAL",
+            "EDUCATION",
+            "ADMINISTRATIVE"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "FIRE.SECTOR",
+          "SECTOR.USAGE",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "BUILDING.EVACUATION.HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT <= 15 m",
+          "BUILDING.EVACUATION.HEIGHT > 15 m",
+          "BUILDING.EVACUATION.HEIGHT <= 28 m",
+          "BUILDING.EVACUATION.HEIGHT > 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Fire resistance for walls and ceilings separating sectors with Residential Housing, Public Residential, Educational, or Administrative use, varying by location (below ground or above) and evacuation height.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 430,
+        "end_pos": 726
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 192
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto: (4) -  Comercial,  Pública concurren\u0002 cia ,  Hospitalario",
+      "attributes": {
+        "id": "norm_fire_resistance_commercial_public_hospital",
+        "parent_section_id": "c4fa1db495062ecc",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a sector with Commercial, Public Assembly, or Hospital use from the rest of the building must have a specified fire resistance.",
+        "applies_if": "SECTOR.USAGE IN ['COMMERCIAL', 'PUBLIC.ASSEMBLY', 'PUBLIC.HOSPITAL']",
+        "satisfied_if": "(LOCATION.BELOW_GROUND_LEVEL == TRUE AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT <= 15 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 90' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 90'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT > 15 AND BUILDING.EVACUATION.HEIGHT <= 28 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120'); OR (LOCATION.BELOW_GROUND_LEVEL == FALSE AND BUILDING.EVACUATION.HEIGHT > 28 AND ELEMENT.WALL.FIRE_RESISTANCE == 'EI 180' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 180')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "COMMERCIAL",
+            "PUBLIC.ASSEMBLY",
+            "PUBLIC.HOSPITAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "FIRE.SECTOR",
+          "SECTOR.USAGE",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "BUILDING.EVACUATION.HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUILDING.EVACUATION.HEIGHT <= 15 m",
+          "BUILDING.EVACUATION.HEIGHT > 15 m",
+          "BUILDING.EVACUATION.HEIGHT <= 28 m",
+          "BUILDING.EVACUATION.HEIGHT > 28 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Fire resistance for walls and ceilings separating sectors with Commercial, Public Assembly, or Hospital use, varying by location (below ground or above) and evacuation height.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 430,
+        "end_pos": 812
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 217
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Paredes y techos(3) que separan al  sector considerado del resto del  edificio, siendo su uso previsto: (4) -  Aparcamiento(6)",
+      "attributes": {
+        "id": "norm_fire_resistance_parking",
+        "parent_section_id": "c4fa1db495062ecc",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Walls and ceilings separating a Parking sector from the rest of the building must have a specified fire resistance.",
+        "applies_if": "SECTOR.USAGE == 'PARKING'",
+        "satisfied_if": "ELEMENT.WALL.FIRE_RESISTANCE == 'EI 120' AND ELEMENT.CEILING.FIRE_RESISTANCE == 'EI 120'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.RESISTANCE",
+          "WALL",
+          "CEILING",
+          "FIRE.SECTOR",
+          "SECTOR.USAGE.PARKING",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "BUILDING.EVACUATION.HEIGHT"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "Fire resistance for walls and ceilings separating parking sectors, regardless of location or evacuation height.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 430,
+        "end_pos": 886
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 118,
+        "end_index": 239
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Talleres de mantenimiento, almacenes de elemen\u0002 tos combustibles (p. e.: mobiliario, lencería, limpie\u0002 za, etc.) archivos de documentos, depósitos de li\u0002 bros, etc. (1)",
+      "attributes": {
+        "id": "classification_risk_maintenance_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Maintenance workshops, combustible element storage, document archives, book depositories",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "VOLUME > 100 AND VOLUME <= 200",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "VOLUME > 200 AND VOLUME <= 400",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "VOLUME > 400",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "VOLUME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1076,
+        "end_pos": 1244
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 294,
+        "end_index": 338
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Almacén de residuos",
+      "attributes": {
+        "id": "classification_risk_waste_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Waste storage",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "SURFACE_AREA > 5 AND SURFACE_AREA <= 15",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "SURFACE_AREA > 15 AND SURFACE_AREA <= 30",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "SURFACE_AREA > 30",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "SURFACE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1296,
+        "end_pos": 1315
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 364,
+        "end_index": 369
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Aparcamiento de vehículos cuya superficie S no  exceda de 100 m2 o integrado en una vivienda uni\u0002 familiar.",
+      "attributes": {
+        "id": "classification_risk_parking_small_single_family",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Vehicle parking with surface area not exceeding 100 m2 or integrated into a single-family dwelling",
+        "applies_if": "SURFACE_AREA <= 100 OR BUILDING.TYPE == 'SINGLE_FAMILY_DWELLING'",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "SURFACE_AREA",
+          "BUILDING.TYPE.SINGLE_FAMILY_DWELLING"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1360,
+        "end_pos": 1467
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 395,
+        "end_index": 418
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Cocinas según potencia instalada P(2)(3)",
+      "attributes": {
+        "id": "classification_risk_kitchens",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Kitchens according to installed power P",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "POWER > 20 AND POWER <= 30",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "POWER > 30 AND POWER <= 50",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "POWER > 50",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "POWER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1497,
+        "end_pos": 1537
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 428,
+        "end_index": 440
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Lavanderías. Vestuarios de personal. Camerinos(4)",
+      "attributes": {
+        "id": "classification_risk_laundries_changing_rooms",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Laundries, staff changing rooms, dressing rooms",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "SURFACE_AREA > 20 AND SURFACE_AREA <= 100",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "SURFACE_AREA > 100 AND SURFACE_AREA <= 200",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "SURFACE_AREA > 200",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "SURFACE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1582,
+        "end_pos": 1631
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 463,
+        "end_index": 475
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Salas de calderas con potencia útil nominal P",
+      "attributes": {
+        "id": "classification_risk_boiler_rooms",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Boiler rooms with nominal useful power P",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "POWER > 70 AND POWER <= 200",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "POWER > 200 AND POWER <= 600",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "POWER > 600",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "POWER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1681,
+        "end_pos": 1726
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 501,
+        "end_index": 510
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Salas de máquinas de instalaciones de climatiza\u0002 ción (según Reglamento de Instalaciones Térmicas  en los edificios, RITE, aprobado por RD 1027/2007 ,  de 20 de julio, BOE 2007/08/29)",
+      "attributes": {
+        "id": "classification_risk_hvac_machine_rooms",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "HVAC system machine rooms",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "HVAC"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1775,
+        "end_pos": 1958
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 12,
+      "group_index": 11,
+      "description": null,
+      "token_interval": {
+        "start_index": 533,
+        "end_index": 575
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Salas de maquinaria frigorífica: refrigerante amonia\u0002 co",
+      "attributes": {
+        "id": "classification_risk_refrigeration_ammonia",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Refrigeration machinery rooms: ammonia refrigerant",
+        "applies_if": "REFRIGERANT.TYPE == 'AMMONIA'",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.MEDIUM"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "REFRIGERANT.TYPE.AMMONIA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1988,
+        "end_pos": 2044
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 13,
+      "group_index": 12,
+      "description": null,
+      "token_interval": {
+        "start_index": 585,
+        "end_index": 596
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "refrigerante halogenado",
+      "attributes": {
+        "id": "classification_risk_refrigeration_halogenated",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Refrigeration machinery rooms: halogenated refrigerant",
+        "applies_if": "REFRIGERANT.TYPE == 'HALOGENATED'",
+        "condition_groups": [
+          {
+            "condition": "POWER <= 400",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "POWER > 400",
+            "classification_value": "RISK.MEDIUM"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "REFRIGERANT.TYPE.HALOGENATED",
+          "POWER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2073,
+        "end_pos": 2096
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 14,
+      "group_index": 13,
+      "description": null,
+      "token_interval": {
+        "start_index": 605,
+        "end_index": 607
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Almacén de combustible sólido para calefacción",
+      "attributes": {
+        "id": "classification_risk_solid_fuel_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Solid fuel storage for heating",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "SURFACE_AREA <= 3",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "SURFACE_AREA > 3",
+            "classification_value": "RISK.MEDIUM"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "SURFACE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2130,
+        "end_pos": 2176
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 15,
+      "group_index": 14,
+      "description": null,
+      "token_interval": {
+        "start_index": 622,
+        "end_index": 634
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Local de contadores de electricidad y de cuadros  generales de distribución",
+      "attributes": {
+        "id": "classification_risk_electrical_meter_distribution_rooms",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Electricity meter and general distribution panel rooms",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "ELECTRICAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2207,
+        "end_pos": 2282
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 16,
+      "group_index": 15,
+      "description": null,
+      "token_interval": {
+        "start_index": 651,
+        "end_index": 664
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Centro de transformación -  aparatos con aislamiento dieléctrico seco o  líquido con punto de inflamación mayor que  300ºC",
+      "attributes": {
+        "id": "classification_risk_transformer_center_dry_liquid_insulation_high_flashpoint",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Transformer center: dry or liquid dielectric insulation devices with flash point > 300ºC",
+        "applies_if": "TRANSFORMER.INSULATION.TYPE IN ['DRY', 'LIQUID'] AND TRANSFORMER.INSULATION.FLASH_POINT > 300",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "TRANSFORMER",
+          "INSULATION.TYPE",
+          "FLASH_POINT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2312,
+        "end_pos": 2336
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 17,
+      "group_index": 16,
+      "description": null,
+      "token_interval": {
+        "start_index": 674,
+        "end_index": 679
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Centro de transformación -  aparatos con aislamiento dieléctrico con  punto de inflamación que no exceda de  300ºC y potencia instalada P: total",
+      "attributes": {
+        "id": "classification_risk_transformer_center_dielectric_insulation_low_flashpoint_total_power",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Transformer center: dielectric insulation devices with flash point <= 300ºC and total installed power P",
+        "applies_if": "TRANSFORMER.INSULATION.FLASH_POINT <= 300",
+        "condition_groups": [
+          {
+            "condition": "TOTAL_POWER < 2520",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "TOTAL_POWER > 2520 AND TOTAL_POWER < 4000",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "TOTAL_POWER > 4000",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "TRANSFORMER",
+          "INSULATION.FLASH_POINT",
+          "TOTAL_POWER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2100,
+        "end_pos": 2592
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 18,
+      "group_index": 17,
+      "description": null,
+      "token_interval": {
+        "start_index": 609,
+        "end_index": 742
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Centro de transformación -  aparatos con aislamiento dieléctrico con  punto de inflamación que no exceda de  300ºC y potencia instalada P: en cada transformador",
+      "attributes": {
+        "id": "classification_risk_transformer_center_dielectric_insulation_low_flashpoint_per_transformer_power",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Transformer center: dielectric insulation devices with flash point <= 300ºC and installed power P per transformer",
+        "applies_if": "TRANSFORMER.INSULATION.FLASH_POINT <= 300",
+        "condition_groups": [
+          {
+            "condition": "POWER_PER_TRANSFORMER < 630",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "POWER_PER_TRANSFORMER > 630 AND POWER_PER_TRANSFORMER < 1000",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "POWER_PER_TRANSFORMER > 1000",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "TRANSFORMER",
+          "INSULATION.FLASH_POINT",
+          "POWER_PER_TRANSFORMER"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2193,
+        "end_pos": 2659
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 19,
+      "group_index": 18,
+      "description": null,
+      "token_interval": {
+        "start_index": 644,
+        "end_index": 767
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Sala de maquinaria de ascensores",
+      "attributes": {
+        "id": "classification_risk_elevator_machine_room",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Elevator machine room",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "ELEVATOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2725,
+        "end_pos": 2757
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 20,
+      "group_index": 19,
+      "description": null,
+      "token_interval": {
+        "start_index": 790,
+        "end_index": 795
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Sala de grupo electrógeno",
+      "attributes": {
+        "id": "classification_risk_generator_room",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Generator set room",
+        "applies_if": "TRUE",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.LOW"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "GENERATOR"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2787,
+        "end_pos": 2812
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 21,
+      "group_index": 20,
+      "description": null,
+      "token_interval": {
+        "start_index": 805,
+        "end_index": 811
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Residencial Vivienda -  Trasteros(5)",
+      "attributes": {
+        "id": "classification_risk_residential_storage_rooms",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Residential Housing - Storage rooms",
+        "applies_if": "BUILDING.USAGE == 'RESIDENTIAL.HOUSING'",
+        "condition_groups": [
+          {
+            "condition": "SURFACE_AREA > 50 AND SURFACE_AREA <= 100",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "SURFACE_AREA > 100 AND SURFACE_AREA <= 500",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "SURFACE_AREA > 500",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.RESIDENTIAL.HOUSING",
+          "SURFACE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2838,
+        "end_pos": 2858
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 22,
+      "group_index": 21,
+      "description": null,
+      "token_interval": {
+        "start_index": 819,
+        "end_index": 821
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Hospitalario -  Almacenes de productos farmacéuticos y clínicos",
+      "attributes": {
+        "id": "classification_risk_hospital_pharmaceutical_clinical_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Hospital - Pharmaceutical and clinical product storage",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "condition_groups": [
+          {
+            "condition": "VOLUME > 100 AND VOLUME <= 200",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "VOLUME > 200 AND VOLUME <= 400",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "VOLUME > 400",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "VOLUME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2937,
+        "end_pos": 3000
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 23,
+      "group_index": 22,
+      "description": null,
+      "token_interval": {
+        "start_index": 857,
+        "end_index": 869
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Hospitalario -  Locales destinados a esterilización y almacenes  anejos",
+      "attributes": {
+        "id": "classification_risk_hospital_sterilization_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Hospital - Sterilization rooms and adjacent storage",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "condition_groups": [
+          {
+            "condition": "TRUE",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 24,
+      "group_index": 23,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Hospitalario -  Laboratorios clínicos",
+      "attributes": {
+        "id": "classification_risk_hospital_clinical_laboratories",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Hospital - Clinical laboratories",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.HOSPITAL'",
+        "condition_groups": [
+          {
+            "condition": "VOLUME <= 350",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "VOLUME > 350 AND VOLUME <= 500",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "VOLUME > 500",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.PUBLIC.HOSPITAL",
+          "VOLUME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 25,
+      "group_index": 24,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Administrativo -  Imprenta, reprografía y locales anejos, tales como  almacenes de papel o de publicaciones, encuader\u0002 nado, etc. (1)",
+      "attributes": {
+        "id": "classification_risk_administrative_printing_reprography_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Administrative - Printing, reprography and adjacent premises, such as paper or publication storage, binding, etc.",
+        "applies_if": "BUILDING.USAGE == 'ADMINISTRATIVE'",
+        "condition_groups": [
+          {
+            "condition": "VOLUME > 100 AND VOLUME <= 200",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "VOLUME > 200 AND VOLUME <= 500",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "VOLUME > 500",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.ADMINISTRATIVE",
+          "VOLUME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3224,
+        "end_pos": 3238
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 26,
+      "group_index": 25,
+      "description": null,
+      "token_interval": {
+        "start_index": 947,
+        "end_index": 948
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Residencial Público -  Roperos y locales para la custodia de equipajes",
+      "attributes": {
+        "id": "classification_risk_public_residential_wardrobes_luggage_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Public Residential - Wardrobes and luggage storage rooms",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL'",
+        "condition_groups": [
+          {
+            "condition": "SURFACE_AREA <= 20",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "SURFACE_AREA > 20 AND SURFACE_AREA <= 100",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "SURFACE_AREA > 100",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.PUBLIC.RESIDENTIAL",
+          "SURFACE_AREA"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3416,
+        "end_pos": 3435
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 27,
+      "group_index": 26,
+      "description": null,
+      "token_interval": {
+        "start_index": 1005,
+        "end_index": 1009
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Comercial -  Almacenes en los que la densidad de carga de  fuego ponderada y corregida (QS) aportada por los  productos almacenados sea(6)",
+      "attributes": {
+        "id": "classification_risk_commercial_storage_fire_load_density",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Commercial - Warehouses where the weighted and corrected fire load density (QS) provided by stored products is",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL'",
+        "condition_groups": [
+          {
+            "condition": "FIRE_LOAD_DENSITY > 425 AND FIRE_LOAD_DENSITY <= 850",
+            "classification_value": "RISK.LOW"
+          },
+          {
+            "condition": "FIRE_LOAD_DENSITY > 850 AND FIRE_LOAD_DENSITY <= 3400",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "FIRE_LOAD_DENSITY > 3400",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.COMMERCIAL",
+          "FIRE_LOAD_DENSITY"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3540,
+        "end_pos": 3549
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 28,
+      "group_index": 27,
+      "description": null,
+      "token_interval": {
+        "start_index": 1045,
+        "end_index": 1046
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos no situados por debajo de la  planta de salida del edificio con instalación automática de extinción",
+      "attributes": {
+        "id": "classification_risk_commercial_storage_area_above_ground_auto_extinction",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL.MAX_AREA",
+        "classification_name": "Commercial - Maximum built surface area for classified premises not below ground level with automatic extinguishing system",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND LOCATION.BELOW_GROUND_LEVEL == FALSE AND FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC == TRUE",
+        "condition_groups": [
+          {
+            "condition": "RISK.LEVEL == 'LOW'",
+            "classification_value": "SURFACE_AREA < 2000"
+          },
+          {
+            "condition": "RISK.LEVEL == 'MEDIUM'",
+            "classification_value": "SURFACE_AREA < 600"
+          },
+          {
+            "condition": "RISK.LEVEL == 'HIGH' AND EVACUATION.HEIGHT < 15",
+            "classification_value": "SURFACE_AREA < 25"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.COMMERCIAL",
+          "SURFACE_AREA",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC",
+          "EVACUATION.HEIGHT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3755,
+        "end_pos": 3921
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 29,
+      "group_index": 28,
+      "description": null,
+      "token_interval": {
+        "start_index": 1102,
+        "end_index": 1134
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos no situados por debajo de la  planta de salida del edificio sin instalación automática de extinción",
+      "attributes": {
+        "id": "classification_risk_commercial_storage_area_above_ground_no_auto_extinction",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL.MAX_AREA",
+        "classification_name": "Commercial - Maximum built surface area for classified premises not below ground level without automatic extinguishing system",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND LOCATION.BELOW_GROUND_LEVEL == FALSE AND FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC == FALSE",
+        "condition_groups": [
+          {
+            "condition": "RISK.LEVEL == 'LOW'",
+            "classification_value": "SURFACE_AREA < 1000"
+          },
+          {
+            "condition": "RISK.LEVEL == 'MEDIUM'",
+            "classification_value": "SURFACE_AREA < 300"
+          },
+          {
+            "condition": "RISK.LEVEL == 'HIGH'",
+            "classification_value": "NOT_ADMITTED"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.COMMERCIAL",
+          "SURFACE_AREA",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3502,
+        "end_pos": 3973
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 30,
+      "group_index": 29,
+      "description": null,
+      "token_interval": {
+        "start_index": 1024,
+        "end_index": 1149
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos situados por debajo de la planta  de salida del edificio con instalación automática de extinción",
+      "attributes": {
+        "id": "classification_risk_commercial_storage_area_below_ground_auto_extinction",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL.MAX_AREA",
+        "classification_name": "Commercial - Maximum built surface area for classified premises below ground level with automatic extinguishing system",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND LOCATION.BELOW_GROUND_LEVEL == TRUE AND FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC == TRUE",
+        "condition_groups": [
+          {
+            "condition": "RISK.LEVEL == 'LOW'",
+            "classification_value": "SURFACE_AREA < 800"
+          },
+          {
+            "condition": "RISK.LEVEL IN ['MEDIUM', 'HIGH']",
+            "classification_value": "NOT_ADMITTED"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.COMMERCIAL",
+          "SURFACE_AREA",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3500,
+        "end_pos": 3972
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 31,
+      "group_index": 30,
+      "description": null,
+      "token_interval": {
+        "start_index": 1023,
+        "end_index": 1148
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "La superficie construida de los locales así clasifica\u0002 dos no debe exceder de la siguiente: -  en recintos situados por debajo de la planta  de salida del edificio sin instalación automática de extinción",
+      "attributes": {
+        "id": "classification_risk_commercial_storage_area_below_ground_no_auto_extinction",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL.MAX_AREA",
+        "classification_name": "Commercial - Maximum built surface area for classified premises below ground level without automatic extinguishing system",
+        "applies_if": "BUILDING.USAGE == 'COMMERCIAL' AND LOCATION.BELOW_GROUND_LEVEL == TRUE AND FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC == FALSE",
+        "condition_groups": [
+          {
+            "condition": "RISK.LEVEL == 'LOW'",
+            "classification_value": "SURFACE_AREA < 400"
+          },
+          {
+            "condition": "RISK.LEVEL IN ['MEDIUM', 'HIGH']",
+            "classification_value": "NOT_ADMITTED"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.COMMERCIAL",
+          "SURFACE_AREA",
+          "LOCATION.BELOW_GROUND_LEVEL",
+          "FIRE_EXTINGUISHING_SYSTEM.AUTOMATIC"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3502,
+        "end_pos": 3973
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 32,
+      "group_index": 31,
+      "description": null,
+      "token_interval": {
+        "start_index": 1024,
+        "end_index": 1149
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "CLASSIFICATION",
+      "extraction_text": "Pública concurrencia -  Taller o almacén de decorados, de vestuario, etc.",
+      "attributes": {
+        "id": "classification_risk_public_assembly_workshop_storage",
+        "parent_section_id": "c4fa1db495062ecc",
+        "classification_type": "RISK.SPECIAL",
+        "classification_name": "Public Assembly - Workshop or storage of sets, costumes, etc.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.ASSEMBLY'",
+        "condition_groups": [
+          {
+            "condition": "VOLUME > 100 AND VOLUME <= 200",
+            "classification_value": "RISK.MEDIUM"
+          },
+          {
+            "condition": "VOLUME > 200",
+            "classification_value": "RISK.HIGH"
+          }
+        ],
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "relevant_tags": [
+          "RISK.SPECIAL",
+          "BUILDING.USAGE.PUBLIC.ASSEMBLY",
+          "VOLUME"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 4380,
+        "end_pos": 4400
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 33,
+      "group_index": 32,
+      "description": null,
+      "token_interval": {
+        "start_index": 1282,
+        "end_index": 1286
+      },
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_DOCUMENT",
+      "extraction_text": "Reglamento de Instalaciones Térmicas en los edificios, RITE, aprobado por RD 1027/2007 ,  de 20 de julio, BOE 2007/08/29",
+      "attributes": {
+        "id": "legal_doc_rite_rd_1027_2007",
+        "parent_section_id": "c4fa1db495062ecc",
+        "document_name": "Reglamento de Instalaciones Térmicas en los edificios",
+        "document_code": "RITE",
+        "document_type": "REAL_DECRETO",
+        "document_number": "1027/2007",
+        "document_date": "2007-07-20",
+        "publication_date": "2007-08-29",
+        "publication_source": "BOE",
+        "jurisdiction": "ES",
+        "url": null,
+        "notes": "Referenced in the context of HVAC system machine rooms classification.",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 34,
+      "group_index": 33,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "c4fa1db495062ecc",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 13,
+        "end_page": 15,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "2 Locales y zonas de riesgo especial",
+          "Table 1"
+        ],
+        "parent_section_id": "2cdaa19101374997",
+        "positioning_data": [
+          {
+            "page_no": 13,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.47727966308594,
+              "t": 729.85791015625,
+              "r": 539.4060668945312,
+              "b": 504.80072021484375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 14,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 67.41493225097656,
+              "t": 632.31787109375,
+              "r": 542.6506958007812,
+              "b": 87.57574462890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 15,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 66.32513427734375,
+              "t": 770.0304946899414,
+              "r": 543.1449584960938,
+              "b": 304.7579345703125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 34,
+  "char_count": 4498
+}

@@ -1,0 +1,714 @@
+{
+  "chunk_id": 74,
+  "section_metadata": {
+    "section_id": "e39ab5013f76bbe2",
+    "section_name": "Sistema de alarma de incendios",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 49,
+    "end_page": 49,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Sistema de alarma de incendios"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 769.11083984375,
+          "r": 159.90670776367188,
+          "b": 761.740478515625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          364
+        ],
+        "bbox": {
+          "l": 71.55155944824219,
+          "t": 747.5108642578125,
+          "r": 538.3604125976562,
+          "b": 703.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 676.5908203125,
+          "r": 187.08755493164062,
+          "b": 667.25830078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de riesgo mínimo"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          57
+        ],
+        "bbox": {
+          "l": 71.64119720458984,
+          "t": 654.9908447265625,
+          "r": 328.986083984375,
+          "b": 645.6583251953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio que cumple las siguientes condiciones:"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          85
+        ],
+        "bbox": {
+          "l": 71.2627182006836,
+          "t": 630.4312133789062,
+          "r": 458.24237060546875,
+          "b": 621.1783447265625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Sistema de alarma de incendios\n**Path:** Anejo SI A Terminología → Sistema de alarma de incendios\n**Level:** 2\n**Tags:** Terminología, Sistema, Alarma, Incendios\n**Pages:** 49-49\n\n\nSistema que permite emitir señales acústicas y/o visuales a los ocupantes de un edificio (UNE-EN 541:2011) .",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Sistema que permite emitir señales acústicas y/o visuales a los ocupantes de un edificio (UNE-EN 541:2011) .",
+      "attributes": {
+        "id": "f5165922-3850-4882-9477-160533317769",
+        "meta_summary": "Definition of a fire alarm system.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "e39ab5013f76bbe2",
+        "section_name": "Sistema de alarma de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 192,
+        "end_pos": 300
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 72
+      },
+      "section_metadata": {
+        "section_id": "e39ab5013f76bbe2",
+        "section_name": "Sistema de alarma de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sistema de alarma de incendios"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Sistema de alarma de incendios",
+      "attributes": {
+        "id": "89052243-7313-4122-8356-620247070104",
+        "parent_section_id": "e39ab5013f76bbe2",
+        "classification_type": "DEFINITION",
+        "class_name": "FIRE.ALARM.SYSTEM",
+        "definition": "System that allows emitting acoustic and/or visual signals to the occupants of a building.",
+        "source_document": "UNE-EN 541:2011",
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Sistema de alarma de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 41
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 8
+      },
+      "section_metadata": {
+        "section_id": "e39ab5013f76bbe2",
+        "section_name": "Sistema de alarma de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sistema de alarma de incendios"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "LEGAL_REFERENCE",
+      "extraction_text": "UNE-EN 541:2011",
+      "attributes": {
+        "id": "27680196-1736-4279-9974-954f91195325",
+        "parent_section_id": "e39ab5013f76bbe2",
+        "document_title": "Reglas de seguridad para la construcción e instalación de ascensores. Exámenes y ensayos - Parte 58: Ensayo de resistencia al fuego de las puertas de piso",
+        "document_code": "UNE-EN 541",
+        "document_year": "2011",
+        "document_article": null,
+        "document_section": null,
+        "document_url": null,
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "section_name": "Sistema de alarma de incendios",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 128,
+        "end_pos": 297
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 29,
+        "end_index": 70
+      },
+      "section_metadata": {
+        "section_id": "e39ab5013f76bbe2",
+        "section_name": "Sistema de alarma de incendios",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Sistema de alarma de incendios"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 300
+}

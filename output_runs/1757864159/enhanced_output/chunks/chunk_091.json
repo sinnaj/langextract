@@ -1,0 +1,1278 @@
+{
+  "chunk_id": 91,
+  "section_metadata": {
+    "section_id": "88982b3d42eea317",
+    "section_name": "Zona de refugio",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 52,
+    "end_page": 52,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Zona de refugio"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 52,
+        "charspan": [
+          0,
+          168
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 768.7911987304688,
+          "r": 537.8338012695312,
+          "b": 748.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+      },
+      {
+        "page_no": 52,
+        "charspan": [
+          0,
+          22
+        ],
+        "bbox": {
+          "l": 71.05355834960938,
+          "t": 728.1908569335938,
+          "r": 184.88638305664062,
+          "b": 718.9878540039062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Zona de ocupación nula"
+      },
+      {
+        "page_no": 52,
+        "charspan": [
+          0,
+          244
+        ],
+        "bbox": {
+          "l": 71.14320373535156,
+          "t": 706.4708862304688,
+          "r": 538.5760498046875,
+          "b": 674.775634765625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+      },
+      {
+        "page_no": 52,
+        "charspan": [
+          0,
+          339
+        ],
+        "bbox": {
+          "l": 71.12328338623047,
+          "t": 657.0712280273438,
+          "r": 538.6266479492188,
+          "b": 613.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+      },
+      {
+        "page_no": 52,
+        "charspan": [
+          0,
+          15
+        ],
+        "bbox": {
+          "l": 71.05355834960938,
+          "t": 586.0808715820312,
+          "r": 145.38958740234375,
+          "b": 576.7483520507812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Zona de refugio"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Zona de refugio\n**Path:** Anejo SI A Terminología → Zona de refugio\n**Level:** 2\n**Tags:** Terminología, Zona, Refugio\n**Pages:** 52-52\n\n\nZona con superficie suficiente para el número de plazas que sean exigibles, de dimensiones 1,20 x 0,80 m para usuarios de sillas de ruedas o de 0,80 x 0,60 m para personas con otro tipo de movilidad reducida.\nLas zonas de refugio deben situarse , sin invadir la anchura libre de paso , en los rellanos de escaleras protegidas o especialmente protegidas , en los vestíbulos de independencia de escaleras especialmente protegidas, o en un pasillo protegido .\nJunto a la zona de refugio debe poder trazarse un círculo Ø 1,50 m libre de obstáculos y del barrido de puertas, pudiendo éste invadir una de las plazas previstas .\nEn edificios de uso diferente al Uso Residencial Vivienda que dispongan de un puesto de control permanente durante su horario de actividad, la zona de refugio contará con un intercomunicador visual y auditivo con dicho puesto.\n52\nDocumento Básico SI en caso de Incendio\nAnejo C. Resistencia al fuego de las estructuras de hormigón armado",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Zona con superficie suficiente para el número de plazas que sean exigibles, de dimensiones 1,20 x 0,80 m para usuarios de sillas de ruedas o de 0,80 x 0,60 m para personas con otro tipo de movilidad reducida.\nLas zonas de refugio deben situarse , sin invadir la anchura libre de paso , en los rellanos de escaleras protegidas o especialmente protegidas , en los vestíbulos de independencia de escaleras especialmente protegidas, o en un pasillo protegido .\nJunto a la zona de refugio debe poder trazarse un círculo Ø 1,50 m libre de obstáculos y del barrido de puertas, pudiendo éste invadir una de las plazas previstas .\nEn edificios de uso diferente al Uso Residencial Vivienda que dispongan de un puesto de control permanente durante su horario de actividad, la zona de refugio contará con un intercomunicador visual y auditivo con dicho puesto.",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Defines requirements for refuge areas, including dimensions, location, clear space, and communication systems.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 149,
+        "end_pos": 997
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 39,
+        "end_index": 210
+      },
+      "section_metadata": {
+        "section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de refugio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zona con superficie suficiente para el número de plazas que sean exigibles, de dimensiones 1,20 x 0,80 m para usuarios de sillas de ruedas o de 0,80 x 0,60 m para personas con otro tipo de movilidad reducida.",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "88982b3d42eea317",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Refuge areas must have sufficient surface area for the required number of spaces, with specific dimensions for wheelchair users and people with reduced mobility.",
+        "applies_if": "HAS(REFUGE.AREA) AND REFUGE.AREA.REQUIRED_SPACES > 0",
+        "satisfied_if": "(REFUGE.AREA.DIMENSION.WHEELCHAIR.LENGTH >= 1.20 AND REFUGE.AREA.DIMENSION.WHEELCHAIR.WIDTH >= 0.80) OR (REFUGE.AREA.DIMENSION.REDUCED_MOBILITY.LENGTH >= 0.80 AND REFUGE.AREA.DIMENSION.REDUCED_MOBILITY.WIDTH >= 0.60)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "REFUGE.AREA",
+          "REFUGE.AREA.DIMENSION",
+          "REFUGE.AREA.DIMENSION.WHEELCHAIR",
+          "REFUGE.AREA.DIMENSION.REDUCED_MOBILITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 169,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "REFUGE.AREA.DIMENSION.WHEELCHAIR.LENGTH = 1.20 m",
+          "REFUGE.AREA.DIMENSION.WHEELCHAIR.WIDTH = 0.80 m",
+          "REFUGE.AREA.DIMENSION.REDUCED_MOBILITY.LENGTH = 0.80 m",
+          "REFUGE.AREA.DIMENSION.REDUCED_MOBILITY.WIDTH = 0.60 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Zona de refugio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 143,
+        "end_pos": 347
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 37,
+        "end_index": 87
+      },
+      "section_metadata": {
+        "section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de refugio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las zonas de refugio deben situarse , sin invadir la anchura libre de paso , en los rellanos de escaleras protegidas o especialmente protegidas , en los vestíbulos de independencia de escaleras especialmente protegidas, o en un pasillo protegido .",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "88982b3d42eea317",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Refuge areas must be located without invading the clear passage width, on landings of protected or specially protected stairs, in independence vestibules of specially protected stairs, or in a protected corridor.",
+        "applies_if": "HAS(REFUGE.AREA)",
+        "satisfied_if": "REFUGE.AREA.LOCATION IN ['PROTECTED.STAIR.LANDING', 'SPECIALLY_PROTECTED.STAIR.LANDING', 'SPECIALLY_PROTECTED.STAIR.INDEPENDENCE_VESTIBULE', 'PROTECTED.CORRIDOR'] AND REFUGE.AREA.DOES_NOT_INVADE_CLEAR_PASSAGE_WIDTH == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "REFUGE.AREA",
+          "REFUGE.AREA.LOCATION",
+          "STAIR.PROTECTED",
+          "STAIR.SPECIALLY_PROTECTED",
+          "CORRIDOR.PROTECTED",
+          "PASSAGE.WIDTH.CLEAR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 170,
+          "span_char_end": 379,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Zona de refugio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 348,
+        "end_pos": 593
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 87,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de refugio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Junto a la zona de refugio debe poder trazarse un círculo Ø 1,50 m libre de obstáculos y del barrido de puertas, pudiendo éste invadir una de las plazas previstas .",
+      "attributes": {
+        "id": "c1d6e7f8-d3ee-421f-8c30-16772d47c2d4",
+        "parent_section_id": "88982b3d42eea317",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Next to the refuge area, a clear circle of 1.50 m diameter must be able to be drawn, free of obstacles and door sweeps, which may invade one of the planned spaces.",
+        "applies_if": "HAS(REFUGE.AREA)",
+        "satisfied_if": "REFUGE.AREA.ADJACENT_CLEAR_CIRCLE.DIAMETER >= 1.50 AND REFUGE.AREA.ADJACENT_CLEAR_CIRCLE.FREE_OF_OBSTACLES == TRUE AND REFUGE.AREA.ADJACENT_CLEAR_CIRCLE.FREE_OF_DOOR_SWEEP == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "ACCESSIBILITY",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "REFUGE.AREA",
+          "REFUGE.AREA.CLEAR_SPACE",
+          "DOOR.SWEEP"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 380,
+          "span_char_end": 546,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "REFUGE.AREA.ADJACENT_CLEAR_CIRCLE.DIAMETER = 1.50 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Zona de refugio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 604,
+        "end_pos": 768
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 131,
+        "end_index": 170
+      },
+      "section_metadata": {
+        "section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de refugio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En edificios de uso diferente al Uso Residencial Vivienda que dispongan de un puesto de control permanente durante su horario de actividad, la zona de refugio contará con un intercomunicador visual y auditivo con dicho puesto.",
+      "attributes": {
+        "id": "d2e7f8a9-e4ff-432e-8d41-17883e58d3e5",
+        "parent_section_id": "88982b3d42eea317",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In buildings with a use other than Residential Housing that have a permanent control post during their operating hours, the refuge area must have a visual and auditory intercom with said post.",
+        "applies_if": "BUILDING.USAGE != 'RESIDENTIAL.HOUSING' AND HAS(CONTROL.POST.PERMANENT) AND CONTROL.POST.PERMANENT.OPERATING_HOURS == TRUE AND HAS(REFUGE.AREA)",
+        "satisfied_if": "REFUGE.AREA.HAS_VISUAL_INTERCOM_TO_CONTROL_POST == TRUE AND REFUGE.AREA.HAS_AUDITORY_INTERCOM_TO_CONTROL_POST == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": [
+            "PUBLIC.EDUCATION",
+            "PUBLIC.GOV",
+            "PUBLIC.PARK",
+            "PUBLIC.HOSPITAL",
+            "AGRICULTURE",
+            "GENERAL",
+            "ADMINISTRATIVE",
+            "PUBLIC.COMMERCIAL",
+            "PUBLIC.RESIDENTIAL",
+            "PUBLIC.ASSEMBLY",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "BUILDING.USAGE",
+          "CONTROL.POST.PERMANENT",
+          "REFUGE.AREA",
+          "INTERCOM.VISUAL",
+          "INTERCOM.AUDITORY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 547,
+          "span_char_end": 747,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Zona de refugio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 769,
+        "end_pos": 996
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 170,
+        "end_index": 209
+      },
+      "section_metadata": {
+        "section_id": "88982b3d42eea317",
+        "section_name": "Zona de refugio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 52,
+        "end_page": 52,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Zona de refugio"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              168
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 537.8338012695312,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "mos de apertura de las puertas de los vestíbulos estarán a una distancia de 0,30 m, como mínimo, del"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 728.1908569335938,
+              "r": 184.88638305664062,
+              "b": 718.9878540039062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de ocupación nula"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              244
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 706.4708862304688,
+              "r": 538.5760498046875,
+              "b": 674.775634765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona en la que la presencia de personas sea ocasional o bien a efectos de mantenimiento, tales como "
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              339
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 657.0712280273438,
+              "r": 538.6266479492188,
+              "b": 613.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los puntos de dichas zonas deben cumplir los límites que se establecen para los recorridos de evacua"
+          },
+          {
+            "page_no": 52,
+            "charspan": [
+              0,
+              15
+            ],
+            "bbox": {
+              "l": 71.05355834960938,
+              "t": 586.0808715820312,
+              "r": 145.38958740234375,
+              "b": 576.7483520507812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Zona de refugio"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 1108
+}

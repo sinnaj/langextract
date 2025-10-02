@@ -1,0 +1,299 @@
+{
+  "chunk_id": 85,
+  "section_metadata": {
+    "section_id": "cc4ee820e3a3496f",
+    "section_name": "Uso Residencial Público",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 51,
+    "end_page": 51,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Uso Residencial Público"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 768.9913330078125,
+          "r": 149.84713745117188,
+          "b": 759.9078369140625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Hospitalario"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          260
+        ],
+        "bbox": {
+          "l": 71.12328338623047,
+          "t": 747.630859375,
+          "r": 538.427978515625,
+          "b": 715.018310546875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          317
+        ],
+        "bbox": {
+          "l": 71.33244323730469,
+          "t": 698.0708618164062,
+          "r": 538.6266479492188,
+          "b": 656.1504516601562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.66111755371094,
+          "t": 627.15087890625,
+          "r": 186.55711364746094,
+          "b": 619.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Uso Residencial Público"
+      },
+      {
+        "page_no": 51,
+        "charspan": [
+          0,
+          380
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 605.5208740234375,
+          "r": 538.4279174804688,
+          "b": 561.617919921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Uso Residencial Público\n**Path:** Anejo SI A Terminología → Uso Residencial Público\n**Level:** 2\n**Tags:** Terminología, Uso, Residencial, Público\n**Pages:** 51-51\n\n\nEdificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular de la actividad diferente del conjunto de los ocupantes y que puede disponer de servicios comunes, tales como limpieza, comedor, lavandería, locales para reuniones y espectáculos, deportes, etc. Incluye a los hoteles, hostales, residencias, pensiones, apartamentos turísticos, etc.",
+  "extractions": [
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular de la actividad diferente del conjunto de los ocupantes y que puede disponer de servicios comunes, tales como limpieza, comedor, lavandería, locales para reuniones y espectáculos, deportes, etc. Incluye a los hoteles, hostales, residencias, pensiones, apartamentos turísticos, etc.",
+      "attributes": {
+        "id": "1192e425-4503-4f81-807d-304677271427",
+        "parent_section_id": "cc4ee820e3a3496f",
+        "classification_type": "USAGE",
+        "classification_name": "PUBLIC.RESIDENTIAL",
+        "classification_value": "BUILDING.USAGE == 'PUBLIC.RESIDENTIAL'",
+        "classification_description": "Building or establishment intended to provide temporary accommodation, managed by an activity owner different from the occupants, and which may have common services such as cleaning, dining, laundry, meeting and entertainment rooms, sports, etc. Includes hotels, hostels, residences, pensions, tourist apartments, etc.",
+        "source": {
+          "span_char_start": 105,
+          "span_char_end": 444,
+          "visual_refs": []
+        },
+        "section_name": "Uso Residencial Público",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 177,
+        "end_pos": 557
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 47,
+        "end_index": 117
+      },
+      "section_metadata": {
+        "section_id": "cc4ee820e3a3496f",
+        "section_name": "Uso Residencial Público",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 51,
+        "end_page": 51,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Uso Residencial Público"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 768.9913330078125,
+              "r": 149.84713745117188,
+              "b": 759.9078369140625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Hospitalario"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              260
+            ],
+            "bbox": {
+              "l": 71.12328338623047,
+              "t": 747.630859375,
+              "r": 538.427978515625,
+              "b": 715.018310546875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a asistencia sanitaria con hospitalización de 24 horas y que es"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              317
+            ],
+            "bbox": {
+              "l": 71.33244323730469,
+              "t": 698.0708618164062,
+              "r": 538.6266479492188,
+              "b": 656.1504516601562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Las zonas de dichos edificios o establecimientos destinadas a asistencia sanitaria de carácter ambul"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.66111755371094,
+              "t": 627.15087890625,
+              "r": 186.55711364746094,
+              "b": 619.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Uso Residencial Público"
+          },
+          {
+            "page_no": 51,
+            "charspan": [
+              0,
+              380
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 605.5208740234375,
+              "r": 538.4279174804688,
+              "b": 561.617919921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 557
+}

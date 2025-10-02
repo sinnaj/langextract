@@ -1,0 +1,1058 @@
+{
+  "chunk_id": 15,
+  "section_metadata": {
+    "section_id": "a9143cadc4b7a2d9",
+    "section_name": "2 Cubiertas",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 20,
+    "end_page": 21,
+    "toc_path": [
+      "Sección SI 2 Propagación exterior",
+      "2 Cubiertas"
+    ],
+    "parent_section_id": "38284053a3c96ba5",
+    "positioning_data": [
+      {
+        "page_no": 20,
+        "charspan": [
+          0,
+          27
+        ],
+        "bbox": {
+          "l": 104.96600341796875,
+          "t": 696.2919921875,
+          "r": 221.59698486328125,
+          "b": 687.8590087890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura 1.5. Fachadas a 135º"
+      },
+      {
+        "page_no": 20,
+        "charspan": [
+          0,
+          27
+        ],
+        "bbox": {
+          "l": 388.57598876953125,
+          "t": 696.2919921875,
+          "r": 505.3059997558594,
+          "b": 687.8590087890625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura 1.6. Fachadas a 180º"
+      },
+      {
+        "page_no": 20,
+        "charspan": [
+          0,
+          594
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 672.630859375,
+          "r": 538.417724609375,
+          "b": 605.5783081054688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+      },
+      {
+        "page_no": 20,
+        "charspan": [
+          0,
+          51
+        ],
+        "bbox": {
+          "l": 302.2760009765625,
+          "t": 481.9419860839844,
+          "r": 520.4110107421875,
+          "b": 473.50897216796875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+      },
+      {
+        "page_no": 20,
+        "charspan": [
+          0,
+          36
+        ],
+        "bbox": {
+          "l": 89.61000061035156,
+          "t": 481.9419860839844,
+          "r": 248.1949920654297,
+          "b": 473.50897216796875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Figura 1.7 Encuentro forjado-fachada"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 2 Cubiertas\n**Path:** Sección SI 2 Propagación exterior → 2 Cubiertas\n**Level:** 2\n**Tags:** SI2, Propagación, Exterior, Cubiertas\n**Pages:** 20-21\n\n\n1 Con el fin de limitar el riesgo de propagación exterior del incendio por la cubierta, ya sea entre dos edificios colindantes, ya sea en un mismo edificio, esta tendrá una resistencia al fuego REI 60, como mínimo, en una franja de 0,50 m de anchura medida desde el edificio colindante, así como en una franja de 1,00 m de anchura situada sobre el encuentro con la cubierta de todo elemento comparti-\n20\nDocumento Básico SI en caso de Incendio\nSI 2. Propagación exterior\nmentador de un sector de incendio o de un local de riesgo especial alto. Como alternativa a la condición anterior puede optarse por prolongar la medianería o el elemento compartimentador 0,60 m por encima del acabado de la cubierta.\n2 En el encuentro entre una cubierta y una fachada que pertenezcan a sectores de incendio o a edificios diferentes, la altura h sobre la cubierta a la que deberá estar cualquier zona de fachada cuya resistencia al fuego no sea al menos EI 60 será la que se indica a continuación, en función de la distancia d de la fachada, en proyección horizontal, a la que esté cualquier zona de la cubierta cuya resistencia al fuego tampoco alcance dicho valor.\nFigura 2.1 Encuentro cubierta-fachada\n3 Los materiales que ocupen más del 10% del revestimiento o acabado exterior de las zonas de cubierta situadas a menos de 5 m de distancia de la proyección vertical de cualquier zona de fachada, del mismo o de otro edificio, cuya resistencia al fuego no sea al menos EI 60, incluida la cara superior de los voladizos cuyo saliente exceda de 1 m, así como los lucernarios, claraboyas y cualquier otro elemento de iluminación o ventilación, deben pertenecer a la clase de reacción al fuego BROOF (t1).\n21\nDocumento Básico SI en caso de Incendio SI 3. Evacuación de ocupantes\nSección SI 3 Evacuación de ocupantes",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Section: 2 Cubiertas\nPath: Sección SI 2 Propagación exterior → 2 Cubiertas\nLevel: 2\nTags: SI2, Propagación, Exterior, Cubiertas\nPages: 20-21",
+      "attributes": {
+        "id": "7ee1c7a0-53e1-4fb1-8bf8-f6a0a107ab5d",
+        "meta_summary": "Regulations for fire propagation control in roofs, including fire resistance requirements for different zones and materials.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "a9143cadc4b7a2d9",
+        "section_name": "2 Cubiertas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2,
+        "end_pos": 22
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 1,
+        "end_index": 5
+      },
+      "section_metadata": {
+        "section_id": "a9143cadc4b7a2d9",
+        "section_name": "2 Cubiertas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 20,
+        "end_page": 21,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "2 Cubiertas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Con el fin de limitar el riesgo de propagación exterior del incendio por la cubierta, ya sea entre dos edificios colindantes, ya sea en un mismo edificio, esta tendrá una resistencia al fuego REI 60, como mínimo, en una franja de 0,50 m de anchura medida desde el edificio colindante, así como en una franja de 1,00 m de anchura situada sobre el encuentro con la cubierta de todo elemento compartimentador de un sector de incendio o de un local de riesgo especial alto. Como alternativa a la condición anterior puede optarse por prolongar la medianería o el elemento compartimentador 0,60 m por encima del acabado de la cubierta.",
+      "attributes": {
+        "id": "b5efb3e6-d788-468d-bdd0-15661cac010c",
+        "parent_section_id": "a9143cadc4b7a2d9",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Roofs must have a fire resistance of at least REI 60 in specific areas to limit external fire propagation.",
+        "applies_if": "TRUE",
+        "satisfied_if": "(ROOF.FIRE_RESISTANCE.REI >= 60 AND ROOF.ZONE.WIDTH == 0.50 AND ROOF.ZONE.LOCATION == 'ADJACENT_BUILDING') OR (ROOF.FIRE_RESISTANCE.REI >= 60 AND ROOF.ZONE.WIDTH == 1.00 AND ROOF.ZONE.LOCATION == 'FIRE_SECTOR_COMPARTMENT_ELEMENT') ; OR (PARTY_WALL.PROLONGATION.HEIGHT >= 0.60 AND PARTY_WALL.PROLONGATION.LOCATION == 'ABOVE_ROOF_FINISH')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROOF.FIRE_RESISTANCE",
+          "ROOF.ZONE.WIDTH",
+          "ROOF.ZONE.LOCATION",
+          "PARTY_WALL.PROLONGATION.HEIGHT",
+          "PARTY_WALL.PROLONGATION.LOCATION",
+          "FIRE.PROPAGATION.EXTERNAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 126,
+          "span_char_end": 643,
+          "visual_refs": [
+            "Pages: 20-21"
+          ]
+        },
+        "extracted_parameters": [
+          "ROOF.FIRE_RESISTANCE.REI >= 60",
+          "ROOF.ZONE.WIDTH == 0.50 m",
+          "ROOF.ZONE.WIDTH == 1.00 m",
+          "PARTY_WALL.PROLONGATION.HEIGHT >= 0.60 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Cubiertas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 161,
+        "end_pos": 551
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 43,
+        "end_index": 130
+      },
+      "section_metadata": {
+        "section_id": "a9143cadc4b7a2d9",
+        "section_name": "2 Cubiertas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 20,
+        "end_page": 21,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "2 Cubiertas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 En el encuentro entre una cubierta y una fachada que pertenezcan a sectores de incendio diferentes o bien zonas de riesgo especial con el resto del edificio, la altura h sobre la cubierta a la que deberá estar cualquier zona de fachada cuya resistencia al fuego no sea al menos EI 60 será la que se indica a continuación, en función de la distancia d de la fachada, en proyección horizontal, a la que esté cualquier zona de la cubierta cuya resistencia al fuego tampoco alcance dicho valor.",
+      "attributes": {
+        "id": "a1b4e86b-d2dd-418e-8a24-512fd6f1d9d8",
+        "parent_section_id": "a9143cadc4b7a2d9",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "At the junction between a roof and a facade belonging to different fire sectors or special risk areas, the height 'h' above the roof for any facade zone with fire resistance less than EI 60 must be determined based on the horizontal distance 'd' to any roof zone with fire resistance less than EI 60.",
+        "applies_if": "(ROOF.FIRE_SECTOR != FACADE.FIRE_SECTOR) OR (FACADE.ZONE.IS_SPECIAL_RISK == TRUE)",
+        "satisfied_if": "FACADE.ZONE.HEIGHT_ABOVE_ROOF == FUNCTION_OF(FACADE.DISTANCE_TO_ROOF_ZONE_WITH_LOW_FIRE_RESISTANCE) AND FACADE.FIRE_RESISTANCE.EI < 60 AND ROOF.FIRE_RESISTANCE.EI < 60",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "ROOF.FIRE_SECTOR",
+          "FACADE.FIRE_SECTOR",
+          "FACADE.ZONE.IS_SPECIAL_RISK",
+          "FACADE.FIRE_RESISTANCE.EI",
+          "ROOF.FIRE_RESISTANCE.EI",
+          "FACADE.ZONE.HEIGHT_ABOVE_ROOF",
+          "FACADE.DISTANCE_TO_ROOF_ZONE_WITH_LOW_FIRE_RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 645,
+          "span_char_end": 1058,
+          "visual_refs": [
+            "Pages: 20-21"
+          ]
+        },
+        "extracted_parameters": [
+          "FACADE.FIRE_RESISTANCE.EI < 60",
+          "ROOF.FIRE_RESISTANCE.EI < 60"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The specific function for 'h' based on 'd' is not provided in the text.",
+        "section_name": "2 Cubiertas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 865,
+        "end_pos": 954
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 196,
+        "end_index": 212
+      },
+      "section_metadata": {
+        "section_id": "a9143cadc4b7a2d9",
+        "section_name": "2 Cubiertas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 20,
+        "end_page": 21,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "2 Cubiertas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Los materiales que ocupen más del 10% del revestimiento o acabado exterior de las zonas de cubierta situadas a menos de 5 m de distancia de la proyección vertical de cualquier zona de fachada, del mismo o de otro edificio, cuya resistencia al fuego no sea al menos EI 60, incluida la cara superior de los voladizos cuyo saliente exceda de 1 m, así como los lucernarios, claraboyas y cualquier otro elemento de iluminación o ventilación, deben pertenecer a la clase de reacción al fuego BROOF (t1).",
+      "attributes": {
+        "id": "c1d2e3f4-5a6b-7c8d-9e0f-1234567890ab",
+        "parent_section_id": "a9143cadc4b7a2d9",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Materials covering more than 10% of the exterior cladding or finish of roof areas located less than 5m from the vertical projection of any facade zone (of the same or another building) with fire resistance less than EI 60, including the upper face of cantilevers exceeding 1m, and all skylights, rooflights, and other lighting/ventilation elements, must belong to fire reaction class BROOF (t1).",
+        "applies_if": "MATERIAL.COVERAGE_PERCENTAGE > 0.10 AND ROOF.ZONE.DISTANCE_TO_FACADE_VERTICAL_PROJECTION < 5 AND FACADE.FIRE_RESISTANCE.EI < 60 AND (MATERIAL.TYPE IN ['CLADDING', 'EXTERIOR_FINISH'] OR CANTILEVER.PROJECTION > 1 OR ELEMENT.TYPE IN ['SKYLIGHT', 'ROOFLIGHT', 'LIGHTING_ELEMENT', 'VENTILATION_ELEMENT'])",
+        "satisfied_if": "MATERIAL.FIRE_REACTION_CLASS == 'BROOF (t1)'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.COVERAGE_PERCENTAGE",
+          "ROOF.ZONE.DISTANCE_TO_FACADE_VERTICAL_PROJECTION",
+          "FACADE.FIRE_RESISTANCE.EI",
+          "CANTILEVER.PROJECTION",
+          "ELEMENT.TYPE",
+          "MATERIAL.FIRE_REACTION_CLASS",
+          "FIRE.PROPAGATION.EXTERNAL"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 1060,
+          "span_char_end": 1667,
+          "visual_refs": [
+            "Pages: 20-21"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.COVERAGE_PERCENTAGE > 0.10",
+          "ROOF.ZONE.DISTANCE_TO_FACADE_VERTICAL_PROJECTION < 5 m",
+          "FACADE.FIRE_RESISTANCE.EI < 60",
+          "CANTILEVER.PROJECTION > 1 m",
+          "MATERIAL.FIRE_REACTION_CLASS == 'BROOF (t1)'"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "2 Cubiertas",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1352,
+        "end_pos": 1851
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 299,
+        "end_index": 408
+      },
+      "section_metadata": {
+        "section_id": "a9143cadc4b7a2d9",
+        "section_name": "2 Cubiertas",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 20,
+        "end_page": 21,
+        "toc_path": [
+          "Sección SI 2 Propagación exterior",
+          "2 Cubiertas"
+        ],
+        "parent_section_id": "38284053a3c96ba5",
+        "positioning_data": [
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 104.96600341796875,
+              "t": 696.2919921875,
+              "r": 221.59698486328125,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.5. Fachadas a 135º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              27
+            ],
+            "bbox": {
+              "l": 388.57598876953125,
+              "t": 696.2919921875,
+              "r": 505.3059997558594,
+              "b": 687.8590087890625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.6. Fachadas a 180º"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              594
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 672.630859375,
+              "r": 538.417724609375,
+              "b": 605.5783081054688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Con el fin de limitar el riesgo de propagación vertical del incendio por fachada entre dos sectore"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              51
+            ],
+            "bbox": {
+              "l": 302.2760009765625,
+              "t": 481.9419860839844,
+              "r": 520.4110107421875,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1. 8 Encuentro forjado- fachada con saliente"
+          },
+          {
+            "page_no": 20,
+            "charspan": [
+              0,
+              36
+            ],
+            "bbox": {
+              "l": 89.61000061035156,
+              "t": 481.9419860839844,
+              "r": 248.1949920654297,
+              "b": 473.50897216796875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Figura 1.7 Encuentro forjado-fachada"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1961
+}

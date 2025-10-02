@@ -1,0 +1,348 @@
+{
+  "chunk_id": 139,
+  "section_metadata": {
+    "section_id": "6f652ec72be3ea0b",
+    "section_name": "E.5.1.3 Aislamiento",
+    "section_type": "Headline",
+    "section_level": 4,
+    "start_page": 83,
+    "end_page": 83,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.5 Disposiciones constructivas",
+      "E.5.2 Otros elementos",
+      "E.5.1.3 Aislamiento"
+    ],
+    "parent_section_id": "a01073223ad0166b",
+    "positioning_data": [
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          31
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 768.1925659179688,
+          "r": 295.5711364746094,
+          "b": 755.3881225585938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5 Disposiciones constructivas"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          22
+        ],
+        "bbox": {
+          "l": 71.81999969482422,
+          "t": 732.43603515625,
+          "r": 202.2919921875,
+          "b": 721.1920166015625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5.1 Muros y forjados"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          34
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 704.1012573242188,
+          "r": 243.05096435546875,
+          "b": 694.8583374023438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.5.1.1 Dimensiones y separaciones"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          111
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 684.5108642578125,
+          "r": 538.4279174804688,
+          "b": 663.7678833007812,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+      },
+      {
+        "page_no": 83,
+        "charspan": [
+          0,
+          79
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 655.5111694335938,
+          "r": 425.6928405761719,
+          "b": 646.3678588867188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: E.5.1.3 Aislamiento\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.5 Disposiciones constructivas → E.5.2 Otros elementos → E.5.1.3 Aislamiento\n**Level:** 4\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Disposiciones, Constructivas, Otros, Elementos, Aislamiento\n**Pages:** 83-83\n\n\n1 Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Las capas de materiales aislantes o tableros que sean tenidos en cuenta en el cálculo deben fijarse al entramado de madera de tal forma que se evite el fallo prematuro o descuelgue.",
+      "attributes": {
+        "id": "23136200-843e-4896-932d-28562770281c",
+        "parent_section_id": "6f652ec72be3ea0b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Layers of insulating materials or boards considered in the calculation must be fixed to the timber framework to prevent premature failure or detachment.",
+        "applies_if": "HAS(MATERIAL.INSULATING) AND HAS(MATERIAL.BOARD) AND HAS(TIMBER.FRAMEWORK)",
+        "satisfied_if": "MATERIAL.INSULATING.FIXED_TO_TIMBER_FRAMEWORK == TRUE AND MATERIAL.BOARD.FIXED_TO_TIMBER_FRAMEWORK == TRUE AND MATERIAL.INSULATING.PREMATURE_FAILURE_PREVENTED == TRUE AND MATERIAL.BOARD.PREMATURE_FAILURE_PREVENTED == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.STRUCTURAL",
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "MATERIAL.INSULATING",
+          "MATERIAL.BOARD",
+          "TIMBER.FRAMEWORK",
+          "STRUCTURAL.INTEGRITY",
+          "FIRE.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 149,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_level": 4,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.1925659179688,
+              "r": 295.5711364746094,
+              "b": 755.3881225585938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5 Disposiciones constructivas"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 732.43603515625,
+              "r": 202.2919921875,
+              "b": 721.1920166015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1 Muros y forjados"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 704.1012573242188,
+              "r": 243.05096435546875,
+              "b": 694.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1.1 Dimensiones y separaciones"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              111
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 684.5108642578125,
+              "r": 538.4279174804688,
+              "b": 663.7678833007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              79
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 655.5111694335938,
+              "r": 425.6928405761719,
+              "b": 646.3678588867188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 332,
+        "end_pos": 513
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 116
+      },
+      "section_metadata": {
+        "section_id": "6f652ec72be3ea0b",
+        "section_name": "E.5.1.3 Aislamiento",
+        "section_type": "Headline",
+        "section_level": 4,
+        "start_page": 83,
+        "end_page": 83,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.5 Disposiciones constructivas",
+          "E.5.2 Otros elementos",
+          "E.5.1.3 Aislamiento"
+        ],
+        "parent_section_id": "a01073223ad0166b",
+        "positioning_data": [
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              31
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 768.1925659179688,
+              "r": 295.5711364746094,
+              "b": 755.3881225585938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5 Disposiciones constructivas"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              22
+            ],
+            "bbox": {
+              "l": 71.81999969482422,
+              "t": 732.43603515625,
+              "r": 202.2919921875,
+              "b": 721.1920166015625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1 Muros y forjados"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              34
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 704.1012573242188,
+              "r": 243.05096435546875,
+              "b": 694.8583374023438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.5.1.1 Dimensiones y separaciones"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              111
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 684.5108642578125,
+              "r": 538.4279174804688,
+              "b": 663.7678833007812,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La separación entre ejes de montantes de muros entramados y de viguetas de forjado no debe superar"
+          },
+          {
+            "page_no": 83,
+            "charspan": [
+              0,
+              79
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 655.5111694335938,
+              "r": 425.6928405761719,
+              "b": 646.3678588867188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En los muros, los paneles individuales deben tener un espesor mínimo tp,min ."
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 1,
+  "char_count": 513
+}

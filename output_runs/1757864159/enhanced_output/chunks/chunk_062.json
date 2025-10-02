@@ -1,0 +1,974 @@
+{
+  "chunk_id": 62,
+  "section_metadata": {
+    "section_id": "442feb01acdd2203",
+    "section_name": "Origen de evacuación",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 46,
+    "end_page": 46,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Origen de evacuación"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          29
+        ],
+        "bbox": {
+          "l": 71.68103790283203,
+          "t": 768.9913330078125,
+          "r": 216.53167724609375,
+          "b": 759.7783203125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego totalmente desarrollado"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          136
+        ],
+        "bbox": {
+          "l": 71.3125228881836,
+          "t": 747.5108642578125,
+          "r": 537.9783935546875,
+          "b": 726.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          16
+        ],
+        "bbox": {
+          "l": 71.68103790283203,
+          "t": 699.5113525390625,
+          "r": 151.48056030273438,
+          "b": 690.29833984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego localizado"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          109
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 678.15087890625,
+          "r": 538.1879272460938,
+          "b": 657.0582885742188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+      },
+      {
+        "page_no": 46,
+        "charspan": [
+          0,
+          41
+        ],
+        "bbox": {
+          "l": 71.65116119384766,
+          "t": 630.15087890625,
+          "r": 273.1896057128906,
+          "b": 622.7904663085938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Modelo informático de dinámica de fluidos"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Origen de evacuación\n**Path:** Anejo SI A Terminología → Origen de evacuación\n**Level:** 2\n**Tags:** Terminología, Origen, Evacuación\n**Pages:** 46-46\n\n\nEs todo punto ocupable de un edificio, exceptuando los del interior de las viviendas y los de todo recinto o conjunto de ellos comunicados entre sí, en los que la densidad de ocupación no exceda de 1 persona/5 m 2 y cuya superficie total no exceda de 50 m², como pueden ser las habitaciones de hotel, residencia u hospital, los despachos de oficinas, etc.\nLos puntos ocupables de todos los locales de riesgo especial y los de las zonas de ocupación nula cuya superficie exceda de 50 m², se consideran origen de evacuación y deben cumplir los límites que se establecen para la longitud de los recorridos de evacuación hasta las salidas de dichos espacios, cuando se trate de zonas de riesgo especial, y, en todo caso, hasta las salidas de planta, pero no es preciso tomarlos en consideración a efectos de determinar la altura de evacuación de un edificio o el número de ocupantes.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Es todo punto ocupable de un edificio, exceptuando los del interior de las viviendas y los de todo recinto o conjunto de ellos comunicados entre sí, en los que la densidad de ocupación no exceda de 1 persona/5 m 2 y cuya superficie total no exceda de 50 m², como pueden ser las habitaciones de hotel, residencia u hospital, los despachos de oficinas, etc.\nLos puntos ocupables de todos los locales de riesgo especial y los de las zonas de ocupación nula cuya superficie exceda de 50 m², se consideran origen de evacuación y deben cumplir los límites que se establecen para la longitud de los recorridos de evacuación hasta las salidas de dichos espacios, cuando se trate de zonas de riesgo especial, y, en todo caso, hasta las salidas de planta, pero no es preciso tomarlos en consideración a efectos de determinar la altura de evacuación de un edificio o el número de ocupantes.",
+      "attributes": {
+        "id": "29807553-9092-411a-847e-400109015e19",
+        "meta_summary": "Defines 'Origin of Evacuation' for building safety regulations, specifying which areas are considered origins and which are exempt.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "442feb01acdd2203",
+        "section_name": "Origen de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 164,
+        "end_pos": 1043
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 230
+      },
+      "section_metadata": {
+        "section_id": "442feb01acdd2203",
+        "section_name": "Origen de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Origen de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Origen de evacuación",
+      "attributes": {
+        "id": "4266183e-257a-436d-9279-051871216522",
+        "parent_section_id": "442feb01acdd2203",
+        "classification_type": "DEFINITION",
+        "classification_name": "EVACUATION.ORIGIN",
+        "classification_value": "Any occupiable point in a building, except those inside dwellings and those in any enclosure or set of interconnected enclosures where the occupancy density does not exceed 1 person/5 m² and whose total area does not exceed 50 m², such as hotel rooms, residences or hospitals, office desks, etc.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "EVACUATION",
+          "OCCUPANCY.DENSITY",
+          "AREA.SIZE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 46,
+          "span_char_end": 328,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Origen de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 31
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 8
+      },
+      "section_metadata": {
+        "section_id": "442feb01acdd2203",
+        "section_name": "Origen de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Origen de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "Classifications",
+      "extraction_text": "Origen de evacuación",
+      "attributes": {
+        "id": "1461975e-2131-4091-a128-403816654060",
+        "parent_section_id": "442feb01acdd2203",
+        "classification_type": "DEFINITION",
+        "classification_name": "EVACUATION.ORIGIN",
+        "classification_value": "Occupiable points in all special risk premises and in areas of zero occupancy whose surface exceeds 50 m² are considered evacuation origins.",
+        "applies_if": "TRUE",
+        "relevant_tags": [
+          "EVACUATION",
+          "SPECIAL.RISK.PREMISES",
+          "ZERO.OCCUPANCY.AREA",
+          "AREA.SIZE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 329,
+          "span_char_end": 743,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Origen de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 11,
+        "end_pos": 31
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 3,
+        "end_index": 8
+      },
+      "section_metadata": {
+        "section_id": "442feb01acdd2203",
+        "section_name": "Origen de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Origen de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los puntos ocupables de todos los locales de riesgo especial y los de las zonas de ocupación nula cuya superficie exceda de 50 m², se consideran origen de evacuación y deben cumplir los límites que se establecen para la longitud de los recorridos de evacuación hasta las salidas de dichos espacios, cuando se trate de zonas de riesgo especial, y, en todo caso, hasta las salidas de planta, pero no es preciso tomarlos en consideración a efectos de determinar la altura de evacuación de un edificio o el número de ocupantes.",
+      "attributes": {
+        "id": "29807553-9092-411a-847e-400109015e19",
+        "parent_section_id": "442feb01acdd2203",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Occupiable points in all special risk premises and in areas of zero occupancy whose surface exceeds 50 m² must comply with the established limits for the length of evacuation routes to the exits of said spaces (for special risk areas) and, in any case, to the floor exits.",
+        "applies_if": "(PREMISES.TYPE == 'SPECIAL.RISK') OR (AREA.OCCUPANCY == 'ZERO' AND AREA.SIZE > 50)",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.COMPLIES_WITH_LIMITS",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "PREMISES.TYPE.SPECIAL.RISK",
+          "AREA.OCCUPANCY.ZERO",
+          "AREA.SIZE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 329,
+          "span_char_end": 743,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "AREA.SIZE > 50 m²"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "These points are not to be considered for determining building evacuation height or number of occupants.",
+        "section_name": "Origen de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 502,
+        "end_pos": 1024
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 113,
+        "end_index": 225
+      },
+      "section_metadata": {
+        "section_id": "442feb01acdd2203",
+        "section_name": "Origen de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 46,
+        "end_page": 46,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Origen de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              29
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 768.9913330078125,
+              "r": 216.53167724609375,
+              "b": 759.7783203125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego totalmente desarrollado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              136
+            ],
+            "bbox": {
+              "l": 71.3125228881836,
+              "t": 747.5108642578125,
+              "r": 537.9783935546875,
+              "b": 726.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Estado en el que todas las superficies combustibles existentes en un determinado espacio participan "
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              16
+            ],
+            "bbox": {
+              "l": 71.68103790283203,
+              "t": 699.5113525390625,
+              "r": 151.48056030273438,
+              "b": 690.29833984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego localizado"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              109
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 678.15087890625,
+              "r": 538.1879272460938,
+              "b": 657.0582885742188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Fuego que sólo afecta a una zona limitada de la carga de fuego del sector de incendio (UNE-EN 1991-1"
+          },
+          {
+            "page_no": 46,
+            "charspan": [
+              0,
+              41
+            ],
+            "bbox": {
+              "l": 71.65116119384766,
+              "t": 630.15087890625,
+              "r": 273.1896057128906,
+              "b": 622.7904663085938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Modelo informático de dinámica de fluidos"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1043
+}

@@ -1,0 +1,1477 @@
+{
+  "chunk_id": 40,
+  "section_metadata": {
+    "section_id": "5a6dfb1a8e6f4193",
+    "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 40,
+    "end_page": 40,
+    "toc_path": [
+      "Sección SI 6 Resistencia al fuego de la estructura",
+      "5 Determinación de los efectos de las acciones durante el incendio"
+    ],
+    "parent_section_id": "39b7950996e811a8",
+    "positioning_data": [
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          113
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 768.7911987304688,
+          "r": 538.3092041015625,
+          "b": 749.9904174804688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          268
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 739.9912109375,
+          "r": 538.3079223632812,
+          "b": 707.6983642578125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          37
+        ],
+        "bbox": {
+          "l": 71.21076202392578,
+          "t": 676.6748046875,
+          "r": 354.8352355957031,
+          "b": 666.4255981445312,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "4 Elementos estructurales secundarios"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          416
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 653.231201171875,
+          "r": 538.6302490234375,
+          "b": 598.1282958984375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+      },
+      {
+        "page_no": 40,
+        "charspan": [
+          0,
+          262
+        ],
+        "bbox": {
+          "l": 88.86095428466797,
+          "t": 589.8008422851562,
+          "r": 538.5631713867188,
+          "b": 557.4283447265625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: 5 Determinación de los efectos de las acciones durante el incendio\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 5 Determinación de los efectos de las acciones durante el incendio\n**Level:** 2\n**Tags:** SI6, Resistencia, Fuego, Estructura, Determinación, Los, Efectos, Las, Acciones, Durante, Incendio\n**Pages:** 40-40\n\n\n1 Deben ser consideradas las mismas acciones permanentes y variables que en el cálculo en situación persistente, si es probable que actúen en caso de incendio.\n2 Los efectos de las acciones durante la exposición al incendio deben obtenerse del Documento Básico DB -SE.\n3 Los valores de las distintas acciones y coeficientes deben ser obtenidos según se indica en el Documento Básico DB -SE, apartado 4.2.2 .\n4 Si se emplean los métodos indicados en este Documento Básico para el cálculo de la resistencia al fuego estructural puede tomarse como efecto de la acción de incendio únicamente el derivado del efecto de la temperatura en la resistencia del elemento estructural.\n5 Como simplificación para el cálculo se puede estimar el efecto de las acciones de cálculo en situación de incendio a partir del efecto de las acciones de cálculo a temperatura normal , como:\nsiendo:\nEd efecto de las acciones de cálculo en situación persistente (temperatura normal);\nfi factor de reducción.\ndonde el factor fi se puede obtener como:\ndonde el subíndice 1 es la acción variable dominante considerada en la situación persistente .\n40\nDocumento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "# Section: 5 Determinación de los efectos de las acciones durante el incendio\n**Path:** Sección SI 6 Resistencia al fuego de la estructura → 5 Determinación de los efectos de las acciones durante el incendio\n**Level:** 2\n**Tags:** SI6, Resistencia, Fuego, Estructura, Determinación, Los, Efectos, Las, Acciones, Durante, Incendio\n**Pages:** 40-40\n\n\n1 Deben ser consideradas las mismas acciones permanentes y variables que en el cálculo en situación persistente, si es probable que actúen en caso de incendio.\n2 Los efectos de las acciones durante la exposición al incendio deben obtenerse del Documento Básico DB -SE.\n3 Los valores de las distintas acciones y coeficientes deben ser obtenidos según se indica en el Documento Básico DB -SE, apartado 4.2.2 .\n4 Si se emplean los métodos indicados en este Documento Básico para el cálculo de la resistencia al fuego estructural puede tomarse como efecto de la acción de incendio únicamente el derivado del efecto de la temperatura en la resistencia del elemento estructural.\n5 Como simplificación para el cálculo se puede estimar el efecto de las acciones de cálculo en situación de incendio a partir del efecto de las acciones de cálculo a temperatura normal , como:\nsiendo:\nEd efecto de las acciones de cálculo en situación persistente (temperatura normal);\nfi factor de reducción.\ndonde el factor fi se puede obtener como:\ndonde el subíndice 1 es la acción variable dominante considerada en la situación persistente .\n40\nDocumento Básico SI en caso de Incendio SI 6. Resistencia al fuego de la estructura",
+      "attributes": {
+        "id": "si6_5_determinacion_efectos_incendio",
+        "meta_summary": "This section details the determination of action effects during a fire, including consideration of permanent and variable actions, reference to DB-SE for action effects and values, and a simplified calculation method for structural fire resistance.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Documento Básico DB-SE"
+        ],
+        "referenced_documents_sections": [
+          "DB-SE.4.2.2"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 0,
+        "end_pos": 1556
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 0,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "1 Deben ser consideradas las mismas acciones permanentes y variables que en el cálculo en situación persistente, si es probable que actúen en caso de incendio.",
+      "attributes": {
+        "id": "si6_5_norm_1",
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The same permanent and variable actions considered in the persistent situation calculation must be considered if they are likely to act in case of fire.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.ACTION.PERMANENT == TRUE AND FIRE.ACTION.VARIABLE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.ACTION.PERMANENT",
+          "FIRE.ACTION.VARIABLE",
+          "CALCULATION.PERSISTENT_SITUATION"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 258,
+          "span_char_end": 390,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 344,
+        "end_pos": 507
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 80,
+        "end_index": 114
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "2 Los efectos de las acciones durante la exposición al incendio deben obtenerse del Documento Básico DB -SE.",
+      "attributes": {
+        "id": "si6_5_norm_2",
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The effects of actions during fire exposure must be obtained from Basic Document DB-SE.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.ACTION.EFFECTS.OBTAINED_FROM == 'DB-SE'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.ACTION.EFFECTS",
+          "DOCUMENT.DB-SE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 391,
+          "span_char_end": 482,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 507,
+        "end_pos": 616
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 114,
+        "end_index": 138
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "3 Los valores de las distintas acciones y coeficientes deben ser obtenidos según se indica en el Documento Básico DB -SE, apartado 4.2.2 .",
+      "attributes": {
+        "id": "si6_5_norm_3",
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The values of the different actions and coefficients must be obtained as indicated in Basic Document DB-SE, section 4.2.2.",
+        "applies_if": "TRUE",
+        "satisfied_if": "FIRE.ACTION.VALUES.OBTAINED_FROM == 'DB-SE.4.2.2' AND FIRE.COEFFICIENTS.OBTAINED_FROM == 'DB-SE.4.2.2'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.ACTION.VALUES",
+          "FIRE.COEFFICIENTS",
+          "DOCUMENT.DB-SE.4.2.2"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 483,
+          "span_char_end": 599,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 616,
+        "end_pos": 754
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 138,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "4 Si se emplean los métodos indicados en este Documento Básico para el cálculo de la resistencia al fuego estructural puede tomarse como efecto de la acción de incendio únicamente el derivado del efecto de la temperatura en la resistencia del elemento estructural.",
+      "attributes": {
+        "id": "si6_5_norm_4",
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the methods indicated in this Basic Document are used for the calculation of structural fire resistance, only the effect derived from the temperature effect on the resistance of the structural element can be taken as the effect of the fire action.",
+        "applies_if": "STRUCTURAL.FIRE_RESISTANCE.CALCULATION.METHOD == 'THIS_BASIC_DOCUMENT'",
+        "satisfied_if": "FIRE.ACTION.EFFECT == 'TEMPERATURE_EFFECT_ON_STRUCTURAL_ELEMENT_RESISTANCE'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STRUCTURAL.FIRE_RESISTANCE.CALCULATION",
+          "FIRE.ACTION.EFFECT",
+          "TEMPERATURE.EFFECT",
+          "STRUCTURAL.ELEMENT.RESISTANCE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 600,
+          "span_char_end": 809,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 753,
+        "end_pos": 1008
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 171,
+        "end_index": 224
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "5 Como simplificación para el cálculo se puede estimar el efecto de las acciones de cálculo en situación de incendio a partir del efecto de las acciones de cálculo a temperatura normal , como:\nsiendo:\nEd efecto de las acciones de cálculo en situación persistente (temperatura normal);\nfi factor de reducción.\ndonde el factor fi se puede obtener como:\ndonde el subíndice 1 es la acción variable dominante considerada en la situación persistente .",
+      "attributes": {
+        "id": "si6_5_procedure_1",
+        "parent_section_id": "5a6dfb1a8e6f4193",
+        "procedure_statement": "For calculation simplification, the effect of design actions in a fire situation can be estimated from the effect of design actions at normal temperature, using the formula: Ed_fire = Ed_normal * ηfi, where Ed is the effect of design actions in a persistent situation (normal temperature) and ηfi is the reduction factor. The factor ηfi can be obtained using a specific formula where the subscript 1 represents the dominant variable action considered in the persistent situation.",
+        "procedure_type": "CALCULATION",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "relevant_tags": [
+          "CALCULATION.SIMPLIFICATION",
+          "FIRE.ACTION.EFFECT",
+          "NORMAL.TEMPERATURE.ACTION.EFFECT",
+          "REDUCTION.FACTOR",
+          "DOMINANT.VARIABLE.ACTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 810,
+          "span_char_end": 1218,
+          "visual_refs": []
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": "The specific formulas for the calculation are not provided in the text, only the variables and their definitions.",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 984,
+        "end_pos": 1445
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 221,
+        "end_index": 325
+      },
+      "section_metadata": {
+        "section_id": "5a6dfb1a8e6f4193",
+        "section_name": "5 Determinación de los efectos de las acciones durante el incendio",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 40,
+        "end_page": 40,
+        "toc_path": [
+          "Sección SI 6 Resistencia al fuego de la estructura",
+          "5 Determinación de los efectos de las acciones durante el incendio"
+        ],
+        "parent_section_id": "39b7950996e811a8",
+        "positioning_data": [
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              113
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 768.7911987304688,
+              "r": 538.3092041015625,
+              "b": 749.9904174804688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "derse como ligera aquella cubierta cuya carga permanente debida únicamente a su cerramiento no exced"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              268
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 739.9912109375,
+              "r": 538.3079223632812,
+              "b": 707.6983642578125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Los elementos estructurales de una escalera protegida o de un pasillo protegido que estén contenid"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              37
+            ],
+            "bbox": {
+              "l": 71.21076202392578,
+              "t": 676.6748046875,
+              "r": 354.8352355957031,
+              "b": 666.4255981445312,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "4 Elementos estructurales secundarios"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              416
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 653.231201171875,
+              "r": 538.6302490234375,
+              "b": 598.1282958984375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 Los elementos estructurales cuyo colapso ante la acción directa del incendio no pueda ocasionar da"
+          },
+          {
+            "page_no": 40,
+            "charspan": [
+              0,
+              262
+            ],
+            "bbox": {
+              "l": 88.86095428466797,
+              "t": 589.8008422851562,
+              "r": 538.5631713867188,
+              "b": 557.4283447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 6,
+  "char_count": 1556
+}

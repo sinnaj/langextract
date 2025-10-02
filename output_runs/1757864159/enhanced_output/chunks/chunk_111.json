@@ -1,0 +1,946 @@
+{
+  "chunk_id": 111,
+  "section_metadata": {
+    "section_id": "035dc6c92ec2d453",
+    "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 61,
+    "end_page": 61,
+    "toc_path": [
+      "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "C.3  Método simplificado de la isoterma 500",
+      "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal"
+    ],
+    "parent_section_id": "8d62547fda7476ee",
+    "positioning_data": [
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          183
+        ],
+        "bbox": {
+          "l": 88.98336029052734,
+          "t": 768.870849609375,
+          "r": 538.0538330078125,
+          "b": 748.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          216
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 739.9508666992188,
+          "r": 537.6117553710938,
+          "b": 709.5504150390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          761
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 699.3908081054688,
+          "r": 538.4279174804688,
+          "b": 609.538330078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.50800323486328,
+          "t": 589.0060424804688,
+          "r": 207.75601196289062,
+          "b": 577.9180297851562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "C.2.4 Capas protectoras"
+      },
+      {
+        "page_no": 61,
+        "charspan": [
+          0,
+          240
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 567.7208862304688,
+          "r": 538.12744140625,
+          "b": 537.1904907226562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal\n**Path:** Anejo C. Resistencia al fuego de las estructuras de hormigón armado → C.3  Método simplificado de la isoterma 500 → C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Hormigón, Armado, Método, Simplificado, Isoterma, Determinación, Capacidad, Resistente, Cálculo, Transversal\n**Pages:** 61-61\n\n\n1 La comprobación de la capacidad portante de una sección de hormigón armado se realiza por los métodos establecidos en la Instrucción EHE, considerando:\nuna sección reducida de hormigón, obtenida eliminando a efectos de cálculo para determinar la capacidad resistente de la sección transversal, las zonas que hayan alcanzado una temperatura superior a los 500ºC durante el periodo de tiempo considerado;\nque las características mecánicas del hormigón de la sección reducida no se ven afectadas por la temperatura, conservando sus valores iniciales en cuanto a resistencia y módulo de elasticidad;\nque las características mecánicas de las armaduras se reducen de acuerdo con la temperatura que haya alcanzado su centro durante el tiempo de resistencia al fuego considerado. Se considerarán todas las armaduras, incluso aquéllas que queden situadas fuera de la sección transversal reducida de hormigón.\n61\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado\n2 La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimiento más afinado es, a través del método del apartado C.3, comprobar que, en situación de incendio, la capacidad residual a momentos de cada signo del conjunto de las secciones equilibra la carga.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 La comprobación de la capacidad portante de una sección de hormigón armado se realiza por los métodos establecidos en la Instrucción EHE, considerando:\nuna sección reducida de hormigón, obtenida eliminando a efectos de cálculo para determinar la capacidad resistente de la sección transversal, las zonas que hayan alcanzado una temperatura superior a los 500ºC durante el periodo de tiempo considerado;\nque las características mecánicas del hormigón de la sección reducida no se ven afectadas por la temperatura, conservando sus valores iniciales en cuanto a resistencia y módulo de elasticidad;\nque las características mecánicas de las armaduras se reducen de acuerdo con la temperatura que haya alcanzado su centro durante el tiempo de resistencia al fuego considerado. Se considerarán todas las armaduras, incluso aquéllas que queden situadas fuera de la sección transversal reducida de hormigón.\n61\nDocumento Básico SI en caso de Incendio Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+      "attributes": {
+        "id": "c3d2_1",
+        "meta_summary": "Describes the method for checking the load-bearing capacity of a reinforced concrete section under fire conditions, considering reduced concrete section and temperature effects on rebar.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [
+          "Instrucción EHE"
+        ],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "035dc6c92ec2d453",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 494,
+        "end_pos": 1506
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 125,
+        "end_index": 336
+      },
+      "section_metadata": {
+        "section_id": "035dc6c92ec2d453",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "La comprobación de la capacidad portante de una sección de hormigón armado se realiza por los métodos establecidos en la Instrucción EHE, considerando:\nuna sección reducida de hormigón, obtenida eliminando a efectos de cálculo para determinar la capacidad resistente de la sección transversal, las zonas que hayan alcanzado una temperatura superior a los 500ºC durante el periodo de tiempo considerado;\nque las características mecánicas del hormigón de la sección reducida no se ven afectadas por la temperatura, conservando sus valores iniciales en cuanto a resistencia y módulo de elasticidad;\nque las características mecánicas de las armaduras se reducen de acuerdo con la temperatura que haya alcanzado su centro durante el tiempo de resistencia al fuego considerado. Se considerarán todas las armaduras, incluso aquéllas que queden situadas fuera de la sección transversal reducida de hormigón.",
+      "attributes": {
+        "id": "c3d2_proc_1",
+        "parent_section_id": "035dc6c92ec2d453",
+        "Procedure": "To check the load-bearing capacity of a reinforced concrete section, use methods from Instrucción EHE. Consider a reduced concrete section by removing areas that reached over 500ºC. Assume mechanical properties of the reduced concrete section are unaffected by temperature. Reduce mechanical properties of rebar according to the temperature reached at its center, considering all rebar.",
+        "target_reference": [],
+        "Tags": [
+          "CONCRETE.REINFORCED",
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.CAPACITY",
+          "CALCULATION.METHOD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 100,
+          "span_char_end": 743,
+          "visual_refs": []
+        },
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 461,
+        "end_pos": 1359
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 117,
+        "end_index": 303
+      },
+      "section_metadata": {
+        "section_id": "035dc6c92ec2d453",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "La comprobación de vigas o losas sección a sección resulta del lado de la seguridad. Un procedimiento más afinado es, a través del método del apartado C.3, comprobar que, en situación de incendio, la capacidad residual a momentos de cada signo del conjunto de las secciones equilibra la carga.",
+      "attributes": {
+        "id": "c3d2_proc_2",
+        "parent_section_id": "035dc6c92ec2d453",
+        "Procedure": "Checking beams or slabs section by section is on the safe side. A more refined procedure, using the method in section C.3, is to verify that, in a fire situation, the residual moment capacity of each sign for the set of sections balances the load.",
+        "target_reference": [
+          "C.3"
+        ],
+        "Tags": [
+          "BEAMS",
+          "SLABS",
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.CAPACITY",
+          "CALCULATION.METHOD"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 801,
+          "span_char_end": 1056,
+          "visual_refs": []
+        },
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1509,
+        "end_pos": 1802
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 337,
+        "end_index": 408
+      },
+      "section_metadata": {
+        "section_id": "035dc6c92ec2d453",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Legal_Reference",
+      "extraction_text": "Instrucción EHE",
+      "attributes": {
+        "id": "ehe_instruction",
+        "parent_section_id": "035dc6c92ec2d453",
+        "Legal_Reference": "Instrucción EHE",
+        "citation_details": {
+          "title": "Instrucción EHE",
+          "code": null,
+          "year": null,
+          "article": null
+        },
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 174,
+          "span_char_end": 189,
+          "visual_refs": []
+        },
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "035dc6c92ec2d453",
+        "section_name": "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 61,
+        "end_page": 61,
+        "toc_path": [
+          "Anejo C. Resistencia al fuego de las estructuras de hormigón armado",
+          "C.3  Método simplificado de la isoterma 500",
+          "C.3.2 Determinación de la capacidad resistente de cálculo de la sección transversal"
+        ],
+        "parent_section_id": "8d62547fda7476ee",
+        "positioning_data": [
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              183
+            ],
+            "bbox": {
+              "l": 88.98336029052734,
+              "t": 768.870849609375,
+              "r": 538.0538330078125,
+              "b": 748.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "y condiciones indicados en el apartado C.2.4.(2). Si el forjado tiene función de compartimentación d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              216
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 739.9508666992188,
+              "r": 537.6117553710938,
+              "b": 709.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 Para una resistencia al fuego R 90 o mayor, la armadura de negativos de forjados continuos se debe"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              761
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 699.3908081054688,
+              "r": 538.4279174804688,
+              "b": 609.538330078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Para resistencias al fuego mayores que R 120, o bien cuando los elementos de entrevigado no sean d"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.50800323486328,
+              "t": 589.0060424804688,
+              "r": 207.75601196289062,
+              "b": 577.9180297851562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "C.2.4 Capas protectoras"
+          },
+          {
+            "page_no": 61,
+            "charspan": [
+              0,
+              240
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 567.7208862304688,
+              "r": 538.12744140625,
+              "b": 537.1904907226562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 1802
+}

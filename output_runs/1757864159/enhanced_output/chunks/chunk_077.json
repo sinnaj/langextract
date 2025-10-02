@@ -1,0 +1,721 @@
+{
+  "chunk_id": 77,
+  "section_metadata": {
+    "section_id": "4dfb336524461e3c",
+    "section_name": "Superficie útil",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 49,
+    "end_page": 49,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Superficie útil"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          18
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 769.11083984375,
+          "r": 159.90670776367188,
+          "b": 761.740478515625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          364
+        ],
+        "bbox": {
+          "l": 71.55155944824219,
+          "t": 747.5108642578125,
+          "r": 538.3604125976562,
+          "b": 703.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.30255889892578,
+          "t": 676.5908203125,
+          "r": 187.08755493164062,
+          "b": 667.25830078125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de riesgo mínimo"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          57
+        ],
+        "bbox": {
+          "l": 71.64119720458984,
+          "t": 654.9908447265625,
+          "r": 328.986083984375,
+          "b": 645.6583251953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Sector de incendio que cumple las siguientes condiciones:"
+      },
+      {
+        "page_no": 49,
+        "charspan": [
+          0,
+          85
+        ],
+        "bbox": {
+          "l": 71.2627182006836,
+          "t": 630.4312133789062,
+          "r": 458.24237060546875,
+          "b": 621.1783447265625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Superficie útil\n**Path:** Anejo SI A Terminología → Superficie útil\n**Level:** 2\n**Tags:** Terminología, Superficie, Útil\n**Pages:** 49-49\n\n\nSuperficie en planta de un recinto, sector o edificio ocupable por las personas. En uso Comercial , cuando no se defina en proyecto la disposición de mostradores, estanterías, cajas registradoras y, en general , de aquellos elementos que configuran la implantación comercial de un establecimiento , se tomará como superficie útil de las zonas destinadas al público, al menos el 75% de la superficie construida de dichas zonas.",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Superficie en planta de un recinto, sector o edificio ocupable por las personas. En uso Comercial , cuando no se defina en proyecto la disposición de mostradores, estanterías, cajas registradoras y, en general , de aquellos elementos que configuran la implantación comercial de un establecimiento , se tomará como superficie útil de las zonas destinadas al público, al menos el 75% de la superficie construida de dichas zonas.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "meta_summary": "Definition of usable area and calculation method for commercial use when layout is not defined.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "parent_section_id": "4dfb336524461e3c",
+        "section_name": "Superficie útil",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 152,
+        "end_pos": 578
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 40,
+        "end_index": 126
+      },
+      "section_metadata": {
+        "section_id": "4dfb336524461e3c",
+        "section_name": "Superficie útil",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Superficie útil"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "CLASS_DEF",
+      "extraction_text": "Superficie útil",
+      "attributes": {
+        "id": "f8e7d6c5-b4a3-2109-8765-43210fedcba9",
+        "parent_section_id": "4dfb336524461e3c",
+        "classification_type": "DEFINITION",
+        "term": "Superficie útil",
+        "definition": "Superficie en planta de un recinto, sector o edificio ocupable por las personas.",
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 78,
+          "visual_refs": []
+        },
+        "section_name": "Superficie útil",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 9,
+        "end_pos": 26
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 2,
+        "end_index": 6
+      },
+      "section_metadata": {
+        "section_id": "4dfb336524461e3c",
+        "section_name": "Superficie útil",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Superficie útil"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "PROCEDURE",
+      "extraction_text": "En uso Comercial , cuando no se defina en proyecto la disposición de mostradores, estanterías, cajas registradoras y, en general , de aquellos elementos que configuran la implantación comercial de un establecimiento , se tomará como superficie útil de las zonas destinadas al público, al menos el 75% de la superficie construida de dichas zonas.",
+      "attributes": {
+        "id": "1a2b3c4d-5e6f-7890-1234-567890abcdef",
+        "parent_section_id": "4dfb336524461e3c",
+        "procedure_name": "Cálculo de Superficie Útil en Uso Comercial sin Definición de Proyecto",
+        "procedure_description": "When the layout of counters, shelves, cash registers, and other commercial elements is not defined in the project for commercial use, the usable area for public zones shall be taken as at least 75% of the constructed area of those zones.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND PROJECT.LAYOUT.DEFINED == FALSE",
+        "satisfied_if": "AREA.USABLE.PUBLIC >= (AREA.CONSTRUCTED.PUBLIC * 0.75)",
+        "topics": [
+          "CLASSIFICATION.AREA"
+        ],
+        "relevant_tags": [
+          "AREA.USABLE",
+          "AREA.CONSTRUCTED",
+          "BUILDING.USAGE.PUBLIC.COMMERCIAL"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": []
+        },
+        "source": {
+          "span_char_start": 79,
+          "span_char_end": 378,
+          "visual_refs": []
+        },
+        "confidence": 0.95,
+        "section_name": "Superficie útil",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 219,
+        "end_pos": 564
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 52,
+        "end_index": 123
+      },
+      "section_metadata": {
+        "section_id": "4dfb336524461e3c",
+        "section_name": "Superficie útil",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 49,
+        "end_page": 49,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Superficie útil"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              18
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 769.11083984375,
+              "r": 159.90670776367188,
+              "b": 761.740478515625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              364
+            ],
+            "bbox": {
+              "l": 71.55155944824219,
+              "t": 747.5108642578125,
+              "r": 538.3604125976562,
+              "b": 703.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Espacio de un edificio separado de otras zonas del mismo por elementos constructivos delimitadores r"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.30255889892578,
+              "t": 676.5908203125,
+              "r": 187.08755493164062,
+              "b": 667.25830078125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de riesgo mínimo"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              57
+            ],
+            "bbox": {
+              "l": 71.64119720458984,
+              "t": 654.9908447265625,
+              "r": 328.986083984375,
+              "b": 645.6583251953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Sector de incendio que cumple las siguientes condiciones:"
+          },
+          {
+            "page_no": 49,
+            "charspan": [
+              0,
+              85
+            ],
+            "bbox": {
+              "l": 71.2627182006836,
+              "t": 630.4312133789062,
+              "r": 458.24237060546875,
+              "b": 621.1783447265625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 3,
+  "char_count": 578
+}

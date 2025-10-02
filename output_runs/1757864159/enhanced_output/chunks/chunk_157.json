@@ -1,0 +1,1425 @@
+{
+  "chunk_id": 157,
+  "section_metadata": {
+    "section_id": "c13ff6fbf67a3855",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 4,
+    "start_page": 26,
+    "end_page": 27,
+    "toc_path": [
+      "Sección SI 3 Evacuación de ocupantes",
+      "4 Dimensionado de los medios de evacuación",
+      "4.2 Cálculo",
+      "Table 1"
+    ],
+    "parent_section_id": "f51ad3b89d2ac4b7",
+    "positioning_data": [
+      {
+        "page_no": 26,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 71.97673034667969,
+          "t": 658.9164123535156,
+          "r": 536.4163208007812,
+          "b": 309.0191650390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 27,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 80.30641174316406,
+          "t": 413.61590576171875,
+          "r": 545.2892456054688,
+          "b": 92.3135986328125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 4"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 3 Evacuación de ocupantes → 4 Dimensionado de los medios de evacuación → 4.2 Cálculo → Table 1\n**Level:** 4\n**Tags:** SI3, Evacuación, Ocupantes, Dimensionado, Los, Medios, Evacuación, Cálculo, Table\n**Pages:** 26-27\n\n\n| Tipo de elemento | Dimensionado |\n| --- | --- |\n| Puertas y pasos | A  P / 200(1)  0,80 m(2) La anchura de toda hoja de puerta no debe ser menor que 0,60 m, ni  exceder de 1,23 m. |\n| Pasillos y rampas | A  P / 200  1,00 m(3)(4)(5) |\n| Pasos entre filas de asientos fijos en  salas para público tales como cines,  teatros, auditorios, etc.(6) | En filas con salida a pasillo únicamente por uno de sus extremos, A ≥ 30  cm cuando tengan 7 asientos y 2,5 cm más por cada asiento adicional,  hasta un máximo admisible de 12 asientos. En filas con salida a pasillo por sus dos extremos, A ≥ 30 cm en filas de 14  asientos como máximo y 1,25 cm más por cada asiento adicional. Para 30  asientos o más: A  50 cm.(7) Cada 25 filas, como máximo, se dispondrá un paso entre filas cuya anchu\u0002 ra sea 1,20 m, como mínimo. |\n| Escaleras no protegidas(8) |  |\n| para evacuación descendente | A  P / 160(9) |\n| para evacuación ascendente | A  P / (160-10h)\r (9) |\n| Escaleras protegidas | E ≤ 3 S + 160 AS\r (9) |\n| Pasillos protegidos | P ≤ 3 S + 200 A( 9) |\n| En zonas al aire libre: |  |\n| Pasos, pasillos y rampas | A  P / 600(10) |\n| Escaleras | A  P / 480(10) |\n\n| Anchura de la  escalera en m | Escalera no protegida |  | Escalera protegida (evacuación descendente o ascen\u0002 dente)(1) |  |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | Evacuación  ascendente(2) | Evacuación  descendente | Nº de plantas |  |  |  |  |  |\n|  |  |  | 2 | 4 | 6 | 8 | 10 | cada planta más |\n| 1,00 | 132 | 160 | 224 | 288 | 352 | 416 | 480 | +32 |\n| 1,10 | 145 | 176 | 248 | 320 | 392 | 464 | 536 | +36 |\n| 1,20 | 158 | 192 | 274 | 356 | 438 | 520 | 602 | +41 |\n| 1,30 | 171 | 208 | 302 | 396 | 490 | 584 | 678 | +47 |\n| 1,40 | 184 | 224 | 328 | 432 | 536 | 640 | 744 | +52 |\n| 1,50 | 198 | 240 | 356 | 472 | 588 | 704 | 820 | +58 |\n| 1,60 | 211 | 256 | 384 | 512 | 640 | 768 | 896 | +64 |\n| 1,70 | 224 | 272 | 414 | 556 | 698 | 840 | 982 | +71 |\n| 1,80 | 237 | 288 | 442 | 596 | 750 | 904 | 1058 | +77 |\n| 1,90 | 250 | 304 | 472 | 640 | 808 | 976 | 1144 | +84 |\n| 2,00 | 264 | 320 | 504 | 688 | 872 | 1056 | 1240 | +92 |\n| 2,10 | 277 | 336 | 534 | 732 | 930 | 1128 | 1326 | +99 |\n| 2,20 | 290 | 352 | 566 | 780 | 994 | 1208 | 1422 | +107 |\n| 2,30 | 303 | 368 | 598 | 828 | 1058 | 1288 | 1518 | +115 |\n| 2,40 | 316 | 384 | 630 | 876 | 1122 | 1368 | 1614 | +123 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A  P / 200(1)  0,80 m(2) La anchura de toda hoja de puerta no debe ser menor que 0,60 m, ni  exceder de 1,23 m.",
+      "attributes": {
+        "id": "e008139e-213c-4447-9759-331e8787964d",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The width of any door leaf must not be less than 0.60 m, nor exceed 1.23 m. The clear width (A) must be greater than or equal to the occupancy (P) divided by 200, and greater than or equal to 0.80 m.",
+        "applies_if": "ELEMENT.TYPE == 'DOOR' OR ELEMENT.TYPE == 'PASSAGE'",
+        "satisfied_if": "DOOR.LEAF.WIDTH >= 0.60 AND DOOR.LEAF.WIDTH <= 1.23 AND CLEAR_WIDTH >= (OCCUPANCY / 200) AND CLEAR_WIDTH >= 0.80",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "DOOR.WIDTH",
+          "PASSAGE.WIDTH",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 122,
+          "span_char_end": 240,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "DOOR.LEAF.WIDTH >= 0.60 m",
+          "DOOR.LEAF.WIDTH <= 1.23 m\",\n          \"CLEAR_WIDTH >= 0.80 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 329,
+        "end_pos": 442
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 92,
+        "end_index": 133
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A  P / 200  1,00 m(3)(4)(5)",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134a",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The clear width (A) of corridors and ramps must be greater than or equal to the occupancy (P) divided by 200, and greater than or equal to 1.00 m.",
+        "applies_if": "ELEMENT.TYPE == 'CORRIDOR' OR ELEMENT.TYPE == 'RAMP'",
+        "satisfied_if": "CLEAR_WIDTH >= (OCCUPANCY / 200) AND CLEAR_WIDTH >= 1.00",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "CORRIDOR.WIDTH",
+          "RAMP.WIDTH",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 272,
+          "span_char_end": 310,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "CLEAR_WIDTH >= 1.00 m"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 467,
+        "end_pos": 496
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 139,
+        "end_index": 156
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En filas con salida a pasillo únicamente por uno de sus extremos, A ≥ 30  cm cuando tengan 7 asientos y 2,5 cm más por cada asiento adicional,  hasta un máximo admisible de 12 asientos. En filas con salida a pasillo por sus dos extremos, A ≥ 30 cm en filas de 14  asientos como máximo y 1,25 cm más por cada asiento adicional. Para 30  asientos o más: A  50 cm.(7) Cada 25 filas, como máximo, se dispondrá un paso entre filas cuya anchu ra sea 1,20 m, como mínimo.",
+      "attributes": {
+        "id": "7662094c-4977-449e-8809-536098197775",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In rows with exit to aisle only at one end, the clear width (A) must be ≥ 30 cm for 7 seats, with an additional 2.5 cm per additional seat, up to a maximum of 12 seats. In rows with exit to aisle at both ends, A must be ≥ 30 cm for a maximum of 14 seats, with an additional 1.25 cm per additional seat. For 30 seats or more, A must be ≥ 50 cm. A passage between rows with a minimum width of 1.20 m must be provided every 25 rows at most.",
+        "applies_if": "ELEMENT.TYPE == 'PASSAGE.BETWEEN.FIXED_SEATS' AND USAGE IN ['CINEMA', 'THEATER', 'AUDITORIUM']",
+        "satisfied_if": "(ROW.EXIT.TYPE == 'ONE_END' AND ROW.SEATS == 7 AND CLEAR_WIDTH >= 0.30) OR (ROW.EXIT.TYPE == 'ONE_END' AND ROW.SEATS > 7 AND ROW.SEATS <= 12 AND CLEAR_WIDTH >= (0.30 + (ROW.SEATS - 7) * 0.025)) OR (ROW.EXIT.TYPE == 'BOTH_ENDS' AND ROW.SEATS <= 14 AND CLEAR_WIDTH >= 0.30) OR (ROW.EXIT.TYPE == 'BOTH_ENDS' AND ROW.SEATS > 14 AND CLEAR_WIDTH >= (0.30 + (ROW.SEATS - 14) * 0.0125)) OR (ROW.SEATS >= 30 AND CLEAR_WIDTH >= 0.50); OR (ROW.COUNT % 25 == 0 AND PASSAGE.BETWEEN_ROWS.WIDTH >= 1.20)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": [
+            "PUBLIC.ASSEMBLY"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "SEATING.ROW.WIDTH",
+          "SEATING.ROW.EXIT",
+          "SEATING.ROW.COUNT",
+          "PASSAGE.WIDTH"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 344,
+          "span_char_end": 807,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "CLEAR_WIDTH >= 0.30 m",
+          "ADDITIONAL_WIDTH_PER_SEAT = 0.025 m",
+          "MAX_SEATS = 12",
+          "MAX_SEATS = 14",
+          "ADDITIONAL_WIDTH_PER_SEAT = 0.0125 m",
+          "CLEAR_WIDTH >= 0.50 m",
+          "PASSAGE.BETWEEN_ROWS.WIDTH >= 1.20 m",
+          "MAX_ROWS_BETWEEN_PASSAGES = 25"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 610,
+        "end_pos": 1047
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 183,
+        "end_index": 298
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A  P / 160(9)",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134b",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The clear width (A) of unprotected stairs for descending evacuation must be greater than or equal to the occupancy (P) divided by 160.",
+        "applies_if": "ELEMENT.TYPE == 'STAIR' AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING'",
+        "satisfied_if": "CLEAR_WIDTH >= (OCCUPANCY / 160)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIR.WIDTH",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 870,
+          "span_char_end": 884,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1145,
+        "end_pos": 1159
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 328,
+        "end_index": 336
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A  P / (160-10h) (9)",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134c",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The clear width (A) of unprotected stairs for ascending evacuation must be greater than or equal to the occupancy (P) divided by (160 - 10h), where h is the number of floors.",
+        "applies_if": "ELEMENT.TYPE == 'STAIR' AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING'",
+        "satisfied_if": "CLEAR_WIDTH >= (OCCUPANCY / (160 - (10 * NUMBER_OF_FLOORS)))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIR.WIDTH",
+          "OCCUPANCY",
+          "NUMBER.OF_FLOORS"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 918,
+          "span_char_end": 937,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width, h refers to the number of floors.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1193,
+        "end_pos": 1215
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 344,
+        "end_index": 357
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "E ≤ 3 S + 160 AS (9)",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134d",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The evacuation capacity (E) of protected stairs must be less than or equal to 3 times the number of stairs (S) plus 160 times the clear width (AS).",
+        "applies_if": "ELEMENT.TYPE == 'STAIR' AND STAIR.PROTECTION == 'PROTECTED'",
+        "satisfied_if": "EVACUATION.CAPACITY <= (3 * NUMBER_OF_STAIRS + 160 * CLEAR_WIDTH)\",\n        \"exempt_if\": \"FALSE\",\n        \"topics\": [\n          \"SAFETY.USE\",\n          \"ACCESSIBILITY\"\n        ],\n        \"project_dimensions\": {\n          \"PROJECT.TYPE\": [],\n          \"BUILDING.USAGE\": []\n        },\n        \"priority\": 5,\n        \"priority_factors\": {\n          \"severity\": 0.8,\n          \"likelihood\": 0.9,\n          \"impact\": 0.7\n        },\n        \"relevant_tags\": [\n          \"STAIR.EVACUATION.CAPACITY\",\n          \"STAIR.COUNT\",\n          \"STAIR.WIDTH\"\n        ],\n        \"relevant_roles\": [],\n        \"lifecycle_phase\": [],\n        \"location_scope\": {\n          \"COUNTRY\": \"ES\",\n          \"STATES\": [],\n          \"PROVINCES\": [],\n          \"REGIONS\": [],\n          \"COMMUNES\": [],\n          \"ZONES\": [],\n          \"GEO_CODES\": [],\n          \"UNCERTAINTY\": 0.05\n        },\n        \"source\": {\n          \"span_char_start\": 966,\n          \"span_char_end\": 984,\n          \"visual_refs\": [\n            \"Table 1\"\n          ]\n        },\n        \"extracted_parameters\": [],\n        \"consequence_ids\": [],\n        \"confidence\": 0.95,\n        \"uncertainty\": 0.05,\n        \"notes\": \"E refers to evacuation capacity, S refers to the number of stairs, AS refers to the clear width of the stairs.\"\n      }\n    },\n    {\n      \"NORM\": \"P ≤ 3 S + 200 A( 9)\",\n      \"NORM_attributes\": {\n        \"id\": \"27011933-281b-4303-9c88-1662491a134e\",\n        \"parent_section_id\": \"4a21110a-0112-402a-9286-90518882006e\",\n        \"paragraph_number\": null,\n        \"obligation_type\": \"MANDATORY\",\n        \"norm_statement\": \"The occupancy (P) of protected corridors must be less than or equal to 3 times the number of corridors (S) plus 200 times the clear width (A).\",\n        \"applies_if\": \"ELEMENT.TYPE == 'CORRIDOR' AND CORRIDOR.PROTECTION == 'PROTECTED'\",\n        \"satisfied_if\": \"OCCUPANCY <= (3 * NUMBER_OF_CORRIDORS + 200 * CLEAR_WIDTH)\",\n        \"exempt_if\": \"FALSE\",\n        \"topics\": [\n          \"SAFETY.USE\",\n          \"ACCESSIBILITY\"\n        ],\n        \"project_dimensions\": {\n          \"PROJECT.TYPE\": [],\n          \"BUILDING.USAGE\": []\n        },\n        \"priority\": 5,\n        \"priority_factors\": {\n          \"severity\": 0.8,\n          \"likelihood\": 0.9,\n          \"impact\": 0.7\n        },\n        \"relevant_tags\": [\n          \"CORRIDOR.OCCUPANCY\",\n          \"CORRIDOR.COUNT\",\n          \"CORRIDOR.WIDTH\"\n        ],\n        \"relevant_roles\": [],\n        \"lifecycle_phase\": [],\n        \"location_scope\": {\n          \"COUNTRY\": \"ES\",\n          \"STATES\": [],\n          \"PROVINCES\": [],\n          \"REGIONS\": [],\n          \"COMMUNES\": [],\n          \"ZONES\": [],\n          \"GEO_CODES\": [],\n          \"UNCERTAINTY\": 0.05\n        },\n        \"source\": {\n          \"span_char_start\": 1010,\n          \"span_char_end\": 1025,\n          \"visual_refs\": [\n            \"Table 1\"\n          ]\n        },\n        \"extracted_parameters\": [],\n        \"consequence_ids\": [],\n        \"confidence\": 0.95,\n        \"uncertainty\": 0.05,\n        \"notes\": \"P refers to occupancy, S refers to the number of corridors, A refers to the clear width.\"\n      }\n    },\n    {\n      \"NORM\": \"A  P / 600(10)\",\n      \"NORM_attributes\": {\n        \"id\": \"27011933-281b-4303-9c88-1662491a134f\",\n        \"parent_section_id\": \"4a21110a-0112-402a-9286-90518882006e\",\n        \"paragraph_number\": null,\n        \"obligation_type\": \"MANDATORY\",\n        \"norm_statement\": \"The clear width (A) of passages, corridors, and ramps in outdoor areas must be greater than or equal to the occupancy (P) divided by 600.\",\n        \"applies_if\": \"ELEMENT.TYPE IN ['PASSAGE', 'CORRIDOR', 'RAMP'] AND LOCATION.TYPE == 'OUTDOOR'\",\n        \"satisfied_if\": \"CLEAR_WIDTH >= (OCCUPANCY / 600)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "PASSAGE.WIDTH",
+          "CORRIDOR.WIDTH",
+          "RAMP.WIDTH",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 1081,
+          "span_char_end": 1095,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1243,
+        "end_pos": 1264
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 362,
+        "end_index": 372
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "A  P / 480(10)",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134g",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The clear width (A) of stairs in outdoor areas must be greater than or equal to the occupancy (P) divided by 480.",
+        "applies_if": "ELEMENT.TYPE == 'STAIR' AND LOCATION.TYPE == 'OUTDOOR'",
+        "satisfied_if": "CLEAR_WIDTH >= (OCCUPANCY / 480)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIR.WIDTH",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 1127,
+          "span_char_end": 1141,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "P refers to the occupancy, A refers to the clear width.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1405,
+        "end_pos": 1420
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 416,
+        "end_index": 424
+      },
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "The maximum occupancy for unprotected ascending stairs with a width of 1.00m is 132 people. The maximum occupancy for unprotected descending stairs with a width of 1.00m is 160 people. The maximum occupancy for protected stairs with a width of 1.00m and 2 floors is 224 people. The maximum occupancy for protected stairs with a width of 1.00m and 4 floors is 288 people. The maximum occupancy for protected stairs with a width of 1.00m and 6 floors is 352 people. The maximum occupancy for protected stairs with a width of 1.00m and 8 floors is 416 people. The maximum occupancy for protected stairs with a width of 1.00m and 10 floors is 480 people. For each additional floor above 10, the occupancy for protected stairs with a width of 1.00m increases by 32 people.",
+      "attributes": {
+        "id": "27011933-281b-4303-9c88-1662491a134h",
+        "parent_section_id": "c13ff6fbf67a3855",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The maximum occupancy for stairs must comply with the values specified in the table based on stair width, protection type, evacuation direction, and number of floors.",
+        "applies_if": "ELEMENT.TYPE == 'STAIR'",
+        "satisfied_if": "(STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 132); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 160); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 224); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 288); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 352); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 416); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 480); OR (STAIR.WIDTH == 1.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (480 + (NUMBER_OF_FLOORS - 10) * 32)); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 145); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 176); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 248); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 320); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 392); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 464); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 536); OR (STAIR.WIDTH == 1.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (536 + (NUMBER_OF_FLOORS - 10) * 36)); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 158); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 192); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 274); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 356); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 438); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 520); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 602); OR (STAIR.WIDTH == 1.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (602 + (NUMBER_OF_FLOORS - 10) * 41)); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 171); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 208); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 302); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 396); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 490); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 584); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 678); OR (STAIR.WIDTH == 1.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (678 + (NUMBER_OF_FLOORS - 10) * 47)); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 184); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 224); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 328); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 432); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 536); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 640); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 744); OR (STAIR.WIDTH == 1.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (744 + (NUMBER_OF_FLOORS - 10) * 52)); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 198); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 240); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 356); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 472); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 588); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 704); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 820); OR (STAIR.WIDTH == 1.50 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (820 + (NUMBER_OF_FLOORS - 10) * 58)); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 211); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 256); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 384); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 512); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 640); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 768); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 896); OR (STAIR.WIDTH == 1.60 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (896 + (NUMBER_OF_FLOORS - 10) * 64)); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 224); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 272); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 414); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 556); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 698); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 840); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 982); OR (STAIR.WIDTH == 1.70 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (982 + (NUMBER_OF_FLOORS - 10) * 71)); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 237); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 288); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 442); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 596); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 750); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 904); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1058); OR (STAIR.WIDTH == 1.80 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1058 + (NUMBER_OF_FLOORS - 10) * 77)); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 250); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 304); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 472); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 640); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 808); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 976); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1144); OR (STAIR.WIDTH == 1.90 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1144 + (NUMBER_OF_FLOORS - 10) * 84)); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 264); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 320); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 504); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 688); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 872); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 1056); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1240); OR (STAIR.WIDTH == 2.00 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1240 + (NUMBER_OF_FLOORS - 10) * 92)); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 277); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 336); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 534); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 732); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 930); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 1128); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1326); OR (STAIR.WIDTH == 2.10 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1326 + (NUMBER_OF_FLOORS - 10) * 99)); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 290); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 352); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 566); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 780); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 994); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 1208); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1422); OR (STAIR.WIDTH == 2.20 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1422 + (NUMBER_OF_FLOORS - 10) * 107)); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 303); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 368); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 598); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 828); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 1058); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 1288); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1518); OR (STAIR.WIDTH == 2.30 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1518 + (NUMBER_OF_FLOORS - 10) * 115)); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'ASCENDING' AND OCCUPANCY <= 316); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'UNPROTECTED' AND STAIR.EVACUATION.DIRECTION == 'DESCENDING' AND OCCUPANCY <= 384); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 2 AND OCCUPANCY <= 630); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 4 AND OCCUPANCY <= 876); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 6 AND OCCUPANCY <= 1122); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 8 AND OCCUPANCY <= 1368); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS == 10 AND OCCUPANCY <= 1614); OR (STAIR.WIDTH == 2.40 AND STAIR.PROTECTION == 'PROTECTED' AND NUMBER_OF_FLOORS > 10 AND OCCUPANCY <= (1614 + (NUMBER_OF_FLOORS - 10) * 123))",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.USE",
+          "ACCESSIBILITY"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.9,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "STAIR.WIDTH",
+          "STAIR.PROTECTION",
+          "STAIR.EVACUATION.DIRECTION",
+          "NUMBER.OF_FLOORS",
+          "OCCUPANCY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 1143,
+          "span_char_end": 2697,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "STAIR.WIDTH = 1.00 m",
+          "OCCUPANCY <= 132",
+          "OCCUPANCY <= 160",
+          "NUMBER_OF_FLOORS = 2",
+          "OCCUPANCY <= 224",
+          "NUMBER_OF_FLOORS = 4",
+          "OCCUPANCY <= 288",
+          "NUMBER_OF_FLOORS = 6",
+          "OCCUPANCY <= 352",
+          "NUMBER_OF_FLOORS = 8",
+          "OCCUPANCY <= 416",
+          "NUMBER_OF_FLOORS = 10",
+          "OCCUPANCY <= 480",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 32",
+          "STAIR.WIDTH = 1.10 m",
+          "OCCUPANCY <= 145",
+          "OCCUPANCY <= 176",
+          "OCCUPANCY <= 248",
+          "OCCUPANCY <= 320",
+          "OCCUPANCY <= 392",
+          "OCCUPANCY <= 464",
+          "OCCUPANCY <= 536",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 36",
+          "STAIR.WIDTH = 1.20 m",
+          "OCCUPANCY <= 158",
+          "OCCUPANCY <= 192",
+          "OCCUPANCY <= 274",
+          "OCCUPANCY <= 356",
+          "OCCUPANCY <= 438",
+          "OCCUPANCY <= 520",
+          "OCCUPANCY <= 602",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 41",
+          "STAIR.WIDTH = 1.30 m",
+          "OCCUPANCY <= 171",
+          "OCCUPANCY <= 208",
+          "OCCUPANCY <= 302",
+          "OCCUPANCY <= 396",
+          "OCCUPANCY <= 490",
+          "OCCUPANCY <= 584",
+          "OCCUPANCY <= 678",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 47",
+          "STAIR.WIDTH = 1.40 m",
+          "OCCUPANCY <= 184",
+          "OCCUPANCY <= 224",
+          "OCCUPANCY <= 328",
+          "OCCUPANCY <= 432",
+          "OCCUPANCY <= 536",
+          "OCCUPANCY <= 640",
+          "OCCUPANCY <= 744",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 52",
+          "STAIR.WIDTH = 1.50 m",
+          "OCCUPANCY <= 198",
+          "OCCUPANCY <= 240",
+          "OCCUPANCY <= 356",
+          "OCCUPANCY <= 472",
+          "OCCUPANCY <= 588",
+          "OCCUPANCY <= 704",
+          "OCCUPANCY <= 820",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 58",
+          "STAIR.WIDTH = 1.60 m",
+          "OCCUPANCY <= 211",
+          "OCCUPANCY <= 256",
+          "OCCUPANCY <= 384",
+          "OCCUPANCY <= 512",
+          "OCCUPANCY <= 640",
+          "OCCUPANCY <= 768",
+          "OCCUPANCY <= 896",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 64",
+          "STAIR.WIDTH = 1.70 m",
+          "OCCUPANCY <= 224",
+          "OCCUPANCY <= 272",
+          "OCCUPANCY <= 414",
+          "OCCUPANCY <= 556",
+          "OCCUPANCY <= 698",
+          "OCCUPANCY <= 840",
+          "OCCUPANCY <= 982",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 71",
+          "STAIR.WIDTH = 1.80 m",
+          "OCCUPANCY <= 237",
+          "OCCUPANCY <= 288",
+          "OCCUPANCY <= 442",
+          "OCCUPANCY <= 596",
+          "OCCUPANCY <= 750",
+          "OCCUPANCY <= 904",
+          "OCCUPANCY <= 1058",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 77",
+          "STAIR.WIDTH = 1.90 m",
+          "OCCUPANCY <= 250",
+          "OCCUPANCY <= 304",
+          "OCCUPANCY <= 472",
+          "OCCUPANCY <= 640",
+          "OCCUPANCY <= 808",
+          "OCCUPANCY <= 976",
+          "OCCUPANCY <= 1144",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 84",
+          "STAIR.WIDTH = 2.00 m",
+          "OCCUPANCY <= 264",
+          "OCCUPANCY <= 320",
+          "OCCUPANCY <= 504",
+          "OCCUPANCY <= 688",
+          "OCCUPANCY <= 872",
+          "OCCUPANCY <= 1056",
+          "OCCUPANCY <= 1240",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 92",
+          "STAIR.WIDTH = 2.10 m",
+          "OCCUPANCY <= 277",
+          "OCCUPANCY <= 336",
+          "OCCUPANCY <= 534",
+          "OCCUPANCY <= 732",
+          "OCCUPANCY <= 930",
+          "OCCUPANCY <= 1128",
+          "OCCUPANCY <= 1326",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 99",
+          "STAIR.WIDTH = 2.20 m",
+          "OCCUPANCY <= 290",
+          "OCCUPANCY <= 352",
+          "OCCUPANCY <= 566",
+          "OCCUPANCY <= 780",
+          "OCCUPANCY <= 994",
+          "OCCUPANCY <= 1208",
+          "OCCUPANCY <= 1422",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 107",
+          "STAIR.WIDTH = 2.30 m",
+          "OCCUPANCY <= 303",
+          "OCCUPANCY <= 368",
+          "OCCUPANCY <= 598",
+          "OCCUPANCY <= 828",
+          "OCCUPANCY <= 1058",
+          "OCCUPANCY <= 1288",
+          "OCCUPANCY <= 1518",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 115",
+          "STAIR.WIDTH = 2.40 m",
+          "OCCUPANCY <= 316",
+          "OCCUPANCY <= 384",
+          "OCCUPANCY <= 630",
+          "OCCUPANCY <= 876",
+          "OCCUPANCY <= 1122",
+          "OCCUPANCY <= 1368",
+          "OCCUPANCY <= 1614",
+          "OCCUPANCY_INCREASE_PER_FLOOR = 123"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "This norm covers all rows in the second table for stair occupancy based on width, protection, direction, and number of floors.",
+        "section_name": "Table 1",
+        "section_level": 4,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "c13ff6fbf67a3855",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 4,
+        "start_page": 26,
+        "end_page": 27,
+        "toc_path": [
+          "Sección SI 3 Evacuación de ocupantes",
+          "4 Dimensionado de los medios de evacuación",
+          "4.2 Cálculo",
+          "Table 1"
+        ],
+        "parent_section_id": "f51ad3b89d2ac4b7",
+        "positioning_data": [
+          {
+            "page_no": 26,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 71.97673034667969,
+              "t": 658.9164123535156,
+              "r": 536.4163208007812,
+              "b": 309.0191650390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 27,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 80.30641174316406,
+              "t": 413.61590576171875,
+              "r": 545.2892456054688,
+              "b": 92.3135986328125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 4"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 2630
+}

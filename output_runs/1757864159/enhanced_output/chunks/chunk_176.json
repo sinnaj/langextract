@@ -1,0 +1,1544 @@
+{
+  "chunk_id": 176,
+  "section_metadata": {
+    "section_id": "9d59e7e215dacba3",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 5,
+    "start_page": 75,
+    "end_page": 76,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.2 Método de la sección reducida",
+      "E.2.3 Velocidad de carbonización nominal de cálculo",
+      "E.2.3.2 Madera con protección",
+      "Table 1"
+    ],
+    "parent_section_id": "7d9417b26f90cdd3",
+    "positioning_data": [
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 90.49723052978516,
+          "t": 778.7013969421387,
+          "r": 539.9539794921875,
+          "b": 674.81787109375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 75,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 105.20065307617188,
+          "t": 287.913330078125,
+          "r": 539.4784545898438,
+          "b": 235.197509765625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      },
+      {
+        "page_no": 76,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 89.61003875732422,
+          "t": 262.3145751953125,
+          "r": 539.2286376953125,
+          "b": 193.54425048828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 5"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.2 Método de la sección reducida → E.2.3 Velocidad de carbonización nominal de cálculo → E.2.3.2 Madera con protección → Table 1\n**Level:** 5\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Método, Reducida, Velocidad, Carbonización, Nominal, Cálculo, Madera, Con, Protección, Table\n**Pages:** 75-76\n\n\n| Frondosas |  |\n| --- | --- |\n| Madera maciza o laminada encolada de frondosas con densidad característica de 290 kg/m3 (1) | 0,70 |\n| Madera maciza o laminada encolada de frondosas con densidad característica  450 kg/m 3 | 0,55 |\n| Madera microlaminada |  |\n| Con una densidad característica  480 kg/m 3 | 0,70 |\n\n| Espesor hins [mm] | k2 |\n| --- | --- |\n| 20 | 1 |\n| 45 | 0,6 |\n\n| Tableros(1) | 0 (mm/min) |\n| --- | --- |\n| Tableros de madera | 0,90 |\n| Tableros contrachapados | 1,00 |\n| Tableros derivados de la madera diferentes al tablero contrachapado | 0,90 |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Madera maciza o laminada encolada de frondosas con densidad característica de 290 kg/m3 (1) | 0,70",
+      "attributes": {
+        "id": "1198642a-2a21-4f7f-8507-681966567104",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for solid or glued laminated hardwood with a characteristic density of 290 kg/m3 is 0.70 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.HARDWOOD.SOLID_OR_GLUED_LAMINATED' AND MATERIAL.DENSITY == 290",
+        "satisfied_if": "MATERIAL.CHARRING_RATE == 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.HARDWOOD",
+          "CHARRING_RATE",
+          "DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 218,
+          "span_char_end": 298,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.DENSITY == 290 kg/m3",
+          "MATERIAL.CHARRING_RATE == 0.70 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 436,
+        "end_pos": 534
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 124,
+        "end_index": 146
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Madera maciza o laminada encolada de frondosas con densidad característica  450 kg/m 3 | 0,55",
+      "attributes": {
+        "id": "0254215d-8531-419b-8669-772922719280",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for solid or glued laminated hardwood with a characteristic density greater than or equal to 450 kg/m3 is 0.55 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.HARDWOOD.SOLID_OR_GLUED_LAMINATED' AND MATERIAL.DENSITY >= 450",
+        "satisfied_if": "MATERIAL.CHARRING_RATE == 0.55",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.HARDWOOD",
+          "CHARRING_RATE",
+          "DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 301,
+          "span_char_end": 381,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.DENSITY >= 450 kg/m3",
+          "MATERIAL.CHARRING_RATE == 0.55 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 539,
+        "end_pos": 633
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 148,
+        "end_index": 168
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Con una densidad característica  480 kg/m 3 | 0,70",
+      "attributes": {
+        "id": "14563604-032c-473d-926e-473919934145",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate for microlaminated wood with a characteristic density greater than or equal to 480 kg/m3 is 0.70 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.MICROLAMINATED' AND MATERIAL.DENSITY >= 480",
+        "satisfied_if": "MATERIAL.CHARRING_RATE == 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.MICROLAMINATED",
+          "CHARRING_RATE",
+          "DENSITY"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 409,
+          "span_char_end": 460,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.DENSITY >= 480 kg/m3",
+          "MATERIAL.CHARRING_RATE == 0.70 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 666,
+        "end_pos": 717
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 175,
+        "end_index": 189
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Espesor hins [mm] | k2 | 20 | 1",
+      "attributes": {
+        "id": "76931518-8422-429d-905c-357117762699",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For a thickness (hins) of 20 mm, the k2 factor is 1.",
+        "applies_if": "MATERIAL.THICKNESS == 20",
+        "satisfied_if": "MATERIAL.K2_FACTOR == 1",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "THICKNESS",
+          "K2_FACTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 500,
+          "span_char_end": 515,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.THICKNESS == 20 mm",
+          "MATERIAL.K2_FACTOR == 1"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 723,
+        "end_pos": 747
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 191,
+        "end_index": 200
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Espesor hins [mm] | k2 | 45 | 0,6",
+      "attributes": {
+        "id": "31114227-268a-40a2-972d-708c23238714",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "For a thickness (hins) greater than or equal to 45 mm, the k2 factor is 0.6.",
+        "applies_if": "MATERIAL.THICKNESS >= 45",
+        "satisfied_if": "MATERIAL.K2_FACTOR == 0.6",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "THICKNESS",
+          "K2_FACTOR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 518,
+          "span_char_end": 535,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.THICKNESS >= 45 mm",
+          "MATERIAL.K2_FACTOR == 0.6"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 531,
+        "end_pos": 784
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 144,
+        "end_index": 217
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tableros de madera | 0,90",
+      "attributes": {
+        "id": "06932403-1082-4467-8903-883901968843",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate (β0) for wood boards is 0.90 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.BOARD'",
+        "satisfied_if": "MATERIAL.CHARRING_RATE_BETA0 == 0.90",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.BOARD",
+          "CHARRING_RATE_BETA0"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 570,
+          "span_char_end": 590,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.CHARRING_RATE_BETA0 == 0.90 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 834,
+        "end_pos": 859
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 236,
+        "end_index": 243
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tableros contrachapados | 1,00",
+      "attributes": {
+        "id": "22912443-4171-419b-8669-772922719280",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate (β0) for plywood boards is 1.00 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.PLYWOOD_BOARD'",
+        "satisfied_if": "MATERIAL.CHARRING_RATE_BETA0 == 1.00",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.PLYWOOD_BOARD",
+          "CHARRING_RATE_BETA0"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 593,
+          "span_char_end": 618,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.CHARRING_RATE_BETA0 == 1.00 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 864,
+        "end_pos": 894
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 245,
+        "end_index": 251
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Tableros derivados de la madera diferentes al tablero contrachapado | 0,90",
+      "attributes": {
+        "id": "33912443-4171-419b-8669-772922719280",
+        "parent_section_id": "9d59e7e215dacba3",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The nominal charring rate (β0) for wood-derived boards other than plywood boards is 0.90 mm/min.",
+        "applies_if": "MATERIAL.TYPE == 'WOOD.DERIVED_BOARD' AND MATERIAL.TYPE != 'WOOD.PLYWOOD_BOARD'",
+        "satisfied_if": "MATERIAL.CHARRING_RATE_BETA0 == 0.90",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [],
+          "BUILDING.USAGE": []
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.8,
+          "likelihood": 0.8,
+          "impact": 0.7
+        },
+        "relevant_tags": [
+          "WOOD.DERIVED_BOARD",
+          "CHARRING_RATE_BETA0"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 621,
+          "span_char_end": 699,
+          "visual_refs": [
+            "Table 1"
+          ]
+        },
+        "extracted_parameters": [
+          "MATERIAL.CHARRING_RATE_BETA0 == 0.90 mm/min"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.9,
+        "uncertainty": 0.1,
+        "notes": null,
+        "section_name": "Table 1",
+        "section_level": 5,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 899,
+        "end_pos": 973
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 253,
+        "end_index": 266
+      },
+      "section_metadata": {
+        "section_id": "9d59e7e215dacba3",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 5,
+        "start_page": 75,
+        "end_page": 76,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.2 Método de la sección reducida",
+          "E.2.3 Velocidad de carbonización nominal de cálculo",
+          "E.2.3.2 Madera con protección",
+          "Table 1"
+        ],
+        "parent_section_id": "7d9417b26f90cdd3",
+        "positioning_data": [
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 90.49723052978516,
+              "t": 778.7013969421387,
+              "r": 539.9539794921875,
+              "b": 674.81787109375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 75,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 105.20065307617188,
+              "t": 287.913330078125,
+              "r": 539.4784545898438,
+              "b": 235.197509765625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          },
+          {
+            "page_no": 76,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 89.61003875732422,
+              "t": 262.3145751953125,
+              "r": 539.2286376953125,
+              "b": 193.54425048828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 5"
+      }
+    }
+  ],
+  "extraction_count": 8,
+  "char_count": 975
+}

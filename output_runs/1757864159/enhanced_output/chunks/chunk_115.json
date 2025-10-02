@@ -1,0 +1,1109 @@
+{
+  "chunk_id": 115,
+  "section_metadata": {
+    "section_id": "3de67ea237bc04a3",
+    "section_name": "D.2.1 Vigas y tirantes",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 69,
+    "end_page": 69,
+    "toc_path": [
+      "Anejo D Resistencia al fuego de los elementos de acero",
+      "D.2 Método simplificado de cálculo",
+      "D.2.1 Vigas y tirantes"
+    ],
+    "parent_section_id": "8d52a4b5f5a0f3f4",
+    "positioning_data": [
+      {
+        "page_no": 69,
+        "charspan": [
+          0,
+          54
+        ],
+        "bbox": {
+          "l": 70.94400024414062,
+          "t": 744.2411499023438,
+          "r": 455.83154296875,
+          "b": 731.0856323242188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Anejo D Resistencia al fuego de los elementos de acero"
+      },
+      {
+        "page_no": 69,
+        "charspan": [
+          0,
+          17
+        ],
+        "bbox": {
+          "l": 71.95487976074219,
+          "t": 695.1611328125,
+          "r": 202.24722290039062,
+          "b": 684.7855834960938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "D.1 Generalidades"
+      },
+      {
+        "page_no": 69,
+        "charspan": [
+          0,
+          189
+        ],
+        "bbox": {
+          "l": 72.0296401977539,
+          "t": 671.6708984375,
+          "r": 538.4279174804688,
+          "b": 651.0479125976562,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+      },
+      {
+        "page_no": 69,
+        "charspan": [
+          0,
+          209
+        ],
+        "bbox": {
+          "l": 71.23284149169922,
+          "t": 642.6712036132812,
+          "r": 538.4276123046875,
+          "b": 610.4879150390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+      },
+      {
+        "page_no": 69,
+        "charspan": [
+          0,
+          132
+        ],
+        "bbox": {
+          "l": 71.36231994628906,
+          "t": 602.160888671875,
+          "r": 538.0045776367188,
+          "b": 581.4179077148438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: D.2.1 Vigas y tirantes\n**Path:** Anejo D Resistencia al fuego de los elementos de acero → D.2 Método simplificado de cálculo → D.2.1 Vigas y tirantes\n**Level:** 3\n**Tags:** Resistencia, Fuego, Los, Elementos, Acero, Método, Simplificado, Cálculo, Vigas, Tirantes\n**Pages:** 69-69\n\n\n1 Mediante la Tabla D.1 puede dimensionarse la protección frente al fuego de vigas arriostradas lateralmente o tirantes para una determinada resistencia al fuego, siendo:\nfi coeficiente de sobredimensionado, definido en SI 6.\nA m /V factor de forma, siendo:\nA m superficie expuesta al fuego del elemento por unidad de longitud, la del elemento si no está protegido o la de la cara interior de la protección si está revestido. Se considerará únicamente la del contorno expuesto en el sector de incendio analizado.\nV volumen del elemento de acero por unidad de longitud,\nPara elementos de sección constante, Am/V es igual al cociente entre el perímetro expuesto y el área de la sección transversal .\nd/ p coeficiente de aislamiento del revestimiento, (m 2 K/W) obtenido como promedio de las caras expuestas al fuego, siendo:\nd espesor del revestimiento, [m];\n p conductividad térmica efectiva del revestimiento, para el desarrollo total del tiempo de resistencia a fuego considerado; (W/mK).\nEn materiales de tipo pétreo, cerámico, hormigones, morteros y yesos, se puede tomar el valor de  p correspondiente a 20 ºC.\n69\nDocumento Básico SI en caso de Incendio Anejo D. Resistencia al fuego de los elementos de acero\nTabla D.1. Coeficiente de protección, d/p (m 2 K/W) de vigas y tirantes\n(1) Perfiles de acero sin revestir",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "1 Mediante la Tabla D.1 puede dimensionarse la protección frente al fuego de vigas arriostradas lateralmente o tirantes para una determinada resistencia al fuego, siendo:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "attributes": {
+        "parent_section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 293,
+        "end_pos": 463
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 112
+      },
+      "section_metadata": {
+        "section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 69,
+        "end_page": 69,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.1 Vigas y tirantes"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "1. Mediante la Tabla D.1 puede dimensionarse la protección frente al fuego de vigas arriostradas lateralmente o tirantes para una determinada resistencia al fuego.",
+      "attributes": {
+        "id": "d718a32f-410a-4127-9095-20155b931920",
+        "parent_section_id": "3de67ea237bc04a3",
+        "Procedure": "Dimensioning fire protection for laterally braced beams or ties for a specific fire resistance can be done using Table D.1.",
+        "target_reference": [
+          "Table D.1"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.BEAMS",
+          "STRUCTURAL.TIES",
+          "DIMENSIONING"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 159,
+          "visual_refs": []
+        },
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 293,
+        "end_pos": 519
+      },
+      "alignment_status": "match_fuzzy",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 81,
+        "end_index": 123
+      },
+      "section_metadata": {
+        "section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 69,
+        "end_page": 69,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.1 Vigas y tirantes"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "2. Coeficiente de sobredimensionado (µfi) is defined in SI 6.",
+      "attributes": {
+        "id": "92182064-071c-4395-9276-2679805d762d",
+        "parent_section_id": "3de67ea237bc04a3",
+        "Procedure": "The oversizing coefficient (µfi) is defined in SI 6.",
+        "target_reference": [
+          "SI 6"
+        ],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.DESIGN",
+          "COEFFICIENT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 169,
+          "span_char_end": 219,
+          "visual_refs": []
+        },
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 69,
+        "end_page": 69,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.1 Vigas y tirantes"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "3. Factor de forma (Am/V) is the exposed surface area of the element to fire per unit length (Am) divided by the volume of the steel element per unit length (V). If the element is unprotected, Am is its exposed surface. If it is coated, Am is the inner surface of the protection. Only the exposed contour in the analyzed fire sector is considered. For constant section elements, Am/V equals the ratio between the exposed perimeter and the cross-sectional area.",
+      "attributes": {
+        "id": "e633d289-53b5-442c-8067-17215161313e",
+        "parent_section_id": "3de67ea237bc04a3",
+        "Procedure": "The shape factor (Am/V) is calculated as the exposed surface area of the element to fire per unit length (Am) divided by the volume of the steel element per unit length (V). Am is the exposed surface if unprotected, or the inner surface of the protection if coated, considering only the exposed contour in the fire sector. For constant section elements, Am/V is the ratio of exposed perimeter to cross-sectional area.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "STRUCTURAL.ELEMENTS",
+          "GEOMETRY",
+          "CALCULATION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 220,
+          "span_char_end": 606,
+          "visual_refs": []
+        },
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 69,
+        "end_page": 69,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.1 Vigas y tirantes"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "Procedure",
+      "extraction_text": "4. Coeficiente de aislamiento del revestimiento (d/λp) is obtained as the average of the faces exposed to fire, where d is the thickness of the coating [m] and λp is the effective thermal conductivity of the coating [W/mK] for the total fire resistance time considered. For stony, ceramic, concrete, mortar, and plaster materials, the λp value corresponding to 20 ºC can be used.",
+      "attributes": {
+        "id": "27339474-500b-4171-893c-23841121870a",
+        "parent_section_id": "3de67ea237bc04a3",
+        "Procedure": "The insulation coefficient of the coating (d/λp) is calculated as the average of the faces exposed to fire, where d is the coating thickness in meters and λp is the effective thermal conductivity of the coating in W/mK for the total fire resistance time. For specific materials (stony, ceramic, concrete, mortar, plaster), λp at 20 ºC can be used.",
+        "target_reference": [],
+        "Tags": [
+          "FIRE.RESISTANCE",
+          "COATING",
+          "THERMAL.CONDUCTIVITY",
+          "CALCULATION",
+          "MATERIALS"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 607,
+          "span_char_end": 922,
+          "visual_refs": []
+        },
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ]
+      },
+      "char_interval": null,
+      "alignment_status": null,
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": null,
+      "section_metadata": {
+        "section_id": "3de67ea237bc04a3",
+        "section_name": "D.2.1 Vigas y tirantes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 69,
+        "end_page": 69,
+        "toc_path": [
+          "Anejo D Resistencia al fuego de los elementos de acero",
+          "D.2 Método simplificado de cálculo",
+          "D.2.1 Vigas y tirantes"
+        ],
+        "parent_section_id": "8d52a4b5f5a0f3f4",
+        "positioning_data": [
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              54
+            ],
+            "bbox": {
+              "l": 70.94400024414062,
+              "t": 744.2411499023438,
+              "r": 455.83154296875,
+              "b": 731.0856323242188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Anejo D Resistencia al fuego de los elementos de acero"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              17
+            ],
+            "bbox": {
+              "l": 71.95487976074219,
+              "t": 695.1611328125,
+              "r": 202.24722290039062,
+              "b": 684.7855834960938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "D.1 Generalidades"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              189
+            ],
+            "bbox": {
+              "l": 72.0296401977539,
+              "t": 671.6708984375,
+              "r": 538.4279174804688,
+              "b": 651.0479125976562,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "1 En este anejo se establece un método simplificado que permite determinar la resistencia de los ele"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              209
+            ],
+            "bbox": {
+              "l": 71.23284149169922,
+              "t": 642.6712036132812,
+              "r": 538.4276123046875,
+              "b": 610.4879150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "2 En el análisis del elemento puede considerarse que las coacciones en los apoyos y extremos del mis"
+          },
+          {
+            "page_no": 69,
+            "charspan": [
+              0,
+              132
+            ],
+            "bbox": {
+              "l": 71.36231994628906,
+              "t": 602.160888671875,
+              "r": 538.0045776367188,
+              "b": 581.4179077148438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 5,
+  "char_count": 1618
+}

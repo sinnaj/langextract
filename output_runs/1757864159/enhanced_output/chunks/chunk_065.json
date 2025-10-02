@@ -1,0 +1,2564 @@
+{
+  "chunk_id": 65,
+  "section_metadata": {
+    "section_id": "ebfad72d50384817",
+    "section_name": "Recorrido de evacuación",
+    "section_type": "Headline",
+    "section_level": 2,
+    "start_page": 47,
+    "end_page": 47,
+    "toc_path": [
+      "Anejo SI A Terminología",
+      "Recorrido de evacuación"
+    ],
+    "parent_section_id": "76db3bf20bbd5d66",
+    "positioning_data": [
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          23
+        ],
+        "bbox": {
+          "l": 71.67108154296875,
+          "t": 769.11083984375,
+          "r": 188.94119262695312,
+          "b": 761.7504272460938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Recorrido de evacuación"
+      },
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          340
+        ],
+        "bbox": {
+          "l": 71.32247924804688,
+          "t": 747.5113525390625,
+          "r": 538.2337646484375,
+          "b": 705.71044921875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+      },
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          566
+        ],
+        "bbox": {
+          "l": 71.25276184082031,
+          "t": 686.3511962890625,
+          "r": 538.3079223632812,
+          "b": 619.6183471679688,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+      },
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          370
+        ],
+        "bbox": {
+          "l": 71.14320373535156,
+          "t": 602.2813110351562,
+          "r": 537.8389282226562,
+          "b": 558.5083618164062,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+      },
+      {
+        "page_no": 47,
+        "charspan": [
+          0,
+          242
+        ],
+        "bbox": {
+          "l": 71.07347869873047,
+          "t": 541.481201171875,
+          "r": 537.8306884765625,
+          "b": 509.17791748046875,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+      }
+    ],
+    "section_summary": "Section at level 2"
+  },
+  "chunk_text": "# Section: Recorrido de evacuación\n**Path:** Anejo SI A Terminología → Recorrido de evacuación\n**Level:** 2\n**Tags:** Terminología, Recorrido, Evacuación\n**Pages:** 47-47\n\n\nRecorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma planta considerada o en otra, o hasta una salida de edificio. Conforme a ello, una vez alcanzada una salida de planta, la longitud del recorrido posterior no computa a efectos del cumplimiento de los límites a los recorridos de evacuación .\nLa longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos. No se consideran válidos los recorridos por escaleras mecánicas, ni aquellos en los que existan tornos u otros elementos que puedan dificultar el paso. Los recorridos por rampas y pasillos móviles se consideran válidos cuando no sea posible su utilización por personas que trasladen carros para el transporte de objetos y estén provistos de un dispositivo de parada que pueda activarse bien manualmente, o bien automáticamente por un sistema de detección y alarma.\nLos recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar las zonas de riesgo especial definidas en SI 1.2. Un recorrido de evacuación desde zonas habitables puede atravesar una zona de uso Aparcamiento o sus vestíbulos de independencia, únicamente cuando sea un recorrido alternativo a alguno no afectado por dicha circunstancia.\nEn uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de vehículos, o bien por itinerarios peatonales protegidos frente a la invasión de vehículos, conforme se establece en el Apartado 3 del DB-SUA 7 .\nEn establecimientos de uso Comercial cuya superficie construida destinada al público exceda de 400 m 2 , los recorridos de evacuación deben transcurrir, excepto en sus diez primeros metros, por pasillos definidos en proyecto, delimitados por elementos fijos o bien señalizados en el suelo de forma clara y permanente conforme a lo establecido en SI 3 -7.2 y cuyos tramos comprendidos entre otros pasillos transversales no excedan de 20 m.\nEn establecimientos comerciales en los que esté previsto el uso de carros para transporte de productos, los puntos de paso a través de cajas de cobro no pueden considerarse como elementos de la evacuación. En dichos casos se dispondrán salidas intercaladas en la batería de cajas, dimensionadas según se establece en el apartado 4.2 de la Sección SI 3 y separadas de tal forma que no existan más de diez cajas entre dos salidas consecutivas. Cuando la batería cuente con menos de diez cajas, se dispondrán dos salidas, como mínimo, situadas en los extremos de la misma. Cuando cuente con menos de cinco cajas, se dispondrá una salida situada en un extremo de la batería.\nEn los establecimientos en los que no esté previsto el uso de carros, los puntos de paso a través de las cajas podrán considerarse como elementos de evacuación, siempre que su anchura libre sea 0,70m, como mínimo.\nExcepto en el caso de los aparcamientos, de las zonas de ocupación nula y de las zonas ocupadas únicamente por personal de mantenimiento o de control de servicios, no se consideran válidos los recorridos que precisen salvar, en sentido ascendente, una altura mayor que la indicada en la tabla que se incluye a continuación.\n(1) No se limita en zonas de tratamiento intensivo con radioterapia.\n47\nDocumento Básico SI en caso de Incendio Anejo A. Terminología",
+  "extractions": [
+    {
+      "extraction_class": "CHUNK_METADATA",
+      "extraction_text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma planta considerada o en otra, o hasta una salida de edificio. Conforme a ello, una vez alcanzada una salida de planta, la longitud del recorrido posterior no computa a efectos del cumplimiento de los límites a los recorridos de evacuación .",
+      "attributes": {
+        "id": "c1a2b3c4-d5e6-7890-1234-567890abcdef",
+        "meta_summary": "Definition of evacuation route and how its length is computed.",
+        "meta_applies_if": "TRUE",
+        "meta_exempt_if": "FALSE",
+        "referenced_documents": [],
+        "referenced_documents_sections": [],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "parent_section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 173,
+        "end_pos": 513
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 45,
+        "end_index": 114
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos.",
+      "attributes": {
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "The length of routes through corridors, stairs, and ramps must be measured along their axis.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.LENGTH.MEASUREMENT.METHOD == 'AXIS'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "CORRIDOR",
+          "STAIR",
+          "RAMP"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 204,
+          "span_char_end": 280,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 514,
+        "end_pos": 615
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 114,
+        "end_index": 136
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "No se consideran válidos los recorridos por escaleras mecánicas, ni aquellos en los que existan tornos u otros elementos que puedan dificultar el paso.",
+      "attributes": {
+        "id": "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 1,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Routes via escalators or those with turnstiles or other elements that may hinder passage are not considered valid.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.HAS_ESCALATOR == FALSE AND EVACUATION.ROUTE.HAS_TURNSTILE == FALSE AND EVACUATION.ROUTE.HAS_OBSTRUCTING_ELEMENTS == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "ESCALATOR",
+          "TURNSTILE",
+          "OBSTRUCTION"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 281,
+          "span_char_end": 395,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 616,
+        "end_pos": 767
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 136,
+        "end_index": 166
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los recorridos por rampas y pasillos móviles se consideran válidos cuando no sea posible su utilización por personas que trasladen carros para el transporte de objetos y estén provistos de un dispositivo de parada que pueda activarse bien manualmente, o bien automáticamente por un sistema de detección y alarma.",
+      "attributes": {
+        "id": "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Routes via ramps and moving walkways are considered valid if they cannot be used by people transporting carts and are equipped with a stop device that can be activated manually or automatically by a detection and alarm system.",
+        "applies_if": "EVACUATION.ROUTE.HAS_RAMP_OR_MOVING_WALKWAY == TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.RAMP_OR_MOVING_WALKWAY.CART_USAGE_POSSIBLE == FALSE AND (EVACUATION.ROUTE.RAMP_OR_MOVING_WALKWAY.STOP_DEVICE.ACTIVATION_METHOD == 'MANUAL' OR EVACUATION.ROUTE.RAMP_OR_MOVING_WALKWAY.STOP_DEVICE.ACTIVATION_METHOD == 'AUTOMATIC.DETECTION_ALARM_SYSTEM')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "RAMP",
+          "MOVING.WALKWAY",
+          "STOP.DEVICE",
+          "DETECTION.ALARM.SYSTEM"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 396,
+          "span_char_end": 662,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 768,
+        "end_pos": 1080
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 166,
+        "end_index": 229
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar las zonas de riesgo especial definidas en SI 1.2.",
+      "attributes": {
+        "id": "d4e5f6a7-b8c9-0123-4567-890abcdef012",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 2,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Evacuation routes originating in habitable areas or parking areas cannot cross special risk areas defined in SI 1.2.",
+        "applies_if": "EVACUATION.ROUTE.ORIGIN IN ['HABITABLE.ZONE', 'PARKING.ZONE']",
+        "satisfied_if": "EVACUATION.ROUTE.CROSSES_SPECIAL_RISK_ZONE == FALSE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "HABITABLE.ZONE",
+          "PARKING.ZONE",
+          "SPECIAL.RISK.ZONE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 664,
+          "span_char_end": 778,
+          "visual_refs": []
+        },
+        "referenced_documents_sections": [
+          "SI.1.2"
+        ],
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1081,
+        "end_pos": 1228
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 5,
+      "group_index": 4,
+      "description": null,
+      "token_interval": {
+        "start_index": 229,
+        "end_index": 257
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Un recorrido de evacuación desde zonas habitables puede atravesar una zona de uso Aparcamiento o sus vestíbulos de independencia, únicamente cuando sea un recorrido alternativo a alguno no afectado por dicha circunstancia.",
+      "attributes": {
+        "id": "e5f6a7b8-c9d0-1234-5678-90abcdef0123",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 2,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "An evacuation route from habitable areas may cross a parking area or its independence vestibules only when it is an alternative route to one not affected by this circumstance.",
+        "applies_if": "EVACUATION.ROUTE.ORIGIN == 'HABITABLE.ZONE' AND EVACUATION.ROUTE.CROSSES_PARKING_ZONE == TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.IS_ALTERNATIVE_TO_UNAFECTED_ROUTE == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "HABITABLE.ZONE",
+          "PARKING.ZONE",
+          "INDEPENDENCE.VESTIBULE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 779,
+          "span_char_end": 978,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1229,
+        "end_pos": 1451
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 6,
+      "group_index": 5,
+      "description": null,
+      "token_interval": {
+        "start_index": 257,
+        "end_index": 296
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de vehículos, o bien por itinerarios peatonales protegidos frente a la invasión de vehículos, conforme se establece en el Apartado 3 del DB-SUA 7 .",
+      "attributes": {
+        "id": "f6a7b8c9-d0e1-2345-6789-0abcdef01234",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 3,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In parking areas, evacuation routes must run along vehicle circulation lanes, or along pedestrian routes protected from vehicle invasion, as established in Section 3 of DB-SUA 7.",
+        "applies_if": "BUILDING.USAGE == 'PARKING'",
+        "satisfied_if": "EVACUATION.ROUTE.PATH == 'VEHICLE.CIRCULATION.LANES' OR EVACUATION.ROUTE.PATH == 'PEDESTRIAN.ROUTES.PROTECTED_FROM_VEHICLES'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PARKING"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "PARKING.ZONE",
+          "VEHICLE.CIRCULATION.LANE",
+          "PEDESTRIAN.ROUTE"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 980,
+          "span_char_end": 1198,
+          "visual_refs": []
+        },
+        "referenced_documents_sections": [
+          "DB-SUA.7.3"
+        ],
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1452,
+        "end_pos": 1694
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 7,
+      "group_index": 6,
+      "description": null,
+      "token_interval": {
+        "start_index": 296,
+        "end_index": 349
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En establecimientos de uso Comercial cuya superficie construida destinada al público exceda de 400 m 2 , los recorridos de evacuación deben transcurrir, excepto en sus diez primeros metros, por pasillos definidos en proyecto, delimitados por elementos fijos o bien señalizados en el suelo de forma clara y permanente conforme a lo establecido en SI 3 -7.2 y cuyos tramos comprendidos entre otros pasillos transversales no excedan de 20 m.",
+      "attributes": {
+        "id": "0a1b2c3d-4e5f-6789-0123-456789abcdef",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 4,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In commercial establishments with a built area for public use exceeding 400 m², evacuation routes, except for their first ten meters, must run through corridors defined in the project, delimited by fixed elements or clearly and permanently marked on the floor as established in SI 3-7.2, and whose sections between other transverse corridors do not exceed 20 m.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND BUILDING.AREA.PUBLIC_USE > 400",
+        "satisfied_if": "EVACUATION.ROUTE.PATH == 'PROJECT_DEFINED_CORRIDORS' AND EVACUATION.ROUTE.CORRIDOR.DELIMITATION IN ['FIXED_ELEMENTS', 'CLEAR_PERMANENT_FLOOR_MARKING'] AND EVACUATION.ROUTE.CORRIDOR.SECTION_LENGTH_BETWEEN_TRANSVERSE_CORRIDORS <= 20",
+        "exempt_if": "EVACUATION.ROUTE.LENGTH <= 10",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "COMMERCIAL.ESTABLISHMENT",
+          "PUBLIC.AREA",
+          "CORRIDOR",
+          "FIXED.ELEMENTS",
+          "FLOOR.MARKING"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1200,
+          "span_char_end": 1589,
+          "visual_refs": []
+        },
+        "referenced_documents_sections": [
+          "SI.3-7.2"
+        ],
+        "extracted_parameters": [
+          "BUILDING.AREA.PUBLIC_USE > 400 m2",
+          "EVACUATION.ROUTE.LENGTH <= 10 m",
+          "EVACUATION.ROUTE.CORRIDOR.SECTION_LENGTH_BETWEEN_TRANSVERSE_CORRIDORS <= 20 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 1695,
+        "end_pos": 2133
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 8,
+      "group_index": 7,
+      "description": null,
+      "token_interval": {
+        "start_index": 349,
+        "end_index": 432
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En establecimientos comerciales en los que esté previsto el uso de carros para transporte de productos, los puntos de paso a través de cajas de cobro no pueden considerarse como elementos de la evacuación. En dichos casos se dispondrán salidas intercaladas en la batería de cajas, dimensionadas según se establece en el apartado 4.2 de la Sección SI 3 y separadas de tal forma que no existan más de diez cajas entre dos salidas consecutivas. Cuando la batería cuente con menos de diez cajas, se dispondrán dos salidas, como mínimo, situadas en los extremos de la misma. Cuando cuente con menos de cinco cajas, se dispondrá una salida situada en un extremo de la batería.",
+      "attributes": {
+        "id": "1b2c3d4e-5f6a-7890-1234-567890abcdef0",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 5,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "In commercial establishments where product transport carts are used, checkout points cannot be considered evacuation elements. In such cases, interspersed exits must be provided in the checkout battery, sized as established in section 4.2 of Section SI 3 and separated so that there are no more than ten checkouts between two consecutive exits. If the battery has fewer than ten checkouts, at least two exits must be provided at its ends. If it has fewer than five checkouts, one exit must be provided at one end of the battery.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL.ESTABLISHMENT.CART_USAGE_FORESEEN == TRUE",
+        "satisfied_if": "CHECKOUT.POINTS.ARE_NOT_EVACUATION_ELEMENTS == TRUE AND EVACUATION.EXITS.INTERSPERSED_IN_CHECKOUT_BATTERY == TRUE AND CHECKOUT.COUNT_BETWEEN_CONSECUTIVE_EXITS <= 10 AND (CHECKOUT.BATTERY.COUNT < 10 AND EVACUATION.EXITS.COUNT >= 2 AND EVACUATION.EXITS.LOCATION == 'ENDS') OR (CHECKOUT.BATTERY.COUNT < 5 AND EVACUATION.EXITS.COUNT == 1 AND EVACUATION.EXITS.LOCATION == 'ONE_END')",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "relevant_tags": [
+          "COMMERCIAL.ESTABLISHMENT",
+          "CART.USAGE",
+          "CHECKOUT.POINT",
+          "EVACUATION.ELEMENT",
+          "EVACUATION.EXIT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 1591,
+          "span_char_end": 2180,
+          "visual_refs": []
+        },
+        "referenced_documents_sections": [
+          "SI.3.4.2"
+        ],
+        "extracted_parameters": [
+          "CHECKOUT.COUNT_BETWEEN_CONSECUTIVE_EXITS <= 10",
+          "CHECKOUT.BATTERY.COUNT < 10",
+          "EVACUATION.EXITS.COUNT >= 2",
+          "CHECKOUT.BATTERY.COUNT < 5",
+          "EVACUATION.EXITS.COUNT == 1"
+        ],
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2134,
+        "end_pos": 2804
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 9,
+      "group_index": 8,
+      "description": null,
+      "token_interval": {
+        "start_index": 432,
+        "end_index": 583
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En los establecimientos en los que no esté previsto el uso de carros, los puntos de paso a través de las cajas podrán considerarse como elementos de evacuación, siempre que su anchura libre sea 0,70m, como mínimo.",
+      "attributes": {
+        "id": "2c3d4e5f-6a7b-8901-2345-67890abcdef01",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 6,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "In establishments where cart use is not foreseen, checkout points may be considered evacuation elements, provided their clear width is at least 0.70m.",
+        "applies_if": "BUILDING.USAGE == 'PUBLIC.COMMERCIAL' AND COMMERCIAL.ESTABLISHMENT.CART_USAGE_FORESEEN == FALSE",
+        "satisfied_if": "CHECKOUT.POINT.CLEAR_WIDTH >= 0.70",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "PUBLIC.COMMERCIAL"
+          ]
+        },
+        "relevant_tags": [
+          "COMMERCIAL.ESTABLISHMENT",
+          "CART.USAGE",
+          "CHECKOUT.POINT",
+          "EVACUATION.ELEMENT",
+          "CLEAR.WIDTH"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2182,
+          "span_char_end": 2397,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "CHECKOUT.POINT.CLEAR_WIDTH >= 0.70 m"
+        ],
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 2805,
+        "end_pos": 3018
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 10,
+      "group_index": 9,
+      "description": null,
+      "token_interval": {
+        "start_index": 583,
+        "end_index": 636
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Excepto en el caso de los aparcamientos, de las zonas de ocupación nula y de las zonas ocupadas únicamente por personal de mantenimiento o de control de servicios, no se consideran válidos los recorridos que precisen salvar, en sentido ascendente, una altura mayor que la indicada en la tabla que se incluye a continuación.",
+      "attributes": {
+        "id": "3d4e5f6a-7b8c-9012-3456-7890abcdef012",
+        "parent_section_id": "ebfad72d50384817",
+        "paragraph_number": 7,
+        "obligation_type": "PROHIBITION",
+        "norm_statement": "Except for parking areas, zero-occupancy areas, and areas occupied only by maintenance or service control personnel, routes that require ascending a height greater than that indicated in the table below are not considered valid.",
+        "applies_if": "TRUE",
+        "satisfied_if": "EVACUATION.ROUTE.ASCENDING_HEIGHT <= TABLE.INDICATED_HEIGHT",
+        "exempt_if": "AREA.USAGE == 'PARKING' OR AREA.OCCUPANCY == 0 OR AREA.OCCUPANCY_TYPE IN ['MAINTENANCE.PERSONNEL', 'SERVICE.CONTROL.PERSONNEL']",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.USE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ]
+        },
+        "relevant_tags": [
+          "EVACUATION.ROUTE",
+          "PARKING.ZONE",
+          "ZERO.OCCUPANCY.ZONE",
+          "MAINTENANCE.PERSONNEL",
+          "SERVICE.CONTROL.PERSONNEL",
+          "ASCENDING.HEIGHT"
+        ],
+        "location_scope": {
+          "COUNTRY": "ES"
+        },
+        "source": {
+          "span_char_start": 2399,
+          "span_char_end": 2690,
+          "visual_refs": []
+        },
+        "confidence": 1.0,
+        "section_name": "Recorrido de evacuación",
+        "section_level": 2,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 3019,
+        "end_pos": 3342
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 11,
+      "group_index": 10,
+      "description": null,
+      "token_interval": {
+        "start_index": 636,
+        "end_index": 702
+      },
+      "section_metadata": {
+        "section_id": "ebfad72d50384817",
+        "section_name": "Recorrido de evacuación",
+        "section_type": "Headline",
+        "section_level": 2,
+        "start_page": 47,
+        "end_page": 47,
+        "toc_path": [
+          "Anejo SI A Terminología",
+          "Recorrido de evacuación"
+        ],
+        "parent_section_id": "76db3bf20bbd5d66",
+        "positioning_data": [
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              23
+            ],
+            "bbox": {
+              "l": 71.67108154296875,
+              "t": 769.11083984375,
+              "r": 188.94119262695312,
+              "b": 761.7504272460938,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido de evacuación"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              340
+            ],
+            "bbox": {
+              "l": 71.32247924804688,
+              "t": 747.5113525390625,
+              "r": 538.2337646484375,
+              "b": 705.71044921875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Recorrido que conduce desde un origen de evacuación hasta una salida de planta, situada en la misma "
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              566
+            ],
+            "bbox": {
+              "l": 71.25276184082031,
+              "t": 686.3511962890625,
+              "r": 538.3079223632812,
+              "b": 619.6183471679688,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "La longitud de los recorridos por pasillos, escaleras y rampas, se medirá sobre el eje de los mismos"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              370
+            ],
+            "bbox": {
+              "l": 71.14320373535156,
+              "t": 602.2813110351562,
+              "r": 537.8389282226562,
+              "b": 558.5083618164062,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Los recorridos que tengan su origen en zonas habitables o de uso Aparcamiento no pueden atravesar la"
+          },
+          {
+            "page_no": 47,
+            "charspan": [
+              0,
+              242
+            ],
+            "bbox": {
+              "l": 71.07347869873047,
+              "t": 541.481201171875,
+              "r": 537.8306884765625,
+              "b": 509.17791748046875,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
+          }
+        ],
+        "section_summary": "Section at level 2"
+      }
+    }
+  ],
+  "extraction_count": 11,
+  "char_count": 3476
+}

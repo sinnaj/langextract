@@ -1,0 +1,592 @@
+{
+  "chunk_id": 127,
+  "section_metadata": {
+    "section_id": "8280eae910c8fe5b",
+    "section_name": "E.3.3 Soportes",
+    "section_type": "Headline",
+    "section_level": 3,
+    "start_page": 78,
+    "end_page": 78,
+    "toc_path": [
+      "Anejo SI E Resistencia al fuego de las estructuras de madera",
+      "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+      "E.3.3 Soportes"
+    ],
+    "parent_section_id": "df1656ab2e2b717e",
+    "positioning_data": [
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          7
+        ],
+        "bbox": {
+          "l": 89.13275909423828,
+          "t": 768.7513427734375,
+          "r": 120.10835266113281,
+          "b": 761.5104370117188,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "siendo:"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          24
+        ],
+        "bbox": {
+          "l": 89.48135375976562,
+          "t": 751.2313232421875,
+          "r": 228.63153076171875,
+          "b": 742.1278686523438,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "h p espesor del tablero;"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          63
+        ],
+        "bbox": {
+          "l": 89.16263580322266,
+          "t": 733.9508666992188,
+          "r": 396.517333984375,
+          "b": 724.7279052734375,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          99
+        ],
+        "bbox": {
+          "l": 89.46144104003906,
+          "t": 716.4308471679688,
+          "r": 537.7202758789062,
+          "b": 697.5504150390625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+      },
+      {
+        "page_no": 78,
+        "charspan": [
+          0,
+          68
+        ],
+        "bbox": {
+          "l": 71.96891784667969,
+          "t": 664.8011474609375,
+          "r": 533.7649536132812,
+          "b": 651.6456298828125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: E.3.3 Soportes\n**Path:** Anejo SI E Resistencia al fuego de las estructuras de madera → E.3 Reglas simplificadas para el análisis de elementos estructurales → E.3.3 Soportes\n**Level:** 3\n**Tags:** Resistencia, Fuego, Las, Estructuras, Madera, Reglas, Simplificadas, Para, Análisis, Elementos, Estructurales, Soportes\n**Pages:** 78-78\n\n\n1 Cuando pueda producirse el fallo del arriostramiento del soporte durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de pandeo el soporte sin arriostramientos.\n2 En estructuras arriostradas y si el sector de incendio no abarca más de una planta, puede tomarse como longitud de pandeo la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Cuando pueda producirse el fallo del arriostramiento del soporte durante el tiempo requerido de exposición al fuego, debe considerarse a efectos de pandeo el soporte sin arriostramientos.",
+      "attributes": {
+        "id": "1e7e4026-6202-401d-9333-219412199742",
+        "parent_section_id": "8280eae910c8fe5b",
+        "paragraph_number": 1,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "If the bracing of the support may fail during the required fire exposure time, the support without bracing must be considered for buckling effects.",
+        "applies_if": "SUPPORT.BRACING.FAILURE_POSSIBLE_DURING_FIRE_EXPOSURE == TRUE",
+        "satisfied_if": "SUPPORT.BUCKLING_ANALYSIS.ASSUMES_NO_BRACING == TRUE",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "SUPPORT.BRACING",
+          "FIRE.EXPOSURE_TIME",
+          "SUPPORT.BUCKLING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 0,
+          "span_char_end": 150,
+          "visual_refs": []
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 349,
+        "end_pos": 536
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 83,
+        "end_index": 114
+      },
+      "section_metadata": {
+        "section_id": "8280eae910c8fe5b",
+        "section_name": "E.3.3 Soportes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.3 Soportes"
+        ],
+        "parent_section_id": "df1656ab2e2b717e",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "En estructuras arriostradas y si el sector de incendio no abarca más de una planta, puede tomarse como longitud de pandeo la mitad de la altura entre plantas intermedias, o el 0,7 de la altura de la última planta.",
+      "attributes": {
+        "id": "7d95326a-6869-42b4-8461-893337912785",
+        "parent_section_id": "8280eae910c8fe5b",
+        "paragraph_number": 2,
+        "obligation_type": "PERMITTED",
+        "norm_statement": "In braced structures and if the fire sector does not cover more than one floor, the buckling length can be taken as half the height between intermediate floors, or 0.7 of the height of the last floor.",
+        "applies_if": "STRUCTURE.IS_BRACED == TRUE AND FIRE_SECTOR.COVERS_MORE_THAN_ONE_FLOOR == FALSE",
+        "satisfied_if": "SUPPORT.BUCKLING_LENGTH == (FLOOR.HEIGHT_BETWEEN_INTERMEDIATE_FLOORS / 2); OR SUPPORT.BUCKLING_LENGTH == (LAST_FLOOR.HEIGHT * 0.7)",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE",
+          "SAFETY.STRUCTURAL"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "STRUCTURE.BRACED",
+          "FIRE.SECTOR",
+          "FLOOR.HEIGHT",
+          "SUPPORT.BUCKLING_LENGTH"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": 151,
+          "span_char_end": 350,
+          "visual_refs": []
+        },
+        "extracted_parameters": [
+          "BUCKLING_LENGTH = 0.5 * HEIGHT_BETWEEN_INTERMEDIATE_FLOORS",
+          "BUCKLING_LENGTH = 0.7 * HEIGHT_OF_LAST_FLOOR"
+        ],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "E.3.3 Soportes",
+        "section_level": 3,
+        "section_type": "Headline",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 539,
+        "end_pos": 752
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 115,
+        "end_index": 162
+      },
+      "section_metadata": {
+        "section_id": "8280eae910c8fe5b",
+        "section_name": "E.3.3 Soportes",
+        "section_type": "Headline",
+        "section_level": 3,
+        "start_page": 78,
+        "end_page": 78,
+        "toc_path": [
+          "Anejo SI E Resistencia al fuego de las estructuras de madera",
+          "E.3 Reglas simplificadas para el análisis de elementos estructurales",
+          "E.3.3 Soportes"
+        ],
+        "parent_section_id": "df1656ab2e2b717e",
+        "positioning_data": [
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              7
+            ],
+            "bbox": {
+              "l": 89.13275909423828,
+              "t": 768.7513427734375,
+              "r": 120.10835266113281,
+              "b": 761.5104370117188,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "siendo:"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              24
+            ],
+            "bbox": {
+              "l": 89.48135375976562,
+              "t": 751.2313232421875,
+              "r": 228.63153076171875,
+              "b": 742.1278686523438,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "h p espesor del tablero;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              63
+            ],
+            "bbox": {
+              "l": 89.16263580322266,
+              "t": 733.9508666992188,
+              "r": 396.517333984375,
+              "b": 724.7279052734375,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "dchar,n profundidad de carbonización en el elemento de madera.;"
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              99
+            ],
+            "bbox": {
+              "l": 89.46144104003906,
+              "t": 716.4308471679688,
+              "r": 537.7202758789062,
+              "b": 697.5504150390625,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "l a longitud mínima de penetración del elemento de fijación en la zona no carbonizada de la madera."
+          },
+          {
+            "page_no": 78,
+            "charspan": [
+              0,
+              68
+            ],
+            "bbox": {
+              "l": 71.96891784667969,
+              "t": 664.8011474609375,
+              "r": 533.7649536132812,
+              "b": 651.6456298828125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 2,
+  "char_count": 752
+}

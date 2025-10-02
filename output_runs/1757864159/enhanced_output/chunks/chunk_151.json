@@ -1,0 +1,581 @@
+{
+  "chunk_id": 151,
+  "section_metadata": {
+    "section_id": "8c2f7db248e54492",
+    "section_name": "Table 1",
+    "section_type": "Table",
+    "section_level": 3,
+    "start_page": 17,
+    "end_page": 17,
+    "toc_path": [
+      "Sección SI 1 Propagación interior",
+      "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+      "Table 1"
+    ],
+    "parent_section_id": "eefd5ad64e06129f",
+    "positioning_data": [
+      {
+        "page_no": 17,
+        "charspan": [
+          0,
+          0
+        ],
+        "bbox": {
+          "l": 69.65670013427734,
+          "t": 508.6378173828125,
+          "r": 539.592529296875,
+          "b": 363.45751953125,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        "text": "Table 1"
+      }
+    ],
+    "section_summary": "Section at level 3"
+  },
+  "chunk_text": "# Section: Table 1\n**Path:** Sección SI 1 Propagación interior → 4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario → Table 1\n**Level:** 3\n**Tags:** SI1, Propagación, Interior, Reacción, Fuego, Los, Elementos, Constructivos, Decorativos, Mobiliario, Table\n**Pages:** 17-17\n\n\n| Situación del elemento | Revestimientos(1) |  |\n| --- | --- | --- |\n|  | De techos y paredes(2)(3) | De suelos(2) |\n| Zonas ocupables(4) | C - s2,d0 | EFL |\n| Pasillos y escaleras protegidos | B-s1,d0 | CFL-s1 |\n| Aparcamientos y recintos de riesgo especial (5) | B - s1,d0 | BFL-s1 |\n| Espacios ocultos no estancos, tales como patinillos, falsos  techos y suelos elevados (excepto los existentes dentro de  las viviendas) etc. o que siendo estancos, contengan instala\u0002 ciones susceptibles de iniciar o de propagar un incendio. | B - s3,d0 | BFL-s2 (6) |",
+  "extractions": [
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Zonas ocupables(4) | C - s2,d0 | EFL",
+      "attributes": {
+        "id": "22497645-1234-4321-abcd-1234567890ab",
+        "parent_section_id": "8c2f7db248e54492",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Elements in occupiable zones must meet specific reaction to fire classifications.",
+        "applies_if": "LOCATION.TYPE == 'OCCUPIABLE_ZONE'",
+        "satisfied_if": "ELEMENT.TYPE == 'WALL_OR_CEILING_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'C-s2,d0'; OR ELEMENT.TYPE == 'FLOOR_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'EFL'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.REACTION",
+          "ELEMENT.TYPE.WALL_OR_CEILING_COVERING",
+          "ELEMENT.TYPE.FLOOR_COVERING",
+          "LOCATION.TYPE.OCCUPIABLE_ZONE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "Table 1",
+              "page_from": 17,
+              "page_to": 17,
+              "row_from": 4,
+              "row_to": 4,
+              "col_from": 1,
+              "col_to": 3
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 424,
+        "end_pos": 460
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 1,
+      "group_index": 0,
+      "description": null,
+      "token_interval": {
+        "start_index": 114,
+        "end_index": 129
+      },
+      "section_metadata": {
+        "section_id": "8c2f7db248e54492",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 17,
+        "end_page": 17,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+          "Table 1"
+        ],
+        "parent_section_id": "eefd5ad64e06129f",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Pasillos y escaleras protegidos | B-s1,d0 | CFL-s1",
+      "attributes": {
+        "id": "33508756-2345-5432-bcde-2345678901bc",
+        "parent_section_id": "8c2f7db248e54492",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Elements in protected corridors and stairs must meet specific reaction to fire classifications.",
+        "applies_if": "LOCATION.TYPE IN ['PROTECTED_CORRIDOR', 'PROTECTED_STAIR']",
+        "satisfied_if": "ELEMENT.TYPE == 'WALL_OR_CEILING_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'B-s1,d0'; OR ELEMENT.TYPE == 'FLOOR_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'CFL-s1'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.REACTION",
+          "ELEMENT.TYPE.WALL_OR_CEILING_COVERING",
+          "ELEMENT.TYPE.FLOOR_COVERING",
+          "LOCATION.TYPE.PROTECTED_CORRIDOR",
+          "LOCATION.TYPE.PROTECTED_STAIR"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "Table 1",
+              "page_from": 17,
+              "page_to": 17,
+              "row_from": 5,
+              "row_to": 5,
+              "col_from": 1,
+              "col_to": 3
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 465,
+        "end_pos": 515
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 2,
+      "group_index": 1,
+      "description": null,
+      "token_interval": {
+        "start_index": 131,
+        "end_index": 148
+      },
+      "section_metadata": {
+        "section_id": "8c2f7db248e54492",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 17,
+        "end_page": 17,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+          "Table 1"
+        ],
+        "parent_section_id": "eefd5ad64e06129f",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Aparcamientos y recintos de riesgo especial (5) | B - s1,d0 | BFL-s1",
+      "attributes": {
+        "id": "44619867-3456-6543-cdef-3456789012cd",
+        "parent_section_id": "8c2f7db248e54492",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Elements in parking areas and special risk enclosures must meet specific reaction to fire classifications.",
+        "applies_if": "LOCATION.TYPE IN ['PARKING', 'SPECIAL_RISK_ENCLOSURE']",
+        "satisfied_if": "ELEMENT.TYPE == 'WALL_OR_CEILING_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'B-s1,d0'; OR ELEMENT.TYPE == 'FLOOR_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'BFL-s1'",
+        "exempt_if": "FALSE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL",
+            "PARKING"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.REACTION",
+          "ELEMENT.TYPE.WALL_OR_CEILING_COVERING",
+          "ELEMENT.TYPE.FLOOR_COVERING",
+          "LOCATION.TYPE.PARKING",
+          "LOCATION.TYPE.SPECIAL_RISK_ENCLOSURE"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "Table 1",
+              "page_from": 17,
+              "page_to": 17,
+              "row_from": 6,
+              "row_to": 6,
+              "col_from": 1,
+              "col_to": 3
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 520,
+        "end_pos": 588
+      },
+      "alignment_status": "match_exact",
+      "extraction_index": 3,
+      "group_index": 2,
+      "description": null,
+      "token_interval": {
+        "start_index": 150,
+        "end_index": 172
+      },
+      "section_metadata": {
+        "section_id": "8c2f7db248e54492",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 17,
+        "end_page": 17,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+          "Table 1"
+        ],
+        "parent_section_id": "eefd5ad64e06129f",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    },
+    {
+      "extraction_class": "NORM",
+      "extraction_text": "Espacios ocultos no estancos, tales como patinillos, falsos  techos y suelos elevados (excepto los existentes dentro de  las viviendas) etc. o que siendo estancos, contengan instala ciones susceptibles de iniciar o de propagar un incendio. | B - s3,d0 | BFL-s2 (6)",
+      "attributes": {
+        "id": "55720978-4567-7654-defg-4567890123de",
+        "parent_section_id": "8c2f7db248e54492",
+        "paragraph_number": null,
+        "obligation_type": "MANDATORY",
+        "norm_statement": "Elements in non-sealed hidden spaces (e.g., shafts, false ceilings, raised floors) or sealed spaces containing installations prone to fire initiation/propagation must meet specific reaction to fire classifications.",
+        "applies_if": "LOCATION.TYPE IN ['NON_SEALED_HIDDEN_SPACE', 'SEALED_SPACE_WITH_FIRE_RISK_INSTALLATIONS']",
+        "satisfied_if": "ELEMENT.TYPE == 'WALL_OR_CEILING_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'B-s3,d0'; OR ELEMENT.TYPE == 'FLOOR_COVERING' AND ELEMENT.FIRE_REACTION_CLASS == 'BFL-s2'",
+        "exempt_if": "LOCATION.TYPE == 'HIDDEN_SPACE' AND LOCATION.WITHIN_DWELLING == TRUE",
+        "topics": [
+          "SAFETY.FIRE"
+        ],
+        "project_dimensions": {
+          "PROJECT.TYPE": [
+            "NEW",
+            "REFORM"
+          ],
+          "BUILDING.USAGE": [
+            "GENERAL"
+          ]
+        },
+        "priority": 5,
+        "priority_factors": {
+          "severity": 0.9,
+          "likelihood": 0.9,
+          "impact": 0.8
+        },
+        "relevant_tags": [
+          "FIRE.REACTION",
+          "ELEMENT.TYPE.WALL_OR_CEILING_COVERING",
+          "ELEMENT.TYPE.FLOOR_COVERING",
+          "LOCATION.TYPE.NON_SEALED_HIDDEN_SPACE",
+          "LOCATION.TYPE.SEALED_SPACE_WITH_FIRE_RISK_INSTALLATIONS",
+          "LOCATION.WITHIN_DWELLING"
+        ],
+        "relevant_roles": [],
+        "lifecycle_phase": [],
+        "location_scope": {
+          "COUNTRY": "ES",
+          "STATES": [],
+          "PROVINCES": [],
+          "REGIONS": [],
+          "COMMUNES": [],
+          "ZONES": [],
+          "GEO_CODES": [],
+          "UNCERTAINTY": 0.05
+        },
+        "source": {
+          "span_char_start": null,
+          "span_char_end": null,
+          "visual_refs": [
+            {
+              "id": "Table 1",
+              "page_from": 17,
+              "page_to": 17,
+              "row_from": 7,
+              "row_to": 8,
+              "col_from": 1,
+              "col_to": 3
+            }
+          ]
+        },
+        "extracted_parameters": [],
+        "consequence_ids": [],
+        "confidence": 0.95,
+        "uncertainty": 0.05,
+        "notes": "",
+        "section_name": "Table 1",
+        "section_level": 3,
+        "section_type": "Table",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ]
+      },
+      "char_interval": {
+        "start_pos": 593,
+        "end_pos": 774
+      },
+      "alignment_status": "match_lesser",
+      "extraction_index": 4,
+      "group_index": 3,
+      "description": null,
+      "token_interval": {
+        "start_index": 174,
+        "end_index": 206
+      },
+      "section_metadata": {
+        "section_id": "8c2f7db248e54492",
+        "section_name": "Table 1",
+        "section_type": "Table",
+        "section_level": 3,
+        "start_page": 17,
+        "end_page": 17,
+        "toc_path": [
+          "Sección SI 1 Propagación interior",
+          "4 Reacción al fuego de los elementos constructivos, decorativos y de mobiliario",
+          "Table 1"
+        ],
+        "parent_section_id": "eefd5ad64e06129f",
+        "positioning_data": [
+          {
+            "page_no": 17,
+            "charspan": [
+              0,
+              0
+            ],
+            "bbox": {
+              "l": 69.65670013427734,
+              "t": 508.6378173828125,
+              "r": 539.592529296875,
+              "b": 363.45751953125,
+              "coord_origin": "BOTTOMLEFT"
+            },
+            "text": "Table 1"
+          }
+        ],
+        "section_summary": "Section at level 3"
+      }
+    }
+  ],
+  "extraction_count": 4,
+  "char_count": 860
+}
