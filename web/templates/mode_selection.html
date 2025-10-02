@@ -30,7 +30,7 @@
         </div>
 
         <!-- Mode Selection Tiles -->
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
           <!-- New Run Tile -->
           <div class="tile-button bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer group">
             <div class="text-center" onclick="selectMode('new-run')">
@@ -80,6 +80,31 @@
               </div>
             </div>
           </div>
+
+          <!-- Sandbox Tile -->
+          <div class="tile-button bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer group">
+            <div class="text-center" onclick="selectMode('sandbox')">
+              <div class="mb-6">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-purple-100 dark:bg-purple-900 rounded-full mb-4 group-hover:bg-purple-200 dark:group-hover:bg-purple-800 transition-colors">
+                  <svg class="w-10 h-10 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  Norms Sandbox
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  Interactively explore and filter norms using features from IG assessment. Apply filters to see which norms remain applicable under different conditions.
+                </p>
+              </div>
+              <div class="flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+                <span class="text-sm font-medium">Explore Norms</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Footer -->
@@ -97,6 +122,8 @@
           window.location.href = '/runner?mode=new';
         } else if (mode === 'existing-run') {
           window.location.href = '/runner?mode=existing';
+        } else if (mode === 'sandbox') {
+          window.location.href = '/sandbox';
         }
       }
 
@@ -106,6 +133,8 @@
           selectMode('new-run');
         } else if (e.key === '2') {
           selectMode('existing-run');
+        } else if (e.key === '3') {
+          selectMode('sandbox');
         }
       });
     </script>

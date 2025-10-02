@@ -123,3 +123,21 @@ def test_parse_invalid_expression():
     """Test parsing invalid expression."""
     ast = parse_applies_if("INVALID SYNTAX @@")
     assert ast is None
+
+
+def test_parse_true_literal_case_insensitive():
+    """Test parsing TRUE literal with various cases."""
+    test_cases = ["TRUE", "True", "true", "TrUe", " TRUE ", " true "]
+    for text in test_cases:
+        ast = parse_applies_if(text)
+        assert isinstance(ast, Literal), f"Failed for input: {repr(text)}"
+        assert ast.value is True, f"Failed for input: {repr(text)}"
+
+
+def test_parse_false_literal_case_insensitive():
+    """Test parsing FALSE literal with various cases."""
+    test_cases = ["FALSE", "False", "false", "FaLsE", " FALSE ", " false "]
+    for text in test_cases:
+        ast = parse_applies_if(text)
+        assert isinstance(ast, Literal), f"Failed for input: {repr(text)}"
+        assert ast.value is False, f"Failed for input: {repr(text)}"

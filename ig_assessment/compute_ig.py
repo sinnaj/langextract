@@ -294,6 +294,109 @@ def compute_expected_entropy(
     return expected_entropy
 
 
+def compute_dismissal_stats(
+    norm_asts: List[Any],
+    feature_name: str,
+    schema: FeatureSchema
+) -> Tuple[float, float, str]:
+    """Compute dismissal statistics for a feature.
+    
+    This shows how many norms (out of ALL norms in the dataset) would be 
+    dismissed (made inapplicable/FALSE) by selecting different values of 
+    this feature, when all other features are left unspecified.
+    
+    This matches the behavior of the Sandbox filter where setting a single
+    feature value filters out norms whose applies_if becomes definitively FALSE.
+    
+    Args:
+        norm_asts: List of parsed applies_if ASTs (from parse_applies_if)
+        feature_name: Feature to analyze
+        schema: Feature schema
+    
+    Returns:
+        Tuple of (max_dismissal_rate, avg_dismissal_rate, best_value_str)
+        - max_dismissal_rate: Highest fraction of ALL norms dismissed by any value
+        - avg_dismissal_rate: Average dismissal rate across all values
+        - best_value_str: String representation of value with highest dismissal
+    """
+    n_norms = len(norm_asts)
+    feature_values = schema.get_feature_values(feature_name)
+    
+    if not feature_values:
+        return 0.0, 0.0, "N/A"
+    
+    dismissal_rates = []
+    value_strs = []
+    
+    if schema.is_numeric(feature_name):
+        nf = schema.numeric_features[feature_name]
+        # For each bin, test with a representative value from that bin
+        for bin_idx in range(len(feature_values)):
+            bin_low, bin_high = nf.bins[bin_idx]
+            
+            # Choose a representative value from this bin
+            if bin_low is None:
+                test_value = bin_high - 1 if bin_high is not None else 0
+            elif bin_high is None:
+                test_value = bin_low + 1
+            else:
+                test_value = (bin_low + bin_high) / 2
+            
+            # Create assignment with only this feature set
+            assignment = {feature_name: test_value}
+            
+            # Count how many norms evaluate to FALSE with this assignment
+            norms_dismissed = 0
+            for i, ast in enumerate(norm_asts):
+                if ast is None:
+                    continue
+                result = evaluate_with_assignment(ast, assignment)
+                if result == TristateValue.FALSE:
+                    norms_dismissed += 1
+            
+            dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
+            dismissal_rates.append(dismissal_rate)
+            
+            # Format bin string
+            if bin_low is None:
+                bin_str = f"≤{bin_high}"
+            elif bin_high is None:
+                bin_str = f">{bin_low}"
+            else:
+                bin_str = f"({bin_low}, {bin_high}]"
+            value_strs.append(bin_str)
+    else:
+        # Categorical feature
+        for value in feature_values:
+            # Create assignment with only this feature set
+            assignment = {feature_name: value}
+            
+            # Count how many norms evaluate to FALSE with this assignment
+            norms_dismissed = 0
+            for i, ast in enumerate(norm_asts):
+                if ast is None:
+                    continue
+                result = evaluate_with_assignment(ast, assignment)
+                if result == TristateValue.FALSE:
+                    norms_dismissed += 1
+            
+            dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
+            dismissal_rates.append(dismissal_rate)
+            value_strs.append(str(value))
+    
+    if not dismissal_rates:
+        return 0.0, 0.0, "N/A"
+    
+    max_dismissal_rate = max(dismissal_rates)
+    avg_dismissal_rate = sum(dismissal_rates) / len(dismissal_rates)
+    
+    # Find value with max dismissal
+    max_idx = dismissal_rates.index(max_dismissal_rate)
+    best_value_str = value_strs[max_idx]
+    
+    return max_dismissal_rate, avg_dismissal_rate, best_value_str
+
+
 def compute_information_gain(
     norms: List[Dict[str, Any]],
     schema: FeatureSchema,
@@ -315,7 +418,7 @@ def compute_information_gain(
         exclude_features: Optional list of features to exclude
     
     Returns:
-        DataFrame with IG results
+        DataFrame with IG results including dismissal statistics
     """
     # Generate samples
     print(f"Generating {n_samples} samples...")
@@ -324,6 +427,14 @@ def compute_information_gain(
     # Evaluate norms on samples
     print(f"Evaluating {len(norms)} norms on samples...")
     applicability = evaluate_norms_on_samples(norms, samples)
+
+    # Parse norms once for dismissal stats (reuse parsing)
+    print("Parsing norms for dismissal statistics...")
+    norm_asts = []
+    for norm in norms:
+        applies_if = norm.get('attributes', {}).get('applies_if', '')
+        ast = parse_applies_if(applies_if)
+        norm_asts.append(ast)
 
     # Compute base entropy
     base_entropy = compute_base_entropy(applicability)
@@ -350,6 +461,11 @@ def compute_information_gain(
         cost = costs.get(feature, 0.25) if costs else 0.25
         ig_per_cost = ig / cost if cost > 0 else 0.0
 
+        # Compute dismissal statistics
+        max_dismissal, avg_dismissal, best_value = compute_dismissal_stats(
+            norm_asts, feature, schema
+        )
+
         # Get feature values
         feature_values = schema.get_feature_values(feature)
         num_values = len(feature_values)
@@ -371,7 +487,10 @@ def compute_information_gain(
             'IG_per_cost': ig_per_cost,
             'num_values': num_values,
             'numeric': is_numeric,
-            'categories_or_bins': values_str
+            'categories_or_bins': values_str,
+            'max_dismissal_rate': max_dismissal,
+            'avg_dismissal_rate': avg_dismissal,
+            'best_dismissal_value': best_value
         })
 
     # Create DataFrame
@@ -500,6 +619,13 @@ def main():
     print("\nTop 20 features by IG per cost:")
     table_data = df.head(20)[['feature', 'IG', 'cost', 'IG_per_cost', 'num_values', 'numeric']].values
     headers = ['Feature', 'IG', 'Cost', 'IG/Cost', '#Values', 'Numeric?']
+    print(tabulate(table_data, headers=headers, floatfmt='.4f'))
+    
+    # Print dismissal statistics
+    print("\nTop 20 features by maximum dismissal rate:")
+    df_by_dismissal = df.sort_values('max_dismissal_rate', ascending=False)
+    table_data = df_by_dismissal.head(20)[['feature', 'max_dismissal_rate', 'avg_dismissal_rate', 'best_dismissal_value']].values
+    headers = ['Feature', 'Max Dismissal', 'Avg Dismissal', 'Best Value']
     print(tabulate(table_data, headers=headers, floatfmt='.4f'))
 
     # Save report if requested
