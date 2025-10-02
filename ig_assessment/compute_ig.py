@@ -295,29 +295,31 @@ def compute_expected_entropy(
 
 
 def compute_dismissal_stats(
-    applicability: np.ndarray,
-    samples: List[Dict[str, Any]],
+    norm_asts: List[Any],
     feature_name: str,
     schema: FeatureSchema
 ) -> Tuple[float, float, str]:
     """Compute dismissal statistics for a feature.
     
-    This shows how many norms would be dismissed (made inapplicable) by
-    selecting different values of this feature.
+    This shows how many norms (out of ALL norms in the dataset) would be 
+    dismissed (made inapplicable/FALSE) by selecting different values of 
+    this feature, when all other features are left unspecified.
+    
+    This matches the behavior of the Sandbox filter where setting a single
+    feature value filters out norms whose applies_if becomes definitively FALSE.
     
     Args:
-        applicability: Boolean array of shape (n_norms, n_samples)
-        samples: List of feature assignments
+        norm_asts: List of parsed applies_if ASTs (from parse_applies_if)
         feature_name: Feature to analyze
         schema: Feature schema
     
     Returns:
         Tuple of (max_dismissal_rate, avg_dismissal_rate, best_value_str)
-        - max_dismissal_rate: Highest fraction of norms dismissed by any value
+        - max_dismissal_rate: Highest fraction of ALL norms dismissed by any value
         - avg_dismissal_rate: Average dismissal rate across all values
         - best_value_str: String representation of value with highest dismissal
     """
-    n_norms, n_samples = applicability.shape
+    n_norms = len(norm_asts)
     feature_values = schema.get_feature_values(feature_name)
     
     if not feature_values:
@@ -328,35 +330,28 @@ def compute_dismissal_stats(
     
     if schema.is_numeric(feature_name):
         nf = schema.numeric_features[feature_name]
-        # For each bin, compute how many norms are dismissed
+        # For each bin, test with a representative value from that bin
         for bin_idx in range(len(feature_values)):
             bin_low, bin_high = nf.bins[bin_idx]
             
-            # Find samples in this bin
-            mask = np.zeros(n_samples, dtype=bool)
-            for j, assignment in enumerate(samples):
-                val = assignment.get(feature_name, None)
-                if val is None or not isinstance(val, (int, float)):
-                    continue
-                
-                in_bin = True
-                if bin_low is not None and val <= bin_low:
-                    in_bin = False
-                if bin_high is not None and val > bin_high:
-                    in_bin = False
-                if in_bin:
-                    mask[j] = True
+            # Choose a representative value from this bin
+            if bin_low is None:
+                test_value = bin_high - 1 if bin_high is not None else 0
+            elif bin_high is None:
+                test_value = bin_low + 1
+            else:
+                test_value = (bin_low + bin_high) / 2
             
-            n_matching = mask.sum()
-            if n_matching == 0:
-                continue
+            # Create assignment with only this feature set
+            assignment = {feature_name: test_value}
             
-            # Count how many norms are dismissed (FALSE) when feature is in this bin
+            # Count how many norms evaluate to FALSE with this assignment
             norms_dismissed = 0
-            for i in range(n_norms):
-                # A norm is dismissed if it's FALSE for all samples with this value
-                applicable_count = applicability[i, mask].sum()
-                if applicable_count == 0:
+            for i, ast in enumerate(norm_asts):
+                if ast is None:
+                    continue
+                result = evaluate_with_assignment(ast, assignment)
+                if result == TristateValue.FALSE:
                     norms_dismissed += 1
             
             dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
@@ -373,21 +368,16 @@ def compute_dismissal_stats(
     else:
         # Categorical feature
         for value in feature_values:
-            # Find samples with this value
-            mask = np.array([
-                assignment.get(feature_name) == value
-                for assignment in samples
-            ])
+            # Create assignment with only this feature set
+            assignment = {feature_name: value}
             
-            n_matching = mask.sum()
-            if n_matching == 0:
-                continue
-            
-            # Count how many norms are dismissed when feature has this value
+            # Count how many norms evaluate to FALSE with this assignment
             norms_dismissed = 0
-            for i in range(n_norms):
-                applicable_count = applicability[i, mask].sum()
-                if applicable_count == 0:
+            for i, ast in enumerate(norm_asts):
+                if ast is None:
+                    continue
+                result = evaluate_with_assignment(ast, assignment)
+                if result == TristateValue.FALSE:
                     norms_dismissed += 1
             
             dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
@@ -438,6 +428,14 @@ def compute_information_gain(
     print(f"Evaluating {len(norms)} norms on samples...")
     applicability = evaluate_norms_on_samples(norms, samples)
 
+    # Parse norms once for dismissal stats (reuse parsing)
+    print("Parsing norms for dismissal statistics...")
+    norm_asts = []
+    for norm in norms:
+        applies_if = norm.get('attributes', {}).get('applies_if', '')
+        ast = parse_applies_if(applies_if)
+        norm_asts.append(ast)
+
     # Compute base entropy
     base_entropy = compute_base_entropy(applicability)
     print(f"Base entropy: {base_entropy:.4f}")
@@ -465,7 +463,7 @@ def compute_information_gain(
 
         # Compute dismissal statistics
         max_dismissal, avg_dismissal, best_value = compute_dismissal_stats(
-            applicability, samples, feature, schema
+            norm_asts, feature, schema
         )
 
         # Get feature values

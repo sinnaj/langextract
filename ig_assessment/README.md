@@ -389,15 +389,16 @@ ig_assessment/
 
 ### 7. Dismissal Statistics Computation
 - **For each feature F and value v**:
-  - Filter samples where `F=v` (mask)
-  - Count how many norms have `applicability[i, mask].sum() == 0`
-  - These norms are "dismissed" (never applicable when F=v)
+  - Create a minimal assignment with only `F=v` set (all other features UNKNOWN)
+  - Evaluate each norm's `applies_if` with this assignment
+  - Count how many norms evaluate to FALSE
+  - These norms are "dismissed" (definitively inapplicable when F=v)
   - Dismissal rate = dismissed_count / total_norms
 - **Max Dismissal**: The highest dismissal rate across all values of F
 - **Avg Dismissal**: Mean dismissal rate across all values of F
 - **Best Value**: The value with the highest dismissal rate
 
-**Key insight**: A norm is dismissed by a feature-value pair when it evaluates to FALSE for all samples with that feature value. This captures how effectively that value filters out norms in practice.
+**Key insight**: A norm is dismissed by a feature-value pair when setting that feature to that value (with all other features unspecified) causes its `applies_if` to evaluate to FALSE. This directly measures what percentage of ALL norms in the dataset can be filtered out by setting a single feature value, matching the behavior of the Sandbox filter.
 
 ### 8. Ranking
 - Sort by `IG / cost` descending
