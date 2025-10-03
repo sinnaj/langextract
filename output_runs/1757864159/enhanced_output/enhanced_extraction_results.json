@@ -103,7 +103,9 @@
           "text": "Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI)"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "BUILDING.USAGE == 'INDUSTRIAL' OR ESTABLISHMENT.USAGE == 'INDUSTRIAL' OR ZONE.USAGE == 'INDUSTRIAL'"
     },
     {
       "section_id": "871beab772fa440c",
@@ -194,7 +196,9 @@
           "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "BUILDING.USAGE == 'INDUSTRIAL' AND HAS(REGULATION.FIRE_SAFETY.INDUSTRIAL_ESTABLISHMENTS)"
     },
     {
       "section_id": "c7d32bf7076ee298",
@@ -285,7 +289,9 @@
           "text": "Este CTE no incluye exigencias dirigidas a limitar el riesgo de inicio de incendio relacionado con l"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "9baa7d89dc2144a0",
@@ -376,7 +382,9 @@
           "text": "IV Condiciones particulares para el cumplimiento del DB-SI"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "d9e1be117daf8f21",
@@ -467,7 +475,9 @@
           "text": "IV Condiciones particulares para el cumplimiento del DB-SI"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "53ed59895ad8edd7",
@@ -558,7 +568,9 @@
           "text": "A efectos de aplicación de este DB, los términos que figuran en letra cursiva deben utilizarse confo"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "35905fb620966705",
@@ -649,7 +661,9 @@
           "text": "A efectos de aplicación de este DB, los términos que figuran en letra cursiva deben utilizarse confo"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "018b051f734a19d1",
@@ -739,7 +753,9 @@
           "text": "3 La resistencia al fuego de los elementos separadores de los sectores de incendio debe satisfacer l"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3446818cb693b4e0",
@@ -830,7 +846,9 @@
           "text": "3 La resistencia al fuego de los elementos separadores de los sectores de incendio debe satisfacer l"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "2cdaa19101374997",
@@ -921,7 +939,9 @@
           "text": "(2) Como alternativa puede adoptarse el tiempo equivalente de exposición al fuego, determinado confo"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "EQUIPMENT.LOCATION == 'ROOFTOP'"
     },
     {
       "section_id": "dac600d72cb1a240",
@@ -1103,7 +1123,9 @@
           "text": "2 Las condiciones de reacción al fuego de los componentes de las instalaciones eléctricas (cables, t"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "38284053a3c96ba5",
@@ -1193,7 +1215,9 @@
           "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "eae7b7d5b91e23d5",
@@ -1284,7 +1308,9 @@
           "text": "Cuando se trate de edificios diferentes y colindantes, los puntos de la fachada del edificio conside"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "a9143cadc4b7a2d9",
@@ -1375,7 +1401,9 @@
           "text": "Figura 1.7 Encuentro forjado-fachada"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "59fb0ac27845244e",
@@ -1465,7 +1493,9 @@
           "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "dee98d3bdd4cfa2e",
@@ -1647,7 +1677,9 @@
           "text": "sus salidas de emergencia podrán comunicar con un elemento común de evacuación del edificio a través"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "eb7444d1bc1ed618",
@@ -1738,7 +1770,9 @@
           "text": "Tabla 3.1. Número de salidas de planta y longitud de los recorridos de evacuación(1)"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "abda6f536da89fea",
@@ -1922,7 +1956,9 @@
           "text": "A= Anchura del elemento, [m]"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "ee397064d26313e4",
@@ -2013,7 +2049,9 @@
           "text": "Tabla 5.1. Protección de las escaleras"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b3db572ab7806172",
@@ -2104,7 +2142,9 @@
           "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "DOOR.TYPE == 'AUTOMATIC'"
     },
     {
       "section_id": "3ba0ce2576bba206",
@@ -2195,7 +2235,9 @@
           "text": "prevista para el paso de más de 200 personas en edificios de uso Residencial Vivienda o de 100 perso"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3e0d27a4a7198124",
@@ -2286,7 +2328,9 @@
           "text": "En dichos recorridos, junto a las puertas que no sean salida y que puedan inducir a error en la evac"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "945f135cd33a53d3",
@@ -2377,7 +2421,9 @@
           "text": "1 En los edificios de uso Residencial Vivienda con altura de evacuación superior a 28 m, de uso Resi"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "53c3cb4e207386bc",
@@ -2467,7 +2513,9 @@
           "text": "Tabla 1.1. Dotación de instalaciones de protección contra incendios"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "74a0ab2b89383c41",
@@ -2558,7 +2606,9 @@
           "text": "Tabla 1.1. Dotación de instalaciones de protección contra incendios"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "29ca410915002e1c",
@@ -2649,7 +2699,9 @@
           "text": "(5) Los municipios pueden sustituir esta condición por la de una instalación de bocas de incendio eq"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "6e34e6faab005b13",
@@ -2739,7 +2791,9 @@
           "text": "anchura mínima libre"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "38ffc4424a53526b",
@@ -2830,7 +2884,9 @@
           "text": "anchura mínima libre"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "1d69955ec7085edf",
@@ -3014,7 +3070,9 @@
           "text": "anchura mínima libre"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c2b78b23fc28e35b",
@@ -3105,7 +3163,8 @@
           "text": "Debe haber una franja de 25 m de anchura separando la zona edificada de la forestal, libre de arbust"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE"
     },
     {
       "section_id": "39b7950996e811a8",
@@ -3195,7 +3254,9 @@
           "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
         }
       ],
-      "section_summary": "Section at level 1"
+      "section_summary": "Section at level 1",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "6844a304e524563c",
@@ -3286,7 +3347,9 @@
           "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "0766943d03761501",
@@ -3377,7 +3440,9 @@
           "text": "3 Pueden adoptarse otros modelos de incendio para representar la evolución de la temperatura durante"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "0062e09e844b85b2",
@@ -3468,7 +3533,9 @@
           "text": "alcanza la clase indicada en la tabla 3.1 o 3.2 que representa el tiempo en minutos de resistencia a"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "41a3efaa2506b8f4",
@@ -3650,7 +3717,9 @@
           "text": "No obstante, todo suelo que, teniendo en cuenta lo anterior , deba garantizar la resistencia al fueg"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b7595bd415e36782",
@@ -3741,7 +3810,9 @@
           "text": "mediante la realización de los ensayos que establece el Real Decreto 842/2013 de 31 de octubre ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "76db3bf20bbd5d66",
@@ -3922,7 +3993,9 @@
           "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "12fe0f855072929d",
@@ -4104,7 +4177,9 @@
           "text": "Máxima diferencia de cotas entre un origen de evacuación y la salida de edificio que le corresponda."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "7d61210bef1620fc",
@@ -4195,7 +4270,9 @@
           "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "504c495611d3c32c",
@@ -4286,7 +4363,9 @@
           "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "BUILDING.HAS_STAGE_BOX == TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "1f57030ecce1ea05",
@@ -4377,7 +4456,9 @@
           "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "5e71563eb478dbc8",
@@ -4468,7 +4549,9 @@
           "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "1105dde0c692b328",
@@ -4559,7 +4642,9 @@
           "text": "-Debe estar compartimentado respecto de la sala de espectadores mediante elementos EI 120 excepto en"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "257687dc9dc7e77d",
@@ -4650,7 +4735,9 @@
           "text": "Escalera abierta al exterior"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "5d1b3826be66171e",
@@ -4741,7 +4828,9 @@
           "text": "Escalera abierta al exterior"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "f8a271a7c7b5ad6d",
@@ -4832,7 +4921,9 @@
           "text": "Escalera abierta al exterior"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "efa7e8b4f0f20554",
@@ -5014,7 +5105,9 @@
           "text": "Escalera abierta al exterior"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "f01b6e31a28630af",
@@ -5105,7 +5198,9 @@
           "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c688d20c2a9016ba",
@@ -5196,7 +5291,9 @@
           "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "edf2ceaedf294645",
@@ -5287,7 +5384,9 @@
           "text": "-la superficie de la sección útil total es de 50 cm² por cada m 3 de recinto en cada planta, tanto p"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b3a72a9153884ba4",
@@ -5378,7 +5477,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "87c812f160084270",
@@ -5469,7 +5570,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "faf0f7def2a3ec88",
@@ -5560,7 +5663,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "442feb01acdd2203",
@@ -5651,7 +5756,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b448ea984b1ff2d7",
@@ -5742,7 +5849,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "e0b40d94c0eb739a",
@@ -5833,7 +5942,9 @@
           "text": "Modelo informático de dinámica de fluidos"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "ebfad72d50384817",
@@ -5924,7 +6035,9 @@
           "text": "En uso Aparcamiento los recorridos de evacuación deben discurrir por las calles de circulación de ve"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "dbc235975dfc29b3",
@@ -6015,7 +6128,9 @@
           "text": "Salida de edificio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "947d70dbfaab7191",
@@ -6106,7 +6221,9 @@
           "text": "Salida de edificio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "5bcd53135cf6001a",
@@ -6197,7 +6314,9 @@
           "text": "Salida de edificio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "be411abb23a77d88",
@@ -6379,7 +6498,9 @@
           "text": "Salida de edificio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3b66c4bed0f297dc",
@@ -6470,7 +6591,9 @@
           "text": "Salida de edificio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "41cfdbd2f6a7e5b1",
@@ -6743,7 +6866,9 @@
           "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "8c9cb1fc730acda7",
@@ -6834,7 +6959,9 @@
           "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "449984214d9e5201",
@@ -6925,7 +7052,9 @@
           "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "4dfb336524461e3c",
@@ -7016,7 +7145,9 @@
           "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "0b6211510b872a71",
@@ -7107,7 +7238,9 @@
           "text": "-Está destinado exclusivamente a circulación y no constituye un sector bajo rasante ."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c007cb85e0259cfd",
@@ -7926,7 +8059,9 @@
           "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "875c1b84d9f0747f",
@@ -8017,7 +8152,9 @@
           "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "25992f09ad03518e",
@@ -8108,7 +8245,9 @@
           "text": "Edificio o establecimiento destinado a proporcionar alojamiento temporal, regentado por un titular d"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "63246fc7296829a9",
@@ -8199,7 +8338,9 @@
           "text": "Zona de refugio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "88982b3d42eea317",
@@ -8290,7 +8431,9 @@
           "text": "Zona de refugio"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "78b4ca3582042b08",
@@ -8381,7 +8524,9 @@
           "text": "B.2 Curva normalizada tiempo – temperatura"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3fb40131451a76b9",
@@ -8472,7 +8617,9 @@
           "text": "B.2 Curva normalizada tiempo – temperatura"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3bfc188074ae3632",
@@ -8563,7 +8710,9 @@
           "text": "B.2 Curva normalizada tiempo – temperatura"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "057b0e30394bb34a",
@@ -8654,7 +8803,9 @@
           "text": "m coeficiente de combustión que tiene en cuenta la fracción del combustible que arde en el incendio."
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "199c18d1f2a4ab44",
@@ -8745,7 +8896,9 @@
           "text": "1 El valor característico de la densidad de carga de fuego, qf,k, se obtiene sumando el valor caract"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "ad4b375af165d7aa",
@@ -8926,7 +9079,9 @@
           "text": "C.2 Tablas"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b081e4ba6f044f3f",
@@ -9017,7 +9172,9 @@
           "text": "C.2 Tablas"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "efffb8e5db8fba5d",
@@ -9109,7 +9266,9 @@
           "text": "C.2 Tablas"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "92b1ee501db9a68b",
@@ -9201,7 +9360,9 @@
           "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "f4b6cdbba7db63b5",
@@ -9293,7 +9454,9 @@
           "text": "2 Para resistencias al fuego mayores que R 90 y cuando la armadura del soporte sea superior al 2% de"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "a9a58b8cd2ff0c2e",
@@ -9386,7 +9549,9 @@
           "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "fd5c1ad51bb251e1",
@@ -9572,7 +9737,9 @@
           "text": "(1) Los recubrimientos por exigencias de durabilidad pueden requerir valores superiores."
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "f185987d668ab2ef",
@@ -9665,7 +9832,9 @@
           "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c30ebf587c86df5c",
@@ -9758,7 +9927,9 @@
           "text": "4 Las vigas planas con macizados laterales mayores que 10cm se pueden asimilar a losas unidirecciona"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "8d62547fda7476ee",
@@ -9849,7 +10020,9 @@
           "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "8dd75f4833752430",
@@ -10033,7 +10206,9 @@
           "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "035dc6c92ec2d453",
@@ -10125,7 +10300,9 @@
           "text": "1 La resistencia al fuego requerida se puede alcanzar mediante la aplicación de capas protectoras cu"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "f8980dc84813d7e4",
@@ -10217,7 +10394,9 @@
           "text": "C.3.4 Isotermas"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "256e0b9eafa04cae",
@@ -10309,7 +10488,9 @@
           "text": "C.3.4 Isotermas"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "68c4f06242906d06",
@@ -10400,7 +10581,9 @@
           "text": "3 Se admite que la clase de las secciones transversales en situación de cálculo frente a fuego es la"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "3de67ea237bc04a3",
@@ -10585,7 +10768,9 @@
           "text": "1 En soportes de acero revestidos mediante elementos de fábrica en todo el contorno expuesto al fueg"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "STEEL.SUPPORT.CLAD.WITH_MASONRY == TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "a8695e8b5f389eb6",
@@ -10677,7 +10862,9 @@
           "text": "como curva de pandeo se utilizará la curva c, con independencia del tipo de sección transversal o el"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c9b26b522224c762",
@@ -10949,7 +11136,9 @@
           "text": "E.2.1 Generalidades"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "5e1e339ac7b0bdb2",
@@ -11041,7 +11230,9 @@
           "text": "E.2.1 Generalidades"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "71bfaa4bf850b886",
@@ -11133,7 +11324,9 @@
           "text": "-Las condiciones de contorno y apoyo, para el elemento estructural, se corresponden con las adoptada"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "9ad54027d2b390f3",
@@ -11319,7 +11512,9 @@
           "text": "Si el inicio de la carbonización del elemento se produce antes del fallo de la protección deben cons"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b359d6858630f7f4",
@@ -11411,7 +11606,9 @@
           "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "d97626b2289cf383",
@@ -11687,7 +11884,9 @@
           "text": "E.3 Reglas simplificadas para el análisis de elementos estructurales"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "22dc06f3ec4598df",
@@ -11779,7 +11978,9 @@
           "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b3cff89cbf874ae0",
@@ -11872,7 +12073,9 @@
           "text": "2 Los apartados E.4.2 y E.4.3 son sólo válidos para uniones simétricas de tres elementos sometidas a"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FIRE.RESISTANCE.TIME > 30"
     },
     {
       "section_id": "86653993d024d085",
@@ -11965,7 +12168,9 @@
           "text": "tch tiempo en el que inicia la carbonización de acuerdo con E.2.3.2.2;"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "bfa78d27e216e192",
@@ -12058,7 +12263,9 @@
           "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "1842859a51f939ea",
@@ -12151,7 +12358,9 @@
           "text": "2 En placas de acero cuyo ancho sea menor que el de las piezas de madera pueden considerarse protegi"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "e5c1b0dac77f07d6",
@@ -12243,7 +12452,9 @@
           "text": "1 Las especificaciones contenidas en este apartado son sólo de aplicación a los tirafondos sometidos"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "91e56365f06ff8cb",
@@ -13069,7 +13280,9 @@
           "text": "4 Herrajes y dispositivos de apertura para puertas resistentes al fuego"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "728cbdb1f6ca9dbc",
@@ -13160,7 +13373,9 @@
           "text": "2  Resistencia al fuego"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "60205f2437e0cca3",
@@ -13251,7 +13466,9 @@
           "text": "91"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "2201c653cfc16ad3",
@@ -13312,7 +13529,9 @@
           "text": "6  Otras materias"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "419effe4c9682b04",
@@ -13373,7 +13592,9 @@
           "text": "6  Otras materias"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "bbd4fd8ebdf3f10a",
@@ -13497,7 +13718,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "581a9832eaee1871",
@@ -13593,7 +13816,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "dcdb95bd829d99f5",
@@ -13625,7 +13850,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "a2976d00b54a387d",
@@ -14069,7 +14296,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "c1df76ecb957989e",
@@ -14211,7 +14440,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "9e896ba3e052e0bc",
@@ -14293,7 +14524,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 5"
+      "section_summary": "Section at level 5",
+      "meta_applies_if": "CONSTRUCTION.MATERIAL == 'REINFORCED_CONCRETE' AND ELEMENT.TYPE == 'BEAM' AND ELEMENT.EXPOSURE.FACES == 3",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "6e8f68d402f3e03b",
@@ -14408,7 +14641,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "b13b4f949b4db186",
@@ -14442,7 +14677,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 5"
+      "section_summary": "Section at level 5",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "6bfc3468b809a980",
@@ -14475,7 +14712,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 4"
+      "section_summary": "Section at level 4",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "192da7db13085e4a",
@@ -14717,7 +14956,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 2"
+      "section_summary": "Section at level 2",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "ef29ca22b860e8a9",
@@ -14749,7 +14990,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "a820096afabecbe5",
@@ -14826,7 +15069,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "422de280bf4c20b3",
@@ -14873,7 +15118,9 @@
           "text": "Table 1"
         }
       ],
-      "section_summary": "Section at level 3"
+      "section_summary": "Section at level 3",
+      "meta_applies_if": "TRUE",
+      "meta_exempt_if": "FALSE"
     },
     {
       "section_id": "4f7d7a9b62eb1a70",
@@ -420478,6 +420725,7 @@
   "processing_stats": {
     "chunks_processed": 183,
     "successful_extractions": 1163,
-    "sections_with_extractions": 178
+    "sections_with_extractions": 178,
+    "section_metadata_enriched": 139
   }
 }
