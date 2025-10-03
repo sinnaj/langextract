@@ -1328,7 +1328,7 @@ def filter_sandbox_norms():
         if not run_id:
             return jsonify({"error": "run_id is required"}), 400
         
-        # Get all norms
+        # Get all norms and sections
         run_dir = OUTPUT_ROOT / run_id
         if not run_dir.exists():
             return jsonify({"error": "Run not found"}), 404
@@ -1344,6 +1344,14 @@ def filter_sandbox_norms():
             e for e in result_data.get("extractions", [])
             if e.get("extraction_class") == "NORM"
         ]
+        sections = result_data.get("sections", [])
+        
+        # Build section lookup map
+        section_map = {}
+        for section in sections:
+            section_id = section.get('section_id')
+            if section_id:
+                section_map[section_id] = section
         
         # Import evaluator from ig_assessment
         sys.path.insert(0, str(REPO_ROOT / "ig_assessment"))
@@ -1362,44 +1370,88 @@ def filter_sandbox_norms():
             # All values are now single values (no arrays from frontend)
             assignment[feature_name] = value
         
-        # Filter norms by parsing and evaluating applies_if on the fly
-        # NOTE: We don't cache ASTs because norm_ids are not guaranteed to be unique
+        # Filter norms considering section and norm applies_if/exempt_if
         filtered_norms = []
         debug_log = []  # For debugging
         for norm in norms:
             norm_id = norm.get('attributes', {}).get('id')
-            applies_if_str = norm.get('attributes', {}).get('applies_if', 'TRUE')
+            norm_applies_if = norm.get('attributes', {}).get('applies_if', 'TRUE')
+            norm_exempt_if = norm.get('attributes', {}).get('exempt_if', '')
+            parent_section_id = norm.get('attributes', {}).get('parent_section_id')
             
-            # Parse applies_if expression on the fly
-            ast = parse_applies_if(applies_if_str)
+            # Get section metadata if available
+            section_applies_if = ''
+            section_exempt_if = ''
+            if parent_section_id and parent_section_id in section_map:
+                section = section_map[parent_section_id]
+                section_applies_if = section.get('meta_applies_if', '')
+                section_exempt_if = section.get('meta_exempt_if', '')
             
-            # Evaluate with partial assignment
+            # Parse and evaluate all conditions
             evaluator = Evaluator(assignment)
-            result = evaluator.evaluate(ast)
             
-            # Debug logging for norms with applies_if = TRUE
-            if applies_if_str.strip().upper() == 'TRUE':
+            # 1. Check section applies_if (default TRUE if not present)
+            section_applies = True
+            if section_applies_if:
+                ast = parse_applies_if(section_applies_if)
+                result = evaluator.evaluate(ast)
+                if result == TristateValue.FALSE:
+                    section_applies = False
+            
+            # 2. Check norm applies_if
+            norm_applies_ast = parse_applies_if(norm_applies_if)
+            norm_applies_result = evaluator.evaluate(norm_applies_ast)
+            
+            # 3. Check section exempt_if (default FALSE if not present)
+            section_exempt = False
+            if section_exempt_if:
+                ast = parse_applies_if(section_exempt_if)
+                result = evaluator.evaluate(ast)
+                if result == TristateValue.TRUE:
+                    section_exempt = True
+            
+            # 4. Check norm exempt_if (default FALSE if not present)
+            norm_exempt = False
+            if norm_exempt_if:
+                ast = parse_applies_if(norm_exempt_if)
+                result = evaluator.evaluate(ast)
+                if result == TristateValue.TRUE:
+                    norm_exempt = True
+            
+            # Debug logging
+            if norm_applies_if.strip().upper() == 'TRUE':
                 debug_log.append({
                     'norm_id': norm_id,
-                    'applies_if': applies_if_str,
-                    'applies_if_repr': repr(applies_if_str),
-                    'ast': str(ast),
-                    'ast_type': type(ast).__name__,
-                    'ast_value': str(ast.value) if hasattr(ast, 'value') else 'N/A',
-                    'result': str(result),
-                    'kept': result != TristateValue.FALSE
+                    'norm_applies_if': norm_applies_if,
+                    'norm_exempt_if': norm_exempt_if,
+                    'section_applies_if': section_applies_if,
+                    'section_exempt_if': section_exempt_if,
+                    'section_applies': section_applies,
+                    'norm_applies': norm_applies_result != TristateValue.FALSE,
+                    'section_exempt': section_exempt,
+                    'norm_exempt': norm_exempt,
+                    'kept': section_applies and norm_applies_result != TristateValue.FALSE and not section_exempt and not norm_exempt
                 })
             
-            # Keep norm if result is TRUE or UNKNOWN, exclude if FALSE
-            if result != TristateValue.FALSE:
+            # Keep norm if:
+            # - section applies (TRUE or UNKNOWN, not FALSE)
+            # - norm applies (TRUE or UNKNOWN, not FALSE)
+            # - section NOT exempt (FALSE or UNKNOWN, not TRUE)
+            # - norm NOT exempt (FALSE or UNKNOWN, not TRUE)
+            if section_applies and norm_applies_result != TristateValue.FALSE and not section_exempt and not norm_exempt:
                 filtered_norms.append(norm)
         
         # Log debug info for norms with applies_if = TRUE if any were excluded
         excluded_true_norms = [d for d in debug_log if not d['kept']]
         if excluded_true_norms:
-            print(f"[DEBUG] WARNING: {len(excluded_true_norms)} norms with applies_if=TRUE were incorrectly filtered out!")
-            for d in excluded_true_norms[:5]:  # Show first 5
-                print(f"  - {d}")
+            print(f"[DEBUG] {len(excluded_true_norms)} norms with applies_if=TRUE were filtered by exempt conditions")
+            for d in excluded_true_norms[:3]:  # Show first 3
+                print(f"  - Norm {d['norm_id'][:8]}:")
+                print(f"    section_exempt={d['section_exempt']}, norm_exempt={d['norm_exempt']}")
+                if d['section_exempt_if']:
+                    print(f"    section_exempt_if: {d['section_exempt_if'][:80]}")
+                if d['norm_exempt_if']:
+                    print(f"    norm_exempt_if: {d['norm_exempt_if'][:80]}")
         
         return jsonify({
             "norms": filtered_norms,
