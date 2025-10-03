@@ -128,13 +128,15 @@ def generate_samples(
 
 def evaluate_norms_on_samples(
     norms: List[Dict[str, Any]],
-    samples: List[Dict[str, Any]]
+    samples: List[Dict[str, Any]],
+    sections: Optional[List[Dict[str, Any]]] = None
 ) -> np.ndarray:
     """Evaluate all norms on all samples.
     
     Args:
         norms: List of norm dictionaries
         samples: List of feature assignments
+        sections: Optional list of section dictionaries with meta_applies_if and meta_exempt_if
     
     Returns:
         Boolean numpy array of shape (n_norms, n_samples)
@@ -143,21 +145,83 @@ def evaluate_norms_on_samples(
     n_samples = len(samples)
     applicability = np.zeros((n_norms, n_samples), dtype=bool)
 
+    # Build section lookup map
+    section_map = {}
+    if sections:
+        for section in sections:
+            section_id = section.get('section_id')
+            if section_id:
+                section_map[section_id] = section
+
     # Parse all norms first
-    norm_asts = []
+    norm_data = []
     for norm in norms:
         applies_if = norm.get('attributes', {}).get('applies_if', '')
-        ast = parse_applies_if(applies_if)
-        norm_asts.append(ast)
+        exempt_if = norm.get('attributes', {}).get('exempt_if', '')
+        parent_section_id = norm.get('attributes', {}).get('parent_section_id')
+        
+        applies_ast = parse_applies_if(applies_if)
+        exempt_ast = parse_applies_if(exempt_if) if exempt_if else None
+        
+        # Get section metadata if available
+        section_applies_ast = None
+        section_exempt_ast = None
+        if parent_section_id and parent_section_id in section_map:
+            section = section_map[parent_section_id]
+            section_applies_if = section.get('meta_applies_if', '')
+            section_exempt_if = section.get('meta_exempt_if', '')
+            
+            if section_applies_if:
+                section_applies_ast = parse_applies_if(section_applies_if)
+            if section_exempt_if:
+                section_exempt_ast = parse_applies_if(section_exempt_if)
+        
+        norm_data.append({
+            'applies_ast': applies_ast,
+            'exempt_ast': exempt_ast,
+            'section_applies_ast': section_applies_ast,
+            'section_exempt_ast': section_exempt_ast
+        })
 
     # Evaluate each norm on each sample
-    for i, ast in enumerate(norm_asts):
-        if ast is None:
-            continue
-        
+    for i, data in enumerate(norm_data):
         for j, assignment in enumerate(samples):
-            result = evaluate_with_assignment(ast, assignment)
-            if result == TristateValue.TRUE:
+            # Norm applies if:
+            # 1. section_applies_if is TRUE (or not present)
+            # 2. norm applies_if is TRUE
+            # 3. section_exempt_if is FALSE or UNKNOWN (not TRUE)
+            # 4. norm exempt_if is FALSE or UNKNOWN (not TRUE)
+            
+            # Check section applies_if
+            section_applies = True
+            if data['section_applies_ast'] is not None:
+                result = evaluate_with_assignment(data['section_applies_ast'], assignment)
+                if result != TristateValue.TRUE:
+                    section_applies = False
+            
+            # Check norm applies_if
+            norm_applies = False
+            if data['applies_ast'] is not None:
+                result = evaluate_with_assignment(data['applies_ast'], assignment)
+                if result == TristateValue.TRUE:
+                    norm_applies = True
+            
+            # Check section exempt_if
+            section_exempt = False
+            if data['section_exempt_ast'] is not None:
+                result = evaluate_with_assignment(data['section_exempt_ast'], assignment)
+                if result == TristateValue.TRUE:
+                    section_exempt = True
+            
+            # Check norm exempt_if
+            norm_exempt = False
+            if data['exempt_ast'] is not None:
+                result = evaluate_with_assignment(data['exempt_ast'], assignment)
+                if result == TristateValue.TRUE:
+                    norm_exempt = True
+            
+            # Final applicability: applies AND not exempt
+            if section_applies and norm_applies and not section_exempt and not norm_exempt:
                 applicability[i, j] = True
 
     return applicability
@@ -295,7 +359,7 @@ def compute_expected_entropy(
 
 
 def compute_dismissal_stats(
-    norm_asts: List[Any],
+    norm_data: List[Dict[str, Any]],
     feature_name: str,
     schema: FeatureSchema
 ) -> Tuple[float, float, str]:
@@ -306,10 +370,12 @@ def compute_dismissal_stats(
     this feature, when all other features are left unspecified.
     
     This matches the behavior of the Sandbox filter where setting a single
-    feature value filters out norms whose applies_if becomes definitively FALSE.
+    feature value filters out norms whose applies_if becomes definitively FALSE
+    or exempt_if becomes TRUE.
     
     Args:
-        norm_asts: List of parsed applies_if ASTs (from parse_applies_if)
+        norm_data: List of dicts with 'applies_ast', 'exempt_ast', 
+                   'section_applies_ast', 'section_exempt_ast' keys
         feature_name: Feature to analyze
         schema: Feature schema
     
@@ -319,7 +385,7 @@ def compute_dismissal_stats(
         - avg_dismissal_rate: Average dismissal rate across all values
         - best_value_str: String representation of value with highest dismissal
     """
-    n_norms = len(norm_asts)
+    n_norms = len(norm_data)
     feature_values = schema.get_feature_values(feature_name)
     
     if not feature_values:
@@ -345,13 +411,40 @@ def compute_dismissal_stats(
             # Create assignment with only this feature set
             assignment = {feature_name: test_value}
             
-            # Count how many norms evaluate to FALSE with this assignment
+            # Count how many norms are dismissed (applies=FALSE or exempt=TRUE)
             norms_dismissed = 0
-            for i, ast in enumerate(norm_asts):
-                if ast is None:
-                    continue
-                result = evaluate_with_assignment(ast, assignment)
-                if result == TristateValue.FALSE:
+            for i, data in enumerate(norm_data):
+                # Check section applies_if
+                section_applies = True
+                if data['section_applies_ast'] is not None:
+                    result = evaluate_with_assignment(data['section_applies_ast'], assignment)
+                    if result == TristateValue.FALSE:
+                        section_applies = False
+                
+                # Check norm applies_if
+                norm_applies = False
+                if data['applies_ast'] is not None:
+                    result = evaluate_with_assignment(data['applies_ast'], assignment)
+                    if result != TristateValue.FALSE:
+                        norm_applies = True
+                
+                # Check section exempt_if
+                section_exempt = False
+                if data['section_exempt_ast'] is not None:
+                    result = evaluate_with_assignment(data['section_exempt_ast'], assignment)
+                    if result == TristateValue.TRUE:
+                        section_exempt = True
+                
+                # Check norm exempt_if
+                norm_exempt = False
+                if data['exempt_ast'] is not None:
+                    result = evaluate_with_assignment(data['exempt_ast'], assignment)
+                    if result == TristateValue.TRUE:
+                        norm_exempt = True
+                
+                # Norm is dismissed if section doesn't apply, norm doesn't apply, 
+                # section is exempt, or norm is exempt
+                if not section_applies or not norm_applies or section_exempt or norm_exempt:
                     norms_dismissed += 1
             
             dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
@@ -371,13 +464,40 @@ def compute_dismissal_stats(
             # Create assignment with only this feature set
             assignment = {feature_name: value}
             
-            # Count how many norms evaluate to FALSE with this assignment
+            # Count how many norms are dismissed
             norms_dismissed = 0
-            for i, ast in enumerate(norm_asts):
-                if ast is None:
-                    continue
-                result = evaluate_with_assignment(ast, assignment)
-                if result == TristateValue.FALSE:
+            for i, data in enumerate(norm_data):
+                # Check section applies_if
+                section_applies = True
+                if data['section_applies_ast'] is not None:
+                    result = evaluate_with_assignment(data['section_applies_ast'], assignment)
+                    if result == TristateValue.FALSE:
+                        section_applies = False
+                
+                # Check norm applies_if
+                norm_applies = False
+                if data['applies_ast'] is not None:
+                    result = evaluate_with_assignment(data['applies_ast'], assignment)
+                    if result != TristateValue.FALSE:
+                        norm_applies = True
+                
+                # Check section exempt_if
+                section_exempt = False
+                if data['section_exempt_ast'] is not None:
+                    result = evaluate_with_assignment(data['section_exempt_ast'], assignment)
+                    if result == TristateValue.TRUE:
+                        section_exempt = True
+                
+                # Check norm exempt_if
+                norm_exempt = False
+                if data['exempt_ast'] is not None:
+                    result = evaluate_with_assignment(data['exempt_ast'], assignment)
+                    if result == TristateValue.TRUE:
+                        norm_exempt = True
+                
+                # Norm is dismissed if section doesn't apply, norm doesn't apply,
+                # section is exempt, or norm is exempt
+                if not section_applies or not norm_applies or section_exempt or norm_exempt:
                     norms_dismissed += 1
             
             dismissal_rate = norms_dismissed / n_norms if n_norms > 0 else 0.0
@@ -404,7 +524,8 @@ def compute_information_gain(
     seed: int,
     costs: Optional[Dict[str, float]] = None,
     include_features: Optional[List[str]] = None,
-    exclude_features: Optional[List[str]] = None
+    exclude_features: Optional[List[str]] = None,
+    sections: Optional[List[Dict[str, Any]]] = None
 ) -> pd.DataFrame:
     """Compute information gain for all features.
     
@@ -416,6 +537,7 @@ def compute_information_gain(
         costs: Optional dict mapping feature -> cost
         include_features: Optional list of features to include
         exclude_features: Optional list of features to exclude
+        sections: Optional list of section dictionaries with meta_applies_if and meta_exempt_if
     
     Returns:
         DataFrame with IG results including dismissal statistics
@@ -426,15 +548,45 @@ def compute_information_gain(
 
     # Evaluate norms on samples
     print(f"Evaluating {len(norms)} norms on samples...")
-    applicability = evaluate_norms_on_samples(norms, samples)
+    applicability = evaluate_norms_on_samples(norms, samples, sections)
 
-    # Parse norms once for dismissal stats (reuse parsing)
+    # Build section lookup map and parse norms for dismissal stats
     print("Parsing norms for dismissal statistics...")
-    norm_asts = []
+    section_map = {}
+    if sections:
+        for section in sections:
+            section_id = section.get('section_id')
+            if section_id:
+                section_map[section_id] = section
+
+    norm_data = []
     for norm in norms:
         applies_if = norm.get('attributes', {}).get('applies_if', '')
-        ast = parse_applies_if(applies_if)
-        norm_asts.append(ast)
+        exempt_if = norm.get('attributes', {}).get('exempt_if', '')
+        parent_section_id = norm.get('attributes', {}).get('parent_section_id')
+        
+        applies_ast = parse_applies_if(applies_if)
+        exempt_ast = parse_applies_if(exempt_if) if exempt_if else None
+        
+        # Get section metadata if available
+        section_applies_ast = None
+        section_exempt_ast = None
+        if parent_section_id and parent_section_id in section_map:
+            section = section_map[parent_section_id]
+            section_applies_if = section.get('meta_applies_if', '')
+            section_exempt_if = section.get('meta_exempt_if', '')
+            
+            if section_applies_if:
+                section_applies_ast = parse_applies_if(section_applies_if)
+            if section_exempt_if:
+                section_exempt_ast = parse_applies_if(section_exempt_if)
+        
+        norm_data.append({
+            'applies_ast': applies_ast,
+            'exempt_ast': exempt_ast,
+            'section_applies_ast': section_applies_ast,
+            'section_exempt_ast': section_exempt_ast
+        })
 
     # Compute base entropy
     base_entropy = compute_base_entropy(applicability)
@@ -463,7 +615,7 @@ def compute_information_gain(
 
         # Compute dismissal statistics
         max_dismissal, avg_dismissal, best_value = compute_dismissal_stats(
-            norm_asts, feature, schema
+            norm_data, feature, schema
         )
 
         # Get feature values
@@ -590,6 +742,26 @@ def main():
 
     print(f"Found {len(norms)} norms")
 
+    # Extract sections (for meta_applies_if and meta_exempt_if)
+    sections = data.get('sections', [])
+    print(f"Found {len(sections)} sections")
+    
+    # Count sections with metadata
+    sections_with_metadata = sum(
+        1 for s in sections 
+        if s.get('meta_applies_if') or s.get('meta_exempt_if')
+    )
+    if sections_with_metadata > 0:
+        print(f"  - {sections_with_metadata} sections have metadata (meta_applies_if/meta_exempt_if)")
+    
+    # Count norms with exempt_if
+    norms_with_exempt = sum(
+        1 for n in norms
+        if n.get('attributes', {}).get('exempt_if')
+    )
+    if norms_with_exempt > 0:
+        print(f"  - {norms_with_exempt} norms have exempt_if conditions")
+
     # Extract feature schema
     print("Extracting feature schema...")
     schema = extract_features_from_norms(norms, args.priors)
@@ -608,7 +780,8 @@ def main():
         seed=args.seed,
         costs=costs,
         include_features=args.include,
-        exclude_features=args.exclude
+        exclude_features=args.exclude,
+        sections=sections
     )
 
     # Save CSV
