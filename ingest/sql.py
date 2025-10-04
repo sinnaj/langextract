@@ -222,7 +222,12 @@ def insert_norm(conn: Connection, norm_data: Dict[str, Any]) -> None:
     """
     from sqlalchemy import delete, select
     
-    norm_id = UUID(norm_data["id"])
+    # Handle UUID - it might already be a UUID object
+    norm_id_value = norm_data["id"]
+    if isinstance(norm_id_value, UUID):
+        norm_id = norm_id_value
+    else:
+        norm_id = UUID(norm_id_value)
     
     # Check if norm exists
     result = conn.execute(
@@ -281,34 +286,46 @@ def insert_requirement(
     expected_type: str,
     expected_value: Any,
 ) -> int:
-    """Insert a norm requirement and return its ID.
+    """Insert a norm requirement and return its ID."""
+    global norm_requirements  # Ensure we have access to the table
     
-    Args:
-        conn: Database connection
-        norm_id: Norm UUID
-        clause: Clause type
-        group_id: Clause group ID (nullable)
-        question_id: Question ID
-        operator: Comparison operator
-        expected_type: Value type
-        expected_value: Expected value (will be stored as JSONB)
-        
-    Returns:
-        Requirement ID (primary key)
-    """
     # Convert value to JSON-serializable format
     if not isinstance(expected_value, (str, int, float, bool, list, dict, type(None))):
         expected_value = str(expected_value)
     
-    result = conn.execute(
-        norm_requirements.insert().values(
-            norm_id=norm_id,
-            clause=clause,
-            group_id=group_id,
-            question_id=question_id,
-            operator=operator,
-            expected_type=expected_type,
-            expected_value=json.dumps(expected_value),
-        ).returning(norm_requirements.c.id)
-    )
-    return result.fetchone()[0]
+    try:
+        result = conn.execute(
+            norm_requirements.insert().values(
+                norm_id=norm_id,
+                clause=clause,
+                group_id=group_id,
+                question_id=question_id,
+                operator=operator,
+                expected_type=expected_type,
+                expected_value=json.dumps(expected_value),
+            ).returning(norm_requirements.c.id)
+        )
+        return result.fetchone()[0]
+    except Exception as e:
+        # Handle duplicate key violation gracefully
+        if "duplicate key value violates unique constraint" in str(e):
+            # Find and return the existing requirement ID
+            from sqlalchemy import select
+            result = conn.execute(
+                select(norm_requirements.c.id).where(
+                    (norm_requirements.c.norm_id == norm_id) &
+                    (norm_requirements.c.clause == clause) &
+                    (norm_requirements.c.question_id == question_id) &
+                    (norm_requirements.c.operator == operator) &
+                    (norm_requirements.c.expected_value == json.dumps(expected_value))
+                )
+            ).fetchone()
+            
+            if result:
+                return result[0]  # Return existing ID
+            else:
+                # If we somehow can't find it, re-raise
+                raise e
+        else:
+            # Re-raise other exceptions
+            raise e

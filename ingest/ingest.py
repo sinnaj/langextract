@@ -22,31 +22,92 @@ from .sql import (
     insert_norm,
     insert_requirement,
     norm_topics,
+    norm_requirements,  # Add this line
     upsert_question,
     upsert_topic,
 )
 
+import uuid
 
-def process_norm(conn: Connection, norm_data: Dict[str, Any], document_id: Optional[UUID] = None) -> None:
-    """Process a single norm and insert it with its clauses.
+
+def upsert_section(conn: Connection, section_id: str, document_id: Optional[UUID] = None) -> None:
+    """Create a section if it doesn't exist.
     
     Args:
         conn: Database connection
-        norm_data: Norm data from JSON
-        document_id: Optional document UUID to associate with the norm
+        section_id: Section ID
+        document_id: Optional document UUID
     """
+    from sqlalchemy import select
+    from .sql import sections
+    
+    # Check if section exists
+    result = conn.execute(
+        select(sections.c.id).where(sections.c.id == section_id)
+    ).fetchone()
+    
+    if not result:
+        # Insert new section
+        conn.execute(
+            sections.insert().values(
+                id=section_id,
+                document_id=document_id,
+                parent_section_id=None,  # We don't have parent info
+                paragraph_number=None,   # We don't have paragraph info
+            )
+        )
+
+
+def process_norm(conn: Connection, norm_data: Dict[str, Any], document_id: Optional[UUID] = None) -> None:
+    """Process a single norm and insert it with its clauses."""
     attributes = norm_data.get("attributes", {})
     
-    # Prepare norm record
-    norm_id = UUID(attributes.get("id", norm_data.get("id")))
+    # Handle UUID parsing more robustly
+    norm_id_value = attributes.get("id") or norm_data.get("id")
+    
+    if norm_id_value is None:
+        # Generate a new UUID if none provided
+        norm_id = uuid.uuid4()
+        print(f"Warning: No ID found, generated new UUID: {norm_id}")
+    else:
+        try:
+            # Try to parse as UUID
+            if isinstance(norm_id_value, str) and len(norm_id_value) == 36:
+                norm_id = UUID(norm_id_value)
+            else:
+                # Generate UUID from string/number
+                norm_id = uuid.uuid5(uuid.NAMESPACE_DNS, str(norm_id_value))
+                print(f"Warning: Invalid UUID format '{norm_id_value}', generated: {norm_id}")
+        except (ValueError, TypeError) as e:
+            norm_id = uuid.uuid5(uuid.NAMESPACE_DNS, str(norm_id_value))
+            print(f"Warning: Could not parse ID '{norm_id_value}' as UUID, generated: {norm_id}")
+    
+    # Handle section creation
+    section_id = attributes.get("parent_section_id")
+    if section_id:
+        upsert_section(conn, section_id, document_id)
+    
+    # Handle obligation type mapping
+    obligation_raw = attributes.get("obligation_type")
+    obligation_mapping = {
+        "MANDATORY": "MANDATORY",
+        "RECOMMENDED": "RECOMMENDED", 
+        "OPTIONAL": "OPTIONAL",
+        "PROHIBITION": "MANDATORY",  # Map PROHIBITION to MANDATORY
+        # Add other mappings as needed
+    }
+    obligation = obligation_mapping.get(obligation_raw, "MANDATORY")  # Default to MANDATORY
+    
+    if obligation_raw and obligation_raw not in obligation_mapping:
+        print(f"Warning: Unknown obligation type '{obligation_raw}', using 'MANDATORY'")
     
     norm_record = {
         "id": norm_id,
         "document_id": document_id,
-        "section_id": attributes.get("parent_section_id"),
+        "section_id": section_id,
         "extraction_class": norm_data.get("extraction_class", "NORM"),
         "extraction_text": norm_data.get("extraction_text", ""),
-        "obligation": attributes.get("obligation_type"),
+        "obligation": obligation,  # Use mapped value
         "norm_statement": attributes.get("norm_statement"),
         "applies_if_text": attributes.get("applies_if"),
         "satisfied_if_text": attributes.get("satisfied_if"),
@@ -89,14 +150,7 @@ def process_norm(conn: Connection, norm_data: Dict[str, Any], document_id: Optio
 
 
 def process_clause(conn: Connection, norm_id: UUID, clause_type: str, expression: str) -> None:
-    """Process a clause expression and store it in DNF.
-    
-    Args:
-        conn: Database connection
-        norm_id: Norm UUID
-        clause_type: Type of clause ('APPLIES_IF', 'SATISFIED_IF', 'EXEMPT_IF')
-        expression: Boolean expression string
-    """
+    """Process a clause expression and store it in DNF."""
     # Convert to DNF
     try:
         dnf = expr_to_dnf(expression)
@@ -108,6 +162,9 @@ def process_clause(conn: Connection, norm_id: UUID, clause_type: str, expression
     # Optimize DNF (remove contradictions, duplicates)
     dnf = optimize_dnf(dnf)
     
+    # Track inserted requirements to avoid duplicates
+    inserted_requirements = set()
+    
     # Store each disjunct as a clause group
     for conjunct in dnf:
         # Create clause group (top-level disjunct with AND logic)
@@ -115,6 +172,13 @@ def process_clause(conn: Connection, norm_id: UUID, clause_type: str, expression
         
         # Insert each atomic predicate as a requirement
         for atomic in conjunct:
+            # Create a key for deduplication
+            req_key = (atomic.key, atomic.op.value, str(atomic.value))
+            
+            if req_key in inserted_requirements:
+                print(f"Warning: Skipping duplicate requirement: {atomic.key} {atomic.op.value} {atomic.value}")
+                continue
+            
             # Upsert question
             question_id = upsert_question(
                 conn,
@@ -122,46 +186,115 @@ def process_clause(conn: Connection, norm_id: UUID, clause_type: str, expression
                 value_hint=atomic.value_type.value,
             )
             
-            # Insert requirement
-            insert_requirement(
-                conn,
+            # Insert requirement with error handling
+            try:
+                insert_requirement(
+                    conn,
+                    norm_id=norm_id,
+                    clause=clause_type,
+                    group_id=group_id,
+                    question_id=question_id,
+                    operator=atomic.op.value,
+                    expected_type=atomic.value_type.value,
+                    expected_value=atomic.value,
+                )
+                inserted_requirements.add(req_key)
+            except Exception as e:
+                if "duplicate key value violates unique constraint" in str(e):
+                    print(f"Warning: Duplicate requirement skipped: {atomic.key} {atomic.op.value} {atomic.value}")
+                    continue
+                else:
+                    raise e
+
+
+def insert_requirement(
+    conn: Connection,
+    norm_id: UUID,
+    clause: str,
+    group_id: Optional[int],
+    question_id: int,
+    operator: str,
+    expected_type: str,
+    expected_value: Any,
+) -> int:
+    """Insert a norm requirement and return its ID."""
+    # Convert value to JSON-serializable format
+    if not isinstance(expected_value, (str, int, float, bool, list, dict, type(None))):
+        expected_value = str(expected_value)
+    
+    try:
+        result = conn.execute(
+            norm_requirements.insert().values(
                 norm_id=norm_id,
-                clause=clause_type,
+                clause=clause,
                 group_id=group_id,
                 question_id=question_id,
-                operator=atomic.op.value,
-                expected_type=atomic.value_type.value,
-                expected_value=atomic.value,
-            )
+                operator=operator,
+                expected_type=expected_type,
+                expected_value=json.dumps(expected_value),
+            ).returning(norm_requirements.c.id)
+        )
+        return result.fetchone()[0]
+    except Exception as e:
+        # Handle duplicate key violation
+        if "duplicate key value violates unique constraint" in str(e):
+            # Find existing requirement and return its ID
+            from sqlalchemy import select
+            result = conn.execute(
+                select(norm_requirements.c.id).where(
+                    (norm_requirements.c.norm_id == norm_id) &
+                    (norm_requirements.c.clause == clause) &
+                    (norm_requirements.c.question_id == question_id) &
+                    (norm_requirements.c.operator == operator) &
+                    (norm_requirements.c.expected_value == json.dumps(expected_value))
+                )
+            ).fetchone()
+            
+            if result:
+                print(f"Warning: Duplicate requirement detected, using existing ID: {result[0]}")
+                return result[0]
+            else:
+                # If we can't find the existing record, re-raise the error
+                raise e
+        else:
+            # Re-raise other errors
+            raise e
 
 
 def ingest_norms(dsn: str, json_path: str, document_title: Optional[str] = None, language: Optional[str] = None, jurisdiction: Optional[str] = None) -> None:
-    """Main ingestion function.
-    
-    Args:
-        dsn: PostgreSQL connection string
-        json_path: Path to JSON file with norms
-        document_title: Optional document title
-        language: Optional language code
-        jurisdiction: Optional jurisdiction code
-    """
+    """Main ingestion function."""
     # Create engine
     engine = create_engine(dsn)
     
     # Read JSON file
     with open(json_path, "r", encoding="utf-8") as f:
-        norms_data = json.load(f)
+        data = json.load(f)
     
-    # Ensure it's a list
-    if isinstance(norms_data, dict):
-        norms_data = [norms_data]
+    # Handle different JSON structures
+    if isinstance(data, dict):
+        if 'extractions' in data:
+            # Standard LangExtract format
+            all_extractions = data['extractions']
+            norms_data = [e for e in all_extractions if e.get('extraction_class') == 'NORM']
+            print(f"Found {len(norms_data)} NORM extractions out of {len(all_extractions)} total extractions")
+        else:
+            # Single norm object
+            norms_data = [data]
+    elif isinstance(data, list):
+        # List format - could be all norms or mixed extractions
+        norms_data = [e for e in data if e.get('extraction_class') == 'NORM']
+        print(f"Found {len(norms_data)} NORM extractions out of {len(data)} total items")
+    else:
+        raise ValueError(f"Unsupported JSON structure: {type(data)}")
     
-    # Start transaction
-    with engine.begin() as conn:
-        document_id = None
-        
-        # Create document if metadata provided
-        if document_title or language or jurisdiction:
+    if not norms_data:
+        print("No NORM extractions found in the file!")
+        return
+    
+    # Create document once (outside of norm processing loop)
+    document_id = None
+    if document_title or language or jurisdiction:
+        with engine.begin() as conn:
             result = conn.execute(
                 documents.insert().values(
                     title=document_title,
@@ -171,17 +304,29 @@ def ingest_norms(dsn: str, json_path: str, document_title: Optional[str] = None,
             )
             document_id = result.fetchone()[0]
             print(f"Created document: {document_id}")
-        
-        # Process each norm
-        for idx, norm_data in enumerate(norms_data):
-            try:
+    
+    # Process each norm in its own transaction
+    successful_count = 0
+    failed_count = 0
+    
+    for idx, norm_data in enumerate(norms_data):
+        try:
+            # Each norm gets its own transaction
+            with engine.begin() as conn:
                 process_norm(conn, norm_data, document_id)
+                successful_count += 1
                 print(f"Processed norm {idx + 1}/{len(norms_data)}")
-            except Exception as e:
-                print(f"Error processing norm {idx + 1}: {e}", file=sys.stderr)
-                raise
-        
-        print(f"Successfully ingested {len(norms_data)} norms")
+        except Exception as e:
+            failed_count += 1
+            print(f"Error processing norm {idx + 1}: {e}", file=sys.stderr)
+            print(f"Skipping norm {idx + 1} and continuing...", file=sys.stderr)
+            # Continue processing other norms instead of failing completely
+            continue
+    
+    print(f"Ingestion completed: {successful_count} successful, {failed_count} failed out of {len(norms_data)} total norms")
+    
+    if failed_count > 0:
+        print(f"Warning: {failed_count} norms failed to process", file=sys.stderr)
 
 
 def main():
