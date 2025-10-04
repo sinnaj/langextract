@@ -1328,7 +1328,7 @@ def get_sandbox_norms(doc_id: str):
         if repo_root_str not in sys.path:
             sys.path.insert(0, repo_root_str)
             logger.debug(f"Added repository root to sys.path: {repo_root_str}")
-        from ingest.sql import norms, topics, norm_topics, documents
+        from ingest.sql import norms, topics, norm_topics, documents, norm_clause_groups, norm_requirements, questions
         
         with engine.connect() as conn:
             logger.debug(f"Connected to database, querying norms for doc_id={doc_id}")
@@ -1378,6 +1378,49 @@ def get_sandbox_norms(doc_id: str):
                 topic_results = conn.execute(topics_query).fetchall()
                 topic_codes = [t[0] for t in topic_results]
                 
+                # Get APPLIES_IF clause groups (DNF structure) for this norm
+                applies_if_groups = []
+                groups_query = select(
+                    norm_clause_groups.c.id,
+                    norm_clause_groups.c.logic
+                ).where(
+                    (norm_clause_groups.c.norm_id == norm_row[0]) &
+                    (norm_clause_groups.c.clause == 'APPLIES_IF') &
+                    (norm_clause_groups.c.parent_id == None)
+                )
+                
+                group_results = conn.execute(groups_query).fetchall()
+                for group_row in group_results:
+                    group_id = group_row[0]
+                    
+                    # Get requirements for this group
+                    reqs_query = select(
+                        norm_requirements.c.id,
+                        questions.c.key,
+                        norm_requirements.c.operator,
+                        norm_requirements.c.expected_type,
+                        norm_requirements.c.expected_value
+                    ).select_from(
+                        norm_requirements.join(questions, norm_requirements.c.question_id == questions.c.id)
+                    ).where(norm_requirements.c.group_id == group_id)
+                    
+                    req_results = conn.execute(reqs_query).fetchall()
+                    requirements = []
+                    for req_row in req_results:
+                        requirements.append({
+                            "id": req_row[0],
+                            "questionKey": req_row[1],
+                            "operator": req_row[2],
+                            "expectedType": req_row[3],
+                            "expectedValue": req_row[4]
+                        })
+                    
+                    applies_if_groups.append({
+                        "id": group_id,
+                        "logic": "AND",
+                        "requirements": requirements
+                    })
+                
                 norm_dict = {
                     "id": norm_id,
                     "extraction_class": norm_row[1],
@@ -1388,7 +1431,8 @@ def get_sandbox_norms(doc_id: str):
                     "satisfied_if": norm_row[6],
                     "exempt_if": norm_row[7],
                     "section_id": norm_row[8],
-                    "topics": topic_codes
+                    "topics": topic_codes,
+                    "appliesIfGroups": applies_if_groups
                 }
                 norms_list.append(norm_dict)
             

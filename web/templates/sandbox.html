@@ -112,16 +112,178 @@
       let filteredNorms = [];
       let filteredOutNorms = [];
       let features = [];
-      let currentFilters = {};  // {question_id: value}
+      let currentFilters = {};  // {questionKey: value}
+      let questionKeyToId = {};  // Map question keys to IDs
       let currentDocId = null;
       let currentTab = 'current'; // 'current' or 'filtered-out'
 
       // Initialize
       async function init() {
-        console.log('[Sandbox] Initializing SQL-only page');
+        console.log('[Sandbox] Initializing SQL-only page with client-side DNF filtering');
         await loadOutputs();
         await loadFeatures();
         console.log('[Sandbox] Initialization complete');
+      }
+
+      // ============================================================================
+      // DNF Filtering Logic (client-side)
+      // ============================================================================
+
+      /**
+       * Coerce answer values to expected types for reliable comparisons
+       */
+      function coerceTypes(answer, expectedType) {
+        try {
+          switch (expectedType) {
+            case 'BOOLEAN':
+              if (typeof answer === 'string') {
+                const lower = answer.toLowerCase();
+                if (lower === 'true') return true;
+                if (lower === 'false') return false;
+              }
+              return typeof answer === 'boolean' ? answer : answer;
+            case 'INTEGER':
+              if (typeof answer === 'number') return Number.isInteger(answer) ? answer : Math.trunc(answer);
+              if (typeof answer === 'string' && answer.trim() !== '') {
+                const n = Number(answer);
+                return Number.isFinite(n) ? Math.trunc(n) : answer;
+              }
+              return answer;
+            case 'NUMERIC':
+              if (typeof answer === 'number') return answer;
+              if (typeof answer === 'string' && answer.trim() !== '') {
+                const n = Number(answer);
+                return Number.isFinite(n) ? n : answer;
+              }
+              return answer;
+            case 'ARRAY':
+              return Array.isArray(answer) ? answer : (answer == null ? answer : [answer]);
+            case 'STRING':
+            case 'ENUM':
+              return answer == null ? answer : String(answer);
+            case 'JSON':
+            default:
+              return answer;
+          }
+        } catch {
+          return answer;
+        }
+      }
+
+      /**
+       * Check if haystack array contains any needle
+       */
+      function arrayHasAny(haystack, needles) {
+        if (!Array.isArray(haystack)) return false;
+        const set = new Set(haystack.map(x => JSON.stringify(x)));
+        return needles.some(v => set.has(JSON.stringify(v)));
+      }
+
+      /**
+       * Evaluate a single requirement against user answer
+       * Returns: 'SAT' (satisfied), 'CONTRA' (contradicted), or 'UNKNOWN'
+       */
+      function evalRequirement(answerRaw, requirement) {
+        // If no answer provided -> UNKNOWN (never exclude based on lack of info)
+        if (answerRaw === undefined || answerRaw === null || answerRaw === '') return 'UNKNOWN';
+
+        const answer = coerceTypes(answerRaw, requirement.expectedType);
+        const exp = requirement.expectedValue;
+
+        switch (requirement.operator) {
+          case 'EQ':
+            return JSON.stringify(answer) === JSON.stringify(exp) ? 'SAT' : 'CONTRA';
+
+          case 'NEQ':
+            return JSON.stringify(answer) !== JSON.stringify(exp) ? 'SAT' : 'CONTRA';
+
+          case 'GT':
+          case 'GTE':
+          case 'LT':
+          case 'LTE': {
+            const an = Number(answer);
+            const bn = Number(exp);
+            if (!Number.isFinite(an) || !Number.isFinite(bn)) return 'UNKNOWN';
+            if (requirement.operator === 'GT')  return an >  bn ? 'SAT' : 'CONTRA';
+            if (requirement.operator === 'GTE') return an >= bn ? 'SAT' : 'CONTRA';
+            if (requirement.operator === 'LT')  return an <  bn ? 'SAT' : 'CONTRA';
+            return an <= bn ? 'SAT' : 'CONTRA';
+          }
+
+          case 'IN': {
+            const arr = Array.isArray(exp) ? exp : [exp];
+            const ok = arr.some(v => JSON.stringify(v) === JSON.stringify(answer));
+            return ok ? 'SAT' : 'CONTRA';
+          }
+
+          case 'NOT_IN': {
+            const arr = Array.isArray(exp) ? exp : [exp];
+            const ok = arr.every(v => JSON.stringify(v) !== JSON.stringify(answer));
+            return ok ? 'SAT' : 'CONTRA';
+          }
+
+          case 'CONTAINS': {
+            if (typeof answer === 'string') {
+              const needle = Array.isArray(exp) ? String(exp[0] ?? '') : String(exp);
+              return answer.includes(needle) ? 'SAT' : 'CONTRA';
+            }
+            if (Array.isArray(answer)) {
+              const needles = Array.isArray(exp) ? exp : [exp];
+              return arrayHasAny(answer, needles) ? 'SAT' : 'CONTRA';
+            }
+            return 'UNKNOWN';
+          }
+
+          case 'NOT_CONTAINS': {
+            if (typeof answer === 'string') {
+              const needle = Array.isArray(exp) ? String(exp[0] ?? '') : String(exp);
+              return answer.includes(needle) ? 'CONTRA' : 'SAT';
+            }
+            if (Array.isArray(answer)) {
+              const needles = Array.isArray(exp) ? exp : [exp];
+              return arrayHasAny(answer, needles) ? 'CONTRA' : 'SAT';
+            }
+            return 'UNKNOWN';
+          }
+
+          default:
+            return 'UNKNOWN';
+        }
+      }
+
+      /**
+       * Evaluate an AND group (conjunct)
+       * Returns: 'SAT' (all satisfied), 'CONTRA' (any contradicted), or 'UNKNOWN' (some unknown, none contradicted)
+       */
+      function evalGroup(group, answers) {
+        for (const req of group.requirements) {
+          const state = evalRequirement(answers[req.questionKey], req);
+          if (state === 'CONTRA') return 'CONTRA';  // Short-circuit on first contradiction
+        }
+        // Check if all are SAT
+        const allSat = group.requirements.every(req => 
+          evalRequirement(answers[req.questionKey], req) === 'SAT'
+        );
+        return allSat ? 'SAT' : 'UNKNOWN';
+      }
+
+      /**
+       * Check if a norm should be excluded based on current answers
+       * A norm is excluded IFF all of its APPLIES_IF groups are contradicted
+       */
+      function normIsExcluded(norm, answers) {
+        // No applies_if groups -> always keep (trivially applicable)
+        if (!norm.appliesIfGroups || norm.appliesIfGroups.length === 0) return false;
+        
+        // Norm is excluded only if ALL groups are contradicted (OR over groups)
+        return norm.appliesIfGroups.every(g => evalGroup(g, answers) === 'CONTRA');
+      }
+
+      /**
+       * Filter norms using client-side DNF logic
+       */
+      function filterNormsClientSide(norms, answers) {
+        return norms.filter(n => !normIsExcluded(n, answers));
       }
 
       // Load available outputs (documents)
@@ -200,10 +362,11 @@
           
           if (data.norms) {
             allNorms = data.norms;
-            filteredNorms = allNorms;
-            filteredOutNorms = [];
-            renderNorms();
-            updateCounter();
+            console.log('[Sandbox] Loaded', allNorms.length, 'norms with DNF structure');
+            console.log('[Sandbox] Sample norm appliesIfGroups:', allNorms[0]?.appliesIfGroups);
+            
+            // Apply client-side filtering
+            applyFiltersClientSide();
           }
         } catch (error) {
           console.error('Error loading norms:', error);
@@ -233,7 +396,7 @@
             // Render dropdown for categorical (single-select)
             const select = document.createElement('select');
             select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-            select.dataset.questionId = feature.id;
+            select.dataset.questionKey = feature.name;  // Use question key, not ID
             select.onchange = () => handleFilterChange();
             
             const defaultOption = document.createElement('option');
@@ -253,7 +416,7 @@
             // Render dropdown for bins
             const select = document.createElement('select');
             select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-            select.dataset.questionId = feature.id;
+            select.dataset.questionKey = feature.name;  // Use question key, not ID
             select.onchange = () => handleFilterChange();
             
             const defaultOption = document.createElement('option');
@@ -274,7 +437,7 @@
             const input = document.createElement('input');
             input.type = 'number';
             input.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-            input.dataset.questionId = feature.id;
+            input.dataset.questionKey = feature.name;  // Use question key, not ID
             input.placeholder = 'Enter value...';
             input.onchange = () => handleFilterChange();
             filterDiv.appendChild(input);
@@ -288,12 +451,12 @@
       function handleFilterChange() {
         console.log('[Sandbox] Filter changed');
         
-        // Collect all filters
+        // Collect all filters using question keys
         currentFilters = {};
-        const filterElements = document.querySelectorAll('[data-question-id]');
+        const filterElements = document.querySelectorAll('[data-question-key]');
         
         filterElements.forEach(element => {
-          const questionId = parseInt(element.dataset.questionId);
+          const questionKey = element.dataset.questionKey;
           let value = null;
           
           if (element.tagName === 'SELECT') {
@@ -303,60 +466,33 @@
           }
           
           if (value && value !== '') {
-            currentFilters[questionId] = value;
+            currentFilters[questionKey] = value;
           }
         });
         
         console.log('[Sandbox] Current filters:', currentFilters);
-        applyFilters();
+        applyFiltersClientSide();
       }
 
-      // Apply filters via SQL
-      async function applyFilters() {
-        if (!currentDocId) return;
-
-        console.log('[Sandbox] Applying SQL-based filters');
+      // Apply filters client-side using DNF logic
+      function applyFiltersClientSide() {
+        console.log('[Sandbox] Applying client-side DNF filtering');
+        console.log('[Sandbox] Total norms:', allNorms.length);
         console.log('[Sandbox] Filters:', currentFilters);
 
-        try {
-          const response = await fetch('/api/sandbox/filter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              doc_id: currentDocId,
-              filters: currentFilters
-            })
-          });
-
-          const data = await response.json();
-          console.log('[Sandbox] API response received');
-          console.log('[Sandbox] Filtered norms count:', data.norms?.length || 0);
-          console.log('[Sandbox] Original total:', data.original_total || 0);
-          
-          if (data.error) {
-            console.error('[Sandbox] Filter error:', data.error);
-            return;
-          }
-          
-          if (data.norms) {
-            filteredNorms = data.norms;
-            
-            // Calculate filtered out norms
-            if (data.filtered) {
-              filteredOutNorms = allNorms.filter(n => {
-                return !filteredNorms.some(fn => fn.id === n.id);
-              });
-            } else {
-              filteredOutNorms = [];
-            }
-            
-            console.log('[Sandbox] Filtered out count:', filteredOutNorms.length);
-            renderNorms();
-            updateCounter(data.original_total);
-          }
-        } catch (error) {
-          console.error('[Sandbox] Error applying filters:', error);
-        }
+        // Use client-side DNF filtering
+        filteredNorms = filterNormsClientSide(allNorms, currentFilters);
+        
+        // Calculate filtered out norms
+        filteredOutNorms = allNorms.filter(n => {
+          return !filteredNorms.some(fn => fn.id === n.id);
+        });
+        
+        console.log('[Sandbox] Filtered norms:', filteredNorms.length);
+        console.log('[Sandbox] Filtered out:', filteredOutNorms.length);
+        
+        renderNorms();
+        updateCounter(allNorms.length);
       }
 
       // Render norms
@@ -513,7 +649,7 @@
         currentFilters = {};
         
         // Reset all filter inputs
-        const filterElements = document.querySelectorAll('[data-question-id]');
+        const filterElements = document.querySelectorAll('[data-question-key]');
         filterElements.forEach(element => {
           if (element.tagName === 'SELECT') {
             element.value = '';
@@ -522,7 +658,7 @@
           }
         });
         
-        applyFilters();
+        applyFiltersClientSide();
       }
 
       // Event listener for output selector
