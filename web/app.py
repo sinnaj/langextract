@@ -1219,7 +1219,14 @@ def list_sandbox_outputs():
     
     try:
         from sqlalchemy import select, func
-        sys.path.insert(0, str(REPO_ROOT / "ingest"))
+    except ImportError:
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add ingest directory to path if not already there
+        ingest_path = str(REPO_ROOT / "ingest")
+        if ingest_path not in sys.path:
+            sys.path.insert(0, ingest_path)
         from sql import documents, norms
         
         with engine.connect() as conn:
@@ -1284,7 +1291,14 @@ def get_sandbox_norms(doc_id: str):
     
     try:
         from sqlalchemy import select, text
-        sys.path.insert(0, str(REPO_ROOT / "ingest"))
+    except ImportError:
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add ingest directory to path if not already there
+        ingest_path = str(REPO_ROOT / "ingest")
+        if ingest_path not in sys.path:
+            sys.path.insert(0, ingest_path)
         from sql import norms, topics, norm_topics, documents
         
         with engine.connect() as conn:
@@ -1363,7 +1377,14 @@ def get_sandbox_features():
     
     try:
         from sqlalchemy import select, func
-        sys.path.insert(0, str(REPO_ROOT / "ingest"))
+    except ImportError:
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add ingest directory to path if not already there
+        ingest_path = str(REPO_ROOT / "ingest")
+        if ingest_path not in sys.path:
+            sys.path.insert(0, ingest_path)
         from sql import questions, norm_requirements
         
         with engine.connect() as conn:
@@ -1469,6 +1490,11 @@ def filter_sandbox_norms():
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
+        from sqlalchemy import select, and_, or_, text, func
+    except ImportError:
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
         data = request.get_json()
         if not data:
             return jsonify({"error": "JSON data is required"}), 400
@@ -1479,8 +1505,10 @@ def filter_sandbox_norms():
         if not doc_id:
             return jsonify({"error": "doc_id is required"}), 400
         
-        from sqlalchemy import select, and_, or_, text, func
-        sys.path.insert(0, str(REPO_ROOT / "ingest"))
+        # Add ingest directory to path if not already there
+        ingest_path = str(REPO_ROOT / "ingest")
+        if ingest_path not in sys.path:
+            sys.path.insert(0, ingest_path)
         from sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
         
         with engine.connect() as conn:

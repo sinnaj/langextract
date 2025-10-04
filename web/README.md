@@ -15,12 +15,37 @@ Open `http://127.0.0.1:5000/`. The app stores outputs under `output_runs/` at re
 
 Tailwind CSS is loaded at runtime; there is no separate build step.
 
-## Database Configuration (Optional)
+## Database Configuration (Required for Sandbox)
 
-The Sandbox feature can use a PostgreSQL database for storing norms and features. Set the `DATABASE_URL` environment variable:
+**Important**: The Sandbox feature now requires a PostgreSQL database. There is no fallback to file-based data.
+
+### Setup Steps
+
+1. **Install dependencies** (if not already done):
+```bash
+pip install -r web/requirements.txt
+```
+
+This installs Flask, SQLAlchemy, and psycopg (PostgreSQL driver).
+
+2. **Create the database**:
+```bash
+createdb langextract
+```
+
+3. **Run the schema**:
+```bash
+psql -d langextract -f db/schema.sql
+```
+
+4. **Set the DATABASE_URL** environment variable:
 
 ```bash
-export DATABASE_URL="postgresql://user:password@localhost:5432/langextract"
+# Linux/Mac
+export DATABASE_URL="postgresql://localhost:5432/langextract"
+
+# Windows PowerShell
+$env:DATABASE_URL = "postgresql://localhost:5432/langextract"
 ```
 
 Or add it to a `.env` file in the repository root:
@@ -28,27 +53,24 @@ Or add it to a `.env` file in the repository root:
 DATABASE_URL=postgresql://localhost:5432/langextract
 ```
 
-If the database is not available, the Sandbox will automatically fall back to file-based data (JSON and CSV files).
-
-### Database Setup
-
-1. Create the database:
-```bash
-createdb langextract
-```
-
-2. Run the schema:
-```bash
-psql -d langextract -f db/schema.sql
-```
-
-3. Ingest norms:
+5. **Ingest norms** (optional - to have data to view):
 ```bash
 python -m ingest.ingest \
   --dsn postgresql://localhost:5432/langextract \
   --json ./sample_norms.json \
   --document-title "My Document"
 ```
+
+### Troubleshooting
+
+If you see errors like "Database not available" or "SQLAlchemy not installed":
+
+1. Make sure you've installed the requirements: `pip install -r web/requirements.txt`
+2. Verify the DATABASE_URL is set: `echo $DATABASE_URL` (Linux/Mac) or `$env:DATABASE_URL` (PowerShell)
+3. Check that PostgreSQL is running: `psql -d langextract -c "SELECT 1"`
+4. Verify the schema is loaded: `psql -d langextract -c "\dt"`
+
+The Sandbox will show HTTP 503 errors if the database is not properly configured.
 
 ## Features
 - Start/cancel runs with a simple form. Recent `MODEL_ID`s appear as quick badges.
