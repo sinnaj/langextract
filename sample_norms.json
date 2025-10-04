@@ -1,0 +1,32 @@
+[
+  {
+    "extraction_class": "NORM",
+    "extraction_text": "Cuando la aplicación del DB sea incompatible con el nivel de protección del edificio...",
+    "attributes": {
+      "id": "18029528-2023-4411-923f-427503791244",
+      "parent_section_id": "c7d32bf7076ee298",
+      "paragraph_number": null,
+      "obligation_type": "MANDATORY",
+      "norm_statement": "In protected buildings, if the application is incompatible with the protection level, an alternative solution must ensure maximum technical and economic fire safety, and the final documentation must record usage limitations.",
+      "applies_if": "BUILDING.PROTECTION_LEVEL.IS_PROTECTED == TRUE AND DB.APPLICATION.IS_INCOMPATIBLE_WITH_PROTECTION_LEVEL == TRUE",
+      "satisfied_if": "SOLUTION.TYPE == 'ALTERNATIVE' AND SOLUTION.ENSURES_MAXIMUM_TECHNICAL_ECONOMIC_FIRE_SAFETY == TRUE AND FINAL_WORK_DOCUMENTATION.RECORDS_USE_LIMITATIONS == TRUE",
+      "exempt_if": "FALSE",
+      "topics": ["SAFETY.FIRE"]
+    }
+  },
+  {
+    "extraction_class": "NORM",
+    "extraction_text": "Example norm with complex applies_if condition",
+    "attributes": {
+      "id": "22334455-6677-8899-aabb-ccddeeffe011",
+      "parent_section_id": "section123",
+      "paragraph_number": "5.2",
+      "obligation_type": "RECOMMENDED",
+      "norm_statement": "Buildings in certain use categories or exceeding size thresholds must comply with additional requirements.",
+      "applies_if": "AREA.USAGE != BUILDING.USAGE AND ((AREA.USAGE == 'RESIDENTIAL.HOUSING') OR (AREA.USAGE IN ['LODGING','ADMINISTRATIVE','COMMERCIAL','EDUCATION'] AND AREA.SIZE > 500) OR (AREA.USAGE == 'PUBLIC.ASSEMBLY' AND AREA.OCCUPANCY > 500) OR (AREA.USAGE == 'PARKING' AND AREA.SIZE > 100))",
+      "satisfied_if": "COMPLIANCE.VERIFIED == TRUE",
+      "exempt_if": "BUILDING.HISTORIC == TRUE",
+      "topics": ["BUILDING.USE", "AREA.REQUIREMENTS"]
+    }
+  }
+]

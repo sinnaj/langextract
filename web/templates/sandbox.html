@@ -3,33 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sandbox - Norms Explorer</title>
-  <!-- Cache busting: v1.1 -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <!-- Tailwind via CDN with local fallback -->
-  <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
-  <style>
-    .norm-card {
-      transition: all 0.2s ease;
-    }
-    .norm-card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .details-expanded {
-      max-height: 2000px;
-      transition: max-height 0.3s ease;
-    }
-    .details-collapsed {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .tab-button {
-      transition: all 0.2s ease;
-    }
-  </style>
+    <title>Sandbox - Norms Explorer (SQL-based)</title>
+    <script src="https://cdn.tailwindcss.com" onerror="this.onerror=null;this.src='/static/vendor/tailwindcss.js'"></script>
+    <style>
+      .norm-card {
+        transition: all 0.2s ease;
+      }
+      .norm-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .details-expanded {
+        max-height: 2000px;
+        transition: max-height 0.3s ease;
+      }
+      .details-collapsed {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .tab-button {
+        transition: all 0.2s ease;
+      }
+    </style>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <!-- Header -->
@@ -41,7 +36,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
           </a>
-          <h1 class="text-xl font-bold">Norms Sandbox</h1>
+          <h1 class="text-xl font-bold">Norms Sandbox (SQL-based)</h1>
         </div>
         <div class="text-sm text-gray-600 dark:text-gray-400" id="results-counter">
           Loading...
@@ -91,21 +86,22 @@
           
           <!-- Output Selector -->
           <div class="mb-4">
-            <label class="block text-sm font-medium mb-2">Output Run</label>
+            <label class="block text-sm font-medium mb-2">Document</label>
             <select id="output-selector" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-sm">
               <option value="">Loading...</option>
             </select>
           </div>
 
           <!-- Clear Filters Button -->
-          <button id="clear-filters" class="w-full px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md text-sm font-medium">
+          <button onclick="clearFilters()" class="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-md text-sm font-medium mb-4">
             Clear All Filters
           </button>
         </div>
 
         <!-- Filters Container -->
         <div id="filters-container" class="p-4 space-y-4">
-          <div class="text-center text-sm text-gray-500">Loading filters...</div>
+          <!-- Filters will be rendered here -->
+          <div class="text-sm text-gray-500">Loading filters...</div>
         </div>
       </div>
     </div>
@@ -115,22 +111,182 @@
       let allNorms = [];
       let filteredNorms = [];
       let filteredOutNorms = [];
-      let baseNormsAfterAppliesIf = []; // Norms after applies_if filter, before feature filters
       let features = [];
-      let currentFilters = {};
-      let currentRunId = null;
-      let appliesIfFilter = 'all'; // 'all', 'true', 'not-true'
+      let currentFilters = {};  // {questionKey: value}
+      let questionKeyToId = {};  // Map question keys to IDs
+      let currentDocId = null;
       let currentTab = 'current'; // 'current' or 'filtered-out'
 
       // Initialize
       async function init() {
-        console.log('[Sandbox] Initializing page - version 1.1');
+        console.log('[Sandbox] Initializing SQL-only page with client-side DNF filtering');
         await loadOutputs();
         await loadFeatures();
         console.log('[Sandbox] Initialization complete');
       }
 
-      // Load available outputs
+      // ============================================================================
+      // DNF Filtering Logic (client-side)
+      // ============================================================================
+
+      /**
+       * Coerce answer values to expected types for reliable comparisons
+       */
+      function coerceTypes(answer, expectedType) {
+        try {
+          switch (expectedType) {
+            case 'BOOLEAN':
+              if (typeof answer === 'string') {
+                const lower = answer.toLowerCase();
+                if (lower === 'true') return true;
+                if (lower === 'false') return false;
+              }
+              return typeof answer === 'boolean' ? answer : answer;
+            case 'INTEGER':
+              if (typeof answer === 'number') return Number.isInteger(answer) ? answer : Math.trunc(answer);
+              if (typeof answer === 'string' && answer.trim() !== '') {
+                const n = Number(answer);
+                return Number.isFinite(n) ? Math.trunc(n) : answer;
+              }
+              return answer;
+            case 'NUMERIC':
+              if (typeof answer === 'number') return answer;
+              if (typeof answer === 'string' && answer.trim() !== '') {
+                const n = Number(answer);
+                return Number.isFinite(n) ? n : answer;
+              }
+              return answer;
+            case 'ARRAY':
+              return Array.isArray(answer) ? answer : (answer == null ? answer : [answer]);
+            case 'STRING':
+            case 'ENUM':
+              return answer == null ? answer : String(answer);
+            case 'JSON':
+            default:
+              return answer;
+          }
+        } catch {
+          return answer;
+        }
+      }
+
+      /**
+       * Check if haystack array contains any needle
+       */
+      function arrayHasAny(haystack, needles) {
+        if (!Array.isArray(haystack)) return false;
+        const set = new Set(haystack.map(x => JSON.stringify(x)));
+        return needles.some(v => set.has(JSON.stringify(v)));
+      }
+
+      /**
+       * Evaluate a single requirement against user answer
+       * Returns: 'SAT' (satisfied), 'CONTRA' (contradicted), or 'UNKNOWN'
+       */
+      function evalRequirement(answerRaw, requirement) {
+        // If no answer provided -> UNKNOWN (never exclude based on lack of info)
+        if (answerRaw === undefined || answerRaw === null || answerRaw === '') return 'UNKNOWN';
+
+        const answer = coerceTypes(answerRaw, requirement.expectedType);
+        const exp = requirement.expectedValue;
+
+        switch (requirement.operator) {
+          case 'EQ':
+            return JSON.stringify(answer) === JSON.stringify(exp) ? 'SAT' : 'CONTRA';
+
+          case 'NEQ':
+            return JSON.stringify(answer) !== JSON.stringify(exp) ? 'SAT' : 'CONTRA';
+
+          case 'GT':
+          case 'GTE':
+          case 'LT':
+          case 'LTE': {
+            const an = Number(answer);
+            const bn = Number(exp);
+            if (!Number.isFinite(an) || !Number.isFinite(bn)) return 'UNKNOWN';
+            if (requirement.operator === 'GT')  return an >  bn ? 'SAT' : 'CONTRA';
+            if (requirement.operator === 'GTE') return an >= bn ? 'SAT' : 'CONTRA';
+            if (requirement.operator === 'LT')  return an <  bn ? 'SAT' : 'CONTRA';
+            return an <= bn ? 'SAT' : 'CONTRA';
+          }
+
+          case 'IN': {
+            const arr = Array.isArray(exp) ? exp : [exp];
+            const ok = arr.some(v => JSON.stringify(v) === JSON.stringify(answer));
+            return ok ? 'SAT' : 'CONTRA';
+          }
+
+          case 'NOT_IN': {
+            const arr = Array.isArray(exp) ? exp : [exp];
+            const ok = arr.every(v => JSON.stringify(v) !== JSON.stringify(answer));
+            return ok ? 'SAT' : 'CONTRA';
+          }
+
+          case 'CONTAINS': {
+            if (typeof answer === 'string') {
+              const needle = Array.isArray(exp) ? String(exp[0] ?? '') : String(exp);
+              return answer.includes(needle) ? 'SAT' : 'CONTRA';
+            }
+            if (Array.isArray(answer)) {
+              const needles = Array.isArray(exp) ? exp : [exp];
+              return arrayHasAny(answer, needles) ? 'SAT' : 'CONTRA';
+            }
+            return 'UNKNOWN';
+          }
+
+          case 'NOT_CONTAINS': {
+            if (typeof answer === 'string') {
+              const needle = Array.isArray(exp) ? String(exp[0] ?? '') : String(exp);
+              return answer.includes(needle) ? 'CONTRA' : 'SAT';
+            }
+            if (Array.isArray(answer)) {
+              const needles = Array.isArray(exp) ? exp : [exp];
+              return arrayHasAny(answer, needles) ? 'CONTRA' : 'SAT';
+            }
+            return 'UNKNOWN';
+          }
+
+          default:
+            return 'UNKNOWN';
+        }
+      }
+
+      /**
+       * Evaluate an AND group (conjunct)
+       * Returns: 'SAT' (all satisfied), 'CONTRA' (any contradicted), or 'UNKNOWN' (some unknown, none contradicted)
+       */
+      function evalGroup(group, answers) {
+        for (const req of group.requirements) {
+          const state = evalRequirement(answers[req.questionKey], req);
+          if (state === 'CONTRA') return 'CONTRA';  // Short-circuit on first contradiction
+        }
+        // Check if all are SAT
+        const allSat = group.requirements.every(req => 
+          evalRequirement(answers[req.questionKey], req) === 'SAT'
+        );
+        return allSat ? 'SAT' : 'UNKNOWN';
+      }
+
+      /**
+       * Check if a norm should be excluded based on current answers
+       * A norm is excluded IFF all of its APPLIES_IF groups are contradicted
+       */
+      function normIsExcluded(norm, answers) {
+        // No applies_if groups -> always keep (trivially applicable)
+        if (!norm.appliesIfGroups || norm.appliesIfGroups.length === 0) return false;
+        
+        // Norm is excluded only if ALL groups are contradicted (OR over groups)
+        return norm.appliesIfGroups.every(g => evalGroup(g, answers) === 'CONTRA');
+      }
+
+      /**
+       * Filter norms using client-side DNF logic
+       */
+      function filterNormsClientSide(norms, answers) {
+        return norms.filter(n => !normIsExcluded(n, answers));
+      }
+
+      // Load available outputs (documents)
       async function loadOutputs() {
         try {
           const response = await fetch('/api/sandbox/outputs');
@@ -139,23 +295,29 @@
           const selector = document.getElementById('output-selector');
           selector.innerHTML = '';
           
+          if (data.error) {
+            selector.innerHTML = `<option>Error: ${data.error}</option>`;
+            return;
+          }
+          
           if (data.outputs && data.outputs.length > 0) {
             data.outputs.forEach((output, idx) => {
               const option = document.createElement('option');
-              option.value = output.run_id;
+              option.value = output.doc_id;
               const date = new Date(output.timestamp * 1000);
+              const label = output.title || `Document ${output.doc_id.substring(0, 8)}`;
               option.textContent = idx === 0 
-                ? `${output.run_id} (Latest - ${date.toLocaleString()})`
-                : `${output.run_id} (${date.toLocaleString()})`;
+                ? `${label} (Latest - ${date.toLocaleString()})`
+                : `${label} (${date.toLocaleString()})`;
               selector.appendChild(option);
             });
             
             // Select latest by default
-            currentRunId = data.outputs[0].run_id;
-            selector.value = currentRunId;
-            await loadNorms(currentRunId);
+            currentDocId = data.outputs[0].doc_id;
+            selector.value = currentDocId;
+            await loadNorms(currentDocId);
           } else {
-            selector.innerHTML = '<option>No outputs available</option>';
+            selector.innerHTML = '<option>No documents available</option>';
           }
         } catch (error) {
           console.error('Error loading outputs:', error);
@@ -163,41 +325,48 @@
         }
       }
 
-      // Load features from ig.csv
+      // Load features (questions) from database
       async function loadFeatures() {
         try {
           const response = await fetch('/api/sandbox/features');
           const data = await response.json();
           
+          if (data.error) {
+            document.getElementById('filters-container').innerHTML = 
+              `<div class="text-sm text-red-600 p-4">Error: ${data.error}</div>`;
+            return;
+          }
+          
           if (data.features) {
             features = data.features;
             renderFilters();
-          } else if (data.error) {
-            document.getElementById('filters-container').innerHTML = 
-              `<div class="text-sm text-red-600">Error: ${data.error}</div>`;
           }
         } catch (error) {
           console.error('Error loading features:', error);
           document.getElementById('filters-container').innerHTML = 
-            '<div class="text-sm text-red-600">Error loading filters</div>';
+            '<div class="text-sm text-red-600 p-4">Error loading filters</div>';
         }
       }
 
-      // Load norms for a run
-      async function loadNorms(runId) {
+      // Load norms for a document
+      async function loadNorms(docId) {
         try {
-          const response = await fetch(`/api/sandbox/norms/${runId}`);
+          const response = await fetch(`/api/sandbox/norms/${docId}`);
           const data = await response.json();
+          
+          if (data.error) {
+            document.getElementById('norms-container').innerHTML = 
+              `<div class="text-center text-red-600 py-12">${data.error}</div>`;
+            return;
+          }
           
           if (data.norms) {
             allNorms = data.norms;
-            filteredNorms = allNorms;
-            filteredOutNorms = [];
-            renderNorms();
-            updateCounter();
-          } else if (data.error) {
-            document.getElementById('norms-container').innerHTML = 
-              `<div class="text-center text-red-600 py-12">${data.error}</div>`;
+            console.log('[Sandbox] Loaded', allNorms.length, 'norms with DNF structure');
+            console.log('[Sandbox] Sample norm appliesIfGroups:', allNorms[0]?.appliesIfGroups);
+            
+            // Apply client-side filtering
+            applyFiltersClientSide();
           }
         } catch (error) {
           console.error('Error loading norms:', error);
@@ -210,41 +379,6 @@
       function renderFilters() {
         const container = document.getElementById('filters-container');
         container.innerHTML = '';
-
-        // Add special dropdown for applies_if filter
-        const trueFilterDiv = document.createElement('div');
-        trueFilterDiv.className = 'border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg';
-        
-        const trueLabel = document.createElement('label');
-        trueLabel.className = 'block text-sm font-medium mb-2';
-        trueLabel.textContent = 'applies_if Filter';
-        trueFilterDiv.appendChild(trueLabel);
-        
-        const trueSelect = document.createElement('select');
-        trueSelect.id = 'filter-applies-if';
-        trueSelect.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-        trueSelect.onchange = (e) => {
-          appliesIfFilter = e.target.value;
-          handleFilterChange();
-        };
-        
-        const allOption = document.createElement('option');
-        allOption.value = 'all';
-        allOption.textContent = 'All';
-        trueSelect.appendChild(allOption);
-        
-        const trueOption = document.createElement('option');
-        trueOption.value = 'true';
-        trueOption.textContent = 'TRUE';
-        trueSelect.appendChild(trueOption);
-        
-        const notTrueOption = document.createElement('option');
-        notTrueOption.value = 'not-true';
-        notTrueOption.textContent = '!TRUE';
-        trueSelect.appendChild(notTrueOption);
-        
-        trueFilterDiv.appendChild(trueSelect);
-        container.appendChild(trueFilterDiv);
 
         // Limit to top 20 features for performance
         const topFeatures = features.slice(0, 20);
@@ -262,7 +396,7 @@
             // Render dropdown for categorical (single-select)
             const select = document.createElement('select');
             select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-            select.dataset.feature = feature.name;
+            select.dataset.questionKey = feature.name;  // Use question key, not ID
             select.onchange = () => handleFilterChange();
             
             const defaultOption = document.createElement('option');
@@ -282,7 +416,7 @@
             // Render dropdown for bins
             const select = document.createElement('select');
             select.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
-            select.dataset.feature = feature.name;
+            select.dataset.questionKey = feature.name;  // Use question key, not ID
             select.onchange = () => handleFilterChange();
             
             const defaultOption = document.createElement('option');
@@ -303,10 +437,9 @@
             const input = document.createElement('input');
             input.type = 'number';
             input.className = 'w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-sm';
+            input.dataset.questionKey = feature.name;  // Use question key, not ID
             input.placeholder = 'Enter value...';
-            input.dataset.feature = feature.name;
-            input.oninput = () => handleFilterChange();
-            
+            input.onchange = () => handleFilterChange();
             filterDiv.appendChild(input);
           }
 
@@ -316,119 +449,50 @@
 
       // Handle filter changes
       function handleFilterChange() {
-        console.log('[Sandbox] handleFilterChange called');
-        // Build filters object
+        console.log('[Sandbox] Filter changed');
+        
+        // Collect all filters using question keys
         currentFilters = {};
-
-        // Collect dropdown filters (single-select) - both categorical and bins
-        const selects = document.querySelectorAll('select[data-feature]');
-        console.log('[Sandbox] Found', selects.length, 'feature selects');
-        selects.forEach(select => {
-          if (select.value) {
-            currentFilters[select.dataset.feature] = select.value;
-            console.log('[Sandbox] Filter added:', select.dataset.feature, '=', select.value);
+        const filterElements = document.querySelectorAll('[data-question-key]');
+        
+        filterElements.forEach(element => {
+          const questionKey = element.dataset.questionKey;
+          let value = null;
+          
+          if (element.tagName === 'SELECT') {
+            value = element.value;
+          } else if (element.tagName === 'INPUT') {
+            value = element.value;
+          }
+          
+          if (value && value !== '') {
+            currentFilters[questionKey] = value;
           }
         });
-
-        // Collect number inputs
-        const inputs = document.querySelectorAll('input[type="number"][data-feature]');
-        inputs.forEach(input => {
-          if (input.value) {
-            currentFilters[input.dataset.feature] = parseFloat(input.value);
-            console.log('[Sandbox] Int filter added:', input.dataset.feature, '=', input.value);
-          }
-        });
-
+        
         console.log('[Sandbox] Current filters:', currentFilters);
-        console.log('[Sandbox] applies_if filter:', appliesIfFilter);
-
-        // Apply filters client-side (much faster than API call)
         applyFiltersClientSide();
       }
 
-      // Apply filters client-side for speed
+      // Apply filters client-side using DNF logic
       function applyFiltersClientSide() {
-        // Start with all norms
-        let result = allNorms;
-        
-        // First apply the applies_if filter
-        if (appliesIfFilter === 'true') {
-          result = result.filter(norm => {
-            const appliesIf = norm.attributes?.applies_if || 'TRUE';
-            return appliesIf.trim().toUpperCase() === 'TRUE';
-          });
-        } else if (appliesIfFilter === 'not-true') {
-          result = result.filter(norm => {
-            const appliesIf = norm.attributes?.applies_if || 'TRUE';
-            return appliesIf.trim().toUpperCase() !== 'TRUE';
-          });
-        }
-        // 'all' means no filtering by applies_if
-        
-        // Store the base set after applies_if filter (for calculating filtered-out correctly)
-        baseNormsAfterAppliesIf = result;
-        
-        // If no other filters, we're done
-        if (Object.keys(currentFilters).length === 0) {
-          filteredNorms = result;
-          // Filtered out should be empty when no feature filters are applied
-          // (norms filtered by applies_if are not "filtered out" by feature filters)
-          filteredOutNorms = [];
-          renderNorms();
-          updateCounter();
-          return;
-        }
-        
-        // For other filters, we need to call the API for tri-state evaluation
-        // But we can optimize by only sending norms that might be affected
-        applyFiltersViaAPI(result);
-      }
-
-      // Apply filters via API (only when needed for tri-state logic)
-      async function applyFiltersViaAPI(normsToFilter) {
-        if (!currentRunId) return;
-
-        console.log('[Sandbox] Applying filters via API');
+        console.log('[Sandbox] Applying client-side DNF filtering');
+        console.log('[Sandbox] Total norms:', allNorms.length);
         console.log('[Sandbox] Filters:', currentFilters);
-        console.log('[Sandbox] Norms to filter:', normsToFilter.length);
-        console.log('[Sandbox] Base norms after applies_if:', baseNormsAfterAppliesIf.length);
 
-        try {
-          const response = await fetch('/api/sandbox/filter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              run_id: currentRunId,
-              filters: currentFilters,
-              norm_ids: normsToFilter.map(n => n.attributes?.id).filter(Boolean)
-            })
-          });
-
-          const data = await response.json();
-          console.log('[Sandbox] API response received');
-          console.log('[Sandbox] Filtered norms count:', data.norms?.length || 0);
-          console.log('[Sandbox] Original total:', data.original_total || 0);
-          
-          if (data.norms) {
-            filteredNorms = data.norms;
-            // Calculate filtered out norms relative to baseNormsAfterAppliesIf, not allNorms
-            // This ensures norms filtered out by applies_if don't appear in "Filtered Out" tab
-            filteredOutNorms = baseNormsAfterAppliesIf.filter(n => {
-              const normId = n.attributes?.id;
-              return !filteredNorms.some(fn => fn.attributes?.id === normId);
-            });
-            console.log('[Sandbox] Filtered out count:', filteredOutNorms.length);
-            console.log('[Sandbox] Explanation: baseNorms=' + baseNormsAfterAppliesIf.length + 
-                       ', current=' + filteredNorms.length + 
-                       ', filtered_out=' + filteredOutNorms.length);
-            renderNorms();
-            updateCounter(data.original_total);
-          } else if (data.error) {
-            console.error('[Sandbox] Filter error:', data.error);
-          }
-        } catch (error) {
-          console.error('[Sandbox] Error applying filters:', error);
-        }
+        // Use client-side DNF filtering
+        filteredNorms = filterNormsClientSide(allNorms, currentFilters);
+        
+        // Calculate filtered out norms
+        filteredOutNorms = allNorms.filter(n => {
+          return !filteredNorms.some(fn => fn.id === n.id);
+        });
+        
+        console.log('[Sandbox] Filtered norms:', filteredNorms.length);
+        console.log('[Sandbox] Filtered out:', filteredOutNorms.length);
+        
+        renderNorms();
+        updateCounter(allNorms.length);
       }
 
       // Render norms
@@ -448,169 +512,169 @@
         emptyState.classList.add('hidden');
         container.innerHTML = '';
 
-        normsToDisplay.forEach((norm, idx) => {
-          const card = createNormCard(norm, idx);
+        normsToDisplay.forEach(norm => {
+          const card = createNormCard(norm);
           container.appendChild(card);
         });
       }
 
-      // Switch between tabs
-      function switchTab(tab) {
-        currentTab = tab;
-        
-        // Update tab button styles
-        const currentBtn = document.getElementById('tab-current');
-        const filteredOutBtn = document.getElementById('tab-filtered-out');
-        
-        if (tab === 'current') {
-          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
-          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
-        } else {
-          currentBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200';
-          filteredOutBtn.className = 'tab-button px-6 py-3 text-sm font-medium border-b-2 border-blue-600 text-blue-600 dark:text-blue-400';
-        }
-        
-        // Re-render the norms for the selected tab
-        renderNorms();
-      }
-
-      // Create norm card element
-      function createNormCard(norm, idx) {
-        const attrs = norm.attributes || {};
+      // Create norm card
+      function createNormCard(norm) {
         const card = document.createElement('div');
-        card.className = 'norm-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4';
-
+        card.className = 'norm-card bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4';
+        
         // Header
         const header = document.createElement('div');
-        header.className = 'flex items-start justify-between mb-2';
+        header.className = 'flex justify-between items-start mb-2';
         
         const titleDiv = document.createElement('div');
         titleDiv.className = 'flex-1';
         
-        const id = document.createElement('div');
-        id.className = 'text-xs text-gray-500 dark:text-gray-400 font-mono mb-1';
-        id.textContent = `ID: ${attrs.id?.substring(0, 8) || 'N/A'}`;
+        const title = document.createElement('h3');
+        title.className = 'text-sm font-semibold text-gray-900 dark:text-gray-100';
+        title.textContent = `Norm ${norm.id.substring(0, 8)}`;
+        titleDiv.appendChild(title);
         
-        const statement = document.createElement('div');
-        statement.className = 'text-sm font-medium text-gray-900 dark:text-gray-100';
-        statement.textContent = attrs.norm_statement || 'No statement';
-        
-        titleDiv.appendChild(id);
-        titleDiv.appendChild(statement);
-        
-        const expandBtn = document.createElement('button');
-        expandBtn.className = 'ml-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 text-sm font-medium';
-        expandBtn.textContent = 'Details';
-        expandBtn.onclick = () => toggleDetails(idx);
+        if (norm.obligation) {
+          const badge = document.createElement('span');
+          badge.className = `inline-block px-2 py-1 text-xs rounded ml-2 ${
+            norm.obligation === 'MANDATORY' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
+            norm.obligation === 'RECOMMENDED' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
+            'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+          }`;
+          badge.textContent = norm.obligation;
+          titleDiv.appendChild(badge);
+        }
         
         header.appendChild(titleDiv);
-        header.appendChild(expandBtn);
-        card.appendChild(header);
-
-        // Details (collapsed by default)
-        const details = document.createElement('div');
-        details.id = `details-${idx}`;
-        details.className = 'details-collapsed';
         
-        const detailsContent = document.createElement('div');
-        detailsContent.className = 'mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 space-y-2 text-sm';
+        // Details button
+        const detailsBtn = document.createElement('button');
+        detailsBtn.className = 'text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm';
+        detailsBtn.textContent = 'Details';
+        detailsBtn.onclick = () => toggleDetails(card);
+        header.appendChild(detailsBtn);
+        
+        card.appendChild(header);
+        
+        // Statement
+        if (norm.norm_statement) {
+          const statement = document.createElement('p');
+          statement.className = 'text-sm text-gray-700 dark:text-gray-300 mb-2';
+          statement.textContent = norm.norm_statement.substring(0, 200) + (norm.norm_statement.length > 200 ? '...' : '');
+          card.appendChild(statement);
+        }
         
         // Topics
-        if (attrs.topics && attrs.topics.length > 0) {
+        if (norm.topics && norm.topics.length > 0) {
           const topicsDiv = document.createElement('div');
-          topicsDiv.innerHTML = `<span class="font-medium">Topics:</span> ${attrs.topics.join(', ')}`;
-          detailsContent.appendChild(topicsDiv);
+          topicsDiv.className = 'flex flex-wrap gap-1 mb-2';
+          norm.topics.forEach(topic => {
+            const topicBadge = document.createElement('span');
+            topicBadge.className = 'px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded';
+            topicBadge.textContent = topic;
+            topicsDiv.appendChild(topicBadge);
+          });
+          card.appendChild(topicsDiv);
         }
-
-        // Priority
-        if (attrs.priority) {
-          const priorityDiv = document.createElement('div');
-          priorityDiv.innerHTML = `<span class="font-medium">Priority:</span> ${attrs.priority}`;
-          detailsContent.appendChild(priorityDiv);
-        }
-
-        // Location scope
-        if (attrs.location_scope) {
-          const locationDiv = document.createElement('div');
-          locationDiv.innerHTML = `<span class="font-medium">Location:</span> ${JSON.stringify(attrs.location_scope)}`;
-          detailsContent.appendChild(locationDiv);
-        }
-
-        // Applies If
-        const appliesDiv = document.createElement('div');
-        appliesDiv.innerHTML = `<span class="font-medium">Applies If:</span> <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs">${attrs.applies_if || 'TRUE'}</code>`;
-        detailsContent.appendChild(appliesDiv);
-
-        // Satisfied If
-        if (attrs.satisfied_if) {
-          const satisfiedDiv = document.createElement('div');
-          satisfiedDiv.innerHTML = `<span class="font-medium">Satisfied If:</span> <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs">${attrs.satisfied_if}</code>`;
-          detailsContent.appendChild(satisfiedDiv);
-        }
-
-        details.appendChild(detailsContent);
+        
+        // Details panel (collapsed by default)
+        const details = document.createElement('div');
+        details.className = 'details-collapsed mt-3 pt-3 border-t border-gray-200 dark:border-gray-700';
+        details.innerHTML = `
+          <div class="text-xs space-y-2">
+            <div><strong>ID:</strong> ${norm.id}</div>
+            ${norm.applies_if ? `<div><strong>Applies If:</strong> <code class="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded text-xs">${norm.applies_if}</code></div>` : ''}
+            ${norm.satisfied_if ? `<div><strong>Satisfied If:</strong> <code class="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded text-xs">${norm.satisfied_if}</code></div>` : ''}
+            ${norm.extraction_text ? `<div><strong>Original Text:</strong> ${norm.extraction_text.substring(0, 300)}${norm.extraction_text.length > 300 ? '...' : ''}</div>` : ''}
+          </div>
+        `;
         card.appendChild(details);
-
+        
         return card;
       }
 
-      // Toggle details expansion
-      function toggleDetails(idx) {
-        const details = document.getElementById(`details-${idx}`);
-        if (details.classList.contains('details-collapsed')) {
-          details.classList.remove('details-collapsed');
-          details.classList.add('details-expanded');
-        } else {
-          details.classList.remove('details-expanded');
-          details.classList.add('details-collapsed');
+      // Toggle details
+      function toggleDetails(card) {
+        const details = card.querySelector('.details-collapsed, .details-expanded');
+        if (details) {
+          if (details.classList.contains('details-collapsed')) {
+            details.classList.remove('details-collapsed');
+            details.classList.add('details-expanded');
+          } else {
+            details.classList.remove('details-expanded');
+            details.classList.add('details-collapsed');
+          }
         }
       }
 
       // Update counter
-      function updateCounter(originalTotal) {
+      function updateCounter(originalTotal = null) {
         const counter = document.getElementById('results-counter');
-        const total = originalTotal || allNorms.length;
-        counter.textContent = `${filteredNorms.length}/${total}`;
+        const currentCount = document.getElementById('count-current');
+        const filteredOutCount = document.getElementById('count-filtered-out');
         
-        // Update tab counts
-        document.getElementById('count-current').textContent = filteredNorms.length;
-        document.getElementById('count-filtered-out').textContent = filteredOutNorms.length;
+        currentCount.textContent = filteredNorms.length;
+        filteredOutCount.textContent = filteredOutNorms.length;
+        
+        if (originalTotal !== null && originalTotal !== filteredNorms.length) {
+          counter.textContent = `Showing ${filteredNorms.length} of ${originalTotal} norms`;
+        } else {
+          counter.textContent = `${filteredNorms.length} norms`;
+        }
+      }
+
+      // Switch tab
+      function switchTab(tab) {
+        currentTab = tab;
+        
+        // Update tab buttons
+        const tabs = ['current', 'filtered-out'];
+        tabs.forEach(t => {
+          const btn = document.getElementById(`tab-${t}`);
+          if (t === tab) {
+            btn.classList.add('border-blue-600', 'text-blue-600', 'dark:text-blue-400');
+            btn.classList.remove('border-transparent', 'text-gray-500', 'dark:text-gray-400');
+          } else {
+            btn.classList.remove('border-blue-600', 'text-blue-600', 'dark:text-blue-400');
+            btn.classList.add('border-transparent', 'text-gray-500', 'dark:text-gray-400');
+          }
+        });
+        
+        renderNorms();
       }
 
       // Clear filters
-      document.getElementById('clear-filters').onclick = () => {
-        // Reset applies_if filter dropdown
-        const appliesIfSelect = document.getElementById('filter-applies-if');
-        if (appliesIfSelect) {
-          appliesIfSelect.value = 'all';
-          appliesIfFilter = 'all';
-        }
-        
-        // Clear all selects (categorical and bin filters)
-        document.querySelectorAll('select[data-feature]').forEach(select => select.value = '');
-        
-        // Clear all number inputs
-        document.querySelectorAll('input[type="number"][data-feature]').forEach(input => input.value = '');
-        
+      function clearFilters() {
         currentFilters = {};
-        filteredNorms = allNorms;
-        filteredOutNorms = [];
-        renderNorms();
-        updateCounter();
-      };
+        
+        // Reset all filter inputs
+        const filterElements = document.querySelectorAll('[data-question-key]');
+        filterElements.forEach(element => {
+          if (element.tagName === 'SELECT') {
+            element.value = '';
+          } else if (element.tagName === 'INPUT') {
+            element.value = '';
+          }
+        });
+        
+        applyFiltersClientSide();
+      }
 
-      // Output selector change
-      document.getElementById('output-selector').onchange = async (e) => {
-        currentRunId = e.target.value;
-        if (currentRunId) {
-          // Clear filters
-          document.getElementById('clear-filters').click();
-          await loadNorms(currentRunId);
+      // Event listener for output selector
+      document.addEventListener('DOMContentLoaded', () => {
+        const selector = document.getElementById('output-selector');
+        if (selector) {
+          selector.addEventListener('change', async (e) => {
+            currentDocId = e.target.value;
+            clearFilters();
+            await loadNorms(currentDocId);
+          });
         }
-      };
-
-      // Initialize on load
-      init();
+        
+        // Initialize
+        init();
+      });
     </script>
   </body>
 </html>

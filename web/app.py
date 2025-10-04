@@ -9,14 +9,48 @@ import sys
 import atexit
 import signal
 import socket
+import logging
+import traceback as tb_module
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
 from urllib.request import urlopen  # stdlib, avoid extra deps
 from urllib.error import URLError, HTTPError
+import dotenv
+
+
 
 from runner import Runner, build_worker_cmd
 from comments_db import CommentsDB, Comment
 
+dotenv.load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
+app.logger.setLevel(logging.INFO)
+
+# Database connection for Sandbox
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://localhost:5432/mydb")
+_db_engine = None
+
+def get_db_engine():
+    """Get or create database engine for Sandbox."""
+    global _db_engine
+    if _db_engine is None:
+        logger.info(f"Initializing database connection to: {DATABASE_URL}")
+        try:
+            from sqlalchemy import create_engine
+            _db_engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+            logger.info("Database engine created successfully")
+        except Exception as e:
+            logger.error(f"Failed to create database engine: {e}", exc_info=True)
+            _db_engine = False  # Mark as unavailable
+    return _db_engine if _db_engine is not False else None
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = REPO_ROOT / "output_runs"
@@ -1195,223 +1229,605 @@ def sandbox():
 
 @app.get("/api/sandbox/outputs")
 def list_sandbox_outputs():
-    """List available output directories with timestamps."""
-    outputs = []
-    if OUTPUT_ROOT.exists():
-        for d in OUTPUT_ROOT.iterdir():
-            if d.is_dir():
-                try:
-                    run_id = d.name
-                    # Check if enhanced_extraction_results.json exists
-                    enhanced_output_dir = d / "enhanced_output"
-                    extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
-                    if extraction_file.exists():
-                        ts = d.stat().st_mtime
-                        outputs.append({"run_id": run_id, "timestamp": ts})
-                except Exception:
-                    continue
-    outputs.sort(key=lambda x: x["timestamp"], reverse=True)
-    return jsonify({"outputs": outputs})
-
-
-@app.get("/api/sandbox/norms/<run_id>")
-def get_sandbox_norms(run_id: str):
-    """Get all norms from an output run."""
-    run_dir = OUTPUT_ROOT / run_id
-    if not run_dir.exists():
-        return jsonify({"error": "Run not found"}), 404
-    
-    enhanced_output_dir = run_dir / "enhanced_output"
-    extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
-    
-    if not extraction_file.exists():
-        return jsonify({"error": "Enhanced extraction results not found"}), 404
+    """List available documents from database, or return 'All Norms' if no documents."""
+    logger.info("GET /api/sandbox/outputs - Fetching available documents")
+    engine = get_db_engine()
+    if not engine:
+        logger.error("Database not available - DATABASE_URL not configured or connection failed")
+        return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
-        data = json.loads(extraction_file.read_text(encoding="utf-8"))
-        # Extract only NORM extractions
-        norms = [
-            e for e in data.get("extractions", [])
-            if e.get("extraction_class") == "NORM"
-        ]
-        return jsonify({"norms": norms, "total": len(norms)})
+        from sqlalchemy import select, func
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import documents, norms
+        
+        with engine.connect() as conn:
+            logger.debug("Connected to database, querying documents table")
+            # Try to get documents first
+            docs_query = select(
+                documents.c.id,
+                documents.c.title,
+                documents.c.jurisdiction,
+                documents.c.language,
+                documents.c.created_at
+            ).order_by(documents.c.created_at.desc())
+            
+            doc_results = conn.execute(docs_query).fetchall()
+            logger.info(f"Found {len(doc_results)} documents in database")
+            
+            outputs = []
+            
+            # If documents exist, return them
+            if doc_results:
+                for doc in doc_results:
+                    doc_id = str(doc[0])
+                    title = doc[1] or f"Document {doc_id[:8]}"
+                    jurisdiction = doc[2]
+                    language = doc[3]
+                    timestamp = doc[4].timestamp() if doc[4] else time.time()
+                    
+                    outputs.append({
+                        "doc_id": doc_id,
+                        "title": title,
+                        "jurisdiction": jurisdiction,
+                        "language": language,
+                        "timestamp": timestamp
+                    })
+                logger.info(f"Returning {len(outputs)} documents")
+            else:
+                # No documents, return "All Norms" option
+                # Count total norms in database
+                logger.info("No documents found, counting all norms")
+                count_query = select(func.count(norms.c.id))
+                total_norms = conn.execute(count_query).scalar()
+                logger.info(f"Found {total_norms} total norms in database")
+                
+                outputs.append({
+                    "doc_id": "all",
+                    "title": f"All Norms ({total_norms} total)",
+                    "jurisdiction": None,
+                    "language": None,
+                    "timestamp": time.time()
+                })
+            
+            return jsonify({"outputs": outputs, "total": len(outputs)})
     except Exception as e:
-        return jsonify({"error": f"Error loading norms: {str(e)}"}), 500
+        logger.error(f"Error fetching documents: {e}", exc_info=True)
+        return jsonify({
+            "error": f"Failed to fetch documents: {str(e)}"
+        }), 500
+
+
+@app.get("/api/sandbox/norms/<doc_id>")
+def get_sandbox_norms(doc_id: str):
+    """Get all norms from database for a specific document or all norms if doc_id is 'all'."""
+    logger.info(f"GET /api/sandbox/norms/{doc_id} - Fetching norms")
+    engine = get_db_engine()
+    if not engine:
+        logger.error("Database not available")
+        return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
+    
+    try:
+        from sqlalchemy import select, text
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import norms, topics, norm_topics, documents, norm_clause_groups, norm_requirements, questions
+        
+        with engine.connect() as conn:
+            logger.debug(f"Connected to database, querying norms for doc_id={doc_id}")
+            # Build norms query based on doc_id
+            if doc_id == "all":
+                # Get all norms regardless of document
+                norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                )
+                logger.info("Fetching all norms (no document filter)")
+            else:
+                # Get norms for specific document
+                norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+                logger.info(f"Fetching norms for document {doc_id}")
+            
+            norm_results = conn.execute(norms_query).fetchall()
+            logger.info(f"Found {len(norm_results)} norms")
+            
+            # Convert to JSON format
+            norms_list = []
+            for norm_row in norm_results:
+                norm_id = str(norm_row[0])
+                
+                # Get topics for this norm
+                topics_query = select(topics.c.code).select_from(
+                    norm_topics.join(topics, norm_topics.c.topic_id == topics.c.id)
+                ).where(norm_topics.c.norm_id == norm_row[0])
+                
+                topic_results = conn.execute(topics_query).fetchall()
+                topic_codes = [t[0] for t in topic_results]
+                
+                # Get APPLIES_IF clause groups (DNF structure) for this norm
+                applies_if_groups = []
+                groups_query = select(
+                    norm_clause_groups.c.id,
+                    norm_clause_groups.c.logic
+                ).where(
+                    (norm_clause_groups.c.norm_id == norm_row[0]) &
+                    (norm_clause_groups.c.clause == 'APPLIES_IF') &
+                    (norm_clause_groups.c.parent_id == None)
+                )
+                
+                group_results = conn.execute(groups_query).fetchall()
+                for group_row in group_results:
+                    group_id = group_row[0]
+                    
+                    # Get requirements for this group
+                    reqs_query = select(
+                        norm_requirements.c.id,
+                        questions.c.key,
+                        norm_requirements.c.operator,
+                        norm_requirements.c.expected_type,
+                        norm_requirements.c.expected_value
+                    ).select_from(
+                        norm_requirements.join(questions, norm_requirements.c.question_id == questions.c.id)
+                    ).where(norm_requirements.c.group_id == group_id)
+                    
+                    req_results = conn.execute(reqs_query).fetchall()
+                    requirements = []
+                    for req_row in req_results:
+                        requirements.append({
+                            "id": req_row[0],
+                            "questionKey": req_row[1],
+                            "operator": req_row[2],
+                            "expectedType": req_row[3],
+                            "expectedValue": req_row[4]
+                        })
+                    
+                    applies_if_groups.append({
+                        "id": group_id,
+                        "logic": "AND",
+                        "requirements": requirements
+                    })
+                
+                norm_dict = {
+                    "id": norm_id,
+                    "extraction_class": norm_row[1],
+                    "extraction_text": norm_row[2],
+                    "obligation": norm_row[3],
+                    "norm_statement": norm_row[4],
+                    "applies_if": norm_row[5] or "TRUE",
+                    "satisfied_if": norm_row[6],
+                    "exempt_if": norm_row[7],
+                    "section_id": norm_row[8],
+                    "topics": topic_codes,
+                    "appliesIfGroups": applies_if_groups
+                }
+                norms_list.append(norm_dict)
+            
+            logger.info(f"Returning {len(norms_list)} norms")
+            return jsonify({"norms": norms_list, "total": len(norms_list)})
+    except Exception as e:
+        logger.error(f"Error loading norms: {e}", exc_info=True)
+        return jsonify({
+            "error": f"Error loading norms: {str(e)}"
+        }), 500
 
 
 @app.get("/api/sandbox/features")
 def get_sandbox_features():
-    """Get feature definitions from ig_results.csv."""
-    ig_csv_path = REPO_ROOT / "ig_assessment" / "tmp" / "ig_results.csv"
-    
-    if not ig_csv_path.exists():
-        return jsonify({"error": "ig_results.csv not found"}), 404
+    """Get feature definitions (questions) from database ordered by usage count."""
+    logger.info("GET /api/sandbox/features - Fetching available features")
+    engine = get_db_engine()
+    if not engine:
+        logger.error("Database not available")
+        return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
-        import csv
-        features = []
-        with open(ig_csv_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            rows = list(reader)
+        from sqlalchemy import select, func
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
+    try:
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import questions, norm_requirements
+        
+        with engine.connect() as conn:
+            logger.debug("Connected to database, querying questions with usage statistics")
+            # Get all questions with their usage statistics
+            # Order by occurrence count in norm_requirements table
+            usage_query = select(
+                questions.c.id,
+                questions.c.key,
+                questions.c.value_hint,
+                questions.c.allowed_enum,
+                func.count(norm_requirements.c.id).label('usage_count')
+            ).select_from(
+                questions.outerjoin(
+                    norm_requirements,
+                    questions.c.id == norm_requirements.c.question_id
+                )
+            ).group_by(
+                questions.c.id,
+                questions.c.key,
+                questions.c.value_hint,
+                questions.c.allowed_enum
+            ).order_by(func.count(norm_requirements.c.id).desc())
             
-            # Sort by avg_dismissal_rate descending
-            rows.sort(key=lambda r: float(r.get('avg_dismissal_rate', '0.0')) if r.get('avg_dismissal_rate', '0.0') not in ['', 'N/A'] else 0.0, reverse=True)
+            question_results = conn.execute(usage_query).fetchall()
+            logger.info(f"Found {len(question_results)} questions in database")
             
-            for row in rows:
-                feature_name = row.get('feature', '')
-                numeric = row.get('numeric', 'False').strip().lower() == 'true'
-                categories_or_bins = row.get('categories_or_bins', '[]').strip()
-                max_dismissal_rate = row.get('max_dismissal_rate', '0.0')
+            features = []
+            for row in question_results:
+                question_id = row[0]
+                question_key = row[1]
+                value_hint = row[2]  # value_type enum
+                allowed_enum = row[3]  # array of allowed values
+                usage_count = row[4]
                 
-                # Format feature name with max_dismissal_rate (first 2 decimals)
-                try:
-                    max_dismissal_float = float(max_dismissal_rate) if max_dismissal_rate not in ['', 'N/A'] else 0.0
-                    display_name = f"{feature_name} ({max_dismissal_float:.2f})"
-                except (ValueError, TypeError):
-                    display_name = f"{feature_name} (0.00)"
+                # Skip questions with zero usage
+                if usage_count == 0:
+                    continue
                 
-                # Parse categories_or_bins
-                values = []
+                # Get distinct expected values from norm_requirements for this question
+                # This populates filter values from actual data in the database
+                values_query = select(
+                    func.distinct(norm_requirements.c.expected_value),
+                    norm_requirements.c.operator
+                ).where(
+                    norm_requirements.c.question_id == question_id
+                ).limit(100)  # Limit to prevent too many values
+                
+                value_results = conn.execute(values_query).fetchall()
+                logger.debug(f"Question {question_key} has {len(value_results)} distinct values in norm_requirements")
+                
+                # Extract values from JSONB and operators
+                actual_values = set()
+                operators_used = set()
+                for val_row in value_results:
+                    expected_val = val_row[0]  # JSONB value
+                    operator = val_row[1]  # cmp_op enum
+                    operators_used.add(operator)
+                    
+                    # Parse JSONB value
+                    if expected_val is not None:
+                        # JSONB is returned as Python object
+                        if isinstance(expected_val, (list, tuple)):
+                            # Array values - add each element
+                            for item in expected_val:
+                                actual_values.add(str(item))
+                        elif isinstance(expected_val, bool):
+                            actual_values.add('TRUE' if expected_val else 'FALSE')
+                        elif isinstance(expected_val, (int, float, str)):
+                            actual_values.add(str(expected_val))
+                
+                # Determine feature type based on value_hint and operators
                 feature_type = 'categorical'
+                values = sorted(list(actual_values))[:50]  # Limit to 50 values for UI
                 
-                if categories_or_bins and categories_or_bins not in ['[]', '0']:
-                    try:
-                        # Try to parse as Python literal
-                        import ast
-                        parsed = ast.literal_eval(categories_or_bins)
-                        if isinstance(parsed, list):
-                            if numeric and parsed:
-                                # Bins (tuples)
-                                feature_type = 'bin'
-                                values = [str(b) for b in parsed]
-                            else:
-                                # Categorical
-                                feature_type = 'categorical'
-                                values = parsed
-                    except Exception:
-                        # Try splitting by semicolon or comma
-                        if ';' in categories_or_bins:
-                            values = [v.strip().strip("'\"") for v in categories_or_bins.split(';')]
-                        elif ',' in categories_or_bins and not categories_or_bins.startswith('['):
-                            values = [v.strip().strip("'\"") for v in categories_or_bins.split(',')]
+                if value_hint:
+                    if value_hint == 'BOOLEAN':
                         feature_type = 'categorical'
+                        # Ensure TRUE/FALSE are in values if present
+                        if 'TRUE' in actual_values or 'FALSE' in actual_values:
+                            values = sorted([v for v in actual_values if v in ['TRUE', 'FALSE']])
+                        else:
+                            values = ['TRUE', 'FALSE']
+                    elif value_hint in ['INTEGER', 'NUMERIC']:
+                        # Check if comparison operators are used (GT, GTE, LT, LTE)
+                        if any(op in operators_used for op in ['GT', 'GTE', 'LT', 'LTE']):
+                            feature_type = 'int'
+                            values = sorted(actual_values, key=lambda x: float(x) if x.replace('.', '', 1).replace('-', '', 1).isdigit() else 0)[:20]
+                        else:
+                            # Discrete numeric values
+                            feature_type = 'categorical'
+                            values = sorted(actual_values, key=lambda x: float(x) if x.replace('.', '', 1).replace('-', '', 1).isdigit() else 0)[:50]
+                    elif value_hint == 'STRING':
+                        feature_type = 'categorical'
+                        # Values already populated from actual data
+                    elif value_hint == 'ARRAY':
+                        feature_type = 'categorical'
+                        # Values already populated from actual data
+                    elif value_hint == 'ENUM':
+                        feature_type = 'categorical'
+                        # Use allowed_enum if available, otherwise use actual values
+                        if allowed_enum and len(allowed_enum) > 0:
+                            values = sorted(allowed_enum)
+                        # Values already populated from actual data
                 
-                # If numeric and no values, it's an integer input
-                if numeric and not values:
-                    feature_type = 'int'
+                # Fallback: if no values from actual data and allowed_enum exists, use it
+                if not values and allowed_enum and len(allowed_enum) > 0:
+                    values = sorted(allowed_enum)[:50]
+                
+                # Format display name with usage count
+                display_name = f"{question_key} ({usage_count})"
                 
                 features.append({
-                    'name': feature_name,
+                    'id': question_id,
+                    'name': question_key,
                     'display_name': display_name,
                     'type': feature_type,
                     'values': values,
-                    'numeric': numeric
+                    'usage_count': usage_count,
+                    'numeric': value_hint in ['INTEGER', 'NUMERIC'] if value_hint else False
                 })
-        
-        return jsonify({"features": features, "total": len(features)})
+            
+            logger.info(f"Returning {len(features)} features with non-zero usage")
+            return jsonify({"features": features, "total": len(features)})
     except Exception as e:
-        return jsonify({"error": f"Error loading features: {str(e)}"}), 500
+        logger.error(f"Error loading features: {e}", exc_info=True)
+        return jsonify({
+            "error": f"Error loading features: {str(e)}"
+        }), 500
 
 
 @app.post("/api/sandbox/filter")
 def filter_sandbox_norms():
-    """Filter norms based on current filter selections using tri-state logic."""
+    """Filter norms based on current filter selections using SQL-based filtering."""
+    logger.info("POST /api/sandbox/filter - Filtering norms")
+    engine = get_db_engine()
+    if not engine:
+        logger.error("Database not available")
+        return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
+    
+    try:
+        from sqlalchemy import select, and_, or_, text, func
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
+        return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
+    
     try:
         data = request.get_json()
         if not data:
+            logger.warning("No JSON data provided in filter request")
             return jsonify({"error": "JSON data is required"}), 400
         
-        run_id = data.get('run_id')
-        filters = data.get('filters', {})  # {feature_name: value or [values]}
-        norm_ids = data.get('norm_ids')  # Optional: only filter specific norms
+        doc_id = data.get('doc_id')
+        filters = data.get('filters', {})  # {question_id: value}
         
-        if not run_id:
-            return jsonify({"error": "run_id is required"}), 400
+        if not doc_id:
+            logger.warning("No doc_id provided in filter request")
+            return jsonify({"error": "doc_id is required"}), 400
         
-        # Get all norms
-        run_dir = OUTPUT_ROOT / run_id
-        if not run_dir.exists():
-            return jsonify({"error": "Run not found"}), 404
+        logger.info(f"Filtering doc_id={doc_id} with {len(filters)} filters")
+        logger.debug(f"Filter criteria: {filters}")
         
-        enhanced_output_dir = run_dir / "enhanced_output"
-        extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
         
-        if not extraction_file.exists():
-            return jsonify({"error": "Enhanced extraction results not found"}), 404
-        
-        result_data = json.loads(extraction_file.read_text(encoding="utf-8"))
-        all_norms = [
-            e for e in result_data.get("extractions", [])
-            if e.get("extraction_class") == "NORM"
-        ]
-        
-        # Import evaluator from ig_assessment
-        sys.path.insert(0, str(REPO_ROOT / "ig_assessment"))
-        from dsl_parser import parse_applies_if
-        from evaluator import Evaluator, TristateValue
-        
-        # Filter to specific norm_ids if provided
-        norms = all_norms
-        if norm_ids:
-            norm_ids_set = set(norm_ids)
-            norms = [n for n in all_norms if n.get('attributes', {}).get('id') in norm_ids_set]
-        
-        # Build partial assignment from filters
-        assignment = {}
-        for feature_name, value in filters.items():
-            # All values are now single values (no arrays from frontend)
-            assignment[feature_name] = value
-        
-        # Filter norms by parsing and evaluating applies_if on the fly
-        # NOTE: We don't cache ASTs because norm_ids are not guaranteed to be unique
-        filtered_norms = []
-        debug_log = []  # For debugging
-        for norm in norms:
-            norm_id = norm.get('attributes', {}).get('id')
-            applies_if_str = norm.get('attributes', {}).get('applies_if', 'TRUE')
-            
-            # Parse applies_if expression on the fly
-            ast = parse_applies_if(applies_if_str)
-            
-            # Evaluate with partial assignment
-            evaluator = Evaluator(assignment)
-            result = evaluator.evaluate(ast)
-            
-            # Debug logging for norms with applies_if = TRUE
-            if applies_if_str.strip().upper() == 'TRUE':
-                debug_log.append({
-                    'norm_id': norm_id,
-                    'applies_if': applies_if_str,
-                    'applies_if_repr': repr(applies_if_str),
-                    'ast': str(ast),
-                    'ast_type': type(ast).__name__,
-                    'ast_value': str(ast.value) if hasattr(ast, 'value') else 'N/A',
-                    'result': str(result),
-                    'kept': result != TristateValue.FALSE
+        with engine.connect() as conn:
+            logger.debug("Connected to database for filtering")
+            # If no filters, return all norms for the document (or all norms if doc_id is "all")
+            if not filters:
+                logger.info("No filters applied, returning all norms")
+                # Simple query for all norms
+                if doc_id == "all":
+                    norms_query = select(
+                        norms.c.id,
+                        norms.c.extraction_class,
+                        norms.c.extraction_text,
+                        norms.c.obligation,
+                        norms.c.norm_statement,
+                        norms.c.applies_if_text,
+                        norms.c.satisfied_if_text,
+                        norms.c.exempt_if_text,
+                        norms.c.section_id
+                    )
+                else:
+                    norms_query = select(
+                        norms.c.id,
+                        norms.c.extraction_class,
+                        norms.c.extraction_text,
+                        norms.c.obligation,
+                        norms.c.norm_statement,
+                        norms.c.applies_if_text,
+                        norms.c.satisfied_if_text,
+                        norms.c.exempt_if_text,
+                        norms.c.section_id
+                    ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+                
+                norm_results = conn.execute(norms_query).fetchall()
+                
+                norms_list = []
+                for norm_row in norm_results:
+                    norm_id = str(norm_row[0])
+                    
+                    # Get topics
+                    topics_query = select(topics.c.code).select_from(
+                        norm_topics.join(topics, norm_topics.c.topic_id == topics.c.id)
+                    ).where(norm_topics.c.norm_id == norm_row[0])
+                    topic_results = conn.execute(topics_query).fetchall()
+                    topic_codes = [t[0] for t in topic_results]
+                    
+                    norms_list.append({
+                        "id": norm_id,
+                        "extraction_class": norm_row[1],
+                        "extraction_text": norm_row[2],
+                        "obligation": norm_row[3],
+                        "norm_statement": norm_row[4],
+                        "applies_if": norm_row[5] or "TRUE",
+                        "satisfied_if": norm_row[6],
+                        "exempt_if": norm_row[7],
+                        "section_id": norm_row[8],
+                        "topics": topic_codes
+                    })
+                
+                return jsonify({
+                    "norms": norms_list,
+                    "total": len(norms_list),
+                    "filtered": False
                 })
             
-            # Keep norm if result is TRUE or UNKNOWN, exclude if FALSE
-            if result != TristateValue.FALSE:
-                filtered_norms.append(norm)
-        
-        # Log debug info for norms with applies_if = TRUE if any were excluded
-        excluded_true_norms = [d for d in debug_log if not d['kept']]
-        if excluded_true_norms:
-            print(f"[DEBUG] WARNING: {len(excluded_true_norms)} norms with applies_if=TRUE were incorrectly filtered out!")
-            for d in excluded_true_norms[:5]:  # Show first 5
-                print(f"  - {d}")
-        
-        return jsonify({
-            "norms": filtered_norms,
-            "total": len(filtered_norms),
-            "original_total": len(norms)
-        })
+            # With filters: Find norms that satisfy at least one disjunct
+            # For each norm, check if any of its clause groups (disjuncts) satisfy all filters
+            
+            # Step 1: Get all norms for the document (or all norms if doc_id is "all")
+            if doc_id == "all":
+                all_norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                )
+            else:
+                all_norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+            
+            all_norm_results = conn.execute(all_norms_query).fetchall()
+            
+            filtered_norms = []
+            
+            for norm_row in all_norm_results:
+                norm_id_uuid = norm_row[0]
+                norm_id = str(norm_id_uuid)
+                
+                # Get all APPLIES_IF clause groups for this norm
+                groups_query = select(
+                    norm_clause_groups.c.id
+                ).where(
+                    and_(
+                        norm_clause_groups.c.norm_id == norm_id_uuid,
+                        norm_clause_groups.c.clause == 'APPLIES_IF'
+                    )
+                )
+                group_results = conn.execute(groups_query).fetchall()
+                group_ids = [g[0] for g in group_results]
+                
+                # If no clause groups, norm always applies (trivial TRUE)
+                if not group_ids:
+                    norm_matches = True
+                else:
+                    # Check if any clause group satisfies all filters
+                    norm_matches = False
+                    
+                    for group_id in group_ids:
+                        # Get all requirements for this group
+                        reqs_query = select(
+                            norm_requirements.c.question_id,
+                            norm_requirements.c.operator,
+                            norm_requirements.c.expected_value
+                        ).where(norm_requirements.c.group_id == group_id)
+                        
+                        req_results = conn.execute(reqs_query).fetchall()
+                        
+                        # Check if this group satisfies all filters
+                        group_satisfies = True
+                        
+                        for req_row in req_results:
+                            req_question_id = req_row[0]
+                            req_operator = req_row[1]
+                            req_expected = req_row[2]
+                            
+                            # Check if this requirement is in the filters
+                            if req_question_id in filters:
+                                filter_value = filters[req_question_id]
+                                
+                                # Compare based on operator
+                                if req_operator == 'EQ':
+                                    # Extract value from JSONB (it's stored as JSON string)
+                                    expected_val = req_expected
+                                    if isinstance(expected_val, str):
+                                        expected_val = expected_val.strip('"')
+                                    
+                                    if str(filter_value) != str(expected_val):
+                                        group_satisfies = False
+                                        break
+                                # Add more operator support as needed
+                                else:
+                                    # For now, only support EQ
+                                    pass
+                        
+                        if group_satisfies:
+                            norm_matches = True
+                            break
+                
+                if norm_matches:
+                    # Get topics
+                    topics_query = select(topics.c.code).select_from(
+                        norm_topics.join(topics, norm_topics.c.topic_id == topics.c.id)
+                    ).where(norm_topics.c.norm_id == norm_id_uuid)
+                    topic_results = conn.execute(topics_query).fetchall()
+                    topic_codes = [t[0] for t in topic_results]
+                    
+                    filtered_norms.append({
+                        "id": norm_id,
+                        "extraction_class": norm_row[1],
+                        "extraction_text": norm_row[2],
+                        "obligation": norm_row[3],
+                        "norm_statement": norm_row[4],
+                        "applies_if": norm_row[5] or "TRUE",
+                        "satisfied_if": norm_row[6],
+                        "exempt_if": norm_row[7],
+                        "section_id": norm_row[8],
+                        "topics": topic_codes
+                    })
+            
+            logger.info(f"Filter complete: {len(filtered_norms)}/{len(all_norm_results)} norms match criteria")
+            return jsonify({
+                "norms": filtered_norms,
+                "total": len(filtered_norms),
+                "original_total": len(all_norm_results),
+                "filtered": True
+            })
         
     except Exception as e:
-        import traceback
+        logger.error(f"Error filtering norms: {e}", exc_info=True)
         return jsonify({
-            "error": f"Error filtering norms: {str(e)}",
-            "traceback": traceback.format_exc()
+            "error": f"Error filtering norms: {str(e)}"
         }), 500
 
 
@@ -1419,8 +1835,21 @@ if __name__ == "__main__":
     # Ensure single instance and graceful shutdown
     host = "127.0.0.1"
     port = 5000
+    
+    logger.info("=" * 60)
+    logger.info("Starting LangExtract Web Application")
+    logger.info("=" * 60)
+    logger.info(f"Host: {host}")
+    logger.info(f"Port: {port}")
+    logger.info(f"Database URL: {DATABASE_URL}")
+    logger.info(f"Repository Root: {REPO_ROOT}")
+    logger.info(f"Output Root: {OUTPUT_ROOT}")
+    
     # Try to cache vendor assets locally for CDN fallbacks
+    logger.info("Ensuring vendor assets are cached...")
     ensure_vendor_assets()
+    
+    logger.info("Acquiring single instance lock...")
     _acquire_single_instance_lock(host, port)
     atexit.register(_graceful_shutdown)
     _install_signal_handlers()
@@ -1428,7 +1857,10 @@ if __name__ == "__main__":
     # Simple dev server: disable reloader to avoid double-spawn
     use_reloader = False
     try:
+        logger.info(f"Starting Flask development server on http://{host}:{port}")
+        logger.info("Press CTRL+C to quit")
         # Enable threading so SSE and other requests don't block each other
         app.run(host=host, port=port, debug=True, use_reloader=use_reloader, threaded=True)
     finally:
+        logger.info("Shutting down Flask application...")
         _graceful_shutdown()
