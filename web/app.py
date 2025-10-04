@@ -18,6 +18,23 @@ from comments_db import CommentsDB, Comment
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
+# Database connection for Sandbox
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://localhost:5432/langextract")
+_db_engine = None
+
+def get_db_engine():
+    """Get or create database engine for Sandbox."""
+    global _db_engine
+    if _db_engine is None:
+        try:
+            from sqlalchemy import create_engine
+            _db_engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+        except Exception as e:
+            print(f"[WARNING] Failed to create database engine: {e}")
+            print(f"[WARNING] Sandbox will fall back to file-based data")
+            _db_engine = False  # Mark as unavailable
+    return _db_engine if _db_engine is not False else None
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = REPO_ROOT / "output_runs"
 OUTPUT_ROOT.mkdir(exist_ok=True)
@@ -1195,8 +1212,41 @@ def sandbox():
 
 @app.get("/api/sandbox/outputs")
 def list_sandbox_outputs():
-    """List available output directories with timestamps."""
+    """List available output directories with timestamps and documents from database."""
     outputs = []
+    
+    # Try to get documents from database
+    engine = get_db_engine()
+    if engine:
+        try:
+            from sqlalchemy import select
+            sys.path.insert(0, str(REPO_ROOT / "ingest"))
+            from sql import documents
+            
+            with engine.connect() as conn:
+                docs_query = select(
+                    documents.c.id,
+                    documents.c.title,
+                    documents.c.created_at
+                ).order_by(documents.c.created_at.desc())
+                
+                doc_results = conn.execute(docs_query).fetchall()
+                
+                for doc in doc_results:
+                    doc_id = str(doc[0])
+                    title = doc[1] or doc_id
+                    timestamp = doc[2].timestamp() if doc[2] else time.time()
+                    
+                    outputs.append({
+                        "run_id": title,  # Use title as run_id for display
+                        "doc_id": doc_id,  # Include actual UUID
+                        "timestamp": timestamp,
+                        "source": "database"
+                    })
+        except Exception as e:
+            print(f"[WARNING] Failed to fetch documents from database: {e}")
+    
+    # Also include file-based outputs
     if OUTPUT_ROOT.exists():
         for d in OUTPUT_ROOT.iterdir():
             if d.is_dir():
@@ -1206,17 +1256,95 @@ def list_sandbox_outputs():
                     enhanced_output_dir = d / "enhanced_output"
                     extraction_file = enhanced_output_dir / "enhanced_extraction_results.json"
                     if extraction_file.exists():
-                        ts = d.stat().st_mtime
-                        outputs.append({"run_id": run_id, "timestamp": ts})
+                        # Skip if already in outputs from database
+                        if not any(o['run_id'] == run_id for o in outputs):
+                            ts = d.stat().st_mtime
+                            outputs.append({
+                                "run_id": run_id,
+                                "timestamp": ts,
+                                "source": "file"
+                            })
                 except Exception:
                     continue
+    
+    # Sort by timestamp descending
     outputs.sort(key=lambda x: x["timestamp"], reverse=True)
     return jsonify({"outputs": outputs})
 
 
 @app.get("/api/sandbox/norms/<run_id>")
 def get_sandbox_norms(run_id: str):
-    """Get all norms from an output run."""
+    """Get all norms from database or fallback to JSON file."""
+    engine = get_db_engine()
+    
+    # Try database first
+    if engine:
+        try:
+            from sqlalchemy import select, text
+            sys.path.insert(0, str(REPO_ROOT / "ingest"))
+            from sql import norms, topics, norm_topics, documents
+            
+            with engine.connect() as conn:
+                # Get document by run_id or title matching run_id
+                doc_query = select(documents.c.id).where(
+                    (documents.c.title == run_id) | 
+                    (text(f"documents.id::text = '{run_id}'"))
+                ).limit(1)
+                doc_result = conn.execute(doc_query).fetchone()
+                
+                if doc_result:
+                    doc_id = doc_result[0]
+                    
+                    # Get norms for this document
+                    norms_query = select(
+                        norms.c.id,
+                        norms.c.extraction_class,
+                        norms.c.extraction_text,
+                        norms.c.obligation,
+                        norms.c.norm_statement,
+                        norms.c.applies_if_text,
+                        norms.c.satisfied_if_text,
+                        norms.c.exempt_if_text,
+                        norms.c.section_id
+                    ).where(norms.c.document_id == doc_id)
+                    
+                    norm_results = conn.execute(norms_query).fetchall()
+                    
+                    # Convert to JSON format matching the original structure
+                    norms_list = []
+                    for norm_row in norm_results:
+                        norm_id = str(norm_row[0])
+                        
+                        # Get topics for this norm
+                        topics_query = select(topics.c.code).select_from(
+                            norm_topics.join(topics, norm_topics.c.topic_id == topics.c.id)
+                        ).where(norm_topics.c.norm_id == norm_row[0])
+                        
+                        topic_results = conn.execute(topics_query).fetchall()
+                        topic_codes = [t[0] for t in topic_results]
+                        
+                        norm_dict = {
+                            "extraction_class": norm_row[1],
+                            "extraction_text": norm_row[2],
+                            "attributes": {
+                                "id": norm_id,
+                                "parent_section_id": norm_row[8],
+                                "obligation_type": norm_row[3],
+                                "norm_statement": norm_row[4],
+                                "applies_if": norm_row[5] or "TRUE",
+                                "satisfied_if": norm_row[6],
+                                "exempt_if": norm_row[7],
+                                "topics": topic_codes
+                            }
+                        }
+                        norms_list.append(norm_dict)
+                    
+                    return jsonify({"norms": norms_list, "total": len(norms_list), "source": "database"})
+        except Exception as e:
+            print(f"[WARNING] Database query failed: {e}")
+            print(f"[WARNING] Falling back to file-based data")
+    
+    # Fallback to original file-based implementation
     run_dir = OUTPUT_ROOT / run_id
     if not run_dir.exists():
         return jsonify({"error": "Run not found"}), 404
@@ -1234,14 +1362,108 @@ def get_sandbox_norms(run_id: str):
             e for e in data.get("extractions", [])
             if e.get("extraction_class") == "NORM"
         ]
-        return jsonify({"norms": norms, "total": len(norms)})
+        return jsonify({"norms": norms, "total": len(norms), "source": "file"})
     except Exception as e:
         return jsonify({"error": f"Error loading norms: {str(e)}"}), 500
 
 
 @app.get("/api/sandbox/features")
 def get_sandbox_features():
-    """Get feature definitions from ig_results.csv."""
+    """Get feature definitions from database or fallback to CSV."""
+    engine = get_db_engine()
+    
+    # Try database first
+    if engine:
+        try:
+            from sqlalchemy import select, func
+            sys.path.insert(0, str(REPO_ROOT / "ingest"))
+            from sql import questions, norm_requirements
+            
+            with engine.connect() as conn:
+                # Get all questions with their usage statistics
+                # Calculate how many norms use each question
+                usage_query = select(
+                    questions.c.id,
+                    questions.c.key,
+                    questions.c.value_hint,
+                    questions.c.allowed_enum,
+                    func.count(norm_requirements.c.id).label('usage_count')
+                ).select_from(
+                    questions.outerjoin(
+                        norm_requirements,
+                        questions.c.id == norm_requirements.c.question_id
+                    )
+                ).group_by(
+                    questions.c.id,
+                    questions.c.key,
+                    questions.c.value_hint,
+                    questions.c.allowed_enum
+                ).order_by(func.count(norm_requirements.c.id).desc())
+                
+                question_results = conn.execute(usage_query).fetchall()
+                
+                features = []
+                for row in question_results:
+                    question_key = row[1]
+                    value_hint = row[2]  # value_type enum
+                    allowed_enum = row[3]  # array of allowed values
+                    usage_count = row[4]
+                    
+                    # Determine feature type and values
+                    feature_type = 'categorical'
+                    values = []
+                    
+                    if value_hint:
+                        if value_hint == 'BOOLEAN':
+                            feature_type = 'categorical'
+                            values = ['TRUE', 'FALSE']
+                        elif value_hint in ['INTEGER', 'NUMERIC']:
+                            if allowed_enum and len(allowed_enum) > 0:
+                                # Enum with numeric values
+                                feature_type = 'categorical'
+                                values = allowed_enum
+                            else:
+                                # Numeric input
+                                feature_type = 'int'
+                                values = []
+                        elif value_hint == 'STRING':
+                            if allowed_enum and len(allowed_enum) > 0:
+                                feature_type = 'categorical'
+                                values = allowed_enum
+                            else:
+                                feature_type = 'categorical'
+                                values = []
+                        elif value_hint == 'ARRAY':
+                            if allowed_enum and len(allowed_enum) > 0:
+                                feature_type = 'categorical'
+                                values = allowed_enum
+                            else:
+                                feature_type = 'categorical'
+                                values = []
+                        elif value_hint == 'ENUM':
+                            feature_type = 'categorical'
+                            values = allowed_enum if allowed_enum else []
+                        else:
+                            feature_type = 'categorical'
+                            values = []
+                    
+                    # Format display name with usage count
+                    display_name = f"{question_key} ({usage_count})"
+                    
+                    features.append({
+                        'name': question_key,
+                        'display_name': display_name,
+                        'type': feature_type,
+                        'values': values,
+                        'numeric': value_hint in ['INTEGER', 'NUMERIC'] if value_hint else False
+                    })
+                
+                return jsonify({"features": features, "total": len(features), "source": "database"})
+        except Exception as e:
+            print(f"[WARNING] Database query for features failed: {e}")
+            print(f"[WARNING] Falling back to CSV")
+    
+    # Fallback to original CSV-based implementation
     ig_csv_path = REPO_ROOT / "ig_assessment" / "tmp" / "ig_results.csv"
     
     if not ig_csv_path.exists():
@@ -1308,7 +1530,7 @@ def get_sandbox_features():
                     'numeric': numeric
                 })
         
-        return jsonify({"features": features, "total": len(features)})
+        return jsonify({"features": features, "total": len(features), "source": "csv"})
     except Exception as e:
         return jsonify({"error": f"Error loading features: {str(e)}"}), 500
 

@@ -15,6 +15,41 @@ Open `http://127.0.0.1:5000/`. The app stores outputs under `output_runs/` at re
 
 Tailwind CSS is loaded at runtime; there is no separate build step.
 
+## Database Configuration (Optional)
+
+The Sandbox feature can use a PostgreSQL database for storing norms and features. Set the `DATABASE_URL` environment variable:
+
+```bash
+export DATABASE_URL="postgresql://user:password@localhost:5432/langextract"
+```
+
+Or add it to a `.env` file in the repository root:
+```
+DATABASE_URL=postgresql://localhost:5432/langextract
+```
+
+If the database is not available, the Sandbox will automatically fall back to file-based data (JSON and CSV files).
+
+### Database Setup
+
+1. Create the database:
+```bash
+createdb langextract
+```
+
+2. Run the schema:
+```bash
+psql -d langextract -f db/schema.sql
+```
+
+3. Ingest norms:
+```bash
+python -m ingest.ingest \
+  --dsn postgresql://localhost:5432/langextract \
+  --json ./sample_norms.json \
+  --document-title "My Document"
+```
+
 ## Features
 - Start/cancel runs with a simple form. Recent `MODEL_ID`s appear as quick badges.
 - Live console via SSE with word-wrap toggle and max-line setting.
