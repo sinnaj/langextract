@@ -30,33 +30,33 @@ This installs Flask, SQLAlchemy, and psycopg (PostgreSQL driver).
 
 2. **Create the database**:
 ```bash
-createdb langextract
+createdb mydb
 ```
 
 3. **Run the schema**:
 ```bash
-psql -d langextract -f db/schema.sql
+psql -d mydb -f db/schema.sql
 ```
 
 4. **Set the DATABASE_URL** environment variable:
 
 ```bash
 # Linux/Mac
-export DATABASE_URL="postgresql://localhost:5432/langextract"
+export DATABASE_URL="postgresql://localhost:5432/mydb"
 
 # Windows PowerShell
-$env:DATABASE_URL = "postgresql://localhost:5432/langextract"
+$env:DATABASE_URL = "postgresql://localhost:5432/mydb"
 ```
 
 Or add it to a `.env` file in the repository root:
 ```
-DATABASE_URL=postgresql://localhost:5432/langextract
+DATABASE_URL=postgresql://localhost:5432/mydb
 ```
 
 5. **Ingest norms** (optional - to have data to view):
 ```bash
 python -m ingest.ingest \
-  --dsn postgresql://localhost:5432/langextract \
+  --dsn postgresql://localhost:5432/mydb \
   --json ./sample_norms.json \
   --document-title "My Document"
 ```
@@ -67,8 +67,8 @@ If you see errors like "Database not available" or "SQLAlchemy not installed":
 
 1. Make sure you've installed the requirements: `pip install -r web/requirements.txt`
 2. Verify the DATABASE_URL is set: `echo $DATABASE_URL` (Linux/Mac) or `$env:DATABASE_URL` (PowerShell)
-3. Check that PostgreSQL is running: `psql -d langextract -c "SELECT 1"`
-4. Verify the schema is loaded: `psql -d langextract -c "\dt"`
+3. Check that PostgreSQL is running: `psql -d mydb -c "SELECT 1"`
+4. Verify the schema is loaded: `psql -d mydb -c "\dt"`
 
 The Sandbox will show HTTP 503 errors if the database is not properly configured.
 

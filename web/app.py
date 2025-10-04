@@ -30,7 +30,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 app.logger.setLevel(logging.INFO)
 
 # Database connection for Sandbox
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://localhost:5432/langextract")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://localhost:5432/mydb")
 _db_engine = None
 
 def get_db_engine():
