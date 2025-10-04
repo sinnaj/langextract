@@ -14,9 +14,9 @@ from uuid import UUID
 from sqlalchemy import create_engine, delete, select
 from sqlalchemy.engine import Connection
 
-from .dnf import optimize_dnf
-from .parser import expr_to_dnf
-from .sql import (
+from ingest.dnf import optimize_dnf
+from ingest.parser import expr_to_dnf
+from ingest.sql import (
     documents,
     insert_clause_group,
     insert_norm,
@@ -39,7 +39,7 @@ def upsert_section(conn: Connection, section_id: str, document_id: Optional[UUID
         document_id: Optional document UUID
     """
     from sqlalchemy import select
-    from .sql import sections
+    from ingest.sql import sections
     
     # Check if section exists
     result = conn.execute(

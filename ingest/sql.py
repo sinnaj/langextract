@@ -23,7 +23,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import JSONB, UUID as PGUUID
 from sqlalchemy.engine import Connection
 
-from .types import ComparisonOp, ValueType
+from ingest.types import ComparisonOp, ValueType
 
 # Create metadata object
 metadata = MetaData()

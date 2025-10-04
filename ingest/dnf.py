@@ -7,7 +7,7 @@ This module provides utilities for working with DNF representations:
 
 from typing import Dict, Set
 
-from .types import Atomic, Conjunct, DNF
+from ingest.types import Atomic, Conjunct, DNF
 
 
 def is_contradiction(conjunct: Conjunct) -> bool:

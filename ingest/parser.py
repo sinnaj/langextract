@@ -23,7 +23,7 @@ from dsl_parser import (
     parse_applies_if,
 )
 
-from .types import Atomic, ComparisonOp, Conjunct, DNF, ValueType
+from ingest.types import Atomic, ComparisonOp, Conjunct, DNF, ValueType
 
 
 def infer_value_type(value: Any) -> ValueType:

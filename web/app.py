@@ -1238,12 +1238,12 @@ def list_sandbox_outputs():
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
-        # Add ingest directory to path if not already there
-        ingest_path = str(REPO_ROOT / "ingest")
-        if ingest_path not in sys.path:
-            sys.path.insert(0, ingest_path)
-            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
-        from sql import documents, norms
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import documents, norms
         
         with engine.connect() as conn:
             logger.debug("Connected to database, querying documents table")
@@ -1318,12 +1318,12 @@ def get_sandbox_norms(doc_id: str):
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
-        # Add ingest directory to path if not already there
-        ingest_path = str(REPO_ROOT / "ingest")
-        if ingest_path not in sys.path:
-            sys.path.insert(0, ingest_path)
-            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
-        from sql import norms, topics, norm_topics, documents
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import norms, topics, norm_topics, documents
         
         with engine.connect() as conn:
             logger.debug(f"Connected to database, querying norms for doc_id={doc_id}")
@@ -1412,12 +1412,12 @@ def get_sandbox_features():
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
-        # Add ingest directory to path if not already there
-        ingest_path = str(REPO_ROOT / "ingest")
-        if ingest_path not in sys.path:
-            sys.path.insert(0, ingest_path)
-            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
-        from sql import questions, norm_requirements
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import questions, norm_requirements
         
         with engine.connect() as conn:
             logger.debug("Connected to database, querying questions with usage statistics")
@@ -1547,12 +1547,12 @@ def filter_sandbox_norms():
         logger.info(f"Filtering doc_id={doc_id} with {len(filters)} filters")
         logger.debug(f"Filter criteria: {filters}")
         
-        # Add ingest directory to path if not already there
-        ingest_path = str(REPO_ROOT / "ingest")
-        if ingest_path not in sys.path:
-            sys.path.insert(0, ingest_path)
-            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
-        from sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
+        # Add repository root to path if not already there
+        repo_root_str = str(REPO_ROOT)
+        if repo_root_str not in sys.path:
+            sys.path.insert(0, repo_root_str)
+            logger.debug(f"Added repository root to sys.path: {repo_root_str}")
+        from ingest.sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
         
         with engine.connect() as conn:
             logger.debug("Connected to database for filtering")
