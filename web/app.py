@@ -9,6 +9,8 @@ import sys
 import atexit
 import signal
 import socket
+import logging
+import traceback as tb_module
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
 from urllib.request import urlopen  # stdlib, avoid extra deps
 from urllib.error import URLError, HTTPError
@@ -16,7 +18,16 @@ from urllib.error import URLError, HTTPError
 from runner import Runner, build_worker_cmd
 from comments_db import CommentsDB, Comment
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
+app.logger.setLevel(logging.INFO)
 
 # Database connection for Sandbox
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://localhost:5432/langextract")
@@ -26,12 +37,13 @@ def get_db_engine():
     """Get or create database engine for Sandbox."""
     global _db_engine
     if _db_engine is None:
+        logger.info(f"Initializing database connection to: {DATABASE_URL}")
         try:
             from sqlalchemy import create_engine
             _db_engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+            logger.info("Database engine created successfully")
         except Exception as e:
-            print(f"[WARNING] Failed to create database engine: {e}")
-            print(f"[WARNING] Sandbox will fall back to file-based data")
+            logger.error(f"Failed to create database engine: {e}", exc_info=True)
             _db_engine = False  # Mark as unavailable
     return _db_engine if _db_engine is not False else None
 
@@ -1213,13 +1225,16 @@ def sandbox():
 @app.get("/api/sandbox/outputs")
 def list_sandbox_outputs():
     """List available documents from database, or return 'All Norms' if no documents."""
+    logger.info("GET /api/sandbox/outputs - Fetching available documents")
     engine = get_db_engine()
     if not engine:
+        logger.error("Database not available - DATABASE_URL not configured or connection failed")
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
         from sqlalchemy import select, func
-    except ImportError:
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
@@ -1227,9 +1242,11 @@ def list_sandbox_outputs():
         ingest_path = str(REPO_ROOT / "ingest")
         if ingest_path not in sys.path:
             sys.path.insert(0, ingest_path)
+            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
         from sql import documents, norms
         
         with engine.connect() as conn:
+            logger.debug("Connected to database, querying documents table")
             # Try to get documents first
             docs_query = select(
                 documents.c.id,
@@ -1240,6 +1257,7 @@ def list_sandbox_outputs():
             ).order_by(documents.c.created_at.desc())
             
             doc_results = conn.execute(docs_query).fetchall()
+            logger.info(f"Found {len(doc_results)} documents in database")
             
             outputs = []
             
@@ -1259,11 +1277,14 @@ def list_sandbox_outputs():
                         "language": language,
                         "timestamp": timestamp
                     })
+                logger.info(f"Returning {len(outputs)} documents")
             else:
                 # No documents, return "All Norms" option
                 # Count total norms in database
+                logger.info("No documents found, counting all norms")
                 count_query = select(func.count(norms.c.id))
                 total_norms = conn.execute(count_query).scalar()
+                logger.info(f"Found {total_norms} total norms in database")
                 
                 outputs.append({
                     "doc_id": "all",
@@ -1275,23 +1296,25 @@ def list_sandbox_outputs():
             
             return jsonify({"outputs": outputs, "total": len(outputs)})
     except Exception as e:
-        import traceback
+        logger.error(f"Error fetching documents: {e}", exc_info=True)
         return jsonify({
-            "error": f"Failed to fetch documents: {str(e)}",
-            "traceback": traceback.format_exc()
+            "error": f"Failed to fetch documents: {str(e)}"
         }), 500
 
 
 @app.get("/api/sandbox/norms/<doc_id>")
 def get_sandbox_norms(doc_id: str):
     """Get all norms from database for a specific document or all norms if doc_id is 'all'."""
+    logger.info(f"GET /api/sandbox/norms/{doc_id} - Fetching norms")
     engine = get_db_engine()
     if not engine:
+        logger.error("Database not available")
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
         from sqlalchemy import select, text
-    except ImportError:
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
@@ -1299,9 +1322,11 @@ def get_sandbox_norms(doc_id: str):
         ingest_path = str(REPO_ROOT / "ingest")
         if ingest_path not in sys.path:
             sys.path.insert(0, ingest_path)
+            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
         from sql import norms, topics, norm_topics, documents
         
         with engine.connect() as conn:
+            logger.debug(f"Connected to database, querying norms for doc_id={doc_id}")
             # Build norms query based on doc_id
             if doc_id == "all":
                 # Get all norms regardless of document
@@ -1316,6 +1341,7 @@ def get_sandbox_norms(doc_id: str):
                     norms.c.exempt_if_text,
                     norms.c.section_id
                 )
+                logger.info("Fetching all norms (no document filter)")
             else:
                 # Get norms for specific document
                 norms_query = select(
@@ -1329,8 +1355,10 @@ def get_sandbox_norms(doc_id: str):
                     norms.c.exempt_if_text,
                     norms.c.section_id
                 ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+                logger.info(f"Fetching norms for document {doc_id}")
             
             norm_results = conn.execute(norms_query).fetchall()
+            logger.info(f"Found {len(norm_results)} norms")
             
             # Convert to JSON format
             norms_list = []
@@ -1359,25 +1387,28 @@ def get_sandbox_norms(doc_id: str):
                 }
                 norms_list.append(norm_dict)
             
+            logger.info(f"Returning {len(norms_list)} norms")
             return jsonify({"norms": norms_list, "total": len(norms_list)})
     except Exception as e:
-        import traceback
+        logger.error(f"Error loading norms: {e}", exc_info=True)
         return jsonify({
-            "error": f"Error loading norms: {str(e)}",
-            "traceback": traceback.format_exc()
+            "error": f"Error loading norms: {str(e)}"
         }), 500
 
 
 @app.get("/api/sandbox/features")
 def get_sandbox_features():
     """Get feature definitions (questions) from database ordered by usage count."""
+    logger.info("GET /api/sandbox/features - Fetching available features")
     engine = get_db_engine()
     if not engine:
+        logger.error("Database not available")
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
         from sqlalchemy import select, func
-    except ImportError:
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
@@ -1385,9 +1416,11 @@ def get_sandbox_features():
         ingest_path = str(REPO_ROOT / "ingest")
         if ingest_path not in sys.path:
             sys.path.insert(0, ingest_path)
+            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
         from sql import questions, norm_requirements
         
         with engine.connect() as conn:
+            logger.debug("Connected to database, querying questions with usage statistics")
             # Get all questions with their usage statistics
             # Order by occurrence count in norm_requirements table
             usage_query = select(
@@ -1409,6 +1442,7 @@ def get_sandbox_features():
             ).order_by(func.count(norm_requirements.c.id).desc())
             
             question_results = conn.execute(usage_query).fetchall()
+            logger.info(f"Found {len(question_results)} questions in database")
             
             features = []
             for row in question_results:
@@ -1473,47 +1507,58 @@ def get_sandbox_features():
                     'numeric': value_hint in ['INTEGER', 'NUMERIC'] if value_hint else False
                 })
             
+            logger.info(f"Returning {len(features)} features with non-zero usage")
             return jsonify({"features": features, "total": len(features)})
     except Exception as e:
-        import traceback
+        logger.error(f"Error loading features: {e}", exc_info=True)
         return jsonify({
-            "error": f"Error loading features: {str(e)}",
-            "traceback": traceback.format_exc()
+            "error": f"Error loading features: {str(e)}"
         }), 500
 
 
 @app.post("/api/sandbox/filter")
 def filter_sandbox_norms():
     """Filter norms based on current filter selections using SQL-based filtering."""
+    logger.info("POST /api/sandbox/filter - Filtering norms")
     engine = get_db_engine()
     if not engine:
+        logger.error("Database not available")
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
         from sqlalchemy import select, and_, or_, text, func
-    except ImportError:
+    except ImportError as e:
+        logger.error(f"SQLAlchemy not installed: {e}")
         return jsonify({"error": "SQLAlchemy not installed. Please install: pip install sqlalchemy psycopg"}), 503
     
     try:
         data = request.get_json()
         if not data:
+            logger.warning("No JSON data provided in filter request")
             return jsonify({"error": "JSON data is required"}), 400
         
         doc_id = data.get('doc_id')
         filters = data.get('filters', {})  # {question_id: value}
         
         if not doc_id:
+            logger.warning("No doc_id provided in filter request")
             return jsonify({"error": "doc_id is required"}), 400
+        
+        logger.info(f"Filtering doc_id={doc_id} with {len(filters)} filters")
+        logger.debug(f"Filter criteria: {filters}")
         
         # Add ingest directory to path if not already there
         ingest_path = str(REPO_ROOT / "ingest")
         if ingest_path not in sys.path:
             sys.path.insert(0, ingest_path)
+            logger.debug(f"Added ingest path to sys.path: {ingest_path}")
         from sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
         
         with engine.connect() as conn:
+            logger.debug("Connected to database for filtering")
             # If no filters, return all norms for the document (or all norms if doc_id is "all")
             if not filters:
+                logger.info("No filters applied, returning all norms")
                 # Simple query for all norms
                 if doc_id == "all":
                     norms_query = select(
@@ -1690,6 +1735,7 @@ def filter_sandbox_norms():
                         "topics": topic_codes
                     })
             
+            logger.info(f"Filter complete: {len(filtered_norms)}/{len(all_norm_results)} norms match criteria")
             return jsonify({
                 "norms": filtered_norms,
                 "total": len(filtered_norms),
@@ -1698,10 +1744,9 @@ def filter_sandbox_norms():
             })
         
     except Exception as e:
-        import traceback
+        logger.error(f"Error filtering norms: {e}", exc_info=True)
         return jsonify({
-            "error": f"Error filtering norms: {str(e)}",
-            "traceback": traceback.format_exc()
+            "error": f"Error filtering norms: {str(e)}"
         }), 500
 
 
@@ -1709,8 +1754,21 @@ if __name__ == "__main__":
     # Ensure single instance and graceful shutdown
     host = "127.0.0.1"
     port = 5000
+    
+    logger.info("=" * 60)
+    logger.info("Starting LangExtract Web Application")
+    logger.info("=" * 60)
+    logger.info(f"Host: {host}")
+    logger.info(f"Port: {port}")
+    logger.info(f"Database URL: {DATABASE_URL}")
+    logger.info(f"Repository Root: {REPO_ROOT}")
+    logger.info(f"Output Root: {OUTPUT_ROOT}")
+    
     # Try to cache vendor assets locally for CDN fallbacks
+    logger.info("Ensuring vendor assets are cached...")
     ensure_vendor_assets()
+    
+    logger.info("Acquiring single instance lock...")
     _acquire_single_instance_lock(host, port)
     atexit.register(_graceful_shutdown)
     _install_signal_handlers()
@@ -1718,7 +1776,10 @@ if __name__ == "__main__":
     # Simple dev server: disable reloader to avoid double-spawn
     use_reloader = False
     try:
+        logger.info(f"Starting Flask development server on http://{host}:{port}")
+        logger.info("Press CTRL+C to quit")
         # Enable threading so SSE and other requests don't block each other
         app.run(host=host, port=port, debug=True, use_reloader=use_reloader, threaded=True)
     finally:
+        logger.info("Shutting down Flask application...")
         _graceful_shutdown()
