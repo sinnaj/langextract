@@ -14,9 +14,14 @@ import traceback as tb_module
 from flask import Flask, render_template, jsonify, request, Response, send_file, abort  # type: ignore
 from urllib.request import urlopen  # stdlib, avoid extra deps
 from urllib.error import URLError, HTTPError
+import dotenv
+
+
 
 from runner import Runner, build_worker_cmd
 from comments_db import CommentsDB, Comment
+
+dotenv.load_dotenv()
 
 # Configure logging
 logging.basicConfig(
