@@ -1212,17 +1212,18 @@ def sandbox():
 
 @app.get("/api/sandbox/outputs")
 def list_sandbox_outputs():
-    """List available documents from database."""
+    """List available documents from database, or return 'All Norms' if no documents."""
     engine = get_db_engine()
     if not engine:
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
     
     try:
-        from sqlalchemy import select
+        from sqlalchemy import select, func
         sys.path.insert(0, str(REPO_ROOT / "ingest"))
-        from sql import documents
+        from sql import documents, norms
         
         with engine.connect() as conn:
+            # Try to get documents first
             docs_query = select(
                 documents.c.id,
                 documents.c.title,
@@ -1234,19 +1235,35 @@ def list_sandbox_outputs():
             doc_results = conn.execute(docs_query).fetchall()
             
             outputs = []
-            for doc in doc_results:
-                doc_id = str(doc[0])
-                title = doc[1] or f"Document {doc_id[:8]}"
-                jurisdiction = doc[2]
-                language = doc[3]
-                timestamp = doc[2].timestamp() if doc[4] else time.time()
+            
+            # If documents exist, return them
+            if doc_results:
+                for doc in doc_results:
+                    doc_id = str(doc[0])
+                    title = doc[1] or f"Document {doc_id[:8]}"
+                    jurisdiction = doc[2]
+                    language = doc[3]
+                    timestamp = doc[4].timestamp() if doc[4] else time.time()
+                    
+                    outputs.append({
+                        "doc_id": doc_id,
+                        "title": title,
+                        "jurisdiction": jurisdiction,
+                        "language": language,
+                        "timestamp": timestamp
+                    })
+            else:
+                # No documents, return "All Norms" option
+                # Count total norms in database
+                count_query = select(func.count(norms.c.id))
+                total_norms = conn.execute(count_query).scalar()
                 
                 outputs.append({
-                    "doc_id": doc_id,
-                    "title": title,
-                    "jurisdiction": jurisdiction,
-                    "language": language,
-                    "timestamp": timestamp
+                    "doc_id": "all",
+                    "title": f"All Norms ({total_norms} total)",
+                    "jurisdiction": None,
+                    "language": None,
+                    "timestamp": time.time()
                 })
             
             return jsonify({"outputs": outputs, "total": len(outputs)})
@@ -1260,7 +1277,7 @@ def list_sandbox_outputs():
 
 @app.get("/api/sandbox/norms/<doc_id>")
 def get_sandbox_norms(doc_id: str):
-    """Get all norms from database for a specific document."""
+    """Get all norms from database for a specific document or all norms if doc_id is 'all'."""
     engine = get_db_engine()
     if not engine:
         return jsonify({"error": "Database not available. Please configure DATABASE_URL."}), 503
@@ -1271,18 +1288,33 @@ def get_sandbox_norms(doc_id: str):
         from sql import norms, topics, norm_topics, documents
         
         with engine.connect() as conn:
-            # Get norms for this document
-            norms_query = select(
-                norms.c.id,
-                norms.c.extraction_class,
-                norms.c.extraction_text,
-                norms.c.obligation,
-                norms.c.norm_statement,
-                norms.c.applies_if_text,
-                norms.c.satisfied_if_text,
-                norms.c.exempt_if_text,
-                norms.c.section_id
-            ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+            # Build norms query based on doc_id
+            if doc_id == "all":
+                # Get all norms regardless of document
+                norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                )
+            else:
+                # Get norms for specific document
+                norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
             
             norm_results = conn.execute(norms_query).fetchall()
             
@@ -1452,20 +1484,33 @@ def filter_sandbox_norms():
         from sql import norms, norm_requirements, norm_clause_groups, questions, topics, norm_topics
         
         with engine.connect() as conn:
-            # If no filters, return all norms for the document
+            # If no filters, return all norms for the document (or all norms if doc_id is "all")
             if not filters:
                 # Simple query for all norms
-                norms_query = select(
-                    norms.c.id,
-                    norms.c.extraction_class,
-                    norms.c.extraction_text,
-                    norms.c.obligation,
-                    norms.c.norm_statement,
-                    norms.c.applies_if_text,
-                    norms.c.satisfied_if_text,
-                    norms.c.exempt_if_text,
-                    norms.c.section_id
-                ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+                if doc_id == "all":
+                    norms_query = select(
+                        norms.c.id,
+                        norms.c.extraction_class,
+                        norms.c.extraction_text,
+                        norms.c.obligation,
+                        norms.c.norm_statement,
+                        norms.c.applies_if_text,
+                        norms.c.satisfied_if_text,
+                        norms.c.exempt_if_text,
+                        norms.c.section_id
+                    )
+                else:
+                    norms_query = select(
+                        norms.c.id,
+                        norms.c.extraction_class,
+                        norms.c.extraction_text,
+                        norms.c.obligation,
+                        norms.c.norm_statement,
+                        norms.c.applies_if_text,
+                        norms.c.satisfied_if_text,
+                        norms.c.exempt_if_text,
+                        norms.c.section_id
+                    ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
                 
                 norm_results = conn.execute(norms_query).fetchall()
                 
@@ -1502,18 +1547,31 @@ def filter_sandbox_norms():
             # With filters: Find norms that satisfy at least one disjunct
             # For each norm, check if any of its clause groups (disjuncts) satisfy all filters
             
-            # Step 1: Get all norms for the document
-            all_norms_query = select(
-                norms.c.id,
-                norms.c.extraction_class,
-                norms.c.extraction_text,
-                norms.c.obligation,
-                norms.c.norm_statement,
-                norms.c.applies_if_text,
-                norms.c.satisfied_if_text,
-                norms.c.exempt_if_text,
-                norms.c.section_id
-            ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
+            # Step 1: Get all norms for the document (or all norms if doc_id is "all")
+            if doc_id == "all":
+                all_norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                )
+            else:
+                all_norms_query = select(
+                    norms.c.id,
+                    norms.c.extraction_class,
+                    norms.c.extraction_text,
+                    norms.c.obligation,
+                    norms.c.norm_statement,
+                    norms.c.applies_if_text,
+                    norms.c.satisfied_if_text,
+                    norms.c.exempt_if_text,
+                    norms.c.section_id
+                ).where(norms.c.document_id == text(f"'{doc_id}'::uuid"))
             
             all_norm_results = conn.execute(all_norms_query).fetchall()
             
