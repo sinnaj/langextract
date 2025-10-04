@@ -1456,43 +1456,75 @@ def get_sandbox_features():
                 if usage_count == 0:
                     continue
                 
-                # Determine feature type and values
+                # Get distinct expected values from norm_requirements for this question
+                # This populates filter values from actual data in the database
+                values_query = select(
+                    func.distinct(norm_requirements.c.expected_value),
+                    norm_requirements.c.operator
+                ).where(
+                    norm_requirements.c.question_id == question_id
+                ).limit(100)  # Limit to prevent too many values
+                
+                value_results = conn.execute(values_query).fetchall()
+                logger.debug(f"Question {question_key} has {len(value_results)} distinct values in norm_requirements")
+                
+                # Extract values from JSONB and operators
+                actual_values = set()
+                operators_used = set()
+                for val_row in value_results:
+                    expected_val = val_row[0]  # JSONB value
+                    operator = val_row[1]  # cmp_op enum
+                    operators_used.add(operator)
+                    
+                    # Parse JSONB value
+                    if expected_val is not None:
+                        # JSONB is returned as Python object
+                        if isinstance(expected_val, (list, tuple)):
+                            # Array values - add each element
+                            for item in expected_val:
+                                actual_values.add(str(item))
+                        elif isinstance(expected_val, bool):
+                            actual_values.add('TRUE' if expected_val else 'FALSE')
+                        elif isinstance(expected_val, (int, float, str)):
+                            actual_values.add(str(expected_val))
+                
+                # Determine feature type based on value_hint and operators
                 feature_type = 'categorical'
-                values = []
+                values = sorted(list(actual_values))[:50]  # Limit to 50 values for UI
                 
                 if value_hint:
                     if value_hint == 'BOOLEAN':
                         feature_type = 'categorical'
-                        values = ['TRUE', 'FALSE']
+                        # Ensure TRUE/FALSE are in values if present
+                        if 'TRUE' in actual_values or 'FALSE' in actual_values:
+                            values = sorted([v for v in actual_values if v in ['TRUE', 'FALSE']])
+                        else:
+                            values = ['TRUE', 'FALSE']
                     elif value_hint in ['INTEGER', 'NUMERIC']:
-                        if allowed_enum and len(allowed_enum) > 0:
-                            # Enum with numeric values
-                            feature_type = 'categorical'
-                            values = allowed_enum
-                        else:
-                            # Numeric input
+                        # Check if comparison operators are used (GT, GTE, LT, LTE)
+                        if any(op in operators_used for op in ['GT', 'GTE', 'LT', 'LTE']):
                             feature_type = 'int'
-                            values = []
+                            values = sorted(actual_values, key=lambda x: float(x) if x.replace('.', '', 1).replace('-', '', 1).isdigit() else 0)[:20]
+                        else:
+                            # Discrete numeric values
+                            feature_type = 'categorical'
+                            values = sorted(actual_values, key=lambda x: float(x) if x.replace('.', '', 1).replace('-', '', 1).isdigit() else 0)[:50]
                     elif value_hint == 'STRING':
-                        if allowed_enum and len(allowed_enum) > 0:
-                            feature_type = 'categorical'
-                            values = allowed_enum
-                        else:
-                            feature_type = 'categorical'
-                            values = []
+                        feature_type = 'categorical'
+                        # Values already populated from actual data
                     elif value_hint == 'ARRAY':
-                        if allowed_enum and len(allowed_enum) > 0:
-                            feature_type = 'categorical'
-                            values = allowed_enum
-                        else:
-                            feature_type = 'categorical'
-                            values = []
+                        feature_type = 'categorical'
+                        # Values already populated from actual data
                     elif value_hint == 'ENUM':
                         feature_type = 'categorical'
-                        values = allowed_enum if allowed_enum else []
-                    else:
-                        feature_type = 'categorical'
-                        values = []
+                        # Use allowed_enum if available, otherwise use actual values
+                        if allowed_enum and len(allowed_enum) > 0:
+                            values = sorted(allowed_enum)
+                        # Values already populated from actual data
+                
+                # Fallback: if no values from actual data and allowed_enum exists, use it
+                if not values and allowed_enum and len(allowed_enum) > 0:
+                    values = sorted(allowed_enum)[:50]
                 
                 # Format display name with usage count
                 display_name = f"{question_key} ({usage_count})"
