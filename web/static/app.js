@@ -1204,6 +1204,983 @@
       });
     });
 
+    // Toast notification system for PDF click feedback
+    function createToastContainer() {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'fixed top-4 right-4 z-50 space-y-2';
+        document.body.appendChild(container);
+      }
+      return container;
+    }
+
+    function showToast(message, type = 'info', duration = 3000) {
+      const container = createToastContainer();
+      
+      const toast = document.createElement('div');
+      toast.className = `
+        px-4 py-2 rounded-lg shadow-lg text-white font-medium
+        transform transition-all duration-300 ease-in-out
+        translate-x-full opacity-0
+        ${type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500'}
+      `;
+      toast.textContent = message;
+      
+      container.appendChild(toast);
+      
+      // Animate in
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-x-full', 'opacity-0');
+      });
+      
+      // Auto remove after duration
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 300);
+      }, duration);
+    }
+
+    function navigateToTreeNode(elementId) {
+      console.log('=== TREE NAVIGATION DEBUG ===');
+      console.log('Attempting to navigate to tree node:', elementId);
+      console.log('Current document title:', document.title);
+      console.log('Number of elements in document:', document.querySelectorAll('*').length);
+      
+      // Debug: Check if we have any preview panels
+      const previewPanels = document.querySelectorAll('.preview-panel');
+      console.log(`Found ${previewPanels.length} preview panels`);
+      previewPanels.forEach((panel, idx) => {
+        const previewEl = panel.querySelector('.preview');
+        console.log(`Panel ${idx}: class="${panel.className}", id="${panel.id}", has .preview: ${!!previewEl}`);
+      });
+      
+      // Clear ALL previous selections first to prevent multiple selections
+      console.log('Clearing all previous selections...');
+      const previousSelections = document.querySelectorAll('.tree-node-selected');
+      console.log(`Found ${previousSelections.length} previously selected nodes`);
+      previousSelections.forEach((node, idx) => {
+        console.log(`Clearing selection ${idx}:`, node.tagName, node.className);
+        node.classList.remove('tree-node-selected');
+      });
+      
+      // Verify all selections are cleared
+      const remainingSelections = document.querySelectorAll('.tree-node-selected');
+      if (remainingSelections.length > 0) {
+        console.warn(`⚠️ Warning: ${remainingSelections.length} selections still remain after clearing`);
+        remainingSelections.forEach(node => node.classList.remove('tree-node-selected'));
+      }
+      
+      // Find the tree node with the given element ID
+      const treeNode = findTreeNodeByElementId(elementId);
+      
+      if (treeNode) {
+        console.log('✅ Successfully found tree node for element ID:', elementId);
+        console.log('Tree node details:', {
+          tagName: treeNode.tagName,
+          className: treeNode.className,
+          id: treeNode.id,
+          hasTreeNodeContent: !!treeNode.querySelector('.tree-node-content'),
+          isJsonFormatterRow: treeNode.classList.contains('json-formatter-row'),
+          hasDataId: !!(treeNode.dataset.extractionId || treeNode.dataset.nodeId),
+          textPreview: treeNode.textContent?.substring(0, 100) + '...'
+        });
+        
+        // Mark as selected BEFORE expansion to ensure it's visible during the process
+        treeNode.classList.add('tree-node-selected');
+        console.log('✅ Added tree-node-selected class to target node');
+        
+        // Double-check that only this one node is selected
+        const selectedAfter = document.querySelectorAll('.tree-node-selected');
+        console.log(`After selection: ${selectedAfter.length} nodes are selected`);
+        if (selectedAfter.length > 1) {
+          console.warn('⚠️ Warning: Multiple nodes selected after navigation!');
+          selectedAfter.forEach((node, idx) => {
+            if (node !== treeNode) {
+              console.warn(`Removing extra selection ${idx}:`, node);
+              node.classList.remove('tree-node-selected');
+            }
+          });
+        }
+        
+        // Show initial feedback toast
+        showToast('🎯 Tree node found - expanding parents...', 'info', 2000);
+        
+        // Expand parent nodes FIRST, then scroll (addressing user feedback)
+        console.log('=== STARTING PARENT EXPANSION ===');
+        
+        expandParentNodes(treeNode).then(() => {
+          console.log('✅ Parent nodes expanded, now scrolling to target...');
+          
+          // Small delay to ensure DOM updates from expansion have completed
+          setTimeout(() => {
+            console.log('=== STARTING SCROLL TO TARGET ===');
+            scrollTreeNodeIntoView(treeNode);
+            
+            // Final verification that selection is still correct
+            setTimeout(() => {
+              const finalSelected = document.querySelectorAll('.tree-node-selected');
+              if (finalSelected.length === 1 && finalSelected[0] === treeNode) {
+                console.log('✅ Navigation completed successfully');
+              } else {
+                console.warn('⚠️ Warning: Selection state changed during navigation');
+                // Re-apply selection if needed
+                document.querySelectorAll('.tree-node-selected').forEach(n => n.classList.remove('tree-node-selected'));
+                treeNode.classList.add('tree-node-selected');
+              }
+            }, 500);
+            
+          }, 200); // Allow time for DOM updates from parent expansion
+          
+        }).catch(error => {
+          console.warn('⚠️ Error during parent expansion:', error);
+          showToast('⚠️ Parent expansion had issues - attempting scroll anyway', 'warning', 2000);
+          
+          // Still try to scroll even if expansion had issues
+          setTimeout(() => {
+            console.log('=== ATTEMPTING SCROLL DESPITE EXPANSION ISSUES ===');
+            scrollTreeNodeIntoView(treeNode);
+          }, 200);
+        });
+        
+        // Return the node for further use if needed
+        return treeNode;
+        
+      } else {
+        console.log('❌ Tree node not found for element ID:', elementId);
+        console.log('=== TREE NAVIGATION FAILED ===');
+        
+        // Enhanced debugging for failed searches
+        const bodyText = document.body.textContent || '';
+        const elementIdInDoc = bodyText.includes(elementId);
+        console.log('Debug information:', {
+          elementIdInDocument: elementIdInDoc,
+          documentHasJsonRows: document.querySelectorAll('.json-formatter-row').length,
+          documentHasTreeNodes: document.querySelectorAll('.tree-node').length,
+          documentHasDataExtractionIds: document.querySelectorAll('[data-extraction-id]').length,
+          documentHasDataNodeIds: document.querySelectorAll('[data-node-id]').length
+        });
+        
+        // Show appropriate error message
+        if (elementIdInDoc) {
+          const message = `Element ID "${elementId}" found in document but could not locate selectable tree node`;
+          showToast(`❌ ${message}`, 'error', 5000);
+          console.log('Suggestion: The element may be in text but not in a selectable tree structure');
+        } else {
+          const message = `Element ID "${elementId}" not found in document`;
+          showToast(`❌ ${message}`, 'error', 5000);
+        }
+        
+        return null;
+      }
+    }
+
+    function findTreeNodeByElementId(elementId) {
+      console.log('=== SEARCHING FOR TREE NODE ===');
+      console.log('Target element ID:', elementId);
+      
+      // Search strategies focused on finding the specific tree node, not parent containers
+      const searchStrategies = [
+        // Strategy 1: Look for exact data attributes on tree nodes
+        () => {
+          console.log('Strategy 1: Searching for data attributes...');
+          const selectors = [
+            `[data-extraction-id="${elementId}"]`,
+            `[data-node-id="${elementId}"]`, 
+            `[data-tree-id="${elementId}"]`,
+            `[id="${elementId}"]`
+          ];
+          
+          for (const selector of selectors) {
+            const elements = document.querySelectorAll(selector);
+            console.log(`Selector "${selector}" found ${elements.length} elements`);
+            
+            for (const element of elements) {
+              // Prefer elements that look like tree nodes
+              if (element.classList.contains('tree-node') || 
+                  element.classList.contains('json-formatter-row') ||
+                  element.querySelector('.tree-node-content')) {
+                console.log('✅ Found tree node with data attribute:', element);
+                return element;
+              }
+            }
+            
+            // Fallback to first element if none look like tree nodes
+            if (elements.length > 0) {
+              console.log('Found element with data attribute (fallback):', elements[0]);
+              return elements[0];
+            }
+          }
+          
+          return null;
+        },
+        
+        // Strategy 2: Look for JSON formatter rows containing the ID as a field value
+        () => {
+          console.log('Strategy 2: Searching JSON formatter rows...');
+          const jsonRows = document.querySelectorAll('.json-formatter-row');
+          console.log(`Found ${jsonRows.length} JSON formatter rows to check`);
+          
+          const candidates = [];
+          
+          for (const row of jsonRows) {
+            // Look for string values that match our element ID
+            const stringElements = row.querySelectorAll('.json-formatter-string');
+            const keyElement = row.querySelector('.json-formatter-key');
+            
+            for (const stringEl of stringElements) {
+              const value = stringEl.textContent?.replace(/"/g, '').trim();
+              if (value === elementId) {
+                const keyText = keyElement ? keyElement.textContent?.replace(/"/g, '').trim() : '';
+                console.log(`Found matching value in JSON row - key: "${keyText}", value: "${value}"`);
+                
+                // Check if this looks like an ID field
+                const isIdField = (
+                  keyText.endsWith('_id') || 
+                  keyText.endsWith('Id') || 
+                  keyText === 'id' ||
+                  keyText.includes('identifier')
+                );
+                
+                if (isIdField) {
+                  // Find the parent object row instead of the key-value row
+                  let objectRow = row;
+                  let searchParent = row.parentElement;
+                  let depth = 0;
+                  
+                  // Look up the DOM tree to find the containing object/array
+                  while (searchParent && depth < 5) {
+                    if (searchParent.classList.contains('json-formatter-row') &&
+                        (searchParent.querySelector('.json-formatter-open') || 
+                         searchParent.querySelector('.json-formatter-close'))) {
+                      objectRow = searchParent;
+                      break;
+                    }
+                    searchParent = searchParent.parentElement;
+                    depth++;
+                  }
+                  
+                  candidates.push({
+                    element: objectRow,
+                    priority: isIdField ? 10 : 5,
+                    keyText: keyText,
+                    depth: depth
+                  });
+                }
+              }
+            }
+          }
+          
+          if (candidates.length > 0) {
+            // Sort by priority, then by depth (prefer shallower/more specific)
+            candidates.sort((a, b) => {
+              if (a.priority !== b.priority) return b.priority - a.priority;
+              return a.depth - b.depth;
+            });
+            
+            console.log('✅ Found JSON formatter candidate:', candidates[0]);
+            return candidates[0].element;
+          }
+          
+          return null;
+        },
+        
+        // Strategy 3: Search tree node content for the ID
+        () => {
+          console.log('Strategy 3: Searching tree node content...');
+          const treeNodes = document.querySelectorAll('.tree-node, [data-extraction-id], [data-node-id]');
+          console.log(`Found ${treeNodes.length} tree nodes to check`);
+          
+          for (const node of treeNodes) {
+            const nodeContent = node.querySelector('.tree-node-content');
+            const textToSearch = nodeContent ? nodeContent.textContent : node.textContent;
+            
+            if (textToSearch && textToSearch.includes(elementId)) {
+              // Check if this contains the ID in an ID-like context
+              const hasIdContext = (
+                textToSearch.includes(`"${elementId}"`) ||
+                textToSearch.includes(`_id": "${elementId}"`) ||
+                textToSearch.includes(`id": "${elementId}"`) ||
+                new RegExp(`\\b${elementId}\\b`).test(textToSearch)
+              );
+              
+              if (hasIdContext) {
+                console.log('✅ Found tree node with ID in content:', node);
+                return node;
+              }
+            }
+          }
+          
+          return null;
+        },
+        
+        // Strategy 4: Text-based search with TreeWalker for precision
+        () => {
+          console.log('Strategy 4: Text-based TreeWalker search...');
+          
+          const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+              acceptNode: function(node) {
+                const text = node.textContent;
+                return (text && (
+                  text.trim() === `"${elementId}"` ||
+                  text.trim() === elementId ||
+                  text.includes(`"${elementId}"`)
+                )) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+              }
+            }
+          );
+          
+          const candidates = [];
+          let textNode;
+          
+          while (textNode = walker.nextNode()) {
+            let parent = textNode.parentElement;
+            let depth = 0;
+            
+            // Find the most appropriate container
+            while (parent && depth < 6) {
+              const isGoodCandidate = (
+                parent.classList.contains('json-formatter-row') ||
+                parent.classList.contains('tree-node') ||
+                parent.hasAttribute('data-extraction-id') ||
+                parent.hasAttribute('data-node-id') ||
+                parent.querySelector('.tree-node-content')
+              );
+              
+              if (isGoodCandidate) {
+                candidates.push({ 
+                  element: parent, 
+                  depth: depth, 
+                  textNode: textNode,
+                  text: textNode.textContent 
+                });
+                break;
+              }
+              
+              parent = parent.parentElement;
+              depth++;
+            }
+          }
+          
+          if (candidates.length > 0) {
+            // Prefer candidates with smaller depth (more specific)
+            candidates.sort((a, b) => a.depth - b.depth);
+            console.log('✅ Found text-based candidate:', candidates[0]);
+            return candidates[0].element;
+          }
+          
+          return null;
+        },
+        
+        // Strategy 5: Broad text search fallback
+        () => {
+          console.log('Strategy 5: Broad text search fallback...');
+          const allElements = document.querySelectorAll('*');
+          
+          for (const element of allElements) {
+            if (element.textContent && element.textContent.includes(elementId)) {
+              // Make sure this isn't too broad (like body or html)
+              const isTooBoard = (
+                element.tagName === 'BODY' ||
+                element.tagName === 'HTML' ||
+                element === document.documentElement
+              );
+              
+              if (!isTooBoard && (
+                element.classList.contains('json-formatter-row') ||
+                element.classList.contains('tree-node') ||
+                element.hasAttribute('data-extraction-id') ||
+                element.querySelector('.tree-node-content')
+              )) {
+                console.log('✅ Found broad search candidate:', element);
+                return element;
+              }
+            }
+          }
+          
+          return null;
+        }
+      ];
+      
+      // Try each strategy in order
+      for (let i = 0; i < searchStrategies.length; i++) {
+        console.log(`--- Trying search strategy ${i + 1} ---`);
+        const result = searchStrategies[i]();
+        
+        if (result) {
+          console.log(`✅ Strategy ${i + 1} succeeded!`);
+          console.log('Found element details:', {
+            tagName: result.tagName,
+            className: result.className,
+            id: result.id,
+            hasDataId: !!(result.dataset.extractionId || result.dataset.nodeId),
+            isJsonRow: result.classList.contains('json-formatter-row'),
+            hasTreeContent: !!result.querySelector('.tree-node-content'),
+            textPreview: result.textContent?.substring(0, 100) + '...'
+          });
+          
+          // Additional validation - ensure this is a reasonable selection target
+          const isValidTarget = (
+            result.hasAttribute('data-extraction-id') ||
+            result.hasAttribute('data-node-id') ||
+            result.classList.contains('json-formatter-row') ||
+            result.classList.contains('tree-node') ||
+            result.querySelector('.tree-node-content')
+          );
+          
+          if (!isValidTarget) {
+            console.warn(`Warning: Found element may not be ideal for selection:`, result);
+            console.log('Continuing to next strategy...');
+            continue; // Try next strategy
+          }
+          
+          return result;
+        }
+      }
+      
+      console.log('❌ All search strategies failed for element ID:', elementId);
+      
+      // Final debug info
+      const bodyText = document.body.textContent || '';
+      const elementIdExists = bodyText.includes(elementId);
+      console.log('Debug info:', {
+        elementIdInDocument: elementIdExists,
+        documentHasJsonRows: document.querySelectorAll('.json-formatter-row').length > 0,
+        documentHasTreeNodes: document.querySelectorAll('.tree-node').length > 0,
+        documentHasDataIds: document.querySelectorAll('[data-extraction-id]').length > 0
+      });
+      
+      return null;
+    }
+
+    function scrollTreeNodeIntoView(treeNode) {
+      console.log('=== SCROLLING TREE NODE INTO VIEW ===');
+      console.log('Target node:', treeNode);
+      
+      // Find the containing preview panel - this is our scrollable container
+      const previewPanel = treeNode.closest('.preview');
+      if (!previewPanel) {
+        console.log('❌ No preview panel found, using fallback scroll');
+        treeNode.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center',
+          inline: 'nearest'
+        });
+        setTimeout(() => {
+          showToast('Navigation complete (fallback)!', 'success', 1500);
+        }, 500);
+        return;
+      }
+      
+      console.log('✅ Found preview panel:', previewPanel);
+      console.log('Preview panel scroll properties:', {
+        scrollTop: previewPanel.scrollTop,
+        scrollHeight: previewPanel.scrollHeight,
+        clientHeight: previewPanel.clientHeight
+      });
+      
+      // Get position of target node relative to the preview panel's content
+      const nodeRect = treeNode.getBoundingClientRect();
+      const panelRect = previewPanel.getBoundingClientRect();
+      
+      // Calculate the node's position relative to the panel's current scroll position
+      const currentScrollTop = previewPanel.scrollTop;
+      const nodeTopInPanel = nodeRect.top - panelRect.top + currentScrollTop;
+      const nodeBottomInPanel = nodeRect.bottom - panelRect.top + currentScrollTop;
+      
+      console.log('Position calculations:', {
+        nodeRect: { top: nodeRect.top, bottom: nodeRect.bottom, height: nodeRect.height },
+        panelRect: { top: panelRect.top, bottom: panelRect.bottom, height: panelRect.height },
+        currentScrollTop: currentScrollTop,
+        nodeTopInPanel: nodeTopInPanel,
+        nodeBottomInPanel: nodeBottomInPanel
+      });
+      
+      // Calculate visible area within the panel
+      const visibleTop = currentScrollTop;
+      const visibleBottom = currentScrollTop + panelRect.height;
+      const buffer = 50; // Pixels from edge to consider "visible"
+      
+      console.log('Visibility check:', {
+        visibleTop: visibleTop,
+        visibleBottom: visibleBottom,
+        nodeTopInPanel: nodeTopInPanel,
+        nodeBottomInPanel: nodeBottomInPanel,
+        isVisible: (nodeTopInPanel >= visibleTop + buffer && nodeBottomInPanel <= visibleBottom - buffer)
+      });
+      
+      // Check if node needs scrolling
+      const needsScrolling = (
+        nodeTopInPanel < visibleTop + buffer || 
+        nodeBottomInPanel > visibleBottom - buffer
+      );
+      
+      if (needsScrolling) {
+        // Calculate ideal scroll position to center the node
+        const panelHeight = panelRect.height;
+        const nodeHeight = nodeRect.height;
+        
+        // Position the node in the upper third of the panel for better visibility
+        const targetScrollTop = Math.max(0, nodeTopInPanel - (panelHeight / 3));
+        
+        console.log('Scrolling required:', {
+          from: currentScrollTop,
+          to: targetScrollTop,
+          distance: Math.abs(targetScrollTop - currentScrollTop)
+        });
+        
+        // Perform the scroll
+        previewPanel.scrollTo({
+          top: targetScrollTop,
+          behavior: 'smooth'
+        });
+        
+        // Add visual feedback
+        const scrollIndicator = document.createElement('div');
+        scrollIndicator.className = 'scroll-indicator';
+        scrollIndicator.style.cssText = `
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(59, 130, 246, 0.9);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          z-index: 1000;
+          pointer-events: none;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        `;
+        scrollIndicator.textContent = '📍 Scrolling to target...';
+        
+        const previewContainer = previewPanel.closest('.preview-panel');
+        if (previewContainer) {
+          previewContainer.style.position = 'relative';
+          previewContainer.appendChild(scrollIndicator);
+          
+          // Remove indicator and show success after scroll animation completes
+          setTimeout(() => {
+            scrollIndicator.textContent = '✅ Navigation complete!';
+            scrollIndicator.style.background = 'rgba(34, 197, 94, 0.9)';
+            
+            setTimeout(() => {
+              scrollIndicator.style.opacity = '0';
+              setTimeout(() => {
+                if (scrollIndicator.parentNode) {
+                  scrollIndicator.parentNode.removeChild(scrollIndicator);
+                }
+              }, 300);
+            }, 1000);
+          }, 800); // Match smooth scroll timing
+        }
+        
+        // Verify scroll position after animation
+        setTimeout(() => {
+          const finalScrollTop = previewPanel.scrollTop;
+          console.log('Scroll verification:', {
+            target: targetScrollTop,
+            actual: finalScrollTop,
+            difference: Math.abs(targetScrollTop - finalScrollTop)
+          });
+          
+          if (Math.abs(targetScrollTop - finalScrollTop) > 10) {
+            console.warn('Scroll position may not be accurate');
+          } else {
+            console.log('✅ Scroll completed successfully');
+          }
+        }, 1000);
+        
+      } else {
+        console.log('✅ Node is already visible, no scrolling needed');
+        showToast('✅ Target already visible!', 'success', 1500);
+      }
+    }
+
+    function expandParentNodes(treeNode) {
+      console.log('=== EXPANDING PARENT NODES ===');
+      console.log('Starting expansion from node:', treeNode);
+      
+      // Add expansion indicator to the preview panel
+      const previewPanel = treeNode.closest('.preview-panel');
+      let expansionIndicator = null;
+      
+      if (previewPanel) {
+        expansionIndicator = document.createElement('div');
+        expansionIndicator.className = 'expansion-indicator';
+        expansionIndicator.textContent = '🔍 Expanding parent nodes...';
+        expansionIndicator.style.cssText = `
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: rgba(34, 197, 94, 0.9);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          z-index: 1000;
+          pointer-events: none;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          display: flex;
+          align-items: center;
+        `;
+        previewPanel.style.position = 'relative';
+        previewPanel.appendChild(expansionIndicator);
+      }
+      
+      // Collect all parent nodes that might need expansion
+      const parentsToExpand = [];
+      let parent = treeNode.parentNode;
+      let depth = 0;
+      
+      console.log('Searching for collapsible parents...');
+      
+      while (parent && parent !== document.body && depth < 20) {
+        const parentInfo = {
+          element: parent,
+          depth: depth,
+          toggles: [],
+          needsExpansion: false
+        };
+        
+        // Check if this parent is currently collapsed
+        const isCollapsed = (
+          parent.classList.contains('json-formatter-closed') ||
+          parent.classList.contains('collapsed') ||
+          parent.getAttribute('aria-expanded') === 'false' ||
+          (parent.tagName === 'DETAILS' && !parent.hasAttribute('open'))
+        );
+        
+        if (isCollapsed) {
+          parentInfo.needsExpansion = true;
+          
+          // Find appropriate toggles for this parent
+          if (parent.tagName === 'DETAILS') {
+            const summary = parent.querySelector('summary');
+            if (summary) parentInfo.toggles.push(summary);
+          } else if (parent.classList.contains('json-formatter-closed')) {
+            const toggler = parent.querySelector('.json-formatter-toggler');
+            if (toggler) parentInfo.toggles.push(toggler);
+          } else {
+            // Look for other types of toggles
+            const possibleToggles = [
+              parent.querySelector('.tree-toggle'),
+              parent.querySelector('.tree-node-toggle'),
+              parent.querySelector('[data-toggle="collapse"]'),
+              parent.querySelector('.collapse-toggle'),
+              parent.querySelector('.btn-toggle'),
+              parent.querySelector('[aria-expanded="false"]')
+            ].filter(toggle => toggle !== null);
+            
+            parentInfo.toggles.push(...possibleToggles);
+            
+            // If no specific toggle found, check if parent itself is clickable
+            if (parentInfo.toggles.length === 0 && (parent.onclick || parent.getAttribute('role') === 'button')) {
+              parentInfo.toggles.push(parent);
+            }
+          }
+        } else {
+          // Even if not collapsed, look for toggles that might need to be expanded
+          const expandableToggles = [
+            parent.querySelector('.json-formatter-toggler'),
+            parent.querySelector('.tree-toggle'),
+            parent.querySelector('[aria-expanded="false"]')
+          ].filter(toggle => toggle !== null);
+          
+          if (expandableToggles.length > 0) {
+            // Check if any of these toggles are in a collapsed state
+            const hasCollapsedToggle = expandableToggles.some(toggle => 
+              toggle.getAttribute('aria-expanded') === 'false' ||
+              toggle.closest('.json-formatter-closed') ||
+              toggle.closest('.collapsed')
+            );
+            
+            if (hasCollapsedToggle) {
+              parentInfo.needsExpansion = true;
+              parentInfo.toggles.push(...expandableToggles);
+            }
+          }
+        }
+        
+        if (parentInfo.needsExpansion && parentInfo.toggles.length > 0) {
+          parentsToExpand.push(parentInfo);
+          console.log(`Found collapsible parent at depth ${depth}:`, {
+            element: parent,
+            tagName: parent.tagName,
+            classList: Array.from(parent.classList),
+            toggleCount: parentInfo.toggles.length,
+            toggles: parentInfo.toggles
+          });
+        }
+        
+        parent = parent.parentNode;
+        depth++;
+      }
+      
+      console.log(`Found ${parentsToExpand.length} parents that need expansion`);
+      
+      if (parentsToExpand.length === 0) {
+        console.log('No parents need expansion');
+        if (expansionIndicator) {
+          expansionIndicator.textContent = '✅ No expansion needed';
+          setTimeout(() => {
+            expansionIndicator.style.opacity = '0';
+            setTimeout(() => {
+              if (expansionIndicator.parentNode) {
+                expansionIndicator.parentNode.removeChild(expansionIndicator);
+              }
+            }, 300);
+          }, 800);
+        }
+        return Promise.resolve();
+      }
+      
+      // Expand parents from outermost to innermost (reverse order)
+      parentsToExpand.reverse();
+      
+      let expandedCount = 0;
+      const expandPromises = [];
+      
+      for (const parentInfo of parentsToExpand) {
+        console.log(`Processing parent at depth ${parentInfo.depth}...`);
+        
+        // Add visual feedback
+        parentInfo.element.classList.add('expanding-parent');
+        
+        let parentExpanded = false;
+        
+        for (const toggle of parentInfo.toggles) {
+          try {
+            console.log('Attempting to expand via toggle:', toggle);
+            
+            // Update the expansion indicator
+            if (expansionIndicator) {
+              expansionIndicator.textContent = `🔄 Expanding depth ${parentInfo.depth}...`;
+            }
+            
+            // Create expansion promise
+            const expandPromise = new Promise((resolve) => {
+              // Try different expansion methods
+              if (typeof toggle.click === 'function') {
+                toggle.click();
+                console.log('✅ Clicked toggle successfully');
+              } else if (toggle.dispatchEvent) {
+                const clickEvent = new MouseEvent('click', { 
+                  bubbles: true, 
+                  cancelable: true,
+                  view: window
+                });
+                toggle.dispatchEvent(clickEvent);
+                console.log('✅ Dispatched click event');
+              } else if (parentInfo.element.tagName === 'DETAILS') {
+                parentInfo.element.setAttribute('open', '');
+                console.log('✅ Set details open attribute');
+              }
+              
+              // Give time for DOM to update
+              setTimeout(() => {
+                parentInfo.element.classList.remove('expanding-parent');
+                resolve();
+              }, 100);
+            });
+            
+            expandPromises.push(expandPromise);
+            expandedCount++;
+            parentExpanded = true;
+            
+            // Don't try multiple toggles for the same parent
+            break;
+            
+          } catch (error) {
+            console.warn('Error expanding parent node:', error, toggle);
+          }
+        }
+        
+        // Remove visual feedback if no expansion was attempted
+        if (!parentExpanded) {
+          parentInfo.element.classList.remove('expanding-parent');
+        }
+      }
+      
+      console.log(`Initiated expansion of ${expandedCount} parent nodes`);
+      
+      // Return promise that resolves when all expansions complete
+      return Promise.all(expandPromises).then(() => {
+        console.log(`✅ Successfully expanded ${expandedCount} parent nodes`);
+        
+        // Update and remove expansion indicator
+        if (expansionIndicator && expansionIndicator.parentNode) {
+          expansionIndicator.textContent = `✅ Expanded ${expandedCount} parents`;
+          setTimeout(() => {
+            expansionIndicator.style.opacity = '0';
+            setTimeout(() => {
+              if (expansionIndicator.parentNode) {
+                expansionIndicator.parentNode.removeChild(expansionIndicator);
+              }
+            }, 300);
+          }, 800);
+        }
+        
+        // Clean up any remaining visual feedback
+        document.querySelectorAll('.expanding-parent').forEach(el => {
+          el.classList.remove('expanding-parent');
+        });
+        
+        // Additional delay to ensure DOM updates complete
+        return new Promise(resolve => setTimeout(resolve, 150));
+        
+      }).catch(error => {
+        console.warn('Some parent expansions failed:', error);
+        
+        // Clean up on error
+        if (expansionIndicator && expansionIndicator.parentNode) {
+          expansionIndicator.textContent = '⚠️ Expansion had issues';
+          setTimeout(() => {
+            expansionIndicator.style.opacity = '0';
+            setTimeout(() => {
+              if (expansionIndicator.parentNode) {
+                expansionIndicator.parentNode.removeChild(expansionIndicator);
+              }
+            }, 300);
+          }, 800);
+        }
+        
+        // Remove visual feedback classes
+        document.querySelectorAll('.expanding-parent').forEach(el => {
+          el.classList.remove('expanding-parent');
+        });
+        
+        // Continue even if expansions failed
+        return new Promise(resolve => setTimeout(resolve, 150));
+      });
+    }
+
+    // Make functions globally available
+    window.showToast = showToast;
+    window.navigateToTreeNode = navigateToTreeNode;
+    window.findTreeNodeByElementId = findTreeNodeByElementId; // For debugging
+    
+    // Debug function to test tree navigation with enhanced diagnostics
+    window.testTreeNavigation = function(elementId) {
+      console.log('=== TESTING TREE NAVIGATION ===');
+      console.log('Test element ID:', elementId || 'No element ID provided');
+      
+      // Enhanced diagnostics about the current document
+      const diagnostics = {
+        totalElements: document.querySelectorAll('*').length,
+        previewPanels: document.querySelectorAll('.preview-panel').length,
+        previewElements: document.querySelectorAll('.preview').length,
+        jsonFormatterRows: document.querySelectorAll('.json-formatter-row').length,
+        treeNodes: document.querySelectorAll('.tree-node').length,
+        dataExtractionIds: document.querySelectorAll('[data-extraction-id]').length,
+        dataNodeIds: document.querySelectorAll('[data-node-id]').length,
+        currentlySelected: document.querySelectorAll('.tree-node-selected').length
+      };
+      
+      console.log('Document diagnostics:', diagnostics);
+      
+      if (!elementId) {
+        // Enhanced element ID discovery
+        console.log('No element ID provided, searching for candidates...');
+        
+        // Look for IDs in data attributes first
+        const elementsWithDataIds = document.querySelectorAll('[data-extraction-id], [data-node-id]');
+        if (elementsWithDataIds.length > 0) {
+          const dataIds = Array.from(elementsWithDataIds).map(el => 
+            el.dataset.extractionId || el.dataset.nodeId
+          ).filter(id => id);
+          
+          if (dataIds.length > 0) {
+            elementId = dataIds[0];
+            console.log(`Found ${dataIds.length} data attribute IDs, using first:`, elementId);
+            console.log('All data IDs found:', dataIds.slice(0, 5));
+          }
+        }
+        
+        // Fallback to text-based ID discovery
+        if (!elementId) {
+          const bodyText = document.body.textContent || '';
+          const idMatches = [
+            ...bodyText.matchAll(/[0-9a-f]{16,}/g), // Hex IDs
+            ...bodyText.matchAll(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g), // UUIDs
+            ...bodyText.matchAll(/"([A-Za-z0-9_-]{8,})"/g) // Quoted strings that might be IDs
+          ].map(match => match[1] || match[0]);
+          
+          if (idMatches.length > 0) {
+            // Filter and dedupe
+            const uniqueIds = [...new Set(idMatches)].slice(0, 10);
+            console.log('Found potential text-based IDs:', uniqueIds);
+            elementId = uniqueIds[0];
+            console.log('Using first found ID for test:', elementId);
+          }
+        }
+        
+        if (!elementId) {
+          console.log('❌ No element IDs found in document for testing');
+          console.log('Available DOM structure:');
+          console.log('- JSON formatter rows:', diagnostics.jsonFormatterRows);
+          console.log('- Tree nodes:', diagnostics.treeNodes);  
+          console.log('- Data extraction IDs:', diagnostics.dataExtractionIds);
+          console.log('- Data node IDs:', diagnostics.dataNodeIds);
+          
+          // Provide a sample of actual content for debugging
+          const sampleElements = document.querySelectorAll('.json-formatter-row, .tree-node, [data-extraction-id]');
+          if (sampleElements.length > 0) {
+            console.log('Sample elements that could contain IDs:');
+            Array.from(sampleElements).slice(0, 3).forEach((el, idx) => {
+              console.log(`  ${idx + 1}. ${el.tagName}.${el.className} - Text: "${el.textContent?.substring(0, 50)}..."`);
+            });
+          }
+          
+          return;
+        }
+      }
+      
+      console.log(`Starting navigation test with element ID: "${elementId}"`);
+      showToast(`🧪 Testing navigation to: ${elementId}`, 'info', 2000);
+      
+      // Run the navigation and provide detailed feedback
+      const startTime = Date.now();
+      const result = navigateToTreeNode(elementId);
+      const endTime = Date.now();
+      
+      console.log(`Navigation attempt completed in ${endTime - startTime}ms`);
+      
+      // Verify the result
+      setTimeout(() => {
+        const selectedElements = document.querySelectorAll('.tree-node-selected');
+        const testResult = {
+          success: !!result,
+          foundElement: !!result,
+          elementType: result ? result.tagName : null,
+          elementClasses: result ? Array.from(result.classList) : null,
+          selectedCount: selectedElements.length,
+          testDuration: endTime - startTime
+        };
+        
+        console.log('=== TEST RESULTS ===');
+        console.log('Test result:', testResult);
+        
+        if (testResult.success) {
+          showToast(`✅ Test successful! Found and navigated to ${elementId}`, 'success', 3000);
+        } else {
+          showToast(`❌ Test failed! Could not navigate to ${elementId}`, 'error', 3000);
+        }
+        
+        console.log('=== END TREE NAVIGATION TEST ===');
+        
+      }, 1000); // Allow time for async operations to complete
+    };
+
     // Observe all preview panels for changes
     document.querySelectorAll('.preview').forEach(previewEl => {
       observer.observe(previewEl, { childList: true, subtree: true });

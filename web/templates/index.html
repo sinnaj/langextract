@@ -36,14 +36,80 @@
     .dark .search-highlight {
       background-color: #b45309; /* amber-700 */
     }
-    /* Tree node selection */
-    .tree-node-selected .tree-node-content {
+    /* Tree node selection - more specific targeting to avoid inheritance issues */
+    .tree-node-selected > .tree-node-content {
       background-color: rgba(34, 197, 94, 0.1) !important;
       border-left-color: rgba(34, 197, 94, 0.5) !important;
+      border-left-width: 3px !important;
     }
-    .dark .tree-node-selected .tree-node-content {
+    .dark .tree-node-selected > .tree-node-content {
       background-color: rgba(34, 197, 94, 0.15) !important;
       border-left-color: rgba(34, 197, 94, 0.6) !important;
+      border-left-width: 3px !important;
+    }
+    
+    /* Additional highlighting for JSON formatter rows when selected */
+    .tree-node-selected.json-formatter-row {
+      background-color: rgba(34, 197, 94, 0.05) !important;
+      border-radius: 4px;
+      border: 1px solid rgba(34, 197, 94, 0.3) !important;
+    }
+    .dark .tree-node-selected.json-formatter-row {
+      background-color: rgba(34, 197, 94, 0.08) !important;
+      border-color: rgba(34, 197, 94, 0.4) !important;
+    }
+    
+    /* Ensure child elements don't inherit selection styling unintentionally */
+    .tree-node-selected .tree-node-selected {
+      background-color: transparent !important;
+      border: none !important;
+    }
+    .tree-node-selected .tree-node-selected > .tree-node-content {
+      background-color: transparent !important;
+      border-left-color: transparent !important;
+      border-left-width: 2px !important;
+    }
+    
+    /* Parent node expansion feedback */
+    .expanding-parent {
+      animation: expanding-pulse 1s ease-in-out infinite;
+      border-left: 2px solid rgba(34, 197, 94, 0.5);
+    }
+    
+    @keyframes expanding-pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+    
+    /* Expansion indicator */
+    .expansion-indicator {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(34, 197, 94, 0.9);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .expansion-indicator::before {
+      content: '↕';
+      animation: expanding-arrow 0.6s ease-in-out infinite;
+    }
+    
+    @keyframes expanding-arrow {
+      0% { transform: scaleY(1); }
+      50% { transform: scaleY(1.2); }
+      100% { transform: scaleY(1); }
     }
   </style>
 
