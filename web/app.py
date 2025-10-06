@@ -808,7 +808,7 @@ def get_positioning_data(run_id: str):
 
 def extract_positioning_from_docling(extraction_data, docling_data):
     """Extract positioning data from enhanced_lx_runner output and docling document."""
-    positioning_data = {"sections": []}
+    positioning_data = {"sections": [], "standalone_extractions": []}
     
     # Get extractions from extraction data
     extractions = extraction_data.get("extractions", [])
@@ -847,7 +847,8 @@ def extract_positioning_from_docling(extraction_data, docling_data):
             "section_id": section_id,
             "section_name": section_info.get("section_name", section_id),
             "extraction_text": "",  # Will be populated if CHUNK_METADATA exists
-            "norms": []
+            "norms": [],
+            "other_extractions": []  # For CLASSIFICATION, LEGAL_DOCUMENT, PROCEDURE, etc.
         }
     
     # Map CHUNK_METADATA to sections and add metadata
@@ -885,7 +886,7 @@ def extract_positioning_from_docling(extraction_data, docling_data):
                 else:
                     print(f"Could not find matching section for title: {section_title}")
     
-    # Now process norms using the real section IDs
+    # Now process all extractions using the real section IDs
     for extraction in extractions:
         extraction_class = extraction.get("extraction_class")
         extraction_text = extraction.get("extraction_text", "").strip()
@@ -907,6 +908,32 @@ def extract_positioning_from_docling(extraction_data, docling_data):
                 print(f"Added norm {norm_id} to section {parent_section_id}")
             else:
                 print(f"Parent section {parent_section_id} not found for norm {norm_id}. Available sections: {list(sections_map.keys())}")
+        
+        elif extraction_class in ["CLASSIFICATION", "LEGAL_DOCUMENT", "PROCEDURE"]:
+            # These are other extraction types that need positioning data
+            parent_section_id = attributes.get("parent_section_id")
+            extraction_id = attributes.get("id")
+            
+            print(f"Processing {extraction_class} {extraction_id} with parent {parent_section_id}")
+            if parent_section_id and parent_section_id in sections_map:
+                other_extraction_data = {
+                    "extraction_id": extraction_id,
+                    "extraction_class": extraction_class,
+                    "extraction_text": extraction_text,
+                    "attributes": attributes
+                }
+                sections_map[parent_section_id]["other_extractions"].append(other_extraction_data)
+                print(f"Added {extraction_class} {extraction_id} to section {parent_section_id}")
+            else:
+                # Handle standalone extractions without a parent section
+                standalone_extraction_data = {
+                    "extraction_id": extraction_id,
+                    "extraction_class": extraction_class,
+                    "extraction_text": extraction_text,
+                    "attributes": attributes
+                }
+                positioning_data["standalone_extractions"].append(standalone_extraction_data)
+                print(f"Added standalone {extraction_class} {extraction_id} (no parent section)")
     
     print(f"Mapped {len(sections_map)} sections with {len(text_to_position)} text elements")
     print(f"Sample docling text elements: {list(text_to_position.keys())[:5]}")
@@ -964,27 +991,85 @@ def extract_positioning_from_docling(extraction_data, docling_data):
             else:
                 print(f"No text available for norm {norm_id}")
         
+        # Process other extractions in this section
+        for other_extraction in section_data["other_extractions"]:
+            extraction_text = other_extraction["extraction_text"]
+            extraction_id = other_extraction["extraction_id"]
+            extraction_class = other_extraction["extraction_class"]
+            print(f"Trying to find positioning for {extraction_class} {extraction_id} with text: {extraction_text[:100]}...")
+            
+            if extraction_text:
+                extraction_positioning = find_text_position(extraction_text, text_to_position)
+                if extraction_positioning:
+                    other_extraction["positioning"] = extraction_positioning
+                    print(f"Found positioning for {extraction_class} {extraction_id}: {extraction_text[:50]}...")
+                else:
+                    print(f"No positioning found for {extraction_class} {extraction_id}")
+            else:
+                print(f"No text available for {extraction_class} {extraction_id}")
+        
         positioning_data["sections"].append(section_data)
     
+    # Process standalone extractions
+    print(f"Processing {len(positioning_data['standalone_extractions'])} standalone extractions...")
+    for standalone_extraction in positioning_data["standalone_extractions"]:
+        extraction_text = standalone_extraction["extraction_text"]
+        extraction_id = standalone_extraction["extraction_id"]
+        extraction_class = standalone_extraction["extraction_class"]
+        print(f"Trying to find positioning for standalone {extraction_class} {extraction_id} with text: {extraction_text[:100]}...")
+        
+        if extraction_text:
+            extraction_positioning = find_text_position(extraction_text, text_to_position)
+            if extraction_positioning:
+                standalone_extraction["positioning"] = extraction_positioning
+                print(f"Found positioning for standalone {extraction_class} {extraction_id}: {extraction_text[:50]}...")
+            else:
+                print(f"No positioning found for standalone {extraction_class} {extraction_id}")
+        else:
+            print(f"No text available for standalone {extraction_class} {extraction_id}")
+    
     # Final validation and fallback for missing positioning
-    total_norms_processed = 0
-    norms_with_positioning = 0
+    total_extractions_processed = 0
+    extractions_with_positioning = 0
     
     for section_data in positioning_data["sections"]:
+        # Process norms
         for norm_data in section_data.get("norms", []):
-            total_norms_processed += 1
+            total_extractions_processed += 1
             if "positioning" in norm_data:
-                norms_with_positioning += 1
+                extractions_with_positioning += 1
             else:
                 # Try fallback: use section positioning if available
                 if "positioning" in section_data:
                     norm_data["positioning"] = section_data["positioning"].copy()
                     norm_data["positioning"]["fallback"] = "section_level"
-                    norms_with_positioning += 1
+                    extractions_with_positioning += 1
                     print(f"Applied section-level positioning fallback for norm {norm_data.get('norm_id', 'Unknown')}")
+        
+        # Process other extractions
+        for other_extraction in section_data.get("other_extractions", []):
+            total_extractions_processed += 1
+            if "positioning" in other_extraction:
+                extractions_with_positioning += 1
+            else:
+                # Try fallback: use section positioning if available
+                if "positioning" in section_data:
+                    other_extraction["positioning"] = section_data["positioning"].copy()
+                    other_extraction["positioning"]["fallback"] = "section_level"
+                    extractions_with_positioning += 1
+                    extraction_class = other_extraction.get('extraction_class', 'Unknown')
+                    extraction_id = other_extraction.get('extraction_id', 'Unknown')
+                    print(f"Applied section-level positioning fallback for {extraction_class} {extraction_id}")
     
-    positioning_success_rate = norms_with_positioning / total_norms_processed if total_norms_processed > 0 else 0
-    print(f"Final positioning success rate: {norms_with_positioning}/{total_norms_processed} ({positioning_success_rate:.1%})")
+    # Process standalone extractions
+    for standalone_extraction in positioning_data["standalone_extractions"]:
+        total_extractions_processed += 1
+        if "positioning" in standalone_extraction:
+            extractions_with_positioning += 1
+        # Note: No fallback for standalone extractions as they don't have a parent section
+    
+    positioning_success_rate = extractions_with_positioning / total_extractions_processed if total_extractions_processed > 0 else 0
+    print(f"Final positioning success rate: {extractions_with_positioning}/{total_extractions_processed} ({positioning_success_rate:.1%})")
     
     return positioning_data
 
