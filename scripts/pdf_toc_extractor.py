@@ -2190,6 +2190,9 @@ def extract_pdf_toc(pdf_path: str) -> List[Dict[str, Any]]:
 
     if not toc:
       logger.warning('No table of contents found in the PDF')
+      logger.info('Note: This PDF does not have an embedded table of contents.')
+      logger.info('The PDF may be a scanned document or the ToC was not embedded during creation.')
+      logger.info('The script will continue processing without ToC-based hierarchy mapping.')
 
     # Convert to structured format
     toc_entries = []
@@ -2283,7 +2286,7 @@ def find_hierarchical_entry_by_original_id(
   return search_recursive(hierarchical_entries)
 
 
-def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
+def process_pdf_and_docling(pdf_path: str, docling_json_path: str, require_toc: bool = False) -> None:
   """
   Enhanced processing function with ToC-driven hierarchy repairs.
   
@@ -2299,6 +2302,7 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
   Args:
       pdf_path: Path to PDF file
       docling_json_path: Path to DoclingDocument JSON file
+      require_toc: If True, exit with error if no ToC is found in the PDF
   """
   logger = logging.getLogger(__name__)
   
@@ -2306,6 +2310,32 @@ def process_pdf_and_docling(pdf_path: str, docling_json_path: str) -> None:
     # Step 1: Extract ToC from PDF
     logger.info('Step 1: Extracting ToC from PDF...')
     toc_entries = extract_pdf_toc(pdf_path)
+    
+    # Check if TOC was found and provide helpful information
+    if not toc_entries:
+      logger.warning('='*80)
+      logger.warning('NO TABLE OF CONTENTS FOUND IN PDF')
+      logger.warning('='*80)
+      logger.warning('The PDF does not contain an embedded table of contents structure.')
+      logger.warning('This means:')
+      logger.warning('  - ToC-based hierarchy mapping cannot be performed')
+      logger.warning('  - Section headers will be processed using fallback logic')
+      logger.warning('  - The output will not benefit from ground-truth ToC structure')
+      logger.warning('')
+      logger.warning('Possible reasons:')
+      logger.warning('  1. The PDF was created without embedding a ToC')
+      logger.warning('  2. The PDF is a scanned document')
+      logger.warning('  3. The ToC was removed or corrupted')
+      logger.warning('')
+      
+      if require_toc:
+        logger.error('--require-toc flag is set: Exiting because no ToC was found.')
+        logger.error('To continue processing without ToC, remove the --require-toc flag.')
+        logger.warning('='*80)
+        raise ValueError('No table of contents found in PDF and --require-toc flag is set')
+      
+      logger.warning('Continuing with DoclingDocument processing using fallback methods...')
+      logger.warning('='*80)
     
     # Step 2: Load DoclingDocument
     logger.info('Step 2: Loading DoclingDocument...')
@@ -2422,6 +2452,10 @@ This will:
   parser.add_argument(
       '--verbose', '-v', action='store_true', help='Enable verbose logging'
   )
+  parser.add_argument(
+      '--require-toc', action='store_true', 
+      help='Exit with error if no ToC is found in the PDF (default: continue processing)'
+  )
 
   try:
     args = parser.parse_args()
@@ -2442,7 +2476,7 @@ This will:
       sys.exit(1)
     
     # Process the files
-    process_pdf_and_docling(str(pdf_path), str(json_path))
+    process_pdf_and_docling(str(pdf_path), str(json_path), require_toc=args.require_toc)
 
   except ImportError as e:
     print(f'Error: {e}', file=sys.stderr)
